@@ -2,20 +2,13 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X, Phone } from "lucide-react"
+import { Phone, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-
-const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Specialties", href: "#specialties" },
-    { name: "Doctors", href: "#doctors" },
-    { name: "About Us", href: "#about" },
-    { name: "Contact", href: "#contact" },
-]
+import { DesktopNav } from "./navbar/desktop-nav"
+import { MobileNav } from "./navbar/mobile-nav"
 
 export function Header() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
     const [isScrolled, setIsScrolled] = React.useState(false)
 
     React.useEffect(() => {
@@ -29,86 +22,46 @@ export function Header() {
     return (
         <header
             className={cn(
-                "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-                isScrolled
-                    ? "bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm h-16"
-                    : "bg-white border-b border-transparent h-20"
+                "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b border-slate-100 bg-white/95 backdrop-blur-sm",
+                isScrolled ? "h-[80px] shadow-sm" : "h-[80px]"
             )}
         >
-            <div className="container mx-auto px-4 md:px-6 h-full">
-                <div className="flex h-full items-center justify-between">
-                    <div className="flex-shrink-0 transition-transform duration-300 origin-left">
-                        <Link href="/" className="flex items-center gap-2">
-                            <span className={cn(
-                                "font-bold text-[var(--color-primary)] transition-all duration-300",
-                                isScrolled ? "text-xl" : "text-2xl"
-                            )}>
-                                Stork<span className="text-[var(--color-accent)]">.</span>
-                            </span>
-                        </Link>
-                    </div>
+            <div className="container max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex gap-6">
-                        {navigation.map((item) => (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                className="text-sm font-medium text-slate-600 hover:text-[var(--color-primary)] transition-colors"
-                            >
-                                {item.name}
-                            </Link>
-                        ))}
-                    </nav>
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-2 flex-shrink-0 z-50 group">
+                    <span className="font-bold text-slate-900 text-3xl tracking-tight leading-none group-hover:text-[var(--color-primary)] transition-colors">
+                        Stork<span className="text-[var(--color-primary)]">.</span>
+                    </span>
+                </Link>
 
-                    <div className="hidden md:flex items-center gap-4">
-                        <Button variant="outline" className="hidden lg:flex gap-2">
-                            <Phone className="h-4 w-4" />
-                            <span>Emergency: 108</span>
-                        </Button>
-                        <Button variant="default">Book Appointment</Button>
-                    </div>
+                {/* Desktop Navigation */}
+                <DesktopNav />
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden">
-                        <button
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="p-2 text-slate-600"
-                        >
-                            {isMobileMenuOpen ? (
-                                <X className="h-6 w-6" />
-                            ) : (
-                                <Menu className="h-6 w-6" />
-                            )}
-                        </button>
-                    </div>
+                {/* Right Actions */}
+                <div className="hidden lg:flex items-center gap-6">
+                    {/* Emergency - Secondary Blue (#3E7DCA) */}
+                    <a href="tel:1066" className="flex items-center gap-3 group px-2">
+                        <div className="bg-blue-50 text-[var(--color-secondary)] w-9 h-9 rounded-full flex items-center justify-center transition-colors group-hover:bg-[var(--color-secondary)] group-hover:text-white">
+                            <Phone className="w-4 h-4 fill-current" />
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider leading-none mb-0.5">Emergency</span>
+                            <span className="text-lg font-bold text-slate-900 leading-none group-hover:text-[var(--color-secondary)] transition-colors">1066</span>
+                        </div>
+                    </a>
+
+                    {/* CTA - Primary Orange (#FF8202) */}
+                    <Button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white rounded-full px-6 py-2.5 h-auto text-base font-semibold shadow-md shadow-orange-500/10 transition-transform hover:-translate-y-0.5">
+                        <Calendar className="w-4 h-4 mr-2" />
+                        Book Appointment
+                    </Button>
                 </div>
+
+                {/* Mobile Navigation Toggle */}
+                <MobileNav />
             </div>
-
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-16 left-0 w-full bg-white border-b border-slate-200 shadow-lg p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
-                    {navigation.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-base font-medium text-slate-700 py-2 border-b border-slate-100 last:border-0"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
-                    <div className="flex flex-col gap-3 mt-2">
-                        <Button variant="outline" className="w-full justify-center gap-2">
-                            <Phone className="h-4 w-4" />
-                            Emergency: 108
-                        </Button>
-                        <Button variant="default" className="w-full">
-                            Book Appointment
-                        </Button>
-                    </div>
-                </div>
-            )}
         </header>
     )
 }
+
