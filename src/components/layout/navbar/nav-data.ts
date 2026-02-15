@@ -34,9 +34,10 @@ export const NAV_LINKS = [
     { title: "Contact", href: "/contact" },
 ]
 
+// MATCHING USER SCREENSHOT EXACTLY (15 Items)
 export const DEPARTMENTS: NavItem[] = [
     { title: "Cosmetic & Plastic Surgery", href: "/departments/cosmetic-surgery", icon: Sparkles },
-    { title: "Emergency & Trauma", href: "/departments/emergency", icon: Siren },
+    { title: "Emergency, Trauma & Critical Care", href: "/departments/emergency", icon: Siren },
     { title: "ENT", href: "/departments/ent", icon: Ear },
     { title: "General Surgery", href: "/departments/general-surgery", icon: Scissors },
     { title: "General Medicine", href: "/departments/general-medicine", icon: Stethoscope },

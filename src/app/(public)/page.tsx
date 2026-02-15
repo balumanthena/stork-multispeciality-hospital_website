@@ -13,44 +13,60 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans text-slate-900 bg-slate-50">
 
-      {/* 1. HERO SECTION (Enterprise Standard - 60vh) */}
-      <section className="relative h-[65vh] min-h-[600px] flex items-center overflow-hidden bg-slate-900">
-        <Image
-          src="/images/hero-bg.png"
-          alt="Stork Hospital"
-          fill
-          className="object-cover object-center opacity-80"
-          priority
-        />
-        {/* Professional Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/70 to-transparent z-10" />
+      {/* 1. HERO SECTION (Institutional Split - 60/40) */}
+      <section className="relative w-full bg-[#0F172A]">
+        <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[85vh] max-h-[800px]">
 
-        <div className="container max-w-7xl mx-auto px-6 relative z-20">
-          <div className="max-w-3xl pt-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/90 text-sm font-medium backdrop-blur-md border border-white/10 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)]"></span>
-              Excellence in Healthcare since 1995
-            </div>
+          {/* LEFT CONTENT (60%) */}
+          <div className="w-full lg:w-[60%] flex flex-col justify-center px-6 lg:px-20 py-20 lg:py-0 relative z-10">
+            <div className="max-w-2xl">
+              {/* Label */}
+              <span className="text-slate-400 font-bold tracking-[0.15em] uppercase text-xs mb-8 block">
+                Stork Multispecialty Hospital
+              </span>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
-              World-Class Care <br />
-              <span className="text-white/90">Right Here in India.</span>
-            </h1>
+              {/* Heading with Vertical Accent */}
+              <div className="flex gap-6 mb-8">
+                <div className="w-1.5 bg-[#FF8202] shrink-0 self-stretch rounded-sm"></div>
+                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
+                  Comprehensive Multispecialty Care in Kompally
+                </h1>
+              </div>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
-              Experience advanced medical technology combined with compassionate care.
-              We are committed to providing the highest standards of patient safety.
-            </p>
+              {/* Subheading */}
+              <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-xl font-light pl-8">
+                Delivering evidence-based treatment, advanced infrastructure, and compassionate patient-centered healthcare.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Button size="lg" className="bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white border-none text-lg font-semibold h-14 px-10 rounded-full shadow-lg shadow-orange-900/20 transition-all hover:scale-105">
-                Book Appointment
-              </Button>
-              <Button size="lg" variant="outline" className="bg-transparent text-white border-white/30 hover:bg-white/10 hover:border-white text-lg font-medium h-14 px-10 rounded-full backdrop-blur-sm">
-                Explore Specialties
-              </Button>
+              {/* CTA Actions */}
+              <div className="flex flex-wrap items-center gap-6 pl-8">
+                <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white text-base font-semibold h-12 px-8 rounded-md shadow-none transition-colors">
+                  Book Appointment
+                </Button>
+
+                <Link
+                  href="/departments"
+                  className="text-white font-medium hover:text-[#FF8202] transition-colors flex items-center gap-2"
+                >
+                  View Departments <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
           </div>
+
+          {/* RIGHT IMAGE (40%) */}
+          <div className="w-full lg:w-[40%] relative min-h-[400px] lg:min-h-full">
+            <Image
+              src="/images/hero-bg.png"
+              alt="Stork Hospital Building"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Subtle overlay to ensure image doesn't clash if too bright, but keeping it minimal */}
+            <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-multiply" />
+          </div>
+
         </div>
       </section>
 

@@ -26,7 +26,7 @@ export function MobileNav() {
 
             {/* Mobile Menu Drawer */}
             {isOpen && (
-                <div className="fixed inset-0 top-[85px] bg-white z-40 overflow-y-auto pb-20 animate-in slide-in-from-top-2 duration-200 border-t border-slate-100">
+                <div className="fixed inset-0 top-[76px] bg-white z-40 overflow-y-auto pb-20 animate-in slide-in-from-top-2 duration-200 border-t border-slate-100">
                     <div className="flex flex-col p-6 space-y-4">
 
                         {/* Static Links Top */}
