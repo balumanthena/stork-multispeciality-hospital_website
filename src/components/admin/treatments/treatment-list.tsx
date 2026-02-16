@@ -40,7 +40,13 @@ export function TreatmentList() {
         setLoading(true)
         const { data, error } = await supabase
             .from("treatments")
-            .select("*")
+            .select(`
+                *,
+                departments (
+                    name,
+                    slug
+                )
+            `)
             .order("updated_at", { ascending: false })
 
         if (error) {
@@ -69,13 +75,13 @@ export function TreatmentList() {
     }, [])
 
     const filteredTreatments = treatments.filter(treatment => {
-        const matchesSearch = (treatment.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const matchesSearch = (treatment.title || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
             treatment.slug.toLowerCase().includes(searchTerm.toLowerCase())
-        const matchesDept = departmentFilter === "all" || (treatment.department && treatment.department === departmentFilter)
+        const matchesDept = departmentFilter === "all" || (treatment.departments?.name && treatment.departments.name === departmentFilter)
         return matchesSearch && matchesDept
     })
 
-    const departments = Array.from(new Set(treatments.map(t => t.department).filter(Boolean) as string[])).sort()
+    const departments = Array.from(new Set(treatments.map(t => t.departments?.name).filter(Boolean) as string[])).sort()
 
     const handleDelete = async (id: string) => {
         if (!confirm("Are you sure you want to delete this treatment?")) return
@@ -140,7 +146,7 @@ export function TreatmentList() {
                 <Table>
                     <TableHeader>
                         <TableRow className="bg-slate-50">
-                            <TableHead className="w-[300px]">Name</TableHead>
+                            <TableHead className="w-[300px]">Title</TableHead>
                             <TableHead>Department</TableHead>
                             <TableHead>Status</TableHead>
                             <TableHead>Last Updated</TableHead>
@@ -165,13 +171,13 @@ export function TreatmentList() {
                                 <TableRow key={treatment.id} className="hover:bg-slate-50/50">
                                     <TableCell className="font-medium">
                                         <div className="flex flex-col">
-                                            <span className="text-slate-900">{treatment.name || "Untitled"}</span>
+                                            <span className="text-slate-900">{treatment.title}</span>
                                             <span className="text-xs text-slate-500">{treatment.slug}</span>
                                         </div>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant="outline" className="font-normal">
-                                            {treatment.department || "Uncategorized"}
+                                            {treatment.departments?.name || "Uncategorized"}
                                         </Badge>
                                     </TableCell>
                                     <TableCell>

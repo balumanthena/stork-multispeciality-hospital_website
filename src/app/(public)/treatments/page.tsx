@@ -1,69 +1,63 @@
+import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
+import { TreatmentsClient } from "@/components/treatments/treatments-client"
+import { Activity } from "lucide-react"
 import { Section } from "@/components/layout/section"
-import { PAGE_TREATMENTS } from "@/lib/data/page-treatments"
-import Link from "next/link"
-import { ArrowRight, Activity } from "lucide-react"
 
-// Metadata - using static client if needed, or just hardcoded
+// Metadata
 export const metadata = {
-    title: "All Treatments | Stork Multispecialty Hospital",
-    description: "Browse our comprehensive list of medical treatments and surgical procedures.",
+    title: "Treatments & Procedures | Stork Multispecialty Hospital",
+    description: "Browse our comprehensive list of medical treatments for every department.",
 }
 
 export default async function TreatmentsIndexPage() {
-    // Using static data matching user request for "Page Only"
-    const groupedTreatments = PAGE_TREATMENTS
+    // Use Hardcoded Data as requested
+    const groupedTreatments = HARDCODED_TREATMENTS
 
     return (
         <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
 
-            {/* 1. HERO SECTION */}
-            <Section className="bg-white border-b border-slate-100 pt-32 pb-16">
-                <div className="container max-w-[1280px] mx-auto px-4">
-                    <div className="max-w-3xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-[var(--color-primary)] text-sm font-semibold mb-6">
-                            <Activity className="w-4 h-4" />
-                            <span>Comprehensive Care</span>
+            {/* 1. HERO SECTION (Compact, Authority-Focused) */}
+            <Section className="bg-[#3e7dca]/5 border-b border-[#3e7dca]/10 pt-32 pb-16 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233e7dca' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    }}
+                />
+
+                <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+                        {/* Left Side */}
+                        <div className="max-w-2xl text-center md:text-left">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#3e7dca]/20 text-[#3e7dca] text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                                <Activity className="w-3 h-3" />
+                                <span>Comprehensive Care</span>
+                            </div>
+
+                            <h1 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-6 leading-tight tracking-tight">
+                                Our <span className="text-[#ff8202]">Treatments</span> & <span className="text-[#3e7dca]">Procedures</span>
+                            </h1>
+
+                            <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto md:mx-0">
+                                World-class medical care across 15+ specialties. Explore our extensive range of advanced treatments designed for your recovery.
+                            </p>
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                            Our Treatments & <span className="text-[var(--color-primary)]">Procedures</span>
-                        </h1>
-                        <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                            We offer advanced medical treatments across multiple specialties, delivering
-                            world-class healthcare with precision and compassion.
-                        </p>
+
+                        {/* Right Side - Abstract Medical Illustration Replacement */}
+                        <div className="hidden md:block opacity-80">
+                            {/* Abstract graphic using CSS/SVG combination to keep it lightweight */}
+                            <div className="relative w-64 h-64">
+                                <div className="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+                                <Activity className="absolute inset-0 m-auto w-32 h-32 text-[#3e7dca] opacity-20" />
+                                <div className="absolute top-0 right-0 w-16 h-16 bg-[#ff8202] rounded-full blur-2xl opacity-40"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Section>
 
-            {/* 2. TREATMENTS GRID */}
-            <Section className="py-20">
-                <div className="container max-w-[1280px] mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
-                        {groupedTreatments.map((category) => (
-                            <div key={category.title} className="flex flex-col gap-5 group">
-                                <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-                                    <h2 className="text-xl font-bold text-slate-900 group-hover:text-[var(--color-primary)] transition-colors">
-                                        {category.title}
-                                    </h2>
-                                </div>
-                                <ul className="space-y-3">
-                                    {category.items.map((item) => (
-                                        <li key={item.title}>
-                                            <Link
-                                                href={item.href}
-                                                className="flex items-start gap-2 text-[15px] text-slate-600 hover:text-[var(--color-primary)] transition-colors group/item"
-                                            >
-                                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 group-hover/item:bg-[var(--color-primary)] transition-colors shrink-0" />
-                                                <span className="leading-snug">{item.title}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </Section>
+            {/* Client Side Filter & Grid */}
+            <TreatmentsClient groupedTreatments={groupedTreatments} />
+
         </div>
     )
 }

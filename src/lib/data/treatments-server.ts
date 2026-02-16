@@ -18,9 +18,6 @@ export type Treatment = {
         name: string
         slug: string
     } | null
-    // UI specific fields that might be mapped
-    name?: string
-    department?: string
 }
 
 export const getTreatmentBySlug = cache(async (slug: string) => {
