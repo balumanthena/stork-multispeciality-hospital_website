@@ -30,6 +30,7 @@ export default async function BlogPostPage({
 
     const formattedPost = {
         id: blog.id,
+        created_at: blog.created_at,
         slug: blog.slug,
         title: blog.title,
         content: blog.content,
@@ -39,8 +40,11 @@ export default async function BlogPostPage({
             month: "long",
             day: "numeric"
         }),
-        author: "Dr. Stork Specialist",
+        published: true,
+        published_at: blog.published_at,
+        author: "Dr. Stork Specialist", // Placeholder
         category: blog.category || "General Health",
+        image_url: blog.image_url,
         image: blog.image_url || "/images/blog-default.jpg"
     }
 
