@@ -19,7 +19,13 @@ export const DEFAULT_TESTIMONIALS = [
     { name: "Rahul K.", text: "State-of-the-art infrastructure and very hygienic environment. Highly recommended.", rating: 5 },
 ]
 
-interface DepartmentData {
+export interface DepartmentTestimonial {
+    name: string
+    text: string
+    rating: number
+}
+
+export interface DepartmentData {
     title: string
     description: string
     icon: LucideIcon
@@ -27,6 +33,8 @@ interface DepartmentData {
     procedures: { title: string; desc: string }[]
     doctors: { name: string; role: string; exp: string; qual: string }[]
     faqs?: { q: string; a: string }[]
+    features?: string[]
+    testimonials?: DepartmentTestimonial[]
 }
 
 export const departmentsData: Record<string, DepartmentData> = {

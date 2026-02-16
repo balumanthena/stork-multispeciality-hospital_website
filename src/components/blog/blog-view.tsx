@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Share2, Calendar, User, Tag } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { BlogPost } from "@/types"
 
-export default function BlogView({ initialData }: { initialData: any }) {
+export default function BlogView({ initialData }: { initialData: BlogPost }) {
     const post = useBlogRealtime(initialData)
 
     if (!post) return <div>Loading...</div>
@@ -39,7 +40,7 @@ export default function BlogView({ initialData }: { initialData: any }) {
             {/* Featured Image */}
             <div className="container mx-auto px-4 md:px-6 max-w-5xl -mt-8 relative z-10">
                 <div className="relative aspect-[2/1] w-full rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-                    <Image src={post.image} alt={post.title} fill className="object-cover" priority />
+                    <Image src={post.image || '/images/blog-default.jpg'} alt={post.title} fill className="object-cover" priority />
                 </div>
             </div>
 

@@ -23,8 +23,8 @@ export default async function DepartmentPage({
     }
 
     const Icon = department.icon
-    const features = department.features || DEFAULT_FEATURES
-    const testimonials = department.testimonials || DEFAULT_TESTIMONIALS
+    const features = department.features ?? DEFAULT_FEATURES
+    const testimonials = department.testimonials ?? DEFAULT_TESTIMONIALS
 
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900">

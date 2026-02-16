@@ -69,13 +69,13 @@ export function TreatmentList() {
     }, [])
 
     const filteredTreatments = treatments.filter(treatment => {
-        const matchesSearch = treatment.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const matchesSearch = (treatment.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
             treatment.slug.toLowerCase().includes(searchTerm.toLowerCase())
-        const matchesDept = departmentFilter === "all" || treatment.department === departmentFilter
+        const matchesDept = departmentFilter === "all" || (treatment.department && treatment.department === departmentFilter)
         return matchesSearch && matchesDept
     })
 
-    const departments = Array.from(new Set(treatments.map(t => t.department))).sort()
+    const departments = Array.from(new Set(treatments.map(t => t.department).filter(Boolean) as string[])).sort()
 
     const handleDelete = async (id: string) => {
         if (!confirm("Are you sure you want to delete this treatment?")) return
@@ -165,13 +165,13 @@ export function TreatmentList() {
                                 <TableRow key={treatment.id} className="hover:bg-slate-50/50">
                                     <TableCell className="font-medium">
                                         <div className="flex flex-col">
-                                            <span className="text-slate-900">{treatment.name}</span>
+                                            <span className="text-slate-900">{treatment.name || "Untitled"}</span>
                                             <span className="text-xs text-slate-500">{treatment.slug}</span>
                                         </div>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant="outline" className="font-normal">
-                                            {treatment.department}
+                                            {treatment.department || "Uncategorized"}
                                         </Badge>
                                     </TableCell>
                                     <TableCell>
