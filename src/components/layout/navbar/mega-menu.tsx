@@ -2,16 +2,17 @@
 
 import React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ChevronRight } from "lucide-react"
 
 export const MegaMenuGrid = ({ children, cols = 4 }: { children: React.ReactNode, cols?: number }) => {
     return (
         <div className={cn(
-            "grid gap-6 p-8",
-            cols === 4 && "grid-cols-4",
-            cols === 5 && "grid-cols-5",
-            cols === 3 && "grid-cols-3",
+            "grid py-8",
+            cols === 4 && "grid-cols-4 gap-x-10 gap-y-8",
+            cols === 5 && "grid-cols-5 gap-6",
+            cols === 3 && "grid-cols-3 gap-6",
         )}>
             {children}
         </div>
@@ -19,17 +20,21 @@ export const MegaMenuGrid = ({ children, cols = 4 }: { children: React.ReactNode
 }
 
 export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href: string, icon?: any }) => {
+    const pathname = usePathname()
+    const isActive = pathname === href
+
     return (
         <Link
             href={href}
-            className="group flex items-center gap-3 p-3 rounded-lg hover:bg-blue-50 transition-colors"
+            className="group flex items-center gap-4 p-2 -ml-2 rounded-xl transition-all duration-200 outline-none"
         >
             {Icon && (
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100/50 text-blue-600 flex items-center justify-center group-hover:bg-white group-hover:shadow-sm transition-all">
-                    <Icon className="w-5 h-5" />
-                </div>
+                <Icon className={cn("transition-transform duration-200 group-hover:scale-105", isActive && "scale-105")} isActive={isActive} />
             )}
-            <span className="text-sm font-medium text-slate-700 group-hover:text-blue-700 transition-colors line-clamp-2">
+            <span className={cn(
+                "text-[15px] font-medium transition-colors duration-200 line-clamp-2",
+                isActive ? "text-[#ff8202]" : "text-slate-800 group-hover:text-[#ff8202]"
+            )}>
                 {title}
             </span>
         </Link>

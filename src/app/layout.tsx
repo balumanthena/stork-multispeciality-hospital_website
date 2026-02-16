@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = Inter({
   variable: "--font-sans",
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
   title: "Stork Multispecialty Hospital",
   description: "World-class healthcare with a compassionate touch.",
 };
+
+import { SettingsProvider } from "@/providers/SettingsProvider";
+
+
 
 export default function RootLayout({
   children,
@@ -26,7 +31,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <SettingsProvider>
+          {children}
+        </SettingsProvider>
+        <Toaster />
       </body>
     </html>
   );

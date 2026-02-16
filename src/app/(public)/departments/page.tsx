@@ -1,24 +1,12 @@
 import Link from "next/link"
-import { departmentsData } from "@/lib/data/departments"
 import { Button } from "@/components/ui/button"
-import { Section } from "@/components/layout/section"
-import { Search, ArrowRight, ChevronRight, Phone, Clock, ShieldCheck, Stethoscope, Medal } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
+import { getActiveDepartments } from "@/lib/data/departments-server"
+import * as Icons from "lucide-react"
 
-export default function DepartmentsIndexPage() {
-    // Exact order as requested by user
-    const orderedKeys = [
-        "cardiology", "neurology", "orthopaedics", "pediatrics",
-        "oncology", "gastroenterology", "nephrology", "emergency",
-        "gynaecology", "ent", "pulmonology", "urology",
-        "dermatology", "general-surgery", "mother-and-child", "neurosurgery"
-    ]
-
-    const departmentsList = orderedKeys
-        .map(key => {
-            const data = departmentsData[key]
-            return data ? { ...data, slug: key } : null
-        })
-        .filter(dept => dept !== null)
+export default async function DepartmentsIndexPage() {
+    // Fetch active departments from DB
+    const departments = await getActiveDepartments()
 
     return (
         <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
@@ -45,32 +33,41 @@ export default function DepartmentsIndexPage() {
 
                     {/* 2. STRICT 4-COLUMN GRID */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-                        {departmentsList.map((dept: any) => {
-                            const isFeatured = dept.slug === "cardiology"
-                            return (
-                                <Link
-                                    href={`/departments/${dept.slug}`}
-                                    key={dept.slug}
-                                    className={`group flex flex-col items-center text-center transition-all duration-200 ${isFeatured
+                        {departments.length > 0 ? (
+                            departments.map((dept: any) => {
+                                const isFeatured = dept.slug === "cardiology"
+                                // Dynamic Icon Resolution
+                                const IconComponent = (Icons as any)[dept.icon] || Icons.Activity
+
+                                return (
+                                    <Link
+                                        href={`/departments/${dept.slug}`}
+                                        key={dept.id}
+                                        className={`group flex flex-col items-center text-center transition-all duration-200 ${isFeatured
                                             ? "relative p-8 -m-8 rounded-sm bg-[rgba(255,130,2,0.06)] border-t-[3px] border-[#FF8202]"
                                             : "hover:scale-[1.03]"
-                                        }`}
-                                >
-                                    {/* Icon */}
-                                    <div className={`mb-6 transition-colors duration-200 ${isFeatured ? "text-[#FF8202]" : "text-[#3E7DCA] group-hover:text-[#FF8202]"
-                                        }`}>
-                                        <dept.icon strokeWidth={1.5} className="w-12 h-12" />
-                                    </div>
+                                            }`}
+                                    >
+                                        {/* Icon */}
+                                        <div className={`mb-6 transition-colors duration-200 ${isFeatured ? "text-[#FF8202]" : "text-[#3E7DCA] group-hover:text-[#FF8202]"
+                                            }`}>
+                                            <IconComponent strokeWidth={1.5} className="w-12 h-12" />
+                                        </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-lg font-medium text-[#1f2937] group-hover:text-[#FF8202] transition-colors relative">
-                                        {dept.title}
-                                        <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#FF8202] transition-all duration-200 ${isFeatured ? "w-8" : "group-hover:w-full"
-                                            }`}></span>
-                                    </h3>
-                                </Link>
-                            )
-                        })}
+                                        {/* Title */}
+                                        <h3 className="text-lg font-medium text-[#1f2937] group-hover:text-[#FF8202] transition-colors relative">
+                                            {dept.name}
+                                            <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#FF8202] transition-all duration-200 ${isFeatured ? "w-8" : "group-hover:w-full"
+                                                }`}></span>
+                                        </h3>
+                                    </Link>
+                                )
+                            })
+                        ) : (
+                            <div className="col-span-full text-center py-20">
+                                <p className="text-slate-500">No departments found.</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

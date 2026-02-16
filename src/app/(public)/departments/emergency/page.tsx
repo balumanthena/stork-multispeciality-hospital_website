@@ -5,6 +5,7 @@ import {
     Siren, Stethoscope, Activity, MapPin, ChevronRight, User
 } from "lucide-react"
 import Link from "next/link"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export default function EmergencyPage() {
     return (
@@ -61,9 +62,7 @@ export default function EmergencyPage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Siren className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="emergency" />
                     </div>
                 </div>
             </section>

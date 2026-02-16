@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/layout/section"
 import {
-    Stethoscope, Activity, ShieldCheck, CheckCircle2,
-    Phone, Calendar, Star, Quote, MapPin, Clock, ChevronRight, Tablet,
-    HeartPulse, ClipboardCheck
+    CheckCircle2, ChevronRight, HeartPulse, ClipboardCheck
 } from "lucide-react"
 import Link from "next/link"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export default function GeneralMedicinePage() {
     return (
@@ -58,9 +57,7 @@ export default function GeneralMedicinePage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Stethoscope className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="general-medicine" />
                     </div>
                 </div>
             </section>

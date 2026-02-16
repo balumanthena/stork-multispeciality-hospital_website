@@ -4,16 +4,88 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronDown } from "lucide-react"
+import Image from "next/image"
 
 import { DEPARTMENTS, TREATMENTS, PROCEDURES, NAV_LINKS, NavItem } from "./nav-data"
 import { MegaMenuGrid, MegaMenuItem, MegaMenuCategory } from "./mega-menu"
 import { cn } from "@/lib/utils"
+import { getIconByName } from "./icon-map"
+import { getDepartmentIcon } from "@/lib/data/department-icons"
 
-export function DesktopNav() {
+function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: any, className?: string, isActive?: boolean }) {
+    const iconPath = getDepartmentIcon(slug)
+    const Icon = getIconByName(defaultIcon)
+
+    if (iconPath) {
+        return (
+            <div className={cn(
+                "w-12 h-12 flex items-center justify-center rounded-full bg-orange-50 transition-all duration-200 ease-in-out flex-shrink-0",
+                "group-hover:bg-[#ff8202] group-hover:shadow-lg group-hover:-translate-y-0.5",
+                isActive && "bg-[#ff8202] shadow-md",
+                className
+            )}>
+                <div
+                    className={cn(
+                        "w-7 h-7 transition-colors duration-200 bg-[#ff8202]",
+                        "group-hover:bg-white",
+                        isActive && "bg-white"
+                    )}
+                    style={{
+                        maskImage: `url('${iconPath}')`,
+                        maskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                        WebkitMaskImage: `url('${iconPath}')`,
+                        WebkitMaskSize: "contain",
+                        WebkitMaskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center"
+                    }}
+                />
+            </div>
+        )
+    }
+
+    // Fallback Icon
+    return (
+        <div className={cn(
+            "w-12 h-12 flex items-center justify-center rounded-full bg-orange-50 transition-all duration-200 ease-in-out flex-shrink-0",
+            "group-hover:bg-[#ff8202] group-hover:shadow-lg group-hover:-translate-y-0.5",
+            isActive && "bg-[#ff8202] shadow-md",
+            className
+        )}>
+            <Icon className={cn(
+                "w-6 h-6 text-[#ff8202] transition-colors duration-200",
+                "group-hover:text-white",
+                isActive && "text-white"
+            )} />
+        </div>
+    )
+}
+
+export function DesktopNav({ departments = [] }: { departments?: any[] }) {
     const pathname = usePathname()
     const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
+    // ... rest of component
+
     const isActive = (path: string) => pathname === path
+
+    // Merge static and dynamic departments or just use dynamic if available
+    // For now, we'll map dynamic departments to NavItem format
+    const dynamicDepartments: NavItem[] = departments.length > 0 ? departments.map(d => {
+        return {
+            title: d.name,
+            href: `/departments/${d.slug}`,
+            icon: (props: any) => <DepartmentIcon slug={d.slug} defaultIcon={d.icon || "Activity"} {...props} />
+        }
+    }) : DEPARTMENTS.map(d => {
+        // Extract slug from href
+        const slug = d.href.split('/').pop() || ''
+        return {
+            ...d,
+            icon: (props: any) => <DepartmentIcon slug={slug} defaultIcon={d.icon} {...props} />
+        }
+    })
 
     return (
         <nav className="hidden lg:flex items-center gap-8 h-full" onMouseLeave={() => setActiveMenu(null)}>
@@ -70,9 +142,9 @@ export function DesktopNav() {
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "departments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
-                    <div className="container max-w-[1280px] mx-auto py-8 px-8">
+                    <div className="container max-w-[1280px] mx-auto">
                         <MegaMenuGrid cols={4}>
-                            {DEPARTMENTS.map((dept) => (
+                            {dynamicDepartments.map((dept) => (
                                 <MegaMenuItem key={dept.title} {...dept} />
                             ))}
                         </MegaMenuGrid>

@@ -5,8 +5,11 @@ import {
     Phone, Calendar, Star, Quote, MapPin, Clock, ChevronRight
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export default function CosmeticSurgeryPage() {
+    // Force rebuild
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
             {/* SECTION 1: HERO */}
@@ -53,9 +56,7 @@ export default function CosmeticSurgeryPage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Sparkles className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="cosmetic-surgery" />
                     </div>
                 </div>
             </section>

@@ -7,13 +7,20 @@ import { Button } from "@/components/ui/button"
 import { DEPARTMENTS, TREATMENTS, PROCEDURES, NAV_LINKS } from "./nav-data"
 import { cn } from "@/lib/utils"
 
-export function MobileNav() {
+export function MobileNav({ departments = [] }: { departments?: any[] }) {
     const [isOpen, setIsOpen] = useState(false)
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null)
 
     const toggleMenu = (menu: string) => {
         setExpandedMenu(expandedMenu === menu ? null : menu)
     }
+
+    // Dynamic departments mapping
+    const dynamicDepartments = departments.length > 0 ? departments.map(d => ({
+        title: d.name,
+        href: `/departments/${d.slug}`,
+        // icon: d.icon // Mobile menu doesn't show icons in list usually, so we can ignore or use if needed
+    })) : DEPARTMENTS
 
     return (
         <div className="lg:hidden">
@@ -58,7 +65,7 @@ export function MobileNav() {
                                     >
                                         View All Departments →
                                     </Link>
-                                    {DEPARTMENTS.map(dept => (
+                                    {dynamicDepartments.map(dept => (
                                         <Link
                                             key={dept.title}
                                             href={dept.href}

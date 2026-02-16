@@ -5,6 +5,7 @@ import {
     Phone, Calendar, Star, Quote, MapPin, Clock, ChevronRight, Stethoscope
 } from "lucide-react"
 import Link from "next/link"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export default function ENTPage() {
     return (
@@ -57,9 +58,7 @@ export default function ENTPage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Ear className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="ent" />
                     </div>
                 </div>
             </section>

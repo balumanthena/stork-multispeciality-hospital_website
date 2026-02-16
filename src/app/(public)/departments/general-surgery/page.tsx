@@ -6,6 +6,7 @@ import {
     Stethoscope, FileText
 } from "lucide-react"
 import Link from "next/link"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export default function GeneralSurgeryPage() {
     return (
@@ -58,9 +59,7 @@ export default function GeneralSurgeryPage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Activity className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="general-surgery" />
                     </div>
                 </div>
             </section>

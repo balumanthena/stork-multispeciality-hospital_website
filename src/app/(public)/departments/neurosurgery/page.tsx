@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/layout/section"
 import {
@@ -59,9 +60,7 @@ export default function NeurosurgeryPage() {
                         </div>
 
                         {/* Hero Icon (Desktop) */}
-                        <div className="hidden lg:flex h-64 w-64 rounded-3xl bg-white border border-slate-100 items-center justify-center flex-shrink-0 shadow-sm">
-                            <Brain className="h-32 w-32 text-[#FF8202]" />
-                        </div>
+                        <DepartmentHeroIcon slug="neurosurgery" />
                     </div>
                 </div>
             </section>

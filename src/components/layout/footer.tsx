@@ -1,8 +1,19 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight } from "lucide-react"
+import { useSettings } from "@/providers/SettingsProvider"
 
 export function Footer() {
+    const { settings } = useSettings()
+
+    const address = settings?.address || "C-35, opp. Narayana School, near DMart, Petbasheerabad, Kompally, Hyderabad, Secunderabad"
+    const emergencyNumber = settings?.emergency_number || "1066"
+    const email = settings?.email || "contact@storkhospital.com"
+    const hospitalName = settings?.hospital_name || "Stork Multispecialty Hospital"
+    const tagline = settings?.tagline || "World-class healthcare with a compassionate touch."
+
     return (
         <footer className="bg-white text-slate-600 py-16 md:py-20 border-t border-slate-100">
             <div className="container max-w-7xl mx-auto px-6">
@@ -12,14 +23,14 @@ export function Footer() {
                         <Link href="/" className="inline-block mb-6 group">
                             <Image
                                 src="/images/c06d2292-c0f5-47ea-9456-7069e85be4bd_20260130_131840_0000.png"
-                                alt="Stork Hospital Logo"
+                                alt={`${hospitalName} Logo`}
                                 width={240}
                                 height={72}
                                 className="h-[72px] w-auto object-contain"
                             />
                         </Link>
                         <p className="text-sm leading-relaxed mb-8 text-slate-500 font-light max-w-xs">
-                            Stork Multispecialty Hospital is a JCI accredited institution dedicated to providing world-class healthcare with a compassionate touch.
+                            {hospitalName} is dedicated to providing {tagline.toLowerCase()}
                         </p>
                         <div className="flex gap-4">
                             {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -68,19 +79,19 @@ export function Footer() {
                                 <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
                                     <MapPin className="h-4 w-4" />
                                 </div>
-                                <span className="text-slate-600 leading-relaxed">C-35, opp. Narayana School, near DMart, Petbasheerabad, Kompally, Hyderabad, Secunderabad</span>
+                                <span className="text-slate-600 leading-relaxed">{address}</span>
                             </li>
                             <li className="flex gap-4 items-center">
                                 <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
                                     <Phone className="h-4 w-4" />
                                 </div>
-                                <span className="text-[#0F172A] font-bold tracking-wide">076108 10819</span>
+                                <span className="text-[#0F172A] font-bold tracking-wide">{emergencyNumber}</span>
                             </li>
                             <li className="flex gap-4 items-center">
                                 <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
                                     <Mail className="h-4 w-4" />
                                 </div>
-                                <span className="text-slate-600">care@storkhospital.com</span>
+                                <span className="text-slate-600">{email}</span>
                             </li>
                         </ul>
                     </div>
