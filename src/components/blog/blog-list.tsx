@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button"
 import { Calendar, User, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { BlogPost } from "@/types"
 
-export default function BlogList({ initialData }: { initialData: any[] }) {
+export default function BlogList({ initialData }: { initialData: BlogPost[] }) {
     const posts = useBlogRealtime(initialData)
 
     return (
@@ -32,7 +33,7 @@ export default function BlogList({ initialData }: { initialData: any[] }) {
                             <Card className="h-full flex flex-col border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                                 <div className="relative h-48 w-full bg-slate-200 rounded-t-xl overflow-hidden">
                                     <Image
-                                        src={post.image}
+                                        src={post.image || post.image_url || '/images/blog-placeholder.jpg'}
                                         alt={post.title}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-500"

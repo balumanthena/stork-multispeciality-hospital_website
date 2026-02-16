@@ -6,8 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, PlayCircle } from "lucide-react"
 import Link from "next/link"
+import { Treatment } from "@/types"
 
-export default function TreatmentView({ initialData }: { initialData: any }) {
+export default function TreatmentView({ initialData }: { initialData: Treatment }) {
     const treatment = useTreatmentRealtime(initialData)
 
     if (!treatment) return <div>Loading...</div>

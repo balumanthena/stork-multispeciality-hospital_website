@@ -1,17 +1,11 @@
-
 import {
-    Heart, Brain, Bone, Stethoscope, Baby, Eye, Activity,
-    Scissors, Dna, Ear, UserMinus, ShieldAlert,
-    Pill, TestTube, Microscope, Syringe, Ambulance,
-    Thermometer,
-    Accessibility,
-    BadgeAlert,
-    BicepsFlexed,
-    PersonStanding,
-    Siren,
-    Sparkles,
+    Heart, Brain, Bone, Stethoscope, Baby,
+    Scissors, Dna, Ear, UserMinus,
+    TestTube,
     Utensils,
-    Wind
+    Wind,
+    Sparkles, Siren, Activity,
+    LucideIcon
 } from "lucide-react"
 
 export type NavItem = {
@@ -24,6 +18,8 @@ export type NavItem = {
 export type MegaMenuSection = {
     title: string
     items: NavItem[]
+    slug?: string
+    href?: string
 }
 
 export const NAV_LINKS = [
@@ -55,57 +51,65 @@ export const DEPARTMENTS: NavItem[] = [
 
 export const TREATMENTS: MegaMenuSection[] = [
     {
-        title: "BONE & JOINT",
+        title: "GENERAL & LAPAROSCOPIC",
+        slug: "general-laparoscopic",
+        items: [
+            { title: "Appendicitis", href: "/treatments/appendicitis" },
+            { title: "Gallstone", href: "/treatments/gallstone" },
+            { title: "Hernia", href: "/treatments/hernia" },
+            { title: "Umbilical Hernia", href: "/treatments/umbilical-hernia" },
+            { title: "Inguinal Hernia", href: "/treatments/inguinal-hernia" },
+            { title: "Incisional Hernia", href: "/treatments/incisional-hernia" },
+            { title: "Minimally Invasive Surgery", href: "/treatments/minimally-invasive-surgery" },
+        ]
+    },
+    {
+        title: "ORTHOPEDICS",
+        slug: "orthopedics",
         items: [
             { title: "Back Pain", href: "/treatments/back-pain" },
             { title: "Neck Pain", href: "/treatments/neck-pain" },
             { title: "Knee Pain", href: "/treatments/knee-pain" },
             { title: "Shoulder Pain", href: "/treatments/shoulder-pain" },
             { title: "Hip Pain", href: "/treatments/hip-pain" },
-            { title: "Sports Injuries", href: "/treatments/sports-injuries" },
-            { title: "Fractures", href: "/treatments/fractures" },
+            { title: "Total Knee Replacement", href: "/treatments/total-knee-replacement" },
+            { title: "Spine Surgery", href: "/treatments/spine-surgery" },
         ]
     },
     {
-        title: "DIGESTIVE & ABDOMINAL",
-        items: [
-            { title: "Hernia", href: "/treatments/hernia" },
-            { title: "Gallstones", href: "/treatments/gallstones" },
-            { title: "Appendicitis", href: "/treatments/appendicitis" },
-            { title: "Piles", href: "/treatments/piles" },
-            { title: "Anal Fissure", href: "/treatments/anal-fissure" },
-            { title: "Anal Fistula", href: "/treatments/anal-fistula" },
-            { title: "Pilonidal Sinus", href: "/treatments/pilonidal-sinus" },
-        ]
-    },
-    {
-        title: "KIDNEY & URINARY",
+        title: "UROLOGY",
+        slug: "urology",
         items: [
             { title: "Kidney Stones", href: "/treatments/kidney-stones" },
             { title: "Enlarged Prostate", href: "/treatments/enlarged-prostate" },
-            { title: "Hydrocele", href: "/treatments/hydrocele" },
+            { title: "PCNL", href: "/treatments/pcnl" },
+            { title: "URSL", href: "/treatments/ursl" },
+            { title: "Circumcision", href: "/treatments/circumcision" },
             { title: "Varicocele", href: "/treatments/varicocele" },
-            { title: "Phimosis", href: "/treatments/phimosis" },
-            { title: "Paraphimosis", href: "/treatments/paraphimosis" },
         ]
     },
     {
-        title: "WOMEN’S HEALTH",
+        title: "GYNECOLOGY",
+        slug: "gynecology",
         items: [
             { title: "Uterine Fibroids", href: "/treatments/uterine-fibroids" },
-            { title: "Endometriosis", href: "/treatments/endometriosis" },
-            { title: "High-Risk Pregnancy", href: "/treatments/high-risk-pregnancy" },
-            { title: "Pelvic Floor", href: "/treatments/pelvic-floor" },
-            { title: "Postpartum Care", href: "/treatments/postpartum-care" },
+            { title: "High Risk Pregnancy", href: "/treatments/high-risk-pregnancy" },
+            { title: "Pelvic Floor Disorders", href: "/treatments/pelvic-floor-disorders" },
+            { title: "Hysterectomy", href: "/treatments/hysterectomy" },
+            { title: "Labiaplasty", href: "/treatments/labiaplasty" },
+            { title: "Vaginoplasty", href: "/treatments/vaginoplasty" },
         ]
     },
     {
-        title: "ENT PROBLEMS",
+        title: "ENT",
+        slug: "ent",
         items: [
-            { title: "Sinus Issues", href: "/treatments/sinus-issues" },
+            { title: "Septoplasty", href: "/treatments/septoplasty" },
+            { title: "Rhinoplasty", href: "/treatments/rhinoplasty" },
+            { title: "Tonsillectomy", href: "/treatments/tonsillectomy" },
             { title: "Nasal Polyps", href: "/treatments/nasal-polyps" },
-            { title: "Throat Problems", href: "/treatments/throat-problems" },
-            { title: "Hearing Issues", href: "/treatments/hearing-issues" },
+            { title: "Sinus", href: "/treatments/sinus" },
+            { title: "Vocal Cord Polyps", href: "/treatments/vocal-cord-polyps" },
         ]
     },
 ]

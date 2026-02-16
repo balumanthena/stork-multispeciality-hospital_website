@@ -45,8 +45,8 @@ const formSchema = z.object({
         message: "Please select an icon.",
     }),
     image_url: z.string().optional(),
-    display_order: z.string().transform((v) => parseInt(v, 10)).pipe(z.number().min(0)),
-    is_active: z.boolean().default(true),
+    display_order: z.number().min(0),
+    is_active: z.boolean(),
 })
 
 interface DepartmentDialogProps {
@@ -76,7 +76,7 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
             description: "",
             icon: "Activity",
             image_url: "",
-            display_order: 0 as any, // Cast to any to handle string input for number
+            display_order: 0,
             is_active: true,
         },
     })
@@ -89,7 +89,7 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
                 description: department.description || "",
                 icon: department.icon,
                 image_url: department.image_url || "",
-                display_order: department.display_order as any,
+                display_order: department.display_order,
                 is_active: department.is_active,
             })
         } else {
@@ -99,7 +99,7 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
                 description: "",
                 icon: "Activity",
                 image_url: "",
-                display_order: 0 as any,
+                display_order: 0,
                 is_active: true,
             })
         }
@@ -242,7 +242,12 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
                                     <FormItem>
                                         <FormLabel>Display Order</FormLabel>
                                         <FormControl>
-                                            <Input type="number" placeholder="0" {...field} />
+                                            <Input
+                                                type="number"
+                                                placeholder="0"
+                                                {...field}
+                                                onChange={(e) => field.onChange(Number(e.target.value))}
+                                            />
                                         </FormControl>
                                         <FormDescription>Lower numbers appear first.</FormDescription>
                                         <FormMessage />

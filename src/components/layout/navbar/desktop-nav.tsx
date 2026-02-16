@@ -3,18 +3,19 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronDown } from "lucide-react"
-import Image from "next/image"
+import { ChevronDown, ArrowRight } from "lucide-react"
 
-import { DEPARTMENTS, TREATMENTS, PROCEDURES, NAV_LINKS, NavItem } from "./nav-data"
+import { DEPARTMENTS, TREATMENTS, PROCEDURES, NavItem } from "./nav-data"
 import { MegaMenuGrid, MegaMenuItem, MegaMenuCategory } from "./mega-menu"
 import { cn } from "@/lib/utils"
 import { getIconByName } from "./icon-map"
 import { getDepartmentIcon } from "@/lib/data/department-icons"
 
-function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: any, className?: string, isActive?: boolean }) {
+import { LucideIcon } from "lucide-react"
+
+function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: string | LucideIcon | any, className?: string, isActive?: boolean }) {
     const iconPath = getDepartmentIcon(slug)
-    const Icon = getIconByName(defaultIcon)
+    const IconComponent = typeof defaultIcon === 'string' ? getIconByName(defaultIcon) : defaultIcon
 
     if (iconPath) {
         return (
@@ -53,16 +54,21 @@ function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: stri
             isActive && "bg-[#ff8202] shadow-md",
             className
         )}>
-            <Icon className={cn(
-                "w-6 h-6 text-[#ff8202] transition-colors duration-200",
-                "group-hover:text-white",
-                isActive && "text-white"
-            )} />
+            {React.createElement(IconComponent, {
+                className: cn(
+                    "w-6 h-6 text-[#ff8202] transition-colors duration-200",
+                    "group-hover:text-white",
+                    isActive && "text-white"
+                )
+            })}
         </div>
     )
 }
 
-export function DesktopNav({ departments = [] }: { departments?: any[] }) {
+import { Department } from "@/types"
+import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+
+export function DesktopNav({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const pathname = usePathname()
     const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
@@ -76,14 +82,14 @@ export function DesktopNav({ departments = [] }: { departments?: any[] }) {
         return {
             title: d.name,
             href: `/departments/${d.slug}`,
-            icon: (props: any) => <DepartmentIcon slug={d.slug} defaultIcon={d.icon || "Activity"} {...props} />
+            icon: (props: React.ComponentProps<"svg">) => <DepartmentIcon slug={d.slug} defaultIcon={d.icon || "Activity"} {...props} />
         }
     }) : DEPARTMENTS.map(d => {
         // Extract slug from href
         const slug = d.href.split('/').pop() || ''
         return {
             ...d,
-            icon: (props: any) => <DepartmentIcon slug={slug} defaultIcon={d.icon} {...props} />
+            icon: (props: React.ComponentProps<"svg">) => <DepartmentIcon slug={slug} defaultIcon={d.icon} {...props} />
         }
     })
 
@@ -173,10 +179,20 @@ export function DesktopNav({ departments = [] }: { departments?: any[] }) {
                 )}>
                     <div className="container max-w-[1280px] mx-auto py-8 px-8">
                         <MegaMenuGrid cols={5}>
-                            {TREATMENTS.map((section) => (
+                            {(groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS).slice(0, 5).map((section) => (
                                 <MegaMenuCategory key={section.title} {...section} />
                             ))}
                         </MegaMenuGrid>
+                        {/* View All Treatments Link - Bottom Right */}
+                        <div className="mt-8 flex justify-end border-t border-slate-100 pt-4">
+                            <Link
+                                href="/treatments"
+                                className="group/all inline-flex items-center text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                            >
+                                View All Treatments
+                                <ArrowRight className="ml-1 w-4 h-4 transition-transform duration-200 group-hover/all:translate-x-1" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

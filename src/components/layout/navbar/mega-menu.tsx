@@ -4,7 +4,7 @@ import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, LucideIcon } from "lucide-react"
 
 export const MegaMenuGrid = ({ children, cols = 4 }: { children: React.ReactNode, cols?: number }) => {
     return (
@@ -19,7 +19,7 @@ export const MegaMenuGrid = ({ children, cols = 4 }: { children: React.ReactNode
     )
 }
 
-export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href: string, icon?: any }) => {
+export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href: string, icon?: LucideIcon }) => {
     const pathname = usePathname()
     const isActive = pathname === href
 
@@ -29,7 +29,7 @@ export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href:
             className="group flex items-center gap-4 p-2 -ml-2 rounded-xl transition-all duration-200 outline-none"
         >
             {Icon && (
-                <Icon className={cn("transition-transform duration-200 group-hover:scale-105", isActive && "scale-105")} isActive={isActive} />
+                <Icon className={cn("transition-transform duration-200 group-hover:scale-105", isActive && "scale-105")} />
             )}
             <span className={cn(
                 "text-[15px] font-medium transition-colors duration-200 line-clamp-2",

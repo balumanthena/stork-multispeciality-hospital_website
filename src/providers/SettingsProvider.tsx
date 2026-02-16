@@ -24,6 +24,7 @@ interface SettingsContextType {
 const SettingsContext = React.createContext<SettingsContextType | undefined>(undefined)
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
+    console.log("SettingsProvider: Rendering");
     const [settings, setSettings] = React.useState<SiteSettings | null>(null)
     const [isLoading, setIsLoading] = React.useState(true)
     const [error, setError] = React.useState<Error | null>(null)
@@ -53,9 +54,9 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             } else if (data) {
                 setSettings(data as SiteSettings)
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error("Error fetching settings:", err)
-            setError(err)
+            setError(err as Error)
         } finally {
             setIsLoading(false)
         }
@@ -63,8 +64,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
     React.useEffect(() => {
         let mounted = true
-        let retryCount = 0
-        let pollingInterval: NodeJS.Timeout
 
         // 1. Initial Fetch
         fetchSettings()
@@ -88,8 +87,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             )
             .subscribe((status, err) => {
                 if (status === 'SUBSCRIBED') {
-                    // Reset retry count on successful subscription
-                    retryCount = 0
+                    // Subscription successful
                 }
 
                 if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
@@ -101,7 +99,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
         // 3. Fallback Polling (Every 30 seconds)
         // This ensures data consistency even if realtime disconnects silently
-        pollingInterval = setInterval(() => {
+        const pollingInterval = setInterval(() => {
             if (mounted) fetchSettings()
         }, 30000)
 
@@ -124,6 +122,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 export function useSettings() {
     const context = React.useContext(SettingsContext)
     if (context === undefined) {
+        console.error("useSettings: Context is undefined!");
         throw new Error("useSettings must be used within a SettingsProvider")
     }
     return context

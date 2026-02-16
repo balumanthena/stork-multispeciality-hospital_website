@@ -1,11 +1,11 @@
 import { supabase } from '@/lib/supabase/client'
-import { RealtimeChannel } from '@supabase/supabase-js'
+import { RealtimeChannel, RealtimePostgresChangesPayload } from '@supabase/supabase-js'
 
 type SubscriptionConfig = {
     table: string
     event: 'INSERT' | 'UPDATE' | 'DELETE' | '*'
     filter?: string
-    callback: (payload: any) => void
+    callback: (payload: RealtimePostgresChangesPayload<Record<string, unknown>>) => void
 }
 
 export const subscribeToChanges = ({ table, event, filter, callback }: SubscriptionConfig): RealtimeChannel => {
@@ -19,7 +19,7 @@ export const subscribeToChanges = ({ table, event, filter, callback }: Subscript
                 table,
                 filter,
             },
-            (payload) => {
+            (payload: RealtimePostgresChangesPayload<Record<string, unknown>>) => {
                 console.log(`Real-time update received for ${table}:`, payload)
                 callback(payload)
             }

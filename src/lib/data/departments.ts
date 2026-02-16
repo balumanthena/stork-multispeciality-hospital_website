@@ -1,9 +1,9 @@
 import {
-    Heart, Brain, Bone, Stethoscope, Baby, Eye, Activity,
+    Heart, Brain, Bone, Stethoscope, Baby, Activity,
     Scissors, Dna, Ear, UserMinus, ShieldAlert,
     Pill, TestTube, Microscope, Syringe, Ambulance,
-    Thermometer, Sparkles, Utensils, Wind, ShieldCheck,
-    CheckCircle2, Star, Quote, User, MapPin, Clock, Check
+    Sparkles, Utensils, Wind, ShieldCheck, User,
+    LucideIcon
 } from "lucide-react"
 
 export const DEFAULT_FEATURES = [
@@ -19,7 +19,17 @@ export const DEFAULT_TESTIMONIALS = [
     { name: "Rahul K.", text: "State-of-the-art infrastructure and very hygienic environment. Highly recommended.", rating: 5 },
 ]
 
-export const departmentsData: Record<string, any> = {
+interface DepartmentData {
+    title: string
+    description: string
+    icon: LucideIcon
+    services: { title: string; icon: LucideIcon }[]
+    procedures: { title: string; desc: string }[]
+    doctors: { name: string; role: string; exp: string; qual: string }[]
+    faqs?: { q: string; a: string }[]
+}
+
+export const departmentsData: Record<string, DepartmentData> = {
     "cardiology": {
         title: "Cardiology",
         description: "Comprehensive heart care including diagnostics, interventional cardiology, and cardiothoracic surgery. We treat coronary artery disease, heart failure, and arrhythmias.",

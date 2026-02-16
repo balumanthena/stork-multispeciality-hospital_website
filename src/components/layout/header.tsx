@@ -10,11 +10,15 @@ import { DesktopNav } from "./navbar/desktop-nav"
 import { MobileNav } from "./navbar/mobile-nav"
 import { useSettings } from "@/providers/SettingsProvider"
 
+import { Department } from "@/types"
+import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+
 export interface HeaderProps {
-    departments?: any[] // Todo: Import Department type
+    departments?: Department[]
+    groupedTreatments?: GroupedTreatmentCategory[]
 }
 
-export function Header({ departments = [] }: HeaderProps) {
+export function Header({ departments = [], groupedTreatments = [] }: HeaderProps) {
     const [isScrolled, setIsScrolled] = React.useState(false)
     const { settings } = useSettings()
 
@@ -51,7 +55,7 @@ export function Header({ departments = [] }: HeaderProps) {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <DesktopNav departments={departments} />
+                <DesktopNav departments={departments} groupedTreatments={groupedTreatments} />
 
                 {/* Right Actions */}
                 <div className="hidden lg:flex items-center gap-6">
@@ -73,7 +77,7 @@ export function Header({ departments = [] }: HeaderProps) {
                 </div>
 
                 {/* Mobile Navigation Toggle */}
-                <MobileNav departments={departments} />
+                <MobileNav departments={departments} groupedTreatments={groupedTreatments} />
             </div>
         </header>
     )

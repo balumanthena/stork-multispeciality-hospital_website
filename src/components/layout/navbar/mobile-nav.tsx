@@ -6,8 +6,10 @@ import { ChevronDown, Phone, X, Menu, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DEPARTMENTS, TREATMENTS, PROCEDURES, NAV_LINKS } from "./nav-data"
 import { cn } from "@/lib/utils"
+import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+import { Department } from "@/types"
 
-export function MobileNav({ departments = [] }: { departments?: any[] }) {
+export function MobileNav({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const [isOpen, setIsOpen] = useState(false)
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null)
 
@@ -89,7 +91,7 @@ export function MobileNav({ departments = [] }: { departments?: any[] }) {
                             </button>
                             {expandedMenu === "treatments" && (
                                 <div className="bg-slate-50 px-4 py-4 space-y-6 rounded-b-lg">
-                                    {TREATMENTS.map(section => (
+                                    {(groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS).map(section => (
                                         <div key={section.title} className="space-y-2">
                                             <h5 className="px-4 text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">{section.title}</h5>
                                             {section.items.map(item => (

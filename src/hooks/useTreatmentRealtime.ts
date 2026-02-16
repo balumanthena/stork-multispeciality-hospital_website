@@ -1,15 +1,17 @@
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { subscribeToChanges } from '@/services/realtime.service'
+import { Treatment } from '@/types'
 
-export function useTreatmentRealtime(initialData: any) {
-    const [data, setData] = useState(initialData)
+export function useTreatmentRealtime(initialData: Treatment) {
+    const [data, setData] = useState<Treatment>(initialData)
     const router = useRouter()
     const isMounted = useRef(false)
 
     // Sync state with props if server data changes (e.g. after router.refresh)
     useEffect(() => {
         if (isMounted.current) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setData(initialData)
         }
         isMounted.current = true
@@ -25,7 +27,7 @@ export function useTreatmentRealtime(initialData: any) {
             filter: `id=eq.${initialData.id}`,
             callback: (payload) => {
                 console.log('Real-time update received', payload)
-                setData((prev: any) => ({ ...prev, ...payload.new }))
+                setData((prev) => ({ ...prev, ...(payload.new as Treatment) }))
             },
         })
 
