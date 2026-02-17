@@ -117,6 +117,7 @@ export const TREATMENTS: MegaMenuSection[] = [
 export const PROCEDURES: MegaMenuSection[] = [
     {
         title: "GENERAL & LAPAROSCOPIC",
+        slug: "general-bariatric", // Corrected slug based on departments
         items: [
             { title: "Laparoscopic Surgery", href: "/procedures/laparoscopic-surgery" },
             { title: "Appendectomy", href: "/procedures/appendectomy" },
@@ -126,6 +127,7 @@ export const PROCEDURES: MegaMenuSection[] = [
     },
     {
         title: "ORTHOPAEDICS",
+        slug: "orthopaedics",
         items: [
             { title: "Arthroscopy", href: "/procedures/arthroscopy" },
             { title: "Knee Replacement", href: "/procedures/knee-replacement" },
@@ -135,6 +137,7 @@ export const PROCEDURES: MegaMenuSection[] = [
     },
     {
         title: "ENT",
+        slug: "ent",
         items: [
             { title: "Septoplasty", href: "/procedures/septoplasty" },
             { title: "Rhinoplasty", href: "/procedures/rhinoplasty" },
@@ -144,6 +147,7 @@ export const PROCEDURES: MegaMenuSection[] = [
     },
     {
         title: "UROLOGY",
+        slug: "urology",
         items: [
             { title: "URSL", href: "/procedures/ursl" },
             { title: "PCNL", href: "/procedures/pcnl" },
@@ -153,6 +157,7 @@ export const PROCEDURES: MegaMenuSection[] = [
     },
     {
         title: "GYNAECOLOGY",
+        slug: "gynaecology",
         items: [
             { title: "C-Section", href: "/procedures/c-section" },
             { title: "Hysterectomy", href: "/procedures/hysterectomy" },

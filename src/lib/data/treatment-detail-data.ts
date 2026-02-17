@@ -2517,6 +2517,116 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
         }
     }
 
+    if (slug === "foreskin-infection") {
+        return {
+            slug: slug,
+            title: "Foreskin Infection – Stork Hospital, Hyderabad",
+            subheading: "Expert Diagnosis and Treatment for Foreskin-Related Infections",
+            breadcrumbTitle: "Foreskin Infection",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `A foreskin infection occurs when bacteria, fungi, or viruses cause irritation, redness, swelling, or pain in the foreskin. It is often linked to poor hygiene, underlying health conditions, or sexually transmitted infections. In many cases, the infection also affects the glans penis (balanitis) or both the glans and foreskin (balanoposthitis).
+
+At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer confidential, accurate diagnosis and targeted treatments for foreskin infections, aiming for quick relief, prevention of complications, and long-term genital health.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Foreskin Infection Care",
+                intro: "Specialist urological care for effective treatment and relief.",
+                items: [
+                    "Specialist urologists with expertise in male genital and foreskin disorders",
+                    "Diagnostic center in Hyderabad for precise identification of the infection’s cause",
+                    "Advanced surgical center for cases requiring circumcision or corrective procedures",
+                    "24/7 emergency hospital near Hitech City for severe infections or swelling",
+                    "Insurance accepted at Stork Hospital for eligible procedures",
+                    "Walk-in clinic near Kondapur for private, same-day consultations"
+                ]
+            },
+            fullDescription: [
+                "**Causes of Foreskin Infections**",
+                "Poor genital hygiene, Fungal infections (Candida), Bacterial infections, STIs, Allergic reactions, Tight foreskin (phimosis), Diabetes or immune conditions.",
+                "**Symptoms of Foreskin Infection**",
+                "Redness and swelling of the foreskin, Pain during urination or sexual activity, Discharge with foul odor, Itching, burning, or soreness, Difficulty retracting the foreskin."
+            ],
+
+            conditionsHeading: "Treatment Options at Stork Hospital",
+            conditionsTreated: [
+                "Medical Treatment: Antifungal creams, antibiotics, antiviral therapy, mild steroid creams",
+                "Lifestyle & Hygiene: Gentle daily cleaning, keeping dry, sugar management in diabetics",
+                "Surgical Intervention: Circumcision to prevent recurrence, Preputioplasty for preservation"
+            ],
+
+            procedureHeading: "Recovery and Aftercare",
+            procedureSteps: [
+                {
+                    title: "Healing Time",
+                    description: "Most infections clear within 5–10 days with proper treatment."
+                },
+                {
+                    title: "Hygiene",
+                    description: "Continue hygiene practices to avoid recurrence."
+                },
+                {
+                    title: "Medication",
+                    description: "Complete all prescribed medications."
+                },
+                {
+                    title: "Follow-up",
+                    description: "Return for follow-up if symptoms persist or worsen."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Treatment",
+            benefits: [
+                "Quick relief from pain and itching",
+                "Prevention of complications",
+                "Long-term genital health",
+                "Reduced recurrence risk",
+                "Confidential and expert care"
+            ],
+
+            risks: [],
+            recoveryTimeline: [],
+
+            faqHeading: "FAQs – Foreskin Infection",
+            faqs: [
+                {
+                    question: "Is a foreskin infection contagious?",
+                    answer: "It can be if caused by STIs or fungal infections, but not all cases are transmissible."
+                },
+                {
+                    question: "Can it heal on its own?",
+                    answer: "Mild cases may improve with better hygiene, but medical care ensures faster recovery and prevents complications."
+                },
+                {
+                    question: "Does circumcision prevent foreskin infections?",
+                    answer: "Yes, circumcision significantly reduces the risk of recurring infections."
+                },
+                {
+                    question: "Is it linked to cancer?",
+                    answer: "No, but repeated untreated infections can cause scarring and other complications."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Foreskin Infection Consultation",
+                description: "If you have swelling, pain, or discharge under the foreskin, book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for expert care and lasting relief.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "Varies",
+                anesthesia: "None / Local",
+                hospitalStay: "Outpatient",
+                recoveryTime: "5-10 Days",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Nanda Kishore",
+                role: "Senior Urologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
     // 3. Return Premium Placeholder Content (Default)
     return {
         slug: slug,

@@ -14,6 +14,7 @@ import { getDepartmentIcon } from "@/lib/data/department-icons"
 import { LucideIcon } from "lucide-react"
 
 import { TreatmentsMegaMenu } from "./treatments-mega-menu"
+import { ProceduresMegaMenu } from "./procedures-mega-menu"
 
 function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: string | LucideIcon | any, className?: string, isActive?: boolean }) {
     const iconPath = getDepartmentIcon(slug)
@@ -205,13 +206,10 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "procedures" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
-                    <div className="container max-w-[1280px] mx-auto py-8 px-8">
-                        <MegaMenuGrid cols={5}>
-                            {PROCEDURES.map((section) => (
-                                <MegaMenuCategory key={section.title} {...section} />
-                            ))}
-                        </MegaMenuGrid>
-                    </div>
+                    <ProceduresMegaMenu
+                        procedures={PROCEDURES}
+                        onClose={() => setActiveMenu(null)}
+                    />
                 </div>
             </div>
 
