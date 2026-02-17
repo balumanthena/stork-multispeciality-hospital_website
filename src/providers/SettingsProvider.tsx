@@ -122,8 +122,12 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 export function useSettings() {
     const context = React.useContext(SettingsContext)
     if (context === undefined) {
-        console.error("useSettings: Context is undefined!");
-        throw new Error("useSettings must be used within a SettingsProvider")
+        // console.warn("useSettings must be used within a SettingsProvider. Using fallback.")
+        return {
+            settings: null,
+            isLoading: false,
+            error: null
+        }
     }
     return context
 }

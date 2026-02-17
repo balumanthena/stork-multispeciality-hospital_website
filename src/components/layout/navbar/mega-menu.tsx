@@ -52,9 +52,11 @@ export const MegaMenuCategory = ({ title, items }: { title: string, items: { tit
                     <li key={i}>
                         <Link
                             href={item.href}
-                            className="text-sm text-slate-600 hover:text-[var(--color-primary)] hover:translate-x-1 transition-all inline-flex items-center gap-1"
+                            className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#F97316] transition-all duration-200 ease-in-out hover:pl-1.5"
                         >
-                            <ChevronRight className="w-3 h-3 opacity-0 text-[var(--color-primary)] -ml-4 transition-all hover-target-visible" />
+                            <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#F97316] group-hover/item:mr-2 transition-all duration-200">
+                                <ChevronRight className="w-3 h-3" />
+                            </span>
                             {item.title}
                         </Link>
                     </li>

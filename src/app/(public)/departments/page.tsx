@@ -1,8 +1,26 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone } from "lucide-react"
 import { getActiveDepartments } from "@/lib/data/departments-server"
-import * as Icons from "lucide-react"
+
+const DEPARTMENT_ICONS: Record<string, string> = {
+    "Cosmetic & Plastic Surgery": "/images/cosmetic-surgery.png",
+    "Emergency, Trauma & Critical Care": "/images/emergency-trauma-and-critical-care.png",
+    "ENT": "/images/ent.png",
+    "General Surgery": "/images/general-surgery.png",
+    "General Medicine": "/images/general-medicine.png",
+    "GI & Bariatric Surgery": "/images/gi-surgery-and-weight-loss.png",
+    "Gynaecology & Obstetrics": "/images/gynecology.png",
+    "Neurosurgery": "/images/neurosurgery.png",
+    "Oncology": "/images/oncology.png",
+    "Orthopedics": "/images/orthopedics.png",
+    "Pulmonology": "/images/pulmonology.png",
+    "Urology & Andrology": "/images/urology-and-andrology.png",
+    "Vascular Surgery": "/images/vascular-surgery.png",
+    "Pain Management": "/images/pain-management.png",
+    "Proctology": "/images/proctology.png"
+}
 
 export default async function DepartmentsIndexPage() {
     // Fetch active departments from DB
@@ -23,42 +41,39 @@ export default async function DepartmentsIndexPage() {
                                 Our Specialties
                             </h1>
                         </div>
-                        <Link
-                            href="/departments"
-                            className="text-[#3E7DCA] font-medium hover:text-[#FF8202] transition-colors flex items-center gap-2 text-sm"
-                        >
-                            View All Departments <ArrowRight className="w-4 h-4" />
-                        </Link>
+                        {/* 'View All Departments' link removed as requested */}
                     </div>
 
-                    {/* 2. STRICT 4-COLUMN GRID */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+                    {/* 2. PREMIUM RESPONSIVE GRID */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
                         {departments.length > 0 ? (
                             departments.map((dept: any) => {
                                 const isFeatured = dept.slug === "cardiology"
-                                // Dynamic Icon Resolution
-                                const IconComponent = (Icons as any)[dept.icon] || Icons.Activity
+                                // PNG Icon Resolution
+                                const iconPath = DEPARTMENT_ICONS[dept.name] || "/images/general-medicine.png"
 
                                 return (
                                     <Link
                                         href={`/departments/${dept.slug}`}
                                         key={dept.id}
-                                        className={`group flex flex-col items-center text-center transition-all duration-200 ${isFeatured
-                                            ? "relative p-8 -m-8 rounded-sm bg-[rgba(255,130,2,0.06)] border-t-[3px] border-[#FF8202]"
-                                            : "hover:scale-[1.03]"
+                                        className={`group bg-white rounded-[16px] p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-1 ${isFeatured ? "border border-[#F97316] bg-orange-50/10" : "border border-transparent hover:border-orange-100"
                                             }`}
                                     >
-                                        {/* Icon */}
-                                        <div className={`mb-6 transition-colors duration-200 ${isFeatured ? "text-[#FF8202]" : "text-[#3E7DCA] group-hover:text-[#FF8202]"
-                                            }`}>
-                                            <IconComponent strokeWidth={1.5} className="w-12 h-12" />
+                                        {/* Icon Container */}
+                                        <div className="mb-6 w-16 h-16 rounded-full bg-[#F6F1E8] flex items-center justify-center transition-all duration-300 group-hover:bg-[#F97316] group-hover:shadow-lg group-hover:scale-110">
+                                            <div className="relative w-[30px] h-[30px] transition-all duration-300">
+                                                <Image
+                                                    src={iconPath}
+                                                    alt={dept.name}
+                                                    fill
+                                                    className="object-contain transition-all duration-300 filter group-hover:brightness-0 group-hover:invert"
+                                                />
+                                            </div>
                                         </div>
 
                                         {/* Title */}
-                                        <h3 className="text-lg font-medium text-[#1f2937] group-hover:text-[#FF8202] transition-colors relative">
+                                        <h3 className="text-[16px] md:text-[18px] font-semibold text-[#1F2937] transition-colors duration-200 group-hover:text-[#F97316]">
                                             {dept.name}
-                                            <span className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#FF8202] transition-all duration-200 ${isFeatured ? "w-8" : "group-hover:w-full"
-                                                }`}></span>
                                         </h3>
                                     </Link>
                                 )
