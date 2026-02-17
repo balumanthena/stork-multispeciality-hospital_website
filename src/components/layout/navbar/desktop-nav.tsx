@@ -13,6 +13,8 @@ import { getDepartmentIcon } from "@/lib/data/department-icons"
 
 import { LucideIcon } from "lucide-react"
 
+import { TreatmentsMegaMenu } from "./treatments-mega-menu"
+
 function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: string | LucideIcon | any, className?: string, isActive?: boolean }) {
     const iconPath = getDepartmentIcon(slug)
     const IconComponent = typeof defaultIcon === 'string' ? getIconByName(defaultIcon) : defaultIcon
@@ -177,23 +179,10 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "treatments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
-                    <div className="container max-w-[1280px] mx-auto py-8 px-8">
-                        <MegaMenuGrid cols={5}>
-                            {(groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS).slice(0, 5).map((section) => (
-                                <MegaMenuCategory key={section.title} {...section} />
-                            ))}
-                        </MegaMenuGrid>
-                        {/* View All Treatments Link - Bottom Right */}
-                        <div className="mt-8 flex justify-end border-t border-slate-100 pt-4">
-                            <Link
-                                href="/treatments"
-                                className="group/all inline-flex items-center text-sm font-semibold text-[var(--color-primary)] hover:underline"
-                            >
-                                View All Treatments
-                                <ArrowRight className="ml-1 w-4 h-4 transition-transform duration-200 group-hover/all:translate-x-1" />
-                            </Link>
-                        </div>
-                    </div>
+                    <TreatmentsMegaMenu
+                        treatments={groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS}
+                        onClose={() => setActiveMenu(null)}
+                    />
                 </div>
             </div>
 
