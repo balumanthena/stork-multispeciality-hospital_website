@@ -2627,6 +2627,2014 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer co
         }
     }
 
+    if (slug === "frenuloplasty-surgery") {
+        return {
+            slug: slug,
+            title: "Frenuloplasty Surgery – Stork Hospital, Hyderabad",
+            subheading: "Advanced Surgical Solution for Short or Tight Penile Frenulum",
+            breadcrumbTitle: "Frenuloplasty Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Frenuloplasty is a simple yet effective procedure designed to treat a condition known as frenulum breve — where the band of tissue (frenulum) connecting the underside of the penis to the foreskin is too short or tight. This condition can lead to discomfort during erections, tearing of the skin, or difficulty retracting the foreskin.
+
+At Stork Multispecialty Hospital, Hyderabad, our urology specialists perform frenuloplasty using modern surgical techniques to ensure minimal discomfort, quicker healing, and preservation of natural appearance and function.`,
+
+            overview: {
+                heading: "Why Patients Trust Stork Hospital for Frenuloplasty",
+                intro: "Expert care for foreskin-preserving procedures.",
+                items: [
+                    "Expert urologists with extensive experience in men’s health and foreskin-preserving procedures",
+                    "Advanced surgical center in Hyderabad with precision tools for safe, effective treatment",
+                    "24/7 emergency hospital near Hitech City for urgent urological issues",
+                    "Insurance accepted at Stork Hospital with upfront pricing and no hidden costs",
+                    "Walk-in clinic near Kondapur for private and discreet consultations",
+                    "End-to-end care — from evaluation and surgery to recovery and long-term results"
+                ]
+            },
+            fullDescription: [
+                "**When Frenuloplasty is Needed**",
+                "Persistent pain or tightness during erections, Frequent tearing or scarring of the frenulum, Difficulty in retracting the foreskin comfortably, Desire to treat frenulum issues without undergoing circumcision.",
+                "**Advantages of Frenuloplasty at Stork Hospital**",
+                "Retains the foreskin while releasing tension in the frenulum, Performed under local or general anesthesia for complete comfort, Minimal downtime — most patients resume light activities within days, Improved sexual comfort and flexibility, Daycare procedure with same-day discharge."
+            ],
+
+            conditionsHeading: "Indications for Surgery",
+            conditionsTreated: [
+                "Frenulum Breve (Short Frenulum)",
+                "Pain during intercourse due to tight frenulum",
+                "Recurrent tearing or bleeding of the frenulum",
+                "Difficulty retracting foreskin due to frenulum tightness"
+            ],
+
+            procedureHeading: "How Frenuloplasty is Performed",
+            procedureSteps: [
+                {
+                    title: "Initial Consultation",
+                    description: "Physical examination and diagnosis by a specialist urologist."
+                },
+                {
+                    title: "Anesthesia Administration",
+                    description: "Local or general anesthesia depending on patient preference."
+                },
+                {
+                    title: "Frenulum Release",
+                    description: "A small incision made to loosen or lengthen the frenulum."
+                },
+                {
+                    title: "Suturing",
+                    description: "Dissolvable stitches placed for natural healing."
+                },
+                {
+                    title: "Post-Operative Care",
+                    description: "Detailed instructions on hygiene and recovery activities."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Treatment",
+            benefits: [
+                "Retains the foreskin",
+                "Minimal discomfort",
+                "Quicker healing",
+                "Preservation of sensation",
+                "Improved function"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Return to work/routine: 2–3 days",
+                "Avoid sexual activity: 4–6 weeks",
+                "Keep area clean and dry"
+            ],
+
+            faqHeading: "FAQs – Frenuloplasty Surgery",
+            faqs: [
+                {
+                    question: "Is frenuloplasty a painful procedure?",
+                    answer: "No. The surgery is pain-free under anesthesia, with only mild tenderness afterward."
+                },
+                {
+                    question: "Will it reduce sensitivity?",
+                    answer: "No. Sensitivity is maintained, and many men experience increased comfort post-procedure."
+                },
+                {
+                    question: "Is circumcision required?",
+                    answer: "Not usually. Frenuloplasty allows the foreskin to be preserved."
+                },
+                {
+                    question: "Does insurance cover the procedure?",
+                    answer: "Yes. Stork Hospital works with most insurance plans to cover medically necessary cases."
+                }
+            ],
+            customCta: {
+                heading: "Book Your Frenuloplasty Consultation",
+                description: "If a short frenulum is affecting your comfort or sexual health, schedule a confidential consultation at Stork Hospital to meet a specialist urologist in Hyderabad and discuss your treatment options.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "30-45 Min",
+                anesthesia: "Local / General",
+                hospitalStay: "Daycare",
+                recoveryTime: "2-3 Days",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Nanda Kishore",
+                role: "Senior Urologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+    if (slug === "gallstone") {
+        return {
+            slug: slug,
+            title: "Gallstone Surgery – Stork Hospital, Hyderabad",
+            subheading: "Effective Surgical Solutions for Gallstone Discomfort",
+            breadcrumbTitle: "Gallstone Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Gallstones are solid clusters that form inside the gallbladder, typically made from cholesterol or bile components. Often silent, these stones can cause sudden, sharp abdominal pain or digestive disturbances when they block bile ducts. At Stork Hospital, Hyderabad, we offer accurate diagnosis and expert surgical management to resolve gallstone issues and support lasting digestive wellness.
+
+Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad, emphasizing precision, comfort, and shorter recovery periods through minimally invasive procedures.`,
+
+            overview: {
+                heading: "What Makes Stork Hospital the Right Choice",
+                intro: "Trusted center for gallstone surgery in Hyderabad.",
+                items: [
+                    "Experienced surgeons in advanced keyhole procedures",
+                    "Modern diagnostic and surgical infrastructure",
+                    "Efficient, patient-friendly hospital processes",
+                    "Supportive care before, during, and after surgery",
+                    "Trusted center for gallstone surgery in Hyderabad"
+                ]
+            },
+            fullDescription: [
+                "**Gallstones: Causes and Symptoms**",
+                "Gallstones arise when bile chemistry becomes unbalanced. Symptoms include: Sharp pain under the ribs or right shoulder, Nausea, vomiting, bloating, Yellowish skin or eyes (jaundice), Indigestion after fatty meals.",
+                "**Treatment Tailored to Your Needs**",
+                "**Laparoscopic Gallbladder Removal (Cholecystectomy):** Minimally invasive, prevents future stones, <60 min procedure, daycare option.",
+                "**Non-Surgical Observation:** Reserved for asymptomatic cases, focuses on diet and monitoring."
+            ],
+
+            conditionsHeading: "Symptoms & Complications",
+            conditionsTreated: [
+                "Sharp abdominal pain",
+                "Nausea and vomiting",
+                "Jaundice (yellow skin/eyes)",
+                "Indigestion after fatty meals",
+                "Gallbladder infection or pancreatitis"
+            ],
+
+            procedureHeading: "Recovery and Lifestyle After Surgery",
+            procedureSteps: [
+                {
+                    title: "Immediate Post-Op",
+                    description: "Temporary soreness that subsides in a day or two."
+                },
+                {
+                    title: "Short-Term Recovery",
+                    description: "Return to light activity and meals within a couple of days."
+                },
+                {
+                    title: "Full Recovery",
+                    description: "Full recovery usually achieved within 1–2 weeks."
+                },
+                {
+                    title: "Long-Term Diet",
+                    description: "Most patients have no long-term dietary restrictions."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Laparoscopic Surgery",
+            benefits: [
+                "Minimally invasive (small cuts)",
+                "Less pain than open surgery",
+                "Quicker recovery",
+                "Daycare or short-stay",
+                "Prevents future stone formation"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Light activity: 2-3 days",
+                "Full recovery: 1-2 weeks",
+                "Diet: Normal diet soon after"
+            ],
+
+            faqHeading: "FAQs – Gallstone Surgery Insights",
+            faqs: [
+                {
+                    question: "Do I need surgery if I have gallstones?",
+                    answer: "Only if they cause symptoms or complications. Otherwise, monitoring may be sufficient."
+                },
+                {
+                    question: "Will gallstones reoccur post-surgery?",
+                    answer: "No. Removal of the gallbladder prevents new stone formation in that area."
+                },
+                {
+                    question: "Is the laparoscopic method safe?",
+                    answer: "Absolutely. It’s minimally invasive, low-risk, and widely preferred for quicker healing."
+                },
+                {
+                    question: "Do I need a long-term diet change after surgery?",
+                    answer: "Minor adjustments are helpful early on, but most people resume regular diets."
+                }
+            ],
+
+            customCta: {
+                heading: "Choose Lasting Comfort and Expert Care",
+                description: "Book your gallstone consultation at Stork Hospital—Hyderabad’s leading center for gallbladder health.",
+                buttonText: "Book Consultation"
+            },
+            meta: {
+                duration: "45-60 Min",
+                anesthesia: "General",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "1-2 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior Surgical Gastroenterologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+    if (slug === "gastrointestinal-issues") {
+        return {
+            slug: slug,
+            title: "Gastrointestinal Issues – Stork Hospital, Hyderabad",
+            subheading: "Complete Digestive Health Care for All Ages",
+            breadcrumbTitle: "GI Issues",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Gastrointestinal (GI) issues involve the digestive tract, including the esophagus, stomach, intestines, liver, pancreas, and gallbladder. Those conditions can cause discomfort, affect nutrient absorption, and impact overall well-being. At Stork Multispecialty Hospital, Hyderabad, our gastroenterologists and digestive health specialists provide comprehensive care for a wide range of GI conditions, focusing on accurate diagnosis, effective treatment, and preventive strategies.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Gastrointestinal Care",
+                intro: "Comprehensive GI care with advanced diagnostics and treatment.",
+                items: [
+                    "Experienced gastroenterologists and GI surgeons",
+                    "In-house diagnostic center for endoscopy, colonoscopy, and imaging",
+                    "Advanced surgical center for minimally invasive procedures",
+                    "24/7 emergency care for GI bleeding or severe pain",
+                    "Transparent cost estimates and insurance acceptance",
+                    "Same-day consultations and walk-in clinic options",
+                    "Multidisciplinary approach with dietitians and specialists"
+                ]
+            },
+            fullDescription: [
+                "**Understanding GI Health**",
+                "Common causes of GI issues include infections, lifestyle factors, chronic diseases, and structural abnormalities. Early diagnosis is key to preventing complications.",
+                "**Comprehensive Care Approach**",
+                "We offer a full spectrum of services from medical management of acid reflux and IBS to advanced surgical interventions for gallstones and GI cancers."
+            ],
+
+            conditionsHeading: "Gastrointestinal Issues We Treat",
+            conditionsTreated: [
+                "Acid reflux (GERD) and heartburn",
+                "Gastritis and peptic ulcers",
+                "IBS and Inflammatory Bowel Disease (IBD)",
+                "Gallstones and bile duct disorders",
+                "Pancreatitis and liver diseases",
+                "Gastrointestinal infections",
+                "Constipation, diarrhea, and bloating",
+                "GI cancers (stomach, colon, liver, pancreas)"
+            ],
+
+            procedureHeading: "Our Treatment Approach",
+            procedureSteps: [
+                {
+                    title: "Comprehensive Diagnosis",
+                    description: "Physical exam, symptom review, and advanced testing like endoscopy, colonoscopy, ultrasound, and CT/MRI."
+                },
+                {
+                    title: "Medical Management",
+                    description: "Medications to control acidity or infection, along with dietary modifications and nutritional support."
+                },
+                {
+                    title: "Advanced Interventions",
+                    description: "Endoscopic procedures for polyp removal or stricture dilation, and interventional radiology if needed."
+                },
+                {
+                    title: "Surgical Solutions",
+                    description: "Laparoscopic surgery for conditions like gallstones, hernias, or appendicitis when medical management isn't enough."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Expert GI Care",
+            benefits: [
+                "Accurate diagnosis of root causes",
+                "Effective symptom relief",
+                "Prevention of long-term complications",
+                "Minimally invasive treatment options",
+                "Personalized diet and lifestyle guidance"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Diagnosis: Same day or 24-48 hours",
+                "Medical Treatment: Immediate start",
+                "Surgical Recovery: Varies by procedure"
+            ],
+
+            faqHeading: "FAQs – Gastrointestinal Issues",
+            faqs: [
+                {
+                    question: "When should I see a doctor for digestive issues?",
+                    answer: "Seek help if you have persistent pain, unexplained weight loss, blood in stool, or difficulty swallowing."
+                },
+                {
+                    question: "Are all GI issues diet-related?",
+                    answer: "No. While diet is a major factor, infections, genetics, and other diseases also play significant roles."
+                },
+                {
+                    question: "Can lifestyle changes prevent GI conditions?",
+                    answer: "Yes. A balanced diet, hydration, exercise, and avoiding tobacco/alcohol help maintain digestive health."
+                },
+                {
+                    question: "Is treatment covered by insurance?",
+                    answer: "Yes. Stork Hospital accepts most insurance plans and offers cost clarity before starting treatment."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Digestive Health Consultation",
+                description: "If you’re struggling with digestive discomfort, don’t ignore the signs. Book an appointment at Stork Hospital to consult a gastroenterology specialist.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "20-30 Min (Consult)",
+                anesthesia: "None / Sedation",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Immediate",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior Surgical Gastroenterologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "headache-or-migraine") {
+        return {
+            slug: slug,
+            title: "Headache & Migraine Relief Center – Stork Hospital, Hyderabad",
+            subheading: "Comprehensive Care for Headaches and Migraines",
+            breadcrumbTitle: "Headache & Migraine",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Recurring headaches and migraines can greatly impact your ability to function and enjoy life. While some episodes are mild and occasional, others can become persistent and debilitating. At Stork Multispecialty Hospital, Hyderabad, we provide targeted treatment for all forms of headache disorders, using a mix of clinical expertise, modern diagnostics, and personalized care strategies.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Trusted Name for Headache Care",
+                intro: "Specialized care for chronic and complex neurological conditions.",
+                items: [
+                    "Dedicated neurologist in Hyderabad with expertise in headache disorders",
+                    "Access to on-site CT, MRI, EEG, and brain imaging",
+                    "Holistic headache management, from medicines to trigger prevention",
+                    "Proven therapies including nerve blocks for resistant cases",
+                    "Walk-in clinic near Kondapur for timely consultations",
+                    "Insurance-friendly hospital with broad coverage",
+                    "Fast, accurate diagnosis in a zero-wait environment"
+                ]
+            },
+            fullDescription: [
+                "**Understanding Headache Disorders**",
+                "Headaches can range from tension-type discomfort to debilitating migraines. Accurate diagnosis is crucial for effective treatment.",
+                "**Patient-Centric Approach**",
+                "Whether you’re experiencing episodic migraines, tension headaches, or complex neurological triggers, our experienced neurologists aim to provide effective and sustainable relief using a compassionate approach.",
+                "**Holistic Solutions**",
+                "We not only treat symptoms but also explore and address underlying causes through lifestyle modifications, medication, and advanced therapies."
+            ],
+
+            conditionsHeading: "Headache Types Treated at Stork Hospital",
+            conditionsTreated: [
+                "Migraines (with or without visual aura)",
+                "Chronic daily headaches",
+                "Cluster and thunderclap headaches",
+                "Tension-related headaches",
+                "Sinus-triggered headaches",
+                "Rebound headaches (medication overuse)",
+                "Secondary headaches (infections, hypertension, tumors)"
+            ],
+
+            procedureHeading: "Tailored Headache & Migraine Treatments",
+            procedureSteps: [
+                {
+                    title: "Neurologic Consultation",
+                    description: "Evaluation of patterns, frequency, and possible causes by an expert neurologist."
+                },
+                {
+                    title: "Imaging & Testing",
+                    description: "Brain scans (CT/MRI) and lab analysis to rule out structural causes."
+                },
+                {
+                    title: "Pharmacological Treatment",
+                    description: "Acute and preventive migraine medications tailored to your needs."
+                },
+                {
+                    title: "Advanced Procedures",
+                    description: "Nerve blocks or Botox injections for severe, resistant cases."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Specialized Care",
+            benefits: [
+                "Accurate diagnosis of headache type",
+                "Effective pain relief strategies",
+                "Identification of triggers",
+                "Prevention of chronic recurrence",
+                "Improved quality of life"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Consultation: Same day",
+                "Pain Relief: Variable based on treatment",
+                "Follow-up: As recommended"
+            ],
+
+            faqHeading: "FAQs – Headache & Migraine Care",
+            faqs: [
+                {
+                    question: "How do I know if my headache is serious?",
+                    answer: "Consult a neurologist if headaches are frequent, severe, sudden-onset, or disrupt daily life."
+                },
+                {
+                    question: "Can migraines be permanently cured?",
+                    answer: "While a permanent cure may not be possible, most sufferers find significant relief with proper treatment."
+                },
+                {
+                    question: "Do you provide online consultations?",
+                    answer: "Yes. We offer online doctor consultations in Hyderabad for both new and follow-up patients."
+                },
+                {
+                    question: "Does insurance cover headache treatment?",
+                    answer: "Yes. We accept most insurance plans for neurological care, including diagnostics and consultation."
+                }
+            ],
+
+            customCta: {
+                heading: "Take Control of Your Health",
+                description: "Don’t let migraine or chronic headaches rule your life. Book an appointment at Stork Hospital to consult a highly experienced neurologist.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "20-30 Min (Consult)",
+                anesthesia: "None",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Immediate",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Srikanth",
+                role: "Senior Neurologist",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hernia") {
+        return {
+            slug: slug,
+            title: "Hernia Surgery – Stork Hospital, Hyderabad",
+            subheading: "Precise Repair for Lasting Relief",
+            breadcrumbTitle: "Hernia Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `A hernia is a common condition where an internal organ or tissue pushes through a weak spot in the muscle, often appearing as a visible bulge. At Stork Hospital, Hyderabad, we specialize in modern hernia treatment that blends precision surgery with a patient-first approach. Whether mild or recurrent, our surgeons ensure timely diagnosis, advanced treatment, and a smooth road to recovery.`,
+
+            overview: {
+                heading: "Why Patients Trust Stork Hospital for Hernia Care",
+                intro: "Expert surgical care with a focus on quick recovery and minimal recurrence.",
+                items: [
+                    "Board-certified general and laparoscopic surgeons",
+                    "Advanced laparoscopic hernia repair techniques",
+                    "Female-friendly environment and support staff",
+                    "Transparent communication and detailed recovery guidance",
+                    "Insurance tie-ups and assistance with paperwork",
+                    "Minimally invasive options for quicker healing",
+                    "Trusted outcomes for recurrent hernia cases"
+                ]
+            },
+            fullDescription: [
+                "**Understanding Hernias**",
+                "While some hernias start painlessly, they may enlarge or become problematic over time, leading to discomfort or complications like strangulation. Surgical correction is often the only permanent solution.",
+                "**Our Surgical Expertise**",
+                "We offer both laparoscopic (keyhole) and open repair surgeries, tailored to your condition. Mesh reinforcement is commonly used to strengthen the area and prevent recurrence."
+            ],
+
+            conditionsHeading: "Common Types of Hernias We Treat",
+            conditionsTreated: [
+                "Inguinal Hernia (Groin, common in men)",
+                "Umbilical Hernia (Navel, post-pregnancy/children)",
+                "Femoral Hernia (Upper thigh, common in women)",
+                "Hiatal Hernia (Stomach/Diaphragm, reflux-linked)",
+                "Incisional Hernia (Previous surgical sites)",
+                "Recurrent Hernias",
+                "Complex Abdominal Wall Hernias"
+            ],
+
+            procedureHeading: "Your Treatment Journey",
+            procedureSteps: [
+                {
+                    title: "Consultation & Evaluation",
+                    description: "Comprehensive physical exam and imaging to determine the type and severity of the hernia."
+                },
+                {
+                    title: "Surgical Planning",
+                    description: "Choosing the best approach—Laparoscopic or Open—based on your health condition."
+                },
+                {
+                    title: "The Procedure",
+                    description: "Most surgeries are day-care procedures performed under anesthesia using advanced tools and mesh reinforcement."
+                },
+                {
+                    title: "Recovery & Aftercare",
+                    description: "Laparoscopic patients often resume light activity in 3–5 days, with complete healing in 2–4 weeks."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Modern Hernia Repair",
+            benefits: [
+                "Minimally invasive techniques (Laparoscopy)",
+                "Reduced post-operative pain",
+                "Quicker return to daily activities",
+                "Lower risk of recurrence with mesh",
+                "Minimal scarring"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Hospital Stay: Day-care or 1 Day",
+                "Light Activity: 3–5 Days",
+                "Full Recovery: 2–4 Weeks"
+            ],
+
+            faqHeading: "FAQs – Hernia Surgery",
+            faqs: [
+                {
+                    question: "How do I know if I need surgery?",
+                    answer: "Surgery is recommended if the hernia causes pain, grows, or impacts daily life."
+                },
+                {
+                    question: "Is laparoscopic surgery painful?",
+                    answer: "It generally involves less pain and faster healing compared to open surgery."
+                },
+                {
+                    question: "Can the hernia return after surgery?",
+                    answer: "Mesh reinforcement and precise techniques significantly minimize recurrence risks."
+                },
+                {
+                    question: "When can I return to work?",
+                    answer: "Light activity typically resumes in a few days; intense tasks may take 3–4 weeks."
+                }
+            ],
+
+            customCta: {
+                heading: "Get Expert Hernia Care",
+                description: "Don't let a hernia disrupt your life. Schedule your consultation today at Stork Hospital—Hyderabad’s trusted name in hernia surgery.",
+                buttonText: "Book Consultation"
+            },
+            meta: {
+                duration: "45-90 Min",
+                anesthesia: "General / Spinal",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "2-4 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior General & Laparoscopic Surgeon",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "high-risk-pregnancy") {
+        return {
+            slug: slug,
+            title: "High-Risk Pregnancy Management – Stork Hospital, Hyderabad",
+            subheading: "Advanced Maternal-Fetal Care for Safe Delivery",
+            breadcrumbTitle: "High-Risk Pregnancy",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Not all pregnancies follow the same path. A high-risk pregnancy involves additional medical challenges that could affect the mother, the baby, or both. At Stork Hospital, Hyderabad, we transform uncertainty into reassurance with advanced maternal-fetal care, constant monitoring, and an expert team, helping mothers-to-be move confidently through complex pregnancies toward safe delivery.`,
+
+            overview: {
+                heading: "Why Stork Hospital is the Preferred Center for High-Risk Pregnancies",
+                intro: "Choosing the right hospital could mean the difference between complication and confidence.",
+                items: [
+                    "Senior Consultants in Maternal-Fetal Medicine",
+                    "Real-Time Diagnostics & In-House Lab",
+                    "Level 3 NICU for immediate newborn support",
+                    "Emergency Obstetric Response Team available 24/7",
+                    "Holistic Support: Nutrition, physiotherapy, and emotional well-being",
+                    "Seamless continuity from first trimester to postnatal care",
+                    "Highly rated for safe delivery and private rooms"
+                ]
+            },
+            fullDescription: [
+                "**What is High-Risk Pregnancy Management?**",
+                "It involves specialized care for pregnancies with additional health risks due to pre-existing conditions, age, or complications. Our goal is early detection and management to ensure the best possible outcome.",
+                "**Who Should Consider This Care?**",
+                "It is recommended for women over 35, those with chronic illnesses (diabetes, hypertension), multiple pregnancies (twins/triplets), history of miscarriage, or IVF conceptions."
+            ],
+
+            conditionsHeading: "Conditions We Help Manage",
+            conditionsTreated: [
+                "Chronic illnesses (Diabetes, Hypertension, Thyroid)",
+                "Advanced maternal age (35+) or teen pregnancies",
+                "Multiple fetuses (twins, triplets)",
+                "History of miscarriages or preterm births",
+                "Placenta Previa, Accreta, or Abruption",
+                "Autoimmune conditions (Lupus, etc.)",
+                "Preeclampsia or Eclampsia risks",
+                "Fetal growth restriction or defects"
+            ],
+
+            procedureHeading: "What to Expect at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Comprehensive Risk Review",
+                    description: "Initial evaluation, detailed fetal scans, and risk mapping with genetic screenings if advised."
+                },
+                {
+                    title: "Multi-Specialty Oversight",
+                    description: "Joint care by obstetricians, fetal medicine experts, and neonatologists with frequent monitoring."
+                },
+                {
+                    title: "In-Hospital Support",
+                    description: "Admissions for observation if needed (e.g., high BP), with NICU-ready backup."
+                },
+                {
+                    title: "Safe Delivery Planning",
+                    description: "Strategic timing and mode of delivery with a dedicated labor and anesthetic team on standby."
+                }
+            ],
+
+            benefitsHeading: "Post-Delivery Recovery & Care",
+            benefits: [
+                "Postnatal health monitoring for mother and baby",
+                "Lactation support for C-section or NICU cases",
+                "Emotional health check-ins",
+                "Newborn growth monitoring",
+                "Long-term follow-up planning"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Monitoring: Frequent",
+                "Delivery Stay: Varies",
+                "NICU Support: Available"
+            ],
+
+            faqHeading: "FAQs – High-Risk Pregnancy at Stork Hospital",
+            faqs: [
+                {
+                    question: "Does a high-risk label mean I will need a C-section?",
+                    answer: "Not necessarily. Many high-risk pregnancies can still have vaginal deliveries based on evaluation."
+                },
+                {
+                    question: "Will I be admitted in advance?",
+                    answer: "Only if close inpatient observation is required; otherwise, care is outpatient-based."
+                },
+                {
+                    question: "How often will I need check-ups?",
+                    answer: "Frequency increases with risk, ranging from biweekly to weekly in later stages."
+                },
+                {
+                    question: "Can I have a healthy baby with a high-risk pregnancy?",
+                    answer: "Absolutely. With timely, expert oversight, many women deliver healthy babies."
+                }
+            ],
+
+            customCta: {
+                heading: "Expert Care for Your Pregnancy",
+                description: "To learn more, book an appointment at Stork Hospital or consult our gynecologist for a complete risk review and management plan.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "Ongoing Care",
+                anesthesia: "N/A",
+                hospitalStay: "Varies",
+                recoveryTime: "Postnatal",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Neelima",
+                role: "Senior Consultant Obstetrician",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hip-pain") {
+        return {
+            slug: slug,
+            title: "Hip Pain Treatment – Stork Hospital, Hyderabad",
+            subheading: "Relief and Recovery for Better Mobility",
+            breadcrumbTitle: "Hip Pain Treatment",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Hip pain can range from mild discomfort to debilitating stiffness, often affecting movement, balance, and overall mobility. Whether it’s due to age-related arthritis, injury, or overuse, ignoring persistent hip pain can lead to complications. At Stork Multispecialty Hospital, Hyderabad, we offer comprehensive diagnosis and treatment for all types of hip-related issues—delivered with clinical precision and a patient-first mindset.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Trusted Choice for Hip Pain Relief",
+                intro: "A holistic approach emphasizing accurate diagnosis and tailored treatment.",
+                items: [
+                    "Senior orthopedic surgeons with hip specialization",
+                    "High-end imaging: digital X-rays, MRIs, and ultrasound",
+                    "Expertise in non-surgical and surgical approaches",
+                    "Dedicated physiotherapy and rehab programs",
+                    "Walk-in clinic for same-day doctor appointments",
+                    "Insurance accepted for diagnostics and procedures",
+                    "Affordable orthopedic packages with no waiting time"
+                ]
+            },
+            fullDescription: [
+                "**Understanding Hip Pain**",
+                "Hip pain can stem from various causes like arthritis, injuries, or structural issues. Early intervention is key to preventing long-term mobility loss.",
+                "**Comprehensive Care Continuum**",
+                "From initial physical evaluation and advanced imaging to personalized medication, therapy, or surgical intervention, we support your journey to a pain-free life."
+            ],
+
+            conditionsHeading: "Common Causes of Hip Pain We Treat",
+            conditionsTreated: [
+                "Osteoarthritis and inflammatory arthritis",
+                "Hip fractures or dislocations",
+                "Labral tears and cartilage damage",
+                "Bursitis and tendonitis",
+                "Hip impingement syndrome",
+                "Sports injuries and overuse syndromes",
+                "Post-surgical hip pain",
+                "Avascular necrosis (AVN)"
+            ],
+
+            procedureHeading: "Our Comprehensive Management Approach",
+            procedureSteps: [
+                {
+                    title: "Consultation & Diagnostics",
+                    description: "Evaluation by a leading orthopedic surgeon and on-site imaging to pinpoint the cause."
+                },
+                {
+                    title: "Conservative Management",
+                    description: "Anti-inflammatories, pain control medications, and targeted physiotherapy for strength and flexibility."
+                },
+                {
+                    title: "Interventional Therapies",
+                    description: "Corticosteroid or PRP injections to reduce inflammation and promote healing."
+                },
+                {
+                    title: "Surgical Solutions",
+                    description: "Minimally invasive arthroscopy or joint replacement (partial/total) when conservative methods fail."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Expert Hip Care",
+            benefits: [
+                "Significant pain reduction",
+                "Improved joint mobility and balance",
+                "Personalized recovery plans",
+                "Access to advanced surgical options",
+                "Comprehensive rehabilitation under one roof"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Diagnosis: Same day",
+                "Therapy: Ongoing",
+                "Surgery Recovery: Varies by procedure"
+            ],
+
+            faqHeading: "FAQs – Hip Pain Treatment",
+            faqs: [
+                {
+                    question: "Can hip pain be treated without surgery?",
+                    answer: "Yes. Many cases respond to medications, lifestyle changes, and physiotherapy."
+                },
+                {
+                    question: "How do I know if I need a hip replacement?",
+                    answer: "If pain limits daily activities and resists conservative treatment, replacement may be suggested."
+                },
+                {
+                    question: "Is hip arthroscopy painful?",
+                    answer: "It’s minimally invasive with quicker recovery than open surgery. Most patients resume tasks within weeks."
+                },
+                {
+                    question: "Do you accept insurance for hip treatment?",
+                    answer: "Yes. We accept insurance for orthopedic procedures and diagnostics."
+                }
+            ],
+
+            customCta: {
+                heading: "Take the First Step Toward a Pain-Free Life",
+                description: "Hip pain shouldn’t stop you from living fully. Book an appointment at Stork Hospital to meet with the best orthopedic surgeon in Hyderabad.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "20-30 Min (Consult)",
+                anesthesia: "N/A",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Variable",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Raghu",
+                role: "Senior Orthopedic Surgeon",
+                experience: "18+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hip-replacement-surgery") {
+        return {
+            slug: slug,
+            title: "Hip Replacement Surgery – Stork Hospital, Hyderabad",
+            subheading: "Advanced Solutions for Lasting Relief",
+            breadcrumbTitle: "Hip Replacement Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Hip Replacement Surgery, or total hip arthroplasty, is a procedure where damaged hip joint portions are replaced with durable artificial implants. It’s typically for advanced arthritis or severe injury limiting movement. At Stork Multispecialty Hospital, Hyderabad, we combine modern surgical technology with orthopedic expertise to restore pain-free mobility and improve quality of life.`,
+
+            overview: {
+                heading: "Why Patients Prefer Stork Hospital for Hip Replacement",
+                intro: "Modern surgical technology combined with proven orthopedic expertise.",
+                items: [
+                    "Orthopedic surgeons with years of joint replacement experience",
+                    "State-of-the-art diagnostic center for X-ray, MRI, and CT",
+                    "Advanced surgical center with precision navigation",
+                    "24/7 emergency hospital near Hitech City",
+                    "Insurance accepted with complete price transparency",
+                    "Walk-in clinic for prompt consultations",
+                    "Structured physiotherapy programs for faster rehab"
+                ]
+            },
+            fullDescription: [
+                "**What is Hip Replacement Surgery?**",
+                "It involves replacing damaged bone and cartilage with a high-quality artificial implant. The goal is to relieve pain, improve stability, and restore normal movement.",
+                "**Signs You Might Need Surgery**",
+                "Persistent pain, difficulty walking or bending, limited range of motion, and severe joint damage visible on imaging are key indicators."
+            ],
+
+            conditionsHeading: "When is Hip Replacement Advised?",
+            conditionsTreated: [
+                "Advanced Osteoarthritis",
+                "Rheumatoid Arthritis",
+                "Post-traumatic Arthritis",
+                "Avascular Necrosis (AVN)",
+                "Severe Hip Fractures",
+                "Hip Dysplasia",
+                "Ankylosing Spondylitis"
+            ],
+
+            procedureHeading: "How We Perform Hip Replacement",
+            procedureSteps: [
+                {
+                    title: "Assessment & Planning",
+                    description: "Comprehensive evaluation and imaging to create a tailored surgical plan."
+                },
+                {
+                    title: "The Procedure",
+                    description: "Removing damaged tissue and placing a durable implant with alignment correction for stability."
+                },
+                {
+                    title: "Minimally Invasive Techniques",
+                    description: "Prioritizing smaller incisions and tissue preservation for quicker recovery."
+                },
+                {
+                    title: "Post-Surgery Care",
+                    description: "Pain management, early mobilization, and guided physiotherapy to restore strength."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Modern Hip Replacement",
+            benefits: [
+                "Restored pain-free mobility",
+                "Improved joint stability and balance",
+                "Long-lasting implant durability (15-20 years)",
+                "Quicker return to daily activities",
+                "Enhanced quality of life"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Walking: 1-2 Days (with aid)",
+                "Light Activity: 6-12 Weeks",
+                "Full Recovery: Varies"
+            ],
+
+            faqHeading: "FAQs – Hip Replacement Surgery",
+            faqs: [
+                {
+                    question: "How long can a hip replacement last?",
+                    answer: "With proper care, most modern implants last between 15–20 years."
+                },
+                {
+                    question: "When will I start walking again?",
+                    answer: "Most patients are encouraged to walk with assistance within 1–2 days after surgery."
+                },
+                {
+                    question: "When can I resume daily tasks?",
+                    answer: "Generally, light activities can be resumed in 6–12 weeks, depending on recovery speed."
+                },
+                {
+                    question: "Is the surgery covered under insurance?",
+                    answer: "Yes. We work with a wide network of insurance providers and ensure cost transparency."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Hip Replacement Consultation",
+                description: "Don’t let hip pain keep you from living life to the fullest. Book an appointment at Stork Hospital to consult a specialist.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "1-2 Hours",
+                anesthesia: "General / Spinal",
+                hospitalStay: "3-5 Days",
+                recoveryTime: "6-12 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Raghu",
+                role: "Senior Joint Replacement Surgeon",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hoodecomy") {
+        return {
+            slug: slug,
+            title: "Hoodectomy – Stork Hospital, Hyderabad",
+            subheading: "Precision Intimate Surgery for Comfort and Confidence",
+            breadcrumbTitle: "Hoodectomy",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Hoodectomy, also called clitoral hood reduction, is a delicate cosmetic procedure designed to remove excess skin around the clitoris for improved aesthetics, sensation, or hygiene. At Stork Hospital, Hyderabad, we approach this procedure with utmost precision, empathy, and privacy—ensuring that your comfort, safety, and outcomes remain our highest priorities.`,
+
+            overview: {
+                heading: "Why Women Choose Stork Hospital for Hoodectomy",
+                intro: "Specialized cosmetic gynecology services in a private, supportive environment.",
+                items: [
+                    "Highly skilled female surgeons with cosmetic gynecology experience",
+                    "Absolute discretion and personalized care",
+                    "Pain-minimized procedures with advanced techniques",
+                    "Private recovery and short hospital stays",
+                    "Transparent pricing and ethical guidance",
+                    "Focus on both functional and aesthetic satisfaction"
+                ]
+            },
+            fullDescription: [
+                "**What is a Hoodectomy?**",
+                "The clitoral hood is a natural fold of skin covering the clitoris. Excess skin here can cause discomfort, reduced sensitivity, or hygiene issues. Hoodectomy removes this redundant skin to enhance function and appearance while preserving sensitivity.",
+                "**Who Might Benefit?**",
+                "Women experiencing discomfort, reduced stimulation, hygiene issues due to trapped moisture, or those desiring a more balanced vulvar appearance may consider this procedure."
+            ],
+
+            conditionsHeading: "Reasons for Considering Hoodectomy",
+            conditionsTreated: [
+                "Discomfort during intimacy or movement",
+                "Reduced clitoral sensitivity",
+                "Difficulty maintaining hygiene",
+                "Trapped moisture or irritation",
+                "Aesthetic concerns or self-consciousness",
+                "Asymmetry of the clitoral hood"
+            ],
+
+            procedureHeading: "How We Perform Hoodectomy",
+            procedureSteps: [
+                {
+                    title: "Pre-Procedure Consultation",
+                    description: "Private discussion with an expert surgeon to review expectations and evaluate anatomy."
+                },
+                {
+                    title: "The Procedure",
+                    description: "Performed under local anesthesia (30–60 mins), involving fine surgical removal of excess tissue."
+                },
+                {
+                    title: "Precision Techniques",
+                    description: "Ensures no visible scarring and preservation of nerve function."
+                },
+                {
+                    title: "Recovery & Aftercare",
+                    description: "Mild swelling for 3-5 days; return to non-strenuous activity in 2-3 days."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Hoodectomy",
+            benefits: [
+                "Improved aesthetic appearance",
+                "Enhanced clitoral sensitivity",
+                "Better hygiene and comfort",
+                "increased confidence",
+                "Minimal downtime"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Procedure Time: 30-60 Mins",
+                "Back to Activity: 2-3 Days",
+                "Full Recovery: 3-4 Weeks"
+            ],
+
+            faqHeading: "FAQs – Hoodectomy",
+            faqs: [
+                {
+                    question: "Will this procedure affect clitoral sensitivity?",
+                    answer: "No. It is designed to preserve sensory nerves while improving access."
+                },
+                {
+                    question: "Is hoodectomy purely cosmetic?",
+                    answer: "Not always. Many choose it for physical comfort and hygiene improvement."
+                },
+                {
+                    question: "Can I combine this with labiaplasty?",
+                    answer: "Yes. It is often done alongside labiaplasty for full rejuvenation."
+                },
+                {
+                    question: "Is anesthesia required?",
+                    answer: "Usually local anesthesia is sufficient, with optional sedation for comfort."
+                }
+            ],
+
+            customCta: {
+                heading: "Rediscover Comfort and Confidence",
+                description: "Book a private consultation at Stork Hospital—Hyderabad’s destination for advanced intimate procedures.",
+                buttonText: "Book Private Consultation"
+            },
+            meta: {
+                duration: "30-60 Min",
+                anesthesia: "Local / Sedation",
+                hospitalStay: "Outpatient",
+                recoveryTime: "3-4 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Neelima",
+                role: "Senior Cosmetic Gynecologist",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hydrocele") {
+        return {
+            slug: slug,
+            title: "Hydrocele Treatment – Stork Hospital, Hyderabad",
+            subheading: "Advanced and Gentle Solutions for Relief",
+            breadcrumbTitle: "Hydrocele Treatment",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `A hydrocele occurs when fluid collects around one or both testicles, leading to swelling. While generally painless, it can cause heaviness or discomfort. At Stork Multispecialty Hospital, Hyderabad, our expert urologists specialize in diagnosing and treating hydroceles using modern, minimally invasive surgical techniques that ensure quick recovery.`,
+
+            overview: {
+                heading: "Why Patients Trust Stork Hospital for Hydrocele Care",
+                intro: "Expert urological care with a focus on minimal disruption to daily life.",
+                items: [
+                    "Specialized urologists with extensive hydrocelectomy experience",
+                    "Fully equipped diagnostic center for accurate evaluation",
+                    "Advanced surgical center offering minimally invasive techniques",
+                    "24/7 emergency hospital for urgent concerns",
+                    "Insurance accepted with clear, upfront cost estimates",
+                    "Walk-in clinic for easy, same-day consultations",
+                    "Complete aftercare support for complication-free recovery"
+                ]
+            },
+            fullDescription: [
+                "**What is a Hydrocele?**",
+                "It's a collection of fluid around the testicle, often causing painless swelling. While common in newborns, it can persist or develop in adults due to injury or inflammation.",
+                "**Treatment Approach**",
+                "We offer watchful waiting for mild cases and minimally invasive hydrocelectomy for persistent ones, ensuring optimal outcomes and fast healing."
+            ],
+
+            conditionsHeading: "Causes and Symptoms",
+            conditionsTreated: [
+                "Congenital Hydrocele (Incomplete closure)",
+                "Scrotal Injury or Trauma",
+                "Infection or Inflammation",
+                "Soft Swelling in Scrotum",
+                "Heaviness or Fullness Sensation",
+                "Mild Discomfort during activity"
+            ],
+
+            procedureHeading: "Treatment Approaches",
+            procedureSteps: [
+                {
+                    title: "Watchful Waiting",
+                    description: "Regular monitoring for infants and mild cases that may resolve naturally."
+                },
+                {
+                    title: "Hydrocelectomy (Surgery)",
+                    description: "Removal of fluid and sac repair under anesthesia for persistent cases."
+                },
+                {
+                    title: "Minimally Invasive Techniques",
+                    description: "Small incisions to reduce post-surgery downtime and discomfort."
+                },
+                {
+                    title: "Recovery & Aftercare",
+                    description: "Day-care procedure with same-day discharge and quick return to light activities."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Expert Treatment",
+            benefits: [
+                "Relief from heaviness and discomfort",
+                "Improved scrotal appearance",
+                "Prevention of potential complications",
+                "Quick recovery with minimal scarring",
+                "Low recurrence rate"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Surgery: Day-care",
+                "Light Activity: 1 Week",
+                "Full Recovery: 2-3 Weeks"
+            ],
+
+            faqHeading: "FAQs – Hydrocele",
+            faqs: [
+                {
+                    question: "Is a hydrocele harmful?",
+                    answer: "Usually not, but it can cause discomfort and should be evaluated to rule out other conditions."
+                },
+                {
+                    question: "What is the recovery time?",
+                    answer: "Most patients resume light activities within a week and normal routines in 1–2 weeks."
+                },
+                {
+                    question: "Can hydroceles return after treatment?",
+                    answer: "Recurrence is uncommon when the procedure is performed by skilled surgeons."
+                },
+                {
+                    question: "Does insurance cover the surgery?",
+                    answer: "Yes. We accept most insurance plans for hydrocele surgery."
+                }
+            ],
+
+            customCta: {
+                heading: "Get Expert Evaluation",
+                description: "If you have scrotal swelling or discomfort, schedule a consultation with a specialist urologist at Stork Hospital.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "30-45 Min",
+                anesthesia: "Local / General",
+                hospitalStay: "Daycare",
+                recoveryTime: "1-2 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior Urologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "hymenoplasty") {
+        return {
+            slug: slug,
+            title: "Hymenoplasty – Stork Hospital, Hyderabad",
+            subheading: "Discreet Reconstructive Surgery for Personal Healing",
+            breadcrumbTitle: "Hymenoplasty",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Hymenoplasty is a delicate and respectful surgical procedure to restore the hymen—a thin layer of tissue at the vaginal entrance. At Stork Hospital, Hyderabad, we create a safe, judgment-free space where your decision is met with understanding, privacy, and expert care.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Hymenoplasty?",
+                intro: "A private, supportive environment led by an all-women surgical team.",
+                items: [
+                    "All-women surgical and care team for complete comfort",
+                    "Focused on emotional safety and surgical quality",
+                    "Completely private surgical rooms and recovery areas",
+                    "Clear communication and ethical care",
+                    "100% confidential billing and medical records",
+                    "Minimally invasive techniques for fast healing"
+                ]
+            },
+            fullDescription: [
+                "**About the Procedure**",
+                "Hymenoplasty, also called hymenal reconstruction, involves careful suturing or reshaping of hymenal tissue. It aims to recreate a natural-looking hymen, offering personal peace of mind or respecting cultural expectations.",
+                "**Who is a Good Candidate?**",
+                "You may consider this if your hymen ruptured due to sports or other reasons, you are preparing for a cultural event, or you seek personal healing. We prioritize privacy and respect."
+            ],
+
+            conditionsHeading: "Reasons for Consideration",
+            conditionsTreated: [
+                "Rupture due to sports/activity",
+                "Cultural or family expectations",
+                "Personal healing after trauma",
+                "Desire for emotional closure",
+                "Restoration of natural state"
+            ],
+
+            procedureHeading: "What to Expect",
+            procedureSteps: [
+                {
+                    title: "Private Consultation",
+                    description: "A personal session with a female surgeon to review expectations without pressure."
+                },
+                {
+                    title: "The Surgery",
+                    description: "Performed under local anesthesia (30–45 mins) using absorbable sutures."
+                },
+                {
+                    title: "Technique",
+                    description: "Repairing or grafting tissue to recreate a natural look with no visible scarring."
+                },
+                {
+                    title: "Recovery",
+                    description: "Light soreness for 1–2 days; return to work/daily life usually within 2 days."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Choosing Stork",
+            benefits: [
+                "Natural-looking results",
+                "Complete confidentiality",
+                "Emotional and physical healing",
+                "Safe, judgment-free environment",
+                "Expert all-women team"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Procedure: 30-45 Mins",
+                "Back to Work: 2 Days",
+                "Avoid Intimacy: 6 Weeks"
+            ],
+
+            faqHeading: "FAQs – Hymen Repair",
+            faqs: [
+                {
+                    question: "Will the results look natural?",
+                    answer: "Yes, our technique ensures that the restored hymen closely mimics its natural state."
+                },
+                {
+                    question: "Is this procedure painful?",
+                    answer: "Only mild discomfort, easily managed with medications."
+                },
+                {
+                    question: "How long before an event should I schedule it?",
+                    answer: "We suggest scheduling it 4 to 6 weeks in advance of any important event."
+                },
+                {
+                    question: "Will this affect fertility or hormones?",
+                    answer: "No. The hymen is unrelated to internal reproductive organs."
+                }
+            ],
+
+            customCta: {
+                heading: "Reclaim Your Comfort",
+                description: "Book your private hymenoplasty consultation today at Stork Hospital—Hyderabad’s premier center for intimate and respectful women’s health services.",
+                buttonText: "Book Private Consultation"
+            },
+            meta: {
+                duration: "30-45 Min",
+                anesthesia: "Local",
+                hospitalStay: "Outpatient",
+                recoveryTime: "1-2 Days",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Neelima",
+                role: "Senior Gynecologist",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "incisional-hernia") {
+        return {
+            slug: slug,
+            title: "Incisional Hernia Surgery – Stork Hospital, Hyderabad",
+            subheading: "Dedicated Surgical Repair for Post-Surgery Abdominal Wall Defects",
+            breadcrumbTitle: "Incisional Hernia Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `An incisional hernia occurs when tissue protrudes through a weak area in the abdominal muscles, often at the site of a previous surgical incision. At Stork Hospital, Hyderabad, we deliver tailored surgical care to repair incisional hernias and strengthen the abdominal wall for lasting results. We specialize in laparoscopic repair for minimal scarring and faster recovery.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Hernia Surgery?",
+                intro: "Expertise in abdominal wall reconstruction with a focus on durability and comfort.",
+                items: [
+                    "Highly experienced surgeons specializing in hernia repair",
+                    "State-of-the-art sterile operation theatres",
+                    "Premium quality mesh for durable, long-lasting repair",
+                    "Comprehensive care from diagnosis through rehabilitation",
+                    "Preferred hospital for complex hernia repairs in Hyderabad",
+                    "Minimally invasive options for faster healing"
+                ]
+            },
+            fullDescription: [
+                "**What Leads to Incisional Hernia Formation?**",
+                "Weakened tissues or improperly healed incisions from past surgeries can give way to internal pressure, allowing fat or bowel to bulge through. This can happen months or years later.",
+                "**Symptoms to Watch For**",
+                "A noticeable bulge at a scar site, discomfort during activity, or a sense of heaviness are common signs. Left untreated, it can lead to complications like bowel entrapment."
+            ],
+
+            conditionsHeading: "Symptoms & Risk Factors",
+            conditionsTreated: [
+                "Bulge at previous surgical scar",
+                "Discomfort during coughing/bending",
+                "Sense of abdominal pressure",
+                "Localized redness or sensitivity",
+                "Previous abdominal surgery",
+                "Weakened abdominal wall"
+            ],
+
+            procedureHeading: "Surgical Options",
+            procedureSteps: [
+                {
+                    title: "Assessment",
+                    description: "Tailored surgical approach based on medical history, hernia size, and location."
+                },
+                {
+                    title: "Laparoscopic Repair",
+                    description: "Small incisions to place mesh; results in minimal trauma and faster recovery (< 2 hours)."
+                },
+                {
+                    title: "Open Surgical Repair",
+                    description: "Ideal for large/complex hernias; allows thorough reinforcement of the affected area."
+                },
+                {
+                    title: "Recovery",
+                    description: "Walking encouraged within 24-48 hours; light duties resume in 10-14 days."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Surgical Repair",
+            benefits: [
+                "Prevention of serious complications (strangulation)",
+                "Relief from pain and discomfort",
+                "Strengthened abdominal wall",
+                "Minimal scarring (Laparoscopic)",
+                "Durable, long-lasting results with quality mesh"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Hospital Stay: 1 Day",
+                "Light Duties: 10-14 Days",
+                "Avoid Heavy Lifting: 4-6 Weeks"
+            ],
+
+            faqHeading: "FAQs – Incisional Hernia",
+            faqs: [
+                {
+                    question: "Why do incisional hernias occur post-surgery?",
+                    answer: "They typically result from poor healing or increased pressure on the previous surgical site."
+                },
+                {
+                    question: "Can I delay surgery if it doesn't hurt?",
+                    answer: "It’s not advisable as complications like strangulation may develop silently."
+                },
+                {
+                    question: "Is mesh safe for repairing hernias?",
+                    answer: "Yes. Modern meshes are biocompatible and support natural tissue integration."
+                },
+                {
+                    question: "How can I prevent recurrence?",
+                    answer: "Follow recovery protocols, avoid strain, and attend scheduled follow-ups."
+                }
+            ],
+
+            customCta: {
+                heading: "Take Proactive Steps",
+                description: "Contact Stork Hospital, Hyderabad, for expert evaluation and reliable surgical care. Your recovery starts here.",
+                buttonText: "Book Consultation"
+            },
+            meta: {
+                duration: "1-2 Hours",
+                anesthesia: "General",
+                hospitalStay: "1-2 Days",
+                recoveryTime: "4-6 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior General Surgeon",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "inguinal-hernia") {
+        return {
+            slug: slug,
+            title: "Inguinal Hernia Surgery – Stork Hospital, Hyderabad",
+            subheading: "Specialized Groin Hernia Treatment for Faster, Safer Recovery",
+            breadcrumbTitle: "Inguinal Hernia Surgery",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `An inguinal hernia arises when tissue pushes through a weak spot in the lower abdominal wall, typically near the groin. It leads to a visible lump and discomfort. At Stork Hospital, Hyderabad, we provide advanced, patient-focused care with laparoscopic solutions for effective repair and minimal scarring.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Inguinal Hernia Repair",
+                intro: "Leading provider of laparoscopic inguinal hernia surgery in Hyderabad.",
+                items: [
+                    "Expert surgical team with focused hernia repair experience",
+                    "Modern operating rooms and cutting-edge equipment",
+                    "Step-by-step patient care from diagnosis to recovery",
+                    "Use of top-grade surgical mesh for reinforced repair",
+                    "Trusted choice for inguinal hernia treatment in Hyderabad",
+                    "Minimally invasive options for faster healing"
+                ]
+            },
+            fullDescription: [
+                "**Recognizing the Signs and Causes**",
+                "Inguinal hernias are caused by muscle weakness and strain. They can be 'Indirect' (congenital) or 'Direct' (developed later). Symptoms include a noticeable groin bulge, heaviness, and pain during movement.",
+                "**Why Surgery is Needed**",
+                "They do not heal on their own. If left untreated, they can worsen and lead to complications like strangulation. Surgery is the only effective treatment."
+            ],
+
+            conditionsHeading: "Types & Symptoms",
+            conditionsTreated: [
+                "Indirect Inguinal Hernia",
+                "Direct Inguinal Hernia",
+                "Visible Groin Bulge",
+                "Heaviness in Abdomen",
+                "Pain when lifting/bending",
+                "Abdominal Wall Weakness"
+            ],
+
+            procedureHeading: "Tailored Surgical Approaches",
+            procedureSteps: [
+                {
+                    title: "Laparoscopic Repair",
+                    description: "Minimally invasive keyhole surgery using a camera and mesh for reinforcement. Less pain and quick recovery."
+                },
+                {
+                    title: "Open Hernia Repair",
+                    description: "Traditional method for larger/complex hernias. Single incision for direct access and reliable long-term results."
+                },
+                {
+                    title: "Mesh Reinforcement",
+                    description: "High-quality surgical mesh is used to strengthen the weak area and prevent recurrence."
+                },
+                {
+                    title: "Recovery",
+                    description: "Light walking encouraged immediately; return to desk jobs in a week."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Expert Repair",
+            benefits: [
+                "Minimal scarring (Laparoscopic)",
+                "Faster healing and return to normal life",
+                "Long-term comfort and relief",
+                "Reliable repair with low recurrence",
+                "Prevention of serious complications"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Hospital Stay: 1 Day",
+                "Light Work: 7 Days",
+                "Full Recovery: 2-3 Weeks"
+            ],
+
+            faqHeading: "FAQs – Inguinal Hernia",
+            faqs: [
+                {
+                    question: "Can inguinal hernias heal without an operation?",
+                    answer: "No. Surgery is necessary to correct the condition and prevent complications."
+                },
+                {
+                    question: "How long will I need to recover?",
+                    answer: "Recovery is generally 7–14 days for laparoscopic cases; open surgery may take slightly longer."
+                },
+                {
+                    question: "Is surgical mesh safe?",
+                    answer: "Yes. Mesh is medically approved, durable, and integrates well with body tissue."
+                },
+                {
+                    question: "Is hernia recurrence common?",
+                    answer: "No, recurrence is rare when patients follow post-surgery instructions."
+                }
+            ],
+
+            customCta: {
+                heading: "Don’t Ignore Groin Pain",
+                description: "Choose Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad. Book your appointment today.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "45-90 Min",
+                anesthesia: "General / Spinal",
+                hospitalStay: "1 Day",
+                recoveryTime: "2-3 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior General Surgeon",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "intragastric-balloon") {
+        return {
+            slug: slug,
+            title: "Intragastric Balloon Procedure – Stork Hospital, Hyderabad",
+            subheading: "Lose Weight Safely Without Surgery",
+            breadcrumbTitle: "Intragastric Balloon",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `The intragastric balloon is an FDA-approved, non-invasive weight loss treatment designed to help you reduce appetite and achieve sustainable weight loss. At Stork Multispecialty Hospital, Hyderabad, we offer this procedure for individuals looking for a medically supported method to lose weight without anesthesia, stitches, or long hospital stays.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Gastric Balloon Procedures?",
+                intro: "Complete, patient-centered care from pre-procedure to post-removal lifestyle coaching.",
+                items: [
+                    "Trained bariatric specialists with endoscopic expertise",
+                    "Personalized consultations and weight loss planning",
+                    "Full access to diagnostic services under one roof",
+                    "Walk-in consultation facility near Kondapur",
+                    "Transparent weight loss treatment packages",
+                    "Insurance accepted for diagnostics (where applicable)",
+                    "Focus on results with minimized discomfort"
+                ]
+            },
+            fullDescription: [
+                "**What is it and How Does it Work?**",
+                "A soft, inflatable silicone balloon is placed in the stomach via endoscopy and filled with saline. It occupies space, reducing hunger and food intake.",
+                "**Procedure Details**",
+                "No incisions required. Done under mild sedation in <30 minutes. The balloon is removed after 6 months."
+            ],
+
+            conditionsHeading: "Ideal Candidates",
+            conditionsTreated: [
+                "BMI between 27 and 35",
+                "Overweight but not ready for surgery",
+                "Seeking non-surgical weight loss",
+                "Need for appetite control",
+                "Commitment to lifestyle changes"
+            ],
+
+            procedureHeading: "Step-by-Step Process",
+            procedureSteps: [
+                {
+                    title: "Initial Assessment",
+                    description: "Evaluation with a non-surgical weight loss specialist and pre-procedure health screening."
+                },
+                {
+                    title: "Placement",
+                    description: "20–30 minute endoscopic session to place and fill the balloon under mild sedation."
+                },
+                {
+                    title: "Monitoring",
+                    description: "Regular nutrition counseling and weight tracking during the 6-month placement period."
+                },
+                {
+                    title: "Removal",
+                    description: "Simple endoscopic removal after 6 months to reset eating patterns."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Intragastric Balloon",
+            benefits: [
+                "Non-surgical with no permanent changes",
+                "Decreased food intake & better portion control",
+                "Improved energy and physical activity",
+                "Reversible with professional support",
+                "Access to multidisciplinary weight management team"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Procedure: < 30 Minutes",
+                "Hospital Stay: Same Day Discharge",
+                "Full Recovery: 1-2 Days"
+            ],
+
+            faqHeading: "FAQs – Intragastric Balloon",
+            faqs: [
+                {
+                    question: "Is this a good alternative to surgery?",
+                    answer: "Yes, perfect for those wanting to avoid surgery but needing help with moderate weight loss."
+                },
+                {
+                    question: "How soon will I see results?",
+                    answer: "Noticeable changes often start in the first month, with 10%–15% total body weight loss over 6 months."
+                },
+                {
+                    question: "Are there side effects?",
+                    answer: "Temporary nausea or cramping may occur in the first few days but usually subsides quickly."
+                },
+                {
+                    question: "Is it covered by insurance?",
+                    answer: "Coverage varies; we assist with documentation and offer flexible payment options."
+                }
+            ],
+
+            customCta: {
+                heading: "Begin Your Journey",
+                description: "Choose the intragastric balloon at Stork Hospital for a non-surgical, results-driven program. Book your consultation today.",
+                buttonText: "Book Consultation"
+            },
+            meta: {
+                duration: "20-30 Min",
+                anesthesia: "Mild Sedation",
+                hospitalStay: "Daycare",
+                recoveryTime: "1-2 Days",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior Bariatric Specialist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "kidney-stones") {
+        return {
+            slug: slug,
+            title: "Kidney Stones Treatment – Stork Hospital, Hyderabad",
+            subheading: "Effective and Patient-Focused Kidney Stone Care",
+            breadcrumbTitle: "Kidney Stones",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Kidney stones are hard mineral deposits that form when urine becomes concentrated. At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advanced diagnostic tools and modern treatment techniques like laser lithotripsy to remove stones safely, relieve symptoms, and prevent recurrence.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Leading Choice",
+                intro: "Expert urologists with years of experience in stone management.",
+                items: [
+                    "Expert urologists with years of experience in stone management",
+                    "Fully equipped diagnostic center for accurate detection",
+                    "Advanced surgical center (Minimally Invasive & Laser)",
+                    "24/7 emergency hospital for urgent cases",
+                    "Insurance accepted with transparent cost estimates",
+                    "Walk-in clinic for quick specialist access",
+                    "Preventive advice tailored to your needs"
+                ]
+            },
+            fullDescription: [
+                "**What Causes Kidney Stones?**",
+                "Low fluid intake, high sodium/protein diets, and certain health conditions can lead to concentrated urine, allowing crystals to form. While small stones may pass, larger ones need removal.",
+                "**Symptoms to Watch For**",
+                "Sharp pain in the back or side, pain during urination, and bloody or cloudy urine are common signs. Nausea and fever may indicate infection."
+            ],
+
+            conditionsHeading: "Causes and Risk Factors",
+            conditionsTreated: [
+                "Low fluid intake (Dehydration)",
+                "High sodium/protein diet",
+                "Obesity/Limited activity",
+                "Family history of stones",
+                "Recurrent UTIs",
+                "Metabolic disorders"
+            ],
+
+            procedureHeading: "Treatment Approaches",
+            procedureSteps: [
+                {
+                    title: "Non-Surgical Management",
+                    description: "For small stones: Increased hydration, pain relief, and medication to speed up passage."
+                },
+                {
+                    title: "Ureteroscopy (URS)",
+                    description: "Removing or breaking stones using a thin scope passed through the urinary tract."
+                },
+                {
+                    title: "Laser Lithotripsy",
+                    description: "High-precision laser to fragment stones with minimal tissue impact."
+                },
+                {
+                    title: "PCNL / SWL",
+                    description: "For larger stones: Small-incision surgery (PCNL) or sound wave therapy (SWL) to break stones."
+                }
+            ],
+
+            benefitsHeading: "Recovery and Prevention",
+            benefits: [
+                "Relief from severe pain",
+                "Prevention of kidney damage",
+                "Minimally invasive options available",
+                "Customized prevention plans",
+                "Quick recovery with modern techniques"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Diagnosis: Immediate",
+                "Procedure: 30-60 Mins",
+                "Recovery: 1-2 Days"
+            ],
+
+            faqHeading: "FAQs – Kidney Stones",
+            faqs: [
+                {
+                    question: "Do all kidney stones require surgery?",
+                    answer: "No. Small stones can often pass naturally with medication and hydration."
+                },
+                {
+                    question: "Will the treatment be painful?",
+                    answer: "Advanced anesthesia and minimally invasive techniques ensure minimal discomfort."
+                },
+                {
+                    question: "How can I prevent recurrence?",
+                    answer: "Stay well-hydrated, eat a balanced diet, and limit excess salt and animal protein."
+                },
+                {
+                    question: "Does insurance cover treatment?",
+                    answer: "Yes. Stork Hospital works with most insurance providers for kidney stone care."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Consultation",
+                description: "If you’re experiencing back pain or urinary difficulty, meet a urologist at Stork Hospital for expert treatment.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "30-60 Min",
+                anesthesia: "Spinal / General",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "1-2 Days",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Venu Gopal",
+                role: "Senior Urologist",
+                experience: "20+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "knee-arthroscopy") {
+        return {
+            slug: slug,
+            title: "Knee Arthroscopy – Stork Hospital, Hyderabad",
+            subheading: "Modern Keyhole Surgery for Knee Health",
+            breadcrumbTitle: "Knee Arthroscopy",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Knee arthroscopy is a minimally invasive surgical method that uses tiny incisions and a camera (arthroscope) to view and treat problems inside the knee joint. At Stork Multispecialty Hospital, Hyderabad, we use arthroscopy to manage a wide variety of knee issues—from sports-related ligament injuries to early arthritis—allowing patients to recover faster and with less post-operative discomfort.`,
+
+            overview: {
+                heading: "Why Stork Hospital is the Go-To for Knee Arthroscopy",
+                intro: "Advanced surgical center designed for precision minimally invasive surgery.",
+                items: [
+                    "Specialized orthopedic surgeons skilled in sports medicine",
+                    "In-house diagnostic center with MRI/CT",
+                    "Advanced surgical center for precision procedures",
+                    "24/7 emergency hospital for knee trauma",
+                    "Insurance accepted with upfront, clear billing",
+                    "Walk-in clinic for quick access",
+                    "Tailored physiotherapy programs"
+                ]
+            },
+            fullDescription: [
+                "**What is Knee Arthroscopy?**",
+                "It's a minimally invasive procedure using a camera to view and treat knee problems. Real-time visuals allow for highly accurate repairs with minimal disruption to surrounding tissues.",
+                "**Conditions Treated**",
+                "We treat meniscus tears, ACL/PCL injuries, cartilage damage, loose fragments, synovitis, and early arthritis using this technique."
+            ],
+
+            conditionsHeading: "When is it Recommended?",
+            conditionsTreated: [
+                "Meniscus damage or tears",
+                "ACL and PCL ligament injuries",
+                "Worn or damaged cartilage",
+                "Loose bone/cartilage fragments",
+                "Joint lining inflammation (synovitis)",
+                "Patella misalignment/instability",
+                "Early arthritis intervention"
+            ],
+
+            procedureHeading: "Step-by-Step Approach",
+            procedureSteps: [
+                {
+                    title: "Pre-Surgery",
+                    description: "Comprehensive evaluation, imaging tests, and preparation guidance."
+                },
+                {
+                    title: "During Surgery",
+                    description: "Small incisions made; arthroscope inserted for targeted repair or removal of damaged tissue."
+                },
+                {
+                    title: "After Surgery",
+                    description: "Same-day discharge for many; pain/swelling managed with medication and cold therapy."
+                },
+                {
+                    title: "Rehabilitation",
+                    description: "Gradual physiotherapy to restore motion and stability."
+                }
+            ],
+
+            benefitsHeading: "Recovery Journey with Stork",
+            benefits: [
+                "Minimally invasive procedure",
+                "Personalized treatment planning",
+                "Faster recovery than open surgery",
+                "Less post-operative discomfort",
+                "Guided rehabilitation by physiotherapy team"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Hospital Stay: Daycare / 1 Day",
+                "Walking: Within 24 Hours",
+                "Full Recovery: 4-6 Weeks"
+            ],
+
+            faqHeading: "FAQs – Knee Arthroscopy",
+            faqs: [
+                {
+                    question: "Will I feel pain after surgery?",
+                    answer: "Discomfort is mild and well-controlled with prescribed medication."
+                },
+                {
+                    question: "When can I resume walking?",
+                    answer: "Most patients start walking with assistance within a day of surgery."
+                },
+                {
+                    question: "How long does recovery take?",
+                    answer: "Many people return to regular routines in 4–6 weeks."
+                },
+                {
+                    question: "Does insurance cover this procedure?",
+                    answer: "Yes. Stork Hospital works with most insurance providers and offers cost transparency."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Appointment Today",
+                description: "If knee pain or injury is affecting your daily life, consult a knee arthroscopy specialist at Stork Hospital for advanced, minimally invasive treatment.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "45-90 Min",
+                anesthesia: "Spinal / General",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "4-6 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Raghu",
+                role: "Senior Orthopedic Surgeon",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
+
+
+    if (slug === "knee-pain") {
+        return {
+            slug: slug,
+            title: "Knee Pain Treatment – Stork Hospital, Hyderabad",
+            subheading: "Advanced Joint Solutions to Keep You Moving Pain-Free",
+            breadcrumbTitle: "Knee Pain Treatment",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Knee pain can significantly impact your ability to stay active, whether it’s walking, bending, or climbing stairs. At Stork Hospital, Hyderabad, we specialize in diagnosing and treating knee-related conditions using a combination of cutting-edge diagnostics, minimally invasive methods, and individualized care to restore comfort and mobility.`,
+
+            overview: {
+                heading: "Why Do Knees Hurt?",
+                intro: "Knee pain is often the result of underlying mechanical or structural problems.",
+                items: [
+                    "Ligament sprains or tears (ACL, MCL, PCL, LCL)",
+                    "Meniscus injuries from twisting",
+                    "Osteoarthritis (progressive joint damage)",
+                    "Rheumatoid arthritis (autoimmune)",
+                    "Tendonitis or Bursitis (inflammation)",
+                    "Sports-related injuries or trauma",
+                    "Poor body mechanics or excess weight"
+                ]
+            },
+            fullDescription: [
+                "**Evaluation and Personalized Strategy**",
+                "We begin with a detailed examination of joint function and pain history. Advanced diagnostics like X-rays, MRI, and ultrasound help us identify the exact source of discomfort.",
+                "**Treatment Philosophy**",
+                "We emphasize non-surgical approaches first. Surgical correction is only explored when other methods have been exhausted or if the knee is severely damaged."
+            ],
+
+            conditionsHeading: "Common Signs & Symptoms",
+            conditionsTreated: [
+                "Swelling or stiffness",
+                "Instability or locking",
+                "Reduced range of motion",
+                "Pain when walking/bending",
+                "Popping or crunching sounds",
+                "Redness or warmth"
+            ],
+
+            procedureHeading: "Treatment Approaches",
+            procedureSteps: [
+                {
+                    title: "Conservative Care",
+                    description: "Physiotherapy, anti-inflammatory medication, and lifestyle coaching to reduce knee stress."
+                },
+                {
+                    title: "Injections & Support",
+                    description: "PRP therapy, hyaluronic acid injections, and supportive braces/orthotics."
+                },
+                {
+                    title: "Minimally Invasive",
+                    description: "Arthroscopic surgery for precision repair of ligaments and cartilage if needed."
+                },
+                {
+                    title: "Surgical Intervention",
+                    description: "Advanced surgical options for severe damage, ensuring long-term relief."
+                }
+            ],
+
+            benefitsHeading: "Why Stork Hospital is Trusted",
+            benefits: [
+                "Team of seasoned orthopedic consultants",
+                "Integrated care (symptoms + root cause)",
+                "Advanced imaging & physiotherapy infrastructure",
+                "Emphasis on restoring full function",
+                "Recognized top facility for knee care"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Diagnosis: Immediate",
+                "Relief: 2-4 Weeks (Conservative)",
+                "Full Recovery: Varies by Condition"
+            ],
+
+            faqHeading: "FAQs – Knee Pain Care",
+            faqs: [
+                {
+                    question: "Is surgery needed for all knee pain?",
+                    answer: "No. Most knee problems respond well to non-surgical therapies and rehabilitation."
+                },
+                {
+                    question: "What symptoms suggest serious injury?",
+                    answer: "Locking, severe swelling, or pain that lingers for over a week should be checked."
+                },
+                {
+                    question: "Can young people have chronic knee pain?",
+                    answer: "Yes. Athletes and active individuals of all ages can experience persistent issues."
+                },
+                {
+                    question: "How quickly can I recover?",
+                    answer: "Improvements are often felt in 2–4 weeks with consistent care."
+                }
+            ],
+
+            customCta: {
+                heading: "Take the First Step",
+                description: "Visit Stork Hospital, Hyderabad, for expert diagnosis, innovative therapies, and long-term relief from knee pain.",
+                buttonText: "Book Consultation"
+            },
+            meta: {
+                duration: "30-45 Min (Consult)",
+                anesthesia: "N/A",
+                hospitalStay: "Outpatient",
+                recoveryTime: "2-4 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Dr. Raghu",
+                role: "Senior Orthopedic Surgeon",
+                experience: "15+ Years Experience"
+            }
+        }
+    }
+
     // 3. Return Premium Placeholder Content (Default)
     return {
         slug: slug,
