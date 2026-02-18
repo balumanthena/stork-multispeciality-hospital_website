@@ -35,11 +35,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     )
 
+    // Use ref to track if initial load is done to avoid adding 'settings' to dependency array
+    const hasLoadedRef = React.useRef(false)
+
     const fetchSettings = React.useCallback(async () => {
         try {
-            // Only set loading true on initial fetch if we don't have settings yet
-            // This prevents UI flickering during background re-fetches/polling
-            if (!settings) setIsLoading(true)
+            // Only set loading true on initial fetch
+            if (!hasLoadedRef.current) setIsLoading(true)
 
             const { data, error } = await supabase
                 .from("site_settings")
@@ -53,14 +55,15 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
                 }
             } else if (data) {
                 setSettings(data as SiteSettings)
+                hasLoadedRef.current = true
             }
         } catch (err: unknown) {
-            console.error("Error fetching settings:", err)
+            console.error("Error fetching settings:", JSON.stringify(err, null, 2))
             setError(err as Error)
         } finally {
             setIsLoading(false)
         }
-    }, [supabase, settings])
+    }, [supabase])
 
     React.useEffect(() => {
         let mounted = true

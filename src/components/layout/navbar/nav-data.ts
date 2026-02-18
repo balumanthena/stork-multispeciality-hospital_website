@@ -74,6 +74,12 @@ export const TREATMENTS: MegaMenuSection[] = [
             { title: "Hip Pain", href: "/treatments/hip-pain" },
             { title: "Total Knee Replacement", href: "/treatments/total-knee-replacement" },
             { title: "Spine Surgery", href: "/treatments/spine-surgery" },
+            { title: "Rotator Cuff Repair", href: "/treatments/rotator-cuff-repair" },
+            { title: "Shoulder Arthroscopy", href: "/treatments/shoulder-arthroscopy" },
+            { title: "Shoulder Dislocation", href: "/treatments/shoulder-dislocation" },
+            { title: "Shoulder Replacement", href: "/treatments/shoulder-replacement" },
+            { title: "Sports Injury", href: "/treatments/sports-injury" },
+            { title: "Meniscus Tear", href: "/treatments/meniscus-tear" },
         ]
     },
     {
@@ -86,6 +92,12 @@ export const TREATMENTS: MegaMenuSection[] = [
             { title: "URSL", href: "/treatments/ursl" },
             { title: "Circumcision", href: "/treatments/circumcision" },
             { title: "Varicocele", href: "/treatments/varicocele" },
+            { title: "Paraphimosis", href: "/treatments/paraphimosis" },
+            { title: "Phimosis", href: "/treatments/phimosis" },
+            { title: "Prostatectomy", href: "/treatments/prostatectomy" },
+            { title: "RIRS", href: "/treatments/rirs" },
+            { title: "Stapler Circumcision", href: "/treatments/stapler-circumcision" },
+            { title: "Swollen Penis", href: "/treatments/swollen-penis" },
         ]
     },
     {
@@ -98,6 +110,10 @@ export const TREATMENTS: MegaMenuSection[] = [
             { title: "Hysterectomy", href: "/treatments/hysterectomy" },
             { title: "Labiaplasty", href: "/treatments/labiaplasty" },
             { title: "Vaginoplasty", href: "/treatments/vaginoplasty" },
+            { title: "Monsplasty", href: "/treatments/monsplasty" },
+            { title: "Postpartum Care", href: "/treatments/postpartum-care" },
+            { title: "Prenatal Care", href: "/treatments/prenatal-care" },
+            { title: "Surgical Interventions", href: "/treatments/surgical-interventions" },
         ]
     },
     {
@@ -108,8 +124,49 @@ export const TREATMENTS: MegaMenuSection[] = [
             { title: "Rhinoplasty", href: "/treatments/rhinoplasty" },
             { title: "Tonsillectomy", href: "/treatments/tonsillectomy" },
             { title: "Nasal Polyps", href: "/treatments/nasal-polyps" },
-            { title: "Sinus", href: "/treatments/sinus" },
+            { title: "Sinus Treatment", href: "/treatments/sinus-treatment" },
             { title: "Vocal Cord Polyps", href: "/treatments/vocal-cord-polyps" },
+            { title: "Mastoidectomy", href: "/treatments/mastoidectomy" },
+            { title: "Myringotomy", href: "/treatments/myringotomy" },
+            { title: "Stapedectomy", href: "/treatments/stapedectomy" },
+            { title: "Throat Surgery", href: "/treatments/throat-surgery" },
+            { title: "Turbinate Reduction", href: "/treatments/turbinate-reduction" },
+            { title: "Tympanoplasty", href: "/treatments/tympanoplasty" },
+        ]
+    },
+    {
+        title: "PSYCHIATRY",
+        slug: "psychiatry",
+        items: [
+            { title: "Mental Health", href: "/treatments/mental-health" },
+        ]
+    },
+    {
+        title: "ENDOCRINOLOGY",
+        slug: "endocrinology",
+        items: [
+            { title: "Metabolic & Endocrine Disorders", href: "/treatments/metabolic-endocrine-disorders" },
+            { title: "Thyroidectomy", href: "/treatments/thyroidectomy" },
+        ]
+    },
+    {
+        title: "PROCTOLOGY",
+        slug: "proctology",
+        items: [
+            { title: "Perianal Abscess", href: "/treatments/perianal-abscess" },
+            { title: "Piles (Hemorrhoids)", href: "/treatments/piles-hemorrhoids" },
+            { title: "Pilonidal Sinus", href: "/treatments/pilonidal-sinus" },
+            { title: "Rectal Prolapse", href: "/treatments/rectal-prolapse" },
+        ]
+    },
+
+    {
+        title: "VASCULAR SURGERY",
+        slug: "vascular-surgery",
+        items: [
+            { title: "Varicose Veins", href: "/treatments/varicose-veins" },
+            { title: "DVT Treatment", href: "/treatments/dvt-treatment" }, // Placeholder for future
+            { title: "Diabetic Foot Ulcer", href: "/treatments/diabetic-foot-ulcer" }, // Placeholder for future
         ]
     },
 ]
