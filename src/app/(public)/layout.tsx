@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { MobileBottomBar } from "@/components/layout/mobile-bottom-bar"
+
 import { getActiveDepartments } from "@/lib/data/departments-server"
 import { getGroupedTreatments } from "@/lib/data/grouped-treatments"
 
@@ -20,7 +20,7 @@ export default async function PublicLayout({
                 {children}
             </main>
             <Footer />
-            <MobileBottomBar />
+
         </div>
     )
 }

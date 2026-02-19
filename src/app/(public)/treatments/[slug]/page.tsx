@@ -272,11 +272,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
 
                             {/* VIDEO SECTION (Integrated) */}
-                            {videos.length > 0 && (
-                                <div id="video" className="scroll-mt-32">
-                                    <VideoSection videos={videos} variant="compact" />
-                                </div>
-                            )}
+
 
                             {/* FAQ - Accordion */}
                             <div id="faq" className="scroll-mt-32">
@@ -295,6 +291,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     ))}
                                 </div>
                             </div>
+
+
                         </div>
 
                         {/* RIGHT SIDEBAR (Sticky) - 4 Cols */}
@@ -309,6 +307,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                     </div>
                 </div>
             </Section>
+
+            {/* VIDEO SECTION (Standalone) */}
+            {videos.length > 0 && (
+                <div id="video" className="scroll-mt-32">
+                    <VideoSection videos={videos} variant="compact" />
+                </div>
+            )}
 
             {/* FINAL CTA REDESIGN */}
             <Section className="py-24 bg-slate-900 relative overflow-hidden">
@@ -330,14 +335,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                         <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">
                             {treatment.customCta?.buttonText || "Book Appointment Now"}
                         </Button>
-                        <Button variant="outline" className="h-auto border-2 border-white/20 text-white hover:bg-white/10 px-10 py-5 rounded-full text-xl font-bold w-full sm:w-auto">
-                            <span className="mr-2 opacity-80">or Call</span> 108
-                        </Button>
                     </div>
-                    <p className="mt-8 text-sm text-slate-400 font-medium flex items-center justify-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-green-500" />
-                        No-Wait Booking Confirmed Instantly
-                    </p>
+
                 </div>
             </Section>
 

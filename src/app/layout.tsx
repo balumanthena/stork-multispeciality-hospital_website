@@ -18,6 +18,8 @@ import { SettingsProvider } from "@/providers/SettingsProvider";
 
 
 
+import { MobileNav } from "@/components/layout/mobile-nav";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,6 +36,7 @@ export default function RootLayout({
         <SettingsProvider>
           {children}
         </SettingsProvider>
+        <MobileNav />
         <Toaster />
       </body>
     </html>
