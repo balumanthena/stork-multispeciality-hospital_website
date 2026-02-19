@@ -5,6 +5,8 @@ import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { TreatmentScrollspy } from "@/components/treatments/treatment-scrollspy"
+import { VideoSection } from "@/components/treatments/video-section"
+import { createClient } from "@/lib/supabase/server"
 import {
     Calendar, CheckCircle2, AlertCircle, Clock,
     ArrowRight, ChevronRight, Activity, ShieldCheck,
@@ -28,6 +30,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 }
 
+async function getTreatmentVideos(slug: string) {
+    const supabase = await createClient()
+
+    // 1. Get Treatment ID by Slug
+    const { data: treatmentData } = await supabase
+        .from("treatments")
+        .select("id")
+        .eq("slug", slug)
+        .single()
+
+    if (!treatmentData?.id) return []
+
+    // 2. Get Videos
+    const { data: videos } = await supabase
+        .from("treatment_videos")
+        .select("*")
+        .eq("treatment_id", treatmentData.id)
+        .eq("is_active", true)
+        .order("created_at", { ascending: false })
+
+    return videos || []
+}
+
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const treatment = getTreatmentDetail(slug)
@@ -38,6 +63,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
     // Resolve Icon
     const TreatmentIcon = getTreatmentIcon(treatment.slug, treatment.category)
+
+    // Fetch Videos (Server Side)
+    const videos = await getTreatmentVideos(slug)
 
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
@@ -146,7 +174,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                 </div>
             </Section>
 
-            {/* 2. AT A GLANCE STRIP */}
 
 
             {/* 3. MAIN CONTENT LAYOUT */}
@@ -188,6 +215,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     </>
                                 )}
                             </div>
+
+
 
                             {/* SYMPTOMS - Checklist UI */}
                             <div id="conditions" className="scroll-mt-32">
@@ -242,6 +271,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                             {/* DOCTOR REVIEW BLOCK */}
 
 
+                            {/* VIDEO SECTION (Integrated) */}
+                            {videos.length > 0 && (
+                                <div id="video" className="scroll-mt-32">
+                                    <VideoSection videos={videos} variant="compact" />
+                                </div>
+                            )}
+
                             {/* FAQ - Accordion */}
                             <div id="faq" className="scroll-mt-32">
                                 <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.faqHeading || "Frequently Asked Questions"}</h2>
@@ -267,8 +303,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
                                 {/* On This Page Navigation */}
                                 <TreatmentScrollspy />
-
-
 
                             </div>
                         </div>

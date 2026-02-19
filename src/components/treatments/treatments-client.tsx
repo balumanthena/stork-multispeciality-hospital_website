@@ -23,7 +23,11 @@ const REGION_LABELS: Record<BodyRegion, string> = {
     "arms": "Arms & Shoulders",
     "legs": "Legs & Joints",
     "skin-oncology": "Skin & Oncology",
-    "mental-health": "Mental Health"
+    "mental-health": "Mental Health",
+    "oncology": "Oncology",
+    "vascular": "Vascular",
+    "plastic-surgery": "Plastic Surgery",
+    "pain-management": "Pain Management"
 }
 
 export function TreatmentsClient({ groupedTreatments }: TreatmentsClientProps) {

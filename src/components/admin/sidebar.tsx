@@ -3,12 +3,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope } from "lucide-react"
+import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope, PlayCircle } from "lucide-react"
 
 const sidebarLinks = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
     { name: "Departments", href: "/admin/departments", icon: Building2 },
     { name: "Treatments", href: "/admin/treatments", icon: Stethoscope },
+    { name: "Videos", href: "/admin/videos", icon: PlayCircle },
     { name: "Blogs", href: "/admin/blogs", icon: FileText },
     { name: "Settings", href: "/admin/settings", icon: Settings },
 ]
@@ -17,7 +18,7 @@ export function AdminSidebar() {
     const pathname = usePathname()
 
     return (
-        <div className="flex h-screen w-64 flex-col bg-white border-r border-slate-200 text-slate-600">
+        <div className="sticky top-0 flex h-screen w-64 flex-col bg-white border-r border-slate-200 text-slate-600">
             {/* Logo Area */}
             <div className="flex h-16 items-center px-6 border-b border-slate-100">
                 <div className="flex items-center gap-2 font-bold text-xl text-slate-900">

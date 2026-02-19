@@ -1,12 +1,12 @@
 import {
     Activity, Heart, Brain, Bone, Stethoscope, Baby,
     Scissors, Dna, Ear, UserMinus, TestTube, Utensils,
-    Wind, Sparkles, Siren, Eye, Smile, Tablet,
-    Thermometer, Microscope, Syringe, Pill,
-    Bandage, Cross, HeartPulse,
-    Accessibility, Bluetooth as Tooth, Scale,
+    Wind, Sparkles, Siren,
+    Microscope, Pill,
+    HeartPulse,
+    Accessibility, Scale,
     LucideIcon, Footprints, Zap, Droplets, Layers,
-    CircleDot, Volume2, User, UserCheck, Stethoscope as GeneralMed
+    CircleDot, Volume2, User
 } from "lucide-react"
 
 // Default Icon
