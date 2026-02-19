@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const treatment = getTreatmentDetail(slug)
-    if (!treatment) return { title: "Treatment Not Found" }
+    if (!treatment) return { title: "Procedure Not Found" }
 
     return {
         title: `${treatment.title} | Stork Multispecialty Hospital`,
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 }
 
-export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProcedureDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const treatment = getTreatmentDetail(slug)
 
@@ -48,7 +48,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
-                        <Link href="/treatments" className="hover:text-[#3e7dca] transition-colors">Treatments</Link>
+                        <Link href="/procedures" className="hover:text-[#3e7dca] transition-colors">Procedures</Link>
                         <ChevronRight className="w-4 h-4" />
                         <Link href={treatment.departmentHref} className="hover:text-[#3e7dca] transition-colors">{treatment.category}</Link>
                         <ChevronRight className="w-4 h-4" />
@@ -179,7 +179,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     </>
                                 ) : (
                                     <>
-                                        <h2 className="text-3xl font-bold text-[#0f172a] mb-8">About The Treatment</h2>
+                                        <h2 className="text-3xl font-bold text-[#0f172a] mb-8">About The Procedure</h2>
                                         <div className="prose prose-lg text-slate-600 space-y-6">
                                             {treatment.fullDescription.map((desc, i) => (
                                                 <p key={i}>{desc}</p>

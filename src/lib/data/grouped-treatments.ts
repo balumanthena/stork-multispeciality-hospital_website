@@ -14,6 +14,10 @@ export type BodyRegion =
     | "legs"
     | "skin-oncology"
     | "mental-health"
+    | "oncology"
+    | "vascular"
+    | "plastic-surgery"
+    | "pain-management"
 
 export type GroupedTreatmentCategory = {
     title: string;

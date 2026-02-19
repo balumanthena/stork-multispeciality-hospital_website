@@ -7,6 +7,7 @@ import {
     Sparkles, Siren, Activity,
     LucideIcon
 } from "lucide-react"
+import { HARDCODED_PROCEDURES } from "@/lib/data/hardcoded-procedures"
 
 export type NavItem = {
     title: string
@@ -171,54 +172,4 @@ export const TREATMENTS: MegaMenuSection[] = [
     },
 ]
 
-export const PROCEDURES: MegaMenuSection[] = [
-    {
-        title: "GENERAL & LAPAROSCOPIC",
-        slug: "general-bariatric", // Corrected slug based on departments
-        items: [
-            { title: "Laparoscopic Surgery", href: "/procedures/laparoscopic-surgery" },
-            { title: "Appendectomy", href: "/procedures/appendectomy" },
-            { title: "Hernia Surgery", href: "/procedures/hernia-surgery" },
-            { title: "Gallbladder Surgery", href: "/procedures/gallbladder-surgery" },
-        ]
-    },
-    {
-        title: "ORTHOPAEDICS",
-        slug: "orthopaedics",
-        items: [
-            { title: "Arthroscopy", href: "/procedures/arthroscopy" },
-            { title: "Knee Replacement", href: "/procedures/knee-replacement" },
-            { title: "Hip Replacement", href: "/procedures/hip-replacement" },
-            { title: "Spine Surgery", href: "/procedures/spine-surgery" },
-        ]
-    },
-    {
-        title: "ENT",
-        slug: "ent",
-        items: [
-            { title: "Septoplasty", href: "/procedures/septoplasty" },
-            { title: "Rhinoplasty", href: "/procedures/rhinoplasty" },
-            { title: "Tonsillectomy", href: "/procedures/tonsillectomy" },
-            { title: "Tympanoplasty", href: "/procedures/tympanoplasty" },
-        ]
-    },
-    {
-        title: "UROLOGY",
-        slug: "urology",
-        items: [
-            { title: "URSL", href: "/procedures/ursl" },
-            { title: "PCNL", href: "/procedures/pcnl" },
-            { title: "ESWL", href: "/procedures/eswl" },
-            { title: "Circumcision", href: "/procedures/circumcision" },
-        ]
-    },
-    {
-        title: "GYNAECOLOGY",
-        slug: "gynaecology",
-        items: [
-            { title: "C-Section", href: "/procedures/c-section" },
-            { title: "Hysterectomy", href: "/procedures/hysterectomy" },
-            { title: "Myomectomy", href: "/procedures/myomectomy" },
-        ]
-    },
-]
+export const PROCEDURES = HARDCODED_PROCEDURES

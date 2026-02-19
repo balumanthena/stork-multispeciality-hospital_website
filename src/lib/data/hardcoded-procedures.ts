@@ -1,15 +1,16 @@
 import { GroupedTreatmentCategory } from "./grouped-treatments"
 
+// MASTER PROCEDURES LIST (25 ITEMS ONLY)
 export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [
     {
         title: "GENERAL & LAPAROSCOPIC",
         slug: "general-laparoscopic",
         href: "/departments/general-surgery",
         items: [
-            { title: "Laparoscopic Surgery", href: "/procedures/laparoscopic-surgery", body_region: "abdomen" },
             { title: "Appendectomy", href: "/procedures/appendectomy", body_region: "abdomen" },
-            { title: "Hernia Surgery", href: "/procedures/hernia-surgery", body_region: "abdomen" },
-            { title: "Gallbladder Surgery", href: "/procedures/gallbladder-surgery", body_region: "abdomen" },
+            { title: "Lipoma / Sebaceous Cyst Removal", href: "/procedures/lipoma-removal", body_region: "skin-oncology" },
+            { title: "Thyroidectomy", href: "/procedures/thyroidectomy", body_region: "ent" },
+            { title: "Umbilical Hernia Repair", href: "/procedures/umbilical-hernia-repair", body_region: "abdomen" },
         ]
     },
     {
@@ -17,10 +18,18 @@ export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [
         slug: "orthopedics",
         href: "/departments/orthopaedics",
         items: [
-            { title: "Arthroscopy", href: "/procedures/arthroscopy", body_region: "legs" }, // Often knee/shoulder styling via legs/arms
-            { title: "Knee Replacement", href: "/procedures/knee-replacement", body_region: "legs" },
-            { title: "Hip Replacement", href: "/procedures/hip-replacement", body_region: "legs" },
-            { title: "Spine Surgery", href: "/procedures/spine-surgery", body_region: "spine" },
+            { title: "ACL & PCL Tear", href: "/procedures/acl-pcl-tear", body_region: "legs" },
+            { title: "Fracture Surgery", href: "/procedures/fracture-surgery", body_region: "legs" },
+            { title: "Kyphoplasty", href: "/procedures/kyphoplasty", body_region: "spine" },
+        ]
+    },
+    {
+        title: "SPINE SURGERY",
+        slug: "spine-surgery",
+        href: "/departments/spine-surgery",
+        items: [
+            { title: "Endoscopic Keyhole Discectomy", href: "/procedures/endoscopic-keyhole-discectomy", body_region: "spine" },
+            { title: "Vertebroplasty", href: "/procedures/vertebroplasty", body_region: "spine" },
         ]
     },
     {
@@ -28,10 +37,7 @@ export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [
         slug: "ent",
         href: "/departments/ent",
         items: [
-            { title: "Septoplasty", href: "/procedures/septoplasty", body_region: "ent" },
             { title: "Rhinoplasty", href: "/procedures/rhinoplasty", body_region: "ent" },
-            { title: "Tonsillectomy", href: "/procedures/tonsillectomy", body_region: "ent" },
-            { title: "Tympanoplasty", href: "/procedures/tympanoplasty", body_region: "ent" },
         ]
     },
     {
@@ -39,10 +45,8 @@ export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [
         slug: "urology",
         href: "/departments/urology",
         items: [
-            { title: "URSL", href: "/procedures/ursl", body_region: "pelvis" },
-            { title: "PCNL", href: "/procedures/pcnl", body_region: "pelvis" },
-            { title: "ESWL", href: "/procedures/eswl", body_region: "pelvis" },
-            { title: "Circumcision", href: "/procedures/circumcision", body_region: "pelvis" },
+            { title: "Hydrocelectomy", href: "/procedures/hydrocelectomy", body_region: "pelvis" },
+            { title: "Prostatectomy", href: "/procedures/prostatectomy", body_region: "pelvis" },
         ]
     },
     {
@@ -51,8 +55,46 @@ export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [
         href: "/departments/gynaecology",
         items: [
             { title: "C-Section", href: "/procedures/c-section", body_region: "womens-health" },
+            { title: "Ectopic Pregnancy Surgery", href: "/procedures/ectopic-pregnancy-surgery", body_region: "womens-health" },
+            { title: "Endometriosis Surgery", href: "/procedures/endometriosis-surgery", body_region: "womens-health" },
             { title: "Hysterectomy", href: "/procedures/hysterectomy", body_region: "womens-health" },
-            { title: "Myomectomy", href: "/procedures/myomectomy", body_region: "womens-health" },
+            { title: "MTP (Medical Termination of Pregnancy)", href: "/procedures/mtp", body_region: "womens-health" },
+            { title: "Painless Delivery", href: "/procedures/painless-delivery", body_region: "womens-health" },
+            { title: "Uterine Fibroids Surgery", href: "/procedures/uterine-fibroids-surgery", body_region: "womens-health" },
+        ]
+    },
+    {
+        title: "ONCOLOGY",
+        slug: "oncology",
+        href: "/departments/oncology",
+        items: [
+            { title: "Breast Lump Surgery", href: "/procedures/breast-lump-surgery", body_region: "oncology" },
+            { title: "Chemo Port Insertion", href: "/procedures/chemo-port-insertion", body_region: "oncology" },
+            { title: "Chemotherapy", href: "/procedures/chemotherapy", body_region: "oncology" },
+        ]
+    },
+    {
+        title: "PAIN MANAGEMENT",
+        slug: "pain-management",
+        href: "/departments/pain-management",
+        items: [
+            { title: "Cancer Pain Management", href: "/procedures/cancer-pain-management", body_region: "pain-management" },
+        ]
+    },
+    {
+        title: "VASCULAR SURGERY",
+        slug: "vascular-surgery",
+        href: "/departments/vascular-surgery",
+        items: [
+            { title: "AV Fistula", href: "/procedures/av-fistula", body_region: "vascular" },
+        ]
+    },
+    {
+        title: "PLASTIC SURGERY",
+        slug: "plastic-surgery",
+        href: "/departments/plastic-surgery",
+        items: [
+            { title: "Gynecomastia Surgery", href: "/procedures/gynecomastia-surgery", body_region: "plastic-surgery" },
         ]
     },
 ]
