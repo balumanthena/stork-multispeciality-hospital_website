@@ -7,12 +7,24 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Share2, Calendar, User, Tag } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { VideoSection } from "@/components/treatments/video-section"
+import { extractYoutubeId, generateEmbedUrl, generateThumbnailUrl } from "@/lib/youtube-utils"
 import { BlogPost } from "@/types"
 
 export default function BlogView({ initialData }: { initialData: BlogPost }) {
-    const post = useBlogRealtime(initialData)
+    const post = useBlogRealtime(initialData) as BlogPost
 
     if (!post) return <div>Loading...</div>
+
+    // Prepare video data if youtube_url exists
+    const videoId = post.youtube_url ? extractYoutubeId(post.youtube_url) : null
+    const video = videoId ? {
+        id: videoId,
+        title: post.title,
+        youtube_embed_url: generateEmbedUrl(videoId),
+        thumbnail_url: generateThumbnailUrl(videoId),
+        created_at: post.created_at
+    } : null
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
@@ -55,6 +67,17 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
                         <div dangerouslySetInnerHTML={{ __html: post.content }} />
                         {/* Note: In production, sanitize this content or use a markdown renderer */}
                     </div>
+
+                    {/* Video Section */}
+                    {video && (
+                        <div className="mt-12 -mx-6 md:-mx-12">
+                            <VideoSection
+                                videos={[video]}
+                                heading="Watch Video"
+                                variant="grid"
+                            />
+                        </div>
+                    )}
 
                     {/* Tags & Share */}
                     <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">

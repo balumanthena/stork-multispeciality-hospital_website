@@ -45,7 +45,8 @@ export default async function BlogPostPage({
         author: "Dr. Stork Specialist", // Placeholder
         category: blog.category || "General Health",
         image_url: blog.image_url,
-        image: blog.image_url || "/images/blog-default.jpg"
+        image: blog.image_url || "/images/blog-default.jpg",
+        youtube_url: blog.youtube_url // Pass video URL
     }
 
     return <BlogView initialData={formattedPost} />

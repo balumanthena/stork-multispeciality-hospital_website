@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { cn } from "@/lib/utils"
 
-interface Video {
+export interface Video {
     id: string
     title: string
     youtube_embed_url: string

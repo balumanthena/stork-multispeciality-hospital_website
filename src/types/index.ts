@@ -24,6 +24,9 @@ export interface BlogPost {
     published: boolean
     published_at: string | null
     date?: string // Computed/Aliased
+    youtube_url?: string | null
+    department_id?: string | null
+    treatment_id?: string | null
 }
 
 export interface Treatment {
