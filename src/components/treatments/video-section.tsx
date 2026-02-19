@@ -12,6 +12,7 @@ interface Video {
     title: string
     youtube_embed_url: string
     thumbnail_url: string
+    created_at?: string
 }
 
 interface VideoSectionProps {
@@ -137,7 +138,7 @@ export function VideoSection({ videos, heading = "Doctor Talk", variant = "grid"
                             "name": video.title,
                             "thumbnailUrl": video.thumbnail_url,
                             "embedUrl": video.youtube_embed_url,
-                            "uploadDate": new Date().toISOString(),
+                            "uploadDate": video.created_at || "2024-01-01T00:00:00Z",
                             "description": `Watch a video about ${video.title} at Stork Hospital.`
                         })))
                     }}

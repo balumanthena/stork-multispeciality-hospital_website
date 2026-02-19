@@ -7,36 +7,65 @@ export function TreatmentScrollspy() {
     const [activeId, setActiveId] = useState<string>("overview")
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id)
-                    }
-                })
-            },
-            {
-                rootMargin: "-30% 0px -40% 0px", // Middle viewport focus
-                threshold: 0
-            }
-        )
+        // Observer callback: Detect which section is most visible in the "active region"
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveId(entry.target.id)
+                }
+            })
+        }
+
+        // Observer options:
+        // rootMargin: Negative top margin creates an offset for the sticky header (~100px).
+        // Negative bottom margin ensures we only trigger when the element enters the top portion of the viewport.
+        // This prevents multiple sections being active at once on large screens.
+        const observerOptions = {
+            rootMargin: "-100px 0px -60% 0px",
+            threshold: 0
+        }
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions)
 
         const ids = ["overview", "conditions", "procedure", "benefits", "faq"]
         ids.forEach((id) => {
             const element = document.getElementById(id)
-            if (element) {
-                observer.observe(element)
-            }
+            if (element) observer.observe(element)
         })
 
-        return () => observer.disconnect()
+        // Optimized scroll handler for bottom-of-page detection
+        // Ensures the last section (FAQ) activates even if it's short or at the very bottom
+        const handleScroll = () => {
+            const { scrollTop, clientHeight, scrollHeight } = document.documentElement
+            // If we are within 50px of the bottom, force activate the last section
+            if (scrollTop + clientHeight >= scrollHeight - 50) {
+                setActiveId("faq")
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true })
+
+        return () => {
+            observer.disconnect()
+            window.removeEventListener("scroll", handleScroll)
+        }
     }, [])
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault()
         const element = document.getElementById(id)
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" })
+            // Scroll with offset for the sticky header
+            const headerOffset = 100
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            })
+
+            // Optimistically set active state for instant feedback
             setActiveId(id)
         }
     }
@@ -50,7 +79,7 @@ export function TreatmentScrollspy() {
     ]
 
     return (
-        <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200">
+        <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200 sticky top-32">
             <h4 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#ff8202]" />
                 Contents
