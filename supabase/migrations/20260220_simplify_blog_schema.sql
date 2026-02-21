@@ -1,0 +1,6 @@
+ALTER TABLE blogs
+ADD COLUMN IF NOT EXISTS department_id UUID REFERENCES departments(id) ON DELETE SET NULL,
+ADD COLUMN IF NOT EXISTS treatment_id UUID REFERENCES treatments(id) ON DELETE SET NULL,
+DROP COLUMN IF EXISTS show_in_main_blog,
+DROP COLUMN IF EXISTS show_in_department,
+DROP COLUMN IF EXISTS show_in_treatment;

@@ -6,25 +6,38 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, Edit2, Trash2, Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog"
+import { toast } from "sonner"
 
 export default function AdminBlogsTable({ initialData }: { initialData: any[] }) {
     const [blogs, setBlogs] = useState(initialData)
     const [search, setSearch] = useState("")
     const [deletingId, setDeletingId] = useState<string | null>(null)
+    const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
     const router = useRouter()
 
-    const handleDelete = async (id: string) => {
-        if (!confirm("Are you sure you want to delete this blog post?")) return
+    const handleDelete = async () => {
+        if (!confirmDeleteId) return
 
-        setDeletingId(id)
-        const { error } = await supabase.from("blogs").delete().eq("id", id)
+        setDeletingId(confirmDeleteId)
+        const { error } = await supabase.from("blogs").delete().eq("id", confirmDeleteId)
 
         if (error) {
-            alert("Error deleting blog: " + error.message)
+            toast.error("Delete Failed", { description: error.message })
             setDeletingId(null)
         } else {
-            setBlogs(prev => prev.filter(b => b.id !== id))
+            setBlogs(prev => prev.filter(b => b.id !== confirmDeleteId))
+            toast.success("Blog Post Deleted")
             setDeletingId(null)
+            setConfirmDeleteId(null)
             router.refresh()
         }
     }
@@ -79,14 +92,16 @@ export default function AdminBlogsTable({ initialData }: { initialData: any[] })
                                     <td className="px-6 py-4 text-slate-500">{item.date}</td>
                                     <td className="px-6 py-4 text-right">
                                         <div className="flex justify-end gap-2">
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
-                                                <Edit2 className="h-4 w-4" />
-                                            </Button>
+                                            <Link href={`/admin/blogs/${item.id}`}>
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
+                                                    <Edit2 className="h-4 w-4" />
+                                                </Button>
+                                            </Link>
                                             <Button
                                                 variant="ghost"
                                                 size="icon"
                                                 className="h-8 w-8 text-slate-500 hover:text-red-600"
-                                                onClick={() => handleDelete(item.id)}
+                                                onClick={() => setConfirmDeleteId(item.id)}
                                                 disabled={deletingId === item.id}
                                             >
                                                 {deletingId === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
@@ -102,6 +117,31 @@ export default function AdminBlogsTable({ initialData }: { initialData: any[] })
             <div className="p-4 border-t border-slate-100 text-xs text-slate-400 text-center">
                 Real-time updates enabled
             </div>
+
+            {/* Delete Confirmation Dialog */}
+            <Dialog open={!!confirmDeleteId} onOpenChange={(open) => !open && setConfirmDeleteId(null)}>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>Delete Blog Post</DialogTitle>
+                        <DialogDescription>
+                            Are you sure you want to delete this post? This action cannot be undone.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <Button variant="outline" onClick={() => setConfirmDeleteId(null)}>Cancel</Button>
+                        {confirmDeleteId && (
+                            <Button
+                                variant="destructive"
+                                onClick={handleDelete}
+                                disabled={!!deletingId}
+                            >
+                                {deletingId ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+                                Delete
+                            </Button>
+                        )}
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     )
 }

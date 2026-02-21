@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { unstable_noStore as noStore } from 'next/cache'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Section } from "@/components/layout/section"
@@ -9,12 +10,69 @@ import {
 } from "lucide-react"
 import { departmentsData, DEFAULT_FEATURES, DEFAULT_TESTIMONIALS } from "@/lib/data/departments"
 import { cn } from "@/lib/utils"
+import { createClient } from "@/lib/supabase/server"
+import { BariatricContent } from "@/components/departments/bariatric"
+import { CosmeticSurgeryContent } from "@/components/departments/cosmetic-surgery"
+import { EmergencyContent } from "@/components/departments/emergency"
+import { ENTContent } from "@/components/departments/ent"
+import { GeneralMedicineContent } from "@/components/departments/general-medicine"
+import { GeneralSurgeryContent } from "@/components/departments/general-surgery"
+import { GynaecologyContent } from "@/components/departments/gynaecology"
+import { NeurosurgeryContent } from "@/components/departments/neurosurgery"
+import { OncologyContent } from "@/components/departments/oncology"
+import { OrthopaedicsContent } from "@/components/departments/orthopaedics"
+import { PainManagementContent } from "@/components/departments/pain-management"
+import { ProctologyContent } from "@/components/departments/proctology"
+import { PulmonologyContent } from "@/components/departments/pulmonology"
+import { UrologyContent } from "@/components/departments/urology"
+import { VascularSurgeryContent } from "@/components/departments/vascular"
+
+export const revalidate = 0;
+
+async function getDepartmentBlogs(departmentSlug: string) {
+    const supabase = await createClient()
+
+    // 1. Get Department ID by Slug
+    const { data: deptData, error: deptErr } = await supabase
+        .from("departments")
+        .select("id")
+        .eq("slug", departmentSlug)
+        .single()
+
+    if (deptErr) {
+        console.error("Error fetching department by slug:", deptErr)
+    }
+
+    if (!deptData?.id) {
+        console.warn(`No department found matching slug: ${departmentSlug}`)
+        return []
+    }
+
+    // 2. Get Related Blogs
+    const { data: blogs, error: blogErr } = await supabase
+        .from("blogs")
+        .select(`
+            id, slug, title, excerpt, image_url, category, published_at,
+            author:author_id (email)
+        `)
+        .eq("department_id", deptData.id)
+        .eq("status", "Published")
+        .order("published_at", { ascending: false })
+        .limit(3)
+
+    if (blogErr) {
+        console.error("Error fetching related blogs:", blogErr)
+    }
+
+    return blogs || []
+}
 
 export default async function DepartmentPage({
     params,
 }: {
     params: Promise<{ slug: string }>
 }) {
+    noStore();
     const { slug } = await params
     const department = departmentsData[slug.toLowerCase()]
 
@@ -26,10 +84,32 @@ export default async function DepartmentPage({
     const features = department.features ?? DEFAULT_FEATURES
     const testimonials = department.testimonials ?? DEFAULT_TESTIMONIALS
 
+    const blogs = await getDepartmentBlogs(slug.toLowerCase())
+
+    const s = slug.toLowerCase()
+    switch (s) {
+        case 'bariatric': return <BariatricContent blogs={blogs} />
+        case 'cosmetic-surgery': return <CosmeticSurgeryContent blogs={blogs} />
+        case 'emergency': return <EmergencyContent blogs={blogs} />
+        case 'ent': return <ENTContent blogs={blogs} />
+        case 'general-medicine': return <GeneralMedicineContent blogs={blogs} />
+        case 'general-surgery': return <GeneralSurgeryContent blogs={blogs} />
+        case 'gynaecology': return <GynaecologyContent blogs={blogs} />
+        case 'neurosurgery': return <NeurosurgeryContent blogs={blogs} />
+        case 'oncology': return <OncologyContent blogs={blogs} />
+        case 'orthopaedics': return <OrthopaedicsContent blogs={blogs} />
+        case 'pain-management': return <PainManagementContent blogs={blogs} />
+        case 'proctology': return <ProctologyContent blogs={blogs} />
+        case 'pulmonology': return <PulmonologyContent blogs={blogs} />
+        case 'urology': return <UrologyContent blogs={blogs} />
+        case 'vascular': return <VascularSurgeryContent blogs={blogs} />
+    }
+
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900">
 
             {/* 1. HERO SECTION (Enterprise Standard) */}
+
             <section className="bg-white border-b border-slate-200 pt-32 pb-24 relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-4xl">
@@ -153,7 +233,64 @@ export default async function DepartmentPage({
                 </div>
             </Section>
 
-            {/* 4.5. FAQ SECTION (Render only if FAQs exist) */}
+            {/* 4.5 RELATED SECION BLOGS */}
+            {blogs.length > 0 && (
+                <Section className="py-24 bg-white border-t border-slate-200">
+                    <div className="container max-w-7xl mx-auto px-6">
+                        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+                            <div>
+                                <h2 className="text-3xl font-bold text-[#0f172a] mb-2">Related Articles</h2>
+                                <p className="text-slate-600">Latest insights and information about {department.title}</p>
+                            </div>
+                            <Link href="/blog" className="text-[#3e7dca] font-semibold flex items-center gap-2 hover:text-[#2e62a3] transition-colors shrink-0">
+                                View Full Blog <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {blogs.map((post) => (
+                                <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full">
+                                    <div className="bg-slate-50 rounded-2xl h-full flex flex-col border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                                        <div className="relative h-48 w-full bg-slate-100">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                                src={post.image_url || '/images/blog-placeholder.jpg'}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            {post.category && (
+                                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#3e7dca] rounded-md shadow-sm">
+                                                    {post.category}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="p-6 flex-1 flex flex-col">
+                                            <div className="flex items-center gap-4 text-xs text-slate-500 mb-3">
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="h-3 w-3" />
+                                                    {new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#3e7dca] transition-colors line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-4">
+                                                {post.excerpt}
+                                            </p>
+                                            <div className="mt-auto pt-4 border-t border-slate-100">
+                                                <span className="text-sm font-semibold text-[#ff8202] flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                    Read Article <ArrowRight className="h-4 w-4" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </Section>
+            )}
+
+            {/* 4.75 FAQ SECTION (Render only if FAQs exist) */}
             {department.faqs && (
                 <Section className="py-24 bg-slate-50 border-t border-slate-200">
                     <div className="container max-w-4xl mx-auto px-6">

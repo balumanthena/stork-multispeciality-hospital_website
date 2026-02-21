@@ -61,15 +61,19 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(url)
         }
 
-        // 2. Check if user has 'admin' role in public.profiles
+        // 2. Check if user has allowed role in public.profiles
         const { data: profile } = await supabase
             .from('profiles')
             .select('role')
             .eq('id', user.id)
             .single()
 
-        if (profile?.role !== 'admin') {
-            // User is logged in but not an admin
+        const allowedRoles = ['super_admin', 'editor', 'content_manager', 'admin'] // Added 'admin' for backward compat if any data stuck
+
+        if (!profile || !allowedRoles.includes(profile.role)) {
+            // User is logged in but not authorized
+            // Avoid infinite loop if they are stuck here, maybe redirect to home or show error
+            // For now, redirect to login which handles signed-in state logic below
             const url = request.nextUrl.clone()
             url.pathname = '/admin/login'
             return NextResponse.redirect(url)
@@ -84,7 +88,9 @@ export async function middleware(request: NextRequest) {
             .eq('id', user.id)
             .single()
 
-        if (profile?.role === 'admin') {
+        const allowedRoles = ['super_admin', 'editor', 'content_manager', 'admin']
+
+        if (profile && allowedRoles.includes(profile.role)) {
             const url = request.nextUrl.clone()
             url.pathname = '/admin'
             return NextResponse.redirect(url)
@@ -102,7 +108,6 @@ export const config = {
          * - _next/image (image optimization files)
          * - favicon.ico (favicon file)
          * - images/ (public images)
-         * Feel free to modify this pattern to include more paths.
          */
         '/((?!_next/static|_next/image|favicon.ico|images/).*)',
     ],

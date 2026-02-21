@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope, PlayCircle } from "lucide-react"
+import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope, PlayCircle, MessageSquareQuote, Award, Shield, Image, Megaphone } from "lucide-react"
 
 const sidebarLinks = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -11,7 +11,7 @@ const sidebarLinks = [
     { name: "Treatments", href: "/admin/treatments", icon: Stethoscope },
     { name: "Videos", href: "/admin/videos", icon: PlayCircle },
     { name: "Blogs", href: "/admin/blogs", icon: FileText },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
+    { name: "Global Settings", href: "/admin/settings", icon: Settings },
 ]
 
 export function AdminSidebar() {

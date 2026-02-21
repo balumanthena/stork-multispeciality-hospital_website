@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { ArrowLeft, Save, Image as ImageIcon, Loader2, Check, ChevronsUpDown } from "lucide-react"
 import { toast } from "sonner"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
     Command,
@@ -43,8 +43,11 @@ interface Department {
     name: string
 }
 
-export default function NewBlogPage() {
+export default function EditBlogPage() {
     const router = useRouter()
+    const params = useParams()
+    const id = params?.id as string
+
     const [loading, setLoading] = useState(false)
     const [pageLoading, setPageLoading] = useState(true)
     const [user, setUser] = useState<any>(null)
@@ -79,6 +82,34 @@ export default function NewBlogPage() {
                 const { data: { user } } = await supabase.auth.getUser()
                 setUser(user)
 
+                // Fetch Existing Blog Post
+                if (id) {
+                    const { data: blog, error: blogError } = await supabase
+                        .from('blogs')
+                        .select('*')
+                        .eq('id', id)
+                        .single()
+
+                    if (blogError) throw blogError
+                    if (blog) {
+                        let initialTarget = "main"
+                        if (blog.department_id) initialTarget = "department"
+                        else if (blog.treatment_id) initialTarget = "treatment"
+
+                        setFormData({
+                            title: blog.title || "",
+                            content: blog.content || "",
+                            excerpt: blog.excerpt || "",
+                            category: blog.category || "Cardiology",
+                            image: blog.image_url || "/images/blog-heart.png",
+                            youtube_url: blog.youtube_url || "",
+                            target_type: initialTarget,
+                            department_id: blog.department_id || "",
+                            treatment_id: blog.treatment_id || ""
+                        })
+                    }
+                }
+
                 // Fetch Departments
                 const { data: deptData, error: deptError } = await supabase
                     .from("departments")
@@ -99,12 +130,13 @@ export default function NewBlogPage() {
 
             } catch (error: any) {
                 console.error("Error loading data:", error)
+                toast.error("Error loading data", { description: error.message })
             } finally {
                 setPageLoading(false)
             }
         }
         fetchData()
-    }, [])
+    }, [id])
 
     // Filter Treatments based on Department (if a department is selected, otherwise show all)
     const filteredTreatments = useMemo(() => {
@@ -116,7 +148,7 @@ export default function NewBlogPage() {
         return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
     }
 
-    const handlePublish = async () => {
+    const handleUpdate = async () => {
         if (!formData.title || !formData.content) {
             toast.error("Missing Fields", {
                 description: "Please fill in at least the Title and Content."
@@ -126,49 +158,38 @@ export default function NewBlogPage() {
 
         if (!user) {
             toast.error("Authentication Error", {
-                description: "You must be logged in to publish."
+                description: "You must be logged in to update."
             })
             return
         }
 
         setLoading(true)
-        let slug = generateSlug(formData.title)
+        // We generally don't update slug to preserve SEO, unless explicitly requested. 
+        // For now, let's keep the slug as is, or regenerate if they desire? 
+        // Usually better NOT to change slug on edit. 
 
-        // Check if slug exists
-        const { data: existingSlug } = await supabase
-            .from('blogs')
-            .select('slug')
-            .eq('slug', slug)
-            .single()
-
-        if (existingSlug) {
-            // Append random suffix to make it unique
-            slug = `${slug}-${Math.floor(Math.random() * 10000)}`
-        }
-
-        const { error } = await supabase.from('blogs').insert({
+        const { error } = await supabase.from('blogs').update({
             title: formData.title,
-            slug: slug,
+            // slug: slug, // Keep original slug
             content: formData.content,
             excerpt: formData.excerpt || formData.content.substring(0, 150) + "...",
             category: formData.category,
-            author_id: user.id, // Linked to profiles
-            image_url: formData.image, // Correct column name
-            youtube_url: formData.youtube_url || null, // Optional video
+            // author_id: user.id, // Keep original author
+            image_url: formData.image,
+            youtube_url: formData.youtube_url || null,
             department_id: formData.target_type === 'department' ? formData.department_id : null,
             treatment_id: formData.target_type === 'treatment' ? formData.treatment_id : null,
-            published_at: new Date().toISOString(), // Timestamptz format
-            status: 'Published'
-        })
+            updated_at: new Date().toISOString()
+        }).eq('id', id)
 
         if (error) {
-            toast.error("Submission Failed", {
+            toast.error("Update Failed", {
                 description: error.message
             })
             setLoading(false)
         } else {
-            toast.success("Blog Post Published", {
-                description: "Your post has been successfully created."
+            toast.success("Blog Post Updated", {
+                description: "Your post has been successfully updated."
             })
             router.push('/admin/blogs')
             router.refresh()
@@ -192,7 +213,7 @@ export default function NewBlogPage() {
                     <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/blogs')}>
                         <ArrowLeft className="h-4 w-4" />
                     </Button>
-                    <h1 className="text-2xl font-bold text-slate-800">New Blog Post</h1>
+                    <h1 className="text-2xl font-bold text-slate-800">Edit Blog Post</h1>
                 </div>
                 <div className="flex gap-3">
                     <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/blogs')}>
@@ -200,11 +221,11 @@ export default function NewBlogPage() {
                     </Button>
                     <Button
                         className="bg-[var(--color-primary)] text-white"
-                        onClick={handlePublish}
+                        onClick={handleUpdate}
                         disabled={loading}
                     >
                         {loading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Save className="h-4 w-4 mr-2" />}
-                        Publish
+                        Update Post
                     </Button>
                 </div>
             </div>
@@ -429,8 +450,14 @@ export default function NewBlogPage() {
                             />
                         </div>
                         <div className="border-2 border-dashed border-slate-200 rounded-lg p-8 flex flex-col items-center justify-center text-center text-slate-400 bg-slate-50">
-                            <ImageIcon className="h-8 w-8 mb-2" />
-                            <span className="text-xs">Image Preview</span>
+                            {formData.image ? (
+                                <img src={formData.image} alt="Preview" className="max-h-32 object-contain" />
+                            ) : (
+                                <>
+                                    <ImageIcon className="h-8 w-8 mb-2" />
+                                    <span className="text-xs">Image Preview</span>
+                                </>
+                            )}
                         </div>
 
                         <div className="space-y-2 pt-4 border-t border-slate-100 mt-4">

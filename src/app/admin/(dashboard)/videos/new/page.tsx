@@ -51,6 +51,7 @@ export default function NewVideoPage() {
     // Form State
     const [title, setTitle] = useState("")
     const [youtubeUrl, setYoutubeUrl] = useState("")
+    const [targetType, setTargetType] = useState<"main" | "department" | "treatment">("main")
     const [departmentId, setDepartmentId] = useState("")
     const [treatmentId, setTreatmentId] = useState("")
     const [isActive, setIsActive] = useState(true)
@@ -127,7 +128,12 @@ export default function NewVideoPage() {
             return
         }
 
-        if (!treatmentId) {
+        if (targetType === "department" && !departmentId) {
+            toast.error("Please select a department")
+            return
+        }
+
+        if (targetType === "treatment" && !treatmentId) {
             toast.error("Please select a treatment")
             return
         }
@@ -143,7 +149,8 @@ export default function NewVideoPage() {
                 youtube_url: youtubeUrl,
                 youtube_embed_url: embedUrl,
                 thumbnail_url: thumbnailUrl,
-                treatment_id: treatmentId,
+                department_id: targetType === 'department' ? departmentId : null,
+                treatment_id: targetType === 'treatment' ? treatmentId : null,
                 is_active: isActive
             })
 
@@ -169,148 +176,55 @@ export default function NewVideoPage() {
     }
 
     return (
-        <div className="max-w-3xl mx-auto font-sans">
-            <Link href="/admin/videos" className="inline-flex items-center text-slate-500 hover:text-slate-900 mb-6 transition-colors font-medium">
-                <ArrowLeft className="w-4 h-4 mr-2" /> Back to Videos
-            </Link>
-
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div className="p-8 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
-                    <div>
-                        <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-                            <span className="p-2 bg-orange-100 rounded-lg text-orange-600">
-                                <Video className="w-6 h-6" />
-                            </span>
-                            Add New Video
-                        </h1>
-                        <p className="text-slate-500 mt-1 ml-14">Link a YouTube video to a medical treatment</p>
-                    </div>
+        <div className="max-w-4xl mx-auto space-y-8 font-sans">
+            <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/videos')}>
+                        <ArrowLeft className="h-4 w-4" />
+                    </Button>
+                    <h1 className="text-2xl font-bold text-slate-800">Add New Video</h1>
                 </div>
+                <div className="flex gap-3">
+                    <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/videos')}>
+                        Cancel
+                    </Button>
+                    <Button
+                        className="bg-[var(--color-primary)] text-white"
+                        onClick={handleSubmit}
+                        disabled={loading}
+                    >
+                        {loading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Video className="h-4 w-4 mr-2" />}
+                        Publish Video
+                    </Button>
+                </div>
+            </div>
 
-                <form onSubmit={handleSubmit} className="p-8 space-y-8">
-
-                    {/* Department & Treatment Selection Group */}
-                    <div className="grid md:grid-cols-2 gap-6 p-6 bg-slate-50/50 rounded-xl border border-slate-100">
-                        {/* Department Select */}
-                        <div className="flex flex-col gap-3">
-                            <Label className="text-sm font-semibold text-slate-700">Filter by Department</Label>
-                            <Popover open={openDept} onOpenChange={setOpenDept}>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant="outline"
-                                        role="combobox"
-                                        aria-expanded={openDept}
-                                        className="w-full justify-between h-12 px-4 text-base rounded-xl border-slate-200 bg-white hover:bg-slate-50 hover:border-orange-200 focus:ring-2 focus:ring-orange-500/20 transition-all shadow-sm"
-                                    >
-                                        <div className="flex items-center gap-2 truncate">
-                                            {departmentId
-                                                ? departments.find((d) => d.id === departmentId)?.name
-                                                : <span className="text-slate-400">All Departments</span>}
-                                        </div>
-                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-[300px] p-0 bg-white shadow-xl border-slate-100 rounded-xl" align="start">
-                                    <Command>
-                                        <CommandInput placeholder="Search department..." className="h-11" />
-                                        <CommandList>
-                                            <CommandEmpty>No department found.</CommandEmpty>
-                                            <CommandGroup>
-                                                <CommandItem
-                                                    value="all"
-                                                    onSelect={() => {
-                                                        setDepartmentId("")
-                                                        setOpenDept(false)
-                                                    }}
-                                                    className="py-3 px-4 cursor-pointer"
-                                                >
-                                                    <Check className={cn("mr-2 h-4 w-4", !departmentId ? "opacity-100" : "opacity-0")} />
-                                                    All Departments
-                                                </CommandItem>
-                                                {departments.map((d) => (
-                                                    <CommandItem
-                                                        key={d.id}
-                                                        value={d.name}
-                                                        onSelect={() => {
-                                                            setDepartmentId(d.id)
-                                                            setOpenDept(false)
-                                                        }}
-                                                        className="py-3 px-4 cursor-pointer data-[selected=true]:bg-orange-50 data-[selected=true]:text-orange-700"
-                                                    >
-                                                        <Check className={cn("mr-2 h-4 w-4", departmentId === d.id ? "opacity-100" : "opacity-0")} />
-                                                        {d.name}
-                                                    </CommandItem>
-                                                ))}
-                                            </CommandGroup>
-                                        </CommandList>
-                                    </Command>
-                                </PopoverContent>
-                            </Popover>
-                        </div>
-
-                        {/* Treatment Select */}
-                        <div className="flex flex-col gap-3">
-                            <Label className="text-sm font-semibold text-slate-700">Select Treatment</Label>
-                            <Popover open={openTreatment} onOpenChange={setOpenTreatment}>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant="outline"
-                                        role="combobox"
-                                        aria-expanded={openTreatment}
-                                        className={cn(
-                                            "w-full justify-between h-12 px-4 text-base rounded-xl border-slate-200 bg-white hover:bg-slate-50 hover:border-orange-200 focus:ring-2 focus:ring-orange-500/20 transition-all shadow-sm",
-                                            !treatmentId && "text-slate-400"
-                                        )}
-                                    >
-                                        {treatmentId
-                                            ? treatments.find((t) => t.id === treatmentId)?.title
-                                            : "Search treatment..."}
-                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-[400px] p-0 bg-white shadow-xl border-slate-100 rounded-xl" align="start">
-                                    <Command>
-                                        <CommandInput placeholder="Search treatment..." className="h-11" />
-                                        <CommandList className="max-h-[300px]">
-                                            <CommandEmpty>No treatment found.</CommandEmpty>
-                                            <CommandGroup>
-                                                {filteredTreatments.map((t) => (
-                                                    <CommandItem
-                                                        key={t.id}
-                                                        value={t.title}
-                                                        onSelect={() => {
-                                                            setTreatmentId(t.id)
-                                                            setOpenTreatment(false)
-                                                        }}
-                                                        className="py-3 px-4 cursor-pointer data-[selected=true]:bg-orange-50 data-[selected=true]:text-orange-700"
-                                                    >
-                                                        <Check className={cn("mr-2 h-4 w-4", treatmentId === t.id ? "opacity-100" : "opacity-0")} />
-                                                        {t.title}
-                                                    </CommandItem>
-                                                ))}
-                                            </CommandGroup>
-                                        </CommandList>
-                                    </Command>
-                                </PopoverContent>
-                            </Popover>
-                            {departmentId && (
-                                <p className="text-xs text-slate-500 px-1">
-                                    Showing {filteredTreatments.length} treatments in {departments.find(d => d.id === departmentId)?.name}
-                                </p>
-                            )}
-                        </div>
+            <div className="grid grid-cols-3 gap-8">
+                {/* Main Content Form */}
+                <div className="col-span-2 space-y-6">
+                    {/* Title */}
+                    <div className="space-y-2">
+                        <Label htmlFor="title">Video Title</Label>
+                        <Input
+                            id="title"
+                            placeholder="e.g., Understanding Robotic Knee Replacement"
+                            className="text-lg font-medium"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
                     </div>
 
                     {/* YouTube URL Input & Preview */}
                     <div className="space-y-4">
-                        <div className="flex flex-col gap-3">
-                            <Label htmlFor="url" className="text-sm font-semibold text-slate-700">YouTube URL</Label>
+                        <div className="space-y-2">
+                            <Label htmlFor="url">YouTube URL</Label>
                             <div className="relative">
                                 <Youtube className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                                 <Input
                                     id="url"
                                     placeholder="https://youtube.com/watch?v=..."
-                                    className="pl-12 h-12 rounded-xl text-base border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
+                                    className="pl-12 h-10 text-sm focus:ring-2"
                                     value={youtubeUrl}
                                     onChange={(e) => handleUrlChange(e.target.value)}
                                     required
@@ -340,50 +254,168 @@ export default function NewVideoPage() {
                         )}
                     </div>
 
-                    {/* Title */}
-                    <div className="flex flex-col gap-3">
-                        <Label htmlFor="title" className="text-sm font-semibold text-slate-700">Video Title</Label>
-                        <Input
-                            id="title"
-                            placeholder="e.g., Understanding Robotic Knee Replacement"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            required
-                            className="h-12 rounded-xl text-base border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all"
-                        />
-                    </div>
+                </div>
+            </div>
+
+            {/* Sidebar Settings */}
+            <div className="space-y-6">
+                <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <h3 className="font-semibold text-slate-800 mb-2">Publishing</h3>
 
                     {/* Active Toggle */}
-                    <div className="flex items-center justify-between rounded-xl border border-slate-200 p-5 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                    <div className="flex items-center justify-between rounded-lg border border-slate-200 p-4 bg-slate-50/50">
                         <div className="space-y-1">
-                            <Label className="text-base font-semibold text-slate-900 cursor-pointer" htmlFor="active-mode">Active Status</Label>
-                            <p className="text-sm text-slate-500">Enable to show this video on the public website immediately</p>
+                            <Label className="text-sm font-semibold text-slate-900 cursor-pointer" htmlFor="active-mode">Active Status</Label>
+                            <p className="text-xs text-slate-500">Enable to show publicly</p>
                         </div>
                         <Switch
                             id="active-mode"
                             checked={isActive}
                             onCheckedChange={setIsActive}
-                            className="data-[state=checked]:bg-orange-500"
+                            className="data-[state=checked]:bg-[var(--color-primary)]"
                         />
                     </div>
 
-                    {/* Actions */}
-                    <div className="flex justify-end pt-6 border-t border-slate-100">
-                        <Button
-                            type="submit"
-                            disabled={loading}
-                            className="bg-orange-500 hover:bg-orange-600 text-white min-w-[200px] h-12 rounded-xl text-base font-medium shadow-orange-200 shadow-lg hover:shadow-xl transition-all"
-                        >
-                            {loading ? (
-                                <>
-                                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                                    Publishing...
-                                </>
-                            ) : "Publish Video"}
-                        </Button>
-                    </div>
+                    {/* Target Placement */}
+                    <div className="space-y-4 pt-6 mt-6 border-t border-slate-100">
+                        <div>
+                            <h4 className="text-sm font-bold text-slate-800 mb-1">Target Placement</h4>
+                            <p className="text-xs text-slate-500 mb-4">Choose exactly where this video should be published.</p>
+                        </div>
 
-                </form>
+                        <div className="grid grid-cols-1 gap-4">
+                            {/* Main Video */}
+                            <div className={cn("flex flex-col p-4 rounded-xl border transition-all duration-200", targetType === 'main' ? "bg-blue-50/50 border-blue-500 shadow-sm" : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50")}>
+                                <label className="flex items-start gap-3 cursor-pointer">
+                                    <input type="radio" name="target_type" value="main" className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 cursor-pointer" checked={targetType === 'main'} onChange={() => { setTargetType('main'); setDepartmentId(""); setTreatmentId(""); }} />
+                                    <div className="flex flex-col">
+                                        <span className={cn("text-sm font-semibold", targetType === 'main' ? "text-blue-900" : "text-slate-700")}>Main Video Gallery</span>
+                                        <span className="text-xs text-slate-500 mt-0.5">Appears in the general video section</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            {/* Department */}
+                            <div className={cn("flex flex-col p-4 rounded-xl border transition-all duration-200", targetType === 'department' ? "bg-blue-50/50 border-blue-500 shadow-sm" : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50")}>
+                                <label className="flex items-start gap-3 cursor-pointer">
+                                    <input type="radio" name="target_type" value="department" className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 cursor-pointer" checked={targetType === 'department'} onChange={() => { setTargetType('department'); setDepartmentId(""); setTreatmentId(""); }} />
+                                    <div className="flex flex-col">
+                                        <span className={cn("text-sm font-semibold", targetType === 'department' ? "text-blue-900" : "text-slate-700")}>Specific Department</span>
+                                        <span className="text-xs text-slate-500 mt-0.5">Links this video to a specific center of excellence</span>
+                                    </div>
+                                </label>
+
+                                {targetType === "department" && (
+                                    <div className="mt-4 pt-4 border-t border-blue-100/50">
+                                        <Popover open={openDept} onOpenChange={setOpenDept}>
+                                            <PopoverTrigger asChild>
+                                                <Button
+                                                    variant="outline"
+                                                    role="combobox"
+                                                    aria-expanded={openDept}
+                                                    className="w-full justify-between h-10 px-3 text-sm rounded-md border-slate-200 bg-white hover:bg-slate-50 focus:ring-1 focus:ring-slate-300 transition-all shadow-sm"
+                                                >
+                                                    <div className="flex items-center gap-2 truncate text-slate-700 font-medium">
+                                                        {departmentId
+                                                            ? departments.find((d) => d.id === departmentId)?.name
+                                                            : <span className="text-slate-400 font-normal">Select a department...</span>}
+                                                    </div>
+                                                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50 text-slate-400" />
+                                                </Button>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-[300px] p-0 bg-white shadow-lg border-slate-200 rounded-lg z-[100]" align="start">
+                                                <Command>
+                                                    <CommandInput placeholder="Search department..." className="h-10 border-none focus:ring-0 text-sm" />
+                                                    <CommandList className="max-h-[200px] overflow-y-auto">
+                                                        <CommandEmpty className="py-3 text-center text-sm text-slate-500">No results found.</CommandEmpty>
+                                                        <CommandGroup>
+                                                            {departments.map((d) => (
+                                                                <CommandItem
+                                                                    key={d.id}
+                                                                    value={d.name}
+                                                                    onSelect={() => {
+                                                                        setDepartmentId(d.id)
+                                                                        setTreatmentId("")
+                                                                        setOpenDept(false)
+                                                                    }}
+                                                                    className="py-2.5 px-3 mb-0.5 rounded-md cursor-pointer data-[selected=true]:bg-slate-100 data-[selected=true]:text-slate-900 transition-colors"
+                                                                >
+                                                                    <Check className={cn("mr-2 h-4 w-4", departmentId === d.id ? "text-slate-700 opacity-100" : "opacity-0")} />
+                                                                    <span className="font-medium text-sm">{d.name}</span>
+                                                                </CommandItem>
+                                                            ))}
+                                                        </CommandGroup>
+                                                    </CommandList>
+                                                </Command>
+                                            </PopoverContent>
+                                        </Popover>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Treatment */}
+                            <div className={cn("flex flex-col p-4 rounded-xl border transition-all duration-200", targetType === 'treatment' ? "bg-blue-50/50 border-blue-500 shadow-sm" : "bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50")}>
+                                <label className="flex items-start gap-3 cursor-pointer">
+                                    <input type="radio" name="target_type" value="treatment" className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 cursor-pointer" checked={targetType === 'treatment'} onChange={() => { setTargetType('treatment'); setDepartmentId(""); setTreatmentId(""); }} />
+                                    <div className="flex flex-col">
+                                        <span className={cn("text-sm font-semibold", targetType === 'treatment' ? "text-blue-900" : "text-slate-700")}>Specific Treatment</span>
+                                        <span className="text-xs text-slate-500 mt-0.5">Links this video to a specific procedure</span>
+                                    </div>
+                                </label>
+
+                                {targetType === "treatment" && (
+                                    <div className="mt-4 pt-4 border-t border-blue-100/50">
+                                        <Popover open={openTreatment} onOpenChange={setOpenTreatment}>
+                                            <PopoverTrigger asChild>
+                                                <Button
+                                                    variant="outline"
+                                                    role="combobox"
+                                                    aria-expanded={openTreatment}
+                                                    className={cn(
+                                                        "w-full justify-between h-10 px-3 text-sm rounded-md border-slate-200 bg-white hover:bg-slate-50 focus:ring-1 focus:ring-slate-300 transition-all shadow-sm",
+                                                        !treatmentId && "text-slate-400 font-normal"
+                                                    )}
+                                                >
+                                                    <div className="truncate text-slate-700 font-medium">
+                                                        {treatmentId
+                                                            ? treatments.find((t) => t.id === treatmentId)?.title
+                                                            : "Search treatment..."}
+                                                    </div>
+                                                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50 text-slate-400" />
+                                                </Button>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-[300px] p-0 bg-white shadow-lg border-slate-200 rounded-lg z-[100]" align="start">
+                                                <Command>
+                                                    <CommandInput placeholder="Search treatment..." className="h-10 border-none focus:ring-0 text-sm" />
+                                                    <CommandList className="max-h-[200px] overflow-y-auto">
+                                                        <CommandEmpty className="py-3 text-center text-sm text-slate-500">No results found.</CommandEmpty>
+                                                        <CommandGroup>
+                                                            {filteredTreatments.map((t) => (
+                                                                <CommandItem
+                                                                    key={t.id}
+                                                                    value={t.title}
+                                                                    onSelect={() => {
+                                                                        setTreatmentId(t.id)
+                                                                        setDepartmentId(t.department_id || "")
+                                                                        setOpenTreatment(false)
+                                                                    }}
+                                                                    className="py-2.5 px-3 mb-0.5 rounded-md cursor-pointer data-[selected=true]:bg-slate-100 data-[selected=true]:text-slate-900 transition-colors"
+                                                                >
+                                                                    <Check className={cn("mr-2 h-4 w-4", treatmentId === t.id ? "text-slate-700 opacity-100" : "opacity-0")} />
+                                                                    <span className="font-medium text-sm">{t.title}</span>
+                                                                </CommandItem>
+                                                            ))}
+                                                        </CommandGroup>
+                                                    </CommandList>
+                                                </Command>
+                                            </PopoverContent>
+                                        </Popover>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -2,11 +2,12 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import AdminBlogsTable from "@/components/admin/blogs-table"
-import { supabase } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/server"
 
 export const revalidate = 0
 
 export default async function BlogsPage() {
+    const supabase = await createClient()
     const { data: blogs } = await supabase.from('blogs').select('*').order('created_at', { ascending: false })
 
     return (

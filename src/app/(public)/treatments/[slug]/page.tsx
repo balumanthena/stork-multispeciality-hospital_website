@@ -13,11 +13,7 @@ import {
     Star, User, Sparkles, UserCheck
 } from "lucide-react"
 
-// Generate Static Params for all treatments to enable static export if needed
-export async function generateStaticParams() {
-    const slugs = getAllTreatmentSlugs()
-    return slugs.map(slug => ({ slug }))
-}
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
@@ -53,6 +49,34 @@ async function getTreatmentVideos(slug: string) {
     return videos || []
 }
 
+async function getTreatmentBlogs(slug: string) {
+    const supabase = await createClient()
+
+    // 1. Get Treatment ID by Slug
+    const { data: treatmentData } = await supabase
+        .from("treatments")
+        .select("id")
+        .eq("slug", slug)
+        .single()
+
+    if (!treatmentData?.id) return []
+
+    // 2. Get Related Blogs
+    const { data: blogs } = await supabase
+        .from("blogs")
+        .select(`
+            id, slug, title, excerpt, image_url, category, published_at,
+            author:author_id (email)
+        `)
+        .eq("treatment_id", treatmentData.id)
+        .eq("status", "Published")
+        .order("published_at", { ascending: false })
+        .limit(3)
+
+    return blogs || []
+}
+
+
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const treatment = getTreatmentDetail(slug)
@@ -66,6 +90,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
     // Fetch Videos (Server Side)
     const videos = await getTreatmentVideos(slug)
+
+    // Fetch Related Blogs
+    const blogs = await getTreatmentBlogs(slug)
 
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
@@ -311,8 +338,65 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* VIDEO SECTION (Standalone) */}
             {videos.length > 0 && (
                 <div id="video" className="scroll-mt-32">
-                    <VideoSection videos={videos} variant="compact" />
+                    <VideoSection videos={videos} variant="grid" />
                 </div>
+            )}
+
+            {/* RELATED BLOGS SECTION */}
+            {blogs.length > 0 && (
+                <Section className="py-24 bg-slate-50">
+                    <div className="container max-w-6xl mx-auto px-6">
+                        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+                            <div>
+                                <h2 className="text-3xl font-bold text-[#0f172a] mb-2">Related Articles</h2>
+                                <p className="text-slate-600">Latest insights and information about {treatment.title}</p>
+                            </div>
+                            <Link href="/blog" className="text-[#3e7dca] font-semibold flex items-center gap-2 hover:text-[#2e62a3] transition-colors shrink-0">
+                                View Full Blog <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {blogs.map((post) => (
+                                <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full">
+                                    <div className="bg-white rounded-2xl h-full flex flex-col border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                                        <div className="relative h-48 w-full bg-slate-100">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                                src={post.image_url || '/images/blog-placeholder.jpg'}
+                                                alt={post.title}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            {post.category && (
+                                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#3e7dca] rounded-md shadow-sm">
+                                                    {post.category}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="p-6 flex-1 flex flex-col">
+                                            <div className="flex items-center gap-4 text-xs text-slate-500 mb-3">
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="h-3 w-3" />
+                                                    {new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#3e7dca] transition-colors line-clamp-2">
+                                                {post.title}
+                                            </h3>
+                                            <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-4">
+                                                {post.excerpt}
+                                            </p>
+                                            <div className="mt-auto pt-4 border-t border-slate-100">
+                                                <span className="text-sm font-semibold text-[#ff8202] flex items-center gap-1 group-hover:gap-2 transition-all">
+                                                    Read Article <ArrowRight className="h-4 w-4" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </Section>
             )}
 
             {/* FINAL CTA REDESIGN */}

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { ArrowLeft, Save, Loader2 } from "lucide-react"
+import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
@@ -39,12 +40,16 @@ export default function NewTreatmentPage() {
 
     const handleSave = async () => {
         if (!formData.title || !formData.summary) {
-            alert("Please fill in Title and Summary.")
+            toast.error("Missing Information", {
+                description: "Please fill in Title and Summary."
+            })
             return
         }
 
         if (!formData.department_id) {
-            alert("Please select a department.")
+            toast.error("Department Required", {
+                description: "Please select a department."
+            })
             return
         }
 
@@ -69,9 +74,14 @@ export default function NewTreatmentPage() {
         })
 
         if (error) {
-            alert("Error creating treatment: " + error.message)
+            toast.error("Creation Failed", {
+                description: "Error creating treatment: " + error.message
+            })
             setLoading(false)
         } else {
+            toast.success("Treatment Created", {
+                description: "New treatment has been successfully added."
+            })
             router.push('/admin/treatments')
             router.refresh()
         }
@@ -83,14 +93,15 @@ export default function NewTreatmentPage() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                    <Link href="/admin/treatments">
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                            <ArrowLeft className="h-4 w-4" />
-                        </Button>
-                    </Link>
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/treatments')}>
+                        <ArrowLeft className="h-4 w-4" />
+                    </Button>
                     <h1 className="text-2xl font-bold text-slate-800">Add New Treatment</h1>
                 </div>
                 <div className="flex gap-3">
+                    <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/treatments')}>
+                        Cancel
+                    </Button>
                     <Button
                         className="bg-[var(--color-primary)] text-white"
                         onClick={handleSave}

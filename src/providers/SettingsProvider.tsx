@@ -2,10 +2,9 @@
 
 import * as React from "react"
 import { createBrowserClient } from "@supabase/ssr"
-import { RealtimePostgresChangesPayload } from "@supabase/supabase-js"
+import { RealtimePostgresChangesPayload, Session } from "@supabase/supabase-js"
 
 // Define the shape of our settings
-// Based on site_settings table: id, hospital_name, tagline, emergency_number, address, email, updated_at
 export interface SiteSettings {
     id: string
     hospital_name: string
@@ -24,55 +23,100 @@ interface SettingsContextType {
 const SettingsContext = React.createContext<SettingsContextType | undefined>(undefined)
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
-    console.log("SettingsProvider: Rendering");
     const [settings, setSettings] = React.useState<SiteSettings | null>(null)
     const [isLoading, setIsLoading] = React.useState(true)
     const [error, setError] = React.useState<Error | null>(null)
 
-    // Create Supabase client for client-side
-    const supabase = createBrowserClient(
+    // Ensure Supabase client is instantiated only once per component lifecycle
+    // autoRefreshToken is true by default in createBrowserClient, handling JWT token refresh automatically
+    const [supabase] = React.useState(() => createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
+    ))
 
-    // Use ref to track if initial load is done to avoid adding 'settings' to dependency array
-    const hasLoadedRef = React.useRef(false)
+    // Refs to track in-flight requests and prevent race conditions (especially for StrictMode)
+    const abortControllerRef = React.useRef<AbortController | null>(null)
+    const isFetchingRef = React.useRef(false)
 
     const fetchSettings = React.useCallback(async () => {
-        try {
-            // Only set loading true on initial fetch
-            if (!hasLoadedRef.current) setIsLoading(true)
+        // Prevent duplicate calls if one is already in progress
+        if (isFetchingRef.current) return
 
-            const { data, error } = await supabase
+        isFetchingRef.current = true
+        setIsLoading(prev => settings ? prev : true) // Keep existing settings visible while refreshing
+        setError(null)
+
+        // Cancel previous pending request if any
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort()
+        }
+
+        const abortController = new AbortController()
+        abortControllerRef.current = abortController
+
+        try {
+            // First, wait for a valid session to ensure JWT token is fresh and valid.
+            // This prevents "JWT expired" errors by making sure auth state is resolved.
+            const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+
+            if (sessionError) {
+                console.warn("Session error before fetching settings:", sessionError.message)
+                // Note: We often still want to try fetching public settings even if session fails
+            }
+
+            const { data, error: fetchError } = await supabase
                 .from("site_settings")
                 .select("*")
                 .single()
 
-            if (error) {
-                // Ignore "Row not found" error (PGRST116) as it just means no settings yet
-                if (error.code !== "PGRST116") {
-                    throw error
-                }
+            // If the request was aborted (e.g. component unmounted), don't update state
+            if (abortController.signal.aborted) {
+                return
+            }
+
+            if (fetchError) {
+                // Ignore "Row not found" as it means the table is empty, which is a valid state initially
+                if (fetchError.code !== "PGRST116") throw fetchError
             } else if (data) {
                 setSettings(data as SiteSettings)
-                hasLoadedRef.current = true
             }
-        } catch (err: unknown) {
-            console.error("Error fetching settings:", JSON.stringify(err, null, 2))
-            setError(err as Error)
+        } catch (err: any) {
+            // Quietly ignore AbortError as it is an intentional unmount/cancellation, not a real failure
+            if (err.name === 'AbortError') {
+                return;
+            }
+
+            console.error("Error fetching settings:", err.message || err)
+
+            // Handle and clean up network/fetch errors gracefully without crashing the UI
+            setError(err instanceof Error ? err : new Error(String(err)))
         } finally {
-            setIsLoading(false)
+            isFetchingRef.current = false
+            // Only set loading to false if this was the active request
+            if (abortControllerRef.current === abortController) {
+                setIsLoading(false)
+            }
         }
-    }, [supabase])
+    }, [supabase, settings])
 
     React.useEffect(() => {
         let mounted = true
 
-        // 1. Initial Fetch
+        // 1. Trigger initial fetch
         fetchSettings()
 
-        // 2. Realtime Subscription
-        const channel = supabase
+        // 2. Set up Auth State Listener
+        // Triggers fetch only after authentication events to handle expired JWTs and token refreshes
+        const { data: { subscription: authSubscription } } = supabase.auth.onAuthStateChange(
+            (event, session) => {
+                if (mounted && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION')) {
+                    fetchSettings()
+                }
+            }
+        )
+
+        // 3. Set up Realtime Subscription for automatic UI updates
+        const realtimeChannel = supabase
             .channel('site_settings_changes')
             .on(
                 'postgres_changes',
@@ -82,35 +126,27 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
                     table: 'site_settings',
                 },
                 (payload: RealtimePostgresChangesPayload<SiteSettings>) => {
-                    // Update state immediately with new data
                     if (mounted && payload.new && Object.keys(payload.new).length > 0) {
                         setSettings(prev => ({ ...prev, ...payload.new } as SiteSettings))
                     }
                 }
             )
             .subscribe((status, err) => {
-                if (status === 'SUBSCRIBED') {
-                    // Subscription successful
-                }
-
-                if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
-                    console.warn(`Realtime subscription error (${status}):`, err)
-                    // If realtime fails, fallback to polling
-                    // We don't need complex retry logic here because polling will handle updates
+                if (status === 'CHANNEL_ERROR') {
+                    console.warn(`Realtime subscription error:`, err)
                 }
             })
 
-        // 3. Fallback Polling (Every 30 seconds)
-        // This ensures data consistency even if realtime disconnects silently
-        const pollingInterval = setInterval(() => {
-            if (mounted) fetchSettings()
-        }, 30000)
-
-        // Cleanup
+        // Cleanup function
         return () => {
             mounted = false
-            clearInterval(pollingInterval)
-            supabase.removeChannel(channel)
+            // Abort any in-flight requests to prevent AbortError memory leaks on unmount
+            if (abortControllerRef.current) {
+                abortControllerRef.current.abort()
+            }
+            // Clean up subscriptions
+            authSubscription.unsubscribe()
+            supabase.removeChannel(realtimeChannel)
         }
     }, [supabase, fetchSettings])
 
@@ -125,7 +161,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 export function useSettings() {
     const context = React.useContext(SettingsContext)
     if (context === undefined) {
-        // console.warn("useSettings must be used within a SettingsProvider. Using fallback.")
         return {
             settings: null,
             isLoading: false,

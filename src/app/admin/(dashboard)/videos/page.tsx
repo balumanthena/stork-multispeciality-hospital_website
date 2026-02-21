@@ -20,6 +20,9 @@ export default async function AdminVideosPage() {
             created_at,
             treatments (
                 title
+            ),
+            departments (
+                name
             )
         `)
         .order("created_at", { ascending: false })
@@ -59,7 +62,7 @@ export default async function AdminVideosPage() {
                         <thead className="bg-slate-50 border-b border-slate-200 font-semibold text-slate-900">
                             <tr>
                                 <th className="px-6 py-4">Video</th>
-                                <th className="px-6 py-4">Linked Treatment</th>
+                                <th className="px-6 py-4">Target Placement</th>
                                 <th className="px-6 py-4">Status</th>
                                 <th className="px-6 py-4">Date Added</th>
                                 <th className="px-6 py-4 text-right">Actions</th>
@@ -100,7 +103,13 @@ export default async function AdminVideosPage() {
                                     </td>
                                     <td className="px-6 py-4 font-medium text-slate-700">
                                         {/* @ts-ignore - Supabase join type inference */}
-                                        {video.treatments?.title || "Unlinked"}
+                                        {(video.treatments as any)?.title ? (
+                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> {(video.treatments as any).title}</span>
+                                        ) : (video.departments as any)?.name ? (
+                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> {(video.departments as any).name}</span>
+                                        ) : (
+                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span> Main Gallery</span>
+                                        )}
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${video.is_active

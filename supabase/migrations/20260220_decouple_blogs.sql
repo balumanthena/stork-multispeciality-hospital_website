@@ -1,0 +1,3 @@
+ALTER TABLE blogs
+DROP COLUMN IF EXISTS department_id,
+DROP COLUMN IF EXISTS treatment_id;

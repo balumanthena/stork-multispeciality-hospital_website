@@ -15,6 +15,8 @@ export default async function BlogListingPage() {
             )
         `)
         .eq('status', 'Published')
+        .is('department_id', null)
+        .is('treatment_id', null)
         .order('published_at', { ascending: false })
 
     // Map Supabase data to the format expected by BlogList
