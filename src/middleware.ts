@@ -7,8 +7,7 @@ import { UserRole } from './types'
 // Middleware is the blunt instrument to bounce fundamentally unauthorized ranks.
 const ROUTE_PERMISSIONS: { path: string, roles: UserRole[] }[] = [
     { path: '/admin/settings', roles: ['super_admin'] },
-    { path: '/admin/users', roles: ['super_admin'] }, // Hypothetical route map mapping
-    { path: '/admin/services', roles: ['super_admin', 'admin'] },
+    { path: '/admin/system', roles: ['super_admin'] },
     { path: '/admin/blogs', roles: ['super_admin', 'admin', 'editor'] },
     { path: '/admin/videos', roles: ['super_admin', 'admin', 'editor'] },
 ]

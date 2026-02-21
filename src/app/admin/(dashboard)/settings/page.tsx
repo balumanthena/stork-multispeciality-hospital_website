@@ -81,22 +81,5 @@ export default async function SettingsPage() {
         }
     }
 
-    // 5. Fetch All Profiles for Users & Roles Tab
-    let profiles: any[] = [];
-    try {
-        const { data, error } = await supabase
-            .from('profiles')
-            .select('*')
-            .order('created_at', { ascending: false })
-
-        if (!error && data) {
-            profiles = data
-        } else if (error) {
-            console.error("Supabase Error fetching profiles:", error)
-        }
-    } catch (err) {
-        console.error("Error fetching profiles:", err)
-    }
-
-    return <SettingsForm initialData={settings} initialUsers={profiles} />
+    return <SettingsForm initialData={settings} />
 }

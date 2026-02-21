@@ -1,9 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope, PlayCircle, MessageSquareQuote, Award, Shield, Image, Megaphone } from "lucide-react"
+import { LayoutDashboard, Building2, Stethoscope, FileText, Settings, LogOut, Microscope, PlayCircle, MessageSquareQuote, Award, Shield, Image, Megaphone, Users, History } from "lucide-react"
 
 import { useState, useEffect } from "react"
 import { createClient } from "@/lib/supabase/client"
@@ -12,35 +12,27 @@ import { UserRole } from "@/types"
 
 const sidebarGroups = [
     {
-        title: "Overview",
-        items: [
-            { name: "Dashboard", href: "/admin", icon: LayoutDashboard, permission: null },
-        ]
-    },
-    {
-        title: "Services",
-        items: [
-            { name: "Service Categories", href: "/admin/services/categories", icon: Building2, permission: 'manage_departments' as const },
-            { name: "Services", href: "/admin/services", icon: Stethoscope, permission: 'manage_treatments' as const },
-        ]
-    },
-    {
         title: "Content",
         items: [
-            { name: "Articles", href: "/admin/blogs", icon: FileText, permission: 'manage_blogs' as const },
-            { name: "Videos", href: "/admin/videos", icon: PlayCircle, permission: 'manage_videos' as const },
+            { name: "Dashboard", href: "/admin", icon: LayoutDashboard, role: ['editor', 'admin', 'super_admin'] },
+            { name: "Articles", href: "/admin/blogs", icon: FileText, role: ['editor', 'admin', 'super_admin'] },
+            { name: "Videos", href: "/admin/videos", icon: PlayCircle, role: ['editor', 'admin', 'super_admin'] },
         ]
     },
     {
-        title: "Configuration",
+        title: "System",
         items: [
-            { name: "Global Settings", href: "/admin/settings", icon: Settings, permission: 'manage_settings' as const },
+            { name: "Taxonomy", href: "/admin/system/taxonomy", icon: Microscope, role: ['super_admin'] },
+            { name: "Users", href: "/admin/system/users", icon: Users, role: ['super_admin'] },
+            { name: "Audit Logs", href: "/admin/system/audit", icon: History, role: ['super_admin'] },
+            { name: "Global Settings", href: "/admin/settings", icon: Settings, role: ['super_admin'] },
         ]
     }
 ]
 
 export function AdminSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
     const [role, setRole] = useState<UserRole | null>(null)
 
     useEffect(() => {
@@ -54,6 +46,13 @@ export function AdminSidebar() {
         }
         fetchRole()
     }, [])
+
+    const handleLogout = async () => {
+        const supabase = createClient()
+        await supabase.auth.signOut()
+        router.push("/admin/login")
+        router.refresh()
+    }
 
     return (
         <div className="sticky top-0 flex h-screen w-64 flex-col bg-white border-r border-slate-200 text-slate-600">
@@ -71,7 +70,7 @@ export function AdminSidebar() {
             <div className="flex-1 overflow-y-auto py-6">
                 <div className="space-y-6 px-3">
                     {sidebarGroups.map((group) => {
-                        const visibleItems = group.items.filter(link => !link.permission || hasPermission(role, link.permission))
+                        const visibleItems = group.items.filter(link => role && link.role.includes(role))
                         if (visibleItems.length === 0) return null
 
                         return (
@@ -123,7 +122,10 @@ export function AdminSidebar() {
 
             {/* Logout Section */}
             <div className="border-t border-slate-100 p-4">
-                <button className="group flex w-full items-center px-3 py-2.5 text-sm font-medium text-slate-600 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors">
+                <button
+                    onClick={handleLogout}
+                    className="group flex w-full items-center px-3 py-2.5 text-sm font-medium text-slate-600 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors"
+                >
                     <LogOut className="mr-4 h-5 w-5 flex-shrink-0 text-slate-400 group-hover:text-red-500" />
                     Logout
                 </button>
