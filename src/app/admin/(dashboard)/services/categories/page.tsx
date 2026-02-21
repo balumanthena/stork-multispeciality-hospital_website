@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Plus, Search, Loader2, Pencil, Trash2, ArrowUpDown } from "lucide-react"
 import * as Icons from "lucide-react"
 import { Department } from "@/types"
-import { DepartmentDialog } from "@/components/admin/departments/department-dialog"
+import { DepartmentDialog } from "@/components/admin/service-categories/department-dialog"
 import { Switch } from "@/components/ui/switch"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
@@ -25,7 +25,7 @@ export default function AdminDepartmentsPage() {
         try {
             setIsLoading(true)
             const { data, error } = await supabase
-                .from("departments")
+                .from("service_categories")
                 .select("*")
                 .order("display_order", { ascending: true }) // Sort by display_order
                 .order("name", { ascending: true })
@@ -45,7 +45,7 @@ export default function AdminDepartmentsPage() {
 
         try {
             setDeletingId(id)
-            const { error } = await supabase.from("departments").delete().eq("id", id)
+            const { error } = await supabase.from("service_categories").delete().eq("id", id)
             if (error) throw error
 
             setDepartments(prev => prev.filter(d => d.id !== id))
@@ -63,7 +63,7 @@ export default function AdminDepartmentsPage() {
             setDepartments(prev => prev.map(d => d.id === id ? { ...d, is_active: !currentStatus } : d))
 
             const { error } = await supabase
-                .from("departments")
+                .from("service_categories")
                 .update({ is_active: !currentStatus })
                 .eq("id", id)
 

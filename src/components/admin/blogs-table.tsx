@@ -16,8 +16,10 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog"
 import { toast } from "sonner"
+import { UserRole } from "@/types"
+import { hasPermission } from "@/lib/auth-utils"
 
-export default function AdminBlogsTable({ initialData }: { initialData: any[] }) {
+export default function AdminBlogsTable({ initialData, currentUserRole }: { initialData: any[], currentUserRole: UserRole | null }) {
     const [blogs, setBlogs] = useState(initialData)
     const [search, setSearch] = useState("")
     const [deletingId, setDeletingId] = useState<string | null>(null)
@@ -80,36 +82,47 @@ export default function AdminBlogsTable({ initialData }: { initialData: any[] })
                                 </td>
                             </tr>
                         ) : (
-                            filteredBlogs.map((item) => (
-                                <tr key={item.id} className="hover:bg-slate-50 transition-colors">
-                                    <td className="px-6 py-4 font-medium text-slate-800">{item.title}</td>
-                                    <td className="px-6 py-4 text-slate-600">{item.author}</td>
-                                    <td className="px-6 py-4 text-slate-600">
-                                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
-                                            {item.category}
-                                        </span>
-                                    </td>
-                                    <td className="px-6 py-4 text-slate-500">{item.date}</td>
-                                    <td className="px-6 py-4 text-right">
-                                        <div className="flex justify-end gap-2">
-                                            <Link href={`/admin/blogs/${item.id}`}>
-                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
-                                                    <Edit2 className="h-4 w-4" />
-                                                </Button>
-                                            </Link>
-                                            <Button
-                                                variant="ghost"
-                                                size="icon"
-                                                className="h-8 w-8 text-slate-500 hover:text-red-600"
-                                                onClick={() => setConfirmDeleteId(item.id)}
-                                                disabled={deletingId === item.id}
-                                            >
-                                                {deletingId === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-                                            </Button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
+                            filteredBlogs.map((item) => {
+                                // Basic UI Check: Does the user have permission to edit or manage any blog?
+                                // (Note: Supabase RLS will ultimately block editors from saving changes to other people's blogs)
+                                const canEdit = hasPermission(currentUserRole, 'edit_blog') || hasPermission(currentUserRole, 'edit_seo');
+                                const canDelete = hasPermission(currentUserRole, 'manage_blogs'); // Only admins can hard delete arbitrarily from UI
+
+                                return (
+                                    <tr key={item.id} className="hover:bg-slate-50 transition-colors">
+                                        <td className="px-6 py-4 font-medium text-slate-800">{item.title}</td>
+                                        <td className="px-6 py-4 text-slate-600">{item.author}</td>
+                                        <td className="px-6 py-4 text-slate-600">
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                                                {item.category}
+                                            </span>
+                                        </td>
+                                        <td className="px-6 py-4 text-slate-500">{item.date}</td>
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex justify-end gap-2">
+                                                {canEdit && (
+                                                    <Link href={`/admin/blogs/${item.id}`}>
+                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
+                                                            <Edit2 className="h-4 w-4" />
+                                                        </Button>
+                                                    </Link>
+                                                )}
+                                                {canDelete && (
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="icon"
+                                                        className="h-8 w-8 text-slate-500 hover:text-red-600"
+                                                        onClick={() => setConfirmDeleteId(item.id)}
+                                                        disabled={deletingId === item.id}
+                                                    >
+                                                        {deletingId === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+                                                    </Button>
+                                                )}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )
+                            })
                         )}
                     </tbody>
                 </table>

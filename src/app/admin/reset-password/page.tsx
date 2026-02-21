@@ -64,7 +64,7 @@ export default function AdminResetPasswordPage() {
     if (success) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-                <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-lg border border-slate-100 text-center space-y-4">
+                <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-sm border border-slate-100 text-center space-y-4">
                     <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                         <CheckCircle className="h-8 w-8" />
                     </div>
@@ -84,7 +84,7 @@ export default function AdminResetPasswordPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-lg border border-slate-100">
+            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-sm border border-slate-100">
                 <div className="text-center">
                     <h2 className="text-2xl font-bold text-slate-900">Set New Password</h2>
                     <p className="text-sm text-slate-500 mt-2">
@@ -94,7 +94,7 @@ export default function AdminResetPasswordPage() {
 
                 <form onSubmit={handleUpdatePassword} className="space-y-6">
                     {error && (
-                        <div className="bg-red-50 text-red-600 text-sm p-3 rounded-md border border-red-100">
+                        <div className="bg-red-50 text-red-600 text-sm p-4 rounded-md border border-red-100">
                             {error}
                         </div>
                     )}

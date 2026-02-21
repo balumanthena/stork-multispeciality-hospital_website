@@ -68,7 +68,7 @@ export function TreatmentForm({ id }: { id?: string }) {
             try {
                 // 1. Fetch Departments
                 const { data: deptData, error: deptError } = await supabase
-                    .from('departments')
+                    .from('service_categories')
                     .select('*')
                     .eq('is_active', true)
                     .order('name')
@@ -79,7 +79,7 @@ export function TreatmentForm({ id }: { id?: string }) {
                 // 2. Fetch Treatment if ID exists
                 if (id) {
                     const { data, error } = await supabase
-                        .from("treatments")
+                        .from("services")
                         .select("*")
                         .eq("id", id)
                         .single()
@@ -101,7 +101,7 @@ export function TreatmentForm({ id }: { id?: string }) {
             } catch (error: any) {
                 console.error(error)
                 toast.error("Error loading data")
-                if (id) router.push("/admin/treatments")
+                if (id) router.push("/admin/services")
             } finally {
                 setFetching(false)
             }
@@ -131,7 +131,7 @@ export function TreatmentForm({ id }: { id?: string }) {
         try {
             if (id) {
                 const { error } = await supabase
-                    .from("treatments")
+                    .from("services")
                     .update({
                         ...values,
                         updated_at: new Date().toISOString(),
@@ -142,7 +142,7 @@ export function TreatmentForm({ id }: { id?: string }) {
                 toast.success("Treatment updated successfully")
             } else {
                 const { error } = await supabase
-                    .from("treatments")
+                    .from("services")
                     .insert([{
                         ...values,
                     }])
@@ -150,7 +150,7 @@ export function TreatmentForm({ id }: { id?: string }) {
                 if (error) throw error
                 toast.success("Treatment created successfully")
             }
-            router.push("/admin/treatments")
+            router.push("/admin/services")
             router.refresh()
         } catch (error: any) {
             console.error(error)
@@ -350,7 +350,7 @@ export function TreatmentForm({ id }: { id?: string }) {
                             <Button
                                 type="button"
                                 variant="outline"
-                                onClick={() => router.push("/admin/treatments")}
+                                onClick={() => router.push("/admin/services")}
                             >
                                 Cancel
                             </Button>

@@ -53,9 +53,10 @@ async function getDepartmentBlogs(departmentSlug: string) {
         .from("blogs")
         .select(`
             id, slug, title, excerpt, image_url, category, published_at,
-            author:author_id (email)
+            author:author_id (email),
+            blog_departments!inner(department_id)
         `)
-        .eq("department_id", deptData.id)
+        .eq("blog_departments.department_id", deptData.id)
         .eq("status", "Published")
         .order("published_at", { ascending: false })
         .limit(3)
@@ -67,13 +68,40 @@ async function getDepartmentBlogs(departmentSlug: string) {
     return blogs || []
 }
 
+async function getDepartmentVideos(departmentSlug: string) {
+    const supabase = await createClient()
+
+    // 1. Get Department ID by Slug
+    const { data: deptData } = await supabase
+        .from("departments")
+        .select("id")
+        .eq("slug", departmentSlug)
+        .single()
+
+    if (!deptData?.id) return []
+
+    // 2. Get Related Videos
+    const { data: videos } = await supabase
+        .from("treatment_videos")
+        .select(`
+            *,
+            video_departments!inner(department_id)
+        `)
+        .eq("video_departments.department_id", deptData.id)
+        .eq("is_active", true)
+        .order("created_at", { ascending: false })
+
+    return videos || []
+}
+
 export default async function DepartmentPage({
     params,
 }: {
-    params: Promise<{ slug: string }>
+    params: Promise<{ "category-slug": string }>
 }) {
     noStore();
-    const { slug } = await params
+    const resolvedParams = await params;
+    const slug = resolvedParams["category-slug"];
     const department = departmentsData[slug.toLowerCase()]
 
     if (!department) {
@@ -117,7 +145,7 @@ export default async function DepartmentPage({
                         <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
                             <Link href="/" className="hover:text-[var(--color-accent)] transition-colors">Home</Link>
                             <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                            <Link href="/departments" className="hover:text-[var(--color-accent)] transition-colors">Centers of Excellence</Link>
+                            <Link href="/services" className="hover:text-[var(--color-accent)] transition-colors">Centers of Excellence</Link>
                             <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                             <span className="text-slate-900 font-semibold">{department.title}</span>
                         </nav>

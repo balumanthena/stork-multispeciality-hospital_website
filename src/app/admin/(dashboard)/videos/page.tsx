@@ -1,13 +1,19 @@
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/server"
 import { Button } from "@/components/ui/button"
-import { Plus, Video, ExternalLink, Trash2 } from "lucide-react"
+import { Plus, Video, ExternalLink, Trash2, Edit } from "lucide-react"
 import { format } from "date-fns"
+import { getCurrentUserRole, hasPermission } from "@/lib/auth-helpers"
 
 export const dynamic = 'force-dynamic'
 
 export default async function AdminVideosPage() {
     const supabase = await createClient()
+    const role = await getCurrentUserRole()
+
+    // Check global video permission. Editors can implicitly 'create_video', but only admins can hard 'manage_videos'
+    const canManageALL = hasPermission(role, 'manage_videos');
+    const canCreate = hasPermission(role, 'create_video');
 
     const { data: videos, error } = await supabase
         .from("treatment_videos")
@@ -18,11 +24,12 @@ export default async function AdminVideosPage() {
             thumbnail_url, 
             is_active, 
             created_at,
-            treatments (
-                title
+            show_global,
+            video_departments (
+                department_id
             ),
-            departments (
-                name
+            video_treatments (
+                treatment_id
             )
         `)
         .order("created_at", { ascending: false })
@@ -47,12 +54,14 @@ export default async function AdminVideosPage() {
                     <h1 className="text-2xl font-bold text-slate-900">Video Management</h1>
                     <p className="text-slate-500 mt-1">Manage YouTube videos linked to treatments</p>
                 </div>
-                <Link href="/admin/videos/new">
-                    <Button className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
-                        <Plus className="w-4 h-4" />
-                        Add New Video
-                    </Button>
-                </Link>
+                {canCreate && (
+                    <Link href="/admin/videos/new">
+                        <Button className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
+                            <Plus className="w-4 h-4" />
+                            Add New Video
+                        </Button>
+                    </Link>
+                )}
             </div>
 
             {/* Video List */}
@@ -62,79 +71,106 @@ export default async function AdminVideosPage() {
                         <thead className="bg-slate-50 border-b border-slate-200 font-semibold text-slate-900">
                             <tr>
                                 <th className="px-6 py-4">Video</th>
-                                <th className="px-6 py-4">Target Placement</th>
+                                <th className="px-6 py-4">Distribution</th>
                                 <th className="px-6 py-4">Status</th>
                                 <th className="px-6 py-4">Date Added</th>
-                                <th className="px-6 py-4 text-right">Actions</th>
+                                {(canManageALL || canCreate) && <th className="px-6 py-4 text-right">Actions</th>}
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
-                            {videos.map((video) => (
-                                <tr key={video.id} className="hover:bg-slate-50 transition-colors">
-                                    <td className="px-6 py-4">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-24 h-16 bg-slate-100 rounded-lg overflow-hidden flex-shrink-0 relative border border-slate-200">
-                                                {video.thumbnail_url ? (
-                                                    <img
-                                                        src={video.thumbnail_url}
-                                                        alt={video.title}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                ) : (
-                                                    <div className="flex items-center justify-center h-full text-slate-300">
-                                                        <Video className="w-6 h-6" />
-                                                    </div>
+                            {videos.map((video) => {
+                                const deptCount = video.video_departments?.length || 0
+                                const treatCount = video.video_treatments?.length || 0
+                                const isGlobal = video.show_global
+
+                                return (
+                                    <tr key={video.id} className="hover:bg-slate-50 transition-colors">
+                                        <td className="px-6 py-4">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-24 h-16 bg-slate-100 rounded-lg overflow-hidden flex-shrink-0 relative border border-slate-200">
+                                                    {video.thumbnail_url ? (
+                                                        <img
+                                                            src={video.thumbnail_url}
+                                                            alt={video.title}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    ) : (
+                                                        <div className="flex items-center justify-center h-full text-slate-300">
+                                                            <Video className="w-6 h-6" />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div>
+                                                    <p className="font-semibold text-slate-900 line-clamp-1 w-48" title={video.title}>
+                                                        {video.title}
+                                                    </p>
+                                                    <a
+                                                        href={video.youtube_url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-xs text-blue-600 hover:underline flex items-center gap-1 mt-1"
+                                                    >
+                                                        View on YouTube <ExternalLink className="w-3 h-3" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <div className="flex flex-col gap-1">
+                                                {isGlobal && (
+                                                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-orange-600 uppercase">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span> Global Gallery
+                                                    </span>
+                                                )}
+                                                {deptCount > 0 && (
+                                                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> {deptCount} Department{deptCount > 1 ? 's' : ''}
+                                                    </span>
+                                                )}
+                                                {treatCount > 0 && (
+                                                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-emerald-600 uppercase">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> {treatCount} Treatment{treatCount > 1 ? 's' : ''}
+                                                    </span>
+                                                )}
+                                                {!isGlobal && deptCount === 0 && treatCount === 0 && (
+                                                    <span className="text-slate-400 italic text-xs">Unassigned</span>
                                                 )}
                                             </div>
-                                            <div>
-                                                <p className="font-semibold text-slate-900 line-clamp-1 w-48" title={video.title}>
-                                                    {video.title}
-                                                </p>
-                                                <a
-                                                    href={video.youtube_url}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-xs text-blue-600 hover:underline flex items-center gap-1 mt-1"
-                                                >
-                                                    View on YouTube <ExternalLink className="w-3 h-3" />
-                                                </a>
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${video.is_active
+                                                ? "bg-green-100 text-green-800"
+                                                : "bg-slate-100 text-slate-600"
+                                                }`}>
+                                                {video.is_active ? "Active" : "Inactive"}
+                                            </span>
+                                        </td>
+                                        <td className="px-6 py-4 text-slate-500">
+                                            {format(new Date(video.created_at), "MMM d, yyyy")}
+                                        </td>
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex items-center justify-end gap-2">
+                                                <Link href={`/admin/videos/${video.id}`}>
+                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-blue-600" title="Edit Video">
+                                                        <Edit className="w-4 h-4" />
+                                                    </Button>
+                                                </Link>
+                                                {canManageALL && (
+                                                    <form action={async () => {
+                                                        "use server"
+                                                        const supabase = await createClient()
+                                                        await supabase.from("treatment_videos").delete().eq("id", video.id)
+                                                    }}>
+                                                        <button className="text-slate-400 hover:text-red-500 transition-colors p-2" title="Delete Video">
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    </form>
+                                                )}
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4 font-medium text-slate-700">
-                                        {/* @ts-ignore - Supabase join type inference */}
-                                        {(video.treatments as any)?.title ? (
-                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> {(video.treatments as any).title}</span>
-                                        ) : (video.departments as any)?.name ? (
-                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> {(video.departments as any).name}</span>
-                                        ) : (
-                                            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span> Main Gallery</span>
-                                        )}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${video.is_active
-                                            ? "bg-green-100 text-green-800"
-                                            : "bg-slate-100 text-slate-600"
-                                            }`}>
-                                            {video.is_active ? "Active" : "Inactive"}
-                                        </span>
-                                    </td>
-                                    <td className="px-6 py-4 text-slate-500">
-                                        {format(new Date(video.created_at), "MMM d, yyyy")}
-                                    </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <form action={async () => {
-                                            "use server"
-                                            const supabase = await createClient()
-                                            await supabase.from("treatment_videos").delete().eq("id", video.id)
-                                        }}>
-                                            <button className="text-slate-400 hover:text-red-500 transition-colors p-2">
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            ))}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
                 ) : (

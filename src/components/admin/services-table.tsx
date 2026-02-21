@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, Edit2, Trash2, Plus, Loader2 } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { UserRole } from "@/types"
+import { hasPermission } from "@/lib/auth-utils"
 
-export default function AdminTreatmentsTable({ initialData }: { initialData: any[] }) {
+export default function AdminTreatmentsTable({ initialData, currentUserRole }: { initialData: any[], currentUserRole: UserRole | null }) {
     const [treatments, setTreatments] = useState(initialData)
     const [search, setSearch] = useState("")
     const [deletingId, setDeletingId] = useState<string | null>(null)
@@ -17,7 +19,7 @@ export default function AdminTreatmentsTable({ initialData }: { initialData: any
         if (!confirm("Are you sure you want to delete this treatment?")) return
 
         setDeletingId(id)
-        const { error } = await supabase.from("treatments").delete().eq("id", id)
+        const { error } = await supabase.from("services").delete().eq("id", id)
 
         if (error) {
             alert("Error deleting treatment: " + error.message)
@@ -34,6 +36,8 @@ export default function AdminTreatmentsTable({ initialData }: { initialData: any
         t.title.toLowerCase().includes(search.toLowerCase()) ||
         t.department?.toLowerCase().includes(search.toLowerCase())
     )
+
+    const canManage = hasPermission(currentUserRole, 'manage_treatments');
 
     return (
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
@@ -59,13 +63,13 @@ export default function AdminTreatmentsTable({ initialData }: { initialData: any
                             <th className="px-6 py-4">Summary</th>
                             <th className="px-6 py-4">Video ID</th>
                             <th className="px-6 py-4">Department</th>
-                            <th className="px-6 py-4 text-right">Actions</th>
+                            {canManage && <th className="px-6 py-4 text-right">Actions</th>}
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                         {filteredTreatments.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="px-6 py-8 text-center text-slate-500">
+                                <td colSpan={canManage ? 5 : 4} className="px-6 py-8 text-center text-slate-500">
                                     No treatments found.
                                 </td>
                             </tr>
@@ -80,22 +84,24 @@ export default function AdminTreatmentsTable({ initialData }: { initialData: any
                                             {item.department || "General"}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <div className="flex justify-end gap-2">
-                                            <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
-                                                <Edit2 className="h-4 w-4" />
-                                            </Button>
-                                            <Button
-                                                variant="ghost"
-                                                size="icon"
-                                                className="h-8 w-8 text-slate-500 hover:text-red-600"
-                                                onClick={() => handleDelete(item.id)}
-                                                disabled={deletingId === item.id}
-                                            >
-                                                {deletingId === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-                                            </Button>
-                                        </div>
-                                    </td>
+                                    {canManage && (
+                                        <td className="px-6 py-4 text-right">
+                                            <div className="flex justify-end gap-2">
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
+                                                    <Edit2 className="h-4 w-4" />
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    className="h-8 w-8 text-slate-500 hover:text-red-600"
+                                                    onClick={() => handleDelete(item.id)}
+                                                    disabled={deletingId === item.id}
+                                                >
+                                                    {deletingId === item.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+                                                </Button>
+                                            </div>
+                                        </td>
+                                    )}
                                 </tr>
                             ))
                         )}

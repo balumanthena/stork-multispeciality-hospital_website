@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
 
             {/* Right: Login Form */}
             <div className="flex items-center justify-center p-8">
-                <div className="w-full max-w-sm space-y-8 bg-white p-10 rounded-xl shadow-lg border border-slate-100">
+                <div className="w-full max-w-sm space-y-8 bg-white p-10 rounded-xl shadow-sm border border-slate-100">
                     <div className="text-center">
                         <div className="mx-auto w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
                             <Lock className="h-6 w-6 text-[var(--color-primary)]" />
@@ -70,7 +70,7 @@ export default function AdminLoginPage() {
 
                     <form onSubmit={handleLogin} className="space-y-6">
                         {error && (
-                            <div className="bg-red-50 text-red-600 text-sm p-3 rounded-md border border-red-100">
+                            <div className="bg-red-50 text-red-600 text-sm p-4 rounded-md border border-red-100">
                                 {error}
                             </div>
                         )}

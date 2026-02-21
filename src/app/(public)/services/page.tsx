@@ -54,7 +54,7 @@ export default async function DepartmentsIndexPage() {
 
                                 return (
                                     <Link
-                                        href={`/departments/${dept.slug}`}
+                                        href={`/services/${dept.slug}`}
                                         key={dept.id}
                                         className={`group bg-white rounded-[16px] p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-1 ${isFeatured ? "border border-[#F97316] bg-orange-50/10" : "border border-transparent hover:border-orange-100"
                                             }`}

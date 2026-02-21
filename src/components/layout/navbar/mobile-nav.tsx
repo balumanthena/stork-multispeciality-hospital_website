@@ -61,7 +61,7 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                             {expandedMenu === "departments" && (
                                 <div className="bg-slate-50 px-4 py-3 space-y-2 rounded-b-lg">
                                     <Link
-                                        href="/departments"
+                                        href="/services"
                                         onClick={() => setIsOpen(false)}
                                         className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
                                     >

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { SiteSettings } from "@/types"
+import { SiteSettings, Profile } from "@/types"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -11,8 +11,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { updateSiteSettings } from "@/app/admin/(dashboard)/settings/actions"
 import { toast } from "sonner"
 import { Loader2, Save } from "lucide-react"
+import UsersRolesTab from "./users-roles-tab"
 
-export default function SettingsForm({ initialData }: { initialData: SiteSettings }) {
+export default function SettingsForm({ initialData, initialUsers }: { initialData: SiteSettings, initialUsers: Profile[] }) {
     const [loading, setLoading] = useState(false)
 
     async function handleSubmit(formData: FormData) {
@@ -48,7 +49,13 @@ export default function SettingsForm({ initialData }: { initialData: SiteSetting
                     <TabsTrigger value="contact">Contact & Location</TabsTrigger>
                     <TabsTrigger value="seo">SEO & Metadata</TabsTrigger>
                     <TabsTrigger value="analytics">Analytics & Scripts</TabsTrigger>
+                    <TabsTrigger value="users">Users & Roles</TabsTrigger>
                 </TabsList>
+
+                {/* USERS & ROLES */}
+                <TabsContent value="users">
+                    <UsersRolesTab initialUsers={initialUsers} />
+                </TabsContent>
 
                 {/* GENERAL SETTINGS */}
                 <TabsContent value="general">

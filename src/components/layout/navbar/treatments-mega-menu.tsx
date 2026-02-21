@@ -32,7 +32,7 @@ export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuPr
                         >
                             {/* Department Title */}
                             <Link
-                                href={category.slug ? `/departments/${category.slug}` : "#"}
+                                href={category.slug ? `/services/${category.slug}` : "#"}
                                 onClick={onClose}
                                 className="inline-block"
                             >
@@ -65,7 +65,7 @@ export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuPr
                 {/* Bottom CTA Section */}
                 <div className="mt-10 pt-6 border-t border-slate-100 flex justify-center w-full">
                     <Link
-                        href="/treatments"
+                        href="/services"
                         onClick={onClose}
                         className="group/cta inline-flex items-center text-[15px] font-semibold text-[#F97316] hover:text-[#ea580c] transition-colors"
                     >

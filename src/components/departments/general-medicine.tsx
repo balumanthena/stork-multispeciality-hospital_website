@@ -16,7 +16,7 @@ export const GeneralMedicineContent = ({ blogs }: { blogs: any[] }) => {
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
                         <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/departments" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">General Medicine</span>
                     </nav>

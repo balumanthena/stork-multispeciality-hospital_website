@@ -122,7 +122,7 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
             if (department) {
                 // Update
                 const { error } = await supabase
-                    .from("departments")
+                    .from("service_categories")
                     .update({
                         name: values.name,
                         slug: values.slug,
@@ -139,7 +139,7 @@ export function DepartmentDialog({ department, onSuccess, children }: Department
             } else {
                 // Create
                 const { error } = await supabase
-                    .from("departments")
+                    .from("service_categories")
                     .insert({
                         name: values.name,
                         slug: values.slug,

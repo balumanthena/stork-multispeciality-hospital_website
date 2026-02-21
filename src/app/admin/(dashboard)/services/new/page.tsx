@@ -10,6 +10,7 @@ import { ArrowLeft, Save, Loader2 } from "lucide-react"
 import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { extractYoutubeId } from "@/lib/youtube-utils"
 
 export default function NewTreatmentPage() {
     const router = useRouter()
@@ -25,7 +26,7 @@ export default function NewTreatmentPage() {
 
     useEffect(() => {
         const fetchDepartments = async () => {
-            const { data } = await supabase.from('departments').select('id, name')
+            const { data } = await supabase.from('service_categories').select('id, name')
             if (data?.length) {
                 setDepartments(data)
                 setFormData(prev => ({ ...prev, department_id: data[0].id }))
@@ -59,12 +60,13 @@ export default function NewTreatmentPage() {
         // Construct YouTube URL if video ID is provided
         let youtubeUrl = null
         if (formData.videoId) {
-            youtubeUrl = formData.videoId.startsWith('http')
-                ? formData.videoId
-                : `https://www.youtube.com/watch?v=${formData.videoId}`
+            const extractedId = extractYoutubeId(formData.videoId);
+            youtubeUrl = extractedId
+                ? `https://www.youtube.com/watch?v=${extractedId}`
+                : formData.videoId; // Fallback to raw string if parsing fails entirely
         }
 
-        const { error } = await supabase.from('treatments').insert({
+        const { error } = await supabase.from('services').insert({
             title: formData.title,
             slug: slug,
             summary: formData.summary,
@@ -82,7 +84,7 @@ export default function NewTreatmentPage() {
             toast.success("Treatment Created", {
                 description: "New treatment has been successfully added."
             })
-            router.push('/admin/treatments')
+            router.push('/admin/services')
             router.refresh()
         }
     }
@@ -93,13 +95,13 @@ export default function NewTreatmentPage() {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/treatments')}>
+                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/services')}>
                         <ArrowLeft className="h-4 w-4" />
                     </Button>
                     <h1 className="text-2xl font-bold text-slate-800">Add New Treatment</h1>
                 </div>
-                <div className="flex gap-3">
-                    <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/treatments')}>
+                <div className="flex gap-4">
+                    <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/services')}>
                         Cancel
                     </Button>
                     <Button

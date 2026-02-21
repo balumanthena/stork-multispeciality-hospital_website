@@ -2,16 +2,30 @@ import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Stethoscope, FileText, ArrowUpRight, Activity, Users, Calendar } from "lucide-react"
 import { createClient } from "@/lib/supabase/server"
+import { getCurrentUserRole, hasPermission } from "@/lib/auth-helpers"
 
 export const revalidate = 0 // Ensure fresh data on every visit
 
 export default async function AdminDashboard() {
     const supabase = await createClient()
+    const role = await getCurrentUserRole()
 
     // Fetch real counts
     const { count: deptCount } = await supabase.from('departments').select('*', { count: 'exact', head: true })
     const { count: treatmentCount } = await supabase.from('treatments').select('*', { count: 'exact', head: true })
     const { count: blogCount } = await supabase.from('blogs').select('*', { count: 'exact', head: true })
+
+    // Dynamically build the available stats
+    const stats = []
+    if (hasPermission(role, 'manage_departments')) {
+        stats.push({ label: "Total Departments", value: deptCount || 0, icon: Building2, trend: "+2 this month", trendColor: "text-green-600 bg-green-50" })
+    }
+    if (hasPermission(role, 'manage_treatments')) {
+        stats.push({ label: "Active Treatments", value: treatmentCount || 0, icon: Stethoscope, trend: "+5 this week", trendColor: "text-green-600 bg-green-50" })
+    }
+    if (hasPermission(role, 'manage_blogs')) {
+        stats.push({ label: "Published Articles", value: blogCount || 0, icon: FileText, trend: "+12% engagement", trendColor: "text-blue-600 bg-blue-50" })
+    }
 
     return (
         <div className="space-y-12">
@@ -27,30 +41,28 @@ export default async function AdminDashboard() {
             </div>
 
             {/* Stats Cards - Enterprise Style */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                    { label: "Total Departments", value: deptCount || 0, icon: Building2, trend: "+2 this month", trendColor: "text-green-600 bg-green-50" },
-                    { label: "Active Treatments", value: treatmentCount || 0, icon: Stethoscope, trend: "+5 this week", trendColor: "text-green-600 bg-green-50" },
-                    { label: "Published Articles", value: blogCount || 0, icon: FileText, trend: "+12% engagement", trendColor: "text-blue-600 bg-blue-50" },
-                ].map((stat, i) => (
-                    <Card key={i} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200 rounded-xl overflow-hidden bg-white">
-                        <CardContent className="p-6">
-                            <div className="flex justify-between items-start mb-4">
-                                <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
-                                    <stat.icon className="h-5 w-5 text-slate-500" />
+            {stats.length > 0 && (
+                <div className={`grid grid-cols-1 md:grid-cols-${Math.min(stats.length, 3)} gap-6`}>
+                    {stats.map((stat, i) => (
+                        <Card key={i} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200 rounded-xl overflow-hidden bg-white">
+                            <CardContent className="p-6">
+                                <div className="flex justify-between items-start mb-4">
+                                    <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
+                                        <stat.icon className="h-5 w-5 text-slate-500" />
+                                    </div>
+                                    <span className={`text-xs font-semibold px-2 py-1 rounded-full ${stat.trendColor}`}>
+                                        {stat.trend}
+                                    </span>
                                 </div>
-                                <span className={`text-xs font-semibold px-2 py-1 rounded-full ${stat.trendColor}`}>
-                                    {stat.trend}
-                                </span>
-                            </div>
-                            <div>
-                                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{stat.label}</p>
-                                <h3 className="text-3xl font-bold text-slate-900">{stat.value}</h3>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+                                <div>
+                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{stat.label}</p>
+                                    <h3 className="text-3xl font-bold text-slate-900">{stat.value}</h3>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            )}
 
             <div className="grid md:grid-cols-3 gap-8">
                 {/* Recent Activity - Clean List */}
@@ -94,28 +106,32 @@ export default async function AdminDashboard() {
                     <div>
                         <h3 className="text-lg font-bold text-slate-800 mb-4">Quick Actions</h3>
                         <div className="grid grid-cols-2 gap-4">
-                            <Link href="/admin/blogs/new" className="group bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                                <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                                    <FileText className="h-5 w-5 text-orange-600" />
-                                </div>
-                                <span className="text-sm font-semibold text-slate-600 group-hover:text-orange-700">Write Blog</span>
-                            </Link>
+                            {hasPermission(role, 'create_blog') && (
+                                <Link href="/admin/blogs/new" className="group bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                                    <div className="h-10 w-10 rounded-full bg-orange-100 flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                                        <FileText className="h-5 w-5 text-orange-600" />
+                                    </div>
+                                    <span className="text-sm font-semibold text-slate-600 group-hover:text-orange-700">Write Blog</span>
+                                </Link>
+                            )}
 
-                            <Link href="/admin/treatments" className="group bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                                <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                                    <Stethoscope className="h-5 w-5 text-blue-600" />
-                                </div>
-                                <span className="text-sm font-semibold text-slate-600 group-hover:text-blue-700">Treatments</span>
-                            </Link>
+                            {hasPermission(role, 'manage_treatments') && (
+                                <Link href="/admin/treatments" className="group bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                                    <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                                        <Stethoscope className="h-5 w-5 text-blue-600" />
+                                    </div>
+                                    <span className="text-sm font-semibold text-slate-600 group-hover:text-blue-700">Treatments</span>
+                                </Link>
+                            )}
 
-                            <button className="group bg-slate-50 border border-slate-100 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-3 opacity-60 cursor-not-allowed">
+                            <button className="group bg-slate-50 border border-slate-100 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-4 opacity-60 cursor-not-allowed">
                                 <div className="h-10 w-10 rounded-full bg-slate-200 flex items-center justify-center">
                                     <Users className="h-5 w-5 text-slate-400" />
                                 </div>
                                 <span className="text-sm font-medium text-slate-400">Doctors</span>
                             </button>
 
-                            <button className="group bg-slate-50 border border-slate-100 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-3 opacity-60 cursor-not-allowed">
+                            <button className="group bg-slate-50 border border-slate-100 p-4 rounded-xl flex flex-col items-center justify-center text-center gap-4 opacity-60 cursor-not-allowed">
                                 <div className="h-10 w-10 rounded-full bg-slate-200 flex items-center justify-center">
                                     <Calendar className="h-5 w-5 text-slate-400" />
                                 </div>
@@ -125,7 +141,7 @@ export default async function AdminDashboard() {
                     </div>
 
                     {/* System Status - Mini Widget */}
-                    <div className="bg-slate-900 rounded-xl p-6 text-white shadow-lg overflow-hidden relative">
+                    <div className="bg-slate-900 rounded-xl p-6 text-white shadow-sm overflow-hidden relative">
                         <div className="absolute top-0 right-0 p-4 opacity-10">
                             <Activity className="h-24 w-24" />
                         </div>

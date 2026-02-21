@@ -135,7 +135,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 onMouseEnter={() => setActiveMenu("departments")}
             >
                 <Link
-                    href="/departments"
+                    href="/services"
                     className={cn(
                         "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
                         activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"

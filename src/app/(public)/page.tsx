@@ -45,7 +45,7 @@ export default function Home() {
                 </Button>
 
                 <Link
-                  href="/departments"
+                  href="/services"
                   className="text-white font-medium hover:text-[#FF8202] transition-colors flex items-center gap-2"
                 >
                   View Departments <ArrowRight className="w-4 h-4" />
@@ -97,7 +97,7 @@ export default function Home() {
               <span className="text-[var(--color-accent)] font-bold tracking-wider uppercase text-xs mb-2 block">Clinical Excellence</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Our Specialties</h2>
             </div>
-            <Link href="/departments" className="group flex items-center text-slate-600 font-semibold hover:text-[var(--color-accent)] transition-colors">
+            <Link href="/services" className="group flex items-center text-slate-600 font-semibold hover:text-[var(--color-accent)] transition-colors">
               View All Departments <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

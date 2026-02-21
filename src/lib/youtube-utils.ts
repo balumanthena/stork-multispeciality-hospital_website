@@ -8,11 +8,37 @@
 export function extractYoutubeId(url: string): string | null {
     if (!url) return null;
 
-    // Regex for YouTube ID
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
+    try {
+        const parsed = new URL(url)
 
-    return (match && match[2].length === 11) ? match[2] : null;
+        // 1️⃣ Standard watch URL
+        if (parsed.searchParams.get("v")) {
+            return parsed.searchParams.get("v")
+        }
+
+        // 2️⃣ Shortened URL
+        if (parsed.hostname.includes("youtu.be")) {
+            return parsed.pathname.replace("/", "")
+        }
+
+        // 3️⃣ Shorts URL
+        if (parsed.pathname.includes("/shorts/")) {
+            return parsed.pathname.split("/shorts/")[1].split("?")[0]
+        }
+
+        // 4️⃣ Embedded URL
+        if (parsed.pathname.includes("/embed/")) {
+            return parsed.pathname.split("/embed/")[1]
+        }
+
+        return null
+    } catch {
+        // Fallback for invalid URLs or raw IDs
+        if (url.length === 11 && !url.includes("/") && !url.includes(".")) {
+            return url;
+        }
+        return null
+    }
 }
 
 /**

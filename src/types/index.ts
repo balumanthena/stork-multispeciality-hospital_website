@@ -47,7 +47,7 @@ export interface Treatment {
 
 // Enterprise Modules
 
-export type UserRole = 'super_admin' | 'editor' | 'content_manager';
+export type UserRole = 'super_admin' | 'admin' | 'editor' | 'seo_manager';
 
 export interface Profile {
     id: string
@@ -55,6 +55,7 @@ export interface Profile {
     full_name: string | null
     role: UserRole
     permissions: Record<string, boolean>
+    is_active: boolean
     created_at: string
 }
 

@@ -39,7 +39,7 @@ export function TreatmentList() {
     const fetchTreatments = async () => {
         setLoading(true)
         const { data, error } = await supabase
-            .from("treatments")
+            .from("services")
             .select(`
                 *,
                 departments (
@@ -87,7 +87,7 @@ export function TreatmentList() {
         if (!confirm("Are you sure you want to delete this treatment?")) return
 
         const { error } = await supabase
-            .from("treatments")
+            .from("services")
             .delete()
             .eq("id", id)
 
@@ -100,7 +100,7 @@ export function TreatmentList() {
 
     const toggleStatus = async (id: string, currentStatus: boolean) => {
         const { error } = await supabase
-            .from("treatments")
+            .from("services")
             .update({ is_active: !currentStatus })
             .eq("id", id)
 
@@ -136,7 +136,7 @@ export function TreatmentList() {
                             ))}
                         </SelectContent>
                     </Select>
-                    <Button onClick={() => router.push("/admin/treatments/new")} className="gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90">
+                    <Button onClick={() => router.push("/admin/services/new")} className="gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90">
                         <Plus className="w-4 h-4" /> Add New
                     </Button>
                 </div>
@@ -201,7 +201,7 @@ export function TreatmentList() {
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
                                                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                <DropdownMenuItem onClick={() => router.push(`/admin/treatments/${treatment.id}`)}>
+                                                <DropdownMenuItem onClick={() => router.push(`/admin/services/${treatment.id}`)}>
                                                     <Pencil className="mr-2 h-4 w-4" /> Edit
                                                 </DropdownMenuItem>
                                                 <DropdownMenuItem onClick={() => window.open(`/treatments/${treatment.slug}`, '_blank')}>

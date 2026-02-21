@@ -15,8 +15,9 @@ import {
 
 export const revalidate = 0;
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params
+export async function generateMetadata({ params }: { params: Promise<{ "category-slug": string; "service-slug": string }> }) {
+    const resolvedParams = await params
+    const slug = resolvedParams["service-slug"]
     const treatment = getTreatmentDetail(slug)
     if (!treatment) return { title: "Treatment Not Found" }
 
@@ -38,11 +39,14 @@ async function getTreatmentVideos(slug: string) {
 
     if (!treatmentData?.id) return []
 
-    // 2. Get Videos
+    // 2. Get Videos via mapping table
     const { data: videos } = await supabase
         .from("treatment_videos")
-        .select("*")
-        .eq("treatment_id", treatmentData.id)
+        .select(`
+            *,
+            video_treatments!inner(treatment_id)
+        `)
+        .eq("video_treatments.treatment_id", treatmentData.id)
         .eq("is_active", true)
         .order("created_at", { ascending: false })
 
@@ -66,9 +70,10 @@ async function getTreatmentBlogs(slug: string) {
         .from("blogs")
         .select(`
             id, slug, title, excerpt, image_url, category, published_at,
-            author:author_id (email)
+            author:author_id (email),
+            blog_treatments!inner(treatment_id)
         `)
-        .eq("treatment_id", treatmentData.id)
+        .eq("blog_treatments.treatment_id", treatmentData.id)
         .eq("status", "Published")
         .order("published_at", { ascending: false })
         .limit(3)
@@ -77,8 +82,9 @@ async function getTreatmentBlogs(slug: string) {
 }
 
 
-export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params
+export default async function TreatmentDetailPage({ params }: { params: Promise<{ "category-slug": string; "service-slug": string }> }) {
+    const resolvedParams = await params
+    const slug = resolvedParams["service-slug"]
     const treatment = getTreatmentDetail(slug)
 
     if (!treatment) {
@@ -103,7 +109,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
-                        <Link href="/treatments" className="hover:text-[#3e7dca] transition-colors">Treatments</Link>
+                        <Link href="/services" className="hover:text-[#3e7dca] transition-colors">Services</Link>
                         <ChevronRight className="w-4 h-4" />
                         <Link href={treatment.departmentHref} className="hover:text-[#3e7dca] transition-colors">{treatment.category}</Link>
                         <ChevronRight className="w-4 h-4" />

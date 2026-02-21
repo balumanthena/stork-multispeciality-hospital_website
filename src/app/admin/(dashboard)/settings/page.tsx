@@ -1,8 +1,9 @@
-
 import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 import SettingsForm from "@/components/admin/settings-form"
 import { AlertCircle } from "lucide-react"
+import { hasPermission } from "@/lib/auth-helpers"
+import { UserRole } from "@/types"
 
 // Force dynamic to ensure we always fetch fresh data
 export const dynamic = "force-dynamic"
@@ -22,8 +23,8 @@ export default async function SettingsPage() {
         .eq('id', user.id)
         .single()
 
-    // 2. RBAC Guard: Only Super Admin
-    if (profile?.role !== 'super_admin') {
+    // 2. RBAC Guard: Centralized Check
+    if (!hasPermission(profile?.role as UserRole, 'manage_settings')) {
         return (
             <div className="h-[50vh] flex flex-col items-center justify-center text-center p-8">
                 <div className="bg-red-50 p-4 rounded-full mb-4">
@@ -80,5 +81,22 @@ export default async function SettingsPage() {
         }
     }
 
-    return <SettingsForm initialData={settings} />
+    // 5. Fetch All Profiles for Users & Roles Tab
+    let profiles: any[] = [];
+    try {
+        const { data, error } = await supabase
+            .from('profiles')
+            .select('*')
+            .order('created_at', { ascending: false })
+
+        if (!error && data) {
+            profiles = data
+        } else if (error) {
+            console.error("Supabase Error fetching profiles:", error)
+        }
+    } catch (err) {
+        console.error("Error fetching profiles:", err)
+    }
+
+    return <SettingsForm initialData={settings} initialUsers={profiles} />
 }
