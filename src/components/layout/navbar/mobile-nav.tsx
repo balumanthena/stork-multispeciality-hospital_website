@@ -91,13 +91,20 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                             </button>
                             {expandedMenu === "treatments" && (
                                 <div className="bg-slate-50 px-4 py-4 space-y-6 rounded-b-lg">
+                                    <Link
+                                        href="/treatments"
+                                        onClick={() => setIsOpen(false)}
+                                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                                    >
+                                        View All Treatments →
+                                    </Link>
                                     {(groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS).map(section => (
                                         <div key={section.title} className="space-y-2">
                                             <h5 className="px-4 text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">{section.title}</h5>
                                             {section.items.map(item => (
                                                 <Link
                                                     key={item.title}
-                                                    href={item.href}
+                                                    href={`/treatments/${item.href.split("/").pop()}`}
                                                     onClick={() => setIsOpen(false)}
                                                     className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[var(--color-primary)]"
                                                 >
@@ -120,13 +127,20 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                             </button>
                             {expandedMenu === "procedures" && (
                                 <div className="bg-slate-50 px-4 py-4 space-y-6 rounded-b-lg">
+                                    <Link
+                                        href="/procedures"
+                                        onClick={() => setIsOpen(false)}
+                                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                                    >
+                                        View All Procedures →
+                                    </Link>
                                     {PROCEDURES.map(section => (
                                         <div key={section.title} className="space-y-2">
                                             <h5 className="px-4 text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">{section.title}</h5>
                                             {section.items.map(item => (
                                                 <Link
                                                     key={item.title}
-                                                    href={item.href}
+                                                    href={`/procedures/${item.href.split("/").pop()}`}
                                                     onClick={() => setIsOpen(false)}
                                                     className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[var(--color-primary)]"
                                                 >

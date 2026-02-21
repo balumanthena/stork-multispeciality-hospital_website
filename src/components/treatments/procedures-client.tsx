@@ -9,6 +9,7 @@ import { BodySelector } from "./body-selector"
 
 interface ProceduresClientProps {
     groupedProcedures: GroupedTreatmentCategory[]
+    hrefPrefix?: string
 }
 
 const REGION_LABELS: Record<BodyRegion, string> = {
@@ -30,7 +31,7 @@ const REGION_LABELS: Record<BodyRegion, string> = {
     "pain-management": "Pain Management"
 }
 
-export function ProceduresClient({ groupedProcedures }: ProceduresClientProps) {
+export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresClientProps) {
     const [searchQuery, setSearchQuery] = useState("")
     const [selectedRegion, setSelectedRegion] = useState<BodyRegion | null>(null)
     const [isMobile, setIsMobile] = useState(false)
@@ -174,7 +175,7 @@ export function ProceduresClient({ groupedProcedures }: ProceduresClientProps) {
                                 filteredProcedures.map((procedure) => (
                                     <Link
                                         key={procedure.title}
-                                        href={procedure.href}
+                                        href={hrefPrefix ? `${hrefPrefix}/${procedure.href.split("/").pop()}` : procedure.href}
                                         className="group bg-white p-6 rounded-2xl border border-slate-100 hover:border-[#3e7dca] hover:shadow-lg transition-all duration-300 flex flex-col items-start"
                                     >
                                         <span className="text-xs font-bold text-[#ff8202] uppercase tracking-wider mb-2">

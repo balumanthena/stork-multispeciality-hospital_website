@@ -1,22 +1,21 @@
-import { HARDCODED_PROCEDURES } from "@/lib/data/hardcoded-procedures"
+import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { ProceduresClient } from "@/components/treatments/procedures-client"
 import { Activity } from "lucide-react"
 import { Section } from "@/components/layout/section"
 
-// Metadata
-export const metadata = {
-    title: "Procedures | Stork Multispecialty Hospital",
-    description: "Browse our comprehensive list of medical procedures for every department.",
+export const metadata: Metadata = {
+    title: "Treatments | Stork Multispecialty Hospital",
+    description: "Browse our comprehensive list of specialized treatments and medical care.",
 }
 
-export default async function ProceduresIndexPage() {
-    // Use Hardcoded Data as requested
-    const groupedProcedures = HARDCODED_PROCEDURES
+export default function TreatmentsPage() {
+    // We reuse the ProceduresClient logic since the UI is identical
+    const groupedTreatments = HARDCODED_TREATMENTS
 
     return (
         <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
 
-            {/* 1. HERO SECTION (Compact, Authority-Focused) */}
+            {/* 1. HERO SECTION (Authority-Focused, Matching Procedures) */}
             <Section className="bg-[#3e7dca]/5 border-b border-[#3e7dca]/10 pt-32 pb-16 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                     style={{
@@ -30,21 +29,20 @@ export default async function ProceduresIndexPage() {
                         <div className="max-w-2xl text-center md:text-left">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#3e7dca]/20 text-[#3e7dca] text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
                                 <Activity className="w-3 h-3" />
-                                <span>Advanced Care</span>
+                                <span>Comprehensive Treatments</span>
                             </div>
 
                             <h1 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-6 leading-tight tracking-tight">
-                                Our <span className="text-[#ff8202]">Procedures</span> & <span className="text-[#3e7dca]">Surgeries</span>
+                                Our <span className="text-[#3e7dca]">Clinical</span> & <span className="text-[#ff8202]">Specialized</span> Treatments
                             </h1>
 
                             <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto md:mx-0">
-                                Comprehensive surgical solutions and medical procedures performed by expert specialists using state-of-the-art technology.
+                                Explore over 90+ specialized medical treatments and therapeutic solutions delivered by our expert clinical team.
                             </p>
                         </div>
 
-                        {/* Right Side - Abstract Medical Illustration Replacement */}
+                        {/* Right Side */}
                         <div className="hidden md:block opacity-80">
-                            {/* Abstract graphic using CSS/SVG combination to keep it lightweight */}
                             <div className="relative w-64 h-64">
                                 <div className="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
                                 <Activity className="absolute inset-0 m-auto w-32 h-32 text-[#3e7dca] opacity-20" />
@@ -55,8 +53,8 @@ export default async function ProceduresIndexPage() {
                 </div>
             </Section>
 
-            {/* Client Side Filter & Grid */}
-            <ProceduresClient groupedProcedures={groupedProcedures} hrefPrefix="/procedures" />
+            {/* Reusing the ProceduresClient but pointing to /treatments */}
+            <ProceduresClient groupedProcedures={groupedTreatments} hrefPrefix="/treatments" />
 
         </div>
     )

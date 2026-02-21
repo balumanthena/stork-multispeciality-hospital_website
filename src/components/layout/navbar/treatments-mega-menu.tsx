@@ -3,6 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronRight } from "lucide-react"
+import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
 import { MegaMenuSection } from "./nav-data"
@@ -13,6 +14,9 @@ interface TreatmentsMegaMenuProps {
 }
 
 export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuProps) {
+    const pathname = usePathname()
+    console.log("Current Pathname:", pathname)
+
     // Take only first 5 categories to maintain the 5-column layout
     const displayTreatments = treatments.slice(0, 5)
 
@@ -46,7 +50,7 @@ export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuPr
                                 {category.items.slice(0, 8).map((item, idx) => (
                                     <li key={idx}>
                                         <Link
-                                            href={item.href}
+                                            href={`/treatments/${item.href.split("/").pop()}`}
                                             onClick={onClose}
                                             className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#F97316] transition-all duration-200 ease-in-out hover:pl-1.5"
                                         >
@@ -65,7 +69,7 @@ export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuPr
                 {/* Bottom CTA Section */}
                 <div className="mt-10 pt-6 border-t border-slate-100 flex justify-center w-full">
                     <Link
-                        href="/services"
+                        href="/treatments"
                         onClick={onClose}
                         className="group/cta inline-flex items-center text-[15px] font-semibold text-[#F97316] hover:text-[#ea580c] transition-colors"
                     >

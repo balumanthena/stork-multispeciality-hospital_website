@@ -166,16 +166,18 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 className="h-full flex items-center"
                 onMouseEnter={() => setActiveMenu("treatments")}
             >
-                <button className={cn(
-                    "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                    activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
-                )}>
+                <Link
+                    href="/treatments"
+                    className={cn(
+                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
+                        activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    )}>
                     Treatments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "treatments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
                         "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
                         activeMenu === "treatments" || pathname.startsWith("/treatments") ? "scale-x-100" : "scale-x-0"
                     )}></span>
-                </button>
+                </Link>
                 <div className={cn(
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "treatments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
@@ -192,16 +194,18 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 className="h-full flex items-center"
                 onMouseEnter={() => setActiveMenu("procedures")}
             >
-                <button className={cn(
-                    "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                    activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
-                )}>
+                <Link
+                    href="/procedures"
+                    className={cn(
+                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
+                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    )}>
                     Procedures <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "procedures" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
                         "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
                         activeMenu === "procedures" || pathname.startsWith("/procedures") ? "scale-x-100" : "scale-x-0"
                     )}></span>
-                </button>
+                </Link>
                 <div className={cn(
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "procedures" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"

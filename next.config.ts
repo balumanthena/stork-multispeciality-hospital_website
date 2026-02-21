@@ -12,16 +12,6 @@ const nextConfig: NextConfig = {
         source: '/departments/:slug',
         destination: '/services/:slug',
         permanent: true,
-      },
-      {
-        source: '/treatments',
-        destination: '/services',
-        permanent: true,
-      },
-      {
-        source: '/treatments/:slug',
-        destination: '/services', // Fallback for unmatched nested routes
-        permanent: false,
       }
     ];
   },
