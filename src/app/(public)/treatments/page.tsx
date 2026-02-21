@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { ProceduresClient } from "@/components/treatments/procedures-client"
 import { Activity } from "lucide-react"
