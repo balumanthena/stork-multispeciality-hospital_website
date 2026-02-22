@@ -58,45 +58,32 @@ export default function Home() {
               </div>
 
               {/* Action Buttons - Segmented Horizontal Container */}
-              <div className="flex flex-col sm:flex-row items-center justify-between bg-[#F5F7FA] rounded-2xl sm:rounded-full shadow-sm mt-10 w-full max-w-3xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-200 border border-slate-200">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-[#F5F7FA] rounded-2xl sm:rounded-full shadow-sm mt-10 w-full max-w-2xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border border-slate-200 py-0 sm:py-3 px-0 sm:px-2">
 
                 {/* Segment 1: Primary */}
                 <Link
                   href="/appointments"
-                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
+                  className="flex-1 flex items-center justify-center gap-3 px-6 py-4 sm:py-3 hover:bg-gray-100 transition-colors group cursor-pointer rounded-none sm:rounded-full"
                 >
-                  <span className="font-semibold text-slate-900 group-hover:text-[var(--color-accent)] whitespace-nowrap transition-colors flex items-center gap-2 text-[15px]">
-                    <Calendar className="w-4 h-4 text-[var(--color-accent)]" />
+                  <Calendar className="w-5 h-5 text-[var(--color-accent)] shrink-0" />
+                  <span className="font-semibold text-slate-900 group-hover:text-[var(--color-accent)] whitespace-nowrap transition-colors text-base">
                     Book Appointment
                   </span>
-                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="w-3 h-3" />
+                  <div className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center text-slate-400 group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </Link>
 
-                {/* Segment 2: Find Doctor */}
+                {/* Segment 2: Second Opinion */}
                 <Link
-                  href="/doctors"
-                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
+                  href="/second-opinion"
+                  className="flex-1 flex items-center justify-center gap-3 px-6 py-4 sm:py-3 hover:bg-gray-100 transition-colors group cursor-pointer rounded-none sm:rounded-full"
                 >
-                  <span className="font-medium text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-[15px]">
-                    Find a Doctor
+                  <span className="font-semibold text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-base">
+                    Second Opinion
                   </span>
-                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="w-3 h-3" />
-                  </div>
-                </Link>
-
-                {/* Segment 3: Expert Opinion */}
-                <Link
-                  href="/contact"
-                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
-                >
-                  <span className="font-medium text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-[15px]">
-                    Get Expert Opinion
-                  </span>
-                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="w-3 h-3" />
+                  <div className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </Link>
 
