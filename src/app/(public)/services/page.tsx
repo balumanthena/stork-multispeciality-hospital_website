@@ -3,24 +3,10 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone } from "lucide-react"
 import { getActiveDepartments } from "@/lib/data/departments-server"
+import { getDepartmentIcon } from "@/lib/data/department-icons"
 
-const DEPARTMENT_ICONS: Record<string, string> = {
-    "Cosmetic & Plastic Surgery": "/images/cosmetic-surgery.png",
-    "Emergency, Trauma & Critical Care": "/images/emergency-trauma-and-critical-care.png",
-    "ENT": "/images/ent.png",
-    "General Surgery": "/images/general-surgery.png",
-    "General Medicine": "/images/general-medicine.png",
-    "GI & Bariatric Surgery": "/images/gi-surgery-and-weight-loss.png",
-    "Gynaecology & Obstetrics": "/images/gynecology.png",
-    "Neurosurgery": "/images/neurosurgery.png",
-    "Oncology": "/images/oncology.png",
-    "Orthopedics": "/images/orthopedics.png",
-    "Pulmonology": "/images/pulmonology.png",
-    "Urology & Andrology": "/images/urology-and-andrology.png",
-    "Vascular Surgery": "/images/vascular-surgery.png",
-    "Pain Management": "/images/pain-management.png",
-    "Proctology": "/images/proctology.png"
-}
+
+
 
 export default async function DepartmentsIndexPage() {
     // Fetch active departments from DB
@@ -50,7 +36,8 @@ export default async function DepartmentsIndexPage() {
                             departments.map((dept: any) => {
                                 const isFeatured = dept.slug === "cardiology"
                                 // PNG Icon Resolution
-                                const iconPath = DEPARTMENT_ICONS[dept.name] || "/images/general-medicine.png"
+                                const iconPath = getDepartmentIcon(dept.slug) || "/images/general-medicine.png"
+
 
                                 return (
                                     <Link

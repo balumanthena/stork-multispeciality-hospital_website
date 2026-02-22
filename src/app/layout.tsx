@@ -19,6 +19,8 @@ import { SettingsProvider } from "@/providers/SettingsProvider";
 
 
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
+
 
 export default function RootLayout({
   children,
@@ -38,7 +40,9 @@ export default function RootLayout({
         </SettingsProvider>
         <MobileNav />
         <Toaster />
+        <AuthErrorHandler />
       </body>
+
     </html>
   );
 }
