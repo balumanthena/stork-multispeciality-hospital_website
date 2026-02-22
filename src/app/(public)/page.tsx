@@ -91,18 +91,16 @@ export default function Home() {
             </div>
 
             {/* RIGHT IMAGE */}
-            <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0">
-              <div className="relative aspect-[4/3] w-full rounded-[24px] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] group">
+            <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center items-center">
+              <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[500px]">
                 <Image
-                  src="/images/hero-bg.png"
+                  src="/images/FINAL.svg"
                   alt="Stork Hospital Building"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain"
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />
-                {/* Subtle gradient overlay to enhance image depth without obscuring it */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
               </div>
             </div>
 
@@ -111,43 +109,44 @@ export default function Home() {
       </section>
 
       {/* 3. CENTERS OF EXCELLENCE */}
-      <Section className="py-24 bg-slate-50">
-        <div className="container max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <span className="text-[var(--color-accent)] font-bold tracking-wider uppercase text-xs mb-2 block">Clinical Excellence</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Our Specialties</h2>
-            </div>
-            <Link href="/services" className="group flex items-center text-slate-600 font-semibold hover:text-[var(--color-accent)] transition-colors">
+      <section className="bg-slate-50 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-800">
+              Our Specialties
+            </h2>
+            <Link href="/services" className="group flex items-center text-slate-600 font-medium hover:text-[var(--color-accent)] transition-colors">
               View All Departments <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
             {[
-              { title: "Cardiology", icon: Heart, desc: "Complete heart care." },
-              { title: "Neurology", icon: Brain, desc: "Advanced brain & spine." },
-              { title: "Orthopedics", icon: Activity, desc: "Joint replacement." },
-              { title: "Oncology", icon: Microscope, desc: "Integrated cancer care." },
-              { title: "Gastroenterology", icon: Stethoscope, desc: "Digestive health." },
-              { title: "Nephrology", icon: Activity, desc: "Kidney care & dialysis." },
-              { title: "Pediatrics", icon: User, desc: "Child specialist care." },
-              { title: "Emergency", icon: ShieldCheck, desc: "24/7 Trauma center." },
+              { title: "General Medicine", slug: "general-medicine", iconUrl: "/images/general-medicine.png" },
+              { title: "Neurosurgery", slug: "neurosurgery", iconUrl: "/images/neurosurgery.png" },
+              { title: "Orthopaedics", slug: "orthopaedics", iconUrl: "/images/orthopedics.png" },
+              { title: "Oncology", slug: "oncology", iconUrl: "/images/oncology.png" },
+              { title: "GI & Bariatric", slug: "bariatric", iconUrl: "/images/gi-surgery-and-weight-loss.png" },
+              { title: "Urology", slug: "urology", iconUrl: "/images/urology-and-andrology.png" },
+              { title: "Gynaecology", slug: "gynaecology", iconUrl: "/images/gynecology.png" },
+              { title: "Emergency", slug: "emergency", iconUrl: "/images/emergency-trauma-and-critical-care.png" },
             ].map((dept, index) => (
-              <Link key={index} href={`/departments/${dept.title.toLowerCase()}`} className="group bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md hover:border-orange-100 transition-all duration-300 hover:-translate-y-1 block">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="h-12 w-12 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors duration-300">
-                    <dept.icon className="h-6 w-6" />
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-[var(--color-accent)] transition-colors" />
+              <Link
+                key={index}
+                href={`/services/${dept.slug}`}
+                className="bg-white border-[1.5px] border-slate-200/80 rounded-[24px] py-8 px-4 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_20px_-4px_rgba(249,115,22,0.15)] group"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 flex items-center justify-center">
+                  <Image src={dept.iconUrl} alt={dept.title} width={88} height={88} className="object-contain filter-orange group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">{dept.title}</h3>
-                <p className="text-slate-500 text-sm">{dept.desc}</p>
+                <h3 className="text-[15px] md:text-[16px] font-semibold text-orange-500 group-hover:text-orange-600 text-center transition-colors">
+                  {dept.title}
+                </h3>
               </Link>
             ))}
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* 4. WHY CHOOSE US (Institutional Look) */}
       <Section className="py-24 bg-white border-y border-slate-100">

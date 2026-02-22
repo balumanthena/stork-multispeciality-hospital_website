@@ -39,12 +39,11 @@ async function getDepartmentBlogs(departmentSlug: string) {
         .eq("slug", departmentSlug)
         .single()
 
-    if (deptErr) {
-        console.error("Error fetching department by slug:", deptErr)
+    if (deptErr && deptErr.code !== 'PGRST116') {
+        console.error("Error fetching department by slug:", deptErr.message || deptErr)
     }
 
     if (!deptData?.id) {
-        console.warn(`No department found matching slug: ${departmentSlug}`)
         return []
     }
 

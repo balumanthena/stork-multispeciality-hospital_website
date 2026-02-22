@@ -58,6 +58,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@utility filter-orange {
+  filter: brightness(0) saturate(100%) invert(56%) sepia(50%) saturate(3015%) hue-rotate(349deg) brightness(101%) contrast(96%);
+}
+
 /* Layer base for heading styles */
 @layer base {
   h1 {
