@@ -13,78 +13,112 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-sans text-slate-900 bg-slate-50">
 
-      {/* 1. HERO SECTION (Institutional Split - 60/40) */}
-      <section className="relative w-full bg-[#0F172A]">
-        <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[85vh] max-h-[800px]">
+      {/* 1. HERO SECTION (Institutional Split - Corporate Look) */}
+      <section className="w-full bg-[#f8fafc] overflow-hidden">
+        <div className="container max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-10 lg:py-20">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-          {/* LEFT CONTENT (60%) */}
-          <div className="w-full lg:w-[60%] flex flex-col justify-center px-6 lg:px-20 py-20 lg:py-0 relative z-10">
-            <div className="max-w-2xl">
-              {/* Label */}
-              <span className="text-slate-400 font-bold tracking-[0.15em] uppercase text-xs mb-8 block">
-                Stork Multispecialty Hospital
-              </span>
+            {/* LEFT CONTENT */}
+            <div className="w-full lg:w-[55%] flex flex-col justify-center relative z-10 space-y-8">
 
-              {/* Heading with Vertical Accent */}
-              <div className="flex gap-6 mb-8">
-                <div className="w-1.5 bg-[#FF8202] shrink-0 self-stretch rounded-sm"></div>
-                <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.15] tracking-tight">
-                  Comprehensive Multispecialty Care in Kompally
-                </h1>
+              {/* Trust Badge / Header Info */}
+              <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm w-fit">
+                <ShieldCheck className="w-4 h-4 text-[#FF8202]" />
+                <span className="text-slate-700 font-semibold tracking-wide uppercase text-[11px] md:text-xs">
+                  India's Top Trusted Healthcare Brand
+                </span>
               </div>
 
-              {/* Subheading */}
-              <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-xl font-light pl-8">
-                Delivering evidence-based treatment, advanced infrastructure, and compassionate patient-centered healthcare.
-              </p>
+              {/* Headings */}
+              <div className="space-y-4 max-w-2xl">
+                <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold text-slate-900 leading-[1.25] tracking-[-0.02em]">
+                  Advanced Multispecialty Care <br className="hidden lg:block" />
+                  in Kompally, Hyderabad
+                </h1>
+                <p className="text-base md:text-lg text-[#5F6B7A] leading-relaxed max-w-xl pr-4">
+                  Delivering evidence-based treatment and compassionate patient-centered healthcare with world-class infrastructure.
+                </p>
+              </div>
 
-              {/* CTA Actions */}
-              <div className="flex flex-wrap items-center gap-6 pl-8">
-                <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white text-base font-semibold h-12 px-8 rounded-md shadow-none transition-colors">
-                  Book Appointment
-                </Button>
+              {/* Hospital Contact Info Row */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-slate-700 font-medium">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-slate-500" />
+                  </div>
+                  <span>Survey No 14 & 15, Kompally</span>
+                </div>
+                <div className="hidden sm:block w-px h-6 bg-slate-200"></div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-4 h-4 text-slate-500" />
+                  </div>
+                  <span>Emergency: 1066</span>
+                </div>
+              </div>
 
+              {/* Action Buttons - Segmented Horizontal Container */}
+              <div className="flex flex-col sm:flex-row items-center justify-between bg-[#F5F7FA] rounded-2xl sm:rounded-full shadow-sm mt-10 w-full max-w-3xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-200 border border-slate-200">
+
+                {/* Segment 1: Primary */}
                 <Link
-                  href="/services"
-                  className="text-white font-medium hover:text-[#FF8202] transition-colors flex items-center gap-2"
+                  href="/appointments"
+                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
                 >
-                  View Departments <ArrowRight className="w-4 h-4" />
+                  <span className="font-semibold text-slate-900 group-hover:text-[var(--color-accent)] whitespace-nowrap transition-colors flex items-center gap-2 text-[15px]">
+                    <Calendar className="w-4 h-4 text-[var(--color-accent)]" />
+                    Book Appointment
+                  </span>
+                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
                 </Link>
+
+                {/* Segment 2: Find Doctor */}
+                <Link
+                  href="/doctors"
+                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
+                >
+                  <span className="font-medium text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-[15px]">
+                    Find a Doctor
+                  </span>
+                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+
+                {/* Segment 3: Expert Opinion */}
+                <Link
+                  href="/contact"
+                  className="flex-1 flex w-full items-center justify-center gap-3 px-4 py-4 hover:bg-slate-100/80 transition-colors group cursor-pointer"
+                >
+                  <span className="font-medium text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-[15px]">
+                    Get Expert Opinion
+                  </span>
+                  <div className="h-7 w-7 rounded-full border border-slate-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+
               </div>
             </div>
-          </div>
 
-          {/* RIGHT IMAGE (40%) */}
-          <div className="w-full lg:w-[40%] relative min-h-[400px] lg:min-h-full">
-            <Image
-              src="/images/hero-bg.png"
-              alt="Stork Hospital Building"
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Subtle overlay to ensure image doesn't clash if too bright, but keeping it minimal */}
-            <div className="absolute inset-0 bg-[#0F172A]/10 mix-blend-multiply" />
-          </div>
-
-        </div>
-      </section>
-
-      {/* 2. STATS STRIP (Dark Navy) */}
-      <section className="bg-[var(--color-primary)] py-12 border-b border-slate-800">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-slate-800/50">
-            {[
-              { val: "50+", label: "Specialties" },
-              { val: "300+", label: "Expert Doctors" },
-              { val: "1M+", label: "Happy Patients" },
-              { val: "24/7", label: "Emergency Care" }
-            ].map((stat, i) => (
-              <div key={i} className={`text-center ${i !== 0 ? 'pl-8' : ''}`}>
-                <p className="text-4xl font-bold text-white mb-1 tracking-tight">{stat.val}</p>
-                <p className="text-sm font-medium text-slate-400 uppercase tracking-wider">{stat.label}</p>
+            {/* RIGHT IMAGE */}
+            <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0">
+              <div className="relative aspect-[4/3] w-full rounded-[24px] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] group">
+                <Image
+                  src="/images/hero-bg.png"
+                  alt="Stork Hospital Building"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+                {/* Subtle gradient overlay to enhance image depth without obscuring it */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
               </div>
-            ))}
+            </div>
+
           </div>
         </div>
       </section>
