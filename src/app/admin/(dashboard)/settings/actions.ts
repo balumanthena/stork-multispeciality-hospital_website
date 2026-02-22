@@ -24,25 +24,21 @@ export async function updateSiteSettings(formData: FormData) {
         return { error: "Permission Denied: Super Admin access required." }
     }
 
-    const rawData = {
-        hospital_name: formData.get("hospital_name") as string,
-        tagline: formData.get("tagline") as string,
-        emergency_number: formData.get("emergency_number") as string,
-        whatsapp_number: formData.get("whatsapp_number") as string,
-        email: formData.get("email") as string,
-        address: formData.get("address") as string,
-        google_maps_embed: formData.get("google_maps_embed") as string,
-        default_meta_title: formData.get("default_meta_title") as string,
-        default_meta_description: formData.get("default_meta_description") as string,
-        logo_url: formData.get("logo_url") as string,
-        favicon_url: formData.get("favicon_url") as string,
-        og_image: formData.get("og_image") as string,
-        google_analytics_id: formData.get("google_analytics_id") as string,
-        google_tag_manager_id: formData.get("google_tag_manager_id") as string,
-        facebook_pixel_id: formData.get("facebook_pixel_id") as string,
-        working_hours: formData.get("working_hours") as string,
-        footer_description: formData.get("footer_description") as string,
-    }
+    const fields = [
+        "hospital_name", "tagline", "emergency_number", "whatsapp_number",
+        "email", "address", "google_maps_embed", "default_meta_title",
+        "default_meta_description", "logo_url", "favicon_url", "og_image",
+        "google_analytics_id", "google_tag_manager_id", "facebook_pixel_id",
+        "working_hours", "footer_description", "facebook_url", "instagram_url",
+        "twitter_url", "linkedin_url", "youtube_url", "whatsapp_url"
+    ]
+
+    const rawData: Record<string, string> = {}
+    fields.forEach(field => {
+        if (formData.has(field)) {
+            rawData[field] = formData.get(field) as string
+        }
+    })
 
     // Update the single row (we assume there's only one row, or we target by ID if passed)
     // For simplicity, we update the first row found or specific ID if feasible.

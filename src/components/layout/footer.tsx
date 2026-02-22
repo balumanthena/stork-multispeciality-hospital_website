@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight, Youtube, MessageCircle } from "lucide-react"
 import { useSettings } from "@/providers/SettingsProvider"
 
 export function Footer() {
@@ -13,6 +13,15 @@ export function Footer() {
     const email = settings?.email || "contact@storkhospital.com"
     const hospitalName = settings?.hospital_name || "Stork Multispecialty Hospital"
     const tagline = settings?.tagline || "World-class healthcare with a compassionate touch."
+
+    const socialLinks = [
+        { url: settings?.facebook_url, icon: Facebook, label: "Facebook" },
+        { url: settings?.instagram_url, icon: Instagram, label: "Instagram" },
+        { url: settings?.twitter_url, icon: Twitter, label: "Twitter" },
+        { url: settings?.linkedin_url, icon: Linkedin, label: "LinkedIn" },
+        { url: settings?.youtube_url, icon: Youtube, label: "YouTube" },
+        { url: settings?.whatsapp_url, icon: MessageCircle, label: "WhatsApp" },
+    ].filter(link => link.url)
 
     return (
         <footer className="bg-white text-slate-600 py-16 md:py-20 border-t border-slate-100">
@@ -33,8 +42,15 @@ export function Footer() {
                             {hospitalName} is dedicated to providing {tagline.toLowerCase()}
                         </p>
                         <div className="flex gap-4">
-                            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                                <Link key={i} href="#" className="h-10 w-10 full flex items-center justify-center rounded-full bg-slate-50 border border-slate-100 text-slate-500 hover:bg-[#3E7DCA] hover:text-white hover:border-[#3E7DCA] transition-all duration-300">
+                            {socialLinks.map(({ url, icon: Icon, label }, i) => (
+                                <Link
+                                    key={i}
+                                    href={url!}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={label}
+                                    className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-50 border border-slate-100 text-slate-500 hover:bg-[#3E7DCA]/10 hover:text-[#3E7DCA] hover:border-[#3E7DCA]/20 transition-all duration-200"
+                                >
                                     <Icon className="h-4 w-4" />
                                 </Link>
                             ))}
@@ -45,11 +61,18 @@ export function Footer() {
                     <div>
                         <h3 className="text-[#0F172A] font-bold mb-6 text-sm uppercase tracking-wider">Quick Links</h3>
                         <ul className="space-y-3 text-sm">
-                            {["About Us", "Find a Doctor", "Book Appointment", "Patient Portal", "Careers", "News & Media"].map((link) => (
-                                <li key={link}>
-                                    <Link href="#" className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
+                            {[
+                                { name: "About Hospital", href: "/about" },
+                                { name: "Find a Doctor", href: "/doctors" },
+                                { name: "Book Appointment", href: "/appointments" },
+                                { name: "Second Opinion", href: "/second-opinion" },
+                                { name: "Blogs", href: "/blog" },
+                                { name: "Contact Us", href: "/contact" },
+                            ].map((link) => (
+                                <li key={link.name}>
+                                    <Link href={link.href} className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
                                         <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#3E7DCA]" />
-                                        <span className="group-hover:translate-x-1 transition-transform">{link}</span>
+                                        <span className="group-hover:translate-x-1 transition-transform">{link.name}</span>
                                     </Link>
                                 </li>
                             ))}
@@ -60,11 +83,20 @@ export function Footer() {
                     <div>
                         <h3 className="text-[#0F172A] font-bold mb-6 text-sm uppercase tracking-wider">Centers of Excellence</h3>
                         <ul className="space-y-3 text-sm">
-                            {["Cardiology", "Neurology", "Orthopedics", "Oncology", "Gastroenterology", "Mother & Child", "Transplant Unit"].map((item) => (
-                                <li key={item}>
-                                    <Link href="#" className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
+                            {[
+                                { name: "General Medicine", href: "/services/general-medicine" },
+                                { name: "Neurosurgery", href: "/services/neurosurgery" },
+                                { name: "Orthopaedics", href: "/services/orthopaedics" },
+                                { name: "Oncology", href: "/services/oncology" },
+                                { name: "GI & Bariatric", href: "/services/bariatric" },
+                                { name: "Urology", href: "/services/urology" },
+                                { name: "Gynaecology", href: "/services/gynaecology" },
+                                { name: "Emergency", href: "/services/emergency" },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
                                         <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#3E7DCA]" />
-                                        <span className="group-hover:translate-x-1 transition-transform">{item}</span>
+                                        <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
                                     </Link>
                                 </li>
                             ))}

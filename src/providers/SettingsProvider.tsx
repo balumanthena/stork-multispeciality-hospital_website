@@ -12,6 +12,12 @@ export interface SiteSettings {
     emergency_number: string
     email: string
     address: string
+    facebook_url?: string | null
+    instagram_url?: string | null
+    twitter_url?: string | null
+    linkedin_url?: string | null
+    youtube_url?: string | null
+    whatsapp_url?: string | null
 }
 
 interface SettingsContextType {

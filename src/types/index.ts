@@ -78,5 +78,11 @@ export interface SiteSettings {
     facebook_pixel_id: string | null
     footer_description: string | null
     working_hours: string | null
+    facebook_url: string | null
+    instagram_url: string | null
+    twitter_url: string | null
+    linkedin_url: string | null
+    youtube_url: string | null
+    whatsapp_url: string | null
     created_at: string
 }

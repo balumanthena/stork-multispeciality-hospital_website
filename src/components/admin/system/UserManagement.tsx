@@ -152,7 +152,7 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                                             </div>
                                         )}
                                     </td>
-                                    <td className="px-6 py-4 text-xs font-medium text-slate-500">
+                                    <td suppressHydrationWarning className="px-6 py-4 text-xs font-medium text-slate-500">
                                         {new Date(user.created_at).toLocaleDateString()}
                                     </td>
                                     <td className="px-6 py-4">
