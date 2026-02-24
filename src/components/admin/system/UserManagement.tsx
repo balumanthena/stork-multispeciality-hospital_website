@@ -3,7 +3,31 @@
 import { useState } from "react"
 import { Users, Save, Shield, User, MoreVertical, Search, CheckCircle2, XCircle } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { createClient } from "@/lib/supabase/client"
+import { createAdminUser, updateUserStatus, updateUserRole, deleteAdminUser } from "@/app/admin/(dashboard)/settings/users.actions"
+import { toast } from "sonner"
+import { Loader2, UserPlus, Trash2, Ban } from "lucide-react"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useTransition } from "react"
 import { useRouter } from "next/navigation"
 
 interface Profile {
@@ -21,45 +45,85 @@ interface UserManagementProps {
 
 export function UserManagement({ initialUsers }: UserManagementProps) {
     const [users, setUsers] = useState<Profile[]>(initialUsers)
-    const [pendingChanges, setPendingChanges] = useState<Record<string, string>>({})
-    const [isSaving, setIsSaving] = useState(false)
+    const [isPending, startTransition] = useTransition()
+    const [isCreateOpen, setIsCreateOpen] = useState(false)
     const [searchQuery, setSearchQuery] = useState("")
-    const supabase = createClient()
     const router = useRouter()
 
-    const handleRoleChange = (userId: string, newRole: string) => {
-        setPendingChanges({
-            ...pendingChanges,
-            [userId]: newRole
-        })
+    // Form State
+    const [fullName, setFullName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [role, setRole] = useState<string>("editor")
+    const [isActive, setIsActive] = useState(true)
 
-        // Update local state for immediate feedback
-        setUsers(users.map(u => u.id === userId ? { ...u, role: newRole } : u))
+    const handleCreateUser = async (e: React.FormEvent) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+        formData.append("full_name", fullName)
+        formData.append("email", email)
+        formData.append("password", password)
+        formData.append("role", role)
+        formData.append("is_active", String(isActive))
+
+        startTransition(async () => {
+            const res = await createAdminUser(formData)
+            if (res.error) {
+                toast.error(res.error)
+            } else {
+                toast.success("User created successfully.")
+                setIsCreateOpen(false)
+
+                setFullName("")
+                setEmail("")
+                setPassword("")
+                setRole("editor")
+                setIsActive(true)
+                router.refresh()
+            }
+        })
     }
 
-    const saveChanges = async () => {
-        if (Object.keys(pendingChanges).length === 0) return
-
-        setIsSaving(true)
-        try {
-            for (const [userId, newRole] of Object.entries(pendingChanges)) {
-                const { error } = await supabase
-                    .from('profiles')
-                    .update({ role: newRole })
-                    .eq('id', userId)
-
-                if (error) throw error
+    const handleToggleStatus = (userId: string, currentStatus: boolean) => {
+        startTransition(async () => {
+            const res = await updateUserStatus(userId, !currentStatus)
+            if (res.error) {
+                toast.error(res.error)
+            } else {
+                toast.success(currentStatus ? "User Suspended" : "User Activated")
+                setUsers(prev => prev.map(u => u.id === userId ? { ...u, is_active: !currentStatus } : u))
+                router.refresh()
             }
+        })
+    }
 
-            setPendingChanges({})
-            alert("Roles updated successfully!")
-            router.refresh()
-        } catch (error: any) {
-            console.error("Error updating roles:", error)
-            alert("Error updating roles: " + error.message)
-        } finally {
-            setIsSaving(false)
-        }
+    const handleChangeRole = (userId: string, newRole: string) => {
+        startTransition(async () => {
+            const res = await updateUserRole(userId, newRole as any) // Assuming UserRole lines up with strings
+            if (res.error) {
+                toast.error(res.error)
+            } else {
+                toast.success("Role Updated")
+                setUsers(prev => prev.map(u => u.id === userId ? { ...u, role: newRole } : u))
+                router.refresh()
+            }
+        })
+    }
+
+    const handleDelete = (userId: string) => {
+        if (!confirm("Are you sure you want to permanently delete this user?")) return
+
+        startTransition(async () => {
+            const res = await deleteAdminUser(userId)
+            if (res.error) {
+                toast.error(res.error)
+            } else {
+                toast.success("User Deleted")
+                setUsers(prev => prev.filter(u => u.id !== userId))
+                router.refresh()
+            }
+        })
     }
 
     const filteredUsers = users.filter(user =>
@@ -81,20 +145,61 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                     />
                 </div>
 
-                {Object.keys(pendingChanges).length > 0 && (
-                    <button
-                        onClick={saveChanges}
-                        disabled={isSaving}
-                        className="flex items-center gap-2 px-6 py-2 bg-orange-600 text-white rounded-lg text-sm font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-100 disabled:opacity-50"
-                    >
-                        {isSaving ? (
-                            <div className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        ) : (
-                            <Save className="h-4 w-4" />
-                        )}
-                        Save {Object.keys(pendingChanges).length} Changes
-                    </button>
-                )}
+                <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
+                    <DialogTrigger asChild>
+                        <Button className="bg-[var(--color-primary)]">
+                            <UserPlus className="h-4 w-4 mr-2" /> Add User
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-[425px]">
+                        <DialogHeader>
+                            <DialogTitle>Create New Admin</DialogTitle>
+                            <DialogDescription>
+                                Add a new user to access the CMS dashboard.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <form onSubmit={handleCreateUser} className="space-y-4 pt-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="name">Full Name</Label>
+                                <Input id="name" value={fullName} onChange={e => setFullName(e.target.value)} required />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="email">Email Address</Label>
+                                <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="password">Temporary Password</Label>
+                                <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} minLength={6} required />
+                                <p className="text-xs text-slate-500">Must be at least 6 characters.</p>
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Role</Label>
+                                <Select value={role} onValueChange={(val) => setRole(val)}>
+                                    <SelectTrigger>
+                                        <SelectValue placeholder="Select a role" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="editor">Editor (Content Only)</SelectItem>
+                                        <SelectItem value="admin">Administrator</SelectItem>
+                                        <SelectItem value="super_admin">Super Admin (Full Access)</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <div className="flex items-center justify-between mt-4 p-4 border rounded-lg bg-slate-50">
+                                <div className="space-y-0.5">
+                                    <Label>Account Status</Label>
+                                    <p className="text-xs text-slate-500">Allow immediate login?</p>
+                                </div>
+                                <Switch checked={isActive} onCheckedChange={setIsActive} />
+                            </div>
+
+                            <Button type="submit" className="w-full bg-[var(--color-primary)] mt-6" disabled={isPending}>
+                                {isPending ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : null}
+                                Create User
+                            </Button>
+                        </form>
+                    </DialogContent>
+                </Dialog>
             </div>
 
             <Card className="border-slate-200 shadow-sm overflow-hidden bg-white">
@@ -124,20 +229,10 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                                         </div>
                                     </td>
                                     <td className="px-6 py-4">
-                                        <select
-                                            value={user.role}
-                                            onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                                            className={cn(
-                                                "text-xs font-black uppercase tracking-tight py-1 px-3 rounded border transition-all cursor-pointer outline-none",
-                                                user.role === 'super_admin' ? "bg-purple-50 text-purple-700 border-purple-200" :
-                                                    user.role === 'admin' ? "bg-blue-50 text-blue-700 border-blue-200" :
-                                                        "bg-slate-50 text-slate-700 border-slate-200"
-                                            )}
-                                        >
-                                            <option value="editor">Editor</option>
-                                            <option value="content_manager">Admin</option>
-                                            <option value="super_admin">Super Admin</option>
-                                        </select>
+                                        <div className="flex items-center gap-1.5">
+                                            {user.role === 'super_admin' && <Shield className="h-3 w-3 text-orange-500" />}
+                                            <span className="capitalize text-sm font-medium">{user.role.replace('_', ' ')}</span>
+                                        </div>
                                     </td>
                                     <td className="px-6 py-4">
                                         {user.is_active ? (
@@ -156,9 +251,39 @@ export function UserManagement({ initialUsers }: UserManagementProps) {
                                         {new Date(user.created_at).toLocaleDateString()}
                                     </td>
                                     <td className="px-6 py-4">
-                                        <button className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
-                                            <MoreVertical className="h-4 w-4 text-slate-400" />
-                                        </button>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-slate-900">
+                                                    <span className="sr-only">Open menu</span>
+                                                    <MoreVertical className="h-4 w-4" />
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent align="end" className="w-[160px]">
+                                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                                <DropdownMenuSeparator />
+
+                                                <DropdownMenuItem onClick={() => handleToggleStatus(user.id, user.is_active)}>
+                                                    {user.is_active ? "Suspend Account" : "Activate Account"}
+                                                </DropdownMenuItem>
+
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuLabel className="text-xs font-normal text-slate-500">Change Role</DropdownMenuLabel>
+                                                <DropdownMenuItem disabled={user.role === 'editor'} onClick={() => handleChangeRole(user.id, 'editor')}>
+                                                    Set to Editor
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem disabled={user.role === 'admin'} onClick={() => handleChangeRole(user.id, 'admin')}>
+                                                    Set to Admin
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem disabled={user.role === 'super_admin'} onClick={() => handleChangeRole(user.id, 'super_admin')}>
+                                                    Set to Super Admin
+                                                </DropdownMenuItem>
+
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem onClick={() => handleDelete(user.id)} className="text-red-600 focus:text-red-600 focus:bg-red-50">
+                                                    <Trash2 className="h-4 w-4 mr-2" /> Delete
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
                                     </td>
                                 </tr>
                             ))}

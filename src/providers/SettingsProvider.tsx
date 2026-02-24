@@ -101,6 +101,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
                 return fetchSettings()
             }
 
+            // Handle generic fetch failures (often caused by navigation/unmounting during fetch)
+            if (err.message === "Failed to fetch" || err.message === "fetch failed") {
+                console.warn("Settings fetch aborted or network unavailable (Failed to fetch).")
+                // Do not set fatal error state for routine cancellations
+                return
+            }
+
             console.error("Error fetching settings:", err.message || err)
 
             // Handle and clean up network/fetch errors gracefully without crashing the UI

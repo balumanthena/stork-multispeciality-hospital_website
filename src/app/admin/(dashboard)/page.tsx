@@ -32,6 +32,11 @@ export default async function AdminDashboard() {
             { label: "Pending Review", value: 3, icon: Shield, trend: "Attention Required", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Total Videos", value: 42, icon: PlayCircle, trend: "Live Site", trendColor: "text-green-600 bg-green-50" },
         ]
+    } else if (role === 'seo_manager') {
+        stats = [
+            { label: "Optimized Pages", value: treatmentCount || 0, icon: FileText, trend: "Clinical Pages", trendColor: "text-blue-600 bg-blue-50" },
+            { label: "Active Articles", value: blogCount || 0, icon: Activity, trend: "Content Hub", trendColor: "text-green-600 bg-green-50" },
+        ]
     } else { // Editor
         stats = [
             { label: "My Articles", value: blogCount || 0, icon: FileText, trend: "Current Month", trendColor: "text-blue-600 bg-blue-50" },
@@ -158,15 +163,7 @@ export default async function AdminDashboard() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <Link href="/admin/system/taxonomy" className="p-5 bg-white border border-slate-200 rounded-2xl hover:border-orange-200 hover:bg-orange-50 transition-all flex items-center gap-4 shadow-sm hover:shadow-md group">
-                            <div className="h-12 w-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-white transition-colors">
-                                <Microscope className="h-6 w-6 text-slate-600 group-hover:text-orange-600" />
-                            </div>
-                            <div>
-                                <span className="block text-sm font-bold text-slate-900">Taxonomy</span>
-                                <span className="text-[10px] text-slate-400 uppercase font-black">Clinical Hierarchy</span>
-                            </div>
-                        </Link>
+
                         <Link href="/admin/system/users" className="p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-200 hover:bg-blue-50 transition-all flex items-center gap-4 shadow-sm hover:shadow-md group">
                             <div className="h-12 w-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-white transition-colors">
                                 <Users className="h-6 w-6 text-slate-600 group-hover:text-blue-600" />
