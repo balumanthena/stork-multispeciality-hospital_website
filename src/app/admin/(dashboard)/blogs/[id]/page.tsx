@@ -12,6 +12,7 @@ import Link from "next/link"
 import { useRouter, useParams } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { extractYoutubeId, generateEmbedUrl } from "@/lib/youtube-utils"
+import { getDepartmentIcon } from "@/lib/data/department-icons"
 import {
     Command,
     CommandEmpty,
@@ -35,6 +36,7 @@ interface Treatment {
 interface Department {
     id: string
     name: string
+    slug: string
 }
 
 export default function EditBlogPage() {
@@ -55,7 +57,7 @@ export default function EditBlogPage() {
         title: "",
         content: "",
         excerpt: "",
-        category: "Cardiology",
+        category: "",
         image: "/images/blog-heart.png", // Default placeholder
         youtube_url: "",
         show_on_main: true,
@@ -103,7 +105,7 @@ export default function EditBlogPage() {
                 // Fetch Departments
                 const { data: deptData, error: deptError } = await supabase
                     .from("departments")
-                    .select("id, name")
+                    .select("id, name, slug")
                     .order("name")
 
                 if (deptError) throw deptError
@@ -338,15 +340,22 @@ export default function EditBlogPage() {
                         <div className="space-y-2">
                             <Label>Category</Label>
                             <select
-                                className="w-full flex h-10 items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+                                className="w-full flex h-10 items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-transparent"
                                 value={formData.category}
-                                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                                onChange={(e) => {
+                                    const val = e.target.value;
+                                    const selectedDept = departments.find(d => d.name === val);
+                                    let imagePath = "/images/blog-heart.png";
+                                    if (selectedDept && selectedDept.slug) {
+                                        imagePath = getDepartmentIcon(selectedDept.slug) || `/images/${selectedDept.slug}.png`;
+                                    }
+                                    setFormData({ ...formData, category: val, image: imagePath });
+                                }}
                             >
-                                <option>Cardiology</option>
-                                <option>Neurology</option>
-                                <option>Wellness</option>
-                                <option>Technology</option>
-                                <option>Orthopedics</option>
+                                <option value="" disabled>Select a department</option>
+                                {departments.map(dept => (
+                                    <option key={dept.id} value={dept.name}>{dept.name}</option>
+                                ))}
                             </select>
                         </div>
                         <div className="space-y-2">
@@ -612,16 +621,24 @@ export default function EditBlogPage() {
                                 placeholder="/images/..."
                             />
                         </div>
-                        <div className="border-2 border-dashed border-slate-200 rounded-lg p-8 flex flex-col items-center justify-center text-center text-slate-400 bg-slate-50">
-                            {formData.image ? (
-                                <img src={formData.image} alt="Preview" className="max-h-32 object-contain" />
-                            ) : (
-                                <>
-                                    <ImageIcon className="h-8 w-8 mb-2" />
-                                    <span className="text-xs">Image Preview</span>
-                                </>
-                            )}
-                        </div>
+                        {formData.image ? (
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-200 bg-slate-100 mt-2">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={formData.image}
+                                    alt="Featured Image Preview"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="%2394a3b8" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>'
+                                    }}
+                                />
+                            </div>
+                        ) : (
+                            <div className="border-2 border-dashed border-slate-200 rounded-lg p-8 flex flex-col items-center justify-center text-center text-slate-400 bg-slate-50 mt-2">
+                                <ImageIcon className="h-8 w-8 mb-2" />
+                                <span className="text-xs">Image Preview</span>
+                            </div>
+                        )}
 
                         <div className="space-y-4 pt-4 border-t border-slate-100 mt-4">
                             <div className="space-y-2">

@@ -5,11 +5,13 @@ import {
     Scissors, Activity, ShieldCheck, CheckCircle2,
     Phone, Calendar, Star, Quote, MapPin, Clock, ChevronRight, Microscope,
     Stethoscope, FileText
-, ArrowRight } from "lucide-react"
+    , ArrowRight
+} from "lucide-react"
 import Link from "next/link"
 import { DepartmentHeroIcon } from "@/components/department-hero-icon"
+import { RelatedMedia } from "@/components/shared/related-media"
 
-export const GeneralSurgeryContent = ({ blogs }: { blogs: any[] }) => {
+export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) => {
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
             {/* SECTION 1: HERO */}
@@ -276,59 +278,8 @@ export const GeneralSurgeryContent = ({ blogs }: { blogs: any[] }) => {
                 </div>
             </Section>
 
-            
-            {/* RELATED BLOGS SECTION */}
-            {blogs && blogs.length > 0 && (
-                <Section className="py-24 bg-white border-t border-slate-200">
-                    <div className="container max-w-7xl mx-auto px-6">
-                        <div className="flex justify-between items-end mb-12">
-                            <div>
-                                <span className="text-[#FF8202] font-bold tracking-wider uppercase text-sm mb-3 block">Expert Insights</span>
-                                <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Related Articles</h2>
-                            </div>
-                            <Link href="/blog">
-                                <Button variant="ghost" className="hidden sm:flex items-center text-[#3E7DCA] hover:text-[#2d62a3] hover:bg-blue-50">
-                                    View All Articles <ArrowRight className="ml-2 h-4 w-4" />
-                                </Button>
-                            </Link>
-                        </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {blogs.map((blog) => (
-                                <Link href={`/blog/${blog.slug}`} key={blog.id} className="group flex flex-col h-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
-                                    <div className="aspect-[16/10] relative overflow-hidden bg-slate-200">
-                                        {blog.image_url ? (
-                                            <Image src={blog.image_url} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        ) : (
-                                            <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                                                <span>No image</span>
-                                            </div>
-                                        )}
-                                        <div className="absolute top-4 left-4 z-10">
-                                            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#3E7DCA] text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
-                                                {blog.category}
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="p-6 flex flex-col flex-1">
-                                        <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#3E7DCA] transition-colors line-clamp-2">
-                                            {blog.title}
-                                        </h3>
-                                        <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-4">
-                                            {blog.excerpt}
-                                        </p>
-                                        <div className="mt-auto pt-4 border-t border-slate-100">
-                                            <span className="text-sm font-semibold text-[#FF8202] flex items-center gap-1 group-hover:gap-2 transition-all">
-                                                Read Article <ArrowRight className="h-4 w-4" />
-                                            </span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
-            )}
+            <RelatedMedia blogs={blogs} videos={videos} />
 
             {/* FOOTER CTA */}
             <section className="bg-[#FF8202] py-24 text-center">

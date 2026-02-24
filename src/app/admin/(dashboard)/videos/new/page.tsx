@@ -165,7 +165,8 @@ export default function NewVideoPage() {
             const embedUrl = generateEmbedUrl(videoId)
             const thumbnailUrl = generateThumbnailUrl(videoId)
 
-            // 1. Create the video
+            // 1. Create the video in INACTIVE state
+            // This allows us to add relations before the "Enterprise Lockdown" trigger fires on activation.
             const { data: video, error: videoError } = await supabase
                 .from("treatment_videos")
                 .insert({
@@ -173,7 +174,7 @@ export default function NewVideoPage() {
                     youtube_url: youtubeUrl,
                     youtube_embed_url: embedUrl,
                     thumbnail_url: thumbnailUrl,
-                    is_active: isActive,
+                    is_active: false, // Force inactive for initial insert
                     show_global: showGlobal
                 })
                 .select()
@@ -205,12 +206,26 @@ export default function NewVideoPage() {
                 if (treatMapError) throw treatMapError
             }
 
+            // 4. Final step: Activate if requested (this triggers the Lockdown validation)
+            if (isActive) {
+                const { error: activateError } = await supabase
+                    .from("treatment_videos")
+                    .update({ is_active: true })
+                    .eq("id", video.id)
+
+                if (activateError) throw activateError
+            }
+
             toast.success("Video published successfully")
             router.push("/admin/videos")
             router.refresh()
         } catch (err: any) {
-            console.error(err)
-            toast.error(err.message || "Failed to add video")
+            console.error("Submission Error:", err)
+            // Extract detailed Postgres error if available
+            const errorMessage = err.details || err.message || "Failed to add video"
+            toast.error(errorMessage, {
+                description: err.hint || "Please ensure this video is assigned to a department or treatment."
+            })
         } finally {
             setLoading(false)
         }

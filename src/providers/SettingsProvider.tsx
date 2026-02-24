@@ -92,6 +92,15 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
                 return;
             }
 
+            // Handle "JWT expired" errors by signing out and retrying
+            // This allows the fetch to proceed as an anonymous user (public reading)
+            if (err.message?.includes("JWT expired") || (err.code === "PGRST301")) {
+                console.warn("JWT expired, signing out and retrying settings fetch...")
+                await supabase.auth.signOut()
+                isFetchingRef.current = false
+                return fetchSettings()
+            }
+
             console.error("Error fetching settings:", err.message || err)
 
             // Handle and clean up network/fetch errors gracefully without crashing the UI

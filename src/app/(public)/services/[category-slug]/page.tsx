@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { MediaService } from "@/services/media.service"
 import { unstable_noStore as noStore } from 'next/cache'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -26,6 +27,7 @@ import { ProctologyContent } from "@/components/departments/proctology"
 import { PulmonologyContent } from "@/components/departments/pulmonology"
 import { UrologyContent } from "@/components/departments/urology"
 import { VascularSurgeryContent } from "@/components/departments/vascular"
+import { RelatedMedia } from "@/components/shared/related-media"
 
 export const revalidate = 0;
 
@@ -33,38 +35,15 @@ async function getDepartmentBlogs(departmentSlug: string) {
     const supabase = await createClient()
 
     // 1. Get Department ID by Slug
-    const { data: deptData, error: deptErr } = await supabase
+    const { data: deptData } = await supabase
         .from("departments")
         .select("id")
         .eq("slug", departmentSlug)
         .single()
 
-    if (deptErr && deptErr.code !== 'PGRST116') {
-        console.error("Error fetching department by slug:", deptErr.message || deptErr)
-    }
+    if (!deptData?.id) return []
 
-    if (!deptData?.id) {
-        return []
-    }
-
-    // 2. Get Related Blogs
-    const { data: blogs, error: blogErr } = await supabase
-        .from("blogs")
-        .select(`
-            id, slug, title, excerpt, image_url, category, published_at,
-            author:author_id (email),
-            blog_departments!inner(department_id)
-        `)
-        .eq("blog_departments.department_id", deptData.id)
-        .eq("status", "Published")
-        .order("published_at", { ascending: false })
-        .limit(3)
-
-    if (blogErr) {
-        console.error("Error fetching related blogs:", blogErr)
-    }
-
-    return blogs || []
+    return MediaService.getBlogsForDepartment(deptData.id)
 }
 
 async function getDepartmentVideos(departmentSlug: string) {
@@ -79,18 +58,7 @@ async function getDepartmentVideos(departmentSlug: string) {
 
     if (!deptData?.id) return []
 
-    // 2. Get Related Videos
-    const { data: videos } = await supabase
-        .from("treatment_videos")
-        .select(`
-            *,
-            video_departments!inner(department_id)
-        `)
-        .eq("video_departments.department_id", deptData.id)
-        .eq("is_active", true)
-        .order("created_at", { ascending: false })
-
-    return videos || []
+    return MediaService.getVideosForDepartment(deptData.id)
 }
 
 export default async function DepartmentPage({
@@ -112,24 +80,25 @@ export default async function DepartmentPage({
     const testimonials = department.testimonials ?? DEFAULT_TESTIMONIALS
 
     const blogs = await getDepartmentBlogs(slug.toLowerCase())
+    const videos = await getDepartmentVideos(slug.toLowerCase())
 
     const s = slug.toLowerCase()
     switch (s) {
-        case 'bariatric': return <BariatricContent blogs={blogs} />
-        case 'cosmetic-surgery': return <CosmeticSurgeryContent blogs={blogs} />
-        case 'emergency': return <EmergencyContent blogs={blogs} />
-        case 'ent': return <ENTContent blogs={blogs} />
-        case 'general-medicine': return <GeneralMedicineContent blogs={blogs} />
-        case 'general-surgery': return <GeneralSurgeryContent blogs={blogs} />
-        case 'gynaecology': return <GynaecologyContent blogs={blogs} />
-        case 'neurosurgery': return <NeurosurgeryContent blogs={blogs} />
-        case 'oncology': return <OncologyContent blogs={blogs} />
-        case 'orthopaedics': return <OrthopaedicsContent blogs={blogs} />
-        case 'pain-management': return <PainManagementContent blogs={blogs} />
-        case 'proctology': return <ProctologyContent blogs={blogs} />
-        case 'pulmonology': return <PulmonologyContent blogs={blogs} />
-        case 'urology': return <UrologyContent blogs={blogs} />
-        case 'vascular': return <VascularSurgeryContent blogs={blogs} />
+        case 'bariatric': return <BariatricContent blogs={blogs} videos={videos} />
+        case 'cosmetic-surgery': return <CosmeticSurgeryContent blogs={blogs} videos={videos} />
+        case 'emergency': return <EmergencyContent blogs={blogs} videos={videos} />
+        case 'ent': return <ENTContent blogs={blogs} videos={videos} />
+        case 'general-medicine': return <GeneralMedicineContent blogs={blogs} videos={videos} />
+        case 'general-surgery': return <GeneralSurgeryContent blogs={blogs} videos={videos} />
+        case 'gynaecology': return <GynaecologyContent blogs={blogs} videos={videos} />
+        case 'neurosurgery': return <NeurosurgeryContent blogs={blogs} videos={videos} />
+        case 'oncology': return <OncologyContent blogs={blogs} videos={videos} />
+        case 'orthopaedics': return <OrthopaedicsContent blogs={blogs} videos={videos} />
+        case 'pain-management': return <PainManagementContent blogs={blogs} videos={videos} />
+        case 'proctology': return <ProctologyContent blogs={blogs} videos={videos} />
+        case 'pulmonology': return <PulmonologyContent blogs={blogs} videos={videos} />
+        case 'urology': return <UrologyContent blogs={blogs} videos={videos} />
+        case 'vascular': return <VascularSurgeryContent blogs={blogs} videos={videos} />
     }
 
     return (
@@ -260,62 +229,8 @@ export default async function DepartmentPage({
                 </div>
             </Section>
 
-            {/* 4.5 RELATED SECION BLOGS */}
-            {blogs.length > 0 && (
-                <Section className="py-24 bg-white border-t border-slate-200">
-                    <div className="container max-w-7xl mx-auto px-6">
-                        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-                            <div>
-                                <h2 className="text-3xl font-bold text-[#0f172a] mb-2">Related Articles</h2>
-                                <p className="text-slate-600">Latest insights and information about {department.title}</p>
-                            </div>
-                            <Link href="/blog" className="text-[#3e7dca] font-semibold flex items-center gap-2 hover:text-[#2e62a3] transition-colors shrink-0">
-                                View Full Blog <ArrowRight className="w-5 h-5" />
-                            </Link>
-                        </div>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {blogs.map((post) => (
-                                <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full">
-                                    <div className="bg-slate-50 rounded-2xl h-full flex flex-col border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                                        <div className="relative h-48 w-full bg-slate-100">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={post.image_url || '/images/blog-placeholder.jpg'}
-                                                alt={post.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
-                                            {post.category && (
-                                                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#3e7dca] rounded-md shadow-sm">
-                                                    {post.category}
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="p-6 flex-1 flex flex-col">
-                                            <div className="flex items-center gap-4 text-xs text-slate-500 mb-3">
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="h-3 w-3" />
-                                                    {new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
-                                                </span>
-                                            </div>
-                                            <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#3e7dca] transition-colors line-clamp-2">
-                                                {post.title}
-                                            </h3>
-                                            <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-4">
-                                                {post.excerpt}
-                                            </p>
-                                            <div className="mt-auto pt-4 border-t border-slate-100">
-                                                <span className="text-sm font-semibold text-[#ff8202] flex items-center gap-1 group-hover:gap-2 transition-all">
-                                                    Read Article <ArrowRight className="h-4 w-4" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-                </Section>
-            )}
+            {/* 4.5 RELATED MEDIA */}
+            <RelatedMedia blogs={blogs} videos={videos} />
 
             {/* 4.75 FAQ SECTION (Render only if FAQs exist) */}
             {department.faqs && (

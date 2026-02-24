@@ -94,17 +94,17 @@ export default function EditVideoPage({ params }: { params: Promise<{ id: string
                     .from("treatment_videos")
                     .select("*")
                     .eq("id", videoId)
-                    .single()
+                    .maybeSingle()
 
                 if (videoError) throw videoError
-                if (video) {
-                    setTitle(video.title)
-                    setYoutubeUrl(video.youtube_url)
-                    setShowGlobal(video.show_global ?? true)
-                    setIsActive(video.is_active)
-                    const vidId = extractYoutubeId(video.youtube_url)
-                    if (vidId) setPreviewThumbnail(generateThumbnailUrl(vidId))
-                }
+                if (!video) throw new Error(`Video not found for ID: ${videoId}`)
+
+                setTitle(video.title)
+                setYoutubeUrl(video.youtube_url)
+                setShowGlobal(video.show_global ?? true)
+                setIsActive(video.is_active)
+                const vidId = extractYoutubeId(video.youtube_url)
+                if (vidId) setPreviewThumbnail(generateThumbnailUrl(vidId))
 
                 // 4. Fetch Mappings
                 const { data: deptMaps } = await supabase
@@ -122,9 +122,11 @@ export default function EditVideoPage({ params }: { params: Promise<{ id: string
                 if (treatMaps) setSelectedTreatments(treatMaps.map(m => m.treatment_id))
 
             } catch (error: any) {
-                console.error("Error loading data:", error)
-                toast.error("Failed to load video details")
-                router.push("/admin/videos")
+                const serializedError = typeof error === "object" && error !== null
+                    ? JSON.stringify(error, Object.getOwnPropertyNames(error), 2)
+                    : String(error)
+                console.error("Error loading data:", serializedError)
+                toast.error(`Failed to load video: ${error?.message || "Unknown error"}`)
             } finally {
                 setPageLoading(false)
             }

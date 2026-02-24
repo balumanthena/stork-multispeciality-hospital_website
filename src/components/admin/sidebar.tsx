@@ -22,9 +22,7 @@ const sidebarGroups = [
     {
         title: "System",
         items: [
-            { name: "Taxonomy", href: "/admin/system/taxonomy", icon: Microscope, role: ['super_admin'] },
             { name: "Users", href: "/admin/system/users", icon: Users, role: ['super_admin'] },
-            { name: "Audit Logs", href: "/admin/system/audit", icon: History, role: ['super_admin'] },
             { name: "Global Settings", href: "/admin/settings", icon: Settings, role: ['super_admin'] },
         ]
     }

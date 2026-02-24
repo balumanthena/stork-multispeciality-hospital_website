@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
 
-export default function TaxonomyManagementPage() {
+export default function AuditLogsPage() {
     notFound()
 }
