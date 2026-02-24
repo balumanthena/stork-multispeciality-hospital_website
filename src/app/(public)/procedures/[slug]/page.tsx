@@ -143,17 +143,16 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
                             {/* Dynamic Content sections */}
                             <div id="overview" className="scroll-mt-32">
-                                {treatment.overviewHeading ? (
+                                {treatment.overview ? (
                                     <>
-                                        <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.overviewHeading}</h2>
-                                        <div className="prose prose-lg text-slate-600 max-w-none mb-10">
-                                            {treatment.fullDescription.map((desc: string, i: number) => (
-                                                <p key={i}>{desc}</p>
-                                            ))}
-                                        </div>
-                                        <div className="grid sm:grid-cols-2 gap-4">
-                                            {treatment.keyHighlights?.map((item: string, i: number) => (
-                                                <div key={i} className="flex items-start gap-3">
+                                        <h2 className="text-3xl font-bold text-[#0f172a] mb-8 relative inline-block">
+                                            {treatment.overview.heading}
+                                            <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[#ff8202] rounded-full"></span>
+                                        </h2>
+                                        <p className="text-xl text-slate-700 mb-8 font-medium leading-relaxed">{treatment.overview.intro}</p>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            {treatment.overview.items.map((item: string, i: number) => (
+                                                <div key={i} className="flex items-start gap-4 p-5 bg-slate-50 rounded-2xl border border-slate-100 transition-all hover:bg-white hover:shadow-md hover:-translate-y-1 duration-300">
                                                     <div className="mt-1 w-6 h-6 rounded-full bg-[#ff8202]/10 flex items-center justify-center shrink-0 text-[#ff8202]">
                                                         <CheckCircle2 className="w-4 h-4" />
                                                     </div>
