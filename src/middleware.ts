@@ -44,6 +44,17 @@ export async function middleware(request: NextRequest) {
 
     const { data: { user } } = await supabase.auth.getUser()
 
+    // Fallback for Supabase missing Redirect URL: If we get a code at the root URL,
+    // forward it to the callback route so the session can be securely established.
+    if (request.nextUrl.pathname === '/' && request.nextUrl.searchParams.has('code')) {
+        const url = request.nextUrl.clone()
+        url.pathname = '/auth/callback'
+        if (!url.searchParams.has('next')) {
+            url.searchParams.set('next', '/admin/reset-password')
+        }
+        return NextResponse.redirect(url)
+    }
+
     // Base Auth Paths
     const isAdminPath = request.nextUrl.pathname.startsWith('/admin')
     const isAdminAuthPath =
@@ -111,7 +122,8 @@ export async function middleware(request: NextRequest) {
     }
 
     // 7. Already authenticated users trying to hit the login screen get sent to dashboard.
-    if (isAdminAuthPath && user) {
+    // However, we MUST allow them to access /admin/reset-password to actually set their new password.
+    if (isAdminAuthPath && user && !request.nextUrl.pathname.startsWith('/admin/reset-password')) {
         const { data: profile } = await supabase
             .from('profiles')
             .select('role, is_active')

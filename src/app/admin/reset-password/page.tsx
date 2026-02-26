@@ -18,12 +18,17 @@ export default function AdminResetPasswordPage() {
     const [confirmPassword, setConfirmPassword] = useState("")
 
     useEffect(() => {
-        // Technically Supabase automatically recovers session from URL fragment
-        // We can verify if user is logged in
+        const searchParams = new URLSearchParams(window.location.search)
+        const urlError = searchParams.get('error')
+
+        if (urlError) {
+            setError(decodeURIComponent(urlError))
+        }
+
+        // Verify if user is logged in after the callback exchanged the code
         supabase.auth.getSession().then(({ data: { session } }) => {
-            if (!session) {
-                // If checking this page directly without a valid link often redirects to login
-                // But giving it a moment for Supabase client to process hash
+            if (!session && !urlError) {
+                setError("Your session has expired or is invalid. Please request a new password reset link.")
             }
         })
     }, [])
