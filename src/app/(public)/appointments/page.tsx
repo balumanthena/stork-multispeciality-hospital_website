@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Calendar, Phone, MapPin, Clock, MessageCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BookAppointment } from "@/components/forms/BookAppointment"
 
 export const metadata: Metadata = {
     title: "Book an Appointment | Stork Multispeciality Hospital",
@@ -57,120 +58,7 @@ export default function BookAppointmentPage() {
 
                         {/* Form Column */}
                         <div className="lg:col-span-8">
-                            <div className="bg-white rounded-2xl shadow-md border border-slate-100 p-8 md:p-10">
-                                <h2 className="text-2xl md:text-3xl font-semibold text-slate-800 mb-8 tracking-tight">
-                                    Appointment Details
-                                </h2>
-
-                                <form className="space-y-6">
-
-                                    {/* Personal Info */}
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="fullName" className="text-sm font-medium text-slate-700">Full Name</label>
-                                            <input
-                                                type="text"
-                                                id="fullName"
-                                                placeholder="e.g. John Doe"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800"
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="phone" className="text-sm font-medium text-slate-700">Phone Number</label>
-                                            <input
-                                                type="tel"
-                                                id="phone"
-                                                placeholder="+91"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-col gap-2">
-                                        <label htmlFor="email" className="text-sm font-medium text-slate-700">Email Address</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            placeholder="john@example.com"
-                                            className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800"
-                                        />
-                                    </div>
-
-                                    <div className="h-px bg-slate-100 w-full my-8"></div>
-
-                                    {/* Appointment Details */}
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="department" className="text-sm font-medium text-slate-700">Select Department</label>
-                                            <select
-                                                id="department"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800 appearance-none"
-                                            >
-                                                <option value="">Choose Department</option>
-                                                <option value="cardiology">Cardiology</option>
-                                                <option value="neurology">Neurology</option>
-                                                <option value="orthopedics">Orthopedics</option>
-                                                <option value="pediatrics">Pediatrics</option>
-                                            </select>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="doctor" className="text-sm font-medium text-slate-700">Select Doctor</label>
-                                            <select
-                                                id="doctor"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800 appearance-none"
-                                            >
-                                                <option value="">Choose Doctor (Optional)</option>
-                                                <option value="dr-rajesh">Dr. Rajesh Kumar</option>
-                                                <option value="dr-anjali">Dr. Anjali Desai</option>
-                                                <option value="dr-vikram">Dr. Vikram Singh</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="date" className="text-sm font-medium text-slate-700">Preferred Date</label>
-                                            <input
-                                                type="date"
-                                                id="date"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800"
-                                            />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <label htmlFor="time" className="text-sm font-medium text-slate-700">Preferred Time</label>
-                                            <select
-                                                id="time"
-                                                className="h-12 px-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800 appearance-none"
-                                            >
-                                                <option value="">Select Time</option>
-                                                <option value="morning">Morning (9 AM - 12 PM)</option>
-                                                <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
-                                                <option value="evening">Evening (5 PM - 8 PM)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex flex-col gap-2">
-                                        <label htmlFor="message" className="text-sm font-medium text-slate-700">Message (Optional)</label>
-                                        <textarea
-                                            id="message"
-                                            rows={4}
-                                            placeholder="Briefly describe your symptoms or reason for visit..."
-                                            className="px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white outline-none focus:ring-2 focus:ring-[#FF8202]/20 focus:border-[#FF8202] transition-all text-slate-800 resize-none"
-                                        ></textarea>
-                                    </div>
-
-                                    <div className="pt-4">
-                                        <Button type="button" className="w-full bg-[#FF8202] hover:bg-[#e67600] text-white rounded-xl shadow-md h-14 font-semibold text-lg transition-all">
-                                            Confirm Appointment
-                                        </Button>
-                                        <p className="text-xs text-slate-500 text-center mt-4">
-                                            By arranging this appointment, you agree to our standard hospital protocols and communication terms.
-                                        </p>
-                                    </div>
-
-                                </form>
-                            </div>
+                            <BookAppointment />
                         </div>
 
                         {/* Right Side Info Panel */}
