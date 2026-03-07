@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Section } from "@/components/layout/section"
 import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
+import { InsurancePartners } from "@/components/sections/insurance-partners"
 import { Suspense } from "react"
 import {
   ArrowRight, Activity, Heart, Brain, Stethoscope, Clock,
@@ -151,7 +152,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. WHY CHOOSE US (Institutional Look) */}
+      {/* 4. CASHLESS INSURANCE PARTNERS */}
+      <InsurancePartners />
+
+      {/* 5. WHY CHOOSE US (Institutional Look) */}
       <Section className="py-24 bg-white border-y border-slate-100">
         <div className="container max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
