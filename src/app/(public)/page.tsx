@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/section"
 import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
 import { InsurancePartners } from "@/components/sections/insurance-partners"
+import { Testimonials } from "@/components/sections/testimonials"
 import { Suspense } from "react"
 import {
   ArrowRight, Activity, Heart, Brain, Stethoscope, Clock,
@@ -209,47 +210,11 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 5. DOCTOR HIGHLIGHT (Clean & Corporate) */}
-      <Section className="py-24 bg-slate-50">
-        <div className="container max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Meet Our Experts</h2>
-            <Link href="/doctors" className="group flex items-center text-slate-600 font-semibold hover:text-[var(--color-accent)] transition-colors">
-              View All Doctors <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Dr. Rajesh Kumar", role: "Chief Cardiologist", exp: "25+ Years", qual: "MBBS, MD, DM" },
-              { name: "Dr. Anjali Desai", role: "Senior Neurologist", exp: "18+ Years", qual: "MBBS, MD, DM" },
-              { name: "Dr. Vikram Singh", role: "Head Orthopedics", exp: "22+ Years", qual: "MBBS, MS, MCh" },
-            ].map((doc, i) => (
-              <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300 group">
-                <div className="h-64 bg-slate-200 relative overflow-hidden">
-                  {/* Placeholder for real image */}
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                    <User className="h-20 w-20" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[var(--color-accent)] transition-colors">{doc.name}</h3>
-                  <p className="text-[var(--color-accent)] font-medium text-sm mb-3">{doc.role}</p>
-                  <div className="text-xs text-slate-500 mb-6 space-y-1">
-                    <p>{doc.qual}</p>
-                    <p>{doc.exp} Experience</p>
-                  </div>
-                  <Button className="w-full bg-white border border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white rounded-lg h-10 font-semibold transition-colors">
-                    Book Appointment
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+      {/* 6. PATIENT TESTIMONIALS */}
+      <Testimonials />
 
-      {/* 6. RECENT VIDEOS (Scroll Left-to-Right) */}
+      {/* 7. RECENT VIDEOS (Scroll Left-to-Right) */}
       <Suspense fallback={<div className="py-16 flex items-center justify-center text-slate-400 bg-white"><div className="animate-pulse">Loading videos...</div></div>}>
         <VideoScrollSection />
       </Suspense>
