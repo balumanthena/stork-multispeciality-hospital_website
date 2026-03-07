@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Section } from "@/components/layout/section";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { motion, useAnimationControls } from "framer-motion";
 
 const INSURANCE_PARTNERS = [
     "ManipalCigna Health Insurance",
@@ -54,7 +57,7 @@ function PartnerLogo({ name }: { name: string }) {
     const logoUrl = `/images/${fileName}`;
 
     return (
-        <div className="relative group bg-white border border-slate-100 rounded-2xl p-4 flex flex-col items-center justify-center h-28 sm:h-32 shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:border-blue-100 hover:-translate-y-1 transition-all duration-300">
+        <div className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] bg-white rounded-[12px] border border-[#eeeeee] flex items-center justify-center p-[20px] h-[100px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.08)] group cursor-default mx-3">
             {!imageError ? (
                 <div className="relative w-full h-full flex items-center justify-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -62,14 +65,14 @@ function PartnerLogo({ name }: { name: string }) {
                         src={logoUrl}
                         alt={`${name} Logo`}
                         loading="lazy"
-                        className="max-w-full max-h-full object-contain p-2"
+                        className="max-h-[60px] max-w-[140px] object-contain transition-all duration-300"
                         onError={() => setImageError(true)}
                     />
                 </div>
             ) : (
                 // Fallback UI if the image isn't available locally
                 <div className="w-full h-full flex flex-col items-center justify-center text-center px-1">
-                    <span className="text-[13px] sm:text-[14px] font-semibold text-slate-700 leading-tight group-hover:text-[var(--color-accent)] transition-colors line-clamp-3">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-slate-600 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">
                         {name}
                     </span>
                 </div>
@@ -79,37 +82,95 @@ function PartnerLogo({ name }: { name: string }) {
 }
 
 export function InsurancePartners() {
+    const controls = useAnimationControls();
+    const [isHovered, setIsHovered] = useState(false);
+
+    // Auto-scroll animation configuration
+    useEffect(() => {
+        if (!isHovered) {
+            controls.start({
+                x: "-50%",
+                transition: {
+                    ease: "linear",
+                    duration: 40, // 40 seconds per loop for a slow, premium feel
+                    repeat: Infinity,
+                },
+            });
+        } else {
+            controls.stop();
+        }
+    }, [controls, isHovered]);
+
     return (
-        <Section className="py-20 lg:py-24 bg-gradient-to-b from-slate-50 to-[#f0f6fc]">
+        <Section className="py-[80px] bg-[#f7f9fc] overflow-hidden">
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header Section */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <div className="inline-flex items-center gap-2 bg-blue-50/80 text-blue-700 px-4 py-1.5 rounded-full border border-blue-100 shadow-sm mb-6">
-                        <span className="font-semibold tracking-wide uppercase text-xs">Healthcare Financing</span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-slate-900 mb-6 leading-tight">
+                <div className="text-center max-w-3xl mx-auto mb-[48px]">
+                    <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-slate-900 mb-4 leading-tight">
                         Cashless Insurance Partners
                     </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed">
-                        We provide cashless hospitalization with leading insurance providers and TPAs, ensuring a seamless and stress-free healing experience for our patients.
+                    <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                        We provide cashless hospitalization with leading insurance providers and TPAs, ensuring a seamless and stress-free experience for patients.
                     </p>
                 </div>
+            </div>
 
-                {/* Logos Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6">
-                    {INSURANCE_PARTNERS.map((partner, index) => (
-                        <PartnerLogo key={index} name={partner} />
+            {/* Infinite Carousel Slider */}
+            <div
+                className="relative w-full overflow-hidden pb-8 pt-4"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                onTouchStart={() => setIsHovered(true)}
+                onTouchEnd={() => setIsHovered(false)}
+            >
+                {/* Gradient Overlays for smooth entry/exit effect */}
+                <div className="absolute top-0 left-0 h-full w-[10%] bg-gradient-to-r from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 h-full w-[10%] bg-gradient-to-l from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
+
+                <motion.div
+                    className="flex w-max"
+                    animate={controls}
+                    initial={{ x: 0 }}
+                >
+                    {/* Render the array twice to create the infinite seamless loop effect */}
+                    {[...INSURANCE_PARTNERS, ...INSURANCE_PARTNERS].map((partner, index) => (
+                        <PartnerLogo key={`${partner}-${index}`} name={partner} />
                     ))}
-                </div>
+                </motion.div>
+            </div>
 
-                {/* Footer/Disclaimer */}
-                <div className="mt-12 text-center">
-                    <p className="text-sm text-slate-500">
-                        Don't see your insurance provider? Contact our billing desk at <span className="font-medium text-slate-700">1066</span> for assistance.
-                    </p>
-                </div>
+            <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+                {/* Trust Indicators & Navigation Action */}
+                <div className="mt-12 pt-8 max-w-4xl mx-auto text-center">
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[14px] font-semibold text-slate-700 mb-10">
+                        <span className="flex items-center gap-2">
+                            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-700 text-xs font-bold pt-0.5">✔</span>
+                            30+ Insurance Partners
+                        </span>
+                        <span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                        <span className="flex items-center gap-2">
+                            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-700 text-xs font-bold pt-0.5">✔</span>
+                            Cashless Treatment Facility
+                        </span>
+                        <span className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                        <span className="flex items-center gap-2">
+                            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-700 text-xs font-bold pt-0.5">✔</span>
+                            Dedicated Insurance Help Desk
+                        </span>
+                    </div>
+
+                    <Link href="/insurance-partners">
+                        <Button
+                            variant="outline"
+                            className="rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm px-8 h-12 font-semibold"
+                        >
+                            View All Insurance Partners &rarr;
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </Section>
     );

@@ -32,65 +32,106 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Sending to hospital email
+      to: "storkhospitalsmedia@gmail.com",
       replyTo: email,
-      subject: `New Appointment Booking - Stork Hospital`,
+      subject: "New Appointment Booking – Stork Hospital",
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-          <div style="background-color: #0f172a; padding: 24px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">Stork Multispeciality Hospital</h1>
-            <p style="color: #94a3b8; margin: 8px 0 0 0; font-size: 14px;">New Appointment Request</p>
-          </div>
-          
-          <div style="padding: 32px; background-color: #ffffff;">
-            <table style="width: 100%; border-collapse: collapse;">
-              <tbody>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600; width: 120px;">Patient Name</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">${name}</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600;">Phone</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">
-                    <a href="tel:${phone}" style="color: #2563eb; text-decoration: none;">${phone}</a>
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600;">Email</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">
-                    <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a>
-                  </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600;">Department</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">${department}</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600;">Doctor</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">${doctor || 'Any Available'}</td>
-                </tr>
-                <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600;">Preferred Date</td>
-                  <td style="padding: 12px 0; color: #0f172a; font-weight: 500;">${formattedDate}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 12px 0; color: #64748b; font-weight: 600; vertical-align: top;">Message</td>
-                  <td style="padding: 12px 0; color: #0f172a; line-height: 1.5;">${message || 'No additional message provided.'}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div style="background-color: #f8fafc; padding: 16px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <p style="color: #64748b; font-size: 12px; margin: 0;">
-              Received on ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })} (IST)
-            </p>
-          </div>
-        </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>New Appointment Request</title>
+        </head>
+        <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f5;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f4f5; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                
+                <!-- Main Container -->
+                <table role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                  
+                  <!-- Header Section -->
+                  <tr>
+                    <td style="background-color: #2563eb; padding: 32px 24px; text-align: center;">
+                      <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold; letter-spacing: -0.5px;">Stork Multispeciality Hospital</h1>
+                      <p style="color: #bfdbfe; margin: 8px 0 0 0; font-size: 15px; font-weight: 500;">New Appointment Request</p>
+                    </td>
+                  </tr>
+
+                  <!-- Body Content -->
+                  <tr>
+                    <td style="padding: 32px 24px;">
+                      
+                      <!-- Section 1: Patient Details -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border-radius: 8px; margin-bottom: 24px;">
+                        <tr>
+                          <td style="padding: 16px;">
+                            <h2 style="margin: 0 0 12px 0; color: #0f172a; font-size: 16px; font-weight: bold; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">Patient Details</h2>
+                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Name:</strong> ${name}</p>
+                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Phone:</strong> <a href="tel:${phone}" style="color: #2563eb; text-decoration: none;">${phone}</a></p>
+                            <p style="margin: 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Email:</strong> <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- Section 2: Appointment Information -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border-radius: 8px; margin-bottom: 24px;">
+                        <tr>
+                          <td style="padding: 16px;">
+                            <h2 style="margin: 0 0 12px 0; color: #0f172a; font-size: 16px; font-weight: bold; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">Appointment Information</h2>
+                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Department:</strong> ${department}</p>
+                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Doctor:</strong> ${doctor || "Any Available"}</p>
+                            <p style="margin: 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Preferred Date:</strong> ${date}</p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- Section 3: Additional Notes -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #fffbeb; border-radius: 8px; border: 1px solid #fde68a;">
+                        <tr>
+                          <td style="padding: 16px;">
+                            <h2 style="margin: 0 0 8px 0; color: #92400e; font-size: 15px; font-weight: bold;">Notes:</h2>
+                            <p style="margin: 0; color: #b45309; font-size: 14px; line-height: 1.5;">${message || "No additional notes provided by the patient."}</p>
+                          </td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+
+                  <!-- Footer Section -->
+                  <tr>
+                    <td style="background-color: #f1f5f9; border-top: 1px solid #e2e8f0; padding: 24px; text-align: center;">
+                      <h3 style="margin: 0 0 4px 0; color: #334155; font-size: 14px; font-weight: bold;">Stork Multispeciality Hospital</h3>
+                      <p style="margin: 0 0 12px 0; color: #64748b; font-size: 13px;">Survey No 14 & 15, NH44<br>Kompally, Hyderabad</p>
+                      
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center">
+                            <p style="margin: 0 0 4px 0; color: #64748b; font-size: 13px;"><strong style="color: #334155;">Emergency:</strong> <a href="tel:1066" style="color: #dc2626; text-decoration: none; font-weight: bold;">1066</a></p>
+                            <p style="margin: 0; color: #64748b; font-size: 13px;"><strong style="color: #334155;">Phone:</strong> <a href="tel:+919999988888" style="color: #2563eb; text-decoration: none;">+91 99999 88888</a></p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    try {
+      await transporter.sendMail(mailOptions);
+    } catch (emailError: any) {
+      console.warn("Nodemailer failed to send email. Check credentials:", emailError.message);
+      // We do NOT throw here so that the frontend still succeeds and triggers the WhatsApp redirect.
+    }
 
     // --- WHATSAPP CLOUD API INTEGRATION ---
     try {
@@ -127,7 +168,7 @@ export async function POST(request: Request) {
   } catch (error: any) {
     console.error("Email send error:", error);
     return NextResponse.json(
-      { error: "Failed to send appointment request. Please try again later." },
+      { error: error.message || "Failed to send appointment request. Please try again later." },
       { status: 500 }
     );
   }

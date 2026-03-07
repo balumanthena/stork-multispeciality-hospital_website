@@ -26,17 +26,17 @@ export function BookAppointment() {
     });
 
     const generateWhatsAppLink = (data: typeof formData) => {
-        const message = `*New Appointment Booking - Stork Hospital*
+        const message = `New Appointment Request
 
 Name: ${data.name}
 Phone: ${data.phone}
 Email: ${data.email}
+Preferred Date: ${data.date}
 Department: ${data.department}
 Doctor: ${data.doctor || "Any Available"}
-Date: ${new Date(data.date).toLocaleDateString("en-IN")}
-Message: ${data.message || "None"}
+Notes: ${data.message || "None"}
 `;
-        return `https://wa.me/919494408050?text=${encodeURIComponent(message)}`;
+        return `https://wa.me/919494408050?text=${encodeURIComponent(message.trim())}`;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -66,13 +66,11 @@ Message: ${data.message || "None"}
                 throw new Error(data.error || "Failed to submit booking");
             }
 
-            toast.success("Appointment request sent! Redirecting to WhatsApp...");
+            toast.success("Thank you! Your appointment request has been sent. Our team will contact you shortly.");
 
-            // Open WhatsApp redirect in current tab to bypass window.open popup blockers
+            // Directly push user to WhatsApp Web or App in a new tab
             const waLink = generateWhatsAppLink(formData);
-            setTimeout(() => {
-                window.location.href = waLink;
-            }, 1000);
+            window.open(waLink, '_blank', 'noopener,noreferrer');
 
             // Reset form
             setFormData({
@@ -256,7 +254,7 @@ Message: ${data.message || "None"}
                     )}
                 </Button>
                 <p className="text-xs text-center text-slate-400 pt-2">
-                    By booking, you agree to our privacy policy and terms of service.
+                    Your appointment request will be confirmed by our hospital team shortly.
                 </p>
             </form>
         </div>
