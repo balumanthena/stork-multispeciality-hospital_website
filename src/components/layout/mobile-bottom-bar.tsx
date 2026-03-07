@@ -19,7 +19,7 @@ export function MobileBottomBar() {
                         Call {emergencyNumber}
                     </Button>
                 </a>
-                <Link href="/book-appointment" className="flex-[2]">
+                <Link href="/appointments" className="flex-[2]">
                     <Button className="w-full rounded-full bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white h-11 font-bold shadow-lg shadow-orange-500/20">
                         <Calendar className="w-4 h-4 mr-2" />
                         Book Now
