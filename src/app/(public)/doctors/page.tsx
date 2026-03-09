@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
-import { GraduationCap, Stethoscope, Calendar } from "lucide-react"
+import { GraduationCap, Stethoscope, Calendar, UserRound } from "lucide-react"
 
 export const metadata: Metadata = {
     title: "Our Doctors | Stork Multispeciality Hospital",
@@ -13,22 +12,19 @@ const doctors = [
         name: "Dr. D. Narendar Reddy",
         qualification: "MD, DA, FIPM",
         specialization: "Consultant Anaesthesiologist & Critical Care Specialist",
-        department: "Anaesthesiology & Critical Care",
-        photo: "/images/doctor-placeholder.jpg",
+        department: "Critical Care",
     },
     {
         name: "Dr. Dasari Jyothi Reddy",
         qualification: "MBBS, DNB, FICG",
         specialization: "Consultant Obstetrician & Gynecologist",
         department: "Obstetrics & Gynaecology",
-        photo: "/images/doctor-placeholder-f.jpg",
     },
     {
         name: "Dr. Yaggadi Guru Aravind Varma",
         qualification: "MBBS, MS Ortho, FIJR",
         specialization: "Orthopedic & Joint Replacement Surgeon",
         department: "Orthopaedics",
-        photo: "/images/doctor-placeholder.jpg",
     },
 ]
 
@@ -52,44 +48,30 @@ export default function DoctorsPage() {
                     {doctors.map((doctor) => (
                         <div
                             key={doctor.name}
-                            className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
+                            className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                         >
-                            {/* Doctor Photo */}
-                            <div className="relative w-full h-56 bg-slate-100">
-                                <Image
-                                    src={doctor.photo}
-                                    alt={doctor.name}
-                                    fill
-                                    className="object-cover object-top"
-                                    onError={(e) => {
-                                        // fallback if photo doesn't exist
-                                        (e.target as HTMLImageElement).style.display = "none"
-                                    }}
-                                />
-                                {/* Subtle gradient bottom overlay */}
-                                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/60 to-transparent" />
-                                {/* Department tag */}
-                                <div className="absolute top-3 left-3">
-                                    <span className="bg-white/90 text-[#FF8202] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-orange-100 shadow-sm">
-                                        {doctor.department}
-                                    </span>
+                            {/* Avatar Area */}
+                            <div className="flex flex-col items-center justify-center bg-slate-50 border-b border-slate-100 py-8 px-4 gap-3">
+                                <div className="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center">
+                                    <UserRound className="w-12 h-12 text-slate-400" />
                                 </div>
+                                <span className="text-xs font-semibold text-[#FF8202] uppercase tracking-wider bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">
+                                    {doctor.department}
+                                </span>
                             </div>
 
                             {/* Doctor Details */}
                             <div className="p-5 space-y-3">
-                                <div>
-                                    <h2 className="text-lg font-bold text-slate-800 leading-tight">
-                                        {doctor.name}
-                                    </h2>
-                                </div>
+                                <h2 className="text-base font-bold text-slate-800 leading-snug">
+                                    {doctor.name}
+                                </h2>
 
                                 <div className="space-y-2">
                                     <div className="flex items-start gap-2 text-sm text-slate-600">
                                         <GraduationCap className="w-4 h-4 text-slate-400 mt-0.5 shrink-0" />
                                         <span>{doctor.qualification}</span>
                                     </div>
-                                    <div className="flex items-start gap-2 text-sm text-slate-700 font-medium">
+                                    <div className="flex items-start gap-2 text-sm text-slate-700">
                                         <Stethoscope className="w-4 h-4 text-[#FF8202] mt-0.5 shrink-0" />
                                         <span>{doctor.specialization}</span>
                                     </div>
