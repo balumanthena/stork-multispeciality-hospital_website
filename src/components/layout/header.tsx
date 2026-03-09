@@ -70,10 +70,12 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                     </a>
 
                     {/* CTA - Primary Orange (#FF8202) */}
-                    <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[42px] text-[15px] font-semibold transition-colors shadow-none">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        Book Appointment
-                    </Button>
+                    <Link href="/appointments">
+                        <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[42px] text-[15px] font-semibold transition-colors shadow-none">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            Book Appointment
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Navigation Toggle */}

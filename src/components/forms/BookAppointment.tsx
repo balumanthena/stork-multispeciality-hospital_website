@@ -213,13 +213,19 @@ Notes: ${data.message || "None"}
                         <label className="text-sm font-semibold text-slate-700 flex items-center gap-2">
                             <Stethoscope className="w-4 h-4 text-slate-400" /> Doctor (Optional)
                         </label>
-                        <Input
-                            name="doctor"
-                            placeholder="e.g. Dr. Ramesh"
+                        <Select
                             value={formData.doctor}
-                            onChange={handleChange}
-                            className="rounded-xl bg-slate-50 border-slate-200 focus:bg-white transition-colors"
-                        />
+                            onValueChange={(val) => handleSelectChange("doctor", val)}
+                        >
+                            <SelectTrigger className="rounded-xl bg-slate-50 border-slate-200 h-10">
+                                <SelectValue placeholder="Select Doctor (Optional)" />
+                            </SelectTrigger>
+                            <SelectContent className="z-[400] bg-white">
+                                <SelectItem value="Dr. D. Narendar Reddy">Dr. D. Narendar Reddy – Critical Care</SelectItem>
+                                <SelectItem value="Dr. Dasari Jyothi Reddy">Dr. Dasari Jyothi Reddy – Gynecology</SelectItem>
+                                <SelectItem value="Dr. Yaggadi Guru Aravind Varma">Dr. Yaggadi Guru Aravind Varma – Orthopedics</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
                 </div>
 
