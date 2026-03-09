@@ -15,13 +15,8 @@ export function LeadPopup() {
     const [formData, setFormData] = useState({ name: "", phone: "" })
 
     useEffect(() => {
-        // Only show once per session
         if (sessionStorage.getItem(STORAGE_KEY)) return
-
-        const timer = setTimeout(() => {
-            setIsVisible(true)
-        }, 5000)
-
+        const timer = setTimeout(() => setIsVisible(true), 5000)
         return () => clearTimeout(timer)
     }, [])
 
@@ -32,19 +27,14 @@ export function LeadPopup() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-
         const phoneRegex = /^[6-9]\d{9}$/
         if (!phoneRegex.test(formData.phone.replace(/\D/g, ""))) {
             toast.error("Please enter a valid 10-digit Indian phone number.")
             return
         }
-
         setIsSubmitting(true)
-
         const message = `New Lead from Website Popup\n\nName: ${formData.name}\nPhone: ${formData.phone}`
-        const waLink = `https://wa.me/919494408050?text=${encodeURIComponent(message)}`
-        window.open(waLink, "_blank", "noopener,noreferrer")
-
+        window.open(`https://wa.me/919494408050?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
         toast.success("Thank you! Our team will reach out to you shortly.")
         handleClose()
         setIsSubmitting(false)
@@ -55,86 +45,107 @@ export function LeadPopup() {
     return (
         <div
             className="fixed inset-0 z-[999] flex items-center justify-center p-4"
-            style={{ backgroundColor: "rgba(0,0,0,0.60)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
             onClick={handleClose}
         >
+            {/* Modal Container */}
             <div
-                className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300"
+                className="relative w-full max-w-[480px] bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center text-slate-500 hover:text-slate-800 hover:bg-white transition-all shadow-sm"
+                    className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-500 hover:text-slate-900 hover:bg-white transition-all shadow"
                     aria-label="Close"
                 >
                     <X className="w-4 h-4" />
                 </button>
 
-                {/* Doctor Banner Image */}
-                <div className="relative w-full h-[220px] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 overflow-hidden">
-                    <Image
-                        src="/images/Group 11.png"
-                        alt="Stork Hospital Doctors"
-                        fill
-                        className="object-contain object-bottom"
-                        priority
-                    />
-                    {/* Top overlay for title */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/20 to-transparent" />
-                    <div className="absolute top-5 left-0 right-0 text-center px-6">
-                        <h2 className="text-white text-lg font-bold leading-snug drop-shadow-md">
-                            Have Questions? We&apos;re Here to Help
+                {/* Banner: split layout — text left, image right */}
+                <div className="relative h-[260px] bg-gradient-to-br from-[#1a4fa8] via-[#1d6ddb] to-[#2563eb] overflow-hidden flex">
+
+                    {/* Left: Text Content */}
+                    <div className="flex flex-col justify-center pl-7 pr-4 pt-6 pb-6 w-[55%] z-10">
+                        <span className="text-blue-200 text-[10px] font-semibold uppercase tracking-widest mb-2">
+                            Free Consultation
+                        </span>
+                        <h2 className="text-white text-[1.25rem] font-bold leading-snug mb-2">
+                            Have Questions?<br />
+                            <span className="text-blue-100">We&apos;re Here<br />to Help!</span>
                         </h2>
-                        <p className="text-blue-100 text-xs font-medium mt-1 drop-shadow">
-                            Reach Out to Us — Get a Free Consultation
+                        <p className="text-blue-200 text-[11px] leading-relaxed">
+                            Talk to our specialists — get expert guidance today.
                         </p>
                     </div>
+
+                    {/* Right: Doctor Image — large, bottom-anchored */}
+                    <div className="absolute right-0 bottom-0 w-[55%] h-full">
+                        <Image
+                            src="/images/Group 11.png"
+                            alt="Stork Hospital Doctor"
+                            fill
+                            className="object-contain object-bottom"
+                            priority
+                        />
+                    </div>
+
+                    {/* Subtle dot pattern overlay */}
+                    <div
+                        className="absolute inset-0 opacity-5"
+                        style={{
+                            backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+                            backgroundSize: "18px 18px",
+                        }}
+                    />
                 </div>
 
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4">
-                    <p className="text-slate-600 text-sm text-center">
-                        Share your details and our specialists will contact you shortly.
+                {/* Form Section */}
+                <div className="px-7 py-6 space-y-4 bg-white">
+                    <p className="text-slate-600 text-sm text-center font-medium">
+                        Share your details — we will call you back shortly.
                     </p>
 
-                    {/* Full Name */}
-                    <div className="relative">
-                        <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                        <Input
-                            required
-                            placeholder="Your Full Name"
-                            value={formData.name}
-                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                            className="pl-9 rounded-xl bg-slate-50 border-slate-200 h-11"
-                        />
-                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-3">
+                        {/* Name */}
+                        <div className="relative">
+                            <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                            <Input
+                                required
+                                placeholder="Your Full Name"
+                                value={formData.name}
+                                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                                className="pl-10 h-11 rounded-xl bg-slate-50 border-slate-200 text-sm focus:ring-blue-500"
+                            />
+                        </div>
 
-                    {/* Phone Number */}
-                    <div className="relative">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                        <Input
-                            required
-                            type="tel"
-                            placeholder="10-digit Phone Number"
-                            value={formData.phone}
-                            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                            className="pl-9 rounded-xl bg-slate-50 border-slate-200 h-11"
-                        />
-                    </div>
+                        {/* Phone */}
+                        <div className="relative">
+                            <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                            <Input
+                                required
+                                type="tel"
+                                placeholder="10-digit Phone Number"
+                                value={formData.phone}
+                                onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                                className="pl-10 h-11 rounded-xl bg-slate-50 border-slate-200 text-sm focus:ring-blue-500"
+                            />
+                        </div>
 
-                    <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full h-11 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl text-base shadow-lg shadow-orange-500/20 transition-all"
-                    >
-                        {isSubmitting ? "Connecting..." : "Request a Callback 🩺"}
-                    </Button>
+                        {/* CTA */}
+                        <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full h-11 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl text-base shadow-lg shadow-orange-500/25 transition-all"
+                        >
+                            {isSubmitting ? "Connecting..." : "📞 Request a Callback"}
+                        </Button>
+                    </form>
 
-                    <p className="text-[11px] text-slate-400 text-center">
-                        🔒 Your information is 100% confidential and secure.
+                    <p className="text-[10px] text-slate-400 text-center">
+                        🔒 Your information is 100% private and secure.
                     </p>
-                </form>
+                </div>
             </div>
         </div>
     )
