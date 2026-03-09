@@ -13,6 +13,9 @@ export function MobileNav() {
     const pathname = usePathname()
     const [view, setView] = useState<"menu" | "location">("menu")
 
+    // Never render the public bottom nav on admin routes
+    if (pathname.startsWith('/admin')) return null
+
     const navItems = [
         {
             label: "Appointment",
