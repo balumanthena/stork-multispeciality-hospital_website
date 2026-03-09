@@ -72,21 +72,21 @@ export function LeadPopup() {
                 </button>
 
                 {/* Doctor Banner Image */}
-                <div className="relative w-full h-48 sm:h-56 bg-blue-50">
+                <div className="relative w-full h-[220px] bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 overflow-hidden">
                     <Image
                         src="/images/Group 11.png"
                         alt="Stork Hospital Doctors"
                         fill
-                        className="object-cover object-top"
+                        className="object-contain object-bottom"
                         priority
                     />
-                    {/* Gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-0 right-0 text-center px-4">
+                    {/* Top overlay for title */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/20 to-transparent" />
+                    <div className="absolute top-5 left-0 right-0 text-center px-6">
                         <h2 className="text-white text-lg font-bold leading-snug drop-shadow-md">
                             Have Questions? We&apos;re Here to Help
                         </h2>
-                        <p className="text-blue-100 text-xs font-medium mt-0.5 drop-shadow">
+                        <p className="text-blue-100 text-xs font-medium mt-1 drop-shadow">
                             Reach Out to Us — Get a Free Consultation
                         </p>
                     </div>
