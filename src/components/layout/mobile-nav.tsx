@@ -16,7 +16,7 @@ export function MobileNav() {
         {
             label: "Appointment",
             icon: Calendar,
-            href: "/book-appointment",
+            href: "/appointments",
             action: null
         },
         {
@@ -106,9 +106,11 @@ export function MobileNav() {
                                 ))}
                             </div>
                             <div className="mt-8 pt-6 border-t border-slate-100">
-                                <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
-                                    Book an Appointment
-                                </Button>
+                                <Link href="/appointments" className="w-full block">
+                                    <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
+                                        Book an Appointment
+                                    </Button>
+                                </Link>
                             </div>
                         </SheetContent>
                     </Sheet>
