@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { X, Phone, User, Stethoscope } from "lucide-react"
+import { X, Phone, User } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
@@ -40,7 +41,6 @@ export function LeadPopup() {
 
         setIsSubmitting(true)
 
-        // Build WhatsApp message as quick lead capture
         const message = `New Lead from Website Popup\n\nName: ${formData.name}\nPhone: ${formData.phone}`
         const waLink = `https://wa.me/919494408050?text=${encodeURIComponent(message)}`
         window.open(waLink, "_blank", "noopener,noreferrer")
@@ -55,7 +55,8 @@ export function LeadPopup() {
     return (
         <div
             className="fixed inset-0 z-[999] flex items-center justify-center p-4"
-            style={{ backgroundColor: "rgba(0,0,0,0.55)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.60)" }}
+            onClick={handleClose}
         >
             <div
                 className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300"
@@ -70,23 +71,23 @@ export function LeadPopup() {
                     <X className="w-4 h-4" />
                 </button>
 
-                {/* Banner */}
-                <div className="bg-gradient-to-br from-blue-700 via-blue-600 to-[#FF8202] px-6 pt-8 pb-10 text-white text-center relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-10"
-                        style={{
-                            backgroundImage: "radial-gradient(circle at 70% 50%, white 1px, transparent 1px)",
-                            backgroundSize: "20px 20px"
-                        }}
+                {/* Doctor Banner Image */}
+                <div className="relative w-full h-48 sm:h-56 bg-blue-50">
+                    <Image
+                        src="/images/Group 11.png"
+                        alt="Stork Hospital Doctors"
+                        fill
+                        className="object-cover object-top"
+                        priority
                     />
-                    <div className="relative z-10">
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-white/40">
-                            <Stethoscope className="w-8 h-8 text-white" />
-                        </div>
-                        <h2 className="text-xl font-bold leading-snug mb-1">
-                            Have Questions?
+                    {/* Gradient overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-0 right-0 text-center px-4">
+                        <h2 className="text-white text-lg font-bold leading-snug drop-shadow-md">
+                            Have Questions? We&apos;re Here to Help
                         </h2>
-                        <p className="text-blue-100 text-sm font-medium">
-                            We&apos;re Here to Help — Get a Free Consultation
+                        <p className="text-blue-100 text-xs font-medium mt-0.5 drop-shadow">
+                            Reach Out to Us — Get a Free Consultation
                         </p>
                     </div>
                 </div>
