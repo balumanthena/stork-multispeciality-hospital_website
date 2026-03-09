@@ -40,13 +40,13 @@ export function MobileNav() {
         }
     ]
 
-    const moreItems = [
-        { label: "Departments", icon: Building2, href: "/departments" },
-        { label: "Doctors", icon: User2, href: "/doctors" },
-        { label: "Blogs", icon: BookOpen, href: "/blogs" },
-        { label: "Locations", icon: MapPin, action: () => setView("location") },
-        { label: "Contact Us", icon: Contact, href: "/contact" },
-    ]
+    const exploreLinks = [
+        { label: "Departments", icon: Building2, href: "/services" },
+        { label: "Doctors", icon: User2, href: "/search" }, // Assuming User2 is intended as Users is not imported
+        { label: "Blogs", icon: BookOpen, href: "/blog" },
+        { label: "Locations", icon: MapPin, href: "/contact" },
+        { label: "Contact Us", icon: Phone, href: "/contact" },
+    ];
 
     return (
         <>
@@ -97,7 +97,7 @@ export function MobileNav() {
                                         <SheetTitle className="text-xl font-bold text-slate-900">Explore Stork Hospital</SheetTitle>
                                     </SheetHeader>
                                     <div className="grid grid-cols-3 gap-6">
-                                        {moreItems.map((item, i) => {
+                                        {exploreLinks.map((item: any, i: number) => {
                                             if (item.action) {
                                                 return (
                                                     <button

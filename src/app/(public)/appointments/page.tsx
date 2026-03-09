@@ -19,33 +19,17 @@ export default function BookAppointmentPage() {
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-                        {/* Left Content */}
-                        <div className="max-w-2xl relative z-10">
+                        {/* Content */}
+                        <div className="max-w-3xl mx-auto text-center relative z-10 lg:col-span-2">
                             <h1 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-6 leading-tight tracking-tight">
                                 Book an Appointment with Our Specialists
                             </h1>
                             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
                                 Schedule consultations across 25+ specialties with experienced doctors. Seamless confirmation. Compassionate care.
                             </p>
-
-                            <div className="flex flex-wrap items-center gap-4">
-                                <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-xl shadow-md h-12 px-8 font-medium transition-all text-base">
-                                    Confirm Appointment
-                                </Button>
-                                <Button variant="outline" className="bg-transparent border-slate-300 text-slate-700 hover:bg-slate-100 h-12 px-8 rounded-xl font-medium transition-all text-base">
-                                    Learn More
-                                </Button>
-                            </div>
                         </div>
 
-                        {/* Right Image */}
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-slate-200">
-                            <img
-                                src="https://images.unsplash.com/photo-1551076805-e18690c5e5ce?auto=format&fit=crop&q=80&w=1600&h=1200"
-                                alt="Medical Consultation"
-                                className="object-cover w-full h-full"
-                            />
-                        </div>
+
 
                     </div>
                 </div>
