@@ -131,7 +131,7 @@ export default function ContactPage() {
                                 <div className="absolute inset-0 bg-slate-100 animate-pulse -z-10" />
 
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.8329606821217!2d78.4846977!3d17.5216607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8553bec3ec41%3A0x17a108279643ccdf!2sStork%20Multispecialty%20Hospital!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15228.619077977435!2d78.4756535!3d17.5240366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMxJzE3LjEiTiA3OMKwMjgnMzEuMiJF!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin&q=GFCM%2BQG+Hyderabad,+Telangana"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}

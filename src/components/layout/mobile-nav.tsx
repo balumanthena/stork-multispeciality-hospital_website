@@ -1,16 +1,17 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Calendar, Stethoscope, Phone, MessageCircle, MoreHorizontal, Building2, User2, BookOpen, MapPin, Contact } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
+import { LocationMap } from "./location-map"
 
 export function MobileNav() {
     const pathname = usePathname()
-    // Scroll Logic Removed: Always visible fixed bottom bar
+    const [view, setView] = useState<"menu" | "location">("menu")
 
     const navItems = [
         {
@@ -43,7 +44,7 @@ export function MobileNav() {
         { label: "Departments", icon: Building2, href: "/departments" },
         { label: "Doctors", icon: User2, href: "/doctors" },
         { label: "Blogs", icon: BookOpen, href: "/blogs" },
-        { label: "Locations", icon: MapPin, href: "/contact" },
+        { label: "Locations", icon: MapPin, action: () => setView("location") },
         { label: "Contact Us", icon: Contact, href: "/contact" },
     ]
 
@@ -80,7 +81,9 @@ export function MobileNav() {
                     })}
 
                     {/* "More" Sheet Trigger */}
-                    <Sheet>
+                    <Sheet onOpenChange={(open) => {
+                        if (!open) setTimeout(() => setView("menu"), 300)
+                    }}>
                         <SheetTrigger asChild>
                             <button className="flex flex-col items-center justify-center w-full h-full py-1 active:scale-95 transition-transform text-slate-500 hover:text-slate-900">
                                 <MoreHorizontal className="w-6 h-6 mb-1" />
@@ -88,30 +91,55 @@ export function MobileNav() {
                             </button>
                         </SheetTrigger>
                         <SheetContent side="bottom" className="rounded-t-3xl pb-8">
-                            <SheetHeader className="mb-6 text-left">
-                                <SheetTitle className="text-xl font-bold text-slate-900">Explore Stork Hospital</SheetTitle>
-                            </SheetHeader>
-                            <div className="grid grid-cols-3 gap-6">
-                                {moreItems.map((item, i) => (
-                                    <Link
-                                        key={i}
-                                        href={item.href}
-                                        className="flex flex-col items-center gap-3 active:scale-95 transition-transform group"
-                                    >
-                                        <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:border-orange-100 transition-colors shadow-sm">
-                                            <item.icon className="w-6 h-6" />
-                                        </div>
-                                        <span className="text-xs font-medium text-slate-600 text-center">{item.label}</span>
-                                    </Link>
-                                ))}
-                            </div>
-                            <div className="mt-8 pt-6 border-t border-slate-100">
-                                <Link href="/appointments" className="w-full block">
-                                    <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
-                                        Book an Appointment
-                                    </Button>
-                                </Link>
-                            </div>
+                            {view === "menu" ? (
+                                <>
+                                    <SheetHeader className="mb-6 text-left">
+                                        <SheetTitle className="text-xl font-bold text-slate-900">Explore Stork Hospital</SheetTitle>
+                                    </SheetHeader>
+                                    <div className="grid grid-cols-3 gap-6">
+                                        {moreItems.map((item, i) => {
+                                            if (item.action) {
+                                                return (
+                                                    <button
+                                                        key={i}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            item.action();
+                                                        }}
+                                                        className="flex flex-col items-center gap-3 active:scale-95 transition-transform group"
+                                                    >
+                                                        <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:border-orange-100 transition-colors shadow-sm">
+                                                            <item.icon className="w-6 h-6" />
+                                                        </div>
+                                                        <span className="text-xs font-medium text-slate-600 text-center">{item.label}</span>
+                                                    </button>
+                                                )
+                                            }
+                                            return (
+                                                <Link
+                                                    key={i}
+                                                    href={item.href!}
+                                                    className="flex flex-col items-center gap-3 active:scale-95 transition-transform group"
+                                                >
+                                                    <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:border-orange-100 transition-colors shadow-sm">
+                                                        <item.icon className="w-6 h-6" />
+                                                    </div>
+                                                    <span className="text-xs font-medium text-slate-600 text-center">{item.label}</span>
+                                                </Link>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-slate-100">
+                                        <Link href="/appointments" className="w-full block">
+                                            <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
+                                                Book an Appointment
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                </>
+                            ) : (
+                                <LocationMap onBack={() => setView("menu")} />
+                            )}
                         </SheetContent>
                     </Sheet>
                 </div>
