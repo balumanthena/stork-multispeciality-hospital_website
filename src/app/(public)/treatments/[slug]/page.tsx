@@ -90,7 +90,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
             {/* HERO SECTION ... */}
-            <Section className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-16 relative overflow-hidden">
+            <Section className="bg-gradient-to-b from-slate-50 to-white pt-12 md:pt-16 pb-16 relative overflow-hidden">
                 <div className="container max-w-6xl mx-auto px-6 relative z-10">
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
                         <Link href="/treatments" className="hover:text-[#3e7dca] transition-colors">Treatments</Link>
@@ -124,22 +124,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#3e7dca]" /><span>Insurance Accepted</span></div>
                             </div>
                         </div>
-                        <div className="lg:col-span-2 hidden lg:flex justify-center relative">
-                            <div className="absolute inset-0 bg-[#3e7dca]/5 rounded-full blur-3xl transform scale-90 translate-y-4"></div>
-                            <div className="relative bg-white rounded-[2.5rem] p-8 shadow-2xl border border-slate-100 rotate-1 hover:rotate-0 transition-transform duration-700 w-full max-w-sm">
-                                <div className="bg-slate-50 rounded-3xl h-64 w-full flex items-center justify-center mb-6 overflow-hidden"><TreatmentIcon className="w-24 h-24 text-[#3e7dca]/20" /></div>
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center"><Star className="w-5 h-5 text-green-600 fill-current" /></div>
-                                        <div><p className="text-sm text-slate-500 font-medium">Patient Satisfaction</p><p className="text-lg font-bold text-slate-900">4.9/5.0</p></div>
-                                    </div>
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center"><User className="w-5 h-5 text-[#3e7dca] fill-current" /></div>
-                                        <div><p className="text-sm text-slate-500 font-medium">Patients Treated</p><p className="text-lg font-bold text-slate-900">10,000+</p></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </Section>

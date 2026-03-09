@@ -106,7 +106,7 @@ export default async function DepartmentPage({
 
             {/* 1. HERO SECTION (Enterprise Standard) */}
 
-            <section className="bg-white border-b border-slate-200 pt-32 pb-24 relative overflow-hidden">
+            <section className="bg-white border-b border-slate-200 pt-12 md:pt-16 pb-24 relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-4xl">
                         {/* Breadcrumb */}
