@@ -156,12 +156,18 @@ export default async function AdminVideosPage() {
                                                     </Button>
                                                 </Link>
                                                 {canManageALL && (
-                                                    <form action={async () => {
-                                                        "use server"
-                                                        const supabase = await createClient()
-                                                        await supabase.from("treatment_videos").delete().eq("id", video.id)
-                                                    }}>
-                                                        <button className="text-slate-400 hover:text-red-500 transition-colors p-2" title="Delete Video">
+                                                    <form
+                                                        action={async () => {
+                                                            "use server"
+                                                            const { deleteVideo } = await import("./actions")
+                                                            await deleteVideo(video.id)
+                                                        }}
+                                                    >
+                                                        <button
+                                                            type="submit"
+                                                            className="text-slate-400 hover:text-red-500 transition-colors p-2"
+                                                            title="Delete Video"
+                                                        >
                                                             <Trash2 className="w-4 h-4" />
                                                         </button>
                                                     </form>
