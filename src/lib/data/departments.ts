@@ -14,9 +14,9 @@ export const DEFAULT_FEATURES = [
 ]
 
 export const DEFAULT_TESTIMONIALS = [
-    { name: "Sudeep M.", text: "The care I received was exceptional. The doctors were patient and the facilities were world-class.", rating: 5 },
-    { name: "Anjali P.", text: "Professional and compassionate staff. I felt in safe hands throughout my treatment.", rating: 5 },
-    { name: "Rahul K.", text: "State-of-the-art infrastructure and very hygienic environment. Highly recommended.", rating: 5 },
+    { name: "Devatha Kishan", text: "The treatment here was very well they took a great personal care . I had my TKR procedure done at Stork hospital.", rating: 5 },
+    { name: "sainath aakash reddy", text: "Today my wife had cesarean delivery performed by Dr. Jyothi Reddy, and I am extremely grateful for her exceptional care.", rating: 5 },
+    { name: "Kulla Siddulu", text: "This hospital has provided us a great treatment. A special thanks to Dr Narendra garu and their team.", rating: 5 },
 ]
 
 export interface DepartmentTestimonial {

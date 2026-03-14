@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Calendar, Stethoscope, Phone, MessageCircle, MoreHorizontal, Building2, User2, BookOpen, MapPin, Contact } from "lucide-react"
+import { Calendar, Stethoscope, Phone, MessageCircle, MoreHorizontal, Building2, User2, BookOpen, MapPin, Contact, Video } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -42,6 +42,7 @@ export function MobileNav() {
         { label: "Departments", icon: Building2, href: "/services" },
         { label: "Doctors", icon: User2, href: "/search" }, // Assuming User2 is intended as Users is not imported
         { label: "Blogs", icon: BookOpen, href: "/blog" },
+        { label: "Videos", icon: Video, href: "/videos" },
         { label: "Locations", icon: MapPin, href: "/contact" },
         { label: "Contact Us", icon: Phone, href: "/contact" },
     ];

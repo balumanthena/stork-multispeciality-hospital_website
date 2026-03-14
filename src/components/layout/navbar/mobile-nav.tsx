@@ -168,6 +168,13 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                         >
                             Blogs
                         </Link>
+                        <Link
+                            href="/videos"
+                            onClick={() => setIsOpen(false)}
+                            className="px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
+                        >
+                            Videos
+                        </Link>
 
 
                         <div className="pt-6 space-y-3 px-2">

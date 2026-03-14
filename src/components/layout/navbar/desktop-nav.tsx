@@ -244,6 +244,19 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     isActive("/blog") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
+            <Link
+                href="/videos"
+                className={cn(
+                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
+                    isActive("/videos") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                )}
+            >
+                Videos
+                <span className={cn(
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                    isActive("/videos") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                )}></span>
+            </Link>
 
         </nav>
     )
