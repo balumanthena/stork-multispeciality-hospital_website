@@ -31,7 +31,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
     }, [])
 
     // Default emergency number if not yet loaded or set
-    const emergencyNumber = settings?.emergency_number || "1066"
+
 
     return (
         <header
@@ -60,15 +60,6 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                 {/* Right Actions */}
                 <div className="hidden lg:flex items-center gap-6">
                     {/* Emergency - Secondary Blue (#3E7DCA) */}
-                    {/* Emergency Badge - Soft Gray Pill (#F1F5F9) */}
-                    <a href={`tel:${emergencyNumber}`} className="flex items-center gap-3 px-4 py-2 bg-[#F1F5F9] rounded-full hover:bg-slate-200 transition-colors">
-                        <Phone className="w-5 h-5 text-[#3E7DCA] fill-current" />
-                        <div className="flex flex-col leading-none">
-                            <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Emergency</span>
-                            <span className="text-base font-bold text-slate-900">{emergencyNumber}</span>
-                        </div>
-                    </a>
-
                     {/* CTA - Primary Orange (#FF8202) */}
                     <Link href="/appointments">
                         <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[42px] text-[15px] font-semibold transition-colors shadow-none">

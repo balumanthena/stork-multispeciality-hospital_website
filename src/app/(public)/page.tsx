@@ -53,13 +53,6 @@ export default function Home() {
                   </div>
                   <span>Survey No 14 & 15, Kompally</span>
                 </div>
-                <div className="hidden sm:block w-px h-6 bg-slate-200"></div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-4 h-4 text-slate-500" />
-                  </div>
-                  <span>Emergency: 1066</span>
-                </div>
               </div>
 
               {/* Action Buttons - Segmented Horizontal Container */}
@@ -232,9 +225,7 @@ export default function Home() {
             We are available 24/7 to handle any medical emergency with our rapid response team.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white h-14 px-10 text-lg font-bold rounded-full border-none shadow-lg shadow-red-900/40">
-              <Phone className="w-5 h-5 mr-3" /> Call 1066
-            </Button>
+
             <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-full">
               Book Online
             </Button>

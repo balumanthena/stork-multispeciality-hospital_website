@@ -109,7 +109,7 @@ export async function POST(request: Request) {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                         <tr>
                           <td align="center">
-                            <p style="margin: 0 0 4px 0; color: #64748b; font-size: 13px;"><strong style="color: #334155;">Emergency:</strong> <a href="tel:1066" style="color: #dc2626; text-decoration: none; font-weight: bold;">1066</a></p>
+
                             <p style="margin: 0; color: #64748b; font-size: 13px;"><strong style="color: #334155;">Phone:</strong> <a href="tel:+919999988888" style="color: #2563eb; text-decoration: none;">+91 99999 88888</a></p>
                           </td>
                         </tr>

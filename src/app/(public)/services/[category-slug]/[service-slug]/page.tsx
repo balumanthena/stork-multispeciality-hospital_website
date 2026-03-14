@@ -149,9 +149,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     Book Consultation
                                     <ArrowRight className="w-5 h-5 ml-2" />
                                 </Button>
-                                <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-7 rounded-xl text-lg font-semibold">
-                                    Call 108 for Emergency
-                                </Button>
+
                             </div>
 
                             {/* Trust Indicators */}

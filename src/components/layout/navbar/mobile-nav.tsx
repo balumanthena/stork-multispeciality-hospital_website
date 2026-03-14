@@ -174,9 +174,7 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                             <Button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 gap-2 rounded-full h-12 text-base font-semibold shadow-md">
                                 <Calendar className="w-5 h-5" /> Book Appointment
                             </Button>
-                            <a href="tel:1066" className="flex items-center justify-center w-full gap-2 rounded-full h-12 text-base font-medium border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-red-600 transition-colors">
-                                <Phone className="w-5 h-5 text-slate-400" /> Emergency: <span className="font-bold">1066</span>
-                            </a>
+
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from "react"
-import { Play, Loader2, Video as VideoIcon, MoreVertical } from "lucide-react"
+import { Play, Loader2, Video as VideoIcon, MoreVertical, X } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import { cn } from "@/lib/utils"
@@ -109,6 +109,16 @@ export function VideoSection({ videos, heading = "Doctor Talk", variant = "grid"
                         </VisuallyHidden>
                         {activeVideo && (
                             <div className="w-full h-full relative bg-black">
+                                {/* Action Bar / Floating Close Button */}
+                                <div className="absolute top-4 right-4 z-50">
+                                    <button 
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center gap-2 text-white bg-black/60 hover:bg-black/90 px-4 py-2 rounded-full text-sm font-bold backdrop-blur-md transition-all border border-white/20 shadow-2xl"
+                                    >
+                                        <X className="w-4 h-4" strokeWidth={3} /> Close
+                                    </button>
+                                </div>
+
                                 {isLoading && (
                                     <div className="absolute inset-0 flex items-center justify-center z-0">
                                         <Loader2 className="w-10 h-10 text-white/20 animate-spin" />

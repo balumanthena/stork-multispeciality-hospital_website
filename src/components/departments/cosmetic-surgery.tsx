@@ -277,9 +277,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                         <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Consultation
                         </Button>
-                        <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
-                            Call 1066
-                        </Button>
+
                     </div>
                 </div>
             </section>

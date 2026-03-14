@@ -131,9 +131,7 @@ export default async function DepartmentPage({
                                     <Button size="lg" className="h-14 px-10 text-base font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-xl shadow-orange-900/20 transition-all hover:-translate-y-1">
                                         Book Appointment
                                     </Button>
-                                    <Button size="lg" variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] rounded-full">
-                                        <Phone className="h-4 w-4 mr-2" /> Emergency: 1066
-                                    </Button>
+
                                 </div>
                             </div>
 
@@ -271,9 +269,7 @@ export default async function DepartmentPage({
                         <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-2xl shadow-orange-900/40">
                             Book Appointment
                         </Button>
-                        <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/20 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
-                            Call 1066
-                        </Button>
+
                     </div>
                 </div>
             </section>

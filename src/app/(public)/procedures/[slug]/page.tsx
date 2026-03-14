@@ -99,7 +99,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                                 <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
                                     Book Consultation<ArrowRight className="w-5 h-5 ml-2" />
                                 </Button>
-                                <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-7 rounded-xl text-lg font-semibold">Call 108 for Emergency</Button>
+
                             </div>
 
                             {/* Trust Indicators */}
@@ -255,9 +255,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                         <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">
                             {treatment.customCta?.buttonText || "Book Appointment Now"}
                         </Button>
-                        <Button variant="outline" className="h-auto border-2 border-white/20 text-white hover:bg-white/10 px-10 py-5 rounded-full text-xl font-bold w-full sm:w-auto">
-                            <span className="mr-2 opacity-80">or Call</span> 108
-                        </Button>
+
                     </div>
 
                     <p className="mt-8 text-sm text-slate-400 font-medium flex items-center justify-center gap-2">

@@ -1,17 +1,43 @@
-import React from "react"
+"use client"
+
+import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Calendar, Video, PlayCircle } from "lucide-react"
+import { ArrowRight, Calendar, Video, PlayCircle, Loader2, X } from "lucide-react"
+
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+
+function getYouTubeId(url: string) {
+    if (!url) return null;
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+    return match ? match[1] : null;
+}
 
 interface RelatedMediaProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     blogs?: any[]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     videos?: any[]
 }
 
 export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
+    const [isOpen, setIsOpen] = useState(false)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const [activeVideo, setActiveVideo] = useState<any>(null)
+    const [isLoading, setIsLoading] = useState(true)
+
     if (!blogs.length && !videos.length) return null
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleVideoClick = (video: any, e: React.MouseEvent) => {
+        e.preventDefault()
+        setActiveVideo(video)
+        setIsLoading(true)
+        setIsOpen(true)
+    }
 
     return (
         <Section className="py-24 bg-white border-t border-slate-200">
@@ -35,12 +61,14 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {videos.slice(0, 3).map((video) => (
-                                <div key={video.id} className="group relative bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                            {videos.slice(0, 3).map((video) => {
+                                const videoId = getYouTubeId(video.youtube_url || "");
+                                return (
+                                <div key={video.id} className="group relative bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" onClick={(e) => handleVideoClick(video, e)}>
                                     <div className="aspect-video relative overflow-hidden">
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img
-                                            src={video.thumbnail_url || `https://img.youtube.com/vi/${video.youtube_url?.split('v=')[1]?.substring(0, 11)}/maxresdefault.jpg`}
+                                            src={video.thumbnail_url || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : "/images/video-placeholder.jpg")}
                                             alt={video.title}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                                         />
@@ -52,14 +80,51 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                         <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 leading-snug">
                                             {video.title}
                                         </h3>
-                                        {/* Modal trigger mapped in parent if needed, or link appropriately */}
-                                        <a href={video.youtube_url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#FF8202] flex items-center gap-1 group-hover:gap-2 transition-all mt-2">
-                                            Watch on YouTube <ArrowRight className="h-4 w-4" />
-                                        </a>
+                                        {/* Modal trigger */}
+                                        <button className="text-sm font-semibold text-[#FF8202] flex items-center gap-1 group-hover:gap-2 transition-all mt-2">
+                                            Watch Video <ArrowRight className="h-4 w-4" />
+                                        </button>
                                     </div>
                                 </div>
-                            ))}
+                            )})}
                         </div>
+                        
+                        {/* Video Modal */}
+                        <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                            <DialogContent className="sm:max-w-4xl p-0 bg-black border-none overflow-hidden aspect-video">
+                                <VisuallyHidden>
+                                    <DialogTitle>{activeVideo?.title || "Video Player"}</DialogTitle>
+                                </VisuallyHidden>
+                                {activeVideo && (
+                                    <div className="w-full h-full relative bg-black">
+                                        {/* Action Bar / Floating Close Button */}
+                                        <div className="absolute top-4 right-4 z-50">
+                                            <button 
+                                                onClick={() => setIsOpen(false)}
+                                                className="flex items-center gap-2 text-white bg-black/60 hover:bg-black/90 px-4 py-2 rounded-full text-sm font-bold backdrop-blur-md transition-all border border-white/20 shadow-2xl"
+                                            >
+                                                <X className="w-4 h-4" strokeWidth={3} /> Close
+                                            </button>
+                                        </div>
+
+                                        {isLoading && (
+                                            <div className="absolute inset-0 flex items-center justify-center z-0">
+                                                <Loader2 className="w-10 h-10 text-white/20 animate-spin" />
+                                            </div>
+                                        )}
+                                        <iframe
+                                            src={getYouTubeId(activeVideo.youtube_url || "") ? `https://www.youtube.com/embed/${getYouTubeId(activeVideo.youtube_url || "")}?autoplay=1&rel=0` : activeVideo.youtube_embed_url}
+                                            title={activeVideo.title}
+                                            className="w-full h-full absolute inset-0 z-10"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            onLoad={() => setIsLoading(false)}
+                                        />
+                                    </div>
+                                )}
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 )}
 

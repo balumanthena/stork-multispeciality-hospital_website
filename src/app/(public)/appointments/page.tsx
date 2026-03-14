@@ -55,7 +55,7 @@ export default function BookAppointmentPage() {
                                 </div>
                                 <h3 className="text-xl font-semibold text-red-900 mb-2">Emergency Care</h3>
                                 <p className="text-red-700 font-medium mb-4">Available 24/7 for trauma and critical care.</p>
-                                <div className="text-3xl font-bold text-red-600 tracking-tight">1066</div>
+
                             </div>
 
                             {/* Box 2: Contact Info */}

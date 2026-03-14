@@ -39,14 +39,7 @@ export default function ContactPage() {
                             </p>
                         </div>
                     </div>
-                    <div className="shrink-0">
-                        <a
-                            href="tel:1066"
-                            className="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-black text-2xl tracking-wider py-4 px-10 rounded-xl shadow-lg shadow-red-600/20 transition-all active:scale-95"
-                        >
-                            1066
-                        </a>
-                    </div>
+
                 </div>
             </section>
 

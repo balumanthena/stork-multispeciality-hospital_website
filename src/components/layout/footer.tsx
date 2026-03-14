@@ -9,7 +9,7 @@ export function Footer() {
     const { settings } = useSettings()
 
     const address = settings?.address || "C-35, opp. Narayana School, near DMart, Petbasheerabad, Kompally, Hyderabad, Secunderabad"
-    const emergencyNumber = settings?.emergency_number || "1066"
+
     const email = settings?.email || "contact@storkhospital.com"
     const hospitalName = settings?.hospital_name || "Stork Multispecialty Hospital"
     const tagline = settings?.tagline || "World-class healthcare with a compassionate touch."
@@ -113,12 +113,7 @@ export function Footer() {
                                 </div>
                                 <span className="text-slate-600 leading-relaxed">{address}</span>
                             </li>
-                            <li className="flex gap-4 items-center">
-                                <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
-                                    <Phone className="h-4 w-4" />
-                                </div>
-                                <span className="text-[#0F172A] font-bold tracking-wide">{emergencyNumber}</span>
-                            </li>
+
                             <li className="flex gap-4 items-center">
                                 <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
                                     <Mail className="h-4 w-4" />

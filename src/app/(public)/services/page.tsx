@@ -91,9 +91,7 @@ export default async function DepartmentsIndexPage() {
                             <Button className="h-12 px-8 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl shadow-lg border-none text-base">
                                 Book Appointment
                             </Button>
-                            <Button variant="outline" className="h-12 px-8 bg-transparent text-white border-white/30 hover:bg-white/10 hover:border-white font-bold rounded-xl text-base">
-                                <Phone className="w-4 h-4 mr-2" /> Call 1066
-                            </Button>
+
                         </div>
                     </div>
                 </div>

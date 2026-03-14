@@ -51,12 +51,6 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-5">
-                                <a href="tel:1066">
-                                    <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
-                                        <Phone className="h-4 w-4 mr-2" />
-                                        Call Emergency Now
-                                    </Button>
-                                </a>
                                 <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#3E7DCA] text-[#3E7DCA] hover:bg-blue-50 rounded-full">
                                     <MapPin className="h-4 w-4 mr-2" />
                                     Find Us
@@ -306,11 +300,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                         Our rapid response team is ready 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <a href="tel:1066">
-                            <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
-                                Call 1066 Now
-                            </Button>
-                        </a>
+
                         <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
                             Get Directions
                         </Button>

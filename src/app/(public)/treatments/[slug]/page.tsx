@@ -114,7 +114,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
                                     Book Consultation<ArrowRight className="w-5 h-5 ml-2" />
                                 </Button>
-                                <Button variant="outline" className="border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-7 rounded-xl text-lg font-semibold">Call 108 for Emergency</Button>
+
                             </div>
                             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
@@ -227,7 +227,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                     <p className="text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">{treatment.customCta?.description || "Book your consultation today with Hyderabad's leading specialists."}</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">{treatment.customCta?.buttonText || "Book Appointment Now"}</Button>
-                        <Button variant="outline" className="h-auto border-2 border-white/20 text-white hover:bg-white/10 px-10 py-5 rounded-full text-xl font-bold w-full sm:w-auto"><span className="mr-2 opacity-80">or Call</span> 108</Button>
+
                     </div>
                     <p className="mt-8 text-sm text-slate-400 font-medium flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" />No-Wait Booking Confirmed Instantly</p>
                 </div>

@@ -29,12 +29,7 @@ export function MobileNav() {
             href: "/treatments",
             action: null
         },
-        {
-            label: "Call",
-            icon: Phone,
-            href: "tel:108",
-            action: null
-        },
+
         {
             label: "WhatsApp",
             icon: MessageCircle,
