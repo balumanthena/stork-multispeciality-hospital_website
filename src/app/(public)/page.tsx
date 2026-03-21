@@ -7,12 +7,16 @@ import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
 import { InsurancePartners } from "@/components/sections/insurance-partners"
 import { Testimonials } from "@/components/sections/testimonials"
+import { HomepageTreatmentIcons } from "@/components/sections/homepage-treatment-icons"
+import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { Suspense } from "react"
 import {
   ArrowRight, Activity, Heart, Brain, Stethoscope, Clock,
   ShieldCheck, Users, Award, Phone, Calendar, User, Microscope,
   CheckCircle2, Star, Quote, ChevronRight, MapPin
 } from "lucide-react"
+
+  const allTreatments = HARDCODED_TREATMENTS.flatMap(cat => cat.items)
 
 export default function Home() {
   return (
@@ -105,6 +109,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 2. OUR TREATMENTS (Icons Grid) */}
+      <HomepageTreatmentIcons allTreatments={allTreatments} />
 
       {/* 3. CENTERS OF EXCELLENCE */}
       <section className="bg-slate-50 py-20">
