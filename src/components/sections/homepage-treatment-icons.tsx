@@ -21,15 +21,15 @@ function TreatmentIconBox({ treatment, slug }: { treatment: Treatment, slug: str
             href={`/treatments/${slug}`}
             className="flex flex-col items-center justify-center p-4 gap-3 group transition-transform hover:-translate-y-1"
         >
-            <div className="w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-[22px] bg-white border border-slate-100 shadow-sm flex items-center justify-center p-3 group-hover:border-[#ff8202] group-hover:shadow-[0_8px_30px_-4px_rgba(249,115,22,0.2)] transition-all duration-300 relative overflow-hidden">
+            <div className="w-[56px] h-[56px] sm:w-[64px] sm:h-[64px] rounded-[16px] bg-white border border-slate-100 shadow-sm flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-[0_8px_30px_-4px_rgba(249,115,22,0.2)] transition-all duration-300 relative overflow-hidden">
                 <Image
                     src={`/images/icons/treatments/${slug}.png`}
                     alt={treatment.title}
                     fill
                     quality={100}
                     unoptimized={true}
-                    className="object-contain p-5 group-hover:scale-110 transition-transform duration-300"
-                    sizes="90px"
+                    className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
+                    sizes="64px"
                 />
             </div>
             <span className="text-xs sm:text-sm font-semibold text-slate-700 text-center group-hover:text-[#ff8202] transition-colors line-clamp-2 max-w-[110px] leading-tight mt-1">

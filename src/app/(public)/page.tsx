@@ -139,10 +139,10 @@ export default function Home() {
               <Link
                 key={index}
                 href={`/services/${dept.slug}`}
-                className="bg-white border-[1.5px] border-slate-200/80 rounded-[24px] py-8 px-4 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_20px_-4px_rgba(249,115,22,0.15)] group"
+                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] py-5 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 mb-3 flex items-center justify-center">
-                  <Image src={dept.iconUrl} alt={dept.title} width={62} height={62} className="object-contain filter-orange group-hover:scale-105 transition-transform duration-300" />
+                <div className="w-14 h-14 md:w-16 md:h-16 mb-2 flex items-center justify-center">
+                  <Image src={dept.iconUrl} alt={dept.title} width={44} height={44} className="object-contain filter-orange group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <h3 className="text-[15px] md:text-[16px] font-semibold text-orange-500 group-hover:text-orange-600 text-center transition-colors">
                   {dept.title}
