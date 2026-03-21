@@ -28,6 +28,8 @@ function TreatmentIconBox({ treatment, slug }: { treatment: Treatment, slug: str
                     fill
                     quality={100}
                     unoptimized={true}
+                    priority={true}
+                    loading="eager"
                     className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
                     sizes="64px"
                 />
