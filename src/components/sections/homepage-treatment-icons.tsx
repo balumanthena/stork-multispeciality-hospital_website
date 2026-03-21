@@ -28,7 +28,7 @@ function TreatmentIconBox({ treatment, slug }: { treatment: Treatment, slug: str
                     fill
                     quality={100}
                     unoptimized={true}
-                    className="object-contain p-1.5 group-hover:scale-110 transition-transform duration-300"
+                    className="object-contain p-5 group-hover:scale-110 transition-transform duration-300"
                     sizes="90px"
                 />
             </div>
