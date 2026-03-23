@@ -40,7 +40,7 @@ export function MobileNav() {
 
     const exploreLinks = [
         { label: "Departments", icon: Building2, href: "/services" },
-        { label: "Doctors", icon: User2, href: "/search" }, // Assuming User2 is intended as Users is not imported
+        { label: "Doctors", icon: User2, href: "/doctors" },
         { label: "Blogs", icon: BookOpen, href: "/blog" },
         { label: "Videos", icon: Video, href: "/videos" },
         { label: "Locations", icon: MapPin, href: "/contact" },

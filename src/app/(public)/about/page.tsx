@@ -2,13 +2,13 @@ import React from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ShieldCheck, Target, HeartPulse, Building2, Users, Award, FileText, ArrowRight, Activity, HandHeart, CheckCircle2, ChevronRight } from "lucide-react"
+import { ShieldCheck, Target, HeartPulse, Building2, Users, Award, FileText, ArrowRight, Activity, HandHeart, CheckCircle2, ChevronRight, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/layout/section"
 
 export const metadata: Metadata = {
-    title: "About Us | Stork Multispeciality Hospital",
-    description: "Learn about Stork Hospital, our mission, clinical excellence, and the dedicated experts providing world-class healthcare in Kompally, Hyderabad.",
+    title: "About Us | Stork Multispeciality Hospital, Kompally",
+    description: "Your Trusted Family Hospital in Kompally, Hyderabad. Welcome to Stork Multispecialty Hospital — a premier healthcare destination delivering comprehensive, affordable, and compassionate medical care.",
 }
 
 const stats = [
@@ -39,11 +39,14 @@ export default function AboutPage() {
 
                             <div className="space-y-4 max-w-2xl">
                                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold text-slate-900 leading-[1.25] tracking-[-0.02em]">
-                                    Healing with Compassion. <br className="hidden lg:block" />
-                                    Driven by Excellence.
+                                    Your Trusted Family Hospital <br className="hidden lg:block" />
+                                    in Kompally, Hyderabad
                                 </h1>
                                 <p className="text-base md:text-lg text-[#5F6B7A] leading-relaxed max-w-xl pr-4">
-                                    Stork Multispeciality Hospital was founded on the belief that world-class healthcare should be accessible, patient-centered, and delivered with the utmost empathy.
+                                    Welcome to Stork Multispecialty Hospital, Kompally — a premier healthcare destination in Hyderabad renowned for delivering comprehensive, affordable, and compassionate medical care. We are committed to providing world-class healthcare services across a wide range of specialties, including Gynecology, Obstetrics, Pediatrics, Orthopedics, General Medicine, Surgery, and Critical Care, all conveniently located under one roof.
+                                </p>
+                                <p className="text-base text-[#5F6B7A] leading-relaxed max-w-xl pr-4">
+                                    At Stork, we integrate cutting-edge technology, modern infrastructure, and the expertise of seasoned medical professionals to ensure optimal outcomes for our patients. Our team is dedicated to delivering personalized, ethical, and patient-centered care, ensuring you feel safe, understood, and well-cared for.
                                 </p>
                             </div>
 
@@ -111,7 +114,7 @@ export default function AboutPage() {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
                             <p className="text-slate-600 leading-relaxed text-lg">
-                                To be the most trusted healthcare partner in the region, recognized globally for clinical excellence, innovation, and an unwavering commitment to patient safety and compassionate care.
+                                To be the leading multispecialty hospital in Kompally, recognized for excellence in clinical outcomes, patient satisfaction, and advanced medical technology.
                             </p>
                         </div>
 
@@ -123,7 +126,7 @@ export default function AboutPage() {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
                             <p className="text-slate-600 leading-relaxed text-lg">
-                                To deliver comprehensive, evidence-based healthcare with absolute clinical integrity. We strive to create a healing environment where every patient is treated with dignity, respect, and utmost care.
+                                To provide quality, affordable, and ethical healthcare to individuals and families in Kompally and surrounding areas, fostering healing through compassion, innovation, and medical excellence.
                             </p>
                         </div>
                     </div>
@@ -143,12 +146,13 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                         {[
-                            { icon: ShieldCheck, title: "Clinical Excellence", desc: "Protocol-driven treatments matching global benchmarks." },
-                            { icon: Users, title: "Expert Specialists", desc: "A multi-disciplinary team of veteran doctors." },
-                            { icon: Activity, title: "Advanced Tech", desc: "State-of-the-art diagnostic and surgical equipment." },
-                            { icon: HandHeart, title: "Patient First", desc: "Holistic care focusing on comfort and swift recovery." }
+                            { icon: HeartPulse, title: "Compassion", desc: "Delivering care with empathy and respect." },
+                            { icon: ShieldCheck, title: "Integrity", desc: "Upholding transparency and honesty in all interactions." },
+                            { icon: CheckCircle2, title: "Excellence", desc: "Pursuing continuous improvement in quality and care delivery." },
+                            { icon: Zap, title: "Innovation", desc: "Adopting technology and evidence-based medicine." },
+                            { icon: Users, title: "Community Care", desc: "Promoting a healthier Kompally through awareness and prevention." }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-slate-50 border border-slate-200/60 rounded-2xl p-8 hover:bg-white hover:shadow-lg hover:border-slate-200 transition-all duration-300 group">
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-slate-700 mb-6 group-hover:text-[#FF8202] transition-colors">
@@ -156,6 +160,25 @@ export default function AboutPage() {
                                 </div>
                                 <h4 className="font-bold text-slate-900 text-lg mb-3">{item.title}</h4>
                                 <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="text-center max-w-2xl mx-auto mb-16 pt-12">
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Why Choose Stork Multispecialty Hospital?</h2>
+                    </div>
+
+                   <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                        {[
+                            { title: "Comprehensive Multispecialty Care", desc: "Offering services in Gynecology, Pediatrics, Orthopedics, Pain Management, General Medicine, and more." },
+                            { title: "State-of-the-Art Facilities", desc: "Featuring 24x7 Emergency, ICU, NICU, Operation Theatres, and advanced diagnostic support." },
+                            { title: "Experienced Specialists", desc: "Providing expert care from highly qualified doctors and surgeons." },
+                            { title: "Affordable & Ethical Treatment", desc: "Ensuring quality healthcare is accessible to everyone." },
+                            { title: "Patient-Centric Approach", desc: "Our dedicated staff, transparent treatment plans, and personalized care ensure a superior healthcare experience." }
+                        ].map((item, idx) => (
+                            <div key={idx} className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <h4 className="font-bold text-slate-900 text-sm mb-2">{item.title}</h4>
+                                <p className="text-slate-500 text-[11px] leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -179,13 +202,19 @@ export default function AboutPage() {
                             <h3 className="text-3xl font-bold text-slate-900 mb-8">Message From The Director</h3>
                             <div className="relative">
                                 <FileText className="absolute -top-4 -left-6 w-12 h-12 text-slate-100 -z-10" />
-                                <blockquote className="text-lg text-slate-600 italic leading-relaxed mb-8">
-                                    "Our core philosophy has always been simple: treat every patient as if they are family. When you bring that level of empathy into advanced medicine, miraculous recoveries happen. We are not just treating diseases; we are healing humanity."
-                                </blockquote>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-6">Compassionate Care Delivery</h3>
+                                <div className="space-y-6">
+                                    <p className="text-lg text-slate-600 leading-relaxed italic">
+                                        "From safe deliveries and emergency treatments to advanced surgeries and chronic disease management, Stork Multispecialty Hospital in Kompally is committed to supporting you at every stage. We are proud to be a trusted community hospital that families depend on for comprehensive healthcare services."
+                                    </p>
+                                    <p className="text-lg text-slate-900 font-semibold leading-relaxed">
+                                        At Stork, your health and well-being are our utmost priorities. Together, we are fostering a healthier and happier Kompally.
+                                    </p>
+                                </div>
                             </div>
                             <div className="mt-auto pt-8 border-t border-slate-100">
-                                <h4 className="font-bold text-slate-900 text-xl">Dr. M. Bharath Reddy</h4>
-                                <p className="text-slate-500 font-medium text-sm mt-1">Managing Director & Chief Physician</p>
+                                <h4 className="font-bold text-slate-900 text-xl">Clinical Excellence</h4>
+                                <p className="text-slate-500 font-medium text-sm mt-1">Stork Multispecialty Hospital, Kompally</p>
                             </div>
                         </div>
                     </div>
@@ -197,10 +226,10 @@ export default function AboutPage() {
                 <div className="absolute inset-0 opacity-10 bg-[url('/images/pattern.svg')] bg-repeat" />
                 <div className="container max-w-4xl mx-auto px-6 text-center relative z-10">
                     <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-bold mb-6 leading-tight">
-                        Experience Healthcare That Cares
+                        Fostering a Healthier & Happier Kompally
                     </h2>
                     <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-                        Our dedicated team of professionals is ready to provide you with the best medical care. Schedule a consultation today.
+                        At Stork, your health and well-being are our utmost priorities. Our dedicated staff, transparent treatment plans, and personalized care ensure a superior healthcare experience.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Button asChild className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg h-14 px-10 font-medium transition-all text-base w-full sm:w-auto border-none">
