@@ -16,6 +16,7 @@ import {
   HeartPulse,
   ShieldCheck
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { Section } from '@/components/layout/section';
 import { Button } from '@/components/ui/button';
 import { doctors, Doctor } from '@/lib/data/doctors';
@@ -24,6 +25,7 @@ import { DoctorFilters } from '@/components/doctors/DoctorFilters';
 import { DoctorProfileDialog } from '@/components/doctors/DoctorProfileDialog';
 
 export default function DoctorsPage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [specialization, setSpecialization] = useState('all');
   const [experience, setExperience] = useState('all');
@@ -56,8 +58,10 @@ export default function DoctorsPage() {
   };
 
   const handleBookAppointment = (doctor: Doctor) => {
-    // Lead to appointment page or show toast
-    console.log("Booking for:", doctor.name);
+    const params = new URLSearchParams();
+    params.set('doctor', doctor.name);
+    params.set('department', doctor.specialization);
+    router.push(`/appointments?${params.toString()}`);
   };
 
   return (

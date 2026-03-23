@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2, Calendar as CalendarIcon, User, Phone, Mail, Building2, Stethoscope, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,8 +13,10 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { doctors } from "@/lib/data/doctors";
 
 export function BookAppointment() {
+    const searchParams = useSearchParams();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -24,6 +27,19 @@ export function BookAppointment() {
         date: "",
         message: "",
     });
+
+    useEffect(() => {
+        const docParam = searchParams.get('doctor');
+        const deptParam = searchParams.get('department');
+        
+        if (docParam || deptParam) {
+            setFormData(prev => ({
+                ...prev,
+                doctor: docParam || prev.doctor,
+                department: deptParam || prev.department
+            }));
+        }
+    }, [searchParams]);
 
     const generateWhatsAppLink = (data: typeof formData) => {
         const message = `New Appointment Request
@@ -193,17 +209,14 @@ Notes: ${data.message || "None"}
                             value={formData.department}
                             onValueChange={(val) => handleSelectChange("department", val)}
                         >
-                            <SelectTrigger className="rounded-xl bg-slate-50 border-slate-200 h-10">
+                            <SelectTrigger className="rounded-xl bg-slate-50 border-slate-200 h-11 transition-all focus:ring-2 focus:ring-blue-600/20">
                                 <SelectValue placeholder="Select Department" />
                             </SelectTrigger>
-                            <SelectContent className="z-[400] bg-white">
-                                <SelectItem value="Cardiology">Cardiology</SelectItem>
-                                <SelectItem value="Orthopedics">Orthopedics</SelectItem>
-                                <SelectItem value="Neurology">Neurology</SelectItem>
-                                <SelectItem value="Pediatrics">Pediatrics</SelectItem>
-                                <SelectItem value="Gynaecology">Gynaecology</SelectItem>
-                                <SelectItem value="General Surgery">General Surgery</SelectItem>
-                                <SelectItem value="Other">Other</SelectItem>
+                            <SelectContent className="z-[400] bg-white border border-slate-100 shadow-xl rounded-xl">
+                                {Array.from(new Set(doctors.map(d => d.specialization))).map(spec => (
+                                    <SelectItem key={spec} value={spec} className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">{spec}</SelectItem>
+                                ))}
+                                <SelectItem value="Other" className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">Other</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -217,13 +230,17 @@ Notes: ${data.message || "None"}
                             value={formData.doctor}
                             onValueChange={(val) => handleSelectChange("doctor", val)}
                         >
-                            <SelectTrigger className="rounded-xl bg-slate-50 border-slate-200 h-10">
+                            <SelectTrigger className="rounded-xl bg-slate-50 border-slate-200 h-11 transition-all focus:ring-2 focus:ring-blue-600/20">
                                 <SelectValue placeholder="Select Doctor (Optional)" />
                             </SelectTrigger>
-                            <SelectContent className="z-[400] bg-white">
-                                <SelectItem value="Dr. D. Narendar Reddy">Dr. D. Narendar Reddy – Critical Care</SelectItem>
-                                <SelectItem value="Dr. Dasari Jyothi Reddy">Dr. Dasari Jyothi Reddy – Gynecology</SelectItem>
-                                <SelectItem value="Dr. Yaggadi Guru Aravind Varma">Dr. Yaggadi Guru Aravind Varma – Orthopedics</SelectItem>
+                            <SelectContent className="z-[400] bg-white border border-slate-100 shadow-xl rounded-xl">
+                                {doctors
+                                  .filter(d => !formData.department || d.specialization === formData.department)
+                                  .map(doc => (
+                                    <SelectItem key={doc.id} value={doc.name} className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">
+                                        {doc.name}
+                                    </SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
                     </div>

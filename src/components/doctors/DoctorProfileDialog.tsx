@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { 
   X, 
   Phone, 
@@ -35,7 +36,16 @@ interface DoctorProfileDialogProps {
 }
 
 export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDialogProps) {
+  const router = useRouter();
   if (!doctor) return null;
+
+  const handleBookAppointment = () => {
+    const params = new URLSearchParams();
+    params.set('doctor', doctor.name);
+    params.set('department', doctor.specialization);
+    router.push(`/appointments?${params.toString()}`);
+    onClose();
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -79,7 +89,10 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                 <Button className="bg-primary hover:bg-primary/90 text-white font-black h-14 px-10 rounded-2xl shadow-xl shadow-primary/20 text-sm uppercase tracking-widest transition-all active:scale-95">
+                 <Button 
+                   onClick={handleBookAppointment}
+                   className="bg-primary hover:bg-primary/90 text-white font-black h-14 px-10 rounded-2xl shadow-xl shadow-primary/20 text-sm uppercase tracking-widest transition-all active:scale-95"
+                 >
                     Book Appointment Now
                  </Button>
                  <div className="flex gap-3">
@@ -192,7 +205,10 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
         {/* H. STICKY CTA BAR (Mobile focus) */}
         <div className="border-t border-slate-200 bg-white p-6 md:hidden">
           <div className="flex gap-3">
-             <Button className="flex-1 bg-primary text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20">
+             <Button 
+               onClick={handleBookAppointment}
+               className="flex-1 bg-primary text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20"
+             >
                 Book Appointment
              </Button>
              <Button variant="outline" className="h-12 w-12 rounded-xl border-slate-200 text-primary p-0">
