@@ -49,10 +49,6 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-10 skew-x-12 translate-x-20" />
             
-            <DialogClose className="absolute right-6 top-6 h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all z-20">
-              <X className="w-5 h-5" />
-            </DialogClose>
-            
             <div className="max-w-3xl space-y-8 relative z-10">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
