@@ -71,18 +71,11 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-8 py-6 border-y border-slate-50">
+              <div className="py-6 border-y border-slate-50">
                  <div className="space-y-1">
                     <p className="text-xs font-black text-slate-300 uppercase tracking-[0.2em]">Experience</p>
                     <p className="text-lg font-bold text-slate-700">{doctor.experience}</p>
                  </div>
-                 <div className="w-px h-12 bg-slate-100" />
-                 {doctor.patientsTreated && (
-                   <div className="space-y-1">
-                      <p className="text-xs font-black text-slate-300 uppercase tracking-[0.2em]">Patients Trusted</p>
-                      <p className="text-lg font-bold text-slate-700">{doctor.patientsTreated} Happy Patients</p>
-                   </div>
-                 )}
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">

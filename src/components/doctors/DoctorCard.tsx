@@ -43,7 +43,7 @@ export function DoctorCard({ doctor, onViewProfile, onBookAppointment }: DoctorC
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 py-4 border-y border-slate-50">
+          <div className="py-4 border-y border-slate-50">
              <div className="space-y-1">
                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-wider">Experience</p>
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-700">
@@ -51,15 +51,6 @@ export function DoctorCard({ doctor, onViewProfile, onBookAppointment }: DoctorC
                    {doctor.experience.split(' ')[0]} Years
                 </div>
              </div>
-             {doctor.patientsTreated && (
-               <div className="space-y-1 border-l border-slate-100 pl-4">
-                  <p className="text-[10px] font-black text-slate-300 uppercase tracking-wider">Patients</p>
-                  <div className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                     <Users className="w-4 h-4 text-primary/60" />
-                     {doctor.patientsTreated}
-                  </div>
-               </div>
-             )}
           </div>
 
           <div className="space-y-4 flex-1">
