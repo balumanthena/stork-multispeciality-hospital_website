@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
-export function TreatmentScrollspy() {
-    const [activeId, setActiveId] = useState<string>("overview")
+export function TreatmentScrollspy({ navItems }: { navItems: { id: string; label: string }[] }) {
+    const [activeId, setActiveId] = useState<string>(navItems[0]?.id || "overview")
 
     useEffect(() => {
         // Observer callback: Detect which section is most visible in the "active region"
@@ -16,10 +16,6 @@ export function TreatmentScrollspy() {
             })
         }
 
-        // Observer options:
-        // rootMargin: Negative top margin creates an offset for the sticky header (~100px).
-        // Negative bottom margin ensures we only trigger when the element enters the top portion of the viewport.
-        // This prevents multiple sections being active at once on large screens.
         const observerOptions = {
             rootMargin: "-100px 0px -60% 0px",
             threshold: 0
@@ -27,19 +23,15 @@ export function TreatmentScrollspy() {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions)
 
-        const ids = ["overview", "conditions", "procedure", "benefits", "faq"]
-        ids.forEach((id) => {
-            const element = document.getElementById(id)
+        navItems.forEach((item) => {
+            const element = document.getElementById(item.id)
             if (element) observer.observe(element)
         })
 
-        // Optimized scroll handler for bottom-of-page detection
-        // Ensures the last section (FAQ) activates even if it's short or at the very bottom
         const handleScroll = () => {
             const { scrollTop, clientHeight, scrollHeight } = document.documentElement
-            // If we are within 50px of the bottom, force activate the last section
             if (scrollTop + clientHeight >= scrollHeight - 50) {
-                setActiveId("faq")
+                setActiveId(navItems[navItems.length - 1]?.id || "faq")
             }
         }
 
@@ -49,13 +41,12 @@ export function TreatmentScrollspy() {
             observer.disconnect()
             window.removeEventListener("scroll", handleScroll)
         }
-    }, [])
+    }, [navItems])
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault()
         const element = document.getElementById(id)
         if (element) {
-            // Scroll with offset for the sticky header
             const headerOffset = 100
             const elementPosition = element.getBoundingClientRect().top
             const offsetPosition = elementPosition + window.scrollY - headerOffset
@@ -65,18 +56,9 @@ export function TreatmentScrollspy() {
                 behavior: "smooth"
             })
 
-            // Optimistically set active state for instant feedback
             setActiveId(id)
         }
     }
-
-    const navItems = [
-        { id: "overview", label: "Overview" },
-        { id: "conditions", label: "Conditions" },
-        { id: "procedure", label: "Procedure Steps" },
-        { id: "benefits", label: "Benefits" },
-        { id: "faq", label: "FAQ" },
-    ]
 
     return (
         <div className="bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-200 sticky top-32">

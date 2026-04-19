@@ -83,13 +83,23 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     }
 
     if (!treatment) notFound()
-
     const TreatmentIcon = getTreatmentIcon(treatment.slug, treatment.category || "General")
     const media = await getTreatmentMedia(slug)
 
+    // Calculate dynamic navigation items
+    const navItems = [
+        { id: "overview", label: "Overview" },
+        { id: "conditions", label: "Conditions" },
+        ...(treatment.procedureSteps?.length > 0 ? [{ id: "procedure", label: "Procedure Steps" }] : []),
+        ...(treatment.benefits?.length > 0 ? [{ id: "benefits", label: "Benefits" }] : []),
+        ...(treatment.risks?.length > 0 ? [{ id: "risks", label: "Risks & Safety" }] : []),
+        ...(treatment.recoveryTimeline?.length > 0 ? [{ id: "recovery", label: "Recovery" }] : []),
+        ...(treatment.faqs?.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+    ]
+
     return (
         <div className="flex flex-col min-h-screen bg-white font-sans text-slate-900">
-            {/* HERO SECTION ... */}
+            {/* HERO SECTION */}
             <Section className="bg-gradient-to-b from-slate-50 to-white pt-12 md:pt-16 pb-16 relative overflow-hidden">
                 <div className="container max-w-6xl mx-auto px-6 relative z-10">
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
@@ -114,7 +124,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
                                     Book Consultation<ArrowRight className="w-5 h-5 ml-2" />
                                 </Button>
-
                             </div>
                             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
@@ -124,7 +133,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#3e7dca]" /><span>Insurance Accepted</span></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </Section>
@@ -133,6 +141,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                 <div className="container max-w-6xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
                         <div className="md:col-span-8 space-y-20">
+                            {/* OVERVIEW */}
                             <div id="overview" className="scroll-mt-32">
                                 {treatment.overview ? (
                                     <>
@@ -151,16 +160,18 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     <>
                                         <h2 className="text-3xl font-bold text-[#0f172a] mb-8">About The Treatment</h2>
                                         <div className="prose prose-lg text-slate-600 space-y-6">
-                                            {treatment.fullDescription.map((desc: string, i: number) => (<p key={i}>{desc}</p>))}
+                                            {treatment.fullDescription?.map((desc: string, i: number) => (<p key={i}>{desc}</p>))}
                                         </div>
                                     </>
                                 )}
                             </div>
+
+                            {/* CONDITIONS */}
                             <div id="conditions" className="scroll-mt-32">
                                 <h3 className="text-2xl font-bold text-[#0f172a] mb-8">{treatment.conditionsHeading || "Conditions Treated"}</h3>
                                 <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
                                     <ul className="space-y-4">
-                                        {treatment.conditionsTreated.map((condition: string, i: number) => (
+                                        {treatment.conditionsTreated?.map((condition: string, i: number) => (
                                             <li key={i} className="flex items-center gap-4 group">
                                                 <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center text-red-500 group-hover:bg-red-100 transition-colors shrink-0"><AlertCircle className="w-4 h-4" /></div>
                                                 <span className="text-lg text-slate-700 font-medium">{condition}</span>
@@ -169,46 +180,112 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     </ul>
                                 </div>
                             </div>
-                            <div id="procedure" className="scroll-mt-32">
-                                <h2 className="text-3xl font-bold text-[#0f172a] mb-10">{treatment.procedureHeading || "How It Works"}</h2>
-                                <div className="space-y-0 relative border-l-2 border-slate-100 ml-5 md:ml-8 pl-8 md:pl-12 py-4">
-                                    {treatment.procedureSteps.map((step: { title: string; description: string }, i: number) => (
-                                        <div key={i} className="relative mb-12 last:mb-0 group">
-                                            <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#3e7dca] transition-colors"><span className="text-[#3e7dca] font-bold text-sm">{i + 1}</span></div>
-                                            <div>
-                                                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#3e7dca] transition-colors">{step.title}</h4>
-                                                <p className="text-slate-600 text-lg leading-relaxed">{step.description}</p>
+
+                            {/* PROCEDURE */}
+                            {treatment.procedureSteps?.length > 0 && (
+                                <div id="procedure" className="scroll-mt-32">
+                                    <h2 className="text-3xl font-bold text-[#0f172a] mb-10">{treatment.procedureHeading || "How It Works"}</h2>
+                                    <div className="space-y-0 relative border-l-2 border-slate-100 ml-5 md:ml-8 pl-8 md:pl-12 py-4">
+                                        {treatment.procedureSteps.map((step: { title: string; description: string }, i: number) => (
+                                            <div key={i} className="relative mb-12 last:mb-0 group">
+                                                <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#3e7dca] transition-colors"><span className="text-[#3e7dca] font-bold text-sm">{i + 1}</span></div>
+                                                <div>
+                                                    <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#3e7dca] transition-colors">{step.title}</h4>
+                                                    <p className="text-slate-600 text-lg leading-relaxed">{step.description}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="benefits" className="scroll-mt-32">
-                                <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.benefitsHeading || "Benefits"}</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    {treatment.benefits.map((benefit: string, i: number) => (
-                                        <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#3e7dca]/20 flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600"><CheckCircle2 className="w-5 h-5" /></div>
-                                            <span className="text-lg text-slate-800 font-medium pt-1">{benefit}</span>
-                                        </div>
-                                    ))}
+                            )}
+
+                            {/* BENEFITS */}
+                            {treatment.benefits?.length > 0 && (
+                                <div id="benefits" className="scroll-mt-32">
+                                    <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.benefitsHeading || "Benefits"}</h2>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        {treatment.benefits.map((benefit: string, i: number) => (
+                                            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#3e7dca]/20 flex items-start gap-4">
+                                                <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600"><CheckCircle2 className="w-5 h-5" /></div>
+                                                <span className="text-lg text-slate-800 font-medium pt-1">{benefit}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                            <div id="faq" className="scroll-mt-32">
-                                <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.faqHeading || "Frequently Asked Questions"}</h2>
-                                <div className="space-y-4">
-                                    {treatment.faqs.map((faq: { question: string; answer: string }, i: number) => (
-                                        <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#3e7dca]/50 transition-colors group">
-                                            <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3"><span className="text-[#3e7dca] mt-0.5">Q.</span>{faq.question}</h4>
-                                            <div className="pl-7"><p className="text-slate-600 leading-relaxed">{faq.answer}</p></div>
-                                        </div>
-                                    ))}
+                            )}
+
+                            {/* RISKS */}
+                            {treatment.risks?.length > 0 && (
+                                <div id="risks" className="scroll-mt-32">
+                                    <h2 className="text-3xl font-bold text-[#0f172a] mb-8">Risks & Safety Considerations</h2>
+                                    <div className="bg-amber-50 border border-amber-100 rounded-3xl p-8 shadow-sm">
+                                        <ul className="space-y-4">
+                                            {treatment.risks.map((risk: string, i: number) => (
+                                                <li key={i} className="flex items-start gap-4 group">
+                                                    <div className="mt-1 w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0"><AlertCircle className="w-4 h-4" /></div>
+                                                    <span className="text-lg text-amber-900/80 font-medium">{risk}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
+
+                            {/* RECOVERY */}
+                            {treatment.recoveryTimeline?.length > 0 && (
+                                <div id="recovery" className="scroll-mt-32">
+                                    <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.recoveryHeading || "Recovery & Aftercare"}</h2>
+                                    <div className="grid grid-cols-1 gap-4">
+                                        {treatment.recoveryTimeline.map((item: string, i: number) => (
+                                            <div key={i} className="flex items-center gap-5 p-6 bg-blue-50/50 rounded-2xl border border-blue-100 group hover:bg-blue-50 transition-colors">
+                                                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#3e7dca] shrink-0 group-hover:scale-110 transition-transform"><Clock className="w-6 h-6" /></div>
+                                                <span className="text-lg text-slate-700 font-semibold">{item}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* FAQ */}
+                            {treatment.faqs?.length > 0 && (
+                                <div id="faq" className="scroll-mt-32">
+                                    <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.faqHeading || "Frequently Asked Questions"}</h2>
+                                    <div className="space-y-4">
+                                        {treatment.faqs.map((faq: { question: string; answer: string }, i: number) => (
+                                            <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#3e7dca]/50 transition-colors group">
+                                                <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3"><span className="text-[#3e7dca] mt-0.5">Q.</span>{faq.question}</h4>
+                                                <div className="pl-7"><p className="text-slate-600 leading-relaxed">{faq.answer}</p></div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* MEDICAL REVIEW CARD */}
+                            {treatment.reviewedBy && (
+                                <div className="pt-12 border-t border-slate-100">
+                                    <div className="bg-slate-50 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 border border-slate-200 shadow-sm relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldCheck className="w-24 h-24 text-slate-900" /></div>
+                                        <div className="w-24 h-24 rounded-full bg-[#3e7dca]/10 flex items-center justify-center shrink-0 border-4 border-white shadow-md">
+                                            <User className="w-12 h-12 text-[#3e7dca]" />
+                                        </div>
+                                        <div className="text-center md:text-left relative z-10">
+                                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
+                                                <h5 className="text-2xl font-bold text-slate-900">{treatment.reviewedBy.name}</h5>
+                                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider">
+                                                    <ShieldCheck className="w-3 h-3" /> Medically Reviewed
+                                                </span>
+                                            </div>
+                                            <p className="text-lg font-bold text-[#3e7dca] mb-1">{treatment.reviewedBy.role}</p>
+                                            <p className="text-slate-600 font-medium">{treatment.reviewedBy.experience}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                         <div className="md:col-span-4 space-y-8 relative">
                             <div className="sticky top-32 space-y-8">
-                                <TreatmentScrollspy />
+                                <TreatmentScrollspy navItems={navItems} />
                             </div>
                         </div>
                     </div>
@@ -227,7 +304,6 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                     <p className="text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">{treatment.customCta?.description || "Book your consultation today with Hyderabad's leading specialists."}</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">{treatment.customCta?.buttonText || "Book Appointment Now"}</Button>
-
                     </div>
                     <p className="mt-8 text-sm text-slate-400 font-medium flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" />No-Wait Booking Confirmed Instantly</p>
                 </div>

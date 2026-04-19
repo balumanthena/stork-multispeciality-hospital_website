@@ -3,7 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronRight } from "lucide-react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
 import { MegaMenuSection } from "./nav-data"
@@ -11,11 +11,13 @@ import { MegaMenuSection } from "./nav-data"
 interface TreatmentsMegaMenuProps {
     treatments: MegaMenuSection[] | GroupedTreatmentCategory[]
     onClose?: () => void
+    title?: "Treatments" | "Procedures"
+    viewAllHref?: string
 }
 
-export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuProps) {
+export function TreatmentsMegaMenu({ treatments, onClose, title = "Treatments", viewAllHref = "/treatments" }: TreatmentsMegaMenuProps) {
     const pathname = usePathname()
-    console.log("Current Pathname:", pathname)
+    const router = useRouter()
 
     // Take only first 5 categories to maintain the 5-column layout
     const displayTreatments = treatments.slice(0, 5)
@@ -68,14 +70,16 @@ export function TreatmentsMegaMenu({ treatments, onClose }: TreatmentsMegaMenuPr
 
                 {/* Bottom CTA Section */}
                 <div className="mt-10 pt-6 border-t border-slate-100 flex justify-center w-full">
-                    <Link
-                        href="/treatments"
-                        onClick={onClose}
-                        className="group/cta inline-flex items-center text-[15px] font-semibold text-[#F97316] hover:text-[#ea580c] transition-colors"
+                    <button
+                        onClick={() => {
+                            onClose?.()
+                            router.push(viewAllHref)
+                        }}
+                        className="group/cta inline-flex items-center text-[15px] font-semibold text-[#F97316] hover:text-[#ea580c] transition-colors cursor-pointer"
                     >
-                        View All Treatments
+                        View All {title}
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>

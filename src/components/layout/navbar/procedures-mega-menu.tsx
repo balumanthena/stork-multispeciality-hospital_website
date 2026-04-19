@@ -55,7 +55,7 @@ export function ProceduresMegaMenu({ procedures, onClose }: ProceduresMegaMenuPr
 
                                         {/* Procedures List */}
                                         <ul className="flex flex-col space-y-1">
-                                            {category.items.map((item, idx) => (
+                                            {category.items.slice(0, 8).map((item, idx) => (
                                                 <li key={idx}>
                                                     <Link
                                                         href={item.href}

@@ -20,6 +20,8 @@ export interface TreatmentDetail {
     conditionsHeading?: string
     procedureHeading?: string
     benefitsHeading?: string
+    risksHeading?: string
+    recoveryHeading?: string
     faqHeading?: string
 
     fullDescription: string[] // Keep for backward compatibility/default
@@ -97,6 +99,472 @@ export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
     }
 
     const slug = PROCEDURE_ALIAS_MAP[rawSlug] || rawSlug
+
+    if (slug === "ablation-therapy") {
+        return {
+            slug: slug,
+            title: "Ablation Therapy for Chronic Pain – Stork Hospital, Hyderabad",
+            subheading: "Precision Pain Relief with Advanced Nerve-Targeting Techniques",
+            tagline: "Interrupt pain signals at their source with advanced, minimally invasive solutions for long-lasting relief.",
+            breadcrumbTitle: "Ablation Therapy",
+            category: "Pain Management",
+            departmentHref: "/services/pain-management",
+            shortDescription: `Chronic pain can persist even after medications, physiotherapy, or injections—especially when specific nerves continue to transmit pain signals. Ablation therapy is an advanced, minimally invasive solution designed to interrupt these pain signals at their source, providing long-lasting relief without major surgery.
+
+At Stork Hospital, Hyderabad, we specialize in Radiofrequency Ablation (RFA) and Cryoablation (cryotherapy)—modern, image-guided procedures that offer targeted and effective pain management.`,
+
+            overview: {
+                heading: "Why Stork Hospital for Ablation Treatments?",
+                intro: "We provide comprehensive, precision-guided care to target the root cause of chronic pain:",
+                items: [
+                    "Experienced interventional pain specialists",
+                    "Advanced imaging-guided precision procedures",
+                    "Comprehensive pain management under one roof",
+                    "Personalized treatment plans based on patient condition",
+                    "Trusted center for chronic pain relief in Hyderabad"
+                ]
+            },
+            fullDescription: [
+                "Ablation is a technique where specific pain-transmitting nerves are selectively treated using heat (radiofrequency) or cold (Cryoablation) energy to block their ability to send pain signals to the brain."
+            ],
+
+            conditionsHeading: "Conditions Treated with Ablation",
+            conditionsTreated: [
+                "Chronic back and neck pain",
+                "Facet joint pain (spine-related pain)",
+                "Sciatica and nerve-related pain",
+                "Knee and shoulder joint pain",
+                "Arthritis-related chronic pain",
+                "Cancer-related pain (palliative care)",
+                "Post-surgical or long-standing pain syndromes"
+            ],
+
+            procedureHeading: "Types of Ablation & Clinical Process",
+            procedureSteps: [
+                {
+                    title: "Radiofrequency Ablation (RFA)",
+                    description: "Uses controlled heat energy to deactivate pain-causing nerves. Provides long-lasting relief (6 months to 1+ year). Highly precise with minimal tissue damage."
+                },
+                {
+                    title: "Cryoablation (Cryotherapy)",
+                    description: "Uses extreme cold to temporarily disable nerve function. Preserves surrounding tissues while targeting pain pathways. Ideal for neuropathic and post-surgical pain."
+                },
+                {
+                    title: "Procedure Workflow",
+                    description: "Involves detailed evaluation, diagnostic nerve blocks to confirm pain source, and treatment under C-arm (fluoroscopy) or ultrasound guidance with local anesthesia."
+                },
+                {
+                    title: "Convenient Recovery",
+                    description: "Performed as a daycare procedure, ensuring patients can go home the same day with minimal downtime."
+                }
+            ],
+
+            benefitsHeading: "Why Choose Ablation Therapy?",
+            benefits: [
+                "Minimally invasive, no stitches or major surgery",
+                "Long-lasting pain relief (months to years)",
+                "Reduces need for long-term medications",
+                "Quick recovery with minimal downtime",
+                "Highly targeted and precise treatment"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Most patients resume normal activities within 24–48 hours",
+                "Pain relief may begin within a few days to weeks",
+                "Significant improvement in mobility and quality of life",
+                "Repeat procedures can be done if needed over time as nerves regenerate"
+            ],
+
+            faqHeading: "Common Questions Answered",
+            faqs: [
+                {
+                    question: "Is ablation a permanent solution?",
+                    answer: "Relief is long-lasting but not always permanent, as nerves can regenerate over time."
+                },
+                {
+                    question: "Is the procedure painful?",
+                    answer: "No. It is performed under local anesthesia and is well tolerated by most patients."
+                },
+                {
+                    question: "Who is the right candidate?",
+                    answer: "Patients with chronic pain not responding to medications or physiotherapy are ideal candidates."
+                },
+                {
+                    question: "Is it safe?",
+                    answer: "Yes. It is a well-established, low-risk procedure when performed by experienced specialists."
+                }
+            ],
+
+            customCta: {
+                heading: "Stop Living with Chronic Pain",
+                description: "Target it at the source. Choose Stork Hospital, Hyderabad for advanced ablation therapies that restore comfort and mobility.",
+                buttonText: "Book Your Ablation Consultation"
+            },
+            meta: {
+                duration: "Same Day Procedure",
+                anesthesia: "Local Anesthesia",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "24–48 Hours",
+                successRate: "High Precision"
+            },
+            reviewedBy: {
+                name: "Stork Interventional Pain Team",
+                role: "Pain Management Specialists",
+                experience: "Experts in RFA and Cryoablation"
+            }
+        }
+    }
+
+
+    if (slug === "headache-migraine") {
+        return {
+            slug: slug,
+            title: "Headache & Migraine Relief Center – Stork Hospital, Hyderabad",
+            subheading: "Comprehensive Care for Headaches and Migraines",
+            tagline: "Sustainable relief using a compassionate and patient-centric approach from leading neurologists.",
+            breadcrumbTitle: "Headache & Migraine",
+            category: "Neurology",
+            departmentHref: "/services/neurology",
+            shortDescription: `Recurring headaches and migraines can greatly impact your ability to function and enjoy life. While some episodes are mild and occasional, others can become persistent and debilitating. At Stork Multispecialty Hospital, Hyderabad, we provide targeted treatment for all forms of headache disorders, using a mix of clinical expertise, modern diagnostics, and personalized care strategies.
+
+Whether you’re experiencing episodic migraines, tension headaches, or complex neurological triggers, our experienced neurologists aim to provide effective and sustainable relief using a compassionate and patient-centric approach.`,
+
+            overview: {
+                heading: "Why Stork Hospital for Headache Care?",
+                intro: "Stork Hospital is recognized for its excellence in treating chronic and complex neurological conditions:",
+                items: [
+                    "Dedicated neurologist in Hyderabad with expertise in headache disorders",
+                    "Access to CT, MRI, EEG, and other brain imaging tools on-site",
+                    "Holistic headache management, from medicines to trigger prevention",
+                    "Proven therapies including nerve blocks for resistant cases",
+                    "Walk-in clinic near Kondapur for timely consultations",
+                    "Insurance-friendly hospital in Hyderabad with broad coverage"
+                ]
+            },
+            fullDescription: [
+                "Our goal is to provide fast, accurate diagnosis and relief through affordable treatment packages in a zero-wait environment. We not only treat symptoms but also explore and address underlying causes such as infections, hypertension, or tumors."
+            ],
+
+            conditionsHeading: "Headache Types Treated at Stork Hospital",
+            conditionsTreated: [
+                "Migraines (with or without visual aura)",
+                "Chronic daily headaches",
+                "Cluster and thunderclap headaches",
+                "Tension-related headaches",
+                "Sinus-triggered headaches",
+                "Rebound headaches (caused by overuse of painkillers)",
+                "Secondary headaches linked to infections, hypertension, or tumors"
+            ],
+
+            procedureHeading: "Tailored Headache & Migraine Treatments",
+            procedureSteps: [
+                {
+                    title: "Neurologic Consultation",
+                    description: "Comprehensive evaluation of pain patterns, frequency, and possible causes by our senior neurologists."
+                },
+                {
+                    title: "Imaging & Testing",
+                    description: "Advanced brain scans and lab analysis to rule out structural causes or underlying medical conditions."
+                },
+                {
+                    title: "Pharmacological Treatment",
+                    description: "Personalized pharmacological strategy including both acute and preventive migraine medications."
+                },
+                {
+                    title: "Lifestyle & Advanced Care",
+                    description: "Sleep, stress, hydration, and diet counseling, alongside advanced interventions like nerve blocks or Botox for severe cases."
+                }
+            ],
+
+            benefitsHeading: "What Happens During Your Appointment",
+            benefits: [
+                "Neurologist review of symptoms, history, and lifestyle triggers",
+                "Diagnostic tests recommended to confirm the root cause",
+                "Detailed treatment and prevention plan created specifically for you",
+                "Ongoing support, follow-up, and monitoring are arranged",
+                "Same-day neurology appointments available with no waiting time"
+            ],
+
+            risks: [],
+            recoveryTimeline: [],
+
+            faqHeading: "Frequently Asked Questions – Headache & Migraine Care",
+            faqs: [
+                {
+                    question: "How do I know if my headache is serious?",
+                    answer: "If you have frequent, severe, or sudden-onset headaches, or if your headaches disrupt daily life, it's best to consult a neurologist."
+                },
+                {
+                    question: "Can migraines be permanently cured?",
+                    answer: "While a permanent cure may not be possible, most migraine sufferers find significant long-term relief with proper treatment and prevention strategies."
+                },
+                {
+                    question: "Do you provide online consultations for migraines?",
+                    answer: "Yes. We offer online doctor consultation in Hyderabad for both new and follow-up patients."
+                },
+                {
+                    question: "Does insurance cover headache or migraine treatment?",
+                    answer: "Yes. We are a recognized Hyderabad hospital accepting insurance for neurological care, including diagnostics, consultation, and medication."
+                }
+            ],
+
+            customCta: {
+                heading: "Take Control of Your Health – Book Now",
+                description: "Don’t let migraine or chronic headaches rule your life. Book an appointment at Stork Hospital to begin a personalized treatment journey that works for you.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "Full Evaluation",
+                anesthesia: "None / Local for procedures",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Varies",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Stork Neurology Team",
+                role: "Senior Neurologists",
+                experience: "Experts in Chronic Headache Management"
+            }
+        }
+    }
+
+
+    if (slug === "regenerative-therapies") {
+        return {
+            slug: slug,
+            title: "Regenerative Therapy for Back & Joint Pain – Stork Hospital, Hyderabad",
+            subheading: "Advanced Healing Solutions to Repair, Restore & Rejuvenate",
+            tagline: "Stimulating your body’s natural healing mechanisms to repair damaged tissues and restore function.",
+            breadcrumbTitle: "Regenerative Therapy",
+            category: "Orthopedics & Spine Care",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Chronic pain is not always just a “wear and tear” issue—it often involves tissue damage, inflammation, and degeneration that the body struggles to heal on its own. Regenerative therapy focuses on stimulating your body’s natural healing mechanisms to repair damaged tissues, reduce pain, and restore function.
+
+At Stork Hospital, Hyderabad, we offer cutting-edge regenerative treatments like PRP (Platelet-Rich Plasma), PLDD (Percutaneous Laser Disc Decompression), and advanced biologic therapies designed to treat the root cause—not just mask symptoms.`,
+
+            overview: {
+                heading: "Why Stork Hospital for Regenerative Care?",
+                intro: "We combine clinical expertise with advanced biological solutions to accelerate your natural healing journey:",
+                items: [
+                    "Expert team of interventional pain specialists and spine doctors",
+                    "Advanced technology for precision-guided procedures",
+                    "Comprehensive rehab and physiotherapy support",
+                    "Patient-centric care with long-term recovery focus",
+                    "Trusted centre for regenerative pain treatments in Hyderabad"
+                ]
+            },
+            fullDescription: [
+                "Regenerative medicine uses the body’s own biological resources to accelerate healing and tissue repair. These treatments are minimally invasive, safe, and effective alternatives to surgery for many musculoskeletal and spine conditions."
+            ],
+
+            conditionsHeading: "Conditions Treated with Regenerative Therapy",
+            conditionsTreated: [
+                "Chronic back and neck pain",
+                "Herniated or bulging spinal discs",
+                "Sciatica and nerve-related pain",
+                "Joint pain (knee, shoulder, hip)",
+                "Ligament and tendon injuries",
+                "Early arthritis and degenerative joint disease",
+                "Sports injuries and overuse conditions"
+            ],
+
+            procedureHeading: "Our Advanced Regenerative Treatments",
+            procedureSteps: [
+                {
+                    title: "PRP Therapy (Platelet-Rich Plasma)",
+                    description: "Uses your own blood to extract growth factors which are then injected into damaged tissues to accelerate healing. Ideal for joint pain and early arthritis."
+                },
+                {
+                    title: "PLDD (Laser Disc Decompression)",
+                    description: "A minimally invasive laser procedure for slipped discs. Reduces disc pressure and nerve compression to provide fast relief from back pain and sciatica."
+                },
+                {
+                    title: "Stem Cell-Based Therapies (Advanced Biologics)",
+                    description: "Promote regeneration of damaged tissues and cartilage. Helps delay or avoid surgery in selected cases of chronic degeneration."
+                },
+                {
+                    title: "Precision-Guided Diagnosis",
+                    description: "Includes detailed clinical evaluation, advanced imaging (MRI/CT), and personalized treatment mapping performed under image guidance (C-arm/ultrasound)."
+                }
+            ],
+
+            benefitsHeading: "Why Choose Regenerative Therapy?",
+            benefits: [
+                "Minimally invasive with no major surgery",
+                "Faster recovery and minimal downtime",
+                "Uses the body’s natural healing potential",
+                "Reduces dependency on long-term medications",
+                "Targets the root cause of pain and degeneration"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Most procedures are day care-based—no long hospital stay",
+                "Patients can resume routine activities within a short time",
+                "Gradual and sustained improvement over weeks",
+                "Rehabilitation programs enhance long-term outcomes"
+            ],
+
+            faqHeading: "Common Questions Answered",
+            faqs: [
+                {
+                    question: "Are regenerative therapies safe?",
+                    answer: "Yes. Since many treatments use your own biological material, the risk of complications is very low."
+                },
+                {
+                    question: "Is PRP or PLDD better than surgery?",
+                    answer: "In many cases, these therapies can delay or even eliminate the need for surgery."
+                },
+                {
+                    question: "How long does it take to see results?",
+                    answer: "Initial relief may begin within weeks, with continued improvement over time."
+                },
+                {
+                    question: "Who is the right candidate?",
+                    answer: "Patients with early to moderate degeneration or chronic pain not responding to basic treatments benefit the most."
+                }
+            ],
+
+            customCta: {
+                heading: "Repair, Restore & Rejuvenate",
+                description: "Experience the latest in biological healing at Stork Hospital. Our experts provide targeted regenerative therapies to help you live pain-free.",
+                buttonText: "Schedule Regenerative Consultation"
+            },
+            meta: {
+                duration: "Same Day Procedure",
+                anesthesia: "Local Anesthesia",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "Minimal Downtime",
+                successRate: "Gradual Improvement"
+            },
+            reviewedBy: {
+                name: "Stork Regenerative Medicine Team",
+                role: "Spine & Pain Specialists",
+                experience: "Experts in Biologic & Laser Spine Treatments"
+            }
+        }
+    }
+
+
+    if (slug === "sports-pain") {
+        return {
+            slug: slug,
+            title: "Sports Injury & Pain Management – Stork Hospital, Hyderabad",
+            subheading: "Get Back in the Game, Pain-Free",
+            tagline: "Tailor care that restores function, relieves pain, and helps prevent future injury.",
+            breadcrumbTitle: "Sports Injury",
+            category: "Orthopedics & Sports Medicine",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Sports injuries can affect athletes and fitness enthusiasts alike—ranging from sprains and muscle tears to overuse injuries that affect joints and ligaments. At Stork Multispecialty Hospital, Hyderabad, we offer expert evaluation, treatment, and rehabilitation services for all types of sports-related pain and injuries.
+
+Whether you’re a professional athlete or a weekend runner, we tailor care that restores function, relieves pain, and helps prevent future injury.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Top Choice for Sports Pain Care in Hyderabad",
+                intro: "We bring together orthopedic experts, sports medicine specialists, and rehab professionals under one roof:",
+                items: [
+                    "Certified sports injury specialist in Hyderabad and orthopedic consultants",
+                    "On-site diagnostic imaging (X-rays, MRIs, ultrasound)",
+                    "Personalized care for adults, teens, and children in sports",
+                    "Physiotherapy center in Hyderabad for guided recovery",
+                    "Same-day appointment availability and walk-in clinic near Kondapur",
+                    "Coverage through major insurance providers accepted"
+                ]
+            },
+            fullDescription: [
+                "We’re also known as a hospital with no waiting time in Hyderabad, making quality care more accessible for active individuals. Our multispecialty hospital in Hyderabad ensures all services are streamlined for faster recovery."
+            ],
+
+            conditionsHeading: "Common Sports Injuries We Treat",
+            conditionsTreated: [
+                "Ligament injuries (ACL, MCL, ankle sprains)",
+                "Muscle strains and tears",
+                "Tendonitis (shoulder, knee, elbow)",
+                "Meniscus and cartilage damage",
+                "Rotator cuff injuries",
+                "Tennis elbow and golfer’s elbow",
+                "Shin splints and stress fractures",
+                "Runner’s knee and IT band syndrome"
+            ],
+
+            procedureHeading: "Our Sports Pain Management Approach",
+            procedureSteps: [
+                {
+                    title: "Accurate Diagnosis",
+                    description: "Initial injury assessment using high-precision imaging and detailed movement evaluations."
+                },
+                {
+                    title: "Non-Surgical Treatments",
+                    description: "Holistic options including bracing, specific medications, and biological PRP injections."
+                },
+                {
+                    title: "Sports Physiotherapy",
+                    description: "Personalized programs for mobility training, strength conditioning, and balance work."
+                },
+                {
+                    title: "Advanced Surgical Support",
+                    description: "Minimally invasive arthroscopic procedures for ligament or tendon repair when indicated."
+                },
+                {
+                    title: "Integrated Rehabilitation",
+                    description: "On-site, customized therapy plans designed to restore agility and prevent future injury recurrence."
+                }
+            ],
+
+            benefitsHeading: "Your Visit – What to Expect",
+            benefits: [
+                "Initial consultation with an experienced sports medicine doctor in Hyderabad",
+                "Diagnostic evaluation and detailed injury assessment",
+                "Custom treatment plan with therapy or procedure timelines",
+                "Progress tracking and return-to-sport guidance",
+                "Focus on getting you back to your sport—stronger and safer"
+            ],
+
+            risks: [],
+            recoveryTimeline: [],
+
+            faqHeading: "FAQs – Sports Pain Care at Stork Hospital",
+            faqs: [
+                {
+                    question: "Do I need surgery for a sports injury?",
+                    answer: "Not always. Many injuries respond to conservative treatments. Surgery is reserved for severe or non-healing conditions."
+                },
+                {
+                    question: "How long is recovery from a ligament tear?",
+                    answer: "It depends on severity and treatment type. Non-surgical cases may take weeks; post-surgery may require a few months with therapy."
+                },
+                {
+                    question: "Can I consult online for a sports injury?",
+                    answer: "Yes. We provide online doctor consultation in Hyderabad for initial assessment and second opinions."
+                },
+                {
+                    question: "Is insurance accepted for sports injury care?",
+                    answer: "Absolutely. We are among the Hyderabad hospitals accepting insurance, covering diagnostics, treatments, and physiotherapy."
+                }
+            ],
+
+            customCta: {
+                heading: "Get Back in the Game",
+                description: "Book an appointment at Stork Hospital and consult a dedicated sports injury doctor in Hyderabad for complete, athlete-focused care.",
+                buttonText: "Schedule Sports Assessment"
+            },
+            meta: {
+                duration: "Full Assessment",
+                anesthesia: "Varies per procedure",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Activity Dependent",
+                successRate: "High Athlete Satisfaction"
+            },
+            reviewedBy: {
+                name: "Stork Sports Medicine Team",
+                role: "Sports Surgeons & Rehab Specialists",
+                experience: "Experts in Athletic Recovery & Performance"
+            }
+        }
+    }
 
     // 2. Specific Override for Adenoidectomy
     if (slug === "adenoidectomy") {
@@ -318,21 +786,22 @@ At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal
     }
 
 
-    if (slug === "antepartum-monitoring") {
+    if (slug === "antepartum-and-intrapartum-monitoring") {
         return {
             slug: slug,
             title: "Antepartum and Intrapartum Monitoring – Stork Hospital, Hyderabad",
-            subheading: "Precision Fetal & Maternal Surveillance for Safe Deliveries",
-            breadcrumbTitle: "Fetal Monitoring",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            subheading: "Vigilant Care for a Safe and Smooth Birth Journey",
+            tagline: "Continuous observation ensuring the safety and health of both mother and baby throughout pregnancy and labor.",
+            breadcrumbTitle: "Antepartum & Intrapartum Monitoring",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
             shortDescription: `Pregnancy and childbirth are dynamic journeys that require continuous observation to ensure the safety and health of both mother and baby. Antepartum monitoring refers to the assessment and tracking of maternal and fetal well-being before labor begins, while intrapartum monitoring takes place during labor, tracking real-time progress and identifying any emerging risks.
 
 At Stork Hospital, Hyderabad, our vigilant antepartum and intrapartum monitoring systems help us stay one step ahead of complications, making sure every birth is as safe and smooth as possible—whether low-risk or high-risk. We are known for being one of the most trusted maternity hospitals in Hyderabad, offering patient-first care experiences and advanced treatment hospital with 24/7 care.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Monitoring Services in Hyderabad?",
-                intro: "At Stork, we believe that good outcomes start with great observation. Our antepartum and intrapartum monitoring systems are designed to provide both clinical accuracy and emotional assurance.",
+                intro: "At Stork, we believe that good outcomes start with great observation. Our monitoring systems are designed to provide both clinical accuracy and emotional assurance:",
                 items: [
                     "Expert Fetal Medicine & Obstetric Care Team",
                     "Advanced Monitoring Equipment (NST, CTG, Dopplers)",
@@ -342,7 +811,9 @@ At Stork Hospital, Hyderabad, our vigilant antepartum and intrapartum monitoring
                     "Labor & Delivery Suite Linked with NICU and OT for Emergency Access"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "We are proud to be a family-friendly hospital in Hyderabad, offering holistic maternal care and emergency hospital support near Hitech City. These services are essential for pregnancy care in Hyderabad and support early detection of high-risk conditions."
+            ],
 
             conditionsHeading: "What Does Monitoring Help With?",
             conditionsTreated: [
@@ -361,33 +832,35 @@ At Stork Hospital, Hyderabad, our vigilant antepartum and intrapartum monitoring
             procedureSteps: [
                 {
                     title: "Antepartum Monitoring (Before Labor)",
-                    description: "Includes Non-Stress Test (NST) to measure fetal heart rate/movements, Ultrasound & Doppler Scans for growth/fluid checks, Biophysical Profile (BPP), and maternal vitals tracking. Emphasized in the third trimester."
+                    description: "Tests like NST (heart rate), Ultrasound & Doppler scans (growth/fluid), Biophysical Profile (BPP), and kick count tracking."
                 },
                 {
                     title: "Intrapartum Monitoring (During Labor)",
-                    description: "Continuous Electronic Fetal Monitoring (EFM) for heart rate patterns, Tocometry for contraction strength/frequency, frequent Cervical Assessments, and ongoing maternal vital signs monitoring to ensure safety."
+                    description: "Electronic Fetal Monitoring (EFM) for heart rate patterns, Tocometry for contraction frequency, and regular cervical assessments."
                 },
                 {
-                    title: "Real-Time Decision Making",
-                    description: "Our team continually evaluates findings to adjust the birth plan instantly, ensuring the safest delivery method (vaginal or C-section) based on fetal and maternal well-being."
+                    title: "Real-Time Decision-Making",
+                    description: "Continuous monitoring of maternal vital signs and fetal findings allows for quick adjustments to the birth plan for maximum safety."
                 }
             ],
 
-            benefitsHeading: "Who Benefits from These Services?",
+            benefitsHeading: "Who Benefits from These Monitoring Services?",
             benefits: [
-                "Standard care for all pregnancies, especially in the final trimester",
-                "High-risk pregnancies (twins, IVF, history of complications)",
-                "Mothers with chronic conditions (diabetes, thyroid)",
+                "High-risk pregnancies and mothers with chronic conditions like diabetes or thyroid",
+                "IVF or twin/multiple pregnancies",
+                "Women with previous pregnancy losses or cesarean sections",
                 "Cases with abnormal scan results or reduced fetal activity",
                 "Labor with prolonged duration or irregular contractions"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Follow-Through",
             recoveryTimeline: [
-                "Immediate Postpartum: Continuous observation of maternal vitals and uterine contraction patterns.",
-                "Newborn Monitoring: Tracking vitals and breathing immediately after birth.",
-                "Reassessment: Checking fetal health if any labor interventions were used.",
-                "Follow-up: Scheduled scans and counseling based on delivery outcomes."
+                "Continue observing maternal vitals and uterine contraction patterns",
+                "Monitor newborn vitals and breathing immediately after birth",
+                "Reassess fetal health if labor interventions were performed",
+                "Schedule follow-up scans if needed postpartum",
+                "Offer counseling based on monitoring reports and delivery outcomes"
             ],
 
             faqHeading: "FAQs – Antepartum & Intrapartum Monitoring",
@@ -411,120 +884,116 @@ At Stork Hospital, Hyderabad, our vigilant antepartum and intrapartum monitoring
             ],
 
             customCta: {
-                heading: "Book Your Consultation Today",
-                description: "Book an appointment online at Stork Hospital to ensure your monitoring journey is tailored to your unique pregnancy needs. For diagnostic center in Hyderabad or 24/7 emergency care in Kondapur, trust the expertise of Stork Hospital.",
-                buttonText: "Book Appointment"
+                heading: "Safe and Supported Pregnancy",
+                description: "Book an appointment at Stork Hospital today to ensure your monitoring journey is tailored to your unique pregnancy needs. Trust our expertise for diagnostic and emergency care.",
+                buttonText: "Schedule Monitoring Consultation"
             },
             meta: {
-                duration: "Continuous",
-                anesthesia: "Not Applicable",
-                hospitalStay: "Varies",
-                recoveryTime: "Immediate",
-                successRate: "Early Detection"
+                duration: "Full Surveillance",
+                anesthesia: "None Required",
+                hospitalStay: "Delivery Stay",
+                recoveryTime: "Postpartum Phase",
+                successRate: "Vigilant High Safety"
             },
             reviewedBy: {
-                name: "Dr. Neha Gupta",
-                role: "Senior Obstetrician",
-                experience: "14+ Years Experience"
+                name: "Stork Obstetric Care Team",
+                role: "Obstetricians & Fetal Medicine Experts",
+                experience: "Maternity & High-Risk Specialists"
             }
         }
     }
 
 
+
     if (slug === "appendicitis") {
         return {
             slug: slug,
-            title: "Appendectomy – Appendix Removal Surgery at Stork Hospital, Hyderabad",
-            subheading: "Swift Relief from Appendicitis with Advanced Surgical Expertise",
-            breadcrumbTitle: "Appendectomy",
+            title: "Appendicitis Surgery – Stork Hospital, Hyderabad",
+            subheading: "Precision Care for Sudden Appendix Pain",
+            tagline: "Immediate diagnosis and expert surgical care to manage appendicitis and promote full recovery.",
+            breadcrumbTitle: "Appendicitis Surgery",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
-            shortDescription: `Appendicitis occurs when the appendix becomes inflamed, often resulting in sharp abdominal pain and potential health risks. At Stork Multispecialty Hospital, Hyderabad, we provide prompt and professional appendix removal surgery (appendectomy) to protect patients from further complications.
+            shortDescription: `Appendicitis is a sudden and painful condition where the appendix — a small pouch attached to the large intestine — becomes inflamed. This condition often starts with mild abdominal pain near the belly button, which quickly intensifies and shifts to the lower right side. If untreated, the appendix may burst, leading to serious complications such as widespread infection.
 
-Our hospital is equipped to deliver emergency and planned appendectomies for both adults and children using modern surgical techniques.`,
+At Stork Hospital, Hyderabad, we provide immediate diagnosis and expert surgical care to manage appendicitis and promote full recovery. Our medical team specializes in laparoscopic appendix surgery in Hyderabad, offering minimally invasive solutions that ensure less discomfort and quicker healing.`,
 
             overview: {
-                heading: "Why Stork Hospital for Appendix Surgery in Hyderabad?",
-                intro: "At Stork, we ensure timely intervention supported by experienced surgeons and rapid diagnostics:",
+                heading: "Why Stork Hospital is the Right Choice",
+                intro: "Trust Stork Hospital for safe, experienced appendicitis care in Hyderabad:",
                 items: [
-                    "Accomplished appendectomy surgeons in Hyderabad trained in both traditional and laparoscopic methods",
-                    "24/7 emergency department for urgent cases",
-                    "Walk-in consultation near Kondapur with priority admission support",
-                    "Complete diagnostic setup including scans, blood work, and monitoring tools",
-                    "Pediatric and adult care pathways",
-                    "Recognized Hyderabad hospital accepting insurance for appendicitis surgeries"
+                    "Emergency appendicitis treatment available 24/7",
+                    "Surgical experts trained in both open and laparoscopic techniques",
+                    "Advanced facilities for rapid diagnostics and operation",
+                    "End-to-end care including comprehensive post-operative support",
+                    "Recognized specifically for high-quality appendix surgery in Hyderabad"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Understanding Appendectomy",
-            conditionsTreated: [
-                "Sudden inflammation (acute appendicitis)",
-                "Suspected or confirmed appendix rupture",
-                "Repeat right lower abdominal pain episodes causing discomfort",
-                "Prevention of serious issues like abscesses or peritonitis"
+            fullDescription: [
+                "Appendicitis is commonly caused by a blockage in the appendix due to stool, infection, or foreign substances. This leads to swelling, bacterial overgrowth, and eventual inflammation."
             ],
 
-            procedureHeading: "What to Expect – Surgical Options & Patient Experience",
+            conditionsHeading: "Causes and Warning Signs of Appendicitis",
+            conditionsTreated: [
+                "Intense abdominal pain on the lower right side",
+                "Nausea, vomiting, or lack of hunger",
+                "Fever, bloating, and tenderness near the abdomen",
+                "Pain that worsens with walking, coughing, or sudden movement",
+                "Prevention of peritonitis and abscess formation from rupture"
+            ],
+
+            procedureHeading: "Treatment Options Customized to You",
             procedureSteps: [
                 {
-                    title: "Evaluation & Diagnosis",
-                    description: "Immediate or scheduled evaluation by a general surgeon in Hyderabad, followed by clinical and imaging tests for confirmation."
-                },
-                {
                     title: "Laparoscopic Appendectomy",
-                    description: "Uses small incisions for less pain, quicker healing, and faster return to normal life. This is the preferred method for most patients."
+                    description: "A keyhole procedure involving a few small incisions. The appendix is removed with precision tools under camera guidance, usually completed in under an hour. Offers faster discharge and less visible scarring."
                 },
                 {
-                    title: "Open Appendectomy",
-                    description: "Used in complex or ruptured appendix cases. A larger incision allows for thorough cleaning and treatment of infection."
-                },
-                {
-                    title: "Recovery & Observation",
-                    description: "General anesthesia is administered. Post-op rest and observation typically lasts for 24–48 hours in our dedicated care units."
-                },
-                {
-                    title: "Discharge",
-                    description: "Discharge with medications and a clear follow-up schedule. We offer zero waiting time hospital services for time-sensitive surgeries."
+                    title: "Open Surgery",
+                    description: "Chosen when infection has spread or the appendix has ruptured. A single larger incision is made for direct access. Requires longer recovery but ensures thorough infection management."
                 }
             ],
 
-            benefitsHeading: "What Makes Stork the Right Choice?",
+            benefitsHeading: "Recovery: What You Can Expect",
             benefits: [
-                "Rapid diagnosis and surgical response during emergencies",
-                "Minimal pain and scarring with laparoscopic techniques",
-                "Child-friendly and adult-focused surgical teams",
-                "Dedicated pre-operative and post-operative care units",
-                "Efficient and stress-free treatment journey"
+                "Mild discomfort near the surgical site, manageable with medication",
+                "Gentle movement and small, soft meals can usually resume within days",
+                "Return to work and most normal activities within 1–2 weeks",
+                "Scheduled follow-up visits to track healing and internal progress"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryTimeline: [
+                "Immediate post-op observation (24-48 hours)",
+                "Transition to soft diet and light movement (Days 3-5)",
+                "Stitches check and gradual activity increase (Week 1)",
+                "Full recovery and return to normal routine (Week 2)"
+            ],
 
-            faqHeading: "FAQs – Appendix Surgery at Stork",
+            faqHeading: "Frequently Asked Questions",
             faqs: [
                 {
-                    question: "How quickly should appendicitis be treated?",
-                    answer: "Immediately. Delaying surgery increases the risk of appendix rupture and serious infection."
+                    question: "Is surgery necessary for appendicitis?",
+                    answer: "Yes. Once inflamed, the appendix must be removed to prevent rupture and potential life-threatening infections."
                 },
                 {
-                    question: "Is surgery painful or difficult to recover from?",
-                    answer: "Surgery is safe and recovery is relatively fast, especially with minimally invasive methods."
+                    question: "How long will recovery take?",
+                    answer: "Most patients recover fully within 1 to 2 weeks after laparoscopic surgery, making it the preferred choice for most cases."
                 },
                 {
-                    question: "Are children safe during appendix surgery?",
-                    answer: "Yes. Our pediatric surgical team ensures safe and comfortable care for children."
+                    question: "Is laparoscopic surgery the best choice?",
+                    answer: "It is ideal for most cases as it offers quicker healing, less post-operative pain, and minimal scarring."
                 },
                 {
-                    question: "Does insurance cover this procedure?",
-                    answer: "Absolutely. As a Hyderabad hospital accepting insurance, we guide patients through the claim process seamlessly."
+                    question: "Do I need a permanent diet change?",
+                    answer: "No. A soft diet may be advised briefly during initial recovery, but normal eating habits can typically resume quite soon."
                 }
             ],
 
             customCta: {
-                heading: "Need Emergency Appendix Surgery?",
-                description: "Don’t delay care if you have severe lower abdominal pain, nausea, or fever. Visit Stork Hospital to consult a trusted appendectomy specialist in Hyderabad and receive immediate attention from our surgical care team.",
-                buttonText: "Book Consultation Today"
+                heading: "Get Prompt Treatment for Abdominal Pain",
+                description: "Abdominal pain can escalate quickly. Trust Stork Hospital for safe, experienced appendicitis care in Hyderabad. Book your consultation today ensure a safe and full recovery.",
+                buttonText: "Book Appointment"
             },
             meta: {
                 duration: "45-90 Minutes",
@@ -534,41 +1003,42 @@ Our hospital is equipped to deliver emergency and planned appendectomies for bot
                 successRate: "99%"
             },
             reviewedBy: {
-                name: "Dr. Vikram Reddy",
+                name: "Dr. Sandeep Kumar",
                 role: "Senior General Surgeon",
-                experience: "18+ Years Experience"
+                experience: "15+ Years Experience"
             }
         }
     }
-
-
 
     if (slug === "arthroscopy-surgery") {
         return {
             slug: slug,
             title: "Arthroscopy Surgery – Stork Hospital, Hyderabad",
             subheading: "Precision Joint Care with Minimal Invasiveness",
+            tagline: "Restoring smooth, pain-free motion through advanced, minimally invasive joint visualizations and repairs.",
             breadcrumbTitle: "Arthroscopy",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Arthroscopy is a modern surgical method that allows doctors to look inside and treat a joint using tiny incisions and a camera called an arthroscope. The camera projects detailed images of the joint onto a screen, helping surgeons perform targeted repairs with minimal disruption to surrounding tissues. Because the approach is less invasive than traditional open surgery, patients typically experience faster recovery, smaller scars, and fewer complications.
 
 At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform arthroscopy on the knee, shoulder, hip, ankle, and elbow to address injuries, remove damaged tissue, and restore smooth, pain-free motion.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Arthroscopy",
-                intro: "",
+                intro: "We blend clinical excellence with advanced technology to deliver reliable joint repair outcomes:",
                 items: [
                     "Specialist orthopedic surgeons with expertise in sports medicine and joint repair",
-                    "State-of-the-art diagnostic center in Hyderabad offering advanced MRI, ultrasound, and X-ray facilities",
+                    "State-of-the-art diagnostic center with advanced MRI and ultrasound",
                     "Advanced surgical center equipped with the latest arthroscopic technology",
                     "24/7 emergency hospital near Hitech City for accident and injury cases",
-                    "Insurance accepted at Stork Hospital with upfront cost estimates",
+                    "Insurance accepted with upfront cost transparency",
                     "Walk-in clinic near Kondapur for immediate orthopedic evaluation",
                     "Comprehensive post-surgery rehabilitation tailored to each patient’s needs"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The procedure Projects detailed images of the joint onto a screen, allowing for pinpoint accuracy during repair. Patients experience significantly less trauma compared to traditional open joint surgery."
+            ],
 
             conditionsHeading: "Conditions Commonly Treated with Arthroscopy",
             conditionsTreated: [
@@ -585,43 +1055,50 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform art
             procedureSteps: [
                 {
                     title: "Before the Procedure",
-                    description: "Detailed orthopedic consultation and physical assessment. Imaging to identify the exact cause of joint problems. Discussion of surgical plan, recovery period, and outcome expectations."
+                    description: "Detailed orthopedic consultation, physical assessment, and imaging to identify the exact cause of joint problems."
                 },
                 {
                     title: "During the Procedure",
-                    description: "Small cuts made around the joint area. Insertion of the arthroscope to visualize joint structures. Specialized tools used to trim, repair, or remove damaged tissue."
+                    description: "Insertion of the arthroscope through tiny cuts to visualize joint structures and utilize specialized tools for repair or tissue removal."
                 },
                 {
                     title: "After the Procedure",
-                    description: "Minimal pain and swelling compared to open surgery. Faster mobility and return to light activities. Rehabilitation program to rebuild strength and restore flexibility."
+                    description: "Minimal pain and swelling management, followed by a rehabilitation program to rebuild strength and restore flexibility."
                 }
             ],
 
-            benefitsHeading: "Your Recovery with Stork Hospital",
+            benefitsHeading: "Key Benefits of Arthroscopy",
             benefits: [
-                "Consultation with an orthopedic specialist",
-                "Pre-operative diagnostics and planning",
-                "Arthroscopic surgery using advanced equipment",
-                "Short hospital stay — many patients go home the same day",
-                "Structured physiotherapy for lasting joint health"
+                "Faster recovery and return to daily activities",
+                "Significantly smaller scars due to minimal incisions",
+                "Lower risk of infection and post-surgical complications",
+                "Minimal disruption to surrounding healthy tissues",
+                "Walking often possible within 24 hours for knee procedures"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Your Recovery with Stork Hospital",
+            recoveryTimeline: [
+                "Pre-operative diagnostics and precision planning",
+                "Arthroscopic surgery using advanced equipment",
+                "Short hospital stay — many patients go home same-day",
+                "Structured physiotherapy for lasting joint health",
+                "Rapid return to light activities within a few weeks"
+            ],
 
             faqHeading: "FAQs – Arthroscopy Surgery",
             faqs: [
                 {
                     question: "Does arthroscopy hurt?",
-                    answer: "Pain is minimal, and most discomfort is well-controlled with medication."
+                    answer: "Pain is minimal, and most discomfort is well-controlled with medication during the early recovery phase."
                 },
                 {
                     question: "How soon can I resume daily activities?",
-                    answer: "For many patients, recovery takes just a few weeks, though it depends on the joint treated."
+                    answer: "For many patients, recovery takes just a few weeks, though it depends on the specific joint treated."
                 },
                 {
                     question: "Can I walk after knee arthroscopy?",
-                    answer: "Yes, walking is often possible within 24 hours after surgery."
+                    answer: "Yes, walking is often possible within 24 hours after surgery under professional guidance."
                 },
                 {
                     question: "Is this procedure covered by insurance?",
@@ -631,24 +1108,22 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform art
 
             customCta: {
                 heading: "Book Your Arthroscopy Appointment",
-                description: "If joint pain or stiffness is limiting your mobility, expert help is available. Book an appointment at Stork Hospital to meet an arthroscopy surgery specialist in Hyderabad and get a customized treatment plan for faster, safer recovery.",
-                buttonText: "Book Appointment"
+                description: "If joint pain or stiffness is limiting your mobility, expert help is available at Stork Hospital. Get a customized treatment plan for faster, safer recovery.",
+                buttonText: "Schedule Orthopedic Consult"
             },
             meta: {
-                duration: "60-90 Minutes",
-                anesthesia: "General / Regional",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                duration: "30–90 Mins",
+                anesthesia: "Local / General",
+                hospitalStay: "Same Day Discharge",
+                recoveryTime: "2–4 Weeks",
+                successRate: "98% Efficiency"
             },
             reviewedBy: {
-                name: "Dr. Rajeshwar Rao",
-                role: "Senior Orthopedic Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Sports Medicine & Arthroscopy Surgeons",
+                experience: "Experts in Joint Repair & Minimally Invasive Orthopedics"
             }
-
         }
-
     }
 
     if (slug === "back-pain") {
@@ -656,27 +1131,32 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform art
             slug: slug,
             title: "Back Pain Treatment – Stork Hospital, Hyderabad",
             subheading: "Expert Spinal Care to Restore Strength and Mobility",
-            breadcrumbTitle: "Back Pain",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Addressing the source of spinal discomfort through advanced, non-invasive and minimally invasive care—not just the symptoms.",
+            breadcrumbTitle: "Back pain",
+            category: "Orthopedics & Spine Care",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Back pain can significantly interfere with daily life, from routine movement to restful sleep. Whether it’s the result of muscle fatigue, spinal issues, injuries, or prolonged sitting, chronic or acute back pain needs expert attention. At Stork Hospital, Hyderabad, we provide cutting-edge, patient-centric care that addresses the source of the problem—not just the symptoms.
 
 Our specialists are known for advanced, non-invasive and minimally invasive back pain treatment in Hyderabad, with the goal of long-term recovery and prevention.`,
 
             overview: {
                 heading: "Why Stork Hospital for Back & Spine Care?",
-                intro: "At Stork Hospital, every treatment plan begins with an in-depth clinical evaluation and advanced imaging (MRI, CT, or X-ray) to pinpoint the origin of your discomfort.",
+                intro: "We blend clinical excellence with a focused multidisciplinary approach to ensure reliable back pain relief:",
                 items: [
                     "Multidisciplinary team of orthopedic doctors, physiatrists, and pain consultants",
                     "Precision-guided diagnosis and customized rehabilitation programs",
                     "Access to modern physiotherapy and recovery equipment under one roof",
                     "Focused education for patients to maintain lifelong spinal health",
-                    "Recognized for reliable back pain relief in Hyderabad"
+                    "Recognized for reliable back pain relief in Hyderabad",
+                    "Comprehensive care tailored to your unique lifestyle needs"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The spine is a complex structure, and back pain can stem from many triggers including herniated discs, spinal stenosis, and postural imbalance.",
+                "Back pain may feel like a dull ache, sharp shooting pain, or stiffness. If nerve roots are affected, patients might experience radiating pain down the legs—a symptom of sciatica. Our goal is to identify these triggers early to prevent chronic disability."
+            ],
 
-            conditionsHeading: "Root Causes of Back Pain",
+            conditionsHeading: "Common Root Causes of Back Pain",
             conditionsTreated: [
                 "Overstressed or strained back muscles",
                 "Herniated or slipped spinal discs pressing on nerves",
@@ -690,29 +1170,36 @@ Our specialists are known for advanced, non-invasive and minimally invasive back
             procedureHeading: "How We Diagnose & Treat Back Pain",
             procedureSteps: [
                 {
+                    title: "In-Depth Diagnosis",
+                    description: "Every treatment plan begins with a clinical evaluation and advanced imaging (MRI, CT, or X-ray) to pinpoint the exact origin of discomfort."
+                },
+                {
                     title: "Non-Surgical Therapies",
-                    description: "Custom physiotherapy programs, medications for pain/inflammation, image-guided corticosteroid injections, and supportive techniques like heat therapy, TENS, and ultrasound. Includes ergonomic coaching."
+                    description: "Custom physiotherapy, targeted medications, image-guided corticosteroid injections for nerve pain, heat therapy, TENS, and ergonomic coaching."
                 },
                 {
                     title: "Minimally Invasive Spine Procedures",
-                    description: "Selective nerve root or facet joint blocks, Radiofrequency procedures to deactivate painful nerves, and Endoscopic procedures for disc decompression. Targeted interventions with shorter downtime."
-                },
-                {
-                    title: "Surgical Intervention",
-                    description: "Surgery is only considered when structural problems severely impair mobility or cause persistent neurological symptoms."
+                    description: "Selective nerve root or facet joint blocks, radiofrequency procedures to deactivate painful nerves, and endoscopic procedures for disc decompression."
                 }
             ],
 
-            benefitsHeading: "Recovery Journey & Preventative Planning",
+            benefitsHeading: "Why Patients Choose Stork Spine Care",
             benefits: [
+                "Avoid unnecessary surgery with conservative-first approaches",
+                "State-of-the-art physiotherapy and rehabilitation facilities",
+                "Expert alignment monitoring and ergonomic adjustment",
+                "Fast relief from sharp shooting pain and nerve compression",
+                "Long-term prevention through guided strengthening"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery Journey & Preventative Planning",
+            recoveryTimeline: [
                 "Many patients report improvements within just a few therapy sessions",
                 "Strengthening exercises and guided stretching help prevent recurrence",
                 "Progress is monitored closely for lasting outcomes",
                 "Diet, physical habits, and work ergonomics are factored into your care plan"
             ],
-
-            risks: [],
-            recoveryTimeline: [],
 
             faqHeading: "Common Questions Answered",
             faqs: [
@@ -735,26 +1222,25 @@ Our specialists are known for advanced, non-invasive and minimally invasive back
             ],
 
             customCta: {
-                heading: "Don't let back pain limit your lifestyle",
-                description: "Choose Stork Hospital, Hyderabad for proven spine care solutions tailored to your needs. Schedule a consultation and take your first step toward pain-free living.",
-                buttonText: "Schedule Consultation"
+                heading: "Take Your First Step Toward Pain-Free Living",
+                description: "Don't let back pain limit your lifestyle. Choose Stork Hospital for proven spine care solutions tailored to your needs.",
+                buttonText: "Schedule Spine Consultation"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Local",
+                duration: "2-4 Weeks Program",
+                anesthesia: "N/A / Local",
                 hospitalStay: "Outpatient",
-                recoveryTime: "2-4 Weeks",
+                recoveryTime: "Varies per case",
                 successRate: "High"
             },
             reviewedBy: {
-                name: "Dr. Arun Kumar",
-                role: "Senior Spine Specialist",
-                experience: "15+ Years Experience"
+                name: "Stork Spine & Pain Team",
+                role: "Orthopedic & Pain Specialists",
+                experience: "Experts in Non-Invasive Spinal Care"
             }
-
         }
-
     }
+
 
     if (slug === "balanitis") {
         return {
@@ -1184,16 +1670,17 @@ As a multispecialty hospital in Telangana, Stork offers end-to-end diagnostic an
             slug: slug,
             title: "Chronic Disease Management – Stork Hospital, Hyderabad",
             subheading: "Long-Term, Personalized Care for Lasting Health",
+            tagline: "Comprehensive, multi-disciplinary programs designed to manage symptoms and improve quality of life for long-term health conditions.",
             breadcrumbTitle: "Chronic Disease Management",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "General Medicine",
+            departmentHref: "/services/general-medicine",
             shortDescription: `Chronic diseases are medical conditions that persist for months or years, often requiring regular treatment and monitoring. While some can be controlled with lifestyle changes alone, others need a combination of medications, routine check-ups, and specialist care. Examples include diabetes, heart disease, asthma, arthritis, kidney disorders, and endocrine problems.
 
 At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs around each patient’s individual needs. Our specialists combine accurate diagnostics, ongoing treatment, and lifestyle guidance to help you manage symptoms, avoid complications, and improve your quality of life.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Chronic Disease Care",
-                intro: "We provide comprehensive, long-term care focused on stability and quality of life.",
+                intro: "Our integrated medical teams provide continuous monitoring and advanced therapeutic support to ensure long-term stability:",
                 items: [
                     "Highly skilled doctors in internal medicine, cardiology, pulmonology, endocrinology, and more",
                     "Fully equipped diagnostic center in Hyderabad for timely investigations and monitoring",
@@ -1204,7 +1691,9 @@ At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs aro
                     "Coordinated care teams including dietitians, physiotherapists, and mental health experts"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Managing a chronic illness effectively requires more than just medication—it involves a holistic approach to nutrition, physical activity, and stress management. We provide a seamless connection between your primary specialist and supportive care teams to ensure all aspects of your health are addressed."
+            ],
 
             conditionsHeading: "Conditions We Commonly Manage",
             conditionsTreated: [
@@ -1221,29 +1710,36 @@ At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs aro
             procedureSteps: [
                 {
                     title: "Initial Assessment",
-                    description: "In-depth consultation and review of medical history, Blood tests, imaging, and other diagnostic tools for baseline health evaluation, Lifestyle and risk factor assessment."
+                    description: "In-depth consultation, medical history review, and baseline diagnostics including blood tests and imaging to evaluate risk factors."
                 },
                 {
                     title: "Treatment & Monitoring",
-                    description: "Customized medication schedules, Dietary advice and exercise planning tailored to your condition, Vaccinations and preventive screenings, Education on recognizing early warning signs."
+                    description: "Creation of customized medication schedules, dietary planning, exercise guidance, and preventive screenings or vaccinations."
                 },
                 {
                     title: "Team-Based Care",
-                    description: "Seamless referrals to multiple specialties when needed, Holistic support for both physical and mental well-being."
+                    description: "Seamless multi-specialty referrals and holistic support for both physical and mental well-being throughout the care journey."
                 }
             ],
 
-            benefitsHeading: "Your Care Process at Stork Hospital",
+            benefitsHeading: "Chronic Care Value & Reversal Goals",
             benefits: [
+                "Resolving reversible conditions completely",
+                "Controlling symptoms and avoiding complications",
+                "Reducing disease progression via monitoring",
+                "Lowering medication needs through lifestyle changes",
+                "Seamless multi-specialty referral network"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Care Process at Stork Hospital",
+            recoveryTimeline: [
                 "First consultation with a specialist",
                 "Creation of a personalized care plan",
                 "Regular monitoring and scheduled check-ups",
                 "Adjustments to treatment based on progress",
                 "Ongoing support to reduce disease progression"
             ],
-
-            risks: [],
-            recoveryTimeline: [],
 
             faqHeading: "FAQs – Chronic Disease Management",
             faqs: [
@@ -1266,21 +1762,21 @@ At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs aro
             ],
 
             customCta: {
-                heading: "Book Your Chronic Disease Consultation",
-                description: "Don’t let a long-term health condition control your life. Book an appointment at Stork Hospital to meet with our chronic disease management experts in Hyderabad and get the personalized care you need for a healthier future.",
-                buttonText: "Book Consultation"
+                heading: "Get the Support You Need for Long-Term Health",
+                description: "Book an appointment at Stork Hospital to meet our chronic disease management experts and get the personalized care you need for a healthier future.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "Ongoing",
-                anesthesia: "None",
-                hospitalStay: "Outpatient / Inpatient",
-                recoveryTime: "Varies",
-                successRate: "High Control Rate"
+                duration: "Ongoing / Long-Term",
+                anesthesia: "N/A",
+                hospitalStay: "Outpatient / Periodic",
+                recoveryTime: "Continuous Management",
+                successRate: "High Symptom Control"
             },
             reviewedBy: {
-                name: "Dr. Srikanth Goud",
-                role: "Senior General Physician",
-                experience: "15+ Years Experience"
+                name: "Stork Medical Board",
+                role: "Internal Medicine & Specialty Team",
+                experience: "Multi-disciplinary Chronic Care Experts"
             }
         }
     }
@@ -1594,13 +2090,131 @@ From clinical breast exams to advanced imaging and surgical excision, our goal i
                 successRate: "High Accuracy"
             },
             reviewedBy: {
-                name: "Dr. Anjali",
-                role: "Senior Surgical Oncologist",
-                experience: "15+ Years Experience"
+                name: "Stork Breast Health Team",
+                role: "Senior Surgical Oncologists",
+                experience: "Experts in Breast Care"
             }
         }
+    }
 
+    if (slug === "high-risk-pregnancy-management") {
+        return {
+            slug: slug,
+            title: "High-Risk Pregnancy Management – Stork Hospital, Hyderabad",
+            subheading: "Expert maternal-fetal care for complex pregnancy journeys.",
+            tagline: "Transforming uncertainty into reassurance with advanced monitoring and a specialized medical team.",
+            breadcrumbTitle: "High-Risk Pregnancy",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
+            shortDescription: `Not all pregnancies follow the same path. A high-risk pregnancy involves additional health challenges that could affect the mother, the baby, or both. It might be due to pre-existing health conditions, age, complications that arise mid-way, or multiple pregnancies.
 
+At Stork Hospital, Hyderabad, our goal is to transform uncertainty into reassurance. With advanced maternal-fetal care, constant monitoring, and an expert team by your side, we help mothers-to-be move confidently through complex pregnancies toward safe delivery. We are recognized as a top maternity and fertility care center under one roof and one of the safest hospitals for surgery in Hyderabad.`,
+
+            overview: {
+                heading: "Why Stork Hospital is the Preferred Center for High-Risk Pregnancies in Hyderabad?",
+                intro: "Choosing the right hospital for a high-risk pregnancy could mean the difference between complication and confidence:",
+                items: [
+                    "Senior Consultants in Maternal-Fetal Medicine with proven expertise",
+                    "Real-Time Diagnostics, In-House Lab & Advanced Imaging",
+                    "Level 3 NICU for immediate newborn support if required",
+                    "Emergency Obstetric Response Team available 24/7",
+                    "Holistic Support: Nutritional guidance, physiotherapy, and emotional well-being programs",
+                    "Seamless Continuity of Care from first trimester to postnatal follow-up"
+                ]
+            },
+            fullDescription: [
+                "Recognized as a highly rated hospital for cardiac care and private rooms in hospital for delivery. We provide high-risk pregnancy treatment backed by emergency care hospital support in Hyderabad."
+            ],
+
+            conditionsHeading: "Conditions We Help Manage",
+            conditionsTreated: [
+                "Chronic illnesses (Diabetes, High blood pressure, or Thyroid dysfunction)",
+                "Advanced maternal age (35+) or teen pregnancies",
+                "Multiple fetuses (twins, triplets, or higher-order multiples)",
+                "History of miscarriages, stillbirths, or premature births",
+                "Abnormal placental position (Previa, Accreta, or Abruption)",
+                "Autoimmune conditions (such as Lupus or APS)",
+                "Risk of preeclampsia or eclampsia",
+                "Fetal growth restriction or detected birth defects"
+            ],
+
+            procedureHeading: "What to Expect at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Comprehensive Risk Review",
+                    description: "Initial evaluation including health history, prenatal tests, diagnostic scans, and advanced genetic screenings."
+                },
+                {
+                    title: "Multi-Specialty Oversight",
+                    description: "Joint care by obstetricians, fetal medicine experts, endocrinologists, dietitians, and neonatologists."
+                },
+                {
+                    title: "In-Hospital Support",
+                    description: "Admissions for complications like high BP, preterm delivery prevention, and fetal lung maturity support."
+                },
+                {
+                    title: "Safe Delivery Planning",
+                    description: "Decision on timing and mode of delivery backed by a standby anesthetic team and full NICU support."
+                }
+            ],
+
+            benefitsHeading: "Who Should Consider High-Risk Pregnancy Care?",
+            benefits: [
+                "Women older than 35 or younger than 18",
+                "Existing health conditions before conception",
+                "Carrying multiple babies (twins/triplets)",
+                "Conceived using assisted reproductive techniques (IUI/IVF)",
+                "Previous birth complications or cesarean deliveries"
+            ],
+
+            risks: [],
+            recoveryHeading: "Post-Delivery Recovery & Care",
+            recoveryTimeline: [
+                "Postnatal health monitoring for both mother and newborn",
+                "Lactation support for C-section or NICU cases",
+                "Emotional health check-ins for anxiety or postnatal stress",
+                "Newborn growth monitoring especially for preterm or low birthweight babies",
+                "Follow-up planning with consultants for chronic conditions"
+            ],
+
+            faqHeading: "FAQs – High-Risk Pregnancy at Stork Hospital",
+            faqs: [
+                {
+                    question: "Does a high-risk label mean I will need a C-section?",
+                    answer: "Not necessarily. Many high-risk pregnancies can still have vaginal deliveries, depending on ongoing evaluations."
+                },
+                {
+                    question: "Will I be admitted in advance?",
+                    answer: "Only if the condition requires close inpatient observation. Otherwise, your care is outpatient-based with frequent monitoring."
+                },
+                {
+                    question: "How often will I need check-ups?",
+                    answer: "Your visit frequency will depend on your specific condition but could range from biweekly to weekly in later stages."
+                },
+                {
+                    question: "Can I have a healthy baby with a high-risk pregnancy?",
+                    answer: "Absolutely. With timely, high-quality care and expert oversight, many women with high-risk pregnancies deliver healthy babies."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule Your Complete Risk Review",
+                description: "Book an appointment at Stork Hospital to consult our gynecologist for a management plan tailored to your needs. Schedule your checkup today.",
+                buttonText: "Book Risk Assessment"
+            },
+            meta: {
+                duration: "Full Pregnancy Support",
+                anesthesia: "N/A",
+                hospitalStay: "Case Dependent",
+                recoveryTime: "Intensive Postpartum Care",
+                successRate: "High Survival & Safety"
+            },
+            reviewedBy: {
+                name: "Stork Maternal-Fetal Care Team",
+                role: "High-Risk Pregnancy Specialists",
+                experience: "Experts in Complex Obstetric Management"
+            }
+        }
     }
 
     if (slug === "c-section") {
@@ -1609,8 +2223,8 @@ From clinical breast exams to advanced imaging and surgical excision, our goal i
             title: "C-Section (Cesarean Delivery) – Stork Hospital, Hyderabad",
             subheading: "Safe, Planned, and Emergency Cesarean Deliveries with Expert Maternity Care",
             breadcrumbTitle: "C-Section",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/gynaecology",
             shortDescription: `A Cesarean section, or C-section, is a surgical method of childbirth used when vaginal delivery is not possible or safe. At Stork Multispecialty Hospital, Hyderabad, we offer both elective and emergency C-sections, performed with the highest standards of safety, precision, and maternal care.
 
 Our focus is on supporting mothers physically and emotionally throughout the process—with quick recovery, gentle handling, and expert-led care.`,
@@ -1669,7 +2283,12 @@ Our focus is on supporting mothers physically and emotionally throughout the pro
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryTimeline: [
+                "Average stay: 3-4 Days",
+                "Full recovery: 4-6 Weeks",
+                "Lactation support: Immediate",
+                "Post-op check: 1 Week"
+            ],
 
             faqHeading: "FAQs – Cesarean Births at Stork Hospital",
             faqs: [
@@ -1709,8 +2328,485 @@ Our focus is on supporting mothers physically and emotionally throughout the pro
                 experience: "25+ Years Experience"
             }
         }
+    }
 
+    if (slug === "labor-and-delivery") {
+        return {
+            slug: slug,
+            title: "Labor & Delivery – Stork Hospital, Hyderabad",
+            subheading: "Utmost Care, Safety, and Support for Your Life-Changing Moment",
+            tagline: "Empowering birth experiences with clinical precision, compassion, and advanced maternal support.",
+            breadcrumbTitle: "Labor & Delivery",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
+            shortDescription: `Labor and delivery mark the final stages of pregnancy—the moment every expecting mother waits for. Labor refers to the body’s natural process of preparing for childbirth through uterine contractions, cervical dilation, and the descent of the baby. Delivery is the culmination, when the baby is born—either vaginally or via cesarean section.
 
+At Stork Hospital, Hyderabad, we ensure that this life-changing moment happens with utmost care, safety, and support. Whether it’s a smooth natural birth or a carefully monitored surgical delivery, our team is equipped to handle every birth story with compassion and clinical precision.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Labor and Delivery in Hyderabad?",
+                intro: "At Stork Hospital, childbirth is more than a medical event—it’s a deeply personal experience. We aim to make it safe, memorable, and empowering:",
+                items: [
+                    "24/7 On-Call Obstetricians & Anesthetists",
+                    "Modern Birthing Suites with Mother-Friendly Design",
+                    "Emergency OT Access within Minutes",
+                    "Neonatologists Present at Every Delivery",
+                    "Supportive Birthing Environment: Calm, Clean & Respectful",
+                    "Painless Labor Options with Personalized Birth Plans"
+                ]
+            },
+            fullDescription: [
+                "Stork is known as a painless delivery hospital in Hyderabad and a family-friendly hospital offering private rooms in hospital for delivery to make your experience as comfortable as possible."
+            ],
+
+            conditionsHeading: "What Conditions Does This Service Cover?",
+            conditionsTreated: [
+                "Prolonged or stalled labor",
+                "Breech or abnormal fetal positioning",
+                "Fetal distress or irregular heartbeat",
+                "Excessive bleeding during labor (PPH)",
+                "Cord prolapse or entanglement",
+                "Placenta previa or abruption",
+                "Meconium-stained amniotic fluid",
+                "Need for induction or assisted delivery (vacuum/forceps)",
+                "Emergency cesarean sections"
+            ],
+
+            procedureHeading: "What to Expect at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Pre-Labor Evaluation",
+                    description: "Assessment of cervical dilation and contractions, continuous fetal heart monitoring, and discussion about pain relief options (epidural, IV medications)."
+                },
+                {
+                    title: "Labor Room Experience",
+                    description: "Dedicated birthing suites with privacy and comfort, constant monitoring by obstetricians/nurses, and breathing/mobility guidance."
+                },
+                {
+                    title: "Safe Delivery—Your Way",
+                    description: "Support for vaginal birth, painless labor options (epidural), assisted deliveries using vacuum/forceps, or planned/emergency C-sections."
+                },
+                {
+                    title: "Immediate Post-Delivery Support",
+                    description: "Uterine monitoring to prevent postpartum bleeding, immediate skin-to-skin contact, and initiation of breastfeeding within the first hour."
+                }
+            ],
+
+            benefitsHeading: "Who Needs Supervised Labor and Delivery Care?",
+            benefits: [
+                "First-time mothers and women with high-risk pregnancies",
+                "Mothers with gestational diabetes, hypertension, or thyroid issues",
+                "Pregnancies involving IVF, twins, or breech presentations",
+                "Women with a history of previous cesarean delivery",
+                "Overdue pregnancies (past 40 weeks)"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Aftercare",
+            recoveryTimeline: [
+                "Postnatal health monitoring for both mother and newborn",
+                "Pain relief and wound care especially for C-section cases",
+                "Guidance on breastfeeding and newborn handling",
+                "Emotional health check-ins and postpartum support",
+                "Follow-up visits and family planning consultations"
+            ],
+
+            faqHeading: "FAQs about Labor and Delivery",
+            faqs: [
+                {
+                    question: "Can I choose how I want to deliver?",
+                    answer: "Absolutely. We support your birth preferences while guiding you with medical insight to ensure safety."
+                },
+                {
+                    question: "Is epidural safe during labor?",
+                    answer: "Yes, epidural anesthesia is safe and effective for labor pain relief. Our anesthetists are available round-the-clock."
+                },
+                {
+                    question: "Will I have the same doctor during delivery?",
+                    answer: "Our core obstetric team manages your delivery, ensuring continuity and trust throughout your pregnancy."
+                },
+                {
+                    question: "How soon can I go home after a normal delivery?",
+                    answer: "In most cases, mothers are discharged within 24–48 hours after a vaginal birth, depending on recovery."
+                }
+            ],
+
+            customCta: {
+                heading: "Safe and Memorable Childbirth",
+                description: "Experience patient-first care in a supportive, state-of-the-art environment. Book an appointment at Stork Hospital, the best hospital for women’s health in Hyderabad.",
+                buttonText: "Schedule Delivery Consult"
+            },
+            meta: {
+                duration: "Delivery Specific",
+                anesthesia: "Epidural / Spinal / General",
+                hospitalStay: "24–72 Hours",
+                recoveryTime: "Postnatal Support",
+            successRate: "Clinical Precision"
+            },
+            reviewedBy: {
+                name: "Stork Obstetric & Delivery Team",
+                role: "Obstetricians & Anesthetists",
+                experience: "Maternity & Birthing Experts"
+            }
+        }
+    }
+
+    if (slug === "pelvic-floor-disorders") {
+        return {
+            slug: slug,
+            title: "Pelvic Floor Disorders – Stork Hospital, Hyderabad",
+            subheading: "Helping You Regain Comfort and Control",
+            tagline: "Restoring support and confidence through expert urogynecology and personalized rehabilitation.",
+            breadcrumbTitle: "Pelvic Floor Disorders",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
+            shortDescription: `Pelvic floor disorders (PFDs) affect the support system of a woman’s pelvic organs—bladder, uterus, and rectum. These conditions can significantly disrupt daily life by causing symptoms like urinary leakage, pelvic discomfort, and difficulty with bowel control. At Stork Hospital, Hyderabad, we take a sensitive, comprehensive approach to pelvic health—combining medical expertise with a deep understanding of what women need to feel safe, supported, and healed.
+
+As a recognized women-focused hospital in Hyderabad, we provide accurate diagnosis, modern treatment options, and personalized follow-up for lasting results.`,
+
+            overview: {
+                heading: "Why Choose Stork for Pelvic Wellness",
+                intro: "We combine medical expertise with a deep understanding of what women need to feel safe, supported, and healed:",
+                items: [
+                    "Specialists in urogynecology and pelvic rehabilitation",
+                    "On-site diagnostics and physiotherapy support",
+                    "Discreet, compassionate treatment environment",
+                    "Affordable treatment plans and maternity add-ons",
+                    "Collaboration with most health insurance providers in Hyderabad",
+                    "Easy-to-book online consultations"
+                ]
+            },
+            fullDescription: [
+                "PFDs develop when the pelvic muscles or connective tissues become weak, strained, or injured. Common causes include pregnancy, childbirth, aging, surgery, or repetitive strain. Many of these issues are mistakenly normalized—but we want women to know that effective care is available."
+            ],
+
+            conditionsHeading: "Conditions We Commonly Treat",
+            conditionsTreated: [
+                "Urinary incontinence (stress, urge, overflow)",
+                "Pelvic organ prolapse (uterus, bladder, rectum)",
+                "Constipation and fecal incontinence",
+                "Chronic pelvic discomfort or heaviness",
+                "Painful intercourse (dyspareunia)",
+                "Postnatal pelvic floor weakness",
+                "Overactive bladder symptoms"
+            ],
+
+            procedureHeading: "Our Approach to Pelvic Floor Care",
+            procedureSteps: [
+                {
+                    title: "Advanced Diagnostics",
+                    description: "Private consultation followed by pelvic examination, ultrasound, and functional assessment of pelvic muscles."
+                },
+                {
+                    title: "Nonsurgical Options",
+                    description: "Guided physiotherapy, vaginal pessary devices, hormonal therapy, and behavioral modifications."
+                },
+                {
+                    title: "Minimally Invasive Surgery",
+                    description: "Sling surgery for incontinence control and laparoscopic prolapse repair for faster recovery and reduced discomfort."
+                }
+            ],
+
+            benefitsHeading: "When Should You Consult a Specialist?",
+            benefits: [
+                "Leaking urine during coughing, laughing, or lifting",
+                "A visible or felt bulge in the vaginal area",
+                "Inability to empty the bladder or bowels completely",
+                "Ongoing pain or pressure in the lower pelvis",
+                "Difficulty holding urine or stool"
+            ],
+
+            risks: [],
+            recoveryHeading: "Healing Support After Treatment",
+            recoveryTimeline: [
+                "Tailored home recovery exercises and muscle training",
+                "Scheduled progress reviews and personalized follow-ups",
+                "Support for hormonal and emotional well-being",
+                "Virtual consults for ongoing guidance and monitoring"
+            ],
+
+            faqHeading: "FAQs – Pelvic Floor Treatment at Stork Hospital",
+            faqs: [
+                {
+                    question: "Can these issues be resolved without surgery?",
+                    answer: "Yes, many women improve significantly through conservative care such as physiotherapy and lifestyle changes."
+                },
+                {
+                    question: "Do only older women experience pelvic issues?",
+                    answer: "Not at all. These symptoms can arise even in younger women post-childbirth or due to physical strain."
+                },
+                {
+                    question: "How long does surgical recovery usually take?",
+                    answer: "Most women recover within a few weeks and resume normal activity with guided care."
+                },
+                {
+                    question: "Are these treatments covered by insurance?",
+                    answer: "Yes. We accept most major health plans and also offer maternity packages that include pelvic health checks."
+                }
+            ],
+
+            customCta: {
+                heading: "Restore Your Quality of Life",
+                description: "Book a consultation with Stork Hospital, where women’s wellness is cared for with skill and heart in Hyderabad. Take the first step toward lasting comfort.",
+                buttonText: "Schedule Pelvic Health Consult"
+            },
+            meta: {
+                duration: "Full Rehab & Cycle",
+                anesthesia: "N/A / Sedation (if surgical)",
+                hospitalStay: "Outpatient / Daycare",
+                recoveryTime: "Case Dependent",
+                successRate: "High Functional Improvement"
+            },
+            reviewedBy: {
+                name: "Stork Urogynecology Team",
+                role: "Urogynecologists & Pelvic Floor Therapists",
+                experience: "Experts in Female Pelvic Health & Rehab"
+            }
+        }
+    }
+
+    if (slug === "postpartum-care") {
+        return {
+            slug: slug,
+            title: "Postpartum Care – Stork Hospital, Hyderabad",
+            subheading: "Healing, Restoration, and Empowering Support for New Mothers",
+            tagline: "A focused, nurturing phase of physical recovery and emotional adjustment as you transition into motherhood.",
+            breadcrumbTitle: "Postpartum Care",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
+            shortDescription: `Bringing a baby into the world is a powerful experience, but what follows—the postpartum phase—is equally significant. This period, often overlooked, involves the mother’s physical recovery, emotional adjustment, and adaptation to life with a newborn. At Stork Hospital, Hyderabad, postpartum care is not just a follow-up—it’s a focused, nurturing phase of healing, restoration, and personalized support designed to help new mothers transition smoothly into motherhood.
+
+Our approach is recognized as part of a patient-first care experience, with women’s wellness clinic support and trusted maternity and fertility care under one roof.`,
+
+            overview: {
+                heading: "Why Stork Hospital is the Trusted Name for Postpartum Care in Hyderabad",
+                intro: "At Stork Hospital, our postpartum care isn’t a one-size-fits-all checklist—it’s a continuous, personalized support system tailored to your unique recovery:",
+                items: [
+                    "Trained Postnatal Experts, OB-GYNs, and Lactation Coaches",
+                    "Emphasis on Whole-Mother Healing—Physical + Emotional",
+                    "Continuity of Care from Delivery Room to Recovery",
+                    "Real-Time Breastfeeding Guidance & Family Education",
+                    "Respectful Listening, Thoughtful Advice, and Non-Judgmental Support",
+                    "Hospital with caring nursing staff and affordable treatment packages for families"
+                ]
+            },
+            fullDescription: [
+                "Post-delivery care is essential to detect and manage several health aspects that arise after childbirth. From healing of delivery wounds to emotional screening and breastfeeding support, we ensure your transition is safe and supported. We also offer online doctor consultation in Hyderabad and virtual postpartum check-ins."
+            ],
+
+            conditionsHeading: "What Does Postpartum Care Help With?",
+            conditionsTreated: [
+                "Healing of cesarean or vaginal delivery wounds",
+                "Managing postpartum bleeding and uterine shrinkage",
+                "Breastfeeding initiation and support",
+                "Mood swings, irritability, or signs of postpartum depression",
+                "Bowel or bladder challenges",
+                "Fatigue, joint discomfort, and sleep irregularities",
+                "Nutrient replenishment and dietary adjustment",
+                "Intimacy, sexual health, and future fertility planning"
+            ],
+
+            procedureHeading: "What You’ll Receive at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Clinical Monitoring & Medical Check-ups",
+                    description: "Postnatal reviews during weeks 2 and 6. Monitoring of uterus, bleeding, stitches, and vitals. Management of chronic conditions like thyroid or BP."
+                },
+                {
+                    title: "Breastfeeding & Newborn Feeding Support",
+                    description: "Expert assistance with latching, positions, milk supply issues, and introduction to breast pumps or combination feeding (if necessary)."
+                },
+                {
+                    title: "Nutrition & Energy Rebuilding",
+                    description: "Recovery-focused diet plans, supplement guidance (iron, calcium), and practical hydration strategies for new mothers."
+                },
+                {
+                    title: "Emotional and Mental Health Wellness",
+                    description: "Screening for mood disorders, counselling for anxiety or burnout, and mind-body balance strategies for emotional stability."
+                },
+                {
+                    title: "Reproductive Health & Contraception",
+                    description: "Personalized birth spacing advice and discussion of safe contraceptive options as you transition after birth."
+                }
+            ],
+
+            benefitsHeading: "Who Should Prioritize Postnatal Support?",
+            benefits: [
+                "First-time moms adjusting to physical and emotional changes",
+                "Women recovering from surgery or assisted births",
+                "Mothers with a history of postpartum complications",
+                "Those managing health issues like thyroid imbalance or anemia",
+                "Women experiencing feeding difficulties or bonding issues",
+                "Families requiring guidance in newborn care"
+            ],
+
+            risks: [],
+            recoveryHeading: "Beyond the Hospital: Recovery That Comes Home With You",
+            recoveryTimeline: [
+                "Guidance on newborn sleep and feeding rhythms",
+                "Support for pain, bleeding, and personal care at home",
+                "Emotional check-ins and advice on returning to work",
+                "Vaccination reminders and pediatric referrals",
+                "Ongoing availability for postnatal questions or concerns"
+            ],
+
+            faqHeading: "FAQs – Postpartum Care at Stork Hospital",
+            faqs: [
+                {
+                    question: "How soon should I see a doctor after childbirth?",
+                    answer: "Ideally within 10–14 days for your first check-up and again around 6 weeks, unless advised otherwise."
+                },
+                {
+                    question: "I feel “off” emotionally—what should I do?",
+                    answer: "Please speak to us. Feeling overwhelmed is common, and our psychologists and counselors are here to support you confidentially."
+                },
+                {
+                    question: "Will you help me with my baby’s sleep and feeding routines?",
+                    answer: "Yes. Our postpartum nurses and lactation experts provide detailed guidance on soothing, feeding, and Establishing newborn routines."
+                },
+                {
+                    question: "Can I discuss family planning now?",
+                    answer: "Absolutely. During your postnatal visits, we help you choose safe and effective birth control options based on your preferences and health."
+                }
+            ],
+
+            customCta: {
+                heading: "Begin Your Healing Journey",
+                description: "Experience patient-first care and healing at Stork Hospital—the best hospital for women’s health in Hyderabad. We’re with you every step of the way.",
+                buttonText: "Schedule Postpartum Visit"
+            },
+            meta: {
+                duration: "Postnatal Cycle (6-8 Weeks)",
+                anesthesia: "N/A",
+                hospitalStay: "Check-up Based",
+                recoveryTime: "Ongoing Support",
+                successRate: "Nurturing Outcomes"
+            },
+            reviewedBy: {
+                name: "Stork Postnatal Care Team",
+                role: "OB-GYNs & Lactation Specialists",
+                experience: "Experts in Maternal Recovery & Newborn Care"
+            }
+        }
+    }
+
+    if (slug === "prenatal-care") {
+        return {
+            slug: slug,
+            title: "Prenatal Care – Stork Hospital, Hyderabad",
+            subheading: "Nurturing Your Pregnancy Journey with Expert Care",
+            tagline: "Holistic support combining advanced diagnostics with empathy for mother and baby's well-being.",
+            breadcrumbTitle: "Prenatal Care",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/motherhood",
+            shortDescription: `Prenatal care is a structured and ongoing medical approach that supports women throughout their pregnancy journey. It involves regular check-ups, timely screenings, nutritional counseling, and continuous monitoring to ensure the well-being of both mother and baby. At Stork Hospital, Hyderabad, we provide holistic prenatal care that combines advanced diagnostics with warmth, empathy, and personalized attention—so every expecting mother feels confident and cared for at every stage.
+
+We are a multispecialty hospital in Telangana offering pregnancy care in Hyderabad, and are known as one of the most trusted maternity hospitals for complete care from conception to delivery.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Prenatal Care in Hyderabad?",
+                intro: "At Stork Hospital, we treat pregnancy as more than a medical event—it’s a life-changing journey, and we walk every step with you:",
+                items: [
+                    "Expert Obstetricians & Maternal-Fetal Medicine Specialists",
+                    "In-House Labs & Real-Time Ultrasound Imaging",
+                    "Safe, Private, and Woman-Friendly Infrastructure",
+                    "24x7 Emergency Support for High-Risk Pregnancies",
+                    "Wellness Support: Yoga, Diet, Mental Health Counseling",
+                    "Continuity of Care—from First Scan to Final Push"
+                ]
+            },
+            fullDescription: [
+                "Option to book an appointment online at Stork Hospital for added convenience. We also support women dealing with PCOS management, thyroid issues, or chronic illness before or during pregnancy."
+            ],
+
+            conditionsHeading: "Symptoms / Conditions it Helps Manage",
+            conditionsTreated: [
+                "Pregnancy-related high blood pressure or diabetes",
+                "Anemia and thyroid imbalances",
+                "Abnormal fetal growth or low amniotic fluid",
+                "Placenta-related concerns",
+                "Risks of preterm labor or miscarriage",
+                "Genetic or chromosomal concerns (through early screenings)"
+            ],
+
+            procedureHeading: "Trimester-Based Care at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "First Trimester (0–12 Weeks)",
+                    description: "Pregnancy confirmation, health assessments (thyroid, blood sugar, Rh typing), nutritional guidance, and baseline genetic risk screening."
+                },
+                {
+                    title: "Second Trimester (13–28 Weeks)",
+                    description: "Anomaly scan, glucose tolerance test, iron/calcium supplementation, and growth scans to monitor development."
+                },
+                {
+                    title: "Third Trimester (29 Weeks – Delivery)",
+                    description: "Monitoring labor signs, final growth scans, Doppler studies, birth planning, and breastfeeding preparation."
+                },
+                {
+                    title: "Post-Delivery Continuity",
+                    description: "Postnatal check-ups, lactation support, emotional well-being sessions, and newborn care education."
+                }
+            ],
+
+            benefitsHeading: "Who Should Receive Prenatal Care?",
+            benefits: [
+                "All pregnant women from the moment of conception",
+                "Women above 35 or under 18 years of age",
+                "Those with previous pregnancy complications",
+                "Women managing chronic conditions (PCOS, diabetes, epilepsy)",
+                "Expecting twins or multiples",
+                "Families with a family history of genetic conditions"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Aftercare",
+            recoveryTimeline: [
+                "Postnatal check-ups to monitor physical recovery",
+                "Lactation support and real-time breastfeeding guidance",
+                "Emotional well-being sessions for postpartum stress",
+                "Newborn care education for first-time parents",
+                "Virtual doctor appointments and online consultation availability"
+            ],
+
+            faqHeading: "FAQs about Prenatal Care",
+            faqs: [
+                {
+                    question: "How early should I start prenatal visits?",
+                    answer: "Ideally, as soon as you miss your period and confirm pregnancy. Early care ensures early detection of risks."
+                },
+                {
+                    question: "How many prenatal visits are required?",
+                    answer: "Typically: Monthly till 28 weeks, biweekly till 36 weeks, and weekly until delivery."
+                },
+                {
+                    question: "Are prenatal vitamins necessary?",
+                    answer: "Yes. Folic acid, iron, calcium, and vitamin D are crucial for fetal development and maternal health."
+                },
+                {
+                    question: "Can I exercise during pregnancy?",
+                    answer: "Absolutely! With your doctor’s approval, moderate walking, stretching, and pregnancy yoga are encouraged."
+                }
+            ],
+
+            customCta: {
+                heading: "Your Partner in Every Trimester",
+                description: "Experience patient-first maternal care at Stork Hospital—the best hospital for women’s health in Hyderabad. Book your visit today.",
+                buttonText: "Schedule Prenatal Consult"
+            },
+            meta: {
+                duration: "Full Pregnancy Cycle",
+                anesthesia: "N/A",
+                hospitalStay: "Outpatient Visits",
+                recoveryTime: "Transition to Postnatal",
+                successRate: "98% Positive Outcomes"
+            },
+            reviewedBy: {
+                name: "Stork Obstetric Care Team",
+                role: "Senior OB-GYNs & Fetal Medicine Experts",
+                experience: "Maternal & Prenatal Health Specialists"
+            }
+        }
     }
 
     if (slug === "cancer-pain-management") {
@@ -3897,21 +4993,22 @@ At Stork Multispecialty Hospital, Hyderabad, our podiatry and dermatology specia
         }
     }
 
-    if (slug === "diabetic-foot-ulcers") {
+    if (slug === "diabetic-foot-ulcer") {
         return {
             slug: slug,
             title: "Diabetic Foot Ulcer – Stork Hospital, Hyderabad",
             subheading: "Dedicated Foot Health for Diabetic Patients",
+            tagline: "Multidisciplinary wound healing and vascular expertise to protect mobility and prevent complications.",
             breadcrumbTitle: "Diabetic Foot Ulcer",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Diabetes & Endocrinology",
+            departmentHref: "/services/endocrinology",
             shortDescription: `A diabetic foot ulcer is a wound that forms on the foot of someone living with diabetes, often due to a combination of nerve damage, poor circulation, and slow healing. Many patients don’t feel pain from these ulcers because of diabetic neuropathy, allowing the wound to worsen before it’s noticed. Without urgent and proper care, the infection risk is high, and in severe cases, amputation may become necessary.
 
 At Stork Multispecialty Hospital, Hyderabad, our diabetic foot care program brings together wound healing expertise, vascular assessment, and blood sugar management under one roof. Our mission is to close wounds faster, prevent complications, and protect patients’ long-term mobility and independence.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Diabetic Foot Ulcer Care",
-                intro: "Comprehensive care for diabetic foot health.",
+                intro: "Our dedicated wound care unit utilizes advanced vascular mapping and reconstructive techniques to maximize salvage rates:",
                 items: [
                     "Expert medical team including diabetologists, vascular surgeons, and podiatry-trained nurses",
                     "In-house diagnostic center in Hyderabad for imaging, vascular studies, and infection testing",
@@ -3922,7 +5019,9 @@ At Stork Multispecialty Hospital, Hyderabad, our diabetic foot care program brin
                     "Prevention-focused follow-up plans tailored to each patient"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The core of our limb salvage program is the integration of metabolic control with surgical debridement and advanced vascular intervention. We focus on restoring blood flow to ischemic areas while utilizing pressure-relief (offloading) technologies to ensure the wound remains protected during the delicate healing phase."
+            ],
 
             conditionsHeading: "Recognizing the Warning Signs Early",
             conditionsTreated: [
@@ -3936,30 +5035,37 @@ At Stork Multispecialty Hospital, Hyderabad, our diabetic foot care program brin
             procedureHeading: "How We Manage Diabetic Foot Ulcers",
             procedureSteps: [
                 {
-                    title: "Assessment",
-                    description: "Comprehensive examination of both feet, Blood glucose testing and optimization, Evaluation of blood flow with Doppler or angiographic studies."
+                    title: "Step 1 – Assessment",
+                    description: "Comprehensive foot examination, blood glucose optimization, and vascular flow studies using Doppler or angiographic mapping."
                 },
                 {
-                    title: "Wound Treatment",
-                    description: "Careful cleaning and debridement to remove damaged tissue, Antibiotics for active or potential infection, Moisture-balanced dressings to speed up healing, Pressure relief using orthopedic footwear or casts."
+                    title: "Step 2 – Wound Treatment",
+                    description: "Surgical debridement to remove non-viable tissue, moisture-balanced dressings, infection-targeted antibiotics, and orthopedic offloading."
                 },
                 {
-                    title: "Advanced Options",
-                    description: "Skin grafts or local flap surgeries for persistent wounds, Vascular procedures to improve blood supply when circulation is poor, Hyperbaric oxygen therapy for stubborn or high-risk ulcers."
+                    title: "Step 3 – Advanced Options",
+                    description: "Utilization of skin grafts, local flap reconstruction, vascular revascularization, or hyperbaric oxygen therapy for high-risk wounds."
                 }
             ],
 
-            benefitsHeading: "Your Care Journey with Us",
+            benefitsHeading: "Healing & Limb Preservation Goals",
             benefits: [
+                "Prevents amputation via early intervention",
+                "Accelerates wound closure using advanced dressings",
+                "Restores blood supply through vascular procedures",
+                "Orthopedic offloading for pressure relief",
+                "Long-term prevention and inspection education"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Care Journey with Us",
+            recoveryTimeline: [
                 "Immediate check-up by a diabetic foot specialist",
                 "Testing to identify circulation issues and infection risk",
                 "Creation of a custom care plan addressing wound healing and diabetes control",
                 "Frequent monitoring to track healing progress",
                 "Education and preventive strategies for long-term foot protection"
             ],
-
-            risks: [],
-            recoveryTimeline: [],
 
             faqHeading: "FAQs – Diabetic Foot Ulcer",
             faqs: [
@@ -3982,21 +5088,132 @@ At Stork Multispecialty Hospital, Hyderabad, our diabetic foot care program brin
             ],
 
             customCta: {
-                heading: "Schedule Your Diabetic Foot Assessment",
-                description: "If you notice any foot wound, swelling, or signs of infection, act quickly. Book an appointment at Stork Hospital to see a diabetic foot care specialist in Hyderabad and get advanced treatment that safeguards your health and mobility.",
-                buttonText: "Schedule Assessment"
+                heading: "Safeguard Your Foot Health and Mobility",
+                description: "If you notice a foot wound or signs of infection, act quickly. Book an appointment at Stork Hospital to see a specialist and get advanced limb-saving care.",
+                buttonText: "Schedule Foot Assessment"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "Local / None",
-                hospitalStay: "Outpatient / Inpatient",
-                recoveryTime: "Weeks to Months",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "Local / General (if surgical)",
+                hospitalStay: "Outpatient / 1–3 Days",
+                recoveryTime: "4–12 Weeks",
+                successRate: "High Wound Closure"
             },
             reviewedBy: {
-                name: "Dr. Srikanth Goud",
-                role: "Senior Podiatrist",
-                experience: "10+ Years Experience"
+                name: "Stork Wound Care Team",
+                role: "Diabetologists & Vascular Specialists",
+                experience: "Experts in Diabetic Foot Salvage & Reconstruction"
+            }
+        }
+    }
+
+    if (slug === "pleural-tapping") {
+        return {
+            slug: slug,
+            title: "Pleural Tapping (Thoracentesis) – Stork Hospital, Hyderabad",
+            subheading: "Safe Fluid Removal for Better Breathing & Accurate Diagnosis",
+            tagline: "Safe and minimally invasive procedure to restore breath and identify the root cause of fluid accumulation.",
+            breadcrumbTitle: "Pleural Tapping",
+            category: "General Medicine",
+            departmentHref: "/services/general-medicine",
+            shortDescription: `Fluid accumulation around the lungs (pleural effusion) can cause breathlessness, chest discomfort, and reduced lung function. At Stork Multispecialty Hospital, Hyderabad, we offer Pleural Tapping (Thoracentesis)—a safe and minimally invasive procedure to remove excess fluid and identify the underlying cause.
+            
+Our expert team ensures quick relief from symptoms along with precise diagnosis using advanced techniques.`,
+
+            overview: {
+                heading: "What is Pleural Tapping (Thoracentesis)?",
+                intro: "Pleural tapping is a specialized procedure in which a thin needle is inserted into the pleural space — the area between the lungs and the chest wall — to achieve multiple goals:",
+                items: [
+                    "Remove excess fluid to relieve pressure and pain",
+                    "Analyze the fluid for precise medical diagnosis",
+                    "Relieve breathing difficulty and restore lung function"
+                ]
+            },
+            fullDescription: [
+                "The procedure serves a dual role at Stork: acting as a rapid therapeutic intervention for emergency breathlessness and a critical diagnostic tool to identify underlying conditions such as infections, cardiac failure, or malignancy."
+            ],
+
+            conditionsHeading: "Symptoms of Pleural Effusion",
+            conditionsTreated: [
+                "Shortness of breath",
+                "Chest pain (especially on deep breathing)",
+                "Dry cough",
+                "Reduced exercise tolerance",
+                "Heaviness or pressure sensation in the chest"
+            ],
+
+            procedureHeading: "Procedure Overview",
+            procedureSteps: [
+                {
+                    title: "Preparation & Anesthesia",
+                    description: "The patient is positioned comfortably, usually sitting. Local anesthesia is administered to numb the specific area, ensuring minimal discomfort."
+                },
+                {
+                    title: "Fluid Drainage",
+                    description: "A thin needle is carefully inserted into the pleural space, often under ultrasound guidance, and fluid is slowly drained for relief and analysis."
+                },
+                {
+                    title: "Finalization",
+                    description: "Samples are sent for laboratory testing, a sterile dressing is applied, and the patient undergoes a short 15–30 minute observation period."
+                }
+            ],
+
+            benefitsHeading: "Why Choose Stork Hospital?",
+            benefits: [
+                "Experienced pulmonologists and critical care team",
+                "Ultrasound-guided pleural tapping for maximum precision",
+                "Strict sterile techniques to prevent infection",
+                "On-site diagnostic lab for quick fluid analysis",
+                "Minimal discomfort and quick recovery path",
+                "Convenient day-care procedure in most cases"
+            ],
+
+            risks: [],
+            recoveryHeading: "Diagnostic & Therapeutic Utility",
+            recoveryTimeline: [
+                "Identify causes like TB (Tuberculosis) or pneumonia",
+                "Detect cancer-related effusions via cell analysis",
+                "Monitor heart, liver, or kidney disease impact",
+                "Immediate relief from large fluid collections",
+                "Improved lung expansion and respiratory comfort"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Pleural Tapping",
+            faqs: [
+                {
+                    question: "Is pleural tapping painful?",
+                    answer: "No. It is done under local anesthesia, so discomfort is minimal. Patients typically only feel a slight pressure during the procedure."
+                },
+                {
+                    question: "Is it a risky procedure?",
+                    answer: "It is generally safe when performed by trained specialists. At Stork, our use of ultrasound guidance ensures maximum safety and reduces complications."
+                },
+                {
+                    question: "How much fluid can be removed?",
+                    answer: "It depends on the patient’s condition and the total accumulation, but enough is removed to relieve symptoms safely and effectively."
+                },
+                {
+                    question: "Will the fluid come back?",
+                    answer: "It depends on the underlying cause. Our team will perform a detailed analysis to manage the root issue and prevent recurrence."
+                }
+            ],
+
+            customCta: {
+                heading: "Relieve Breathlessness – Get Treated Early",
+                description: "Ignoring pleural effusion can lead to worsening lung function. Book an appointment at Stork Hospital today for safe and effective pleural tapping.",
+                buttonText: "Schedule Procedure"
+            },
+            meta: {
+                duration: "15–30 Minutes",
+                anesthesia: "Local",
+                hospitalStay: "Day-care",
+                recoveryTime: "Quick / Same Day",
+                successRate: "Immediate Relief"
+            },
+            reviewedBy: {
+                name: "Stork Pulmonology Team",
+                role: "Pulmonologists & Critical Care Specialists",
+                experience: "Experts in Thoracentis & Interventional Pulmonology"
             }
         }
     }
@@ -4113,7 +5330,8 @@ Our center is a trusted diagnostic center in Hyderabad, recognized for our lab t
             slug: slug,
             title: "Deep Vein Thrombosis (DVT) – Stork Hospital, Hyderabad",
             subheading: "Immediate, Expert Attention for Blood Clots in the Deep Veins",
-            breadcrumbTitle: "DVT",
+            tagline: "Rapid diagnostics, advanced treatment options, and preventive strategies to manage DVT effectively.",
+            breadcrumbTitle: "DVT Treatment",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
             shortDescription: `Deep Vein Thrombosis is a condition where a blood clot forms in a deep vein, most often in the legs. This blockage can disrupt circulation and cause swelling, discomfort, and skin color changes. The greatest danger occurs if a part of the clot travels to the lungs, creating a pulmonary embolism, which is a medical emergency. Quick action and proper treatment are essential to prevent life-threatening complications.
@@ -4122,7 +5340,7 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
 
             overview: {
                 heading: "Why Patients Rely on Stork Hospital for DVT Management",
-                intro: "Comprehensive vascular care for clot management.",
+                intro: "Trust Stork Hospital for safe, expert Deep Vein Thrombosis care in Hyderabad:",
                 items: [
                     "Dedicated vascular specialists trained in both medical and interventional clot care",
                     "Advanced diagnostic center in Hyderabad with Doppler ultrasound and high-resolution imaging",
@@ -4147,15 +5365,15 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
             procedureSteps: [
                 {
                     title: "Accurate Diagnosis",
-                    description: "Review of symptoms and medical history, Doppler ultrasound to pinpoint clot location and assess blood flow, Blood tests like D-dimer to support or rule out the diagnosis."
+                    description: "Review of symptoms and medical history, followed by Doppler ultrasound to pinpoint clot location and assess blood flow. Blood tests like D-dimer are used to support or rule out the diagnosis."
                 },
                 {
                     title: "Medical Treatment",
-                    description: "Blood thinners to stop clot growth and reduce the risk of further clots, Clot-busting medications for severe or high-risk cases, Compression stockings to improve circulation and reduce swelling."
+                    description: "Blood thinners to stop clot growth and reduce the risk of further clots. Clot-busting medications for severe or high-risk cases. Compression stockings to improve circulation and reduce swelling."
                 },
                 {
                     title: "Minimally Invasive & Surgical Options",
-                    description: "Catheter-directed thrombolysis to break down clots directly at the site, Venous stenting if a narrowed vein contributes to clot formation."
+                    description: "Catheter-directed thrombolysis to break down clots directly at the site. Venous stenting if a narrowed vein contributes to clot formation."
                 }
             ],
 
@@ -4169,7 +5387,12 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryTimeline: [
+                "Immediate symptom relief with medication (Days 1-3)",
+                "Transition to blood thinner management (Ongoing)",
+                "Activity level assessment and compression therapy (Weeks 1-2)",
+                "Full long-term management evaluation (3-6 Months)"
+            ],
 
             faqHeading: "FAQs – Deep Vein Thrombosis Treatment",
             faqs: [
@@ -4193,15 +5416,15 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
 
             customCta: {
                 heading: "Book an Urgent DVT Assessment",
-                description: "If you notice swelling, pain, or warmth in one leg, don’t delay. Book an appointment at Stork Hospital to see a vascular specialist in Hyderabad and receive expert, timely care for Deep Vein Thrombosis.",
-                buttonText: "Book Urgent Assessment"
+                description: "If you notice swelling, pain, or warmth in one leg, don’t delay. Book an appointment at Stork Hospital to see a vascular specialist in Hyderabad and receive expert, timely care.",
+                buttonText: "Book Appointment"
             },
             meta: {
                 duration: "Varies",
                 anesthesia: "None / Local",
                 hospitalStay: "Outpatient / Inpatient",
-                recoveryTime: "Weeks to Months",
-                successRate: "High"
+                recoveryTime: "3-6 Months (Management)",
+                successRate: "High with Early Care"
             },
             reviewedBy: {
                 name: "Dr. Abhinav Reddy",
@@ -4323,27 +5546,30 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons perform ear surger
             slug: slug,
             title: "Elbow Pain Treatment – Stork Hospital, Hyderabad",
             subheading: "Understanding Elbow Pain and Its Impact",
+            tagline: "Specializing in diagnosing and managing all types of elbow pain through a personalized care approach.",
             breadcrumbTitle: "Elbow Pain",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `The elbow plays a crucial role in daily arm function, and pain in this area can hinder simple tasks like lifting, bending, or even writing. Whether due to sports injury, nerve compression, arthritis, or repetitive motion, elbow pain needs expert evaluation and timely treatment. At Stork Multispecialty Hospital, Hyderabad, we specialize in diagnosing and managing all types of elbow pain with a personalized care approach.
 
 If you're looking for expert elbow pain treatment in Hyderabad, our orthopedic team ensures accurate diagnosis, compassionate care, and long-term relief.`,
 
             overview: {
                 heading: "Why Stork Hospital for Elbow Care in Hyderabad?",
-                intro: "Integrated orthopedic care for complex elbow disorders.",
+                intro: "Stork Hospital offers integrated orthopedic care with specialized focus on upper limb conditions, including complex elbow disorders:",
                 items: [
-                    "Stork Hospital offers integrated orthopedic care with specialized focus on upper limb conditions",
                     "Experienced orthopedic surgeon in Hyderabad with upper limb expertise",
                     "In-house diagnostics: Digital X-ray, ultrasound, MRI",
                     "Surgical and non-surgical treatment pathways",
                     "Walk-in clinic near Kondapur with short wait times",
                     "Hospitals accepting insurance in Hyderabad for orthopedic services",
-                    "Post-treatment physiotherapy and occupational therapy support"
+                    "Post-treatment physiotherapy and occupational therapy support",
+                    "Focus on affordable orthopedic treatment and patient-first care"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The elbow plays a crucial role in daily arm function, and pain in this area can hinder simple tasks like lifting, bending, or even writing. Whether due to sports injury, nerve compression, arthritis, or repetitive motion, elbow pain needs expert evaluation and timely treatment."
+            ],
 
             conditionsHeading: "Conditions We Commonly Treat",
             conditionsTreated: [
@@ -4356,35 +5582,46 @@ If you're looking for expert elbow pain treatment in Hyderabad, our orthopedic t
                 "Ligament injuries and instability"
             ],
 
-            procedureHeading: "Your Consultation and Treatment Journey",
+            procedureHeading: "How We Treat Elbow Pain at Stork",
             procedureSteps: [
                 {
-                    title: "Evaluation & Diagnosis",
-                    description: "Evaluation by a leading orthopedic specialist in Hyderabad, Diagnostic imaging (X-ray, MRI, Ultrasound) if required, Detailed assessment of mobility and pain levels."
+                    title: "Medication Management",
+                    description: "Targeted pain relief using NSAIDs, muscle relaxants, and customized pain management protocols."
                 },
                 {
-                    title: "Non-Surgical Management",
-                    description: "Medication management (NSAIDs, muscle relaxants), Physical therapy to improve flexibility and strength, Bracing or splinting to restrict motion and support healing."
+                    title: "Physical Therapy",
+                    description: "Individualized programs to improve flexibility, strength, and restoration of joint function."
                 },
                 {
-                    title: "Advanced Interventions",
-                    description: "Corticosteroid injections for inflammation and pain control, Elbow arthroscopy (minimally invasive surgical procedure) when conservative measures fail, Post-procedure physiotherapy for optimal recovery."
+                    title: "Interventional Care",
+                    description: "Corticosteroid injections for inflammation and bracing or splinting to restrict motion and support healing."
+                },
+                {
+                    title: "Advanced Surgery",
+                    description: "Minimally invasive elbow arthroscopy for complex conditions when conservative care is insufficient."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital?",
+            benefitsHeading: "Your Consultation at Stork Hospital",
             benefits: [
-                "Focus on pain relief, joint function restoration, and prevention of recurrence",
-                "Personalized treatment plans tailored to age and activity level",
-                "Comprehensive diagnostic center and orthopedic unit under one roof",
-                "Affordable orthopedic treatment and patient-first care",
-                "Online doctor consultation available for initial evaluation"
+                "Evaluation by a leading orthopedic specialist in Hyderabad",
+                "Precise diagnostic imaging (MRI/X-ray) for accurate mapping",
+                "Discussion of conservative and surgical treatment options",
+                "Initiation of evidence-based therapy for rapid recovery",
+                "Integrated care experience with focused upper limb expertise"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Long-Term Mobility & Recovery",
+            recoveryTimeline: [
+                "Restoration of full joint function and flexibility",
+                "Prevention of recurrence through occupational therapy",
+                "Home-based exercise protocols for sustained health",
+                "Virtual follow-ups for ongoing recovery guidance",
+                "Coordinated care through our comprehensive diagnostic center"
+            ],
 
-            faqHeading: "FAQs – Elbow Pain Services",
+            faqHeading: "FAQs – Elbow Pain Services at Stork Hospital",
             faqs: [
                 {
                     question: "Is tennis elbow a serious condition?",
@@ -4405,21 +5642,21 @@ If you're looking for expert elbow pain treatment in Hyderabad, our orthopedic t
             ],
 
             customCta: {
-                heading: "Book an Appointment Today",
-                description: "If elbow pain is disrupting your routine, don’t wait. Book an appointment at Stork Hospital to meet an experienced orthopedic surgeon in Hyderabad and begin your journey to recovery with confidence.",
-                buttonText: "Book Appointment"
+                heading: "Book a Consultation Today",
+                description: "If elbow pain is disrupting your routine, don’t wait. Book an appointment at Stork Hospital and begin your journey to recovery with confidence.",
+                buttonText: "Schedule Elbow Consult"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Local / General",
-                hospitalStay: "Outpatient / Day-care",
-                recoveryTime: "Weeks to Months",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / Sedation (if surgical)",
+                hospitalStay: "Outpatient / Daycare",
+                recoveryTime: "Case Dependent",
+                successRate: "High Recovery Potential"
             },
             reviewedBy: {
-                name: "Dr. Kiran Kumar",
-                role: "Senior Orthopedic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Upper Limb & Orthopedic Specialists",
+                experience: "Experts in Shoulder & Elbow Disorders"
             }
         }
     }
@@ -4642,66 +5879,78 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists perform ESWL 
             slug: slug,
             title: "Fertility Services – Stork Hospital, Hyderabad",
             subheading: "Your Journey to Parenthood Begins Here",
+            tagline: "Personalized care, compassionate support, and the latest in reproductive medicine—all under one roof.",
             breadcrumbTitle: "Fertility Services",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Fertility & Reproductive Medicine",
+            departmentHref: "/services/fertility",
             shortDescription: `At Stork Hospital, Hyderabad, we understand the emotional, physical, and psychological journey couples go through when facing fertility challenges. Our fertility services are designed to provide personalized care, compassionate support, and the latest in reproductive medicine—all under one roof. Whether you’re just starting your journey or seeking advanced options, we’re here to support you at every step.
 
 As one of the most trusted fertility care hospitals in Hyderabad, our team of fertility specialists, embryologists, and counselors work collaboratively to create customized treatment plans that align with your goals, health needs, and values.`,
 
             overview: {
-                heading: "Comprehensive Fertility Treatments We Offer",
-                intro: "Evidence-based fertility services from basic support to advanced IVF.",
+                heading: "Why Choose Stork Hospital for Fertility Care?",
+                intro: "A dedicated center focused on ethical communication and transparent, compassionate reproductive care:",
                 items: [
-                    "Ovulation induction and cycle monitoring",
-                    "Intrauterine insemination (IUI)",
-                    "In-vitro fertilization (IVF)",
-                    "Intracytoplasmic sperm injection (ICSI)",
-                    "Fertility preservation (egg, sperm, embryo freezing)",
-                    "Donor egg and sperm programs",
-                    "Preimplantation genetic testing (PGT)",
-                    "Reproductive surgeries (laparoscopy, hysteroscopy)"
+                    "Dedicated fertility specialists and embryology lab on-site",
+                    "Personalized treatment cycles tailored to your condition",
+                    "Transparent, ethical communication throughout the process",
+                    "Supportive environment with emotional counseling available",
+                    "Affordable IVF and IUI packages",
+                    "Insurance-accepted fertility treatments in Hyderabad",
+                    "Discreet, compassionate care for every patient"
                 ]
             },
             fullDescription: [
-                "**When Should You See a Fertility Specialist?**",
-                "If you and your partner have been trying to conceive for more than 6–12 months without success, or if you have a known reproductive condition, seeking help early can make a significant difference. Consider a consultation if: You are over 30 and haven’t conceived after 6 months of trying, You have irregular or absent menstrual cycles, You’ve experienced multiple miscarriages, You’ve been diagnosed with endometriosis or PCOS, There’s a known sperm issue or male fertility concern, You’re planning to delay pregnancy and wish to preserve fertility."
+                "Our fertility lab is equipped with the latest in reproductive technology including Time-lapse embryo imaging, Blastocyst culture, and Laser-assisted hatching. We also offer PGT-A and PGT-M for chromosomal or genetic concerns, ensuring high success rates with frozen embryo transfer (FET)."
             ],
 
-            conditionsHeading: "Personalized Diagnosis & Planning",
+            conditionsHeading: "When Should You See a Fertility Specialist?",
             conditionsTreated: [
-                "Hormonal profiling and ultrasound scans",
-                "Semen analysis and advanced sperm function testing",
-                "Ovarian reserve testing (AMH levels, antral follicle count)",
-                "Tubal patency tests (HSG or saline infusion sonography)",
-                "Laparoscopy for evaluation and treatment of reproductive conditions"
+                "Age over 30 and non-conception after 6 months of trying",
+                "Irregular or absent menstrual cycles",
+                "Experience of multiple miscarriages",
+                "Diagnosis of endometriosis or PCOS",
+                "Sperm issues or male fertility concerns",
+                "Planning to delay pregnancy (Fertility preservation)"
             ],
 
-            procedureHeading: "Holistic Support Beyond Treatment",
+            procedureHeading: "Comprehensive Fertility Treatments We Offer",
             procedureSteps: [
                 {
-                    title: "Advanced Technologies",
-                    description: "Time-lapse embryo imaging for selection accuracy, Blastocyst culture and embryo vitrification, Laser-assisted hatching and embryo biopsy, PGT-A and PGT-M for chromosomal or genetic concerns."
+                    title: "Basic Fertility Support",
+                    description: "Ovulation induction, intrauterine insemination (IUI), and cycle monitoring for early-stage fertility support."
                 },
                 {
-                    title: "Emotional & Physical Support",
-                    description: "Nutrition and lifestyle guidance, Stress management and mindfulness programs, Fertility yoga and pelvic wellness classes, Follow-up counseling and post-treatment care."
+                    title: "Advanced Assisted Reproduction",
+                    description: "Advanced techniques including IVF, ICSI, and high success rate frozen embryo transfer (FET)."
+                },
+                {
+                    title: "Genetic & Specialized Care",
+                    description: "Preimplantation genetic testing (PGT) and reproductive surgeries like laparoscopy and hysteroscopy."
+                },
+                {
+                    title: "Fertility Preservation",
+                    description: "State-of-the-art preservation services for egg, sperm, and embryo freezing for medical or personal reasons."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Fertility Care?",
+            benefitsHeading: "Holistic Support Beyond Treatment",
             benefits: [
-                "Dedicated fertility specialists and embryology lab on-site",
-                "Personalized treatment cycles tailored to your condition",
-                "Transparent, ethical communication throughout the process",
-                "Supportive environment with emotional counseling available",
-                "Affordable IVF and IUI packages",
-                "Insurance-accepted fertility treatments in Hyderabad",
-                "Discreet, compassionate care for every patient"
+                "Nutrition and lifestyle guidance for reproductive health",
+                "Stress management and mindfulness programs",
+                "Fertility yoga and pelvic wellness classes",
+                "Follow-up counseling and intensive post-treatment care"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Personalized Diagnosis & Planning",
+            recoveryTimeline: [
+                "Hormonal profiling and regular ultrasound scans",
+                "Semen analysis and advanced sperm function testing",
+                "Ovarian reserve testing (AMH levels, antral follicle count)",
+                "Tubal patency tests (HSG or saline infusion sonography)",
+                "Laparoscopy for evaluation of reproductive conditions"
+            ],
 
             faqHeading: "FAQs – Fertility Services at Stork Hospital",
             faqs: [
@@ -4724,21 +5973,21 @@ As one of the most trusted fertility care hospitals in Hyderabad, our team of fe
             ],
 
             customCta: {
-                heading: "Take the first step toward building your family",
-                description: "Book a consultation with our fertility specialists at Stork Hospital—Hyderabad’s trusted destination for reproductive care.",
-                buttonText: "Book Consultation"
+                heading: "Take the First Step Toward Building Your Family",
+                description: "Book a consultation with our fertility specialists at Stork Hospital—Hyderabad’s trusted destination for reproductive care. Your journey starts here.",
+                buttonText: "Schedule Fertility Consultation"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Sedation",
-                hospitalStay: "Outpatient",
-                recoveryTime: "Immediate / Days",
-                successRate: "Variable"
+                duration: "Cycle-Based",
+                anesthesia: "None / Mild Sedation (Retrievals)",
+                hospitalStay: "Daycare (for retrieval)",
+                recoveryTime: "24–48 Hours",
+                successRate: "Competitive Global Standards"
             },
             reviewedBy: {
-                name: "Dr. Sunitha Reddy",
-                role: "Senior Fertility Specialist",
-                experience: "18+ Years Experience"
+                name: "Stork Fertility Team",
+                role: "Senior Fertility Specialists & Embryologists",
+                experience: "Experts in ART & Reproductive Health"
             }
         }
     }
@@ -4842,9 +6091,9 @@ FESS offers precise treatment with minimal discomfort, faster healing, and impro
                 successRate: "High"
             },
             reviewedBy: {
-                name: "Dr. Rao",
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Endoscopic Sinus Surgery"
             }
         }
     }
@@ -4854,70 +6103,81 @@ FESS offers precise treatment with minimal discomfort, faster healing, and impro
             slug: slug,
             title: "Expert Foot & Ankle Pain Management – Stork Hospital, Hyderabad",
             subheading: "Your Path to Relief from Foot & Ankle Pain",
+            tagline: "Restoring movement and relieving lower limb pain through advanced evidence-based practices and personalized treatment.",
             breadcrumbTitle: "Foot & Ankle Pain",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Every step matters. Discomfort or pain in your feet or ankles can quickly interfere with daily routines—from morning walks to work commutes. At Stork Multispecialty Hospital, Hyderabad, we recognize the importance of healthy movement and provide advanced care for foot and ankle conditions using evidence-based practices and personalized treatment.
 
 For patients seeking reliable foot and ankle pain treatment in Hyderabad, our multidisciplinary care team ensures swift diagnosis and effective relief through both medical and physical therapy options.`,
 
             overview: {
                 heading: "Why Trust Stork Hospital for Lower Limb Pain?",
-                intro: "Integrated orthopedic services for reliable foot and ankle care.",
+                intro: "Our integrated orthopedic services make Stork Hospital a trusted destination for lower limb pain:",
                 items: [
                     "Renowned foot and ankle orthopedic specialists in Hyderabad",
                     "Precision diagnostics with in-house X-rays, MRI, and ultrasound",
                     "Customized treatment plans for athletes, seniors, and professionals",
                     "Structured physiotherapy support for every stage of recovery",
                     "Walk-in availability near Kondapur and same-day appointments",
-                    "Full insurance support for orthopedic and rehabilitation services"
+                    "Full insurance support for orthopedic and rehabilitation services",
+                    "Care that’s both affordable and accessible with minimal wait time"
                 ]
             },
             fullDescription: [
-                "**What We Treat – Conditions Covered**",
-                "Ligament injuries and chronic ankle sprains, Plantar fasciitis and heel spurs, Achilles tendon ruptures and inflammation, Foot fractures and stress-related bone injuries, Flat foot, high arches, and other structural issues, Bunions, hammertoes, and deformities, Joint inflammation due to arthritis or gout, Diabetic foot care and neuropathic complications."
+                "We are committed to minimizing patient wait time and providing care that’s both affordable and accessible. We handle a wide range of conditions from chronic sprains to structural deformities and diabetic complications."
             ],
 
-            conditionsHeading: "How We Approach Foot & Ankle Treatment",
+            conditionsHeading: "What We Treat – Conditions Covered",
             conditionsTreated: [
-                "Medication therapy: Anti-inflammatory drugs, pain relief",
-                "Rehab services: Range of motion exercises, strength building, posture correction",
-                "Custom orthotic devices: Insoles, bracing, and supportive footwear",
-                "Surgical correction: Arthroscopy, tendon repair, deformity correction if required",
-                "Recovery guidance: Post-surgical rehab and progress monitoring"
+                "Ligament injuries and chronic ankle sprains",
+                "Plantar fasciitis and heel spurs",
+                "Achilles tendon ruptures and inflammation",
+                "Foot fractures and stress-related bone injuries",
+                "Flat foot, high arches, and other structural issues",
+                "Bunions, hammertoes, and deformities",
+                "Joint inflammation due to arthritis or gout",
+                "Diabetic foot care and neuropathic complications"
             ],
 
-            procedureHeading: "What Happens During Your Visit",
+            procedureHeading: "How We Approach Foot & Ankle Treatment",
             procedureSteps: [
                 {
-                    title: "Assessment",
-                    description: "Assessment by a top orthopedic consultant in Hyderabad."
+                    title: "Medication Therapy",
+                    description: "Targeted anti-inflammatory drugs and pain relief management tailored to individual needs."
                 },
                 {
-                    title: "Diagnostics",
-                    description: "Appropriate imaging or diagnostic testing."
+                    title: "Rehab Services",
+                    description: "Range of motion exercises, strength building, and posture correction to restore functionality."
                 },
                 {
-                    title: "Plan Review",
-                    description: "A detailed review of treatment options."
+                    title: "Custom Orthotic Devices",
+                    description: "Insoles, bracing, and supportive footwear designed for your specific foot structure."
                 },
                 {
-                    title: "Implementation",
-                    description: "Setup of rehab, therapy, or surgical procedures as needed."
+                    title: "Surgical Correction",
+                    description: "Arthroscopy, tendon repair, and deformity correction for complex or chronic cases."
                 }
             ],
 
-            benefitsHeading: "Patient Benefits",
+            benefitsHeading: "What Happens During Your Visit",
             benefits: [
-                "Swift diagnosis and effective relief",
-                "Minimizing patient wait time",
-                "Affordable and accessible care",
-                "Restore movement and prevent recurrence",
-                "Environment focused on recovery"
+                "Assessment by a top orthopedic consultant in Hyderabad",
+                "Appropriate imaging or diagnostic testing (MRI/X-ray)",
+                "A detailed review of conservative and surgical treatment options",
+                "Setup of rehab, therapy, or surgical procedures as needed",
+                "Focused recovery support in a hospital with no waiting time"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Your Journey to Better Foot Health",
+            recoveryTimeline: [
+                "Relief from chronic pain and functional interference",
+                "Restoration of natural movement and walkability",
+                "Progressive milestones in strength and joint stability",
+                "Prevention of recurrence through long-term recovery guidance",
+                "Virtual follow-ups and online consultation availability"
+            ],
 
             faqHeading: "Patient FAQs – Foot & Ankle Services",
             faqs: [
@@ -4940,21 +6200,21 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
             ],
 
             customCta: {
-                heading: "Let’s Get You Back on Track",
-                description: "You don’t have to live with pain or restricted movement. Book an appointment at Stork Hospital today to consult a leading orthopedic surgeon in Hyderabad and take confident steps toward recovery and better foot health.",
-                buttonText: "Book Appointment"
+                heading: "Take Confident Steps Toward Recovery",
+                description: "Book an appointment at Stork Hospital today to consult a leading orthopedic surgeon and regain your mobility without pain.",
+                buttonText: "Schedule Foot & Ankle Consult"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Local",
-                hospitalStay: "Outpatient",
-                recoveryTime: "Varies",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / Local (if surgical)",
+                hospitalStay: "Check-up / Daycare",
+                recoveryTime: "Case Dependent",
+                successRate: "High Functional Improvement"
             },
             reviewedBy: {
-                name: "Dr. Abhinandan",
-                role: "Senior Orthopedic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Foot & Ankle Team",
+                role: "Lower Limb Orthopedic Consultants",
+                experience: "Experts in Podiatric Medicine & Joint Repair"
             }
         }
     }
@@ -4964,6 +6224,7 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
             slug: slug,
             title: "Foreskin Infection – Stork Hospital, Hyderabad",
             subheading: "Expert Diagnosis and Treatment for Foreskin-Related Infections",
+            tagline: "Confidential, accurate diagnosis and targeted treatments for male genital health and long-term relief.",
             breadcrumbTitle: "Foreskin Infection",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
@@ -4973,85 +6234,86 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer co
 
             overview: {
                 heading: "Why Choose Stork Hospital for Foreskin Infection Care",
-                intro: "Specialist urological care for effective treatment and relief.",
+                intro: "Trust Stork Hospital for safe, private, and expert foreskin infection treatment in Hyderabad:",
                 items: [
                     "Specialist urologists with expertise in male genital and foreskin disorders",
                     "Diagnostic center in Hyderabad for precise identification of the infection’s cause",
                     "Advanced surgical center for cases requiring circumcision or corrective procedures",
                     "24/7 emergency hospital near Hitech City for severe infections or swelling",
                     "Insurance accepted at Stork Hospital for eligible procedures",
-                    "Walk-in clinic near Kondapur for private, same-day consultations"
+                    "Walk-in clinic near Kondapur for private, same-day consultations",
+                    "Education on prevention and hygiene to reduce recurrence risk"
                 ]
             },
             fullDescription: [
-                "**Causes of Foreskin Infections**",
-                "Poor genital hygiene, Fungal infections (Candida), Bacterial infections, STIs, Allergic reactions, Tight foreskin (phimosis), Diabetes or immune conditions.",
-                "**Symptoms of Foreskin Infection**",
-                "Redness and swelling of the foreskin, Pain during urination or sexual activity, Discharge with foul odor, Itching, burning, or soreness, Difficulty retracting the foreskin."
+                "Foreskin infections can stem from various causes including poor hygiene, fungal growth (Candida), bacterial pathogens, or allergic reactions. Prompt medical evaluation is essential to prevent chronic inflammation and scarring."
             ],
 
-            conditionsHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Causes and Common Symptoms",
             conditionsTreated: [
-                "Medical Treatment: Antifungal creams, antibiotics, antiviral therapy, mild steroid creams",
-                "Lifestyle & Hygiene: Gentle daily cleaning, keeping dry, sugar management in diabetics",
-                "Surgical Intervention: Circumcision to prevent recurrence, Preputioplasty for preservation"
+                "Redness and swelling of the foreskin",
+                "Pain or discomfort during urination or sexual activity",
+                "Discharge with a foul odor from under the foreskin",
+                "Phimosis (tight foreskin) contributing to infection",
+                "Itching, burning, or soreness of the genital area"
             ],
 
-            procedureHeading: "Recovery and Aftercare",
+            procedureHeading: "Treatment Options at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Healing Time",
-                    description: "Most infections clear within 5–10 days with proper treatment."
+                    title: "Medical Treatment",
+                    description: "Targeted therapy including antifungal creams for yeast, antibiotics for bacterial causes, antiviral therapy for STIs, and mild steroid creams to reduce acute inflammation."
                 },
                 {
-                    title: "Hygiene",
-                    description: "Continue hygiene practices to avoid recurrence."
+                    title: "Lifestyle & Hygiene Measures",
+                    description: "Guidance on gentle daily cleaning, moisture management, and blood sugar control for diabetic patients to prevent favorable environments for infection."
                 },
                 {
-                    title: "Medication",
-                    description: "Complete all prescribed medications."
-                },
-                {
-                    title: "Follow-up",
-                    description: "Return for follow-up if symptoms persist or worsen."
+                    title: "Surgical Intervention",
+                    description: "For recurrent or severe cases, circumcision provides a permanent solution. Preputioplasty is also offered for foreskin preservation while improving hygiene access."
                 }
             ],
 
-            benefitsHeading: "Benefits of Treatment",
+            benefitsHeading: "Recovery and Aftercare",
             benefits: [
-                "Quick relief from pain and itching",
-                "Prevention of complications",
-                "Long-term genital health",
-                "Reduced recurrence risk",
-                "Confidential and expert care"
+                "Most infections clear within 5–10 days with proper treatment",
+                "Quick relief from localized pain and discharge symptoms",
+                "Prevention of long-term complications like scarring (phimosis)",
+                "Continuing hygiene practices prevents future recurrence",
+                "Confidential environment for private medical concerns"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryTimeline: [
+                "Initial relief with topical/oral medication (Days 1-3)",
+                "Full resolution of acute symptoms (Days 5-10)",
+                "Hygiene monitoring phase (Ongoing)",
+                "Surgical follow-up if circumcision is performed (Weeks 2-4)"
+            ],
 
             faqHeading: "FAQs – Foreskin Infection",
             faqs: [
                 {
                     question: "Is a foreskin infection contagious?",
-                    answer: "It can be if caused by STIs or fungal infections, but not all cases are transmissible."
+                    answer: "It can be if caused by STIs or fungal infections, but not all cases are transmissible. It depends on the underlying cause identified by the urologist."
                 },
                 {
                     question: "Can it heal on its own?",
-                    answer: "Mild cases may improve with better hygiene, but medical care ensures faster recovery and prevents complications."
+                    answer: "Mild cases may improve with better hygiene, but medical care ensures faster recovery and prevents complications like scarring or recurring inflammation."
                 },
                 {
                     question: "Does circumcision prevent foreskin infections?",
-                    answer: "Yes, circumcision significantly reduces the risk of recurring infections."
+                    answer: "Yes, circumcision significantly reduces the risk of recurring infections by removing the fold of skin where bacteria and fungi typically thrive."
                 },
                 {
                     question: "Is it linked to cancer?",
-                    answer: "No, but repeated untreated infections can cause scarring and other complications."
+                    answer: "No, but repeated untreated infections can cause chronic inflammation and scarring, which makes regular medical management important."
                 }
             ],
 
             customCta: {
                 heading: "Book Your Foreskin Infection Consultation",
-                description: "If you have swelling, pain, or discharge under the foreskin, book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for expert care and lasting relief.",
+                description: "Book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for expert care and lasting relief.",
                 buttonText: "Book Appointment"
             },
             meta: {
@@ -5063,8 +6325,8 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer co
             },
             reviewedBy: {
                 name: "Dr. Nanda Kishore",
-                role: "Senior Urologist",
-                experience: "20+ Years Experience"
+                role: "Senior Consultant Urologist",
+                experience: "15+ Years Experience"
             }
         }
     }
@@ -5787,30 +7049,30 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
         return {
             slug: slug,
             title: "Hip Pain Treatment – Stork Hospital, Hyderabad",
-            subheading: "Relief and Recovery for Better Mobility",
-            breadcrumbTitle: "Hip Pain Treatment",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Hip pain can range from mild discomfort to debilitating stiffness, often affecting movement, balance, and overall mobility. Whether it’s due to age-related arthritis, injury, or overuse, ignoring persistent hip pain can lead to complications. At Stork Multispecialty Hospital, Hyderabad, we offer comprehensive diagnosis and treatment for all types of hip-related issues—delivered with clinical precision and a patient-first mindset.`,
+            subheading: "What is Hip Pain and When Should You Seek Help?",
+            tagline: "Restoring mobility and balance through comprehensive diagnostics and personalized orthopedic care.",
+            breadcrumbTitle: "Hip Pain",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Hip pain can range from mild discomfort to debilitating stiffness, often affecting movement, balance, and overall mobility. Whether it’s due to age-related arthritis, injury, or overuse, ignoring persistent hip pain can lead to complications that affect quality of life. At Stork Multispecialty Hospital, Hyderabad, we offer comprehensive diagnosis and treatment for all types of hip-related issues—delivered with clinical precision and a patient-first mindset.
+
+If you’re looking for reliable hip pain treatment in Hyderabad, Stork provides a full continuum of care—from diagnostics to rehabilitation.`,
 
             overview: {
                 heading: "Why Stork Hospital is a Trusted Choice for Hip Pain Relief",
-                intro: "A holistic approach emphasizing accurate diagnosis and tailored treatment.",
+                intro: "Our orthopedic team takes a holistic approach to managing hip pain, emphasizing accurate diagnosis and tailored treatment:",
                 items: [
-                    "Senior orthopedic surgeons with hip specialization",
+                    "Senior orthopedic surgeons in Hyderabad with hip specialization",
                     "High-end imaging: digital X-rays, MRIs, and ultrasound",
-                    "Expertise in non-surgical and surgical approaches",
+                    "Expertise in non-surgical and surgical approaches, including arthroscopy",
                     "Dedicated physiotherapy and rehab programs",
-                    "Walk-in clinic for same-day doctor appointments",
+                    "Walk-in clinic near Kondapur and same-day doctor appointments",
                     "Insurance accepted for diagnostics and procedures",
-                    "Affordable orthopedic packages with no waiting time"
+                    "Hospital with no waiting time in Hyderabad"
                 ]
             },
             fullDescription: [
-                "**Understanding Hip Pain**",
-                "Hip pain can stem from various causes like arthritis, injuries, or structural issues. Early intervention is key to preventing long-term mobility loss.",
-                "**Comprehensive Care Continuum**",
-                "From initial physical evaluation and advanced imaging to personalized medication, therapy, or surgical intervention, we support your journey to a pain-free life."
+                "We’re recognized for affordable orthopedic treatment packages and our reputation for minimizing patient wait times. Our goal is to offer a patient-first care experience that maximizes outcomes through clinical precision."
             ],
 
             conditionsHeading: "Common Causes of Hip Pain We Treat",
@@ -5825,78 +7087,81 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
                 "Avascular necrosis (AVN)"
             ],
 
-            procedureHeading: "Our Comprehensive Management Approach",
+            procedureHeading: "Our Comprehensive Hip Pain Management Approach",
             procedureSteps: [
                 {
-                    title: "Consultation & Diagnostics",
-                    description: "Evaluation by a leading orthopedic surgeon and on-site imaging to pinpoint the cause."
+                    title: "Medication & Injections",
+                    description: "Anti-inflammatories, corticosteroids, or platelet-rich plasma (PRP) therapies for targeted joint relief."
                 },
                 {
-                    title: "Conservative Management",
-                    description: "Anti-inflammatories, pain control medications, and targeted physiotherapy for strength and flexibility."
+                    title: "Focused Physiotherapy",
+                    description: "Targeted exercise plans for strength and flexibility, coordinated with our specialized rehab unit."
                 },
                 {
-                    title: "Interventional Therapies",
-                    description: "Corticosteroid or PRP injections to reduce inflammation and promote healing."
+                    title: "Minimally Invasive Surgery",
+                    description: "Hip arthroscopy for labral or soft tissue repair when conservative care is insufficient."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "Minimally invasive arthroscopy or joint replacement (partial/total) when conservative methods fail."
+                    title: "Joint Replacement Surgery",
+                    description: "Partial or total hip replacements for cases with advanced degeneration."
                 }
             ],
 
-            benefitsHeading: "Benefits of Expert Hip Care",
+            benefitsHeading: "What to Expect During Your Consultation",
             benefits: [
-                "Significant pain reduction",
-                "Improved joint mobility and balance",
-                "Personalized recovery plans",
-                "Access to advanced surgical options",
-                "Comprehensive rehabilitation under one roof"
+                "Evaluation by a leading orthopedic surgeon in Hyderabad",
+                "Imaging tests performed at our on-site diagnostic center",
+                "A customized treatment and recovery plan creation",
+                "Ongoing progress monitored through guided rehab",
+                "Integrated care with no waiting time"
             ],
 
             risks: [],
+            recoveryHeading: "Long-Term Hip Health & Recovery",
             recoveryTimeline: [
-                "Diagnosis: Same day",
-                "Therapy: Ongoing",
-                "Surgery Recovery: Varies by procedure"
+                "Reduction in joint stiffness and debilitating pain",
+                "Improvement in movement, balance, and overall mobility",
+                "Return to light daily activities within weeks for arthroscopy",
+                "Maintenance of joint health through ongoing physiotherapy",
+                "Virtual follow-ups available for post-surgical discussions"
             ],
 
-            faqHeading: "FAQs – Hip Pain Treatment",
+            faqHeading: "FAQs – Hip Pain Treatment at Stork Hospital",
             faqs: [
                 {
                     question: "Can hip pain be treated without surgery?",
-                    answer: "Yes. Many cases respond to medications, lifestyle changes, and physiotherapy."
+                    answer: "Yes. Many cases respond to medications, lifestyle modifications, and physiotherapy. Surgery is advised only when necessary."
                 },
                 {
                     question: "How do I know if I need a hip replacement?",
-                    answer: "If pain limits daily activities and resists conservative treatment, replacement may be suggested."
+                    answer: "If hip pain limits your daily activities and doesn't respond to conservative treatment, your doctor may suggest joint replacement."
                 },
                 {
                     question: "Is hip arthroscopy painful?",
-                    answer: "It’s minimally invasive with quicker recovery than open surgery. Most patients resume tasks within weeks."
+                    answer: "It’s a minimally invasive procedure with quicker recovery compared to open surgery. Most patients resume daily tasks within weeks."
                 },
                 {
                     question: "Do you accept insurance for hip treatment?",
-                    answer: "Yes. We accept insurance for orthopedic procedures and diagnostics."
+                    answer: "Yes. We are among the hospitals accepting insurance in Hyderabad, including for orthopedic procedures."
                 }
             ],
 
             customCta: {
                 heading: "Take the First Step Toward a Pain-Free Life",
-                description: "Hip pain shouldn’t stop you from living fully. Book an appointment at Stork Hospital to meet with the best orthopedic surgeon in Hyderabad.",
-                buttonText: "Book Appointment"
+                description: "Hip pain shouldn’t stop you from living fully. Book an appointment at Stork Hospital and begin your journey to recovery.",
+                buttonText: "Schedule Hip Consult"
             },
             meta: {
-                duration: "20-30 Min (Consult)",
-                anesthesia: "N/A",
-                hospitalStay: "Outpatient",
-                recoveryTime: "Variable",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / General (if surgical)",
+                hospitalStay: "Outpatient / 1-2 Days (if surgical)",
+                recoveryTime: "Case Dependent",
+                successRate: "High Functional Improvement"
             },
             reviewedBy: {
-                name: "Dr. Raghu",
-                role: "Senior Orthopedic Surgeon",
-                experience: "18+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Hip & Joint Specialists",
+                experience: "Experts in Orthopedic Surgery & Rehabilitation"
             }
         }
     }
@@ -5907,77 +7172,74 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
         return {
             slug: slug,
             title: "Hip Replacement Surgery – Stork Hospital, Hyderabad",
-            subheading: "Advanced Solutions for Lasting Relief",
-            breadcrumbTitle: "Hip Replacement Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Hip Replacement Surgery, or total hip arthroplasty, is a procedure where damaged hip joint portions are replaced with durable artificial implants. It’s typically for advanced arthritis or severe injury limiting movement. At Stork Multispecialty Hospital, Hyderabad, we combine modern surgical technology with orthopedic expertise to restore pain-free mobility and improve quality of life.`,
+            subheading: "Advanced Solutions for Lasting Hip Pain Relief",
+            tagline: "Restoring pain-free mobility through modern surgical precision and high-durability artificial joint implants.",
+            breadcrumbTitle: "Hip Replacement",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Hip Replacement Surgery, or total hip arthroplasty, is a procedure where the damaged portions of the hip joint are replaced with a durable artificial implant. It is typically advised for people suffering from advanced arthritis, significant injury, or degeneration that severely limits daily movement. The aim is to restore pain-free mobility, improve stability, and allow patients to return to their normal lifestyle.
+
+At Stork Multispecialty Hospital, Hyderabad, we combine modern surgical technology with proven orthopedic expertise. Our team prioritizes precision, safety, and patient comfort, using minimally invasive techniques wherever possible to ensure a quicker recovery.`,
 
             overview: {
                 heading: "Why Patients Prefer Stork Hospital for Hip Replacement",
-                intro: "Modern surgical technology combined with proven orthopedic expertise.",
+                intro: "At Stork Hospital, we prioritize implant accuracy and patient safety through advanced surgical protocols:",
                 items: [
-                    "Orthopedic surgeons with years of joint replacement experience",
-                    "State-of-the-art diagnostic center for X-ray, MRI, and CT",
-                    "Advanced surgical center with precision navigation",
-                    "24/7 emergency hospital near Hitech City",
-                    "Insurance accepted with complete price transparency",
-                    "Walk-in clinic for prompt consultations",
-                    "Structured physiotherapy programs for faster rehab"
+                    "Orthopedic surgeons with years of experience in joint replacement procedures",
+                    "State-of-the-art diagnostic center with X-ray, MRI, and CT imaging",
+                    "Advanced surgical center featuring precision navigation for implant accuracy",
+                    "24/7 emergency hospital near Hitech City for urgent orthopedic needs",
+                    "Insurance accepted with complete price clarity before surgery",
+                    "Walk-in clinic near Kondapur for prompt orthopedic consultations",
+                    "Structured physiotherapy programs for faster rehabilitation"
                 ]
             },
             fullDescription: [
-                "**What is Hip Replacement Surgery?**",
-                "It involves replacing damaged bone and cartilage with a high-quality artificial implant. The goal is to relieve pain, improve stability, and restore normal movement.",
-                "**Signs You Might Need Surgery**",
-                "Persistent pain, difficulty walking or bending, limited range of motion, and severe joint damage visible on imaging are key indicators."
+                "The procedure involves internal alignment correction to ensure smooth movement and long-term joint stability. We use high-quality artificial implants designed to withstand daily activity for decades."
             ],
 
-            conditionsHeading: "When is Hip Replacement Advised?",
+            conditionsHeading: "Signs You Might Need Hip Replacement Surgery",
             conditionsTreated: [
-                "Advanced Osteoarthritis",
-                "Rheumatoid Arthritis",
-                "Post-traumatic Arthritis",
-                "Avascular Necrosis (AVN)",
-                "Severe Hip Fractures",
-                "Hip Dysplasia",
-                "Ankylosing Spondylitis"
+                "Ongoing hip pain that does not respond to medication or therapy",
+                "Difficulty in walking, bending, or performing daily activities",
+                "Loss of mobility and reduced range of motion",
+                "Hip deformity or instability",
+                "Evidence of severe joint damage on imaging tests"
             ],
 
             procedureHeading: "How We Perform Hip Replacement",
             procedureSteps: [
                 {
-                    title: "Assessment & Planning",
-                    description: "Comprehensive evaluation and imaging to create a tailored surgical plan."
+                    title: "Before Surgery",
+                    description: "Comprehensive assessment, determinant imaging, and tailored surgical planning based on patient anatomy."
                 },
                 {
-                    title: "The Procedure",
-                    description: "Removing damaged tissue and placing a durable implant with alignment correction for stability."
+                    title: "During the Procedure",
+                    description: "Removal of damaged bone/cartilage and placement of a high-quality artificial implant with precision alignment."
                 },
                 {
-                    title: "Minimally Invasive Techniques",
-                    description: "Prioritizing smaller incisions and tissue preservation for quicker recovery."
-                },
-                {
-                    title: "Post-Surgery Care",
-                    description: "Pain management, early mobilization, and guided physiotherapy to restore strength."
+                    title: "After Surgery",
+                    description: "Pain management, early mobilization strategies, and guided physiotherapy to restore restoration."
                 }
             ],
 
-            benefitsHeading: "Benefits of Modern Hip Replacement",
+            benefitsHeading: "Key Objectives & Benefits",
             benefits: [
-                "Restored pain-free mobility",
-                "Improved joint stability and balance",
-                "Long-lasting implant durability (15-20 years)",
-                "Quicker return to daily activities",
-                "Enhanced quality of life"
+                "Significant improvement in quality of life and stability",
+                "Modern implants designed to last between 15–20 years",
+                "Minimally invasive techniques for reduced scaring and pain",
+                "Faster recovery through structured hospital-based rehab",
+                "Transparency in cost and insurance-linked orthopedic care"
             ],
 
             risks: [],
+            recoveryHeading: "Your Care Journey at Stork Hospital",
             recoveryTimeline: [
-                "Walking: 1-2 Days (with aid)",
-                "Light Activity: 6-12 Weeks",
-                "Full Recovery: Varies"
+                "Detailed pre-surgical testing and preparation",
+                "Assisted walking encouraged within 1–2 days after surgery",
+                "Hospital-based physiotherapy starting from immediate post-op",
+                "Return to light daily activities within 6–12 weeks",
+                "Continued outpatient rehabilitation for long-term success"
             ],
 
             faqHeading: "FAQs – Hip Replacement Surgery",
@@ -5988,7 +7250,7 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
                 },
                 {
                     question: "When will I start walking again?",
-                    answer: "Most patients are encouraged to walk with assistance within 1–2 days after surgery."
+                    answer: "In most cases, patients are encouraged to walk with assistance within 1–2 days after surgery."
                 },
                 {
                     question: "When can I resume daily tasks?",
@@ -5996,26 +7258,26 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
                 },
                 {
                     question: "Is the surgery covered under insurance?",
-                    answer: "Yes. We work with a wide network of insurance providers and ensure cost transparency."
+                    answer: "Yes. Stork Hospital works with a wide network of insurance providers and ensures cost transparency."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Hip Replacement Consultation",
-                description: "Don’t let hip pain keep you from living life to the fullest. Book an appointment at Stork Hospital to consult a specialist.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Arthroplasty Consult",
+                description: "Experience the benefits of modern joint replacement. Book an appointment at Stork Hospital to explore effective treatment options tailored to your needs.",
+                buttonText: "Schedule Hip Consult"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "1.5–3 Hours",
                 anesthesia: "General / Spinal",
-                hospitalStay: "3-5 Days",
-                recoveryTime: "6-12 Weeks",
-                successRate: "High"
+                hospitalStay: "3–5 Days",
+                recoveryTime: "6–12 Weeks",
+                successRate: "95% Stability Rate"
             },
             reviewedBy: {
-                name: "Dr. Raghu",
-                role: "Senior Joint Replacement Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Joint Replacement Specialists",
+                experience: "Experts in Arthroplasty & Minimally Invasive Orthopedics"
             }
         }
     }
@@ -6142,106 +7404,102 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
     if (slug === "hydrocele") {
         return {
             slug: slug,
-            title: "Hydrocele Treatment – Stork Hospital, Hyderabad",
-            subheading: "Advanced and Gentle Solutions for Relief",
-            breadcrumbTitle: "Hydrocele Treatment",
+            title: "Hydrocele – Stork Hospital, Hyderabad",
+            subheading: "Advanced and Gentle Solutions for Hydrocele Treatment",
+            tagline: "Expert diagnosis and modern minimally invasive surgical techniques for long-term scrotal health.",
+            breadcrumbTitle: "Hydrocele treatment",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
-            shortDescription: `A hydrocele occurs when fluid collects around one or both testicles, leading to swelling. While generally painless, it can cause heaviness or discomfort. At Stork Multispecialty Hospital, Hyderabad, our expert urologists specialize in diagnosing and treating hydroceles using modern, minimally invasive surgical techniques that ensure quick recovery.`,
+            shortDescription: `A hydrocele occurs when fluid collects around one or both testicles, leading to a noticeable swelling in the scrotum. While generally painless, it can cause a feeling of heaviness, discomfort, or embarrassment, particularly if the swelling becomes large. Hydroceles are common in newborn boys and often resolve naturally, but in older children and adults, they typically require medical attention to avoid complications or discomfort.
+
+At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons specialize in diagnosing and treating hydroceles using modern, minimally invasive surgical techniques that ensure quick recovery and minimal disruption to daily life.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Hydrocele Care",
-                intro: "Expert urological care with a focus on minimal disruption to daily life.",
+                intro: "Comprehensive urological care focused on safety and long-term relief:",
                 items: [
-                    "Specialized urologists with extensive hydrocelectomy experience",
-                    "Fully equipped diagnostic center for accurate evaluation",
-                    "Advanced surgical center offering minimally invasive techniques",
-                    "24/7 emergency hospital for urgent concerns",
-                    "Insurance accepted with clear, upfront cost estimates",
-                    "Walk-in clinic for easy, same-day consultations",
-                    "Complete aftercare support for complication-free recovery"
+                    "Specialized urologists with extensive experience in hydrocelectomy procedures",
+                    "Fully equipped diagnostic center in Hyderabad for accurate, same-day evaluation",
+                    "Advanced surgical center offering minimally invasive techniques for faster healing",
+                    "24/7 emergency hospital near Hitech City for urgent urological concerns",
+                    "Insurance accepted at Stork Hospital with clear, upfront cost estimates",
+                    "Walk-in clinic near Kondapur for easy, same-day consultations",
+                    "Complete aftercare support to ensure smooth and complication-free recovery"
                 ]
             },
             fullDescription: [
-                "**What is a Hydrocele?**",
-                "It's a collection of fluid around the testicle, often causing painless swelling. While common in newborns, it can persist or develop in adults due to injury or inflammation.",
-                "**Treatment Approach**",
-                "We offer watchful waiting for mild cases and minimally invasive hydrocelectomy for persistent ones, ensuring optimal outcomes and fast healing."
+                "Hydroceles are primarily caused by the incomplete closure of the scrotal channel in newborns (congenital) or result from trauma, infection, or post-surgical buildup in adults. While often symptom-free initially, early diagnosis ensures that any underlying testicular issues are identified and managed promptly."
             ],
 
-            conditionsHeading: "Causes and Symptoms",
+            conditionsHeading: "Signs and Symptoms of Hydrocele",
             conditionsTreated: [
-                "Congenital Hydrocele (Incomplete closure)",
-                "Scrotal Injury or Trauma",
-                "Infection or Inflammation",
-                "Soft Swelling in Scrotum",
-                "Heaviness or Fullness Sensation",
-                "Mild Discomfort during activity"
+                "Soft swelling in one or both sides of the scrotum",
+                "Sense of heaviness or fullness in the scrotal area",
+                "Mild discomfort or pulling sensation during activity",
+                "Gradual increase in scrotal size over time",
+                "Fluid accumulation around the testicles (Scrotal edema)"
             ],
 
-            procedureHeading: "Treatment Approaches",
+            procedureHeading: "Treatment Approaches at Stork Hospital",
             procedureSteps: [
                 {
                     title: "Watchful Waiting",
-                    description: "Regular monitoring for infants and mild cases that may resolve naturally."
+                    description: "Initial regular monitoring for infants and mild cases, as many newborn hydroceles resolve naturally within the first year of life."
                 },
                 {
-                    title: "Hydrocelectomy (Surgery)",
-                    description: "Removal of fluid and sac repair under anesthesia for persistent cases."
+                    title: "Hydrocelectomy – Surgical Treatment",
+                    description: "For persistent or symptomatic cases, a surgical procedure is performed under local or general anesthesia to remove fluid and repair the sac."
                 },
                 {
                     title: "Minimally Invasive Techniques",
-                    description: "Small incisions to reduce post-surgery downtime and discomfort."
-                },
-                {
-                    title: "Recovery & Aftercare",
-                    description: "Day-care procedure with same-day discharge and quick return to light activities."
+                    description: "Using small, precision incisions to reduce post-surgery downtime, minimize discomfort, and prevent future recurrence."
                 }
             ],
 
-            benefitsHeading: "Benefits of Expert Treatment",
+            benefitsHeading: "Recovery Process and Aftercare",
             benefits: [
-                "Relief from heaviness and discomfort",
-                "Improved scrotal appearance",
-                "Prevention of potential complications",
-                "Quick recovery with minimal scarring",
-                "Low recurrence rate"
+                "Thorough pre-surgical assessment and high-resolution imaging",
+                "Day-care procedure with same-day discharge in most cases",
+                "Personalized post-operative instructions for hygiene and wound care",
+                "Quick return to light activities (approx. 1 week)",
+                "Follow-up check-ups to ensure complete healing and zero recurrence"
             ],
 
             risks: [],
             recoveryTimeline: [
-                "Surgery: Day-care",
-                "Light Activity: 1 Week",
-                "Full Recovery: 2-3 Weeks"
+                "Procedure & Discharge: Same day (Daycare)",
+                "Initial Wound Healing: 3-5 Days",
+                "Resuming Light Activities: 1 Week",
+                "Full Physical Activity: 2-3 Weeks"
             ],
 
             faqHeading: "FAQs – Hydrocele",
             faqs: [
                 {
                     question: "Is a hydrocele harmful?",
-                    answer: "Usually not, but it can cause discomfort and should be evaluated to rule out other conditions."
+                    answer: "Hydroceles are not usually dangerous but can cause discomfort or indicate underlying testicular conditions that require evaluation."
                 },
                 {
                     question: "What is the recovery time?",
-                    answer: "Most patients resume light activities within a week and normal routines in 1–2 weeks."
+                    answer: "Most patients resume light activities within a week and return to their normal routines in 1–2 weeks."
                 },
                 {
                     question: "Can hydroceles return after treatment?",
-                    answer: "Recurrence is uncommon when the procedure is performed by skilled surgeons."
+                    answer: "Recurrence is uncommon when the procedure is done by skilled surgeons using modern repair techniques."
                 },
                 {
                     question: "Does insurance cover the surgery?",
-                    answer: "Yes. We accept most insurance plans for hydrocele surgery."
+                    answer: "Yes. Stork Hospital accepts most insurance plans for hydrocele surgery and provides full cost clarity."
                 }
             ],
 
             customCta: {
-                heading: "Get Expert Evaluation",
-                description: "If you have scrotal swelling or discomfort, schedule a consultation with a specialist urologist at Stork Hospital.",
+                heading: "Book Your Hydrocele Appointment",
+                description: "Schedule a consultation at Stork Hospital with a specialist urologist in Hyderabad to get expert evaluation and advanced treatment options.",
                 buttonText: "Book Appointment"
             },
             meta: {
-                duration: "30-45 Min",
+                duration: "30-60 Mins",
                 anesthesia: "Local / General",
                 hospitalStay: "Daycare",
                 recoveryTime: "1-2 Weeks",
@@ -6249,7 +7507,7 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             },
             reviewedBy: {
                 name: "Dr. Venu Gopal",
-                role: "Senior Urologist",
+                role: "Senior Consultant Urologist",
                 experience: "20+ Years Experience"
             }
         }
@@ -6495,107 +7753,98 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             slug: slug,
             title: "Inguinal Hernia Surgery – Stork Hospital, Hyderabad",
             subheading: "Specialized Groin Hernia Treatment for Faster, Safer Recovery",
+            tagline: "Advanced, patient-focused care to effectively repair inguinal hernias with minimally invasive solutions.",
             breadcrumbTitle: "Inguinal Hernia Surgery",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
-            shortDescription: `An inguinal hernia arises when tissue pushes through a weak spot in the lower abdominal wall, typically near the groin. It leads to a visible lump and discomfort. At Stork Hospital, Hyderabad, we provide advanced, patient-focused care with laparoscopic solutions for effective repair and minimal scarring.`,
+            shortDescription: `An inguinal hernia arises when a section of the intestine or fatty tissue pushes through a weak spot in the lower abdominal wall, typically near the groin area. This leads to a visible lump and may be accompanied by pain or pressure, especially during movement or lifting. It is more commonly seen in men and does not resolve without medical treatment.
+
+At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, patient-focused care to effectively repair inguinal hernias. We are a leading provider of laparoscopic inguinal hernia surgery in Hyderabad, ensuring minimal scarring, faster healing, and long-term comfort.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Inguinal Hernia Repair",
-                intro: "Leading provider of laparoscopic inguinal hernia surgery in Hyderabad.",
+                intro: "Trust Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad:",
                 items: [
-                    "Expert surgical team with focused hernia repair experience",
-                    "Modern operating rooms and cutting-edge equipment",
-                    "Step-by-step patient care from diagnosis to recovery",
-                    "Use of top-grade surgical mesh for reinforced repair",
-                    "Trusted choice for inguinal hernia treatment in Hyderabad",
-                    "Minimally invasive options for faster healing"
+                    "Expert surgical team with years of focused hernia repair experience",
+                    "Modern operating rooms and cutting-edge medical equipment",
+                    "Step-by-step patient care from diagnosis through post-op recovery",
+                    "Use of top-grade surgical mesh for reinforced, durable repair",
+                    "Trusted choice for comprehensive inguinal hernia treatment in Hyderabad"
                 ]
             },
             fullDescription: [
-                "**Recognizing the Signs and Causes**",
-                "Inguinal hernias are caused by muscle weakness and strain. They can be 'Indirect' (congenital) or 'Direct' (developed later). Symptoms include a noticeable groin bulge, heaviness, and pain during movement.",
-                "**Why Surgery is Needed**",
-                "They do not heal on their own. If left untreated, they can worsen and lead to complications like strangulation. Surgery is the only effective treatment."
+                "Inguinal hernias are typically caused by a combination of congenital muscle weakness and physical strain. They do not heal on their own and require medical intervention to prevent complications like strangulation."
             ],
 
-            conditionsHeading: "Types & Symptoms",
+            conditionsHeading: "Recognizing the Signs and Underlying Causes",
             conditionsTreated: [
-                "Indirect Inguinal Hernia",
-                "Direct Inguinal Hernia",
-                "Visible Groin Bulge",
-                "Heaviness in Abdomen",
-                "Pain when lifting/bending",
-                "Abdominal Wall Weakness"
+                "A noticeable bulge in the groin, often more visible when standing",
+                "A feeling of heaviness or tightness in the lower abdomen",
+                "Pain or discomfort during movement, exercise, or lifting",
+                "Indirect Inguinal Hernia (usually present at birth)",
+                "Direct Inguinal Hernia (develops later due to wall weakening)"
             ],
 
-            procedureHeading: "Tailored Surgical Approaches",
+            procedureHeading: "Tailored Surgical Approaches for Effective Relief",
             procedureSteps: [
                 {
-                    title: "Laparoscopic Repair",
-                    description: "Minimally invasive keyhole surgery using a camera and mesh for reinforcement. Less pain and quick recovery."
+                    title: "Laparoscopic Hernia Surgery",
+                    description: "Minimally invasive technique using small keyhole incisions and a high-definition camera. Surgical mesh is used to strengthen the weak area, resulting in less pain and a quicker return to activities."
                 },
-                {
+               {
                     title: "Open Hernia Repair",
-                    description: "Traditional method for larger/complex hernias. Single incision for direct access and reliable long-term results."
-                },
-                {
-                    title: "Mesh Reinforcement",
-                    description: "High-quality surgical mesh is used to strengthen the weak area and prevent recurrence."
-                },
-                {
-                    title: "Recovery",
-                    description: "Light walking encouraged immediately; return to desk jobs in a week."
+                    description: "Traditional method chosen for larger or more complicated hernias. A single incision is made to access and repair the affected area, providing highly reliable long-term results."
                 }
             ],
 
-            benefitsHeading: "Benefits of Expert Repair",
+            benefitsHeading: "Post-Surgical Recovery and Follow-Up Care",
             benefits: [
-                "Minimal scarring (Laparoscopic)",
-                "Faster healing and return to normal life",
-                "Long-term comfort and relief",
-                "Reliable repair with low recurrence",
-                "Prevention of serious complications"
+                "Light walking is encouraged soon after the procedure to support circulation",
+                "Most patients return to desk jobs or light duties within a week",
+                "Avoiding heavy lifting and intense physical activities for 4–6 weeks is essential",
+                "Laparoscopic cases usually heal completely in 2–3 weeks",
+                "Scheduled follow-up care to ensure proper healing and mesh integration"
             ],
 
             risks: [],
             recoveryTimeline: [
-                "Hospital Stay: 1 Day",
-                "Light Work: 7 Days",
-                "Full Recovery: 2-3 Weeks"
+                "Immediate post-op observation and mobility (Day 1)",
+                "Transition to light daily activities (Days 2-5)",
+                "Return to work/desk jobs (Week 1)",
+                "Strenuous activity restricted (Weeks 4-6)"
             ],
 
-            faqHeading: "FAQs – Inguinal Hernia",
+            faqHeading: "Frequently Asked Questions",
             faqs: [
                 {
                     question: "Can inguinal hernias heal without an operation?",
-                    answer: "No. Surgery is necessary to correct the condition and prevent complications."
+                    answer: "Unfortunately, no. Surgery is necessary to correct the mechanical weakness of the abdominal wall and prevent serious complications."
                 },
                 {
-                    question: "How long will I need to recover?",
-                    answer: "Recovery is generally 7–14 days for laparoscopic cases; open surgery may take slightly longer."
+                    question: "How long will I need to recover from the procedure?",
+                    answer: "Recovery time is generally 7–14 days for laparoscopic cases; open surgery may require slightly longer for internal healing."
                 },
                 {
-                    question: "Is surgical mesh safe?",
-                    answer: "Yes. Mesh is medically approved, durable, and integrates well with body tissue."
+                    question: "Is the use of surgical mesh considered safe?",
+                    answer: "Yes. Mesh used in hernia repairs is medically approved, highly durable, and designed to integrate seamlessly with body tissue for reinforced repair."
                 },
                 {
                     question: "Is hernia recurrence common?",
-                    answer: "No, recurrence is rare when patients follow post-surgery instructions."
+                    answer: "Hernia recurrence is rare when patients follow post-surgery instructions and avoid high-risk straining activities during the healing phase."
                 }
             ],
 
             customCta: {
-                heading: "Don’t Ignore Groin Pain",
-                description: "Choose Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad. Book your appointment today.",
+                heading: "Don’t Ignore Groin Pain or Visible Bulges",
+                description: "Book your appointment today and take the first step toward relief with safe, professional hernia care.",
                 buttonText: "Book Appointment"
             },
             meta: {
-                duration: "45-90 Min",
-                anesthesia: "General / Spinal",
+                duration: "60-90 Minutes",
+                anesthesia: "General / Spinal Anesthesia",
                 hospitalStay: "1 Day",
                 recoveryTime: "2-3 Weeks",
-                successRate: "High"
+                successRate: "98%"
             },
             reviewedBy: {
                 name: "Dr. Venu Gopal",
@@ -6826,118 +8075,120 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
     if (slug === "kidney-stones") {
         return {
             slug: slug,
-            title: "Kidney Stones Treatment – Stork Hospital, Hyderabad",
+            title: "Kidney Stones – Stork Hospital, Hyderabad",
             subheading: "Effective and Patient-Focused Kidney Stone Care",
-            breadcrumbTitle: "Kidney Stones",
+            tagline: "Advanced diagnostic tools and modern treatment techniques to remove stones safely and reduce the risk of future occurrences.",
+            breadcrumbTitle: "Kidney stones",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
-            shortDescription: `Kidney stones are hard mineral deposits that form when urine becomes concentrated. At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advanced diagnostic tools and modern treatment techniques like laser lithotripsy to remove stones safely, relieve symptoms, and prevent recurrence.`,
+            shortDescription: `Kidney stones are hard deposits of minerals and salts that develop when urine becomes concentrated, allowing crystals to form and clump together. While some stones are small enough to pass unnoticed, others can be large and cause severe discomfort, urinary blockage, and potential kidney damage.
+
+At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advanced diagnostic tools and modern treatment techniques to remove stones safely, relieve symptoms, and reduce the risk of future occurrences.`,
 
             overview: {
                 heading: "Why Stork Hospital is a Leading Choice",
-                intro: "Expert urologists with years of experience in stone management.",
+                intro: "Expert stone management combining advanced technology with patient-centric care:",
                 items: [
                     "Expert urologists with years of experience in stone management",
-                    "Fully equipped diagnostic center for accurate detection",
-                    "Advanced surgical center (Minimally Invasive & Laser)",
-                    "24/7 emergency hospital for urgent cases",
-                    "Insurance accepted with transparent cost estimates",
-                    "Walk-in clinic for quick specialist access",
-                    "Preventive advice tailored to your needs"
+                    "Fully equipped diagnostic center in Hyderabad for accurate stone detection",
+                    "Advanced surgical center with minimally invasive and laser-assisted technology",
+                    "24/7 emergency hospital near Hitech City for urgent kidney stone cases",
+                    "Insurance accepted at Stork Hospital with transparent cost estimates",
+                    "Walk-in clinic near Kondapur for quick specialist access",
+                    "Preventive advice tailored to each patient’s health and lifestyle"
                 ]
             },
             fullDescription: [
-                "**What Causes Kidney Stones?**",
-                "Low fluid intake, high sodium/protein diets, and certain health conditions can lead to concentrated urine, allowing crystals to form. While small stones may pass, larger ones need removal.",
-                "**Symptoms to Watch For**",
-                "Sharp pain in the back or side, pain during urination, and bloody or cloudy urine are common signs. Nausea and fever may indicate infection."
+                "Causes range from low fluid intake (dehydration) and high-sodium diets to metabolic disorders. Recognizing early warning signs like sharp back pain or blood-stained urine is critical for preventing kidney damage and infection complications."
             ],
 
-            conditionsHeading: "Causes and Risk Factors",
+            conditionsHeading: "Common Signs and Risk Factors",
             conditionsTreated: [
-                "Low fluid intake (Dehydration)",
-                "High sodium/protein diet",
-                "Obesity/Limited activity",
-                "Family history of stones",
-                "Recurrent UTIs",
-                "Metabolic disorders"
+                "Sharp pain in the back, side, or lower abdomen",
+                "Pain or burning during urination",
+                "Blood-stained (pink, red, or brown) urine",
+                "Cloudy or foul-smelling urine",
+                "Nausea, vomiting, or fever (indicators of infection)",
+                "History of recurrent UTIs or gout"
             ],
 
-            procedureHeading: "Treatment Approaches",
+            procedureHeading: "Treatment Approaches at Stork Hospital",
             procedureSteps: [
                 {
                     title: "Non-Surgical Management",
-                    description: "For small stones: Increased hydration, pain relief, and medication to speed up passage."
+                    description: "For smaller stones: Increasing daily water intake, pain relief medication, and medicines to relax the urinary tract for easier stone passage."
                 },
                 {
-                    title: "Ureteroscopy (URS)",
-                    description: "Removing or breaking stones using a thin scope passed through the urinary tract."
+                    title: "Minimally Invasive URS & SWL",
+                    description: "Ureteroscopy (URS) involves removing stones via a thin scope, while Shock Wave Lithotripsy (SWL) breaks stones using external sound waves."
                 },
                 {
-                    title: "Laser Lithotripsy",
-                    description: "High-precision laser to fragment stones with minimal tissue impact."
+                    title: "Advanced Laser Lithotripsy",
+                    description: "Utilizing high-precision lasers to fragment stubborn stones into sand-like pieces with minimal impact on surrounding tissue."
                 },
                 {
-                    title: "PCNL / SWL",
-                    description: "For larger stones: Small-incision surgery (PCNL) or sound wave therapy (SWL) to break stones."
+                    title: "Complex Stone Surgery (PCNL)",
+                    description: "Percutaneous Nephrolithotomy (PCNL) is a small-incision procedure used for removing larger or complex stones that cannot be broken by other means."
                 }
             ],
 
             benefitsHeading: "Recovery and Prevention",
             benefits: [
-                "Relief from severe pain",
-                "Prevention of kidney damage",
-                "Minimally invasive options available",
-                "Customized prevention plans",
-                "Quick recovery with modern techniques"
+                "Detailed diagnosis with advanced in-house urological imaging",
+                "Customized treatment plan suited to the stone type (Calcium, Oxalate, etc.)",
+                "Post-treatment pain control and infection prevention protocols",
+                "Long-term hydration, diet, and lifestyle guidance to avoid recurrence",
+                "Regular follow-ups to maintain overall kidney health"
             ],
 
             risks: [],
             recoveryTimeline: [
-                "Diagnosis: Immediate",
-                "Procedure: 30-60 Mins",
-                "Recovery: 1-2 Days"
+                "Diagnostic Imaging: Same Day",
+                "Laser Procedure: 45-90 Mins",
+                "Hospital Stay: Daycare / 1 Day",
+                "Recovery to Normal: 1-3 Days"
             ],
 
             faqHeading: "FAQs – Kidney Stones",
             faqs: [
                 {
                     question: "Do all kidney stones require surgery?",
-                    answer: "No. Small stones can often pass naturally with medication and hydration."
+                    answer: "No. Small stones can often pass naturally with proper hydration and medication, but larger stones require clinical removal."
                 },
                 {
                     question: "Will the treatment be painful?",
-                    answer: "Advanced anesthesia and minimally invasive techniques ensure minimal discomfort."
+                    answer: "No. Advanced anesthesia and minimally invasive techniques ensure that patients experience minimal discomfort during and after the procedure."
                 },
                 {
-                    question: "How can I prevent recurrence?",
-                    answer: "Stay well-hydrated, eat a balanced diet, and limit excess salt and animal protein."
+                    question: "How can I reduce the chance of getting stones again?",
+                    answer: "Stay well-hydrated, eat a balanced diet low in excess salt and processed protein, and follow your personalized prevention plan."
                 },
                 {
                     question: "Does insurance cover treatment?",
-                    answer: "Yes. Stork Hospital works with most insurance providers for kidney stone care."
+                    answer: "Yes. Stork Hospital works with most major insurance providers for both diagnostic and surgical kidney stone care."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Consultation",
-                description: "If you’re experiencing back pain or urinary difficulty, meet a urologist at Stork Hospital for expert treatment.",
+                heading: "Book Your Kidney Stone Consultation",
+                description: "If you’re experiencing back pain, urinary difficulty, or blood in the urine, book an appointment at Stork Hospital today.",
                 buttonText: "Book Appointment"
             },
             meta: {
-                duration: "30-60 Min",
-                anesthesia: "Spinal / General",
+                duration: "30-90 Mins",
+                anesthesia: "Local / Spinal / General",
                 hospitalStay: "Daycare / 1 Day",
-                recoveryTime: "1-2 Days",
+                recoveryTime: "1-3 Days",
                 successRate: "High"
             },
             reviewedBy: {
                 name: "Dr. Venu Gopal",
-                role: "Senior Urologist",
+                role: "Senior Consultant Urologist",
                 experience: "20+ Years Experience"
             }
         }
     }
+
 
 
 
@@ -6946,76 +8197,75 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             slug: slug,
             title: "Knee Arthroscopy – Stork Hospital, Hyderabad",
             subheading: "Modern Keyhole Surgery for Knee Health",
+            tagline: "Minimally invasive diagnostic and surgical precision for accelerated joint recovery.",
             breadcrumbTitle: "Knee Arthroscopy",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Knee arthroscopy is a minimally invasive surgical method that uses tiny incisions and a camera (arthroscope) to view and treat problems inside the knee joint. At Stork Multispecialty Hospital, Hyderabad, we use arthroscopy to manage a wide variety of knee issues—from sports-related ligament injuries to early arthritis—allowing patients to recover faster and with less post-operative discomfort.`,
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Knee arthroscopy is a minimally invasive surgical method that uses tiny incisions and a camera (arthroscope) to view and treat problems inside the knee joint. The real-time visuals help surgeons perform highly accurate repairs with minimal disruption to surrounding muscles and ligaments.
+
+At Stork Multispecialty Hospital, Hyderabad, we use arthroscopy to manage a wide variety of knee issues — from sports-related ligament injuries to early arthritis — allowing patients to recover faster and with less post-operative discomfort compared to traditional open procedures.`,
 
             overview: {
                 heading: "Why Stork Hospital is the Go-To for Knee Arthroscopy",
-                intro: "Advanced surgical center designed for precision minimally invasive surgery.",
+                intro: "Our clinic is tailored for patients who require advanced joint care with minimal downtime:",
                 items: [
-                    "Specialized orthopedic surgeons skilled in sports medicine",
-                    "In-house diagnostic center with MRI/CT",
-                    "Advanced surgical center for precision procedures",
-                    "24/7 emergency hospital for knee trauma",
-                    "Insurance accepted with upfront, clear billing",
-                    "Walk-in clinic for quick access",
-                    "Tailored physiotherapy programs"
+                    "Specialized orthopedic surgeons skilled in sports medicine and joint preservation",
+                    "In-house diagnostic center in Hyderabad with MRI, CT, and advanced imaging equipment",
+                    "Advanced surgical center designed for precision minimally invasive surgery",
+                    "24/7 emergency hospital near Hitech City for knee trauma cases",
+                    "Insurance accepted at Stork Hospital with upfront, clear billing",
+                    "Walk-in clinic near Kondapur for quick access to orthopedic care",
+                    "Tailored physiotherapy programs to speed up recovery"
                 ]
             },
             fullDescription: [
-                "**What is Knee Arthroscopy?**",
-                "It's a minimally invasive procedure using a camera to view and treat knee problems. Real-time visuals allow for highly accurate repairs with minimal disruption to surrounding tissues.",
-                "**Conditions Treated**",
-                "We treat meniscus tears, ACL/PCL injuries, cartilage damage, loose fragments, synovitis, and early arthritis using this technique."
+                "The real-time visuals from the arthroscope help our surgeons perform repairs with pinpoint accuracy. This method is highly effective for athletes and active individuals who need to return to their routine quickly."
             ],
 
-            conditionsHeading: "When is it Recommended?",
+            conditionsHeading: "When Knee Arthroscopy is Recommended",
             conditionsTreated: [
                 "Meniscus damage or tears",
                 "ACL and PCL ligament injuries",
                 "Worn or damaged cartilage",
-                "Loose bone/cartilage fragments",
+                "Loose bone or cartilage fragments inside the joint",
                 "Joint lining inflammation (synovitis)",
-                "Patella misalignment/instability",
-                "Early arthritis intervention"
+                "Patella misalignment or instability",
+                "Early intervention for arthritis"
             ],
 
-            procedureHeading: "Step-by-Step Approach",
+            procedureHeading: "Step-by-Step Approach to Knee Arthroscopy",
             procedureSteps: [
                 {
                     title: "Pre-Surgery",
-                    description: "Comprehensive evaluation, imaging tests, and preparation guidance."
+                    description: "Comprehensive evaluation, internal imaging assessment, and preparation guidance for a smooth experience."
                 },
                 {
                     title: "During Surgery",
-                    description: "Small incisions made; arthroscope inserted for targeted repair or removal of damaged tissue."
+                    description: "Small entry points made; arthroscope inserted for targeted repair or removal of damaged tissue."
                 },
                 {
                     title: "After Surgery",
-                    description: "Same-day discharge for many; pain/swelling managed with medication and cold therapy."
-                },
-                {
-                    title: "Rehabilitation",
-                    description: "Gradual physiotherapy to restore motion and stability."
+                    description: "Same-day discharge for many; pain/swelling reduced through medication and focused cold therapy."
                 }
             ],
 
-            benefitsHeading: "Recovery Journey with Stork",
+            benefitsHeading: "Patient Benefits",
             benefits: [
-                "Minimally invasive procedure",
-                "Personalized treatment planning",
-                "Faster recovery than open surgery",
-                "Less post-operative discomfort",
-                "Guided rehabilitation by physiotherapy team"
+                "Minimally invasive keyhole approach",
+                "Real-time internal joint visualization",
+                "Minimal disruption to muscles and ligaments",
+                "Significant reduction in post-op discomfort",
+                "High precision in tissue repair"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery Journey with Stork Hospital",
             recoveryTimeline: [
-                "Hospital Stay: Daycare / 1 Day",
-                "Walking: Within 24 Hours",
-                "Full Recovery: 4-6 Weeks"
+                "Personalized treatment planning based on scans",
+                "Minimally invasive arthroscopic procedure",
+                "Walking with assistance starts within a day of surgery",
+                "Rehabilitation guided by our expert physiotherapy team",
+                "Return to regular routines typically in 4–6 weeks"
             ],
 
             faqHeading: "FAQs – Knee Arthroscopy",
@@ -7039,21 +8289,21 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             ],
 
             customCta: {
-                heading: "Book Your Appointment Today",
-                description: "If knee pain or injury is affecting your daily life, consult a knee arthroscopy specialist at Stork Hospital for advanced, minimally invasive treatment.",
-                buttonText: "Book Appointment"
+                heading: "Regain Your Mobility with Keyhole Surgery",
+                description: "If knee pain is affecting your daily life, book an appointment at Stork Hospital to consult an arthroscopy specialist in Hyderabad.",
+                buttonText: "Schedule Knee Consult"
             },
             meta: {
-                duration: "45-90 Min",
-                anesthesia: "Spinal / General",
+                duration: "45–90 Minutes",
+                anesthesia: "Spinal / General / Local Sedation",
                 hospitalStay: "Daycare / 1 Day",
-                recoveryTime: "4-6 Weeks",
-                successRate: "High"
+                recoveryTime: "4–6 Weeks",
+                successRate: "High Functional Restoration"
             },
             reviewedBy: {
-                name: "Dr. Raghu",
-                role: "Senior Orthopedic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Sports Medicine & Arthroscopy Specialists",
+                experience: "Experts in Minimally Invasive Joint Preservation"
             }
         }
     }
@@ -7065,113 +8315,114 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             slug: slug,
             title: "Knee Pain Treatment – Stork Hospital, Hyderabad",
             subheading: "Advanced Joint Solutions to Keep You Moving Pain-Free",
-            breadcrumbTitle: "Knee Pain Treatment",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Knee pain can significantly impact your ability to stay active, whether it’s walking, bending, or climbing stairs. At Stork Hospital, Hyderabad, we specialize in diagnosing and treating knee-related conditions using a combination of cutting-edge diagnostics, minimally invasive methods, and individualized care to restore comfort and mobility.`,
+            tagline: "Specializing in non-surgical restoration of comfort and mobility through individualized care and cutting-edge diagnostics.",
+            breadcrumbTitle: "Knee Pain",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Knee pain can significantly impact your ability to stay active, whether it’s walking, bending, climbing stairs, or enjoying your daily routine. Caused by aging joints, injuries, or inflammation, knee pain often requires more than rest or over-the-counter remedies. At Stork Hospital, Hyderabad, we specialize in diagnosing and treating knee-related conditions using a combination of cutting-edge diagnostics, minimally invasive methods, and individualized care.
+
+We are widely regarded for delivering high-quality knee pain treatment in Hyderabad, emphasizing non-surgical approaches that restore comfort and mobility.`,
 
             overview: {
-                heading: "Why Do Knees Hurt?",
-                intro: "Knee pain is often the result of underlying mechanical or structural problems.",
+                heading: "Why Stork Hospital is Trusted for Knee Health",
+                intro: "Our integrated care approach addresses both the immediate symptoms and the underlying structural causes of joint pain:",
                 items: [
-                    "Ligament sprains or tears (ACL, MCL, PCL, LCL)",
-                    "Meniscus injuries from twisting",
-                    "Osteoarthritis (progressive joint damage)",
-                    "Rheumatoid arthritis (autoimmune)",
-                    "Tendonitis or Bursitis (inflammation)",
-                    "Sports-related injuries or trauma",
-                    "Poor body mechanics or excess weight"
+                    "Team of seasoned orthopedic consultants and rehabilitation specialists",
+                    "Integrated care that addresses both symptoms and root causes",
+                    "Equipped with advanced imaging and physiotherapy infrastructure",
+                    "Emphasis on restoring full function and improving life quality",
+                    "Recognized as a top facility for knee joint care in Hyderabad",
+                    "Advanced diagnostics including digital X-rays, MRI, and ultrasound",
+                    "Patient-first care experience that eliminates unnecessary delays"
                 ]
             },
             fullDescription: [
                 "**Evaluation and Personalized Strategy**",
-                "We begin with a detailed examination of joint function and pain history. Advanced diagnostics like X-rays, MRI, and ultrasound help us identify the exact source of discomfort.",
-                "**Treatment Philosophy**",
-                "We emphasize non-surgical approaches first. Surgical correction is only explored when other methods have been exhausted or if the knee is severely damaged."
+                "We begin with a detailed examination of your joint function and pain history. Advanced diagnostics help us identify the exact source of discomfort, from mechanical alignment issues to structural tissue damage."
             ],
 
-            conditionsHeading: "Common Signs & Symptoms",
+            conditionsHeading: "Why Do Knees Hurt? – Common Causes We Treat",
             conditionsTreated: [
-                "Swelling or stiffness",
-                "Instability or locking",
-                "Reduced range of motion",
-                "Pain when walking/bending",
-                "Popping or crunching sounds",
-                "Redness or warmth"
+                "Sprains or tears in the knee ligaments (ACL, MCL, PCL, LCL)",
+                "Meniscus injuries from twisting or overexertion",
+                "Progressive joint damage from osteoarthritis",
+                "Autoimmune disorders like rheumatoid arthritis",
+                "Inflammation of the tendons or bursae (tendonitis/bursitis)",
+                "Accidents, high-impact trauma, or sports-related injuries",
+                "Poor body mechanics or excess weight adding pressure on joints"
             ],
 
-            procedureHeading: "Treatment Approaches",
+            procedureHeading: "Management and Intervention Strategy",
             procedureSteps: [
                 {
                     title: "Conservative Care",
-                    description: "Physiotherapy, anti-inflammatory medication, and lifestyle coaching to reduce knee stress."
+                    description: "Physiotherapy for muscle strengthening, anti-inflammatory drugs, and supportive orthotics or braces."
                 },
                 {
-                    title: "Injections & Support",
-                    description: "PRP therapy, hyaluronic acid injections, and supportive braces/orthotics."
+                    title: "Regenerative Injections",
+                    description: "PRP therapy or hyaluronic acid injections to promote natural lubrication and tissue healing."
                 },
                 {
-                    title: "Minimally Invasive",
-                    description: "Arthroscopic surgery for precision repair of ligaments and cartilage if needed."
-                },
-                {
-                    title: "Surgical Intervention",
-                    description: "Advanced surgical options for severe damage, ensuring long-term relief."
+                    title: "Minimally Invasive Interventions",
+                    description: "Arthroscopic repair, nerve ablation for chronic pain, and specialized daycare keyhole procedures."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is Trusted",
+            benefitsHeading: "Key Indicators for Specialist Care",
             benefits: [
-                "Team of seasoned orthopedic consultants",
-                "Integrated care (symptoms + root cause)",
-                "Advanced imaging & physiotherapy infrastructure",
-                "Emphasis on restoring full function",
-                "Recognized top facility for knee care"
+                "Locking, swelling, or persistent instability",
+                "Pain lingering for over a week despite rest",
+                "Reduced range of motion or joint stiffness",
+                "Mechanical popping or crunching sounds",
+                "Impact on stair climbing or daily routine mobility"
             ],
 
             risks: [],
+            recoveryHeading: "Your Recovery Roadmap",
             recoveryTimeline: [
-                "Diagnosis: Immediate",
-                "Relief: 2-4 Weeks (Conservative)",
-                "Full Recovery: Varies by Condition"
+                "Many patients notice significant relief within a few therapy sessions",
+                "Recovery plans focus on strength, flexibility, and injury prevention",
+                "Regular monitoring ensures consistent progress milestones",
+                "Personalized home exercise coaching to reduce relapse risk",
+                "Improvements typically felt within 2–4 weeks of consistent care"
             ],
 
-            faqHeading: "FAQs – Knee Pain Care",
+            faqHeading: "FAQs – Knee Pain Care at Stork",
             faqs: [
                 {
-                    question: "Is surgery needed for all knee pain?",
+                    question: "Is surgery needed for all types of knee pain?",
                     answer: "No. Most knee problems respond well to non-surgical therapies and rehabilitation."
                 },
                 {
-                    question: "What symptoms suggest serious injury?",
-                    answer: "Locking, severe swelling, or pain that lingers for over a week should be checked."
+                    question: "What symptoms suggest more than a minor sprain?",
+                    answer: "Locking, swelling, or pain that lingers for over a week should be checked by a specialist."
                 },
                 {
-                    question: "Can young people have chronic knee pain?",
-                    answer: "Yes. Athletes and active individuals of all ages can experience persistent issues."
+                    question: "Can younger people also suffer from chronic knee pain?",
+                    answer: "Yes. Athletes, office workers, and active individuals of all ages can experience persistent knee issues."
                 },
                 {
-                    question: "How quickly can I recover?",
-                    answer: "Improvements are often felt in 2–4 weeks with consistent care."
+                    question: "How quickly can I get back to my normal routine?",
+                    answer: "Depending on your condition, improvements can be felt in 2–4 weeks with consistent care."
                 }
             ],
 
             customCta: {
-                heading: "Take the First Step",
-                description: "Visit Stork Hospital, Hyderabad, for expert diagnosis, innovative therapies, and long-term relief from knee pain.",
-                buttonText: "Book Consultation"
+                heading: "Take the First Step Toward Pain-Free Knees",
+                description: "Visit Stork Hospital for expert diagnosis, innovative therapies, and long-term relief.",
+                buttonText: "Schedule Knee Consult"
             },
             meta: {
-                duration: "30-45 Min (Consult)",
-                anesthesia: "N/A",
-                hospitalStay: "Outpatient",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / Local Sedation (if interventional)",
+                hospitalStay: "Check-up / Daycare",
+                recoveryTime: "2–4 Weeks (Therapy)",
+                successRate: "High Functional Improvement"
             },
             reviewedBy: {
-                name: "Dr. Raghu",
-                role: "Senior Orthopedic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Knee Specialist Team",
+                role: "Joint Preservation Consultants",
+                experience: "Experts in Non-Surgical & Minimally Invasive Orthopedic Care"
             }
         }
     }
@@ -7414,113 +8665,115 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
         return {
             slug: slug,
             title: "Management of Infections – Stork Hospital, Hyderabad",
-            subheading: "Comprehensive Care for Acute & Chronic Infections",
-            breadcrumbTitle: "Infection Management",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Infections can relieve affect any part of the body and range from mild to life-threatening. At Stork Hospital, Hyderabad, we offer complete infection management combining accurate diagnosis, effective treatment (antibiotic/antiviral), and preventive care for a safe recovery.`,
+            subheading: "Comprehensive Care for All Types of Infections",
+            tagline: "Accurate diagnosis and evidence-based therapeutic care for acute and chronic bacterial, viral, and fungal infections.",
+            breadcrumbTitle: "Management of Infections",
+            category: "General Medicine",
+            departmentHref: "/services/general-medicine",
+            shortDescription: `Infections can affect any part of the body — from the skin and respiratory tract to internal organs — and may be caused by bacteria, viruses, fungi, or parasites. Some infections are mild and short-lived, while others can become serious if left untreated. Prompt diagnosis and proper medical management are essential to prevent complications and support a quick recovery.
+
+At Stork Multispecialty Hospital, Hyderabad, our medical team offers complete infection management services, combining accurate diagnosis, effective treatment, and preventive care. We treat both acute and chronic infections, ensuring every patient receives safe, evidence-based care tailored to their condition.`,
 
             overview: {
-                heading: "Comprehensive Infection Care",
-                intro: "Prompt diagnosis and proper medical management are essential to prevent complications.",
+                heading: "Why Choose Stork Hospital for Infection Management",
+                intro: "Our integrated diagnostic approach ensures that infections are not just treated, but precisely identified for targeted therapy:",
                 items: [
-                    "Treatment for Bacterial, Viral, Fungal & Parasitic infections",
-                    "Management of respiratory, skin, UTI, and gastrointestinal infections",
-                    "Advanced diagnostic support (Lab & Imaging)",
-                    "24/7 Emergency care for severe complications",
-                    "Focus on preventive strategies and vaccination"
+                    "Experienced specialists in internal medicine, pediatrics, and infectious diseases",
+                    "Access to diagnostic center in Hyderabad for lab tests, cultures, and imaging",
+                    "24/7 emergency hospital near Hitech City for urgent infection-related complications",
+                    "Advanced surgical center for infections requiring drainage or surgical intervention",
+                    "Insurance accepted at Stork Hospital with transparent billing",
+                    "Same-day consultations and walk-in clinic near Kondapur for quick medical attention",
+                    "Focus on preventive strategies, including vaccination and patient education"
                 ]
             },
             fullDescription: [
-                "**Why Expert Management Matters**",
-                "Some infections are mild, while others can become serious if left untreated. Our team ensures every patient receives safe, evidence-based care tailored to their condition—whether it's a simple flu or a complex post-surgical infection.",
-                "**Our Approach**",
-                "We combine detailed patient history, advanced lab investigations, and targeted medication (antibiotics, antivirals, etc.) to treat the root cause effectively."
+                "Utilizing culture-based medicine allows our team to prescribe targeted antibiotics or antifungals, significantly reducing the risk of antimicrobial resistance. For severe cases, we provide in-hospital stabilization with intravenous (IV) therapies and continuous monitoring."
             ],
 
             conditionsHeading: "Common Infections We Treat",
             conditionsTreated: [
-                "Respiratory (Pneumonia, Bronchitis, Sinusitis)",
-                "Skin & Soft Tissue (Cellulitis, Abscesses)",
-                "Urinary Tract Infections (UTIs)",
-                "Gastrointestinal (Food poisoning, Gastroenteritis)",
-                "Post-surgical & Wound infections",
-                "Fungal infections (Skin, Nails)",
-                "Pediatric infections"
+                "Respiratory tract infections (pneumonia, bronchitis, sinusitis)",
+                "Ear, nose, and throat infections",
+                "Skin and soft tissue infections (cellulitis, abscesses)",
+                "Gastrointestinal infections (food poisoning, gastroenteritis)",
+                "Urinary tract infections (UTIs)",
+                "Post-surgical and wound infections",
+                "Fungal infections of skin, nails, and mucous membranes",
+                "Pediatric infections, including common childhood illnesses"
             ],
 
-            procedureHeading: "Our Treatment Protocol",
+            procedureHeading: "Our Treatment Approach",
             procedureSteps: [
                 {
                     title: "Diagnosis",
-                    description: "Physical exam plus Lab tests (Blood, Urine, Cultures) and Imaging (X-ray, CT) to identify the pathogen."
+                    description: "Detailed medical history, physical examination, and lab investigations like cultures and imaging to identify the specific pathogen."
                 },
                 {
                     title: "Medical Management",
-                    description: "Targeted antibiotic, antiviral, or antifungal medication. Supportive care (hydration, symptom relief)."
+                    description: "Targeted pharmaceutical therapy combined with supportive care, hydration, and intensive monitoring of system stability."
                 },
                 {
-                    title: "Intervention (If Needed)",
-                    description: "Incision and drainage for abscesses, wound care, or hospital admission for IV medications in severe cases."
-                },
-                {
-                    title: "Prevention & Follow-up",
-                    description: "Monitoring progress, preventing recurrence through hygiene/vaccination, and complete recovery support."
+                    title: "Surgical or Procedural Intervention",
+                    description: "Incision and drainage of abscesses or surgical removal of infected tissue when medications alone are insufficient."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital?",
+            benefitsHeading: "Therapeutic Accuracy & Safety",
             benefits: [
-                "Experienced Internal Medicine & Infectious Disease Specialists",
-                "Advanced Diagnostic Center (Labs/Cultures/Imaging)",
-                "24/7 Emergency for urgent complications",
-                "Surgical support for deep infections",
-                "Transparent billing & Insurance acceptance"
+                "Targeted medication based on cultures",
+                "Rapid relief from systemic infection symptoms",
+                "Minimized risk of long-term medical complications",
+                "Comprehensive pediatric infection protocols",
+                "Integrated vaccination and prevention education"
             ],
 
             risks: [],
+            recoveryHeading: "Your Care Journey at Stork Hospital",
             recoveryTimeline: [
-                "Viral/Minor: 3-7 Days",
-                "Bacterial: 1-2 Weeks (with antibiotics)",
-                "Chronic/Severe: Varies by condition"
+                "Initial medical evaluation and investigations",
+                "Diagnosis confirmation and treatment planning",
+                "Immediate treatment initiation for acute infections",
+                "Follow-up visits to monitor progress",
+                "Preventive advice and measures to avoid recurrence"
             ],
 
             faqHeading: "FAQs – Infection Management",
             faqs: [
                 {
-                    question: "When should I see a doctor?",
-                    answer: "If symptoms worsen quickly, persist for days, or you have high fever, breathing difficulty, or confusion."
+                    question: "When should I see a doctor for an infection?",
+                    answer: "If symptoms worsen quickly, persist for several days, or are accompanied by high fever, breathing difficulty, or confusion, seek medical attention immediately."
                 },
                 {
                     question: "Do all infections need antibiotics?",
-                    answer: "No. Antibiotics only treat bacteria. We prescribe them only when necessary to avoid resistance."
+                    answer: "No. Antibiotics are only effective against bacterial infections and should be prescribed by a doctor after proper diagnosis."
                 },
                 {
                     question: "Can infections be prevented?",
-                    answer: "Yes. Good hygiene, vaccination, and prompt care of minor cuts/illnesses reduce risk significantly."
+                    answer: "Yes. Good hygiene, safe food practices, timely vaccinations, and prompt treatment of minor illnesses can reduce the risk."
                 },
                 {
-                    question: "Does insurance cover this?",
-                    answer: "Yes. We accept major insurance providers and offer cost transparency."
+                    question: "Does insurance cover infection treatment?",
+                    answer: "Yes. Stork Hospital works with leading insurance providers and offers cost transparency before treatment."
                 }
             ],
 
             customCta: {
-                heading: "Get Prompt Medical Care",
-                description: "Book an appointment at Stork Hospital to meet with a specialist and receive safe, effective treatment.",
-                buttonText: "Book Consultation"
+                heading: "Get Safe and Effective Infection Care",
+                description: "Book an appointment at Stork Hospital to meet with a specialist and receive evidence-based treatment for all types of infections.",
+                buttonText: "Schedule Medical Consult"
             },
             meta: {
-                duration: "Consult: 30 Min",
-                anesthesia: "N/A (Local for minor procedures)",
-                hospitalStay: "Outpatient / Inpatient (Severe)",
-                recoveryTime: "Varies",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "None / Local (for drainage)",
+                hospitalStay: "Outpatient / 1–3 Days",
+                recoveryTime: "1–2 Weeks (Common)",
+                successRate: "High Cure Rate"
             },
             reviewedBy: {
-                name: "Dr. ________________",
-                role: "Internal Medicine Specialist",
-                experience: "Expert Team"
+                name: "Stork Medical Board",
+                role: "Internal Medicine & Pediatric Specialists",
+                experience: "Experts in Infectious Disease & Acute Care"
             }
         }
     }
@@ -7636,16 +8889,17 @@ At Stork Multispecialty Hospital, Hyderabad, we use modern microsurgical tools a
             slug: slug,
             title: "Meniscus Tear – Stork Hospital, Hyderabad",
             subheading: "Complete Knee Care from Diagnosis to Recovery",
+            tagline: "Restoring joint stability and mobility through specialized conservative care and advanced arthroscopic meniscus repair.",
             breadcrumbTitle: "Meniscus Tear",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `The meniscus is a C-shaped piece of cartilage inside the knee that acts as a shock absorber and helps stabilize the joint. A meniscus tear can happen due to sudden twisting, abrupt changes in direction, heavy lifting, or gradual wear over time. While common in athletes, these injuries can affect anyone and often lead to pain, swelling, stiffness, or restricted movement.
 
 At Stork Multispecialty Hospital, Hyderabad, we provide tailored treatment for meniscus tears — from conservative care to advanced arthroscopic surgery. Our aim is to help patients regain mobility, reduce pain, and protect long-term knee health.`,
 
             overview: {
                 heading: "Why Patients Choose Stork Hospital for Meniscus Treatment",
-                intro: "",
+                intro: "Our dedicated sports medicine unit provides precise diagnostics and recovery-focused care:",
                 items: [
                     "Highly skilled orthopedic surgeons with sports injury expertise",
                     "Modern diagnostic center in Hyderabad for MRI, X-rays, and other scans",
@@ -7656,16 +8910,12 @@ At Stork Multispecialty Hospital, Hyderabad, we provide tailored treatment for m
                     "Comprehensive physiotherapy programs to speed recovery"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The meniscus plays a vital role in joint mechanics. We focus on tissue preservation methods, such as arthroscopic repair, to maintain long-term knee function and prevent early-onset arthritis."
+            ],
 
-            conditionsHeading: "Causes & Symptoms",
+            conditionsHeading: "Symptoms You Might Notice",
             conditionsTreated: [
-                "**Causes**",
-                "Sudden pivoting or twisting during sports activities",
-                "Squatting deeply or lifting heavy objects",
-                "Direct trauma to the knee in accidents",
-                "Cartilage weakening due to aging",
-                "**Symptoms**",
                 "Pain when moving or twisting the knee",
                 "Swelling and joint stiffness",
                 "Knee locking or catching during movement",
@@ -7677,25 +8927,35 @@ At Stork Multispecialty Hospital, Hyderabad, we provide tailored treatment for m
             procedureSteps: [
                 {
                     title: "Conservative Options",
-                    description: "Rest, ice, compression, and elevation (RICE). Anti-inflammatory medicines to control pain and swelling. Targeted physiotherapy to restore strength and stability."
+                    description: "Rest (RICE protocol), anti-inflammatory medicines, and targeted physiotherapy to restore joint stability and strength."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "Arthroscopic repair for tears that can be preserved. Partial meniscectomy to remove damaged portions. Meniscus transplantation for severe or irreparable damage."
+                    title: "Arthroscopic Repair",
+                    description: "Minimally invasive preservation of the meniscus tissue for tears that can be safely salvaged."
+                },
+                {
+                    title: "Advanced Surgery",
+                    description: "Partial meniscectomy or meniscus transplantation for cases with severe or irreparable cartilage damage."
                 }
             ],
 
-            benefitsHeading: "Your Care Pathway at Stork Hospital",
+            benefitsHeading: "Causes of a Meniscus Tear",
             benefits: [
-                "Orthopedic consultation and diagnostic imaging",
-                "Development of a personalized treatment plan",
-                "Non-surgical management or arthroscopic procedure",
-                "Guided rehabilitation in our physiotherapy unit",
-                "Progress monitoring to ensure safe return to activity"
+                "Sudden pivoting or twisting during sports activities",
+                "Squatting deeply or lifting heavy objects",
+                "Direct trauma to the knee during accidents",
+                "Natural cartilage weakening due to aging processes"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Your Care Pathway at Stork Hospital",
+            recoveryTimeline: [
+                "Orthopedic consultation and on-site diagnostic imaging",
+                "Development of a personalized treatment and strength plan",
+                "Assisted recovery timeline: 4–6 weeks for partial removal",
+                "Full repair recovery: 2–3 months depending on activity goals",
+                "Guided rehabilitation in our specialized physiotherapy unit"
+            ],
 
             faqHeading: "FAQs – Meniscus Tear",
             faqs: [
@@ -7718,21 +8978,21 @@ At Stork Multispecialty Hospital, Hyderabad, we provide tailored treatment for m
             ],
 
             customCta: {
-                heading: "Book Your Knee Injury Consultation",
-                description: "If knee pain, swelling, or locking is interfering with your mobility, get evaluated promptly. Book an appointment at Stork Hospital to see an orthopedic specialist in Hyderabad and receive advanced care for meniscus injuries.",
-                buttonText: "Book Appointment"
+                heading: "Repair Your Meniscus and Restore Your Life",
+                description: "Book an appointment at Stork Hospital for a same-day injury evaluation and receive advanced knee care from Hyderabad’s leading specialists.",
+                buttonText: "Schedule Knee Consult"
             },
             meta: {
-                duration: "45-90 Minutes",
-                anesthesia: "General / Spinal",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "4-6 Weeks / 3 Months",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / General (if surgical)",
+                hospitalStay: "Outpatient / Daycare",
+                recoveryTime: "4 Weeks – 3 Months",
+                successRate: "High Recovery Rate"
             },
             reviewedBy: {
-                name: "Dr. Abhinandan",
-                role: "Senior Orthopedic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Sports Injury Specialists",
+                experience: "Experts in Knee Arthroscopy & Joint Restoration"
             }
         }
     }
@@ -7742,16 +9002,17 @@ At Stork Multispecialty Hospital, Hyderabad, we provide tailored treatment for m
             slug: slug,
             title: "Mental Health – Stork Hospital, Hyderabad",
             subheading: "Compassionate Care for Emotional and Psychological Well-being",
+            tagline: "Confidential, multi-disciplinary mental health services focusing on resilience, stability, and emotional well-being.",
             breadcrumbTitle: "Mental Health",
-            category: "Psychiatry",
-            departmentHref: foundCategory.href || "#",
+            category: "General Medicine",
+            departmentHref: "/services/general-medicine",
             shortDescription: `Mental health is just as important as physical health. It affects how we think, feel, and behave in daily life, as well as how we cope with stress, build relationships, and make decisions. Mental health conditions can range from temporary stress-related problems to long-term disorders that require ongoing care.
 
 At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psychologists, and mental health professionals provides comprehensive and confidential care. We focus on accurate diagnosis, personalized treatment, and supportive therapy to help patients achieve stability, resilience, and improved quality of life.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Mental Health Care",
-                intro: "",
+                intro: "Our mental health collective operates with absolute confidentiality and evidence-based therapeutic precision:",
                 items: [
                     "Experienced psychiatrists and clinical psychologists with expertise in a wide range of conditions",
                     "In-house diagnostic center in Hyderabad for psychological assessments and related health screenings",
@@ -7762,7 +9023,9 @@ At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psycholo
                     "Family counseling and caregiver support services"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "At Stork, we recognize that psychological health is deeply intertwined with physical wellness. Our programs utilize state-of-the-art assessments to identify underlying neurological or metabolic factors that may influence mental health, ensuring a truly comprehensive recovery path."
+            ],
 
             conditionsHeading: "Mental Health Conditions We Treat",
             conditionsTreated: [
@@ -7781,29 +9044,36 @@ At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psycholo
             procedureSteps: [
                 {
                     title: "Diagnosis and Assessment",
-                    description: "Comprehensive mental health evaluation. Standardized psychological testing where needed. Medical and lifestyle history to identify contributing factors."
+                    description: "Comprehensive mental health evaluation and standardized psychological testing combined with medical history to identify all contributing factors."
                 },
                 {
                     title: "Therapeutic Interventions",
-                    description: "Cognitive Behavioral Therapy (CBT) and other evidence-based therapies. Medication management when necessary. Group therapy, support groups, and family counseling."
+                    description: "Implementation of Cognitive Behavioral Therapy (CBT), medication management when indicated, and structured group or family support modules."
                 },
                 {
                     title: "Integrated Care",
-                    description: "Collaboration with nutritionists, physiotherapists, and occupational therapists for holistic recovery. Wellness programs including mindfulness, stress management, and coping skills training."
+                    description: "Collaboration with nutritionists and physiotherapists for holistic wellness, including mindfulness and stress-coping skills training."
                 }
             ],
 
-            benefitsHeading: "Your Care Journey at Stork Hospital",
+            benefitsHeading: "Resilience & Clinical Stability Goals",
             benefits: [
+                "Strict confidentiality and protected records",
+                "Evidence-based Cognitive Behavioral Therapy (CBT)",
+                "Specialized childhood and adolescent protocols",
+                "Integrated family and caregiver support",
+                "24/7 psychiatric crisis stabilization"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Care Journey at Stork Hospital",
+            recoveryTimeline: [
                 "Confidential consultation with a mental health professional",
                 "Comprehensive assessment and diagnosis",
                 "Creation of a personalized treatment plan",
                 "Regular therapy sessions and medication review",
                 "Long-term follow-up and relapse prevention strategies"
             ],
-
-            risks: [],
-            recoveryTimeline: [],
 
             faqHeading: "FAQs – Mental Health Services",
             faqs: [
@@ -7826,21 +9096,21 @@ At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psycholo
             ],
 
             customCta: {
-                heading: "Book Your Mental Health Consultation",
-                description: "If you or a loved one is experiencing emotional distress, persistent sadness, anxiety, or changes in behavior, help is available. Book an appointment at Stork Hospital to meet with a mental health specialist in Hyderabad and take the first step towards emotional well-being.",
-                buttonText: "Book Appointment"
+                heading: "Take the First Step Towards Emotional Well-being",
+                description: "If you or a loved one is experiencing emotional distress, help is available. Book an appointment at Stork Hospital to meet with a specialist in Hyderabad.",
+                buttonText: "Schedule Confidential Consult"
             },
             meta: {
-                duration: "45-60 Minutes",
+                duration: "Consultation Based",
                 anesthesia: "Not Applicable",
-                hospitalStay: "Outpatient / Inpatient",
-                recoveryTime: "Varies",
-                successRate: "High"
+                hospitalStay: "Outpatient / Crisis Inpatient",
+                recoveryTime: "Continuous Support",
+                successRate: "High Stability Outcome"
             },
             reviewedBy: {
-                name: "Dr. Srikanth",
-                role: "Senior Psychiatrist",
-                experience: "15+ Years Experience"
+                name: "Stork Mental Health Collective",
+                role: "Psychiatrists & Clinical Psychologists",
+                experience: "Experts in Mood, Anxiety & Psychotic Disorders"
             }
         }
     }
@@ -7850,16 +9120,17 @@ At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psycholo
             slug: slug,
             title: "Metabolic and Endocrine Disorders – Stork Hospital, Hyderabad",
             subheading: "Expert Diagnosis and Treatment for Hormonal and Metabolic Health",
+            tagline: "Comprehensive hormonal regulation and metabolic mapping to restore balance and long-term health.",
             breadcrumbTitle: "Metabolic Disorders",
-            category: "Endocrinology",
-            departmentHref: foundCategory.href || "#",
+            category: "General Medicine",
+            departmentHref: "/services/general-medicine",
             shortDescription: `Metabolic and endocrine disorders occur when the body’s hormones or metabolic processes are out of balance. These conditions may affect growth, energy production, reproduction, and overall health. They are often long-term (chronic) but can be effectively managed with early diagnosis, the right treatment, and ongoing monitoring.
 
 At Stork Multispecialty Hospital, Hyderabad, our endocrinologists and metabolic specialists provide comprehensive care for a wide range of hormone-related and metabolic conditions. We combine advanced diagnostic tools, evidence-based therapies, and personalized care plans to help patients live healthy, active lives.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Endocrine and Metabolic Care",
-                intro: "",
+                intro: "Our dedicated endocrine unit utilizes precision diagnostics to manage complex glandular and metabolic conditions:",
                 items: [
                     "Experienced endocrinologists with expertise in complex hormonal disorders",
                     "State-of-the-art diagnostic center in Hyderabad for hormone testing, imaging, and metabolic assessments",
@@ -7870,7 +9141,9 @@ At Stork Multispecialty Hospital, Hyderabad, our endocrinologists and metabolic 
                     "Coordinated care with dietitians, diabetologists, and other specialists"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Accurate hormonal regulation requires high-precision stimulation and suppression tests to evaluate glandular function. Our integrated approach ensures that metabolic syndrome and obesity-related imbalances are addressed through both clinical therapy and structured nutritional guidance."
+            ],
 
             conditionsHeading: "Conditions We Treat",
             conditionsTreated: [
@@ -7887,29 +9160,36 @@ At Stork Multispecialty Hospital, Hyderabad, our endocrinologists and metabolic 
             procedureSteps: [
                 {
                     title: "Diagnosis",
-                    description: "Comprehensive medical history and physical examination. Laboratory tests for hormone levels and metabolic markers. Imaging (ultrasound, CT, MRI) for gland evaluation. Specialized stimulation or suppression hormone tests."
+                    description: "Hormone level laboratory tests, metabolic marker analysis, and specialized stimulation or suppression tests combined with gland imaging (Ultrasound/CT/MRI)."
                 },
                 {
                     title: "Medical Management",
-                    description: "Hormone replacement or suppression therapy. Medications to regulate metabolism, sugar control, or growth patterns. Nutritional counseling and lifestyle modification plans. Continuous monitoring to fine-tune treatment."
+                    description: "Hormone replacement or suppression therapy, advanced sugar control regulation, and continuous monitoring to fine-tune therapeutic doses."
                 },
                 {
                     title: "Surgical Care (when needed)",
-                    description: "Minimally invasive procedures for thyroid, adrenal, or pituitary tumors. Post-surgical rehabilitation and hormone adjustment."
+                    description: "Minimally invasive endocrine tumor resection (thyroid/adrenal/pituitary) and post-surgical metabolic stabilization."
                 }
             ],
 
-            benefitsHeading: "Your Care Journey at Stork Hospital",
+            benefitsHeading: "Hormonal Balance & Bone Health Goals",
             benefits: [
+                "Advanced stimulation and suppression testing",
+                "Specialized metabolic syndrome mapping",
+                "Minimally invasive endocrine tumor resection",
+                "Integrated bone metabolism and calcium management",
+                "Coordination with dietitians and diabetologists"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Care Journey at Stork Hospital",
+            recoveryTimeline: [
                 "Specialist consultation and detailed assessment",
                 "Diagnostic testing and review of results",
                 "Personalized treatment plan with clear goals",
                 "Ongoing monitoring and medication adjustments",
                 "Preventive care and lifestyle support for long-term health"
             ],
-
-            risks: [],
-            recoveryTimeline: [],
 
             faqHeading: "FAQs – Metabolic and Endocrine Disorders",
             faqs: [
@@ -7932,21 +9212,21 @@ At Stork Multispecialty Hospital, Hyderabad, our endocrinologists and metabolic 
             ],
 
             customCta: {
-                heading: "Book Your Endocrinology Consultation",
-                description: "If you are experiencing symptoms such as unexplained weight changes, fatigue, irregular periods, or changes in growth and development, don’t delay diagnosis. Book an appointment at Stork Hospital to meet a specialist in Hyderabad and receive expert care for metabolic and endocrine disorders.",
-                buttonText: "Book Appointment"
+                heading: "Restore Your Hormonal Health",
+                description: "If you are experiencing fatigue or unexplained health changes, book an appointment at Stork Hospital to meet an endocrinology specialist in Hyderabad.",
+                buttonText: "Schedule Endocrine Consult"
             },
             meta: {
-                duration: "30-60 Minutes",
-                anesthesia: "Not Applicable",
-                hospitalStay: "Outpatient",
-                recoveryTime: "Immediate",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / General (for surgery)",
+                hospitalStay: "Outpatient / 1–3 Days",
+                recoveryTime: "Ongoing Management",
+                successRate: "High Symptom Balance"
             },
             reviewedBy: {
-                name: "Dr. Sandeep",
-                role: "Senior Endocrinologist",
-                experience: "15+ Years Experience"
+                name: "Stork Endocrine Unit",
+                role: "Endocrinology & Metabolic Specialists",
+                experience: "Experts in Hormonal Regulation & Glandular Care"
             }
         }
     }
@@ -8364,68 +9644,73 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT team offers complete care f
             slug: slug,
             title: "Neck Pain Treatment – Stork Hospital, Hyderabad",
             subheading: "Specialized Spine & Muscular Care for Long-Term Neck Relief",
+            tagline: "Solutions that go beyond temporary relief to restore strength, comfort, and flexibility.",
             breadcrumbTitle: "Neck Pain",
-            category: "Orthopedics",
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopedics & Spine Care",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Neck pain is more than just a daily nuisance—it can limit your head movement, disturb your sleep, and even radiate into the shoulders or arms. Often caused by poor posture, stress, disc problems, or degenerative changes, neck discomfort can become chronic if not treated properly. At Stork Hospital, Hyderabad, we specialize in diagnosing and treating neck pain through comprehensive, minimally invasive, and holistic care strategies.
 
 We’re a trusted name for neck pain treatment in Hyderabad, offering solutions that go beyond temporary relief to restore strength, comfort, and flexibility.`,
 
             overview: {
-                heading: "What Causes Neck Pain?",
-                intro: "The cervical spine is a delicate structure that supports the weight of your head and facilitates motion. Neck pain can originate from a variety of issues, including:",
+                heading: "Why Choose Stork Hospital for Neck Pain Care?",
+                intro: "A dedicated team ensuring movement restoration and long-term spine health through evidence-based protocols:",
                 items: [
-                    "Muscle strain from poor ergonomics or screen time",
-                    "Cervical disc herniation or bulging",
-                    "Age-related degeneration such as cervical spondylosis",
-                    "Pinched nerves causing radiating pain or numbness",
-                    "Whiplash injuries from accidents",
-                    "Infections, inflammation, or spinal misalignment",
-                    "Bad sleeping posture or improper pillow support"
+                    "Expert team of spine specialists, neurologists, and rehab professionals",
+                    "Modern diagnostics and physiotherapy under one roof",
+                    "Emphasis on movement restoration and long-term spine health",
+                    "Non-invasive options prioritized over surgical correction",
+                    "Leading center for neck pain treatment in Hyderabad"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The cervical spine is a delicate structure that supports the head and facilitates motion. Common symptoms include stiffness, limited range of motion, headaches, tingling in arms, or shooting pain down the shoulder blades."
+            ],
 
-            conditionsHeading: "Common Symptoms",
+            conditionsHeading: "What Causes Neck Pain?",
             conditionsTreated: [
-                "Stiffness or limited range of motion",
-                "Headaches originating from the neck",
-                "Tingling or numbness in arms or hands",
-                "Shooting pain down the shoulder blades",
-                "Chronic ache or soreness"
+                "Muscle strain from poor ergonomics or screen time",
+                "Cervical disc herniation or bulging",
+                "Age-related degeneration such as cervical spondylosis",
+                "Pinched nerves causing radiating pain or numbness",
+                "Whiplash injuries from accidents",
+                "Infections, inflammation, or spinal misalignment",
+                "Bad sleeping posture or improper pillow support"
             ],
 
             procedureHeading: "How We Diagnose & Treat Neck Pain",
             procedureSteps: [
                 {
-                    title: "Detailed Evaluation",
-                    description: "Review of medical history, physical symptoms, and posture. Advanced diagnostic tools like MRI, X-ray, or CT scan are used when needed to pinpoint the underlying cause."
+                    title: "Detailed Clinical Evaluation",
+                    description: "Our experts review your medical history, physical symptoms, and posture. Advanced diagnostic tools like MRI, X-ray, or CT scans are used to pinpoint the exact cause."
                 },
                 {
                     title: "Non-Surgical Treatment Options",
-                    description: "Customized neck physiotherapy focused on posture, flexibility, and strength. Anti-inflammatory medication or muscle relaxants for acute pain. Targeted exercises, traction therapy, and ergonomic support tools. Trigger point therapy, heat/cold applications, and TENS therapy. Stress management strategies and sleep posture guidance."
+                    description: "Customized physiotherapy, anti-inflammatory medication, targeted exercises, traction therapy, ergonomic support, and stress management guidance."
                 },
                 {
                     title: "Minimally Invasive Procedures",
-                    description: "Nerve root injections or epidural steroid injections for nerve compression. Radiofrequency neurotomy for chronic cervical joint pain. Image-guided precision treatments for faster relief."
-                },
-                {
-                    title: "Surgical Intervention",
-                    description: "Rarely required but may be considered in cases of disc prolapse, severe compression, or neurological deficits."
+                    description: "Nerve root injections, epidural steroid injections for nerve compression, and radiofrequency neurotomy for chronic cervical joint pain."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Neck Pain Care?",
+            benefitsHeading: "Symptoms of Neck Distress",
             benefits: [
-                "Expert team of spine specialists, neurologists, and rehab professionals",
-                "Modern diagnostics and physiotherapy under one roof",
-                "Emphasis on movement restoration and long-term spine health",
-                "Non-invasive options prioritized over surgical correction",
-                "Leading center for neck pain treatment in Hyderabad"
+                "Limited range of motion and persistent stiffness",
+                "Radiating pain reaching the shoulders or arms",
+                "Neurological symptoms like tingling or numbness in hands",
+                "Recurring tension headaches originating from the neck",
+                "Muscle fatigue from prolonged screen time or poor posture"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Lifestyle Support",
+            recoveryTimeline: [
+                "Most patients experience reduced pain within 1–2 weeks of therapy",
+                "Structured recovery programs target alignment, flexibility, and core support",
+                "Ongoing reviews help track progress and prevent recurrence",
+                "Guidance on ergonomic setup, work posture, and daily movement"
+            ],
 
             faqHeading: "FAQs – Neck Pain Care at Stork",
             faqs: [
@@ -8448,24 +9733,25 @@ We’re a trusted name for neck pain treatment in Hyderabad, offering solutions 
             ],
 
             customCta: {
-                heading: "Don’t let neck pain limit your movement",
-                description: "Visit Stork Hospital, Hyderabad for personalized, expert care that supports your spine and your life.",
-                buttonText: "Book Consultation"
+                heading: "Don’t Let Neck Pain Limit Your Movement",
+                description: "Visit Stork Hospital, Hyderabad for personalized, expert care that supports your spine and your life. Book your consultation today.",
+                buttonText: "Book Neck Pain Consultation"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Local",
+                duration: "2-3 Weeks Program",
+                anesthesia: "N/A / Local",
                 hospitalStay: "Outpatient",
-                recoveryTime: "1-3 Weeks",
-                successRate: "High"
+                recoveryTime: "Varies per case",
+                successRate: "Excellent Relief"
             },
             reviewedBy: {
-                name: "Dr. Narendran",
-                role: "Senior Spine Specialist",
-                experience: "15+ Years Experience"
+                name: "Stork Spine Care Team",
+                role: "Spine Specialists & Physiotherapists",
+                experience: "Experts in Cervical Health & Non-Invasive Care"
             }
         }
     }
+
 
     if (slug === "paraphimosis") {
         return {
@@ -8683,116 +9969,6 @@ At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists speci
         }
     }
 
-    if (slug === "pelvic-floor-disorders") {
-        return {
-            slug: slug,
-            title: "Pelvic Floor Disorders – Stork Hospital, Hyderabad",
-            subheading: "Helping You Regain Comfort and Control",
-            breadcrumbTitle: "Pelvic Floor Disorders",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Pelvic floor disorders (PFDs) affect the support system of a woman’s pelvic organs—bladder, uterus, and rectum. These conditions can significantly disrupt daily life by causing symptoms like urinary leakage, pelvic discomfort, and difficulty with bowel control. At Stork Hospital, Hyderabad, we take a sensitive, comprehensive approach to pelvic health—combining medical expertise with a deep understanding of what women need to feel safe, supported, and healed.
-
-As a recognized women-focused hospital in Hyderabad, we provide accurate diagnosis, modern treatment options, and personalized follow-up for lasting results.`,
-
-            overview: {
-                heading: "What Are Pelvic Floor Disorders?",
-                intro: "PFDs develop when the pelvic muscles or connective tissues become weak, strained, or injured. Common causes include pregnancy, childbirth, aging, surgery, or repetitive strain.",
-                items: [
-                    "Accidental urine leakage",
-                    "Vaginal bulging or pressure",
-                    "Painful urination or bowel movements",
-                    "Discomfort during intimacy",
-                    "Frequent urge to urinate"
-                ]
-            },
-            fullDescription: [],
-
-            conditionsHeading: "Conditions We Commonly Treat",
-            conditionsTreated: [
-                "Urinary incontinence (stress, urge, overflow)",
-                "Pelvic organ prolapse (uterus, bladder, rectum)",
-                "Constipation and fecal incontinence",
-                "Chronic pelvic discomfort or heaviness",
-                "Painful intercourse (dyspareunia)",
-                "Postnatal pelvic floor weakness",
-                "Overactive bladder symptoms"
-            ],
-
-            procedureHeading: "Our Approach to Pelvic Floor Care",
-            procedureSteps: [
-                {
-                    title: "Advanced Diagnostics",
-                    description: "Private consultation with pelvic health experts. Pelvic examination and ultrasound. Bladder testing and imaging as needed. Functional assessment of pelvic muscles."
-                },
-                {
-                    title: "Nonsurgical Options",
-                    description: "Pelvic muscle training and guided physiotherapy. Vaginal pessary devices for organ support. Hormonal therapy and medications. Diet and behavior modifications."
-                },
-                {
-                    title: "Minimally Invasive Surgery (if required)",
-                    description: "Sling surgery for incontinence control. Vaginal or laparoscopic prolapse repair. Uterus-conserving surgical options."
-                }
-            ],
-
-            benefitsHeading: "Why Choose Stork for Pelvic Wellness",
-            benefits: [
-                "Specialists in urogynecology and pelvic rehabilitation",
-                "On-site diagnostics and physiotherapy support",
-                "Discreet, compassionate treatment environment",
-                "Affordable treatment plans and maternity add-ons",
-                "Collaboration with most health insurance providers in Hyderabad",
-                "Easy-to-book online consultations"
-            ],
-
-            risks: [],
-            recoveryTimeline: [
-                "Detailed home recovery exercises",
-                "Scheduled progress reviews and follow-ups",
-                "Support for hormonal and emotional well-being",
-                "Virtual consults for ongoing guidance"
-            ],
-
-            faqHeading: "FAQs – Pelvic Floor Treatment at Stork Hospital",
-            faqs: [
-                {
-                    question: "Can these issues be resolved without surgery?",
-                    answer: "Yes, many women improve significantly through conservative care such as physiotherapy and lifestyle changes."
-                },
-                {
-                    question: "Do only older women experience pelvic issues?",
-                    answer: "Not at all. These symptoms can arise even in younger women post-childbirth or due to physical strain."
-                },
-                {
-                    question: "How long does surgical recovery usually take?",
-                    answer: "Most women recover within a few weeks and resume normal activity with guided care."
-                },
-                {
-                    question: "Are these treatments covered by insurance?",
-                    answer: "Yes. We accept most major health plans and also offer maternity packages that include pelvic health checks."
-                }
-            ],
-
-            customCta: {
-                heading: "Don’t let pelvic health concerns go untreated",
-                description: "Book a consultation with Stork Hospital, where women’s wellness is cared for with skill and heart in Hyderabad.",
-                buttonText: "Book Consultation"
-            },
-            meta: {
-                duration: "Varies",
-                anesthesia: "None / Local / General",
-                hospitalStay: "Outpatient / Day Care",
-                recoveryTime: "Varies",
-                successRate: "High"
-            },
-            reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Gynecologist",
-                experience: "20+ Years Experience"
-            }
-        }
-    }
-
     if (slug === "perianal-abscess") {
         return {
             slug: slug,
@@ -8902,6 +10078,7 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced gastroenterologists
             slug: slug,
             title: "Phimosis – Stork Hospital, Hyderabad",
             subheading: "Gentle and Effective Treatment for Tight Foreskin",
+            tagline: "Discreet, patient-centered care for phimosis, offering both conservative and surgical options to restore genital health.",
             breadcrumbTitle: "Phimosis",
             category: "Urology",
             departmentHref: foundCategory.href || "#",
@@ -8910,61 +10087,69 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced gastroenterologists
 At Stork Multispecialty Hospital, Hyderabad, we provide discreet, patient-centered care for phimosis, offering both conservative and surgical treatment options to restore comfort and protect long-term genital health.`,
 
             overview: {
-                heading: "Possible Causes of Phimosis",
-                intro: "Phimosis can be caused by various factors, ranging from natural conditions to infections.",
+                heading: "Why Patients Choose Stork Hospital for Phimosis Care",
+                intro: "Confidential and expert urological care focused on comfort and long-term relief:",
                 items: [
-                    "Natural tightness in childhood (physiological phimosis)",
-                    "Scarring from repeated infections or inflammation (pathological phimosis)",
-                    "Poor hygiene beneath the foreskin",
-                    "Skin disorders such as lichen sclerosus",
-                    "Diabetes and other conditions lowering immunity"
+                    "Experienced urologists with expertise in foreskin-related concerns",
+                    "Modern diagnostic center in Hyderabad for accurate evaluation and infection detection",
+                    "Fully equipped advanced surgical center for circumcision and foreskin-preserving procedures",
+                    "24/7 emergency hospital near Hitech City for urgent urological issues",
+                    "Insurance accepted at Stork Hospital with smooth claim support",
+                    "Walk-in clinic near Kondapur for same-day, confidential consultations"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Phimosis can be classified into physiological (natural tightness in childhood) and pathological (scarring from infections or poor hygiene). Identifying the type leads to the most effective treatment plan, avoiding future complications like urinary difficulty."
+            ],
 
-            conditionsHeading: "Common Symptoms",
+            conditionsHeading: "Causes and Symptoms of Phimosis",
             conditionsTreated: [
                 "Difficulty or inability to retract the foreskin",
                 "Pain, swelling, or redness during urination or sexual activity",
                 "Ballooning of the foreskin while urinating",
-                "Recurrent infections under the foreskin",
+                "Scarring from repeated infections or inflammation",
+                "Skin disorders like lichen sclerosus",
                 "Itching, irritation, or tenderness"
             ],
 
             procedureHeading: "Phimosis Treatments at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Non-Surgical Options",
-                    description: "Application of topical steroid creams to gently loosen the foreskin. Medically supervised stretching techniques. Managing infections or inflammation before further treatment."
+                    title: "Non-Surgical Conservative Care",
+                    description: "Initial approach using topical steroid creams to loosen the foreskin, alongside medically supervised stretching techniques and infection management."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "Circumcision – permanent solution by removing the foreskin entirely. Preputioplasty – foreskin-preserving surgery that widens the opening while maintaining natural appearance."
+                    title: "Surgical Solutions (Circumcision)",
+                    description: "A permanent solution involving the removal of the foreskin. Performed under local or general anesthesia for long-term relief."
+                },
+                {
+                    title: "Foreskin-Preserving (Preputioplasty)",
+                    description: "A surgical alternative that widens the foreskin opening while maintaining its natural appearance and function."
                 }
             ],
 
-            benefitsHeading: "Why Patients Choose Stork Hospital for Phimosis Care",
+            benefitsHeading: "Recovery and Follow-Up",
             benefits: [
-                "Experienced urologists with expertise in foreskin-related concerns",
-                "Modern diagnostic center in Hyderabad for accurate evaluation",
-                "Fully equipped advanced surgical center for circumcision",
-                "24/7 emergency hospital near Hitech City for urgent urological issues",
-                "Walk-in clinic near Kondapur for same-day, confidential consultations"
+                "Application of cream treatments for gradual improvement over weeks",
+                "Surgical recovery generally takes 7–10 days for most patients",
+                "Strict adherence to post-treatment hygiene and wound care",
+                "Resuming normal activities including sports after medical clearance",
+                "Long-term protection against recurrent balanitis and inflammation"
             ],
 
             risks: [],
             recoveryTimeline: [
-                "Cream treatments may require several weeks for noticeable improvement",
-                "Surgical recovery usually takes 7–10 days for most patients",
-                "Maintain good hygiene and follow post-treatment instructions closely",
-                "Avoid sexual activity, sports, or heavy exercise until medically cleared"
+                "Medical Treatment: 2-4 Weeks",
+                "Surgical Procedure: 30-45 Mins",
+                "Initial Surgical Healing: 7-10 Days",
+                "Full Recovery: 2-3 Weeks"
             ],
 
             faqHeading: "FAQs – Phimosis",
             faqs: [
                 {
                     question: "Is phimosis normal in boys?",
-                    answer: "Yes, it’s common in early childhood and often resolves naturally."
+                    answer: "Yes, it’s common in early childhood and often resolves naturally without medical intervention."
                 },
                 {
                     question: "Can phimosis be treated without surgery?",
@@ -8972,7 +10157,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, patient-center
                 },
                 {
                     question: "What happens if phimosis is left untreated?",
-                    answer: "It can cause repeated infections, urinary problems, and sexual discomfort."
+                    answer: "It can cause repeated infections, urinary problems, and sexual discomfort in adulthood."
                 },
                 {
                     question: "Will my insurance cover the surgery?",
@@ -8982,23 +10167,24 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, patient-center
 
             customCta: {
                 heading: "Book a Private Consultation for Phimosis",
-                description: "If a tight foreskin is causing pain, infections, or difficulty, visit Stork Hospital to consult with an expert urologist in Hyderabad and receive a treatment plan tailored to your needs.",
+                description: "If a tight foreskin is causing pain or infections, visit Stork Hospital to consult with a specialist urologist in Hyderabad today.",
                 buttonText: "Book Consultation"
             },
             meta: {
-                duration: "30-45 Minutes",
+                duration: "20-45 Mins",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Care / Outpatient",
-                recoveryTime: "1-2 Weeks",
+                hospitalStay: "Daycare",
+                recoveryTime: "7-10 Days",
                 successRate: "High"
             },
             reviewedBy: {
-                name: "Dr. Sujith",
-                role: "Senior Urologist",
+                name: "Dr. Nanda Kishore",
+                role: "Senior Consultant Urologist",
                 experience: "15+ Years Experience"
             }
         }
     }
+
 
     if (slug === "piles-hemorrhoids") {
         return {
@@ -9209,238 +10395,8 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced surgeons provide pr
         }
     }
 
-    if (slug === "postpartum-care") {
-        return {
-            slug: slug,
-            title: "Postpartum Care – Stork Hospital, Hyderabad",
-            subheading: "Comprehensive Postnatal Support & Recovery",
-            breadcrumbTitle: "Postpartum Care",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Bringing a baby into the world is a powerful experience, but what follows—the postpartum phase—is equally significant. This period, often overlooked, involves the mother’s physical recovery, emotional adjustment, and adaptation to life with a newborn. At Stork Hospital, Hyderabad, postpartum care is not just a follow-up—it’s a focused, nurturing phase of healing, restoration, and personalized support designed to help new mothers transition smoothly into motherhood.
 
-Our approach is recognized as part of a patient-first care experience, with women’s wellness clinic support and trusted maternity and fertility care under one roof.`,
 
-            overview: {
-                heading: "What Does Postpartum Care Help With?",
-                intro: "Post-delivery care is essential to detect and manage several health aspects that arise after childbirth.",
-                items: [
-                    "Healing of cesarean or vaginal delivery wounds",
-                    "Managing postpartum bleeding and uterine shrinkage",
-                    "Breastfeeding initiation and support",
-                    "Mood swings, irritability, or signs of postpartum depression",
-                    "Bowel or bladder challenges",
-                    "Fatigue, joint discomfort, and sleep irregularities",
-                    "Nutrient replenishment and dietary adjustment",
-                    "Intimacy, sexual health, and future fertility planning"
-                ]
-            },
-            fullDescription: [],
-
-            conditionsHeading: "Who Should Prioritize Postnatal Support?",
-            conditionsTreated: [
-                "First-time moms adjusting to physical and emotional changes",
-                "Women recovering from surgery or assisted births",
-                "Mothers with a history of postpartum complications",
-                "Those managing health issues like thyroid imbalance or anemia",
-                "Women experiencing feeding difficulties or bonding issues",
-                "Families requiring guidance in newborn care"
-            ],
-
-            procedureHeading: "What You’ll Receive at Stork Hospital",
-            procedureSteps: [
-                {
-                    title: "Clinical Monitoring & Medical Check-ups",
-                    description: "Postnatal reviews during weeks 2 and 6. Monitoring uterus, bleeding, stitches, and vitals. Chronic illness management (thyroid, BP, sugar)."
-                },
-                {
-                    title: "Breastfeeding & Newborn Feeding Support",
-                    description: "Assistance with latching and feeding positions. Advice on milk supply issues or discomfort. Introduction to breast pumps or combination feeding (if necessary)."
-                },
-                {
-                    title: "Nutrition & Energy Rebuilding",
-                    description: "Recovery-focused diet plans tailored to your needs. Supplement guidance (iron, folic acid, calcium, etc.). Practical hydration and meal strategies for new mothers."
-                },
-                {
-                    title: "Emotional and Mental Health Wellness",
-                    description: "Emotional screening for mood disorders or stress. Counselling for anxiety, burnout, or depressive thoughts. Mind-body balance strategies and lifestyle tips."
-                },
-                {
-                    title: "Reproductive Health & Contraception",
-                    description: "Personalized birth spacing advice. Discussion of safe contraceptive options. Planning your next pregnancy (if desired)."
-                }
-            ],
-
-            benefitsHeading: "Why Stork Hospital is the Trusted Name for Postpartum Care",
-            benefits: [
-                "Trained Postnatal Experts, OB-GYNs, and Lactation Coaches",
-                "Emphasis on Whole-Mother Healing—Physical + Emotional",
-                "Continuity of Care from Delivery Room to Recovery",
-                "Real-Time Breastfeeding Guidance & Family Education",
-                "Respectful Listening, Thoughtful Advice, and Non-Judgmental Support",
-                "Hospital with caring nursing staff and affordable treatment packages"
-            ],
-
-            risks: [],
-            recoveryTimeline: [
-                "Guidance on newborn sleep and feeding rhythms",
-                "Support for pain, bleeding, and personal care at home",
-                "Emotional check-ins and advice on returning to work/life routines",
-                "Vaccination reminders and pediatric referrals",
-                "Ongoing availability for postnatal questions or concerns"
-            ],
-
-            faqHeading: "FAQs – Postpartum Care",
-            faqs: [
-                {
-                    question: "How soon should I see a doctor after childbirth?",
-                    answer: "Ideally within 10–14 days for your first check-up and again around 6 weeks, unless advised otherwise."
-                },
-                {
-                    question: "I feel “off” emotionally—what should I do?",
-                    answer: "Please speak to us. Feeling overwhelmed is common, and our psychologists and counselors are here to support you confidentially."
-                },
-                {
-                    question: "Will you help me with my baby’s sleep and feeding routines?",
-                    answer: "Yes. Our postpartum nurses and lactation experts provide detailed guidance on soothing, feeding, and establishing newborn routines."
-                },
-                {
-                    question: "Can I discuss family planning now?",
-                    answer: "Absolutely. During your postnatal visits, we help you choose safe and effective birth control options based on your preferences and health."
-                }
-            ],
-
-            customCta: {
-                heading: "Book Your Postpartum Care Appointment",
-                description: "To begin your healing journey, book an appointment at Stork Hospital—the best hospital for women’s health in Hyderabad. We’re with you every step of the way.",
-                buttonText: "Book Appointment"
-            },
-            meta: {
-                duration: "Varies",
-                anesthesia: "None",
-                hospitalStay: "Outpatient",
-                recoveryTime: "6-8 Weeks",
-                successRate: "High"
-            },
-            reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Gynecologist",
-                experience: "20+ Years Experience"
-            }
-        }
-    }
-
-    if (slug === "prenatal-care") {
-        return {
-            slug: slug,
-            title: "Prenatal Care – Stork Hospital, Hyderabad",
-            subheading: "Comprehensive Support for a Healthy Pregnancy",
-            breadcrumbTitle: "Prenatal Care",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Prenatal care is a structured and ongoing medical approach that supports women throughout their pregnancy journey. It involves regular check-ups, timely screenings, nutritional counseling, and continuous monitoring to ensure the well-being of both mother and baby. At Stork Hospital, Hyderabad, we provide holistic prenatal care that combines advanced diagnostics with warmth, empathy, and personalized attention—so every expecting mother feels confident and cared for at every stage.
-
-We are a multispecialty hospital in Telangana offering pregnancy care in Hyderabad, and are known as one of the most trusted maternity hospitals for complete care from conception to delivery.`,
-
-            overview: {
-                heading: "Symptoms / Conditions it Helps Manage",
-                intro: "While prenatal care is preventive by nature, it also helps detect and manage conditions such as:",
-                items: [
-                    "Pregnancy-related high blood pressure or diabetes",
-                    "Anemia and thyroid imbalances",
-                    "Abnormal fetal growth or low amniotic fluid",
-                    "Placenta-related concerns",
-                    "Risks of preterm labor or miscarriage",
-                    "Genetic or chromosomal concerns (through early screenings)",
-                    "PCOS management, thyroid issues, or chronic illness"
-                ]
-            },
-            fullDescription: [],
-
-            conditionsHeading: "Who Should Receive Prenatal Care?",
-            conditionsTreated: [
-                "All pregnant women, from the moment of conception",
-                "Women above 35 or under 18 years of age",
-                "Those with previous pregnancy complications",
-                "Women managing chronic health conditions (e.g., PCOS, diabetes, epilepsy)",
-                "Those expecting twins or multiples",
-                "Women with a family history of genetic conditions"
-            ],
-
-            procedureHeading: "What to Expect at Stork Hospital",
-            procedureSteps: [
-                {
-                    title: "First Trimester (0–12 Weeks)",
-                    description: "Confirmation of pregnancy. Baseline health assessments. Nutritional guidance and colic acid supplements. Screening for infections and genetic risks."
-                },
-                {
-                    title: "Second Trimester (13–28 Weeks)",
-                    description: "Anomaly scan. Glucose tolerance test. Iron and calcium supplementation. Growth scans. Diet and exercise review."
-                },
-                {
-                    title: "Third Trimester (29 Weeks – Delivery)",
-                    description: "Monitoring for labor signs, fetal movement and positioning. Final growth scans and Doppler studies. Birth planning and delivery counseling. Antenatal classes."
-                }
-            ],
-
-            benefitsHeading: "Why Choose Stork Hospital for Prenatal Care in Hyderabad?",
-            benefits: [
-                "Expert Obstetricians & Maternal-Fetal Medicine Specialists",
-                "In-House Labs & Real-Time Ultrasound Imaging",
-                "Safe, Private, and Woman-Friendly Infrastructure",
-                "24x7 Emergency Support for High-Risk Pregnancies",
-                "Wellness Support: Yoga, Diet, Mental Health Counseling",
-                "Continuity of Care—from First Scan to Final Push"
-            ],
-
-            risks: [],
-            recoveryTimeline: [
-                "Postnatal check-ups to monitor recovery",
-                "Lactation support and breastfeeding guidance",
-                "Emotional well-being sessions to manage postpartum stress",
-                "Newborn care education for first-time parents",
-                "Virtual doctor appointments available"
-            ],
-
-            faqHeading: "FAQs about Prenatal Care",
-            faqs: [
-                {
-                    question: "How early should I start prenatal visits?",
-                    answer: "Ideally, as soon as you miss your period and confirm pregnancy. Early care ensures early detection of risks."
-                },
-                {
-                    question: "How many prenatal visits are required?",
-                    answer: "Typically: Monthly till 28 weeks, Biweekly till 36 weeks, Weekly until delivery."
-                },
-                {
-                    question: "Are prenatal vitamins necessary?",
-                    answer: "Yes. Folic acid, iron, calcium, and vitamin D are crucial for fetal development and maternal health."
-                },
-                {
-                    question: "Can I exercise during pregnancy?",
-                    answer: "Absolutely! With your doctor’s approval, moderate walking, stretching, and pregnancy yoga are encouraged."
-                }
-            ],
-
-            customCta: {
-                heading: "Book Your Prenatal Care Appointment",
-                description: "For complete maternal care, book an appointment at Stork Hospital, the best hospital for women’s health in Hyderabad and your trusted partner in every trimester.",
-                buttonText: "Book Appointment"
-            },
-            meta: {
-                duration: "Ongoing",
-                anesthesia: "None",
-                hospitalStay: "Outpatient",
-                recoveryTime: "N/A",
-                successRate: "High"
-            },
-            reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Gynecologist",
-                experience: "20+ Years Experience"
-            }
-        }
-    }
 
     if (slug === "prostatectomy") {
         return {
@@ -9888,111 +10844,117 @@ At Stork Multispecialty Hospital, Hyderabad, our skilled urologists use state-of
                 experience: "15+ Years Experience"
             }
         }
+    }
 
-        if (slug === "rotator-cuff-repair") {
-            return {
-                slug: slug,
-                title: "Rotator Cuff Repair – Stork Hospital, Hyderabad",
-                subheading: "Advanced Shoulder Care for Lasting Relief",
-                breadcrumbTitle: "Rotator Cuff Repair",
-                category: "Orthopedics",
-                departmentHref: foundCategory.href || "#",
-                shortDescription: `The rotator cuff is made up of four small muscles and their tendons, all working together to keep the shoulder joint stable and moving smoothly. A tear can occur from a sudden injury, repeated overhead activity, or gradual tendon weakening over time. Such damage often results in persistent shoulder pain, reduced strength, and difficulty lifting or rotating the arm.
+    if (slug === "rotator-cuff-repair") {
+        return {
+            slug: slug,
+            title: "Rotator Cuff Repair – Stork Hospital, Hyderabad",
+            subheading: "Advanced Shoulder Care for Lasting Relief",
+            tagline: "Restoring shoulder strength and stability through advanced tendon repair and specialized rehabilitation.",
+            breadcrumbTitle: "Rotator Cuff Repair",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `The rotator cuff is made up of four small muscles and their tendons, all working together to keep the shoulder joint stable and moving smoothly. A tear can occur from a sudden injury, repeated overhead activity, or gradual tendon weakening over time. Such damage often results in persistent shoulder pain, reduced strength, and difficulty lifting or rotating the arm.
 
 At Stork Multispecialty Hospital, Hyderabad, we provide rotator cuff repair using the latest surgical and non-surgical methods. Our aim is to not only fix the injury but also restore full function and prevent future damage. From diagnosis to rehabilitation, each step is carefully planned for the best possible outcome.`,
 
-                overview: {
-                    heading: "Common Reasons for a Rotator Cuff Tear",
-                    intro: "Rotator cuff tears can be caused by:",
-                    items: [
-                        "Sports involving heavy shoulder use (cricket, baseball, tennis, swimming)",
-                        "Lifting or pulling heavy objects with poor technique",
-                        "Sudden falls that place extreme stress on the shoulder",
-                        "Age-related tendon degeneration",
-                        "Overuse injuries from physically demanding occupations"
-                    ]
+            overview: {
+                heading: "Why Stork Hospital Leads in Rotator Cuff Treatment",
+                intro: "Our integrated methodology combines surgical excellence with comprehensive restoration protocols:",
+                items: [
+                    "Specialist orthopedic surgeons with years of experience in tendon repair",
+                    "On-site diagnostic center in Hyderabad for high-resolution MRI, ultrasound, and X-rays",
+                    "Advanced surgical center equipped for minimally invasive arthroscopy",
+                    "24/7 emergency hospital near Hitech City for sports injury or trauma care",
+                    "Insurance accepted at Stork Hospital with transparent cost estimates",
+                    "Walk-in clinic near Kondapur for same-day orthopedic appointments",
+                    "Integrated physiotherapy services for long-term recovery and prevention"
+                ]
+            },
+            fullDescription: [
+                "Each repair is performed with the goal of maximizing joint stability and functional life. We use precision-guided techniques to ensure minimal tissue trauma and accelerated tendon healing."
+            ],
+
+            conditionsHeading: "Symptoms That Require a Medical Evaluation",
+            conditionsTreated: [
+                "Constant shoulder pain, especially when lying on the injured side",
+                "Weakness when trying to lift or rotate the arm",
+                "Clicking, popping, or grinding sensations in the joint",
+                "Limited motion affecting daily routines like combing hair or dressing"
+            ],
+
+            procedureHeading: "Treatment Options at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Conservative Management",
+                    description: "Rest, activity modification, and anti-inflammatory medicines combined with customized physiotherapy for partial or mild tears."
                 },
-                fullDescription: [],
-
-                conditionsHeading: "Symptoms That Require a Medical Evaluation",
-                conditionsTreated: [
-                    "Constant shoulder pain, especially when lying on the injured side",
-                    "Weakness when trying to lift or rotate the arm",
-                    "Clicking, popping, or grinding sensations in the joint",
-                    "Limited motion affecting daily routines like combing hair or dressing"
-                ],
-
-                procedureHeading: "Treatment Options at Stork Hospital",
-                procedureSteps: [
-                    {
-                        title: "Conservative Management",
-                        description: "Rest, activity modification, anti-inflammatory medicines, and customized physiotherapy."
-                    },
-                    {
-                        title: "Surgical Interventions",
-                        description: "Arthroscopic repair (minimally invasive), Mini-open repair, or Traditional open repair for complex injuries."
-                    },
-                    {
-                        title: "Post-Treatment Rehabilitation",
-                        description: "Early guided mobility, progressive strengthening exercises, and close follow-up."
-                    }
-                ],
-
-                benefitsHeading: "Why Stork Hospital Leads in Rotator Cuff Treatment",
-                benefits: [
-                    "Specialist orthopedic surgeons with years of experience",
-                    "On-site diagnostic center for MRI, ultrasound, X-rays",
-                    "Advanced surgical center for minimally invasive arthroscopy",
-                    "24/7 emergency hospital for trauma care",
-                    "Integrated physiotherapy services"
-                ],
-
-                risks: [],
-                recoveryTimeline: [
-                    "Detailed evaluation with advanced imaging",
-                    "Tailored treatment plan based on tear size",
-                    "Surgical or non-surgical repair",
-                    "Rehabilitation with in-house physiotherapy specialists",
-                    "Long-term monitoring to prevent reinjury"
-                ],
-
-                faqHeading: "FAQs – Rotator Cuff Repair",
-                faqs: [
-                    {
-                        question: "How long will recovery take?",
-                        answer: "Full recovery varies from 4–6 months for most patients, depending on the tear’s severity and rehabilitation progress."
-                    },
-                    {
-                        question: "Will every tear need surgery?",
-                        answer: "No. Many partial tears heal effectively with physiotherapy and rest."
-                    },
-                    {
-                        question: "When can I return to sports or active work?",
-                        answer: "Athletes and active individuals may return to full activity within 4–6 months after surgery."
-                    },
-                    {
-                        question: "Is this treatment covered by insurance?",
-                        answer: "Yes. Stork Hospital accepts a wide range of insurance plans and provides upfront cost details."
-                    }
-                ],
-
-                customCta: {
-                    heading: "Book Your Shoulder Consultation Today",
-                    description: "Shoulder pain doesn’t have to limit your lifestyle. Book an appointment at Stork Hospital to meet a rotator cuff repair specialist in Hyderabad and begin a treatment plan designed to restore strength, movement, and confidence.",
-                    buttonText: "Book Appointment"
+                {
+                    title: "Surgical Interventions",
+                    description: "Arthroscopic repair using small incisions, mini-open repair for larger tears, or traditional open repair for complex multi-tendon injuries."
                 },
-                meta: {
-                    duration: "1-2 Hours",
-                    anesthesia: "General / Regional",
-                    hospitalStay: "Day Care / 1 Day",
-                    recoveryTime: "4-6 Months",
-                    successRate: "High"
-                },
-                reviewedBy: {
-                    name: "Dr. Kiran",
-                    role: "Senior Orthopedic Surgeon",
-                    experience: "20+ Years Experience"
+                {
+                    title: "Post-Treatment Rehabilitation",
+                    description: "Early guided mobility to prevent stiffness and progressive strengthening to regain complete shoulder stability."
                 }
+            ],
+
+            benefitsHeading: "Common Reasons for a Rotator Cuff Tear",
+            benefits: [
+                "Sports involving heavy shoulder use (cricket, baseball, tennis, swimming)",
+                "Lifting or pulling heavy objects with poor technique",
+                "Sudden falls that place extreme stress on the shoulder",
+                "Age-related tendon degeneration and loss of elasticity",
+                "Overuse injuries from physically demanding occupations"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery Journey at Stork Hospital",
+            recoveryTimeline: [
+                "Detailed evaluation with high-resolution diagnostic imaging",
+                "Tailored treatment plan based on tear size and patient activity level",
+                "State-of-the-art surgical or non-surgical repair",
+                "Intensive rehabilitation with in-house physiotherapy specialists",
+                "Long-term monitoring to ensure complete healing and prevent reinjury"
+            ],
+
+            faqHeading: "FAQs – Rotator Cuff Repair",
+            faqs: [
+                {
+                    question: "How long will recovery take?",
+                    answer: "Full recovery varies from 4–6 months for most patients, depending on the tear’s severity and rehabilitation progress."
+                },
+                {
+                    question: "Will every tear need surgery?",
+                    answer: "No. Many partial tears heal effectively with physiotherapy and rest."
+                },
+                {
+                    question: "When can I return to sports or active work?",
+                    answer: "Athletes and active individuals may return to full activity within 4–6 months after surgery."
+                },
+                {
+                    question: "Is this treatment covered by insurance?",
+                    answer: "Yes. Stork Hospital accepts a wide range of insurance plans and provides upfront cost details."
+                }
+            ],
+
+            customCta: {
+                heading: "Restore Your Shoulder’s Mobility and Strength",
+                description: "Book an appointment at Stork Hospital to meet a rotator cuff specialist and begin a treatment plan designed for long-term health.",
+                buttonText: "Schedule Shoulder Consult"
+            },
+            meta: {
+                duration: "Consultation Based",
+                anesthesia: "N/A / General (if surgical)",
+                hospitalStay: "Outpatient / 1-2 Days",
+                recoveryTime: "4–6 Months",
+                successRate: "High Functional Restoration"
+            },
+            reviewedBy: {
+                name: "Stork Orthopedic Care Team",
+                role: "Shoulder & Tendon Specialists",
+                experience: "Experts in Orthopedic Arthroplasty & Rehabilitation"
             }
         }
     }
@@ -10109,69 +11071,75 @@ For patients dealing with chronic nasal obstruction, sleep disturbances, snoring
             slug: slug,
             title: "Shoulder Arthroscopy – Stork Hospital, Hyderabad",
             subheading: "Keyhole Shoulder Surgery for Faster, Safer Healing",
+            tagline: "Minimally invasive diagnostic and surgical precision for accelerated joint recovery.",
             breadcrumbTitle: "Shoulder Arthroscopy",
-            category: "Orthopedics",
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Shoulder arthroscopy is a modern surgical approach that lets doctors see inside and repair the shoulder joint using only a few small cuts. A thin camera, called an arthroscope, transmits magnified images to a screen, allowing surgeons to work with extreme accuracy while preserving healthy tissue.
 
 At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts use arthroscopy to treat injuries such as rotator cuff tears, cartilage damage, frozen shoulder, and recurrent dislocations. This minimally invasive method helps reduce pain, minimize scarring, and promote a quicker return to daily activities.`,
 
             overview: {
-                heading: "Common Problems Treated with Shoulder Arthroscopy",
-                intro: "Shoulder arthroscopy deals with various conditions:",
+                heading: "What Makes Stork Hospital a Leader in Shoulder Arthroscopy",
+                intro: "Our surgical unit is equipped with industry-leading technology to ensure high-precision outcomes:",
                 items: [
-                    "Torn rotator cuff or labrum",
-                    "Chronic shoulder instability and repeated dislocations",
-                    "Frozen shoulder (adhesive capsulitis)",
-                    "Cartilage injury or degeneration",
-                    "Bone spurs and floating fragments within the joint",
-                    "Shoulder impingement issues",
-                    "Joint inflammation (synovitis)"
+                    "Orthopedic surgeons with advanced training in shoulder injury repair and sports medicine",
+                    "Fully equipped diagnostic center in Hyderabad offering MRI, ultrasound, and digital X-ray imaging",
+                    "Advanced surgical center with high-precision arthroscopic tools",
+                    "24/7 emergency hospital near Hitech City for accident and trauma care",
+                    "Insurance accepted at Stork Hospital with full cost transparency",
+                    "Walk-in clinic near Kondapur for immediate specialist access",
+                    "On-site physiotherapy and rehabilitation programs to support recovery"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Magnified real-time visualization allows for extreme accuracy in tissue repair or reshaping. This keyhole approach minimizes tissue trauma, ensuring a significantly reduced recovery period compared to open surgery."
+            ],
 
-            conditionsHeading: "Benefits of Shoulder Arthroscopy at Stork",
+            conditionsHeading: "Common Problems Treated with Shoulder Arthroscopy",
             conditionsTreated: [
-                "Minimally invasive with small incisions",
-                "Reduced pain and scarring",
-                "Quicker return to daily activities",
-                "Preservation of healthy tissue",
-                "High precision repair"
+                "Torn rotator cuff or labrum",
+                "Chronic shoulder instability and repeated dislocations",
+                "Frozen shoulder (adhesive capsulitis)",
+                "Cartilage injury or degeneration",
+                "Bone spurs and floating fragments within the joint",
+                "Shoulder impingement issues",
+                "Joint inflammation (synovitis)"
             ],
 
             procedureHeading: "Our Shoulder Arthroscopy Process",
             procedureSteps: [
                 {
                     title: "Before Surgery",
-                    description: "Comprehensive assessment, imaging scans, and patient counseling."
+                    description: "Comprehensive assessment, pinpoint imaging scans, and detailed patient counseling on recovery expectations."
                 },
                 {
                     title: "During Surgery",
-                    description: "Small incisions, arthroscope insertion for real-time visualization, and precision repair."
+                    description: "Incisions placed strategically; arthroscope inserted for real-time visualization and precision tissue repair."
                 },
                 {
                     title: "After Surgery",
-                    description: "Same-day discharge (mostly), pain management, and gradual physiotherapy."
+                    description: "Most patients return home the same day; pain managed with cold therapy and focused medication."
                 }
             ],
 
-            benefitsHeading: "What Makes Stork Hospital a Leader in Shoulder Arthroscopy",
+            benefitsHeading: "Rehabilitation Objectives",
             benefits: [
-                "Orthopedic surgeons with advanced training",
-                "Fully equipped diagnostic center (MRI, ultrasound, X-ray)",
-                "Advanced surgical center with high-precision tools",
-                "24/7 emergency hospital for trauma care",
-                "On-site physiotherapy and rehabilitation programs"
+                "Magnified real-time joint visualization",
+                "Extreme accuracy in tissue repair/shaping",
+                "Minimal scarring and tissue trauma",
+                "Accelerated return to daily activities",
+                "Essential flexibility restoration via supervised rehab"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery Roadmap at Stork Hospital",
             recoveryTimeline: [
                 "Orthopedic consultation and diagnostic imaging",
-                "Customized surgical plan",
+                "Customized surgical plan tailored to patient needs",
                 "Minimally invasive arthroscopy procedure",
-                "Supervised rehabilitation sessions",
-                "Follow-ups to ensure complete recovery"
+                "Supervised rehabilitation sessions to regain motion",
+                "Follow-ups to ensure complete recovery and prevent recurrence"
             ],
 
             faqHeading: "FAQs – Shoulder Arthroscopy",
@@ -10195,21 +11163,21 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts use arthrosc
             ],
 
             customCta: {
-                heading: "Book Your Appointment for Shoulder Arthroscopy",
-                description: "Don’t let persistent shoulder pain hold you back. Book a consultation at Stork Hospital with a shoulder arthroscopy specialist in Hyderabad and start your journey toward pain-free movement.",
-                buttonText: "Book Appointment"
+                heading: "Regain Your Shoulder’s Functional Freedom",
+                description: "Don’t let persistent pain hold you back. Book an appointment at Stork Hospital to begin your journey toward pain-free movement.",
+                buttonText: "Schedule Shoulder Consult"
             },
             meta: {
-                duration: "60-120 Minutes",
+                duration: "45–90 Minutes",
                 anesthesia: "General / Regional",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "3-6 Months",
-                successRate: "High"
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "4–6 Weeks (Light Activity)",
+                successRate: "High Precision Outcomes"
             },
             reviewedBy: {
-                name: "Dr. Kiran",
-                role: "Senior Orthopedic Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Sports Medicine & Arthroscopy Specialists",
+                experience: "Experts in Shoulder Joint Preservation & Arthroplasty"
             }
         }
     }
@@ -10217,25 +11185,30 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts use arthrosc
     if (slug === "shoulder-dislocation") {
         return {
             slug: slug,
-            title: "Shoulder Dislocation Treatment – Stork Hospital, Hyderabad",
-            subheading: "Expert Care for First-Time and Recurrent Dislocations",
+            title: "Shoulder Dislocation Care – Stork Hospital, Hyderabad",
+            subheading: "Restore Stability and Movement with Advanced Orthopedic Care",
+            tagline: "Expert care for first-time and recurrent dislocations—designed to restore comfort and confidence.",
             breadcrumbTitle: "Shoulder Dislocation",
-            category: "Orthopedics",
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `A dislocated shoulder occurs when the upper arm bone pops out of the cup-shaped socket that is part of your shoulder blade. At Stork Hospital, we provide comprehensive care for shoulder dislocations, from immediate reduction to long-term rehabilitation, ensuring you regain full stability and function.`,
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `A dislocated shoulder occurs when the upper arm bone pops out of the socket. At Stork Hospital, we provide comprehensive care for shoulder injuries, from immediate reduction to long-term rehabilitation, ensuring you regain full stability and function. Our expert surgeons and physiotherapists work together to prevent recurrence and get you back to your active lifestyle.`,
 
             overview: {
-                heading: "Common Triggers for Shoulder Dislocation",
-                intro: "Shoulder dislocations can be caused by:",
+                heading: "Why Stork Hospital is the Right Choice for Shoulder Injury Care",
+                intro: "Our integrated approach ensures that the joint is not just repositioned, but structurally reinforced:",
                 items: [
-                    "Contact sports such as rugby, football, or wrestling",
-                    "Slipping and falling onto an outstretched arm",
-                    "Vehicle accidents causing direct shoulder impact",
-                    "Overuse injuries from repetitive overhead movements",
-                    "Lax ligaments from previous dislocations or hypermobility"
+                    "Expert orthopedic surgeons with experience in both first-time and recurrent dislocations",
+                    "State-of-the-art diagnostic center in Hyderabad for rapid X-ray, MRI, or CT imaging",
+                    "Advanced surgical center offering arthroscopic and open repair techniques",
+                    "24/7 emergency hospital near Hitech City for accident and trauma care",
+                    "Insurance accepted at Stork Hospital with clear and upfront cost information",
+                    "Walk-in clinic near Kondapur for same-day injury evaluation",
+                    "Individualized physiotherapy plans to ensure complete recovery"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Immediate medical attention is crucial to prevent progressive tissue damage. Our team focuses on safe reduction techniques followed by intensive stability training to minimize the risk of chronic instability."
+            ],
 
             conditionsHeading: "Signs You May Have a Dislocated Shoulder",
             conditionsTreated: [
@@ -10250,34 +11223,35 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts use arthrosc
             procedureSteps: [
                 {
                     title: "Immediate Medical Care",
-                    description: "Diagnostic imaging, closed reduction (gentle repositioning), and immobilization."
+                    description: "Diagnostic imaging, closed reduction (gentle repositioning) to return the joint to its socket, and immobilization with a sling to allow healing."
                 },
                 {
-                    title: "Surgical Care",
-                    description: "Arthroscopic stabilization or open surgery for severe/recurrent cases."
+                    title: "Surgical Care (if required)",
+                    description: "Arthroscopic stabilization for ligament or labrum repair, or open surgery for severe/complex recurrent instability cases."
                 },
                 {
                     title: "Rehabilitation & Prevention",
-                    description: "Structured physiotherapy to rebuild strength and stability training."
+                    description: "Structured physiotherapy to rebuild strength, shoulder stability training, and gradual reintroduction to sports or work."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is the Right Choice for Shoulder Injury Care",
+            benefitsHeading: "Common Triggers for Shoulder Dislocation",
             benefits: [
-                "Expert orthopedic surgeons with experience",
-                "State-of-the-art diagnostic center (X-ray, MRI, CT)",
-                "Advanced surgical center (arthroscopic and open)",
-                "24/7 emergency hospital for trauma cases",
-                "Insurance accepted with upfront cost information"
+                "Contact sports such as rugby, football, or wrestling",
+                "Slipping and falling onto an outstretched arm",
+                "Vehicle accidents causing direct shoulder impact",
+                "Overuse injuries from repetitive overhead movements",
+                "Lax ligaments from previous dislocations or hypermobility"
             ],
 
             risks: [],
+            recoveryHeading: "Your Recovery Process at Stork Hospital",
             recoveryTimeline: [
-                "Immediate injury assessment at walk-in clinic or ER",
-                "Imaging confirmation",
+                "Immediate injury assessment at our walk-in clinic near Kondapur or ER",
+                "Imaging confirmation using our diagnostic center in Hyderabad",
                 "Appropriate non-surgical or surgical intervention",
-                "Customized physiotherapy",
-                "Long-term follow-up"
+                "Mild cases recover in 6–8 weeks; complex cases may take 3–4 months",
+                "Customized physiotherapy in our rehabilitation department to ensure stable recovery"
             ],
 
             faqHeading: "FAQs – Shoulder Dislocation",
@@ -10301,21 +11275,21 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts use arthrosc
             ],
 
             customCta: {
-                heading: "Book Your Shoulder Injury Consultation",
-                description: "Prompt treatment is key to preventing long-term instability. Book an appointment at Stork Hospital to meet a shoulder injury specialist in Hyderabad and get advanced care to restore comfort, movement, and confidence.",
-                buttonText: "Book Appointment"
+                heading: "Stabilize Your Shoulder and Restore Your Life",
+                description: "Book an appointment at Stork Hospital to meet a shoulder injury specialist in Hyderabad and get advanced care to restore movement and confidence.",
+                buttonText: "Schedule Shoulder Consult"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "General / Sedation",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "6 Weeks - 4 Months",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "N/A / General (if surgical)",
+                hospitalStay: "Outpatient / 1-2 Days",
+                recoveryTime: "6 Weeks – 4 Months",
+                successRate: "High Stability Outcome"
             },
             reviewedBy: {
-                name: "Dr. Kiran",
-                role: "Senior Orthopedic Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Shoulder & Trauma Specialists",
+                experience: "Experts in Joint Stabilization & Sports Injury Care"
             }
         }
     }
@@ -10439,63 +11413,67 @@ If you're seeking shoulder pain relief in Hyderabad, our experienced orthopedic 
             slug: slug,
             title: "Shoulder Replacement – Stork Hospital, Hyderabad",
             subheading: "Advanced Surgical Solutions for Shoulder Pain and Stiffness",
+            tagline: "Restoring movement and relieving pain through total, partial, and reverse shoulder replacement designs.",
             breadcrumbTitle: "Shoulder Replacement",
-            category: "Orthopedics",
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Shoulder replacement surgery, also known as shoulder arthroplasty, involves replacing the worn or damaged parts of the shoulder joint with artificial implants. This procedure is often recommended for patients with advanced arthritis, complex fractures, or severe rotator cuff injuries that no longer respond to medication, physiotherapy, or injections. The goal is to relieve pain, restore smooth movement, and help patients regain normal shoulder function.
 
 At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts specialize in all forms of shoulder replacement — including total, partial, and reverse designs — ensuring every patient receives the most suitable surgical approach.`,
 
             overview: {
-                heading: "When a Shoulder Replacement May Be the Best Option",
-                intro: "Shoulder replacement may be recommended for:",
+                heading: "Why Patients Choose Stork Hospital for Shoulder Replacement",
+                intro: "Our specialized joint replacement unit provides precision-guided surgical care and comprehensive restoration:",
                 items: [
-                    "End-stage shoulder arthritis (osteoarthritis or rheumatoid arthritis)",
-                    "Shoulder joint damage from massive, irreparable rotator cuff tears",
-                    "Complex fractures that cannot be repaired effectively",
-                    "Avascular necrosis causing bone tissue damage",
-                    "Persistent pain and stiffness despite months of non-surgical treatment"
+                    "Specialized orthopedic surgeons with expertise in advanced joint replacement",
+                    "Modern diagnostic center in Hyderabad for MRI, CT scans, and high-resolution X-rays",
+                    "Advanced surgical center equipped with minimally invasive and image-guided technology",
+                    "24/7 emergency hospital near Hitech City for urgent injury or post-surgery needs",
+                    "Insurance accepted at Stork Hospital with transparent cost breakdowns",
+                    "Walk-in clinic near Kondapur for fast orthopedic consultations",
+                    "Comprehensive physiotherapy services for smooth recovery"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Modern implants are designed to last 15–20 years, providing long-term relief for end-stage joint disease. We utilize specific alignment technology to ensure the prosthetic joint mimics natural shoulder mechanics with maximum stability."
+            ],
 
-            conditionsHeading: "Why Patients Choose Stork Hospital for Shoulder Replacement",
+            conditionsHeading: "When a Shoulder Replacement May Be the Best Option",
             conditionsTreated: [
-                "Specialized orthopedic surgeons with expertise",
-                "Modern diagnostic center (MRI, CT, X-rays)",
-                "Advanced surgical center (minimally invasive)",
-                "24/7 emergency hospital for urgent needs",
-                "Insurance accepted with transparent cost breakdowns",
-                "Walk-in clinic for fast consultations",
-                "Comprehensive physiotherapy services"
+                "End-stage shoulder arthritis (osteoarthritis or rheumatoid arthritis)",
+                "Shoulder joint damage from massive, irreparable rotator cuff tears",
+                "Complex fractures that cannot be repaired effectively",
+                "Avascular necrosis causing bone tissue damage",
+                "Persistent pain and stiffness despite months of non-surgical treatment"
             ],
 
             procedureHeading: "Our Surgical Process",
             procedureSteps: [
                 {
                     title: "Before the Surgery",
-                    description: "Detailed orthopedic examination, imaging studies, and customized surgical plan."
+                    description: "Detailed orthopedic examination, pinpoint imaging studies, and a customized surgical plan tailored to lifestyle goals."
                 },
                 {
                     title: "During the Procedure",
-                    description: "Removal of damaged bone/cartilage, placement of implant, and proper alignment."
+                    description: "Removal of damaged bone/cartilage followed by the precise placement of a partial, total, or reverse prosthetic implant."
                 },
                 {
                     title: "After the Surgery",
-                    description: "Pain control, early movement exercises, and physiotherapy."
+                    description: "Pain control strategies, early movement exercises, and intensive physiotherapy to regain strength and flexibility."
                 }
             ],
 
-            benefitsHeading: "Benefits of Shoulder Replacement at Stork",
+            benefitsHeading: "Implant Durability & Recovery Goals",
             benefits: [
-                "Relief from chronic shoulder pain",
-                "Restored range of motion and function",
-                "Improved quality of life",
-                "Long-lasting results with modern implants",
-                "Expert care from diagnosis to recovery"
+                "Restores normal shoulder range of motion",
+                "Relieves chronic end-stage joint pain",
+                "Advanced image-guided surgical precision",
+                "Long-lasting implants (15–20 years)",
+                "Specialized reverse designs for complex cuff tears"
             ],
 
             risks: [],
+            recoveryHeading: "Your Recovery Timeline at Stork Hospital",
             recoveryTimeline: [
                 "Initial orthopedic assessment and diagnosis",
                 "Pre-operative medical clearance and planning",
@@ -10525,21 +11503,21 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts specialize i
             ],
 
             customCta: {
-                heading: "Book Your Shoulder Replacement Appointment",
-                description: "Don’t let shoulder pain affect your independence. Book an appointment at Stork Hospital to meet a shoulder replacement specialist in Hyderabad and discuss the safest, most effective treatment option for your condition.",
-                buttonText: "Book Appointment"
+                heading: "Regain Your Independence and Movement",
+                description: "Book an appointment at Stork Hospital to meet a shoulder replacement specialist and discuss the latest effective treatment options for your condition.",
+                buttonText: "Schedule Shoulder Consult"
             },
             meta: {
-                duration: "2-3 Hours",
-                anesthesia: "General Anesthesia",
-                hospitalStay: "2-4 Days",
-                recoveryTime: "3-6 Months",
-                successRate: "High"
+                duration: "Consultation Based",
+                anesthesia: "General / Regional",
+                hospitalStay: "1–3 Days",
+                recoveryTime: "3–6 Months",
+                successRate: "High Functional Restoration"
             },
             reviewedBy: {
-                name: "Dr. Kiran",
-                role: "Senior Orthopedic Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Joint Replacement Specialists",
+                experience: "Experts in Total & Reverse Shoulder Arthroplasty"
             }
         }
     }
@@ -11226,68 +12204,73 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform tonsill
             slug: slug,
             title: "Total Knee Replacement – Stork Hospital, Hyderabad",
             subheading: "Advanced Solutions for Pain-Free Movement",
+            tagline: "Restoring movement and relieving pain through high-precision prosthetic knee arthroplasty.",
             breadcrumbTitle: "Total Knee Replacement",
-            category: "Orthopedics",
-            departmentHref: foundCategory.href || "#",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Total Knee Replacement (TKR), or total knee arthroplasty, is a surgical procedure in which a worn or severely damaged knee joint is replaced with a carefully designed artificial implant. It’s often the preferred treatment for advanced arthritis, traumatic injury, or long-standing joint pain that no longer responds to medication or therapy. The aim is to reduce pain, restore smooth movement, and help patients return to an active lifestyle.
 
 At Stork Multispecialty Hospital, Hyderabad, we combine the expertise of highly trained orthopedic surgeons with modern technology to deliver safer, faster, and more comfortable knee replacement surgeries.`,
 
             overview: {
-                heading: "When You Might Need a Knee Replacement",
-                intro: "A knee replacement might be recommended if you experience:",
+                heading: "Why Stork Hospital is a Leading Choice for Knee Replacement",
+                intro: "Our dedicated arthroplasty unit utilizes advanced navigation systems for superior surgical outcomes:",
                 items: [
-                    "Persistent knee pain that limits daily tasks",
-                    "Loss of mobility despite physiotherapy or medication",
-                    "Stiffness or swelling that doesn’t improve with rest",
-                    "Bow-legged or knock-knee deformity caused by joint damage",
-                    "Confirmed end-stage arthritis via diagnostic imaging"
+                    "Specialist orthopedic surgeons skilled in routine and complex knee replacements",
+                    "In-house diagnostic center in Hyderabad offering digital X-rays, CT, and MRI for detailed joint mapping",
+                    "Advanced surgical center equipped with computer-assisted navigation for precision alignment",
+                    "24/7 emergency hospital near Hitech City for orthopedic and post-surgical emergencies",
+                    "Insurance accepted at Stork Hospital with transparent cost details",
+                    "Walk-in clinic near Kondapur for quick orthopedic screening and consultations",
+                    "Dedicated physiotherapy unit to accelerate post-surgical recovery"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The use of computer-assisted navigation ensures that the prosthetic knee is aligned perfectly with the patient’s natural limb biomechanics. This precision significantly reduces post-operative wear and extends the functional life of the implant."
+            ],
 
-            conditionsHeading: "Why Stork Hospital is a Leading Choice for Knee Replacement",
+            conditionsHeading: "When You Might Need a Knee Replacement",
             conditionsTreated: [
-                "Specialist orthopedic surgeons skilled in routine and complex knee replacements",
-                "In-house diagnostic center offering digital X-rays, CT, and MRI for detailed joint mapping",
-                "Advanced surgical center equipped with computer-assisted navigation for precision alignment",
-                "24/7 emergency hospital for orthopedic and post-surgical emergencies",
-                "Insurance accepted with transparent cost details",
-                "Walk-in clinic for quick orthopedic screening and consultations",
-                "Dedicated physiotherapy unit to accelerate post-surgical recovery"
+                "Persistent knee pain that limits daily tasks",
+                "Loss of mobility despite physiotherapy or medication",
+                "Stiffness or swelling that doesn’t improve with rest",
+                "Bow-legged or knock-knee deformity caused by joint damage",
+                "Confirmed end-stage arthritis via diagnostic imaging"
             ],
 
             procedureHeading: "How We Perform Total Knee Replacement at Stork",
             procedureSteps: [
                 {
                     title: "Before Surgery",
-                    description: "Complete health/mobility assessment, advanced imaging for customization, and patient education."
+                    description: "Complete health and mobility assessment, advanced joint mapping, and patient education on recovery expectations."
                 },
                 {
                     title: "During Surgery",
-                    description: "Removal of damaged bone/cartilage, insertion of a tailored prosthetic joint, and precision alignment."
+                    description: "Precision removal of damaged bone/cartilage and insertion of a durable prosthetic joint tailored for a natural fit."
                 },
                 {
                     title: "After Surgery",
-                    description: "Pain relief measures, early walking exercises, and supervised physiotherapy."
+                    description: "Advanced pain relief, early walking exercises, and supervised physiotherapy to rebuild full range of motion."
                 }
             ],
 
-            benefitsHeading: "Your Recovery Timeline at Stork Hospital",
+            benefitsHeading: "Implant Longevity & Mobility Goals",
             benefits: [
+                "High-precision computer-assisted navigation",
+                "Durable implants (15–20 years+)",
+                "Rapid mobilization (walking within 24–48 hours)",
+                "Correction of bow-legged or knock-knee deformities",
+                "Transparent insurance coverage and cost-clarity"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Recovery Timeline at Stork Hospital",
+            recoveryTimeline: [
                 "Consultation and diagnostic imaging",
                 "Pre-surgical preparation and medical clearance",
                 "Surgery using minimally invasive or conventional techniques",
                 "Early mobilization with physiotherapy during hospital stay",
                 "Ongoing outpatient rehab for full recovery and mobility"
-            ],
-
-            risks: [],
-            recoveryTimeline: [
-                "Many patients walk with assistance within 24–48 hours",
-                "Most knee replacements last 15–20 years or longer",
-                "Supervised physiotherapy to rebuild strength and range of motion",
-                "Regular follow-ups to ensure optimal healing"
             ],
 
             faqHeading: "FAQs – Total Knee Replacement",
@@ -11311,21 +12294,21 @@ At Stork Multispecialty Hospital, Hyderabad, we combine the expertise of highly 
             ],
 
             customCta: {
-                heading: "Take the First Step Toward Pain-Free Living",
-                description: "If knee pain is limiting your mobility and quality of life, expert help is available. Book an appointment at Stork Hospital to consult a knee replacement specialist in Hyderabad and discover the safest, most effective treatment options for your needs.",
-                buttonText: "Book Appointment"
+                heading: "Restore Your Knee’s Natural Movement",
+                description: "If knee pain is limiting your lifestyle, book an appointment at Stork Hospital to discover the safest, most effective knee replacement options.",
+                buttonText: "Schedule Knee Consult"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "Consultation Based",
                 anesthesia: "General / Spinal",
-                hospitalStay: "3-5 Days",
-                recoveryTime: "3-6 Months",
-                successRate: "High"
+                hospitalStay: "2–4 Days",
+                recoveryTime: "3–6 Months",
+                successRate: "High Functional Restoration"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior Orthopedic Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork Orthopedic Care Team",
+                role: "Knee Arthroplasty Specialists",
+                experience: "Experts in Primary & Revision Knee Replacement"
             }
         }
     }
@@ -11994,96 +12977,246 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists diagnose and tr
         }
     }
 
-    // 3. Return Premium Placeholder Content (Default)
-    return {
-        slug: slug,
-        title: foundItem.title,
-        subheading: `Advanced ${foundItem.title} Care at Stork Hospital`,
-        tagline: "Comprehensive treatment by leading specialists",
-        category: foundCategory.title,
-        departmentHref: foundCategory.href || "#",
-        shortDescription: `Advanced ${foundItem.title} treatments provided by leading specialists using state-of-the-art technology for optimal recovery.`,
-        fullDescription: [
-            `${foundItem.title} is a specialized medical procedure designed to address specific conditions affecting the ${foundItem.body_region || "body"}. At Stork Hospital, our team of expert surgeons and specialists utilize the latest minimally invasive techniques to ensure the best possible outcomes for our patients.`,
-            "Our approach focuses on comprehensive care, from initial diagnosis through post-procedure recovery. We understand that every patient is unique, and we tailor our treatment plans to meet individual needs, ensuring safety, comfort, and effective results.",
-            "With a track record of success and a patient-centric philosophy, we are committed to restoring your health and quality of life through world-class medical intervention."
-        ],
-        conditionsTreated: [
-            `Chronic pain or discomfort related to ${foundItem.title}`,
-            "Reduced mobility or functionality",
-            "Inflammation or infection unresponsive to medication",
-            "Congenital or acquired structural abnormalities",
-            "Trauma-related injuries requiring surgical intervention"
-        ],
-        procedureSteps: [
-            {
-                title: "Pre-Procedure Assessment",
-                description: "A thorough evaluation including imaging, blood tests, and consultation to ensure you are ready for the procedure."
+
+
+
+    if (slug === "transforaminal-endoscopic-lumbar-discectomy") {
+        return {
+            slug: slug,
+            title: "Transforaminal Endoscopic Lumbar Discectomy (TELD) – Stork Hospital, Hyderabad",
+            subheading: "Minimally Invasive Spine Surgery for Faster Relief & Recovery",
+            tagline: "Relieve your slipped disc pain without major surgery.",
+            breadcrumbTitle: "TELD",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Persistent lower back pain or sciatica caused by a slipped disc can severely impact your mobility and quality of life. When conservative treatments fail, Transforaminal Endoscopic Lumbar Discectomy (TELD) offers a highly advanced, minimally invasive solution to relieve nerve compression and restore normal function—without the need for open surgery.
+
+At Stork Hospital, Hyderabad, we specialize in precision-guided endoscopic spine procedures that ensure maximum relief with minimal tissue damage and faster recovery.`,
+
+            overview: {
+                heading: "What is TELD?",
+                intro: "TELD is a modern spine procedure where a thin endoscope (camera-guided instrument) is inserted through a small incision in the back to remove the herniated or slipped portion of a disc that is pressing on spinal nerves.",
+                items: [
+                    "Unlike traditional surgery, TELD is performed through the transforaminal route (side of the spine), avoiding major muscle cutting and preserving spinal stability.",
+                    "Minimally invasive approach with microscopic precision",
+                    "Superior alternative to open laminectomy or discectomy",
+                    "Targets only the damaged disc portion, leaving healthy tissue intact"
+                ]
             },
-            {
-                title: "Anesthesia & Preparation",
-                description: "Administration of appropriate anesthesia (local or general) to ensure a pain-free experience during the surgery."
+            fullDescription: [
+                "At Stork Hospital, Hyderabad, we provide holistic care combining advanced diagnostics with warmth and personalized attention."
+            ],
+
+            conditionsHeading: "Conditions Treated with TELD",
+            conditionsTreated: [
+                "Herniated or slipped lumbar discs",
+                "Sciatica (radiating leg pain)",
+                "Nerve root compression",
+                "Disc bulges not responding to medication or physiotherapy",
+                "Chronic lower back pain with neurological symptoms"
+            ],
+
+            procedureHeading: "How We Perform TELD",
+            procedureSteps: [
+                {
+                    title: "Clinical Evaluation",
+                    description: "Detailed clinical assessment and MRI evaluation to map the exact location of the herniation."
+                },
+                {
+                    title: "Precision Guidance",
+                    description: "Procedure performed under C-arm (fluoroscopic) guidance for real-time visualization."
+                },
+                {
+                    title: "Tube Insertion",
+                    description: "A small tube is inserted through the natural opening of the spine (foramen) to provide access."
+                },
+                {
+                    title: "Endoscopic Removal",
+                    description: "Advanced endoscopic instruments are used to carefully remove the disc fragment compressing the nerve."
+                },
+                {
+                    title: "Nerve Decompression",
+                    description: "Immediate decompression of the nerve leads to rapid pain relief and improved mobility."
+                }
+            ],
+
+            benefitsHeading: "Key Benefits of TELD",
+            benefits: [
+                "Ultra-minimally invasive (small incision, no stitches required)",
+                "Performed under local anaesthesia in most cases for safety",
+                "Minimal muscle and tissue damage compared to open methods",
+                "Reduced risk of complications and surgical site infections",
+                "Faster recovery allowing for an early return to daily activities",
+                "Short hospital stay—often performed as a same-day discharge procedure"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Patients typically walk within hours after the procedure",
+                "Return to routine activities and light work within a few days",
+                "Significant reduction in leg pain (sciatica) immediately or within days",
+                "Structured rehab plan with specialized physiotherapy ensures long-term spine health"
+            ],
+
+            faqHeading: "Common Questions Answered",
+            faqs: [
+                {
+                    question: "Is TELD better than open spine surgery?",
+                    answer: "Yes. It offers similar or better clinical outcomes with significantly less tissue damage, less blood loss, and much faster recovery."
+                },
+                {
+                    question: "Is the procedure painful?",
+                    answer: "No. It is typically done under local anaesthesia or light sedation with minimal discomfort during and after the procedure."
+                },
+                {
+                    question: "How long does the procedure take?",
+                    answer: "The entire procedure typically takes between 45 minutes to 1 hour depending on the complexity of the case."
+                },
+                {
+                    question: "Who is the right candidate?",
+                    answer: "Patients with confirmed disc herniation causing nerve compression (sciatica) who have not improved with at least 6 weeks of conservative treatment."
+                }
+            ],
+
+            customCta: {
+                heading: "Relieve Slipped Disc Pain Today",
+                description: "Choose Stork Hospital, Hyderabad for advanced endoscopic spine care and faster recovery. Book your consultation today.",
+                buttonText: "Book Appointment"
             },
-            {
-                title: "The Procedure",
-                description: "Our surgeons perform the procedure using precision instruments, minimizing tissue damage and promoting faster healing."
+            meta: {
+                duration: "45–60 Mins",
+                anesthesia: "Local / Sedation",
+                hospitalStay: "Same Day / 24 hrs",
+                recoveryTime: "3–7 Days",
+                successRate: "95%+"
             },
-            {
-                title: "Closing & Observation",
-                description: "Surgical sites are securely closed, and you are moved to a recovery room for close monitoring by our nursing staff."
+            reviewedBy: {
+                name: "Stork Spine Care Team",
+                role: "Senior Orthopedic & Spine Surgeons",
+                experience: "Expert Minimally Invasive Specialists"
             }
-        ],
-        benefits: [
-            "Minimally invasive techniques with smaller incisions",
-            "Reduced pain and discomfort post-surgery",
-            "Shorter hospital stay and faster recovery time",
-            "Lower risk of complications and infection",
-            "Improved long-term health outcomes and quality of life"
-        ],
-        risks: [
-            "As with any surgical procedure, there are minor risks of infection or bleeding.",
-            "Potential reaction to anesthesia (rare).",
-            "Temporary swelling or bruising at the surgical site.",
-            "Our team takes every precaution to minimize these risks through rigorous safety protocols."
-        ],
-        recoveryTimeline: [
-            "Day 1: Observation and initial rest. Most patients can mobilize with assistance.",
-            "Week 1: Gradual return to light daily activities. Pain management as prescribed.",
-            "Week 2-4: Follow-up consultation. Resume moderate activities and work (depending on job type).",
-            "Month 3: Full recovery and return to all normal physical activities and sports."
-        ],
-        faqs: [
-            {
-                question: `How long does the ${foundItem.title} procedure take?`,
-                answer: "The duration varies depending on complexity, but typically ranges from 1 to 3 hours. Your surgeon will provide a specific estimate."
-            },
-            {
-                question: "Is the procedure covered by insurance?",
-                answer: "Yes, most major insurance plans cover this procedure when medically necessary. Our billing team can assist you with pre-authorization."
-            },
-            {
-                question: "How soon can I drive after surgery?",
-                answer: "We generally recommend waiting at least 48-72 hours or until you are off prescription pain medication and feel fully alert."
-            },
-            {
-                question: "Will there be visible scarring?",
-                answer: "Our surgeons use techniques to minimize scarring. Incisions are placed strategically, and scars typically fade significantly over time."
-            }
-        ],
-        meta: {
-            duration: "Varies by Case",
-            anesthesia: "General / Local",
-            hospitalStay: "1-2 Days",
-            recoveryTime: "1-2 Weeks",
-            successRate: "95%+"
-        },
-        reviewedBy: {
-            name: "Dr. Rajesh Sharma", // Placeholder
-            role: `Head of ${foundCategory.title}`,
-            experience: "20+ Years Experience"
         }
     }
-    // Generic Fallback for valid procedures without specific content
+
+    if (slug === "endoscopic-interlaminar-discectomy") {
+        return {
+            slug: slug,
+            title: "Endoscopic Interlaminar Discectomy (EID) – Stork Hospital, Hyderabad",
+            subheading: "Targeted Spine Relief with Advanced Endoscopic Precision",
+            tagline: "Get back to pain-free living with advanced endoscopic spine care.",
+            breadcrumbTitle: "EID",
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Severe lower back pain and sciatica caused by a slipped disc can disrupt even the simplest daily activities. When medications and physiotherapy fail to provide relief, Endoscopic Interlaminar Discectomy (EID) offers a highly effective, minimally invasive solution to remove disc pressure on nerves—without the trauma of open surgery.
+
+At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine procedures designed for maximum precision, minimal pain, and rapid recovery.`,
+
+            overview: {
+                heading: "What is Endoscopic Interlaminar Discectomy?",
+                intro: "EID is a modern minimally invasive spine procedure performed through the interlaminar space (natural gap between the vertebrae at the back of the spine). Using a high-definition endoscope, the surgeon directly visualizes and removes the herniated disc fragment compressing the nerve.",
+                items: [
+                    "Directly visualizes and removes the herniated disc fragment",
+                    "Performed through the interlaminar space (natural gap between the vertebrae)",
+                    "Especially useful for lower lumbar disc herniations (L4-L5, L5-S1 levels)",
+                    "Preserves spinal stability while providing immediate relief"
+                ]
+            },
+            fullDescription: [
+                "At Stork Hospital, Hyderabad, we specialize in advanced endoscopic spine surgery designed to restore your quality of life."
+            ],
+
+            conditionsHeading: "Conditions Treated with EID",
+            conditionsTreated: [
+                "Herniated or slipped lumbar discs",
+                "Sciatica (radiating pain down the leg)",
+                "Nerve compression causing numbness or weakness",
+                "Persistent lower back pain not responding to conservative treatment",
+                "Disc prolapse at lower lumbar levels"
+            ],
+
+            procedureHeading: "How We Perform the Procedure",
+            procedureSteps: [
+                {
+                    title: "Detailed Evaluation",
+                    description: "Detailed evaluation with MRI and clinical examination to identify the specific level of herniation."
+                },
+                {
+                    title: "Small Incision",
+                    description: "A tiny incision is made in the lower back to access the interlaminar space."
+                },
+                {
+                    title: "Endoscopic Visualization",
+                    description: "High-definition endoscopic camera provides real-time, magnified visualization of the nerve and disc."
+                },
+                {
+                    title: "Disc Removal",
+                    description: "Herniated disc material is precisely removed to relieve nerve pressure."
+                },
+                {
+                    title: "Imaging Guidance",
+                    description: "The entire procedure is guided using advanced imaging (C-arm) for absolute accuracy."
+                }
+            ],
+
+            benefitsHeading: "Key Benefits of EID",
+            benefits: [
+                "Minimally invasive with a very small incision",
+                "Direct access to the affected disc for precise removal",
+                "Minimal muscle and bone disruption",
+                "Reduced blood loss and low infection risk",
+                "Faster recovery compared to open surgery",
+                "Early mobilization—patients can walk within hours"
+            ],
+
+            risks: [],
+            recoveryTimeline: [
+                "Most patients are discharged within 24 hours of the procedure",
+                "Significant relief from leg pain (sciatica) soon after the procedure",
+                "Return to daily activities within a few days",
+                "Structured physiotherapy ensures long-term recovery and strength"
+            ],
+
+            faqHeading: "Common Questions Answered",
+            faqs: [
+                {
+                    question: "How is EID different from TELD?",
+                    answer: "EID approaches the disc from the back (interlaminar route), while TELD uses a side approach. EID is often preferred for lower lumbar levels like L5-S1."
+                },
+                {
+                    question: "Is the procedure safe?",
+                    answer: "Yes. It is a well-established, minimally invasive technique with a high success rate and low complication profile."
+                },
+                {
+                    question: "Will I need bed rest after surgery?",
+                    answer: "No prolonged bed rest is required. In fact, early movement is highly encouraged for optimal recovery."
+                },
+                {
+                    question: "Who is the right candidate?",
+                    answer: "Patients with confirmed disc herniation causing nerve compression and persistent symptoms despite conservative care like medications or physiotherapy."
+                }
+            ],
+
+            customCta: {
+                heading: "Move Toward a Pain-Free Spine",
+                description: "Choose Stork Hospital, Hyderabad for precision-driven treatments and faster recovery. Book your consultation today.",
+                buttonText: "Book Appointment"
+            },
+            meta: {
+                duration: "45–60 Mins",
+                anesthesia: "Local / General",
+                hospitalStay: "Same Day / 24 hrs",
+                recoveryTime: "3–7 Days",
+                successRate: "95%+"
+            },
+            reviewedBy: {
+                name: "Stork Spine Care Team",
+                role: "Senior Orthopedic & Spine Surgeons",
+                experience: "Leading Minimally Invasive Specialists"
+            }
+        }
+    }
+
+    // 3. Return Premium Placeholder Content (Default)
     if (foundItem && foundCategory) {
         return {
             slug: slug,

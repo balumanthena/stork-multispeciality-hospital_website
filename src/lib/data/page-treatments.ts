@@ -151,7 +151,7 @@ export const PAGE_TREATMENTS: MegaMenuSection[] = [
         slug: "podiatry",
         items: [
             { title: "Corn Removal", href: "/treatments/corn-removal" },
-            { title: "Diabetic Foot Ulcers", href: "/treatments/diabetic-foot-ulcers" },
+            { title: "Diabetic Foot Ulcer", href: "/treatments/diabetic-foot-ulcer" },
         ]
     },
     {
@@ -204,6 +204,7 @@ export const PAGE_TREATMENTS: MegaMenuSection[] = [
         items: [
             { title: "Chronic Disease Management", href: "/treatments/chronic-disease-management" },
             { title: "Management of Infections", href: "/treatments/management-of-infections" },
+            { title: "Pleural Tapping", href: "/treatments/pleural-tapping" },
             { title: "Diagnostic Procedure", href: "/treatments/diagnostic-procedure" },
         ]
     },

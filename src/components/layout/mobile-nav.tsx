@@ -33,7 +33,7 @@ export function MobileNav() {
         {
             label: "WhatsApp",
             icon: MessageCircle,
-            href: "https://wa.me/919999999999", // Replace with actual number
+            href: "https://wa.me/917610810819", // Updated number
             action: null
         }
     ]

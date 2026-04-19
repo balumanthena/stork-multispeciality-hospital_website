@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react"
 export function FloatingWhatsappButton() {
     const handleWhatsAppClick = () => {
         const message = `Hello, I would like to book a consultation at Stork Multispeciality Hospital.`
-        window.open(`https://wa.me/919000000000?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+        window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
     }
 
     return (

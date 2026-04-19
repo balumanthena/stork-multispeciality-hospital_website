@@ -1,6 +1,10 @@
 export interface Doctor {
   id: string;
   name: string;
+  title: string;
+  department: string;
+  languages: string[];
+  locations: string[];
   qualification: string;
   experience: string;
   specialization: string;
@@ -26,6 +30,10 @@ export const doctors: Doctor[] = [
   {
     id: "dr-jyothi-reddy",
     name: "Dr. D Jyothi Reddy",
+    title: "Clinical Director - Obstetrics & Gynecology",
+    department: "Obstetrics & Gynecology",
+    languages: ["English", "Hindi", "Telugu"],
+    locations: ["Kompally"],
     qualification: "MBBS, MD (OBGYN)",
     experience: "8+ Years Experience",
     specialization: "Obstetrician & Gynaecologist",
@@ -33,7 +41,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in high-risk pregnancy & minimally invasive gynecology",
     rating: 4.8,
     patientsTreated: "5,000+",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ef197ec2?auto=format&fit=crop&q=80&w=800",
+    image: "/images/dr jyothi.jpg.jpeg",
     about: "Dr. Jyothi Reddy is dedicated to providing compassionate care for women at every stage of their life. With specialized expertise in high-risk pregnancies and laparoscopic surgeries, she ensures the best outcomes for both mother and child.",
     highlights: [
       "500+ Successful Procedures",
@@ -77,6 +85,10 @@ export const doctors: Doctor[] = [
   {
     id: "dr-narendar-reddy",
     name: "Dr. Narendar Reddy",
+    title: "Chief Interventional Pain Specialist",
+    department: "Pain Management",
+    languages: ["English", "Hindi", "Telugu", "Kannada"],
+    locations: ["Kompally", "Kondapur"],
     qualification: "MBBS, MD",
     experience: "15+ Years Experience",
     specialization: "Interventional Pain Specialist",
@@ -84,7 +96,7 @@ export const doctors: Doctor[] = [
     positioning: "Spine & joint pain expert with a focus on non-surgical interventions",
     rating: 4.9,
     patientsTreated: "10,000+",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800",
+    image: "/images/dr narender reddy.png",
     about: "Dr. Narendar Reddy specializes in managing chronic pain through advanced interventional techniques. His goal is to improve the quality of life for patients suffering from long-term spine and joint issues.",
     highlights: [
       "2,000+ Pain Relief Procedures",
@@ -124,6 +136,10 @@ export const doctors: Doctor[] = [
   {
     id: "dr-aravind-varma",
     name: "Dr. Aravind Varma",
+    title: "Senior Consultant Orthopedic Surgeon",
+    department: "Orthopaedics",
+    languages: ["English", "Hindi", "Telugu"],
+    locations: ["Kompally"],
     qualification: "MBBS, MS (Ortho)",
     experience: "12+ Years Experience",
     specialization: "Orthopedic Surgeon",
@@ -131,7 +147,7 @@ export const doctors: Doctor[] = [
     positioning: "Expert in joint replacement and complex fracture management",
     rating: 4.7,
     patientsTreated: "8,000+",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800",
+    image: "/images/dr aravind.jpg.jpeg",
     about: "Dr. Aravind Varma is a highly skilled orthopedic surgeon known for his precision in complex surgeries. He focuses on restoring mobility and function through advanced orthopedic techniques.",
     highlights: [
       "1,000+ Joint Replacements",
@@ -170,6 +186,10 @@ export const doctors: Doctor[] = [
   {
     id: "dr-veda-vyas",
     name: "Dr. Veda Vyas",
+    title: "Chief General Physician",
+    department: "General Medicine",
+    languages: ["English", "Hindi", "Telugu", "Tamil"],
+    locations: ["Kompally", "Banjara Hills"],
     qualification: "MBBS, MD (Gen Med)",
     experience: "10+ Years Experience",
     specialization: "General Physician",
@@ -177,7 +197,7 @@ export const doctors: Doctor[] = [
     positioning: "Comprehensive care for diabetes, thyroid, and internal medicine",
     rating: 4.8,
     patientsTreated: "15,000+",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800",
+    image: "/images/dr veda vyas.JPG.jpeg",
     about: "Dr. Veda Vyas provides holistic care for adult health issues. He specializes in managing chronic conditions like diabetes and hypertension with a focus on long-term wellness.",
     highlights: [
       "Comprehensive Diabetic Care",
@@ -212,5 +232,29 @@ export const doctors: Doctor[] = [
       }
     ],
     availability: "Mon-Sat, 8:00 AM - 2:00 PM"
+  },
+  {
+    id: "dr-soma-raju",
+    name: "Dr. Soma Raju",
+    title: "Senior Consultant - Pediatrics",
+    department: "Pediatrics",
+    languages: ["English", "Hindi", "Telugu"],
+    locations: ["Kompally"],
+    qualification: "MBBS, MD (Pediatrics)",
+    experience: "20+ Years Experience",
+    specialization: "Pediatrician",
+    tags: ["Child Vaccination", "Neonatal Care", "Pediatric Emergencies"],
+    positioning: "Compassionate care for infants and children",
+    rating: 4.9,
+    patientsTreated: "20,000+",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800",
+    about: "Dr. Soma Raju is a veteran in pediatrics, ensuring the healthy development of children in the Kompally region for over two decades.",
+    highlights: ["20+ Years Experience", "Newborn Care Expert", "Pediatric Emergency Specialist"],
+    expertise: ["Immunization", "Newborn Care", "Growth Monitoring", "Adolescent Health"],
+    education: [{ degree: "MD Pediatrics" }, { degree: "MBBS" }],
+    achievements: ["Successfully treated complex neonatal cases", "Lead for pediatric community outreach"],
+    services: [{ category: "Child Care", items: ["Vaccinations", "Growth checks"] }],
+    availability: "Mon-Sat, 9:00 AM - 1:00 PM"
   }
 ];
+

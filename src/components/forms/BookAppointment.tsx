@@ -52,7 +52,7 @@ Department: ${data.department}
 Doctor: ${data.doctor || "Any Available"}
 Notes: ${data.message || "None"}
 `;
-        return `https://wa.me/919494408050?text=${encodeURIComponent(message.trim())}`;
+        return `https://wa.me/917610810819?text=${encodeURIComponent(message.trim())}`;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {

@@ -128,7 +128,7 @@ export function Footer() {
                 <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-medium">
                     <p>© {new Date().getFullYear()} Stork Multispecialty Hospital. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="#" className="hover:text-[#3E7DCA] transition-colors">Privacy Policy</Link>
+                        <Link href="/privacy-policy" className="hover:text-[#3E7DCA] transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-[#3E7DCA] transition-colors">Terms of Service</Link>
                         <Link href="#" className="hover:text-[#3E7DCA] transition-colors">Sitemap</Link>
                     </div>

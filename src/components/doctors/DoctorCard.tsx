@@ -1,89 +1,80 @@
-'use client';
+"use client"
 
-import React from 'react';
-import Image from 'next/image';
-import { Star, Award, Users, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Doctor } from '@/lib/data/doctors';
+import React from 'react'
+import Image from 'next/image'
+import { MapPin, MessageCircle, ChevronRight, Star } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Doctor } from '@/lib/data/doctors'
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
 interface DoctorCardProps {
-  doctor: Doctor;
-  onViewProfile: (doctor: Doctor) => void;
-  onBookAppointment: (doctor: Doctor) => void;
+  doctor: Doctor
+  onViewProfile: (doctor: Doctor) => void
+  onBookAppointment: (doctor: Doctor) => void
 }
 
-export function DoctorCard({ doctor, onViewProfile, onBookAppointment }: DoctorCardProps) {
+export function DoctorCard({ 
+  doctor, 
+  onViewProfile, 
+  onBookAppointment 
+}: DoctorCardProps) {
   return (
-    <Card className="group overflow-hidden border border-slate-200 bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1 rounded-[24px] flex flex-col h-full">
-      <CardContent className="p-0 flex-1 flex flex-col">
-        {/* Top Accent Area */}
-        <div className="h-2 w-full bg-primary/20 group-hover:bg-primary transition-colors" />
-        
-        <div className="p-8 space-y-6 flex-1 flex flex-col">
-          <div className="space-y-3">
-            <div className="flex justify-between items-start">
-              <Badge className="bg-primary/5 text-primary border-none text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1">
-                {doctor.specialization}
-              </Badge>
-              <div className="flex items-center gap-1 text-amber-500 bg-amber-50 px-2 py-0.5 rounded-full">
-                <Star className="w-3 h-3 fill-current" />
-                <span className="text-[10px] font-bold">{doctor.rating}</span>
-              </div>
-            </div>
-            
-            <div className="space-y-1">
-              <h3 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-primary transition-colors">
-                {doctor.name}
-              </h3>
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest leading-loose">
-                {doctor.qualification}
-              </p>
-            </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -5, scale: 1.01 }}
+      className="bg-white rounded-2xl p-6 flex flex-col justify-between border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-[#6C3EFF]/5 transition-all duration-300 group"
+    >
+      <div className="flex gap-6">
+        {/* LEFT: Image */}
+        <div className="relative w-24 h-24 flex-shrink-0">
+          <div className="absolute inset-0 bg-[#6C3EFF]/5 rounded-xl -z-10 translate-x-2 translate-y-2 group-hover:bg-[#6C3EFF]/10 transition-colors" />
+          <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-white shadow-md">
+            <Image 
+              src={doctor.image} 
+              alt={doctor.name}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+            />
           </div>
-
-          <div className="py-4 border-y border-slate-50">
-             <div className="space-y-1">
-                <p className="text-[10px] font-black text-slate-300 uppercase tracking-wider">Experience</p>
-                <div className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                   <Award className="w-4 h-4 text-primary/60" />
-                   {doctor.experience.split(' ')[0]} Years
-                </div>
-             </div>
-          </div>
-
-          <div className="space-y-4 flex-1">
-             <div className="flex flex-wrap gap-2">
-               {doctor.tags.slice(0, 3).map(tag => (
-                 <span key={tag} className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded-md">
-                   {tag}
-                 </span>
-               ))}
-             </div>
-             <p className="text-sm font-medium text-slate-600 leading-relaxed italic border-l-2 border-primary/20 pl-4 py-1">
-               "{doctor.positioning}"
-             </p>
+          {/* Rating badge */}
+          <div className="absolute -bottom-2 -right-2 bg-white px-2 py-0.5 rounded-full shadow-sm border border-slate-50 flex items-center gap-1">
+             <Star className="w-2.5 h-2.5 text-orange-400 fill-orange-400" />
+             <span className="text-[10px] font-bold text-slate-700">{doctor.rating}</span>
           </div>
         </div>
-      </CardContent>
 
-      <CardFooter className="p-8 pt-0 flex flex-col gap-3">
+        {/* RIGHT: Content */}
+        <div className="flex-1 space-y-3">
+          <div className="space-y-0.5">
+            <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-[#6C3EFF] transition-colors">
+              {doctor.name}
+            </h3>
+            <p className="text-sm font-semibold text-slate-500">
+              {doctor.title || doctor.specialization}
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {/* BOTTOM: Buttons */}
+      <div className="flex gap-3 pt-6 mt-auto">
+        <Button 
+          variant="outline"
+          onClick={() => onBookAppointment(doctor)}
+          className="flex-1 h-11 rounded-xl border-[#6C3EFF]/20 text-[#6C3EFF] hover:bg-[#6C3EFF]/5 hover:border-[#6C3EFF]/40 font-bold transition-all text-xs"
+        >
+          Online Consult
+        </Button>
         <Button 
           onClick={() => onBookAppointment(doctor)}
-          className="w-full bg-primary hover:bg-primary/90 text-white font-black h-12 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-95 text-xs uppercase tracking-widest"
+          className="flex-1 h-11 rounded-xl bg-[#6C3EFF] hover:bg-[#5831D6] text-white font-bold shadow-lg shadow-[#6C3EFF]/20 transition-all text-xs"
         >
-          Book Appointment
+          Hospital Visit
         </Button>
-        <Button 
-          variant="ghost"
-          onClick={() => onViewProfile(doctor)}
-          className="w-full text-slate-400 hover:text-primary hover:bg-primary/5 font-bold h-10 rounded-xl transition-all group/btn text-xs uppercase tracking-widest"
-        >
-          Full Profile
-          <ChevronRight className="ml-1 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-        </Button>
-      </CardFooter>
-    </Card>
-  );
+      </div>
+    </motion.div>
+  )
 }

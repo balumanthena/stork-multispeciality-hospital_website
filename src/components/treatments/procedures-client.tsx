@@ -35,6 +35,9 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
     const [searchQuery, setSearchQuery] = useState("")
     const [selectedRegion, setSelectedRegion] = useState<BodyRegion | null>(null)
     const [isMobile, setIsMobile] = useState(false)
+    const isTreatments = hrefPrefix === "/treatments"
+    const label = isTreatments ? "Treatment" : "Procedure"
+    const labelPlural = isTreatments ? "Treatments" : "Procedures"
 
     // Helper to flatten procedures for region filtering
     const allProcedures = useMemo(() => {
@@ -77,8 +80,8 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
 
                 {/* HEADLINE */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Find Your Procedure</h2>
-                    <p className="text-slate-600 text-lg">Select a body part or search to find the right procedure for you.</p>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Find Your {label}</h2>
+                    <p className="text-slate-600 text-lg">Select a body part or search to find the right {label.toLowerCase()} for you.</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -147,7 +150,7 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                             <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                             <input
                                 type="text"
-                                placeholder="Search procedures..."
+                                placeholder={`Search ${labelPlural.toLowerCase()}...`}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full pl-14 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#3e7dca]/10 text-lg shadow-sm"
@@ -157,7 +160,7 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                         {/* RESULTS HEADER */}
                         <div className="flex items-center justify-between">
                             <h3 className="text-xl font-bold text-slate-800">
-                                {selectedRegion ? REGION_LABELS[selectedRegion] : searchQuery ? "Search Results" : "All Procedures"}
+                                {selectedRegion ? REGION_LABELS[selectedRegion] : searchQuery ? "Search Results" : `All ${labelPlural}`}
                             </h3>
                             {selectedRegion && (
                                 <button
@@ -191,7 +194,7 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                 ))
                             ) : (
                                 <div className="col-span-full py-12 text-center text-slate-400">
-                                    <p>No procedures found. Try adjusting your search.</p>
+                                    <p>No {labelPlural.toLowerCase()} found. Try adjusting your search.</p>
                                 </div>
                             )}
                         </div>

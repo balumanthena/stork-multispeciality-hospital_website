@@ -1,186 +1,124 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { TREATMENTS_MASTER } from "@/lib/data/treatments"
 
 interface Treatment {
-    title: string
-    href: string
+    name: string
+    slug: string
+    id: number
+    department: string
 }
 
-// Hardcoded set of all verified uploaded icons in public/images/icons/treatments
 const AVAILABLE_ICONS = new Set([
-    "adenoidectomy", "anal-fissure", "anal-fistula", "antepartum-monitoring", "appendicitis",
-    "arthroscopy-surgery", "back-pain", "balanitis", "balanoposthitis", "bariatric-surgery",
-    "cancer-care", "chronic-disease-management", "circumcision", "corn-removal",
-    "diabetic-foot-ulcer", "diagnostic-procedure", "dvt-treatment", "ear-surgery",
-    "elbow-pain", "enlarged-prostate", "eswl", "fertility-services", "fissure-surgery",
-    "foot-or-ankle-pain", "foreskin-infection", "frenuloplasty-surgery", "gallstone",
-    "gastrointestinal-issues", "headache-or-migraine", "hernia", "high-risk-pregnancy",
-    "hip-pain", "hip-replacement-surgery", "hoodecomy", "hydrocele", "hymenoplasty",
+    "ablation-therapy", "abdominal-pain", "adenoidectomy", "anal-fissure", "anal-fistula", "antepartum-and-intrapartum-monitoring", "appendicitis",
+    "arthroscopy-surgery", "asthma", "back-pain", "balanitis", "balanoposthitis", "bariatric-surgery",
+    "bronchoscopy", "bronchoscopy-guided-foreign-body-removal", "cancer-care", "chronic-disease-management", "circumcision", "copd", "corn-removal",
+    "diabetic-foot-ulcer", "diagnostic-procedures", "dvt-deep-vein-thrombosis", "ear-surgery",
+    "elbow-pain", "endoscopic-interlaminar-discectomy", "enlarged-prostate", "eswl", "fess-surgery", "fertility-services", "fissure-surgery",
+    "foot-and-ankle-pain", "foreskin-infection", "frenuloplasty-surgery", "gallstones",
+    "gastrointestinal-issues", "headache-migraine", "hernia", "high-risk-pregnancy-management",
+    "hip-pain", "hip-replacement-surgery", "hoodectomy", "hydrocele", "hymenoplasty",
     "incisional-hernia", "inguinal-hernia", "intragastric-balloon", "kidney-stones",
-    "knee-arthroscopy", "knee-pain", "labiaplasty", "labor-delivery", "management-of-infections",
-    "mastoidectomy", "meniscus-tear", "mental-health", "metabolic-endocrine-disorders",
+    "knee-arthroscopy", "knee-pain", "labiaplasty", "labor-delivery", "lung-biopsy", "lung-cancer-care", "management-of-infections",
+    "mastoidectomy", "meniscus-tear", "mental-health", "metabolic-and-endocrine-disorders",
     "minimally-invasive-surgery", "monsplasty", "myringotomy", "nasal-polyps", "neck-pain",
-    "paraphimosis", "pcnl", "pelvic-floor-disorders", "perianal-abscess", "phimosis",
-    "piles-hemorrhoids", "pilonidal-sinus", "postpartum-care", "prenatal-care",
-    "prostatectomy", "rectal-prolapse", "respiratory", "rhinoplasty", "rirs",
+    "paraphimosis", "parental-care", "pcnl", "pelvic-floor-disorders", "perianal-abscess", "phimosis",
+    "piles", "pilonidal-sinus", "pleural-tapping", "post-covid-recovery", "postpartum-care", "prenatal-care",
+    "prostatectomy", "rectal-prolapse", "regenerative-therapies", "respiratory-conditions", "rirs",
     "rotator-cuff-repair", "septoplasty", "shoulder-arthroscopy", "shoulder-dislocation",
-    "shoulder-pain", "shoulder-replacement", "sinus-treatment", "spine-surgery",
-    "sports-injury", "stapedectomy", "stapler-circumcision", "surgical-interventions",
-    "swollen-penis", "throat-surgery", "thyroidectomy", "tonsillectomy",
-    "total-knee-replacement", "turbinate-reduction", "tympanoplasty", "umbilical-hernia",
-    "ursl", "uterine-fibroids", "vaginoplasty", "varicocele", "varicose-veins",
-    "vestoplasty", "vocal-cord-polyps"
+    "shoulder-pain", "shoulder-replacement", "sinus-surgery", "spine-surgery",
+    "sports-pain", "stapedectomy", "stapler-circumcision", "surgical-interventions",
+    "swollen-penis", "tb-management", "throat-surgery", "thyroidectomy", "tonsillectomy",
+    "total-knee-replacement", "transforaminal-endoscopic-lumbar-discectomy", "turbinate-reduction", "tympanoplasty",
+    "ursl", "vaginoplasty", "varicocele", "varicose-veins", "vocal-cord-polyps"
 ])
 
-function TreatmentIconBox({ treatment, slug }: { treatment: Treatment, slug: string }) {
+function TreatmentIconBox({ treatment, slug }: { treatment: { name: string }, slug: string }) {
     return (
         <Link
             href={`/treatments/${slug}`}
-            className="flex flex-col items-center justify-start p-3 w-full sm:w-[130px] md:w-[150px] lg:w-[165px] group transition-all duration-300 hover:-translate-y-1.5"
+            className="flex flex-col items-center justify-start p-2 w-[110px] sm:w-[130px] md:w-[145px] group transition-all duration-300 hover:-translate-y-1"
         >
-            <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] rounded-[24px] bg-white border border-slate-100 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.05)] flex items-center justify-center p-1.5 group-hover:border-[#ff8202]/30 group-hover:shadow-[0_12px_24px_-8px_rgba(249,115,22,0.2)] group-active:scale-95 transition-all duration-500 relative overflow-hidden">
-                {/* Soft backdrop glow on hover */}
-                <div className="absolute inset-0 bg-[#3e7dca]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+            <div className="w-[56px] h-[56px] sm:w-[68px] sm:h-[68px] rounded-[18px] bg-white border border-slate-100 shadow-sm flex items-center justify-center p-1 group-hover:border-[#ff8202]/30 group-hover:shadow-md transition-all duration-500 relative">
                 <Image
                     src={`/images/icons/treatments/${slug}.png`}
-                    alt={treatment.title}
+                    alt={treatment.name}
                     fill
-                    quality={100}
-                    unoptimized={true}
-                    priority={true}
-                    loading="eager"
-                    className="object-contain p-1 transition-all duration-500 group-hover:scale-115 z-10"
-                    sizes="84px"
+                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
+                    sizes="68px"
+                    onError={(e) => {
+                        (e.target as any).src = '/images/icons/treatments/diagnostic-procedure.png'
+                    }}
                 />
             </div>
-            
-            <div className="mt-4 flex flex-col items-center gap-1.5">
-                <span className="text-[13px] sm:text-sm font-bold text-slate-800 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors duration-300 line-clamp-2 px-1">
-                    {treatment.title}
-                </span>
-                {/* Subtle underline indicator */}
-                <div className="h-0.5 w-0 bg-[#ff8202] rounded-full group-hover:w-8 transition-all duration-300 opacity-0 group-hover:opacity-100" />
-            </div>
+            <span className="mt-2 text-[11px] sm:text-[12px] font-bold text-slate-700 text-center leading-tight group-hover:text-[#ff8202] transition-colors line-clamp-2">
+                {treatment.name}
+            </span>
         </Link>
     )
 }
 
-export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: Treatment[] }) {
-    const [expanded, setExpanded] = useState(false)
+export function HomepageTreatmentIcons({ allTreatments: initialTreatments }: { allTreatments: any[] }) {
+    const [expanded, setExpanded] = useState(false);
 
-    // Pre-filter to eliminate layout jumping and empty boxes
-    const validTreatments = allTreatments.filter(t => {
-        const slug = t.href.split("/").pop() || ""
-        return AVAILABLE_ICONS.has(slug)
-    })
-
-    // Showing exactly 14 items initially (2 rows on wider screens)
-    const initialCount = 14; 
-    const displayedTreatments = expanded ? validTreatments : validTreatments.slice(0, initialCount);
+    // Initial view: show a subset of treatments (e.g., first 21 items)
+    const initialItemCount = 21;
+    const itemsToShow = expanded ? TREATMENTS_MASTER : TREATMENTS_MASTER.slice(0, initialItemCount);
 
     return (
-        <section className="py-20 sm:py-32 bg-[#f8fafc] border-t border-slate-100 relative overflow-hidden font-sans">
-            <div className="container max-w-[1280px] mx-auto px-4 sm:px-6">
+        <section className="py-20 bg-[#f8fafc] border-t border-slate-100 font-sans">
+            <div className="container max-w-[1280px] mx-auto px-4">
                 
-                {/* Header Section */}
-                <div className="text-center mb-16 sm:mb-24">
+                <div className="text-center mb-16">
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-3 bg-white/80 border border-slate-200/60 px-4 py-1.5 rounded-full mb-6 shadow-sm backdrop-blur-sm"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="inline-block bg-[#3e7dca]/10 text-[#3e7dca] px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
                     >
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3e7dca]/40 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3e7dca]"></span>
-                        </span>
-                        <span className="text-[#3e7dca] font-bold tracking-widest uppercase text-[10px] sm:text-[11px]">
-                            Conditions & Treatments
-                        </span>
+                        Unified Care System
                     </motion.div>
-                    
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1, duration: 0.6 }}
-                        className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
-                    >
-                        Expert Care for All Medical Needs
-                    </motion.h2>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                        className="text-slate-500 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
-                    >
-                        Experience world-class treatment from top specialists. We utilize advanced technologies to provide comprehensive care for your health conditions.
-                    </motion.p>
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">Expert Care for Every Need</h2>
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+                        Explore our comprehensive range of 105 specialized treatments across expert departments.
+                    </p>
                 </div>
 
-                {/* Centered Grid Implementation */}
-                {/* Mobile: 2 columns grid | Tablet/Desktop: Centered flex-wrap for perfectly balanced rows */}
-                <motion.div 
-                    layout
-                    initial={false}
-                    animate={{ height: "auto" }}
-                    transition={{ 
-                        layout: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                        height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
-                    }}
-                    className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-x-3 gap-y-10 sm:gap-x-1 sm:gap-y-14 sm:max-w-[1200px] mx-auto px-1 sm:px-0 overflow-hidden"
-                >
-                    <AnimatePresence initial={false}>
-                        {displayedTreatments.map((treatment, idx) => {
-                            const slug = treatment.href.split("/").pop() || "";
-                            return (
+                <div className="flex justify-center">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-y-10 gap-x-2 sm:gap-x-4">
+                        <AnimatePresence mode="popLayout">
+                            {itemsToShow.map((treatment) => (
                                 <motion.div 
-                                    key={slug} 
+                                    key={treatment.id}
                                     layout
-                                    initial={{ opacity: 0, scale: 0.9, y: 15 }}
-                                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                                    exit={{ 
-                                        opacity: 0, 
-                                        scale: 0.9, 
-                                        y: 10,
-                                        transition: { duration: 0.2 } 
-                                    }}
-                                    transition={{ 
-                                        duration: 0.4,
-                                        delay: expanded ? (idx >= initialCount ? (idx - initialCount) * 0.015 : 0) : 0 
-                                    }}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                    transition={{ duration: 0.2 }}
                                     className="flex justify-center"
                                 >
-                                    <TreatmentIconBox treatment={treatment} slug={slug} />
+                                    <TreatmentIconBox treatment={treatment} slug={treatment.slug} />
                                 </motion.div>
-                            )
-                        })}
-                    </AnimatePresence>
-                </motion.div>
+                            ))}
+                        </AnimatePresence>
+                    </div>
+                </div>
 
-                {/* View All Button */}
-                {validTreatments.length > initialCount && (
-                    <motion.div layout className="mt-20 sm:mt-28 flex justify-center">
-                        <button
-                            onClick={() => setExpanded(!expanded)}
-                            className="group flex items-center gap-3 px-12 py-5 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(15,23,42,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(249,115,22,0.35)] active:scale-95"
-                        >
-                            <span className="text-[15px] sm:text-base">
-                                {expanded ? "Show Less" : "View All Conditions"}
-                            </span>
-                            <div className={`p-1 bg-white/20 rounded-full transition-transform duration-700 ${expanded ? "-rotate-90" : "rotate-90"} group-hover:bg-white/30`}>
-                                <ArrowRight className="w-4 h-4" />
-                            </div>
-                        </button>
-                    </motion.div>
-                )}
+                <div className="mt-20 flex justify-center">
+                    <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="group flex items-center gap-4 px-10 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all shadow-xl active:scale-95"
+                    >
+                        <span>{expanded ? "Show Less" : `View All 105 Treatments`}</span>
+                        <div className={`transition-transform duration-500 ${expanded ? "rotate-180" : ""}`}>
+                            <ChevronRight className="w-5 h-5" />
+                        </div>
+                    </button>
+                </div>
             </div>
         </section>
     )

@@ -1,102 +1,185 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Phone } from "lucide-react"
-import { getActiveDepartments } from "@/lib/data/departments-server"
-import { getDepartmentIcon } from "@/lib/data/department-icons"
+'use client';
 
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { 
+  HeartPulse, 
+  Stethoscope, 
+  Activity, 
+  Siren, 
+  ShieldCheck, 
+  Award, 
+  Users 
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { getDepartmentIcon } from '@/lib/data/department-icons';
+import { ServiceItem } from '@/components/services/ServiceItem';
 
+const DEPARTMENTS_DATA = [
+  { name: "Cosmetic & Plastic Surgery", slug: "cosmetic-surgery" },
+  { name: "Emergency, Trauma & Critical Care", slug: "emergency", isEmergency: true },
+  { name: "ENT", slug: "ent" },
+  { name: "General Surgery", slug: "general-surgery" },
+  { name: "General Medicine", slug: "general-medicine" },
+  { name: "GI & Bariatric Surgery", slug: "bariatric" },
+  { name: "Gynaecology & Obstetrics", slug: "gynaecology" },
+  { name: "Neurosurgery", slug: "neurosurgery" },
+  { name: "Oncology", slug: "oncology" },
+  { name: "Orthopaedics", slug: "orthopaedics" },
+  { name: "Pain Management", slug: "pain-management" },
+  { name: "Proctology", slug: "proctology" },
+  { name: "Pulmonology", slug: "pulmonology" },
+  { name: "Urology", slug: "urology" },
+  { name: "Vascular Surgery", slug: "vascular" },
+];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
-export default async function DepartmentsIndexPage() {
-    // Fetch active departments from DB
-    const departments = await getActiveDepartments()
+const floatingIconVariants = {
+  floating: {
+    y: [0, -10, 0],
+    scale: [1, 1.05, 1],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut" as const
+    }
+  }
+};
 
-    return (
-        <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+export default function ServicesPage() {
+  return (
+    <div className="flex flex-col min-h-screen bg-white font-sans selection:bg-primary/10 selection:text-primary pt-8">
+      {/* 1. HERO SECTION */}
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 overflow-hidden">
+        {/* Medical Cross Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] -z-10" 
+          style={{ 
+            backgroundImage: `radial-gradient(#ff7a00 0.5px, transparent 0.5px)`, 
+            backgroundSize: '30px 30px' 
+          }} 
+        />
+        
+        {/* Subtle Gradient Backdrops */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent -z-10" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
 
-            {/* 1. INSTITUTIONAL HEADER */}
-            <section className="bg-white pt-24 pb-12">
-                <div className="container max-w-[1200px] mx-auto px-6">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-slate-100 pb-8">
-                        <div>
-                            <span className="text-[#3E7DCA] font-bold text-xs tracking-[0.2em] uppercase mb-4 block">
-                                Clinical Specialties
-                            </span>
-                            <h1 className="text-4xl font-semibold text-[#111827] tracking-tight">
-                                Our Specialties
-                            </h1>
-                        </div>
-                        {/* 'View All Departments' link removed as requested */}
-                    </div>
+        {/* Floating Icons Background */}
+        <div className="absolute inset-0 pointer-events-none -z-10">
+          <motion.div variants={floatingIconVariants} animate="floating" className="absolute top-20 right-[15%] text-slate-100 hidden md:block">
+            <HeartPulse size={120} />
+          </motion.div>
+          <motion.div variants={floatingIconVariants} animate="floating" className="absolute bottom-10 left-[10%] text-slate-100 hidden md:block" style={{ animationDelay: '1s' }}>
+            <Stethoscope size={100} />
+          </motion.div>
+          <motion.div variants={floatingIconVariants} animate="floating" className="absolute top-1/2 left-[5%] text-slate-50 opacity-50 hidden lg:block" style={{ animationDelay: '2s' }}>
+            <Activity size={80} />
+          </motion.div>
+        </div>
 
-                    {/* 2. PREMIUM RESPONSIVE GRID */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
-                        {departments.length > 0 ? (
-                            departments.map((dept: any) => {
-                                const isFeatured = dept.slug === "cardiology"
-                                // PNG Icon Resolution
-                                const iconPath = getDepartmentIcon(dept.slug) || "/images/general-medicine.png"
+        <div className="container max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6 max-w-3xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10">
+              <ShieldCheck className="w-4 h-4 text-primary" />
+              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
+                Comprehensive Care
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight">
+              Our <span className="text-primary italic">Specialties</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+              Experience world-class healthcare across our specialized medical departments, powered by advanced technology and expert doctors.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
+      {/* 2. SERVICES GRID */}
+      <section className="pb-32">
+        <div className="container max-w-7xl mx-auto px-6">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-16 gap-x-12"
+          >
+            {DEPARTMENTS_DATA.map((dept) => (
+              <ServiceItem
+                key={dept.slug}
+                name={dept.name}
+                slug={dept.slug}
+                iconPath={getDepartmentIcon(dept.slug) || "/images/general-medicine.png"}
+                isEmergency={dept.isEmergency}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-                                return (
-                                    <Link
-                                        href={`/services/${dept.slug}`}
-                                        key={dept.id}
-                                        className={`group bg-white rounded-[16px] p-6 flex flex-col items-center text-center transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-1 ${isFeatured ? "border border-[#F97316] bg-orange-50/10" : "border border-transparent hover:border-orange-100"
-                                            }`}
-                                    >
-                                        {/* Icon Container */}
-                                        <div className="mb-6 w-16 h-16 rounded-full bg-[#F6F1E8] flex items-center justify-center transition-all duration-300 group-hover:bg-[#F97316] group-hover:shadow-lg group-hover:scale-110">
-                                            <div className="relative w-[30px] h-[30px] transition-all duration-300">
-                                                <Image
-                                                    src={iconPath}
-                                                    alt={dept.name}
-                                                    fill
-                                                    className="object-contain transition-all duration-300 filter group-hover:brightness-0 group-hover:invert"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        {/* Title */}
-                                        <h3 className="text-[16px] md:text-[18px] font-semibold text-[#1F2937] transition-colors duration-200 group-hover:text-[#F97316]">
-                                            {dept.name}
-                                        </h3>
-                                    </Link>
-                                )
-                            })
-                        ) : (
-                            <div className="col-span-full text-center py-20">
-                                <p className="text-slate-500">No departments found.</p>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. CTA BANNER (Enterprise Style) */}
-            <div className="container max-w-7xl mx-auto px-6 pb-24">
-                <div className="bg-[#3E7DCA] rounded-2xl p-10 md:p-16 text-center shadow-lg relative overflow-hidden">
-                    {/* Background Pattern Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#3E7DCA] to-[#2d62a3] opacity-50" />
-
-                    <div className="relative z-10 max-w-2xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Need Expert Medical Consultation?
-                        </h2>
-                        <p className="text-blue-100 text-lg mb-10 leading-relaxed font-light">
-                            Our specialists are here to guide you. Book an appointment today for a comprehensive health assessment.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button className="h-12 px-8 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl shadow-lg border-none text-base">
-                                Book Appointment
-                            </Button>
-
-                        </div>
-                    </div>
-                </div>
+      {/* 3. CTA SECTION */}
+      <section className="bg-slate-900 py-32 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-0 skew-x-12 translate-x-32" />
+        <div className="container max-w-7xl mx-auto px-6 relative z-10">
+          <div className="bg-white/5 border border-white/5 backdrop-blur-xl rounded-[40px] p-12 md:p-20 flex flex-col items-center text-center gap-10">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight max-w-4xl">
+              Ready to <span className="text-primary">Prioritize</span> Your Health?
+            </h2>
+            <p className="text-lg text-slate-400 font-medium max-w-2xl leading-relaxed">
+              Connect with our specialists for a comprehensive health assessment and personalized treatment plans.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/appointments">
+                <Button className="h-16 px-12 bg-primary text-white font-bold rounded-2xl shadow-2xl shadow-primary/20 hover:scale-105 transition-all text-base uppercase tracking-widest w-full sm:w-auto">
+                  Book Appointment
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button className="h-16 px-12 bg-transparent border-2 border-white/20 text-white hover:bg-white/10 rounded-2xl font-bold text-base uppercase tracking-widest w-full sm:w-auto transition-all">
+                  Contact Hospital
+                </Button>
+              </Link>
             </div>
 
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-6">
+               {[
+                 { icon: Award, label: "NABH Accredited" },
+                 { icon: Users, label: "40+ Specialists" },
+                 { icon: Siren, label: "24/7 Emergency" },
+                 { icon: ShieldCheck, label: "Premium Care" }
+               ].map((item, idx) => (
+                 <div key={idx} className="flex flex-col items-center gap-2">
+                    <item.icon className="w-6 h-6 text-primary/60" />
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{item.label}</span>
+                 </div>
+               ))}
+            </div>
+          </div>
         </div>
-    )
+      </section>
+
+      {/* DIVIDER WAVE */}
+      <div className="h-24 w-full bg-slate-900 overflow-hidden">
+        <svg className="w-full h-full fill-white" viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0,0 C480,100 960,100 1440,0 L1440,100 L0,100 Z" />
+        </svg>
+      </div>
+    </div>
+  );
 }

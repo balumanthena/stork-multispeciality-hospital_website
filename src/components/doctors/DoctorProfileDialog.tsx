@@ -5,11 +5,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { 
   X, 
-  Phone, 
-  MessageSquare, 
   Calendar, 
   CheckCircle2, 
-  GraduationCap, 
   Award, 
   Star, 
   ArrowRight,
@@ -65,10 +62,6 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
                   <Badge className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
                     {doctor.specialization}
                   </Badge>
-                  <div className="flex items-center gap-1.5 text-amber-500 bg-amber-50 px-3 py-1 rounded-full">
-                    <Star className="w-4 h-4 fill-current" />
-                    <span className="text-xs font-bold">{doctor.rating} Rating</span>
-                  </div>
                 </div>
                 
                 <div className="space-y-2">
@@ -89,21 +82,13 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                 <Button 
-                   onClick={handleBookAppointment}
-                   className="bg-primary hover:bg-primary/90 text-white font-black h-14 px-10 rounded-2xl shadow-xl shadow-primary/20 text-sm uppercase tracking-widest transition-all active:scale-95"
-                 >
-                    Book Appointment Now
-                 </Button>
-                 <div className="flex gap-3">
-                   <Button variant="outline" className="h-14 w-14 rounded-2xl border-slate-200 text-slate-400 hover:text-primary hover:bg-primary/5 p-0 transition-all">
-                      <Phone className="w-6 h-6" />
-                   </Button>
-                   <Button variant="outline" className="h-14 w-14 rounded-2xl border-slate-200 text-slate-400 hover:text-green-600 hover:bg-green-50 p-0 transition-all">
-                      <MessageSquare className="w-6 h-6" />
-                   </Button>
-                 </div>
-              </div>
+                  <Button 
+                    onClick={handleBookAppointment}
+                    className="bg-primary hover:bg-primary/90 text-white font-black h-14 px-10 rounded-2xl shadow-xl shadow-primary/20 text-sm uppercase tracking-widest transition-all active:scale-95"
+                  >
+                     Book Appointment Now
+                  </Button>
+                </div>
             </div>
           </div>
 
@@ -165,35 +150,15 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
                </div>
             </section>
 
-            <div className="grid md:grid-cols-2 gap-12 pt-6">
+            <div className="grid grid-cols-1 gap-12 pt-6">
                {/* F. ACHIEVEMENTS */}
                <section className="space-y-6">
                   <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Key Achievements</h3>
-                  <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     {doctor.achievements.map((ach, idx) => (
                       <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10">
                         <Award className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                         <span className="text-sm font-bold text-slate-900">{ach}</span>
-                      </div>
-                    ))}
-                  </div>
-               </section>
-
-               {/* G. EDUCATION */}
-               <section className="space-y-6">
-                  <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">Education & Background</h3>
-                  <div className="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-200">
-                    {doctor.education.map((edu, idx) => (
-                      <div key={idx} className="relative pl-10">
-                        <div className="absolute left-0 top-1 h-6 w-6 rounded-full bg-white border-2 border-primary flex items-center justify-center z-10">
-                          <GraduationCap className="w-3 h-3 text-primary" />
-                        </div>
-                        <div>
-                          <p className="font-bold text-slate-900 leading-tight">{edu.degree}</p>
-                          {edu.institution && (
-                            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1">{edu.institution}</p>
-                          )}
-                        </div>
                       </div>
                     ))}
                   </div>
@@ -210,12 +175,6 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
                className="flex-1 bg-primary text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20"
              >
                 Book Appointment
-             </Button>
-             <Button variant="outline" className="h-12 w-12 rounded-xl border-slate-200 text-primary p-0">
-                <Phone className="w-5 h-5" />
-             </Button>
-             <Button variant="outline" className="h-12 w-12 rounded-xl border-slate-200 text-green-600 p-0">
-                <MessageSquare className="w-5 h-5" />
              </Button>
           </div>
         </div>

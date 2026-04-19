@@ -85,7 +85,7 @@ export function ExitIntentPopup() {
 
     const openWhatsApp = () => {
         const message = `Hello, I would like to book a consultation at Stork Multispeciality Hospital.`
-        window.open(`https://wa.me/919494408050?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+        window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
     }
 
     if (!isVisible) return null

@@ -34,7 +34,7 @@ export function LeadPopup() {
         }
         setIsSubmitting(true)
         const message = `New Lead from Website Popup\n\nName: ${formData.name}\nPhone: ${formData.phone}`
-        window.open(`https://wa.me/919494408050?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
+        window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
         toast.success("Thank you! Our team will reach out to you shortly.")
         handleClose()
         setIsSubmitting(false)
