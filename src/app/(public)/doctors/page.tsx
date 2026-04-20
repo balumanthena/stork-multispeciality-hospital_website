@@ -195,13 +195,12 @@ export default function DoctorsPage() {
             <p className="text-lg text-white/80 font-medium max-w-2xl mx-auto leading-relaxed">
               Our 24/7 support team can help you find the right doctor for your specific health needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-               <Button className="h-14 px-10 bg-white text-[#ff8202] hover:bg-white/90 font-bold rounded-xl shadow-xl transition-all">
-                 Inquire Now
-               </Button>
-               <Button variant="outline" className="h-14 px-10 border-white/20 text-white hover:bg-white/10 rounded-xl font-bold transition-all">
-                 Contact Us
-               </Button>
+            <div className="flex justify-center pt-4">
+               <Link href="/contact">
+                  <Button className="h-14 px-12 bg-white text-[#ff8202] hover:bg-white/90 font-bold rounded-xl shadow-2xl transition-all active:scale-[0.98]">
+                    Contact Us Today
+                  </Button>
+               </Link>
             </div>
          </div>
       </section>
