@@ -61,9 +61,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, message: 'OTP sent successfully' })
   } catch (error: any) {
     console.error('Send OTP Error:', error)
-    return NextResponse.json({ 
-      error: error.message || 'An internal error occurred.',
-      details: error.toString()
-    }, { status: 500 })
+    return NextResponse.json({ error: 'An internal error occurred. Please try again later.' }, { status: 500 })
   }
 }
