@@ -1,10 +1,11 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import Link from "next/link"
-import { ChevronRight, Phone, X, Menu, Calendar, Building2, Stethoscope, Users, Info, MapPin, ChevronDown } from "lucide-react"
+import { ChevronRight, Phone, X, Menu, Calendar, Building2, Stethoscope, Users, Info, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { DEPARTMENTS, TREATMENTS, NAV_LINKS } from "./nav-data"
+import { DEPARTMENTS, TREATMENTS } from "./nav-data"
 import { cn } from "@/lib/utils"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
 import { Department } from "@/types"
@@ -12,7 +13,12 @@ import { useSettings } from "@/providers/SettingsProvider"
 
 export function MobileNav({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const [isOpen, setIsOpen] = useState(false)
+    const [mounted, setMounted] = useState(false)
     const { settings } = useSettings()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     // Prevent scrolling when menu is open
     useEffect(() => {
@@ -24,7 +30,6 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
         return () => { document.body.style.overflow = 'unset' }
     }, [isOpen])
 
-    // Dynamic departments mapping
     const dynamicDepartments = departments.length > 0 ? departments.map(d => ({
         title: d.name,
         href: `/services/${d.slug}`,
@@ -46,20 +51,12 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
         </Link>
     )
 
-    return (
-        <div className="lg:hidden">
-            <button
-                onClick={() => setIsOpen(true)}
-                className="p-2 text-slate-700 hover:bg-slate-50 rounded-xl transition-all active:scale-95"
-                aria-label="Open menu"
-            >
-                <Menu className="w-6 h-6" />
-            </button>
-
+    const menuContent = (
+        <>
             {/* Backdrop Fade */}
             <div 
                 className={cn(
-                    "fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[9998] transition-opacity duration-300",
+                    "fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[10000] transition-opacity duration-300",
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 )}
                 onClick={() => setIsOpen(false)}
@@ -67,7 +64,7 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
 
             {/* Full-Screen Slide-In Menu */}
             <div className={cn(
-                "fixed top-0 right-0 bottom-0 w-[85%] max-w-[400px] bg-white z-[9999] transition-transform duration-300 ease-in-out transform flex flex-col shadow-2xl",
+                "fixed top-0 right-0 bottom-0 w-[85%] max-w-[420px] bg-white z-[10001] transition-transform duration-300 ease-in-out transform flex flex-col shadow-2xl",
                 isOpen ? "translate-x-0" : "translate-x-full"
             )}>
                 {/* Header Section */}
@@ -134,8 +131,8 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider leading-none mb-1">Emergency Help</span>
-                                <a href={`tel:${settings?.emergency_number || "+91 99999 88888"}`} className="text-lg font-black text-slate-900 tracking-tight">
-                                    {settings?.emergency_number || "+91 99999 88888"}
+                                <a href={`tel:${settings?.emergency_number || "+91 76108 10819"}`} className="text-lg font-black text-slate-900 tracking-tight">
+                                    {settings?.emergency_number || "+91 76108 10819"}
                                 </a>
                             </div>
                         </div>
@@ -151,6 +148,20 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                     </Link>
                 </div>
             </div>
+        </>
+    )
+
+    return (
+        <div className="lg:hidden">
+            <button
+                onClick={() => setIsOpen(true)}
+                className="p-2 text-slate-700 hover:bg-slate-50 rounded-xl transition-all active:scale-95"
+                aria-label="Open menu"
+            >
+                <Menu className="w-6 h-6" />
+            </button>
+
+            {mounted && createPortal(menuContent, document.body)}
         </div>
     )
 }

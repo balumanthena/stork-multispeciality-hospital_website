@@ -65,7 +65,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                     isScrolled ? "h-[72px] shadow-md border-slate-200" : "h-[84px] border-[#eaeef3]"
                 )}
             >
-                <div className="container max-w-[1440px] mx-auto px-10 h-full flex items-center justify-between">
+                <div className="container max-w-[1440px] mx-auto px-4 lg:px-10 h-full flex items-center justify-between">
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 flex-shrink-0 z-50 group">
