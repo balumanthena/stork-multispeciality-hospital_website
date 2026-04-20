@@ -255,6 +255,57 @@ export const doctors: Doctor[] = [
     achievements: ["Successfully treated complex neonatal cases", "Lead for pediatric community outreach"],
     services: [{ category: "Child Care", items: ["Vaccinations", "Growth checks"] }],
     availability: "Mon-Sat, 9:00 AM - 1:00 PM"
+  },
+  {
+    id: "dr-veda-sree",
+    name: "Dr. Chimmana Veda Sree",
+    title: "Consultant Physician - General Medicine",
+    department: "General Medicine",
+    languages: ["Telugu", "Hindi", "English"],
+    locations: ["Kompally"],
+    qualification: "MBBS, MD (General Medicine)",
+    experience: "5+ Years Experience",
+    specialization: "General Physician",
+    tags: ["Internal Medicine", "Critical Care", "Emergency Management"],
+    positioning: "Specialist in internal medicine, emergency management, and critical ICU care",
+    rating: 4.8,
+    patientsTreated: "1,200+",
+    image: "/images/dr-veda-sree.png",
+    about: "Dr. Chimmana Veda Sree is a clinically competent physician specializing in General Medicine. With a strong background in emergency management and ICU care, she focuses on providing comprehensive diagnostic and therapeutic care for complex adult health conditions.",
+    highlights: [
+      "Expert in Emergency Management",
+      "Advanced ICU & Critical Care Skills",
+      "Published Researcher in Indexed Journals",
+      "Specialist in Chronic Headache Profiles"
+    ],
+    expertise: [
+      "Internal Medicine",
+      "Emergency & ICU Care",
+      "Diagnostic Interpretation (CT/MRI/ECG)",
+      "Procedural Expertise (Intubation/Central Line)",
+      "Chronic Disease Management"
+    ],
+    education: [
+      { degree: "MD General Medicine", institution: "Prathima Institute of Medical Sciences" },
+      { degree: "MBBS", institution: "Chalmeda Ananda Rao Institute of Medical Sciences" }
+    ],
+    achievements: [
+      "Published 'A case report of DCLD with Pancytopenia' in EJPMR",
+      "Successfully managed critical cases during the COVID-19 pandemic",
+      "Conducted extensive research on 'Clinical and Radiological Profile of Chronic Headache'",
+      "Recipient of BLS/ACLS Certification"
+    ],
+    services: [
+      {
+        category: "Internal Medicine",
+        items: ["OPD/IPD Management", "Chronic Disease Screening", "Emergency Stabilization"]
+      },
+      {
+        category: "Critical Care",
+        items: ["ICU Management", "Ventilator Support", "Advanced Procedural Care"]
+      }
+    ],
+    availability: "Mon-Sat, 9:00 AM - 5:00 PM"
   }
 ];
 
