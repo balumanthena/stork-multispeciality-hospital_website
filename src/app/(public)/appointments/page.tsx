@@ -1,16 +1,20 @@
+"use client"
+
 import React from "react"
-import type { Metadata } from "next"
 import Image from "next/image"
 import { Calendar, Phone, MapPin, Clock, MessageCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BookAppointment } from "@/components/forms/BookAppointment"
-
-export const metadata: Metadata = {
-    title: "Book an Appointment | Stork Multispeciality Hospital",
-    description: "Schedule consultations across 25+ specialties with experienced doctors at Stork Multispeciality Hospital, Kompally.",
-}
+import { useSettings } from "@/providers/SettingsProvider"
 
 export default function BookAppointmentPage() {
+    const { settings } = useSettings()
+
+    const address = settings?.address || "Survey No 14 & 15, NH44, Kompally, Hyderabad, Telangana 500014"
+    const timings = settings?.working_hours || "Mon - Sat: 9:00 AM - 8:00 PM\nSun: 10:00 AM - 2:00 PM"
+    const whatsappNum = settings?.whatsapp_number || "+91 99999 88888"
+    const whatsappUrl = settings?.whatsapp_url || `https://wa.me/${whatsappNum.replace(/\D/g, '')}`
+
     return (
         <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
 
@@ -25,7 +29,7 @@ export default function BookAppointmentPage() {
                                 Book an Appointment with Our Specialists
                             </h1>
                             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
-                                Schedule consultations across 25+ specialties with experienced doctors. Seamless confirmation. Compassionate care.
+Schedule consultations across 25+ specialties with experienced doctors. Seamless confirmation. Compassionate care.
                             </p>
                         </div>
 
@@ -68,9 +72,8 @@ export default function BookAppointmentPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-medium text-slate-800 mb-1">Hospital Address</h4>
-                                        <p className="text-sm text-slate-600 leading-relaxed">
-                                            Survey No 14 & 15, NH44, Kompally,
-                                            Hyderabad, Telangana 500014
+                                        <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                                            {address}
                                         </p>
                                     </div>
                                 </div>
@@ -81,9 +84,8 @@ export default function BookAppointmentPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-medium text-slate-800 mb-1">OP Timings</h4>
-                                        <p className="text-sm text-slate-600 leading-relaxed">
-                                            Mon - Sat: 9:00 AM - 8:00 PM <br />
-                                            Sun: 10:00 AM - 2:00 PM
+                                        <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
+                                            {timings}
                                         </p>
                                     </div>
                                 </div>
@@ -97,8 +99,13 @@ export default function BookAppointmentPage() {
                                         <p className="text-sm text-slate-600 leading-relaxed mb-2">
                                             For instant queries and report sharing.
                                         </p>
-                                        <a href="#" className="text-green-600 font-medium text-sm hover:underline">
-                                            +91 99999 88888
+                                        <a 
+                                            href={whatsappUrl} 
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-green-600 font-medium text-sm hover:underline"
+                                        >
+                                            {whatsappNum}
                                         </a>
                                     </div>
                                 </div>
@@ -113,3 +120,4 @@ export default function BookAppointmentPage() {
         </div>
     )
 }
+

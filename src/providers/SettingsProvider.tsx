@@ -18,6 +18,8 @@ export interface SiteSettings {
     linkedin_url?: string | null
     youtube_url?: string | null
     whatsapp_url?: string | null
+    whatsapp_number?: string | null
+    working_hours?: string | null
 }
 
 interface SettingsContextType {
