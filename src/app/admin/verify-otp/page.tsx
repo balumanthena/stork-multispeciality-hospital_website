@@ -7,6 +7,7 @@ import { Loader2, ShieldCheck, ArrowLeft, RotateCcw } from "lucide-react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 function VerifyOTPContent() {
     const router = useRouter()
