@@ -68,27 +68,27 @@ export default function DoctorsPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC] font-sans selection:bg-[#6C3EFF]/10">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] font-sans selection:bg-[#ff8202]/10">
       
       {/* 1. HERO SECTION */}
       <section className="bg-white border-b border-slate-100 pt-32 pb-12">
         <div className="container max-w-7xl mx-auto px-6">
           <nav className="flex items-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">
-            <Link href="/" className="hover:text-[#6C3EFF] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
             <ChevronRight className="h-3 w-3 mx-3 text-slate-300" />
             <span className="text-slate-900">Our Doctors</span>
           </nav>
 
           <div className="max-w-4xl space-y-4">
-             <div className="inline-flex items-center gap-2 bg-[#6C3EFF]/5 px-3 py-1.5 rounded-full border border-[#6C3EFF]/10">
-              <StethoscopeIcon className="w-3.5 h-3.5 text-[#6C3EFF]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#6C3EFF]">
+             <div className="inline-flex items-center gap-2 bg-[#ff8202]/5 px-3 py-1.5 rounded-full border border-[#ff8202]/10">
+              <StethoscopeIcon className="w-3.5 h-3.5 text-[#ff8202]" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff8202]">
                 Expert Healthcare Team
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
                Consult with Our <br />
-               <span className="text-[#6C3EFF]">Specialized Doctors</span>
+               <span className="text-[#ff8202]">Specialized Doctors</span>
             </h1>
           </div>
         </div>
@@ -119,11 +119,11 @@ export default function DoctorsPage() {
                 
                 {/* Search doctors top right */}
                 <div className="relative w-full md:w-80 group">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#6C3EFF] transition-colors" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#ff8202] transition-colors" />
                   <input 
                     type="text"
                     placeholder="Search doctors..."
-                    className="w-full pl-11 pr-4 h-12 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-[#6C3EFF]/5 focus:border-[#6C3EFF] transition-all text-sm font-medium outline-none shadow-sm"
+                    className="w-full pl-11 pr-4 h-12 bg-white border border-slate-200 rounded-xl focus:ring-4 focus:ring-[#ff8202]/5 focus:border-[#ff8202] transition-all text-sm font-medium outline-none shadow-sm"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -168,7 +168,7 @@ export default function DoctorsPage() {
                        <p className="text-slate-400 text-sm max-w-xs mx-auto mb-8 font-medium">Try adjusting your filters or search terms.</p>
                        <Button 
                         variant="link" 
-                        className="text-[#6C3EFF] font-bold hover:text-[#5831D6] transition-colors"
+                        className="text-[#ff8202] font-bold hover:text-[#e67502] transition-colors"
                         onClick={() => {
                           setSearchQuery('');
                           setSelectedDepts([]);
@@ -186,7 +186,7 @@ export default function DoctorsPage() {
       </Section>
 
       {/* CTA SECTION */}
-      <section className="bg-[#6C3EFF] py-24 relative overflow-hidden">
+      <section className="bg-[#ff8202] py-24 relative overflow-hidden">
          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
          <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center space-y-8">
             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
@@ -196,7 +196,7 @@ export default function DoctorsPage() {
               Our 24/7 support team can help you find the right doctor for your specific health needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-               <Button className="h-14 px-10 bg-white text-[#6C3EFF] hover:bg-white/90 font-bold rounded-xl shadow-xl transition-all">
+               <Button className="h-14 px-10 bg-white text-[#ff8202] hover:bg-white/90 font-bold rounded-xl shadow-xl transition-all">
                  Inquire Now
                </Button>
                <Button variant="outline" className="h-14 px-10 border-white/20 text-white hover:bg-white/10 rounded-xl font-bold transition-all">

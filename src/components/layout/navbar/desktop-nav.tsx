@@ -104,14 +104,18 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 href="/"
                 className={cn(
                     "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    isActive("/") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
+                style={isActive("/") ? { color: '#ff8202' } : {}}
             >
                 Home
-                <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
-                    isActive("/") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                )}></span>
+                <span 
+                    className={cn(
+                        "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
+                        isActive("/") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    )}
+                    style={{ backgroundColor: '#ff8202' }}
+                ></span>
             </Link>
 
             {/* About Hospital */}
@@ -119,12 +123,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 href="/about"
                 className={cn(
                     "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/about") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    isActive("/about") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
             >
                 About
                 <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                     isActive("/about") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
@@ -138,11 +142,11 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     href="/services"
                     className={cn(
                         "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                        activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                     )}>
                     Departments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "departments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
-                        "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                        "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                         activeMenu === "departments" || pathname.startsWith("/departments") ? "scale-x-100" : "scale-x-0"
                     )}></span>
                 </Link>
@@ -170,11 +174,11 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     href="/treatments"
                     className={cn(
                         "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                        activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                     )}>
                     Treatments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "treatments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
-                        "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                        "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                         activeMenu === "treatments" || pathname.startsWith("/treatments") ? "scale-x-100" : "scale-x-0"
                     )}></span>
                 </Link>
@@ -198,13 +202,18 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     href="/procedures"
                     className={cn(
                         "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
-                    )}>
+                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                    )}
+                    style={activeMenu === "procedures" || pathname.startsWith("/procedures") ? { color: '#ff8202' } : {}}
+                >
                     Procedures <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "procedures" ? "rotate-180" : "opacity-60")} />
-                    <span className={cn(
-                        "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
-                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "scale-x-100" : "scale-x-0"
-                    )}></span>
+                    <span 
+                        className={cn(
+                            "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
+                            activeMenu === "procedures" || pathname.startsWith("/procedures") ? "scale-x-100" : "scale-x-0"
+                        )}
+                        style={{ backgroundColor: '#ff8202' }}
+                    ></span>
                 </Link>
                 <div className={cn(
                     "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
@@ -222,12 +231,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 href="/doctors"
                 className={cn(
                     "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/doctors") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    isActive("/doctors") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
             >
                 Doctors
                 <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                     isActive("/doctors") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
@@ -235,12 +244,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 href="/blog"
                 className={cn(
                     "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/blog") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    isActive("/blog") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
             >
                 Blogs
                 <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                     isActive("/blog") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
@@ -248,12 +257,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 href="/videos"
                 className={cn(
                     "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/videos") ? "text-[var(--color-primary)]" : "text-slate-600 hover:text-[var(--color-primary)]"
+                    isActive("/videos") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
             >
                 Videos
                 <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[var(--color-primary)] rounded-t-sm transition-transform origin-left duration-300",
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
                     isActive("/videos") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>

@@ -42,7 +42,7 @@ export function FiltersSidebar({
             </AccordionTrigger>
             <AccordionContent className="pt-4 space-y-4">
               <div className="relative group">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#6C3EFF] transition-colors" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#ff8202] transition-colors" />
                 <Input 
                   placeholder="Search specialty" 
                   value={deptSearch}
@@ -57,11 +57,11 @@ export function FiltersSidebar({
                       id={`dept-${dept}`} 
                       checked={selectedDepartments.includes(dept)}
                       onCheckedChange={() => onDepartmentChange(dept)}
-                      className="data-[state=checked]:bg-[#6C3EFF] data-[state=checked]:border-[#6C3EFF]"
+                      className="data-[state=checked]:bg-[#ff8202] data-[state=checked]:border-[#ff8202]"
                     />
                     <Label 
                       htmlFor={`dept-${dept}`}
-                      className="text-sm text-slate-600 group-hover:text-[#6C3EFF] transition-colors cursor-pointer"
+                      className="text-sm text-slate-600 group-hover:text-[#ff8202] transition-colors cursor-pointer"
                     >
                       {dept}
                     </Label>
@@ -79,7 +79,7 @@ export function FiltersSidebar({
           onClick={() => {
             selectedDepartments.forEach(d => onDepartmentChange(d))
           }}
-          className="w-full py-2 text-xs font-semibold text-[#6C3EFF] hover:text-[#5831D6] text-center transition-colors"
+          className="w-full py-2 text-xs font-semibold text-[#ff8202] hover:text-[#e67502] text-center transition-colors"
         >
           Clear All Filters
         </button>

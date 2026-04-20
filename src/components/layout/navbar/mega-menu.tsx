@@ -44,7 +44,7 @@ export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href:
 export const MegaMenuCategory = ({ title, items }: { title: string, items: { title: string, href: string }[] }) => {
     return (
         <div className="space-y-4">
-            <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider border-b border-blue-100 pb-2">
+            <h4 className="text-xs font-bold text-[#ff8202] uppercase tracking-wider border-b border-orange-100 pb-2">
                 {title}
             </h4>
             <ul className="space-y-2">
@@ -52,9 +52,9 @@ export const MegaMenuCategory = ({ title, items }: { title: string, items: { tit
                     <li key={i}>
                         <Link
                             href={item.href}
-                            className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#F97316] transition-all duration-200 ease-in-out hover:pl-1.5"
+                            className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#ff8202] transition-all duration-200 ease-in-out hover:pl-1.5"
                         >
-                            <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#F97316] group-hover/item:mr-2 transition-all duration-200">
+                            <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#ff8202] group-hover/item:mr-2 transition-all duration-200">
                                 <ChevronRight className="w-3 h-3" />
                             </span>
                             {item.title}

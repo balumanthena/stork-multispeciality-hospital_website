@@ -34,34 +34,38 @@ export async function BlogScrollSection() {
                         <Link
                             key={`${blog.id}-${idx}`}
                             href={`/blogs/${blog.slug}`}
-                            className="flex-shrink-0 w-[280px] sm:w-[320px] bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 block focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                            className="group flex-shrink-0 w-[300px] sm:w-[360px] bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] transition-all duration-500 block focus:outline-none relative border-b-0 hover:border-b-4 hover:border-b-[#ff8202]"
                         >
-                            <div className="relative aspect-[16/10] w-full bg-slate-100 overflow-hidden">
+                            <div className="relative aspect-[16/11] w-full bg-slate-100 overflow-hidden">
                                 <Image
                                     src={blog.image_url || "/images/placeholder-blog.png"}
                                     alt={blog.title}
                                     fill
-                                    className="object-cover hover:scale-105 transition-transform duration-500"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-700 text-[10px] uppercase font-bold px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
-                                    <BookOpen className="w-3 h-3 text-[var(--color-primary)]" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute top-4 left-4 bg-[#ff8202] text-white text-[10px] uppercase font-black px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg tracking-wider">
+                                    <BookOpen className="w-3 h-3" />
                                     ARTICLE
                                 </div>
                             </div>
-                            <div className="p-5 flex flex-col items-start text-left">
-                                <h3 className="font-semibold text-[15px] text-slate-900 line-clamp-2 leading-[1.3] mb-2 hover:text-[var(--color-primary)] transition-colors">
-                                    {blog.title}
-                                </h3>
-                                <p className="text-slate-500 text-xs line-clamp-1 mb-3">
-                                    {blog.excerpt}
-                                </p>
-                                <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-medium mt-auto">
-                                    <Calendar className="w-3.5 h-3.5" />
+                            <div className="p-7 flex flex-col items-start text-left bg-white">
+                                <div className="flex items-center gap-2 text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-3">
+                                    <Calendar className="w-3.5 h-3.5 text-[#ff8202]" />
                                     <span>
                                         {new Date(blog.created_at).toLocaleDateString("en-US", {
                                             month: "short", day: "numeric", year: "numeric"
                                         })}
                                     </span>
+                                </div>
+                                <h3 className="font-bold text-[18px] text-slate-900 line-clamp-2 leading-[1.3] mb-4 group-hover:text-[#ff8202] transition-colors duration-300">
+                                    {blog.title}
+                                </h3>
+                                <p className="text-slate-500 text-sm line-clamp-2 leading-relaxed mb-4 font-medium opacity-80">
+                                    {blog.excerpt}
+                                </p>
+                                <div className="flex items-center gap-1.5 text-[#ff8202] text-[13px] font-bold mt-auto group-hover:translate-x-2 transition-transform duration-300">
+                                    Read Article <span className="text-lg">→</span>
                                 </div>
                             </div>
                         </Link>

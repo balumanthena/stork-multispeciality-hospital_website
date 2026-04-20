@@ -5,8 +5,8 @@
 }
 
 @theme {
-  --color-primary: #6C3EFF;
-  /* Soft Purple */
+  --color-primary: #ff8202;
+  /* Stork Orange */
   --color-primary-foreground: #FFFFFF;
 
   --color-secondary: #f1f5f9;
@@ -14,8 +14,8 @@
   --color-secondary-foreground: #334155;
   /* Slate 700 */
 
-  --color-accent: #5831D6;
-  /* Darker Purple */
+  --color-accent: #e67502;
+  /* Darker Orange */
   --color-accent-foreground: #FFFFFF;
 
   --color-background: #F8FAFC;
@@ -32,10 +32,10 @@
   --radius-md: 0.375rem;
   --radius-sm: 0.25rem;
 
-  /* Premium Purple Theme */
-  --color-purple-primary: #6C3EFF;
-  --color-purple-light: #F1EDFF;
-  --color-purple-dark: #5831D6;
+  /* Premium Orange Theme */
+  --color-orange-primary: #ff8202;
+  --color-orange-light: #FFF7ED;
+  --color-orange-dark: #e67502;
 
   /* Unified Z-Index Layout Scale */
   --z-base: 0;

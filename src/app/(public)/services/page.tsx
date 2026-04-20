@@ -59,60 +59,46 @@ const floatingIconVariants = {
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white font-sans selection:bg-primary/10 selection:text-primary pt-8">
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 overflow-hidden">
-        {/* Medical Cross Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] -z-10" 
-          style={{ 
-            backgroundImage: `radial-gradient(#ff7a00 0.5px, transparent 0.5px)`, 
-            backgroundSize: '30px 30px' 
-          }} 
-        />
-        
-        {/* Subtle Gradient Backdrops */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent -z-10" />
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+      {/* 1. HERO SECTION (Authority-Focused, Matching Treatments/Procedures) */}
+      <section className="bg-[#3e7dca]/5 border-b border-[#3e7dca]/10 pt-12 md:pt-16 pb-16 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233e7dca' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }}
+          />
 
-        {/* Floating Icons Background */}
-        <div className="absolute inset-0 pointer-events-none -z-10">
-          <motion.div variants={floatingIconVariants} animate="floating" className="absolute top-20 right-[15%] text-slate-100 hidden md:block">
-            <HeartPulse size={120} />
-          </motion.div>
-          <motion.div variants={floatingIconVariants} animate="floating" className="absolute bottom-10 left-[10%] text-slate-100 hidden md:block" style={{ animationDelay: '1s' }}>
-            <Stethoscope size={100} />
-          </motion.div>
-          <motion.div variants={floatingIconVariants} animate="floating" className="absolute top-1/2 left-[5%] text-slate-50 opacity-50 hidden lg:block" style={{ animationDelay: '2s' }}>
-            <Activity size={80} />
-          </motion.div>
-        </div>
+          <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+                  {/* Left Side */}
+                  <div className="max-w-2xl text-center md:text-left">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#3e7dca]/20 text-[#3e7dca] text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                          <Activity className="w-3 h-3" />
+                          <span>Comprehensive Care</span>
+                      </div>
 
-        <div className="container max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6 max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10">
-              <ShieldCheck className="w-4 h-4 text-primary" />
-              <span className="text-[11px] font-black uppercase tracking-[0.2em] text-primary">
-                Comprehensive Care
-              </span>
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight">
-              Our <span className="text-primary italic">Specialties</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-              Experience world-class healthcare across our specialized medical departments, powered by advanced technology and expert doctors.
-            </p>
-          </motion.div>
-        </div>
+                      <h1 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-6 leading-tight tracking-tight">
+                          Our <span className="text-[#3e7dca]">Clinical</span> & <span className="text-[#ff8202]">Specialized</span> Departments
+                      </h1>
+
+                      <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto md:mx-0">
+                          Experience world-class healthcare across our specialized medical departments, powered by advanced technology and expert doctors.
+                      </p>
+                  </div>
+
+                  {/* Right Side */}
+                  <div className="hidden md:block opacity-80">
+                      <div className="relative w-64 h-64">
+                          <div className="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-60 animate-pulse"></div>
+                          <Activity className="absolute inset-0 m-auto w-32 h-32 text-[#3e7dca] opacity-20" />
+                          <div className="absolute top-0 right-0 w-16 h-16 bg-[#ff8202] rounded-full blur-2xl opacity-40"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </section>
 
       {/* 2. SERVICES GRID */}
-      <section className="pb-32">
+      <section className="pt-24 md:pt-32 pb-32">
         <div className="container max-w-7xl mx-auto px-6">
           <motion.div 
             variants={containerVariants}
@@ -139,14 +125,14 @@ export default function ServicesPage() {
         <div className="container max-w-7xl mx-auto px-6 relative z-10">
           <div className="bg-white/5 border border-white/5 backdrop-blur-xl rounded-[40px] p-12 md:p-20 flex flex-col items-center text-center gap-10">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight max-w-4xl">
-              Ready to <span className="text-primary">Prioritize</span> Your Health?
+              Ready to <span className="text-[#ff8202]">Prioritize</span> Your Health?
             </h2>
             <p className="text-lg text-slate-400 font-medium max-w-2xl leading-relaxed">
               Connect with our specialists for a comprehensive health assessment and personalized treatment plans.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/appointments">
-                <Button className="h-16 px-12 bg-primary text-white font-bold rounded-2xl shadow-2xl shadow-primary/20 hover:scale-105 transition-all text-base uppercase tracking-widest w-full sm:w-auto">
+                <Button className="h-16 px-12 bg-[#ff8202] text-white font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 hover:scale-105 transition-all text-base uppercase tracking-widest w-full sm:w-auto">
                   Book Appointment
                 </Button>
               </Link>
@@ -165,7 +151,7 @@ export default function ServicesPage() {
                  { icon: ShieldCheck, label: "Premium Care" }
                ].map((item, idx) => (
                  <div key={idx} className="flex flex-col items-center gap-2">
-                    <item.icon className="w-6 h-6 text-primary/60" />
+                    <item.icon className="w-6 h-6 text-[#ff8202]/60" />
                     <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{item.label}</span>
                  </div>
                ))}

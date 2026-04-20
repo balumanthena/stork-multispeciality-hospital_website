@@ -27,7 +27,7 @@ export function ServiceItem({ name, slug, iconPath, isEmergency }: ServiceItemPr
         className="group flex flex-col items-center text-center focus:outline-none"
       >
         <div className={`relative flex items-center justify-center transition-all duration-300 ease-in-out
-          w-[100px] h-[100px] bg-slate-50 group-hover:bg-[#ff7a00] group-hover:shadow-2xl group-hover:shadow-orange-500/30
+          w-[100px] h-[100px] bg-slate-50 group-hover:bg-[#ff8202] group-hover:shadow-2xl group-hover:shadow-orange-500/30
           rounded-full overflow-hidden mb-6 transform group-hover:scale-110 group-hover:-translate-y-2`}
         >
           <div className="relative w-12 h-12 transition-all duration-300">
@@ -41,7 +41,7 @@ export function ServiceItem({ name, slug, iconPath, isEmergency }: ServiceItemPr
         </div>
         
         <div className="space-y-1">
-          <h3 className="text-[17px] font-bold tracking-tight transition-colors duration-300 text-slate-900 group-hover:text-[#ff7a00]">
+          <h3 className="text-[17px] font-bold tracking-tight transition-colors duration-300 text-slate-900 group-hover:text-[#ff8202]">
             {name}
           </h3>
         </div>

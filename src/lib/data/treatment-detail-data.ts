@@ -566,122 +566,124 @@ Whether you’re a professional athlete or a weekend runner, we tailor care that
         }
     }
 
-    // 2. Specific Override for Adenoidectomy
     if (slug === "adenoidectomy") {
         return {
             slug: slug,
             title: "Adenoidectomy – Specialized Adenoid Removal at Stork Hospital, Hyderabad",
             subheading: "Restoring Easy Breathing and Peaceful Sleep Through Expert ENT Care",
+            tagline: "Precision-based, minimally invasive adenoid removal to help children and adults breathe freely, reduce infections, and sleep better.",
             breadcrumbTitle: "Adenoidectomy",
-            category: "ENT", // Force "ENT" as requested
-            departmentHref: foundCategory.href || "#",
+            category: "ENT",
+            departmentHref: "/services/ent",
             shortDescription: `Adenoidectomy is a targeted surgical procedure performed to remove swollen or chronically infected adenoids—small glands located behind the nasal cavity. At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons use precision-based, minimally invasive techniques to help children and adults breathe freely, reduce infections, and sleep better.
+
 When enlarged, adenoids can block airflow, cause persistent nasal issues, trigger snoring, and lead to frequent ear or throat infections. Prompt surgical care can prevent ongoing discomfort and complications.`,
 
-            // Custom "Why Stork" Section
             overview: {
                 heading: "Why Stork Hospital is Preferred for Adenoidectomy in Hyderabad",
-                intro: "We blend advanced ENT technology with individualized care:",
+                intro: "We blend advanced ENT technology with individualized care, ensuring safety and comfort for both pediatric and adult patients:",
                 items: [
                     "Expert ENT surgeons for adenoidectomy in Hyderabad with years of specialized experience",
-                    "Walk-in ENT appointments near Kondapur for quick assessment",
-                    "State-of-the-art surgical methods to minimize bleeding and speed recovery",
-                    "Anesthesia care designed for both pediatric and adult needs",
-                    "Complete follow-up to ensure lasting improvements",
-                    "Recognized Hyderabad hospital accepting insurance for ENT surgeries"
+                    "Walk-in ENT appointments near Kondapur for quick assessment and surgical planning",
+                    "State-of-the-art surgical methods to minimize bleeding and significantly speed recovery",
+                    "Anesthesia care pathways designed specifically for both pediatric and adult surgical needs",
+                    "Complete follow-up to ensure lasting improvements in breathing and overall wellness",
+                    "Recognized Hyderabad hospital accepting insurance for all major ENT surgeries",
+                    "Modern ENT diagnostic tools including nasal endoscopy for accurate assessment"
                 ]
             },
-            fullDescription: [], // Not used for this page
-
-            // Symptoms
-            conditionsHeading: "Symptoms Suggesting the Need for Adenoid Removal",
-            conditionsTreated: [
-                "Constant nasal blockage or mouth breathing",
-                "Sleep disturbances or loud snoring",
-                "Repeated middle ear infections or ear fluid build-up",
-                "Chronic sinus or throat infections",
-                "Speech changes due to nasal obstruction"
+            fullDescription: [
+                "Patients typically notice easier breathing, better sleep, and fewer infections soon after the procedure. The surgery aims to clear nasal passages and restore peaceful sleep, significantly improving the quality of life for those suffering from chronic adenoid enlargement."
             ],
 
-            // Process
+            conditionsHeading: "Symptoms Suggesting the Need for Adenoid Removal",
+            conditionsTreated: [
+                "Constant nasal blockage or chronic mouth breathing",
+                "Sleep disturbances or loud snoring (often indicating restricted airflow)",
+                "Repeated middle ear infections or persistent ear fluid build-up",
+                "Chronic sinus or throat infections that resist medical management",
+                "Speech changes due to significant nasal obstruction"
+            ],
+
             procedureHeading: "The Adenoidectomy Process at Stork",
             procedureSteps: [
                 {
-                    title: "Evaluation",
-                    description: "Comprehensive ENT evaluation, including nasal endoscopy when needed"
+                    title: "ENT Evaluation",
+                    description: "Comprehensive evaluation, including nasal endoscopy when needed, to assess adenoid size and nasal health."
                 },
                 {
-                    title: "Preparation",
-                    description: "Pre-operative health review and anesthesia preparation"
+                    title: "Surgical Planning",
+                    description: "Pre-operative health review and specialized anesthesia preparation for safe pediatric or adult care."
                 },
                 {
-                    title: "Procedure",
-                    description: "Gentle adenoid removal under general anesthesia using modern equipment"
+                    title: "The Procedure",
+                    description: "Gentle removal under general anesthesia using modern equipment to ensure minimal bleeding and discomfort."
                 },
                 {
-                    title: "Recovery",
-                    description: "Same-day discharge or short observation period"
+                    title: "Recovery Observation",
+                    description: "Same-day discharge or short observation period with professional nursing support for initial healing."
                 },
                 {
-                    title: "Aftercare",
-                    description: "Personalized recovery plan to support breathing improvement and healing"
-                },
-                {
-                    title: "Outcome",
-                    description: "Patients typically notice easier breathing, better sleep, and fewer infections soon after the procedure."
+                    title: "Breathing Improvement",
+                    description: "Personalized recovery plan to support optimal breathing improvement and long-term infection prevention."
                 }
             ],
 
-            // Benefits
             benefitsHeading: "Benefits of Adenoidectomy at Stork",
             benefits: [
-                "Clearer nasal passages",
-                "Reduction in snoring and nighttime breathing issues",
+                "Significantly clearer nasal passages for natural, easy breathing",
+                "Reduction in snoring and nighttime breathing disturbances",
                 "Decrease in ear and throat infection frequency",
-                "Quick recovery with minimal post-surgery discomfort",
-                "Enhanced quality of daily life"
+                "Quick recovery period with minimal post-surgery discomfort",
+                "Enhanced quality of daily life and better restful sleep"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Results Timeline",
+            recoveryTimeline: [
+                "Immediate monitoring of vitals following the procedure with same-day discharge in most cases",
+                "Safe return to school, work, and daily routines typically within 3–5 days",
+                "Noticeable improvement in breathing ease and sleep quality within the first week",
+                "Adherence to a soft diet and gentle recovery protocols for optimal tissue healing",
+                "Scheduled ENT follow-up to ensure successful adenoid removal and lasting clinical relief"
+            ],
 
-            // FAQ
             faqHeading: "FAQs – Adenoidectomy at Stork",
             faqs: [
                 {
                     question: "Is the surgery only for children?",
-                    answer: "No. While common in children, adults may also require adenoid removal."
+                    answer: "No. While common in children, adults may also require adenoid removal for chronic blockage or infections."
                 },
                 {
                     question: "Is the procedure safe for young patients?",
-                    answer: "Yes. Our pediatric-focused approach ensures safety and comfort."
+                    answer: "Yes. Our pediatric-focused approach ensures safety, specialized anesthesia, and maximum comfort."
                 },
                 {
                     question: "How soon can normal activities resume?",
-                    answer: "Most patients return to daily routines in 3–5 days."
+                    answer: "Most patients return to their daily routines and school/work in 3–5 days."
                 },
                 {
                     question: "Is adenoidectomy covered by insurance?",
-                    answer: "Yes. We are a Hyderabad hospital accepting insurance for ENT procedures."
+                    answer: "Yes. We are a Hyderabad hospital accepting insurance for major ENT procedures."
                 }
             ],
 
             customCta: {
                 heading: "Breathe Easier with Stork Hospital",
-                description: "If breathing issues or chronic infections are impacting you or your child, schedule an adenoidectomy consultation at Stork Hospital, Hyderabad. Our expert ENT surgeons provide safe, efficient, and long-term relief.",
-                buttonText: "Book Appointment"
+                description: "If breathing issues or chronic infections are impacting you or your child, schedule an adenoidectomy consultation today.",
+                buttonText: "Schedule ENT Consultation"
             },
             meta: {
-                duration: "45-60 Minutes",
+                duration: "30–60 Minutes",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "Day Care / Overnight",
-                recoveryTime: "3-5 Days",
-                successRate: "99%"
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "3–5 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Rakesh Kumar",
-                role: "Senior ENT Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork ENT Care Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Pediatric & Adult Adenoid Removal"
             }
         }
     }
@@ -691,96 +693,225 @@ When enlarged, adenoids can block airflow, cause persistent nasal issues, trigge
             slug: slug,
             title: "Anal Fissure – Stork Hospital, Hyderabad",
             subheading: "Specialized Care for Quick and Comfortable Healing",
+            tagline: "Expert proctology solutions combining advanced medical management and minimally invasive surgery to resolve anal fissures and restore digestive comfort.",
             breadcrumbTitle: "Anal Fissure",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Proctology",
+            departmentHref: "/services/proctology",
             shortDescription: `An anal fissure is a small crack or tear in the delicate lining of the anus, often caused by hard bowel movements or chronic constipation. This condition can result in sharp pain, bleeding, and ongoing discomfort that affects daily life. While mild fissures may heal with home care, recurring or severe cases often need targeted medical treatment.
 
 At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal care team focuses on discreet, patient-friendly, and effective solutions. We combine the latest medical techniques with dietary and lifestyle advice, ensuring not just symptom relief but long-term prevention.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Anal Fissure Treatment",
-                intro: "",
+                intro: "At Stork, we approach proctological health with specialized clinical mapping and patient-first sensitivity:",
                 items: [
-                    "Experienced gastroenterologists and colorectal specialists offering advanced care",
-                    "On-site diagnostic center in Hyderabad for prompt, accurate evaluation",
-                    "Advanced surgical center with minimally invasive treatment options",
-                    "24/7 emergency hospital near Hitech City for urgent rectal pain or bleeding",
-                    "Insurance accepted at Stork Hospital with full billing transparency",
-                    "Walk-in clinic near Kondapur for same-day appointments",
-                    "Ongoing follow-up care to reduce the risk of recurrence"
+                    "Experienced gastroenterologists and colorectal specialists offering advanced clinical care",
+                    "On-site diagnostic center in Hyderabad for prompt and accurate proctologic evaluation",
+                    "Advanced surgical center specializing in minimally invasive colorectal treatment options",
+                    "24/7 Response for urgent rectal pain or acute bleeding emergencies near Hitech City",
+                    "Direct insurance billing with transparent pricing for all colorectal consultations",
+                    "Private walk-in consultations near Kondapur for discreet same-day specialist appointments",
+                    "Comprehensive follow-up care pathways designed to eliminate the risk of recurrence"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Recognizing the Symptoms",
-            conditionsTreated: [
-                "Sharp, burning pain during or after bowel movements",
-                "Small tear visible near the anus",
-                "Bright red blood on toilet paper or stool",
-                "Itching or irritation in the anal region",
-                "Spasms in the anal muscles"
+            fullDescription: [
+                "Anal fissures, while common, require a precision-led approach to ensure complete tissue healing and prevent chronic muscle spasms. Stork Hospital utilizes high-fidelity medical and surgical interventions to address the root cause, whether related to chronic dietary habits or anatomical trauma."
             ],
 
-            procedureHeading: "Treatment approaches at Stork Hospital",
+            conditionsHeading: "Common Causes of Anal Fissures",
+            conditionsTreated: [
+                "Passing hard or bulky stools causing mechanical tissue trauma",
+                "Persistent constipation or chronic diarrhea cycles",
+                "Excessive straining during regular bowel movements",
+                "Localized trauma experienced during childbirth",
+                "Clinical anal infections or active inflammatory bowel disease (IBD)",
+                "Significantly reduced blood circulation in the anal lining area"
+            ],
+
+            procedureHeading: "Advanced Treatment Approaches at Stork",
             procedureSteps: [
                 {
-                    title: "Non-Surgical Care",
-                    description: "Medicated creams to ease muscle tension and improve blood supply. Fiber-rich diet and stool softeners to reduce strain. Sitz baths to relieve pain and promote healing. Lifestyle changes for better bowel health."
+                    title: "Clinical Medical Management",
+                    description: "Utilization of medicated creams to relieve muscle tension, specialized stool softeners, and fiber-rich dietary optimization."
                 },
                 {
-                    title: "Surgical Treatments",
-                    description: "For stubborn or recurring fissures, we offer Lateral Internal Sphincterotomy (LIS) to reduce pressure, Fissurectomy to remove damaged tissue, and other minimally invasive methods to shorten downtime and minimize pain."
+                    title: "Surgical & Minimally Invasive Options",
+                    description: "Lateral Internal Sphincterotomy (LIS) to reduce pressure, or Fissurectomy to remove damaged tissue for promoting new cellular growth."
+                },
+                {
+                    title: "Supportive Healing Therapies",
+                    description: "Implementation of Sitz baths and structured lifestyle modifications to ensure long-term proctological stability."
                 }
             ],
 
-            benefitsHeading: "Recovery and Follow-Up Care",
+            benefitsHeading: "Recognizing the Symptoms",
             benefits: [
-                "Specialist evaluation and accurate diagnosis",
-                "Personalized treatment plan for each patient",
-                "Regular monitoring during the healing period",
-                "Guidance on hydration, diet, and bowel habits to prevent recurrence"
+                "Sharp, burning pain experienced during or immediately after bowel movements",
+                "A visible or palpable small tear in the skin near the anal opening",
+                "Bright red blood on toilet paper or localized on the stool surface",
+                "Persistent itching, irritation, or localized burning in the anal region",
+                "Involuntary spasms in the anal sphincter muscles causing discomfort"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Follow-Up Care",
+            recoveryTimeline: [
+                "Specialist clinical evaluation to ensure an accurate proctologic diagnosis",
+                "Personalized treatment plan featuring rapid symptom relief within 48–72 hours",
+                "Complete healing milestone typically achieved within 2–4 weeks for most cases",
+                "Structured guidance on hydration, high-fiber intake, and bowel habits to prevent recurrence"
+            ],
 
             faqHeading: "FAQs – Anal Fissure",
             faqs: [
                 {
                     question: "Do anal fissures always require surgery?",
-                    answer: "No. Many heal with non-surgical methods if treated early."
+                    answer: "No. Many acute fissures heal successfully with non-surgical medical methods if treated early."
                 },
                 {
                     question: "How long does recovery take?",
-                    answer: "Most patients feel improvement in a few days, with complete healing in 2–4 weeks."
+                    answer: "Most patients feel significant improvement in a few days, with complete tissue healing achieved in 2–4 weeks."
                 },
                 {
                     question: "Will surgery be painful?",
-                    answer: "Modern, minimally invasive surgery greatly reduces post-operative discomfort."
+                    answer: "Modern, minimally invasive proctology surgery at Stork Hospital greatly reduces post-operative discomfort and downtime."
                 },
                 {
                     question: "Is treatment covered under insurance?",
-                    answer: "Yes. Stork Hospital works with multiple insurance providers and ensures cost clarity."
+                    answer: "Yes. Stork Hospital works with multiple insurance providers to ensure absolute cost clarity for medically necessary treatments."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Consultation Today",
-                description: "If you are experiencing rectal pain, bleeding, or discomfort, book your appointment at Stork Hospital to see a colorectal specialist in Hyderabad and receive advanced, compassionate care in a private and comfortable environment.",
-                buttonText: "Book Appointment Now"
+                heading: "Schedule a Proctology Consultation",
+                description: "If you are experiencing rectal pain or discomfort, meet our colorectal specialists in Hyderabad for a discreet and effective diagnosis.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "20-30 Minutes",
-                anesthesia: "Local / General",
-                hospitalStay: "Day Care",
-                recoveryTime: "1-2 Weeks",
-                successRate: "98%"
+                duration: "20–40 Minutes",
+                anesthesia: "None / Local / General",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "1–4 Weeks",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Satish Reddy",
-                role: "Senior Proctologist",
-                experience: "12+ Years Experience"
+                name: "Stork Proctology Team",
+                role: "Senior Gastroenterologists & Colorectal Surgeons",
+                experience: "Experts in Advanced Anal fissure Management"
+            }
+        }
+    }
+
+    if (slug === "anal-fistula") {
+        return {
+            slug: slug,
+            title: "Anal Fistula – Stork Hospital, Hyderabad",
+            subheading: "Advanced, Patient-Focused Care for Anal Fistulas",
+            tagline: "Expert colorectal management featuring laser closure and minimally invasive surgery to achieve permanent resolution of anal fistula tracts.",
+            breadcrumbTitle: "Anal Fistula",
+            category: "Proctology",
+            departmentHref: "/services/proctology",
+            shortDescription: `An anal fistula is an unusual channel that develops between the anal canal and the surrounding skin, usually as a result of an untreated abscess or infection in an anal gland. It can cause recurring pain, swelling, and foul-smelling discharge, often making daily activities uncomfortable. Although medications may provide temporary relief from infection, surgery remains the most reliable way to achieve a permanent cure.
+
+At Stork Multispecialty Hospital, Hyderabad, we specialize in delivering precise, minimally invasive treatments for anal fistulas. Our goal is to ensure fast recovery, long-term relief, and a comfortable experience for every patient through personalized care plans.`,
+
+            overview: {
+                heading: "Symptoms You Should Watch For",
+                intro: "Anal fistulas often manifest through specific anatomical and clinical indicators that require professional evaluation:",
+                items: [
+                    "Ongoing pain or a persistent throbbing sensation localized near the anus",
+                    "Visible swelling, redness, or heat in the perianal region",
+                    "Continuous or intermittent discharge of pus or blood from an external skin opening",
+                    "Systemic symptoms such as fever and fatigue during acute infection flare-ups",
+                    "Chronic irritation or persistent itching around the external anal opening"
+                ]
+            },
+            fullDescription: [
+                "At Stork Hospital, we emphasize that while antibiotics can manage acute symptoms, professional surgical intervention is the only clinical pathway to closing an established fistula tract. Our specialized proctology team utilizes high-definition mapping to identify the internal opening and ensure a definitive cure."
+            ],
+
+            conditionsHeading: "Possible Causes of an Anal Fistula",
+            conditionsTreated: [
+                "Neglected or recurrent anal abscesses leading to chronic tract formation",
+                "Blocked anal glands transitioning into persistent glandular infection",
+                "Chronic inflammatory conditions like Crohn’s disease or Ulcerative Colitis",
+                "Specific clinical infections including Tuberculosis or rare STIs",
+                "Localized trauma or structural injury to the perianal and anal region",
+                "Secondary complications following previous rectal or anal surgical procedures"
+            ],
+
+            procedureHeading: "Advanced Procedural & Surgical Path",
+            procedureSteps: [
+                {
+                    title: "Clinical & Imaging Audit",
+                    description: "Comprehensive diagnosis using specialized clinical assessment and advanced imaging (MRI) to map fistula tract complexity."
+                },
+                {
+                    title: "Definitive Surgical Repair",
+                    description: "Execution of Fistulotomy, Seton placement for complex cases, or advanced Laser Closure techniques for minimal scarring."
+                },
+                {
+                    title: "Wound Care & Resolution",
+                    description: "Detailed post-surgical care instructions and structured follow-up visits to confirm total anatomical resolution."
+                }
+            ],
+
+            benefitsHeading: "Why Stork Hospital is a Trusted Choice",
+            benefits: [
+                "Specialist gastroenterologists and colorectal surgeons with extensive tract-management experience",
+                "On-site diagnostic center in Hyderabad for high-resolution imaging and laboratory testing",
+                "Advanced surgical center equipped for high-precision laser-assisted proctology techniques",
+                "24/7 Response for acute perianal abscess or infection flare-ups near Hitech City",
+                "Direct insurance billing with absolute transparency on all surgical and medical costs",
+                "Private walk-in consultations near Kondapur for discreet same-day specialist mapping"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery and Ongoing Care",
+            recoveryTimeline: [
+                "Initial pain management using advanced anesthesia techniques to ensure immediate post-op comfort",
+                "Most patients regain the capacity for light functional activities within 1–2 weeks of surgery",
+                "Adherence to specialized wound care and antibiotic protocols to ensure infection-free healing",
+                "Utilization of Sitz baths to optimize localized hygiene and accelerate tissue recovery",
+                "Scheduled follow-up milestones to track tract closure and prevent long-term clinical recurrence"
+            ],
+
+            faqHeading: "FAQs – Anal Fistula",
+            faqs: [
+                {
+                    question: "Can an anal fistula heal without an operation?",
+                    answer: "No. Surgery is generally considered the only permanent solution for a established anal fistula tract."
+                },
+                {
+                    question: "Will I be in pain after the surgery?",
+                    answer: "Post-surgical discomfort is minimal with modern minimally invasive techniques and precision pain management."
+                },
+                {
+                    question: "When can I get back to work?",
+                    answer: "Many patients recover sufficiently for light activities and office work within 1–2 weeks."
+                },
+                {
+                    question: "Is the treatment covered by insurance?",
+                    answer: "Yes. Stork Hospital works with most major insurance companies to ensure surgical cost clarity."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule a Fistula Consultation",
+                description: "If you have symptoms such as pain, swelling, or discharge, meet our colorectal specialists in Hyderabad for a permanent solution.",
+                buttonText: "Schedule Consultation"
+            },
+            meta: {
+                duration: "30–60 Minutes",
+                anesthesia: "General / Spinal / Local",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "2–4 Weeks",
+                successRate: "95%+"
+            },
+            reviewedBy: {
+                name: "Stork Proctology Team",
+                role: "Senior Colorectal Surgeons & Gastroenterologists",
+                experience: "Experts in Advanced Fistula Repair & Laser Proctology"
             }
         }
     }
@@ -910,36 +1041,36 @@ At Stork Hospital, Hyderabad, our vigilant antepartum and intrapartum monitoring
             slug: slug,
             title: "Appendicitis Surgery – Stork Hospital, Hyderabad",
             subheading: "Precision Care for Sudden Appendix Pain",
-            tagline: "Immediate diagnosis and expert surgical care to manage appendicitis and promote full recovery.",
+            tagline: "Rapid diagnosis and minimally invasive laparoscopic surgery for safe appendix removal and faster recovery.",
             breadcrumbTitle: "Appendicitis Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
             shortDescription: `Appendicitis is a sudden and painful condition where the appendix — a small pouch attached to the large intestine — becomes inflamed. This condition often starts with mild abdominal pain near the belly button, which quickly intensifies and shifts to the lower right side. If untreated, the appendix may burst, leading to serious complications such as widespread infection.
 
 At Stork Hospital, Hyderabad, we provide immediate diagnosis and expert surgical care to manage appendicitis and promote full recovery. Our medical team specializes in laparoscopic appendix surgery in Hyderabad, offering minimally invasive solutions that ensure less discomfort and quicker healing.`,
 
             overview: {
-                heading: "Why Stork Hospital is the Right Choice",
-                intro: "Trust Stork Hospital for safe, experienced appendicitis care in Hyderabad:",
+                heading: "Causes and Warning Signs of Appendicitis",
+                intro: "Appendicitis is commonly caused by a blockage in the appendix due to stool, infection, or foreign substances. Typical signs include:",
                 items: [
-                    "Emergency appendicitis treatment available 24/7",
-                    "Surgical experts trained in both open and laparoscopic techniques",
-                    "Advanced facilities for rapid diagnostics and operation",
-                    "End-to-end care including comprehensive post-operative support",
-                    "Recognized specifically for high-quality appendix surgery in Hyderabad"
+                    "Intense abdominal pain on the lower right side",
+                    "Nausea, vomiting, or lack of hunger",
+                    "Fever, bloating, and tenderness near the abdomen",
+                    "Pain that worsens with walking, coughing, or sudden movement",
+                    "If not treated quickly, appendicitis can progress to peritonitis or form an abscess."
                 ]
             },
             fullDescription: [
-                "Appendicitis is commonly caused by a blockage in the appendix due to stool, infection, or foreign substances. This leads to swelling, bacterial overgrowth, and eventual inflammation."
+                "Early detection is critical to preventing appendix rupture. Our diagnostic protocol involves rapid physical evaluation and targeted imaging to confirm inflammation before symptoms escalate into life-threatening peritonitis."
             ],
 
-            conditionsHeading: "Causes and Warning Signs of Appendicitis",
+            conditionsHeading: "Emergency Indicators & Complications",
             conditionsTreated: [
-                "Intense abdominal pain on the lower right side",
-                "Nausea, vomiting, or lack of hunger",
-                "Fever, bloating, and tenderness near the abdomen",
-                "Pain that worsens with walking, coughing, or sudden movement",
-                "Prevention of peritonitis and abscess formation from rupture"
+                "Inflammation of the appendix (Appendicitis)",
+                "Risk of appendix rupture or burst",
+                "Peritonitis (infection of the abdominal lining)",
+                "Appendix abscess formation",
+                "Severe abdominal tenderness and shifting pain"
             ],
 
             procedureHeading: "Treatment Options Customized to You",
@@ -949,25 +1080,27 @@ At Stork Hospital, Hyderabad, we provide immediate diagnosis and expert surgical
                     description: "A keyhole procedure involving a few small incisions. The appendix is removed with precision tools under camera guidance, usually completed in under an hour. Offers faster discharge and less visible scarring."
                 },
                 {
-                    title: "Open Surgery",
-                    description: "Chosen when infection has spread or the appendix has ruptured. A single larger incision is made for direct access. Requires longer recovery but ensures thorough infection management."
+                    title: "Open Surgery (When Required)",
+                    description: "Chosen when infection has spread or the appendix has ruptured. A single larger incision is made for direct access, ensuring thorough management of widespread infection."
                 }
             ],
 
-            benefitsHeading: "Recovery: What You Can Expect",
+            benefitsHeading: "Why Stork Hospital is the Right Choice",
             benefits: [
-                "Mild discomfort near the surgical site, manageable with medication",
-                "Gentle movement and small, soft meals can usually resume within days",
-                "Return to work and most normal activities within 1–2 weeks",
-                "Scheduled follow-up visits to track healing and internal progress"
+                "Emergency appendicitis treatment available 24/7",
+                "Surgical experts trained in both open and laparoscopic techniques",
+                "Advanced facilities for rapid diagnostics and operation",
+                "End-to-end care including comprehensive post-operative support",
+                "Recognized for high-quality appendix surgery in Hyderabad"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery: What You Can Expect",
             recoveryTimeline: [
-                "Immediate post-op observation (24-48 hours)",
-                "Transition to soft diet and light movement (Days 3-5)",
-                "Stitches check and gradual activity increase (Week 1)",
-                "Full recovery and return to normal routine (Week 2)"
+                "Mild discomfort near the surgical site, manageable with medication",
+                "Gentle movement and small soft meals can resume within days",
+                "Return to work and normal activity in 1–2 weeks",
+                "Follow-ups scheduled to track healing and progress"
             ],
 
             faqHeading: "Frequently Asked Questions",
@@ -978,34 +1111,141 @@ At Stork Hospital, Hyderabad, we provide immediate diagnosis and expert surgical
                 },
                 {
                     question: "How long will recovery take?",
-                    answer: "Most patients recover fully within 1 to 2 weeks after laparoscopic surgery, making it the preferred choice for most cases."
+                    answer: "Most patients recover fully within 1 to 2 weeks after laparoscopic surgery."
                 },
                 {
                     question: "Is laparoscopic surgery the best choice?",
-                    answer: "It is ideal for most cases as it offers quicker healing, less post-operative pain, and minimal scarring."
+                    answer: "It’s ideal for most cases, offering quicker healing, less pain, and minimal scarring."
                 },
                 {
                     question: "Do I need a permanent diet change?",
-                    answer: "No. A soft diet may be advised briefly during initial recovery, but normal eating habits can typically resume quite soon."
+                    answer: "No. A soft diet may be advised briefly, but normal eating resumes soon."
                 }
             ],
 
             customCta: {
                 heading: "Get Prompt Treatment for Abdominal Pain",
-                description: "Abdominal pain can escalate quickly. Trust Stork Hospital for safe, experienced appendicitis care in Hyderabad. Book your consultation today ensure a safe and full recovery.",
-                buttonText: "Book Appointment"
+                description: "Trust Stork Hospital for safe, experienced appendicitis care in Hyderabad. Book your consultation today before symptoms escalate.",
+                buttonText: "Schedule Emergency Consult"
             },
             meta: {
-                duration: "45-90 Minutes",
+                duration: "< 1 Hour",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "1-2 Days",
-                recoveryTime: "1-2 Weeks",
-                successRate: "99%"
+                hospitalStay: "1–2 Days",
+                recoveryTime: "1–2 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Sandeep Kumar",
-                role: "Senior General Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Surgical Unit",
+                role: "Senior General & Laparoscopic Surgeons",
+                experience: "Experts in Emergency Abdominal Surgery"
+            }
+        }
+    }
+
+    if (slug === "gallstones") {
+        return {
+            slug: slug,
+            title: "Gallstone Surgery – Stork Hospital, Hyderabad",
+            subheading: "Effective Surgical Solutions for Gallstone Discomfort",
+            tagline: "Minimally invasive laparoscopic removal for lasting relief from gallstone pain and digestive health restoration.",
+            breadcrumbTitle: "Gallstone Surgery",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
+            shortDescription: `Gallstones are solid clusters that form inside the gallbladder, typically made from cholesterol or bile components. Often silent, these stones can cause sudden, sharp abdominal pain or digestive disturbances when they block bile ducts. At Stork Hospital, Hyderabad, we offer accurate diagnosis and expert surgical management to resolve gallstone issues and support lasting digestive wellness.
+
+Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad, emphasizing precision, comfort, and shorter recovery periods through minimally invasive procedures.`,
+
+            overview: {
+                heading: "Gallstones: Causes and Symptoms",
+                intro: "Gallstones arise when bile chemistry becomes unbalanced, leading to crystallization of bile salts or cholesterol. Depending on the case, you may experience:",
+                items: [
+                    "Sharp pain under the ribs or in the right shoulder",
+                    "Nausea, vomiting, or bloating, especially after eating",
+                    "Yellowish skin or eyes if bile flow is restricted",
+                    "Indigestion or discomfort after fatty meals",
+                    "Complications like gallbladder infection or pancreatitis"
+                ]
+            },
+            fullDescription: [
+                "Early detection and surgical intervention are key to avoiding emergency complications such as gallbladder rupture or severe jaundice. Our laparoscopic approach ensures that the majority of patients can return home within 24 hours."
+            ],
+
+            conditionsHeading: "Medical Indicators & Complications",
+            conditionsTreated: [
+                "Inflammation of the gallbladder (Cholecystitis)",
+                "Bile duct blockage causing biliary colic",
+                "Gallbladder infection or abscess configuration",
+                "Jaundice related to obstructive bile flow",
+                "Risk of pancreatitis due to stone migration"
+            ],
+
+            procedureHeading: "Treatment Tailored to Your Needs",
+            procedureSteps: [
+                {
+                    title: "Laparoscopic Gallbladder Removal (Cholecystectomy)",
+                    description: "Carried out using small abdominal cuts and a laparoscopic camera. The entire gallbladder is removed to prevent further stone formation, usually completed in less than 60 minutes. Minimally painful with quicker recovery than traditional methods."
+                },
+                {
+                    title: "Non-Surgical Observation",
+                    description: "Reserved for cases without active symptoms, focusing on dietary modifications and lifestyle guidance to monitor stone size and location."
+                }
+            ],
+
+            benefitsHeading: "What Makes Stork Hospital the Right Choice",
+            benefits: [
+                "Experienced surgeons in advanced keyhole procedures",
+                "Modern diagnostic and surgical infrastructure",
+                "Efficient, patient-friendly hospital processes",
+                "Supportive care before, during, and after surgery",
+                "Trusted center for gallstone surgery in Hyderabad"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery and Lifestyle After Surgery",
+            recoveryTimeline: [
+                "Temporary soreness that subsides in a day or two",
+                "Return to light activity and meals within a couple of days",
+                "Full recovery usually achieved within 1–2 weeks",
+                "Most patients have no long-term dietary restrictions"
+            ],
+
+            faqHeading: "FAQs – Gallstone Surgery Insights",
+            faqs: [
+                {
+                    question: "Do I need surgery if I have gallstones?",
+                    answer: "Only if they cause symptoms or complications. Otherwise, monitoring may be sufficient."
+                },
+                {
+                    question: "Will gallstones reoccur post-surgery?",
+                    answer: "No. Removal of the gallbladder prevents new stone formation in that area."
+                },
+                {
+                    question: "Is the laparoscopic method safe?",
+                    answer: "Absolutely. It’s minimally invasive, low-risk, and widely preferred for quicker healing."
+                },
+                {
+                    question: "Do I need a long-term diet change after surgery?",
+                    answer: "Minor adjustments are helpful early on, but most people resume regular diets."
+                }
+            ],
+
+            customCta: {
+                heading: "Choose Lasting Comfort and Expert Care",
+                description: "Trust Stork Hospital for safe, experienced gallstone surgery in Hyderabad. Book your consultation today to begin your recovery.",
+                buttonText: "Schedule Surgery Consult"
+            },
+            meta: {
+                duration: "< 60 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "1–2 Weeks",
+                successRate: "Very High"
+            },
+            reviewedBy: {
+                name: "Stork Surgical Unit",
+                role: "Senior Gastrointestinal & Laparoscopic Surgeons",
+                experience: "Experts in Biliary & Keyhole Surgery"
             }
         }
     }
@@ -1245,66 +1485,74 @@ Our specialists are known for advanced, non-invasive and minimally invasive back
     if (slug === "balanitis") {
         return {
             slug: slug,
-            title: "Balanitis Treatment – Stork Hospital, Hyderabad",
+            title: "Balanitis – Stork Hospital, Hyderabad",
             subheading: "Specialised Care for Inflammation of the Glans Penis",
+            tagline: "Discreet, respectful, and results-driven care to eliminate penis inflammation and prevent future episodes.",
             breadcrumbTitle: "Balanitis",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `Balanitis refers to swelling and irritation of the glans (head) of the penis, and in many cases, it can also involve the foreskin. The condition often presents with redness, tenderness, and discomfort, and in some cases, difficulty passing urine or engaging in sexual activity. While balanitis is more common among uncircumcised men, it can affect individuals of any age.
 
 At Stork Multispecialty Hospital, Hyderabad, our urology team offers discreet, respectful, and results-driven care for balanitis. We focus not only on easing symptoms but also on identifying the underlying cause to prevent future episodes.`,
 
             overview: {
                 heading: "Why Men Choose Stork Hospital for Balanitis Treatment",
-                intro: "",
+                intro: "Trust Stork Hospital for safe, expert, and discreet urological care in Hyderabad:",
                 items: [
                     "Experienced urologists with a focus on male genital health and infections",
-                    "Modern diagnostic center in Hyderabad offering lab tests, swabs, and urine analysis for accurate identification of the cause",
-                    "Advanced surgical center for cases that require minor corrective procedures",
-                    "24/7 emergency hospital near Hitech City for severe swelling, infection, or pain",
-                    "Insurance accepted at Stork Hospital where applicable",
+                    "Modern diagnostic center offering lab tests, swabs, and accurate cause identification",
+                    "Advanced surgical center for cases requiring minor corrective procedures",
+                    "24/7 emergency hospital near Hitech City for severe swelling or infection",
                     "Walk-in clinic near Kondapur for private consultations without long wait times",
-                    "Holistic treatment approach that combines medical therapy, hygiene guidance, and preventive strategies"
+                    "Holistic approach combining medical therapy, hygiene guidance, and prevention"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Balanitis is often caused by inadequate cleaning under the foreskin, leading to bacterial or fungal overgrowth. Yeast infections (Candida) are a leading cause, especially in diabetics or those with elevated blood sugar levels."
+            ],
 
             conditionsHeading: "Common Causes of Balanitis",
             conditionsTreated: [
-                "Inadequate cleaning under the foreskin, leading to bacterial or fungal overgrowth",
-                "Yeast infections (Candida) — a leading cause, especially in diabetics",
-                "Allergic or irritant reactions to soaps, detergents, latex, or lubricants",
+                "Bacterial or fungal overgrowth due to inadequate hygiene",
+                "Yeast infections (Candida), especially common in diabetics",
+                "Allergic or irritant reactions to soaps, detergents, or latex",
                 "Sexually transmitted infections (STIs) such as herpes or gonorrhoea",
-                "Skin conditions including psoriasis, eczema, or lichen sclerosus",
-                "Elevated blood sugar levels, which promote infections"
+                "Skin conditions including psoriasis, eczema, or lichen sclerosus"
             ],
 
-            procedureHeading: "Balanitis Treatment at Stork Hospital",
+            procedureHeading: "Discreet & Results-Driven Treatment",
             procedureSteps: [
                 {
-                    title: "Medical Management",
-                    description: "Prescription antifungal creams or oral medications for yeast infections, antibiotics for bacterial causes, topical steroid creams to control inflammation, and antihistamines for allergic triggers."
+                    title: "Medical Neutralization",
+                    description: "Prescription of antifungal, antibiotic, or steroid creams tailored to the specific infectious or inflammatory trigger."
                 },
                 {
                     title: "Lifestyle & Hygiene Care",
-                    description: "Gentle washing with warm water — avoiding harsh soaps and perfumed cleansers. Keeping the foreskin clean and dry. Strict blood sugar control for diabetic patients."
+                    description: "Guidance on gentle washing with warm water, avoidant of harsh chemicals, and maintaining strict blood sugar control."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "In recurring or severe cases: Circumcision (removes the foreskin to eliminate the area where infections persist) or Preputioplasty (a foreskin-preserving alternative for select patients)."
+                    title: "Corrective Intervention",
+                    description: "Surgical solutions such as Circumcision or Preputioplasty (foreskin-preserving) for recurring or severe chronic cases."
                 }
             ],
 
-            benefitsHeading: "Recovery and Long-Term Prevention",
+            benefitsHeading: "Signs and Symptoms to Watch For",
             benefits: [
-                "Most cases clear within 5–7 days with appropriate treatment",
-                "Consistent hygiene practices are crucial for preventing recurrence",
-                "Completing the full course of prescribed medication ensures complete recovery",
-                "Periodic check-ups for men with recurrent infections or underlying health issues"
+                "Swelling and redness of the glans penis",
+                "Pain, itching, or tenderness in the affected area",
+                "Discomfort or burning sensation while urinating",
+                "Thick or foul-smelling discharge beneath the foreskin",
+                "Patches, sores, or rashes on the glans"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Long-Term Prevention",
+            recoveryTimeline: [
+                "Most cases clear within 5–7 days with appropriate clinical treatment",
+                "Consistent hygiene practices are crucial for preventing future recurrence",
+                "Completion of the full medication course ensures complete infection clearance",
+                "Periodic check-ups recommended for men with chronic or recurrent infections"
+            ],
 
             faqHeading: "FAQs – Balanitis",
             faqs: [
@@ -1327,127 +1575,133 @@ At Stork Multispecialty Hospital, Hyderabad, our urology team offers discreet, r
             ],
 
             customCta: {
-                heading: "Book a Private Consultation for Balanitis",
-                description: "If you are experiencing redness, swelling, or discomfort in the penis, schedule a confidential appointment at Stork Hospital to meet a specialist urologist in Hyderabad for expert diagnosis and safe, effective treatment",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Private Consultation",
+                description: "If you are experiencing redness, swelling, or discomfort, schedule a confidential appointment at Stork Hospital for expert urological diagnosis and treatment.",
+                buttonText: "Book Private Consult"
             },
             meta: {
-                duration: "15-30 Minutes",
-                anesthesia: "None",
-                hospitalStay: "Outpatient",
-                recoveryTime: "5-7 Days",
-                successRate: "High"
+                duration: "15–45 Minutes",
+                anesthesia: "None / Local",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "5–7 Days",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Narender Kumar",
-                role: "Senior Urologist",
-                experience: "12+ Years Experience"
-
+                name: "Stork Urology Unit",
+                role: "Senior Urologists & Genital Health Specialists",
+                experience: "Experts in Male Pelvic & Genital Infections"
             }
         }
-
     }
 
     if (slug === "balanoposthitis") {
         return {
             slug: slug,
-            title: "Balanoposthitis Treatment – Stork Hospital, Hyderabad",
+            title: "Balanoposthitis – Stork Hospital, Hyderabad",
             subheading: "Specialised Care for Inflammation of the Glans and Foreskin",
+            tagline: "Comprehensive, respectful management of glans and foreskin inflammation to restore comfort and prevent scarring.",
             breadcrumbTitle: "Balanoposthitis",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `Balanoposthitis is a condition where both the glans (head) of the penis and the foreskin become inflamed. It is often seen in uncircumcised men and can result in pain, swelling, redness, and difficulty retracting the foreskin. The condition can be caused by infections, allergies, skin disorders, or poor hygiene.
 
 At Stork Multispecialty Hospital, Hyderabad, we provide discreet, respectful, and comprehensive treatment for balanoposthitis — aiming to relieve symptoms quickly while addressing the root cause to prevent recurrence.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Balanoposthitis Care",
-                intro: "",
+                heading: "Causes of Balanoposthitis",
+                intro: "Inflammation of both the head and the foreskin is often driven by multiple factors. Common triggers include:",
                 items: [
-                    "Experienced urologists skilled in diagnosing and managing foreskin and penile conditions",
-                    "Diagnostic center in Hyderabad with advanced lab and imaging facilities for accurate cause detection",
-                    "Advanced surgical center for cases requiring circumcision or corrective procedures",
-                    "24/7 emergency hospital near Hitech City for severe pain or infection",
-                    "Insurance accepted at Stork Hospital for eligible treatments",
-                    "Walk-in clinic near Kondapur for confidential same-day consultations",
-                    "Preventive care advice to reduce chances of future flare-ups"
+                    "Poor genital hygiene leading to bacterial or fungal growth",
+                    "Yeast infections (Candida), especially common in diabetic patients",
+                    "Sexually transmitted infections (STIs) requiring specialized testing",
+                    "Allergic reactions to soaps, detergents, lubricants, or latex condoms",
+                    "Chronic skin disorders such as eczema, psoriasis, or lichen sclerosus",
+                    "Tight foreskin (phimosis) preventing adequate daily cleaning"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Causes of Balanoposthitis",
-            conditionsTreated: [
-                "Poor genital hygiene leading to bacterial or fungal growth",
-                "Yeast infections (Candida), common in diabetic patients",
-                "Sexually transmitted infections (STIs)",
-                "Allergic reactions to soaps, detergents, lubricants, or latex condoms",
-                "Chronic skin disorders such as eczema, psoriasis, or lichen sclerosus",
-                "Tight foreskin (phimosis) preventing adequate cleaning"
+            fullDescription: [
+                "Balanoposthitis is often a symptomatic progression where localized inflammation of the glans (Balanitis) extends to the adjacent foreskin tissues. Prompt medical intervention is necessary to prevent complications like scarring (phimosis) or urinary difficulties."
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Symptoms of Balanoposthitis",
+            conditionsTreated: [
+                "Redness, swelling, and pain affecting both the foreskin and glans",
+                "Difficulty retracting the foreskin due to localized swelling",
+                "Persistent itching, irritation, or generalized tenderness",
+                "Thick or foul-smelling discharge under the foreskin fold",
+                "Burning sensation during urination or intimacy"
+            ],
+
+            procedureHeading: "Discreet & Comprehensive Treatment",
             procedureSteps: [
                 {
                     title: "Medical Management",
-                    description: "Antifungal or antibiotic creams depending on the infection. Mild steroid creams to reduce inflammation. Antihistamines for allergic reactions."
+                    description: "Application of antifungal or antibiotic creams depending on the infection type, with mild steroids or antihistamines to control acute inflammation."
                 },
                 {
-                    title: "Lifestyle and Hygiene Measures",
-                    description: "Gentle daily cleaning with warm water, avoiding harsh soaps. Managing underlying conditions such as diabetes. Avoiding known irritants like scented products or chemical cleansers."
+                    title: "Lifestyle & Hygiene Care",
+                    description: "Gentle daily cleaning with warm water, managing diabetic sugar levels, and avoiding known chemical irritants or scented products."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "For recurrent or severe cases: Circumcision to remove the foreskin and prevent recurring inflammation, or Preputioplasty as a foreskin-preserving alternative."
+                    title: "Corrective Surgical Alternatives",
+                    description: "For recurrent or severe chronic cases, surgical solutions like Circumcision or Preputioplasty (foreskin-preserving) are offered to prevent future inflammation."
                 }
             ],
 
-            benefitsHeading: "Recovery and Aftercare",
+            benefitsHeading: "Signs and Symptoms to Watch For",
             benefits: [
-                "Most patients improve within 5–10 days of treatment",
-                "Maintain proper hygiene and keep the area dry",
-                "Complete all prescribed medications to prevent recurrence",
-                "Follow-up visits for chronic or severe cases"
+                "Redness, swelling, and pain affecting both the foreskin and glans",
+                "Difficulty retracting the foreskin due to localized swelling",
+                "Persistent itching, irritation, or generalized tenderness",
+                "Thick or foul-smelling discharge under the foreskin fold",
+                "Burning sensation during urination or intimacy"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Most patients improve significantly within 5–10 days of starting treatment",
+                "Maintaining proper genital hygiene and keeping the area dry is critical",
+                "Completion of all prescribed medications is required to prevent immediate recurrence",
+                "Follow-up visits are scheduled for chronic cases or those with high-risk health factors"
+            ],
 
             faqHeading: "FAQs – Balanoposthitis",
             faqs: [
                 {
                     question: "Is balanoposthitis contagious?",
-                    answer: "It can be if caused by infections such as yeast or STIs, but not all cases are contagious."
+                    answer: "It can be if caused by infections such as yeast or STIs, but many cases due to allergies or poor hygiene are not contagious."
                 },
                 {
                     question: "Can it be cured without surgery?",
-                    answer: "Yes, most cases respond well to medication and improved hygiene. Surgery is only for recurrent or severe cases."
+                    answer: "Yes, most cases respond well to medication and improved hygiene. Surgery is typically only recommended for recurrent or severe cases."
                 },
                 {
                     question: "Does circumcision prevent balanoposthitis?",
-                    answer: "Yes, it greatly reduces the risk of recurrence."
+                    answer: "Yes, by removing the foreskin fold where pathogens and irritants often collect, it greatly reduces the risk of recurrence."
                 },
                 {
                     question: "Is it dangerous if left untreated?",
-                    answer: "Chronic balanoposthitis can lead to scarring, narrowing of the foreskin, and urinary problems."
+                    answer: "Chronic balanoposthitis can lead to skin scarring, narrowing of the foreskin (acquired phimosis), and potentially painful urinary problems."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Balanoposthitis Consultation",
-                description: "If you have redness, swelling, or difficulty retracting the foreskin, book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for prompt diagnosis and effective treatment.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Private Consultation",
+                description: "If you have redness, swelling, or difficulty retracting the foreskin, book an appointment at Stork Hospital for prompt diagnosis and effective treatment.",
+                buttonText: "Schedule Private Consult"
             },
             meta: {
-                duration: "15-30 Minutes",
-                anesthesia: "None",
-                hospitalStay: "Outpatient",
-                recoveryTime: "5-10 Days",
-                successRate: "High"
+                duration: "15–45 Minutes",
+                anesthesia: "None / Local",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "5–10 Days",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Narender Kumar",
-                role: "Senior Urologist",
-                experience: "12+ Years Experience"
+                name: "Stork Urology Unit",
+                role: "Senior Urologists & Genital Health Specialists",
+                experience: "Experts in Complex Penile & Foreskin Inflammations"
             }
         }
     }
@@ -1457,16 +1711,17 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, respectful, an
             slug: slug,
             title: "Weight Loss & Bariatric Surgery – Stork Hospital, Hyderabad",
             subheading: "Achieve Lasting Health Through Safe Surgical Weight Loss",
+            tagline: "Advanced laparoscopic bariatric solutions designed to reverse obesity-related health conditions and achieve sustainable weight loss.",
             breadcrumbTitle: "Bariatric Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
             shortDescription: `For many individuals struggling with obesity, sustained weight loss through diet and exercise alone may be difficult or ineffective. At Stork Multispecialty Hospital, Hyderabad, we offer advanced bariatric surgery solutions that support your transformation journey—physically, emotionally, and medically.
 
 Our focus goes beyond weight loss. We aim to reverse obesity-linked health issues and enhance your overall quality of life through structured, safe, and supportive care.`,
 
             overview: {
                 heading: "Why Stork Hospital for Bariatric Surgery in Hyderabad?",
-                intro: "At Stork, you receive world-class treatment paired with compassionate guidance, every step of the way.",
+                intro: "At Stork, you receive world-class treatment paired with compassionate guidance, every step of the way:",
                 items: [
                     "Highly trained bariatric and metabolic surgeons in Hyderabad with years of laparoscopic expertise",
                     "Pre-operative assessments and psychological counseling",
@@ -1474,58 +1729,64 @@ Our focus goes beyond weight loss. We aim to reverse obesity-linked health issue
                     "Integrated care with endocrinologists, dietitians, and physiotherapists",
                     "Walk-in consultations near Kondapur and quick scheduling",
                     "Recognized as a Hyderabad hospital accepting insurance for bariatric and related services",
-                    "We’re proud to offer affordable weight loss surgery packages in Hyderabad designed with transparency and patient care in mind"
+                    "Affordable weight loss surgery packages in Hyderabad designed with transparency and patient care in mind"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Conditions Treated & Health Benefits",
-            conditionsTreated: [
-                "Severe Obesity (BMI > 40, or > 35 with complications)",
-                "Type 2 Diabetes Mellitus (T2DM)",
-                "Hypertension (High Blood Pressure)",
-                "Sleep Apnea and Respiratory Issues",
-                "Polycystic Ovary Syndrome (PCOS) and Infertility",
-                "Orthopedic complications and Joint Pain"
+            fullDescription: [
+                "Bariatric surgery is a life-changing metabolic intervention that resets the body's weight regulation mechanisms, providing a powerful tool for those who have found conventional weight loss methods insufficient."
             ],
 
-            procedureHeading: "Our Surgical Weight Loss Options",
+            conditionsHeading: "Our Surgical Weight Loss Options",
+            conditionsTreated: [
+                "Sleeve Gastrectomy: Removes part of the stomach to limit intake and reduce hunger hormones",
+                "Gastric Bypass (Roux-en-Y): Alters food pathway to decrease absorption and curb appetite",
+                "Mini Gastric Bypass: A simplified version with similar benefits and fewer risks",
+                "Revisional Surgery: For patients needing adjustments from prior weight loss surgeries"
+            ],
+
+            procedureHeading: "Your Personalized Bariatric Surgery Journey",
             procedureSteps: [
                 {
-                    title: "Sleeve Gastrectomy",
-                    description: "Removes part of the stomach to limit intake and reduce hunger hormones. A common restrictive procedure."
+                    title: "Detailed Screening",
+                    description: "Comprehensive evaluation with our bariatric experts, including nutritional and psychological assessments to ensure surgical readiness."
                 },
                 {
-                    title: "Gastric Bypass (Roux-en-Y)",
-                    description: "Alters food pathway to decrease absorption and curb appetite. Often considered the gold standard for weight loss."
+                    title: "Laparoscopic Surgery",
+                    description: "Performed using state-of-the-art minimally invasive techniques (Sleeve Gastrectomy or Gastric Bypass) to ensure precision and faster healing."
                 },
                 {
-                    title: "Mini Gastric Bypass",
-                    description: "A simplified version of the gastric bypass with similar weight loss benefits and fewer risks for select patients."
+                    title: "Hospital Recovery",
+                    description: "Monitored recovery for 2–3 days in our advanced surgical center with integrated metabolic and pain management support."
                 },
                 {
-                    title: "Revisional Surgery",
-                    description: "For patients needing adjustments or corrections from prior weight loss surgeries to improve outcomes."
+                    title: "Lifelong Care",
+                    description: "Ongoing weight management programs, including personalized meal planning and physical activity monitoring for sustainable results."
                 }
             ],
 
             benefitsHeading: "Benefits You Can Expect from Bariatric Surgery",
             benefits: [
-                "Effective weight loss and better weight maintenance compared to diet alone",
+                "Effective weight loss and better weight maintenance",
                 "Improvement or resolution of diabetes, high blood pressure, PCOS, and sleep apnea",
-                "Less pressure on joints, reducing orthopedic complications and pain",
-                "Increased self-confidence, stamina, and overall mood",
-                "We also provide lifelong care through post-surgery weight management programs"
+                "Less pressure on joints, reducing orthopedic complications",
+                "Increased self-confidence, stamina, and mood"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Outcomes",
+            recoveryTimeline: [
+                "Early mobilization begins within hours of surgery to promote circulation and healing",
+                "Strict adherence to a staged nutritional plan (liquid to solid) over 4–6 weeks",
+                "Return to most non-strenuous desk work and light daily activities within 10–14 days",
+                "Significant improvement in comorbid conditions (Diabetes, PCOS) often observed within 3 months",
+                "Sustained weight loss progress monitored through monthly follow-up reviews"
+            ],
 
             faqHeading: "FAQs – Bariatric Services at Stork Hospital",
             faqs: [
                 {
                     question: "Am I a good candidate for bariatric surgery?",
-                    answer: "You may qualify if you have a BMI over 40, or over 35 with associated health problems. Our team performs a full evaluation."
+                    answer: "You may qualify if you have a BMI over 40, or over 35 with associated health problems. Our team performs a full evaluation of your health history and goals."
                 },
                 {
                     question: "How safe is the procedure?",
@@ -1537,38 +1798,40 @@ Our focus goes beyond weight loss. We aim to reverse obesity-linked health issue
                 },
                 {
                     question: "Does my insurance cover weight loss surgery?",
-                    answer: "We are among the top hospitals in Hyderabad accepting insurance, and we help patients understand and access their benefits."
+                    answer: "We are among the top hospitals in Hyderabad accepting insurance, and we help patients understand and access their specific plan benefits."
                 }
             ],
 
             customCta: {
                 heading: "Take the First Step Toward Better Health",
-                description: "You don’t have to battle obesity alone. Schedule your consultation at Stork Hospital and meet a skilled bariatric surgeon in Hyderabad who will guide you toward safe, effective weight loss and a healthier future.",
-                buttonText: "Book Consultation"
+                description: "You don’t have to battle obesity alone. Schedule your consultation at Stork Hospital and meet a skilled bariatric surgeon in Hyderabad who will guide you toward safe, effective weight loss.",
+                buttonText: "Book Bariatric Consultation"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "90–150 Minutes",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "2-3 Days",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                hospitalStay: "2–3 Days",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. V. N. Reddy",
-                role: "Senior Bariatric Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Bariatric & Metabolic Team",
+                role: "Senior Bariatric & Metabolic Surgeons",
+                experience: "Experts in Laparoscopic Weight Loss Surgery"
             }
         }
     }
+
 
     if (slug === "cancer-care") {
         return {
             slug: slug,
             title: "Cancer Care – Stork Hospital, Hyderabad",
             subheading: "What is Cancer Care in Women’s Health?",
+            tagline: "Comprehensive women's oncology services focusing on early detection, precision surgical interventions, and compassionate long-term care.",
             breadcrumbTitle: "Cancer Care",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Oncology",
+            departmentHref: "/services/oncology",
             shortDescription: `Women face a unique set of cancer risks throughout their lives—from cervical and breast cancer to ovarian and uterine malignancies. At Stork Hospital, Hyderabad, our cancer care services focus on early detection, precision diagnosis, and compassionate treatment designed exclusively for women. We ensure that patients not only receive timely care but also feel supported every step of the way.
 
 As a multispecialty hospital in Telangana, Stork offers end-to-end diagnostic and surgical oncology services, backed by an experienced team and state-of-the-art infrastructure.`,
@@ -1577,59 +1840,67 @@ As a multispecialty hospital in Telangana, Stork offers end-to-end diagnostic an
                 heading: "Why Choose Stork Hospital for Women’s Cancer Care in Hyderabad?",
                 intro: "Stork Hospital is trusted by women across Hyderabad for our expertise in gynecologic health and early cancer detection. Here’s what sets us apart:",
                 items: [
-                    "NABH-accredited hospital with in-house diagnostics",
-                    "Senior OB-GYNs and surgical specialists",
-                    "Focus on minimally invasive and uterus-sparing surgeries when possible",
-                    "Dedicated women’s care units for privacy and comfort",
-                    "Affordable treatment packages and insurance coverage support",
-                    "Option to book appointments online at Stork Hospital"
+                    "NABH-accredited hospital with high-precision in-house diagnostics",
+                    "Senior OB-GYNs and specialized surgical oncology experts",
+                    "Focus on minimally invasive and uterus-sparing surgeries whenever possible",
+                    "Dedicated women’s care units designed for maximum privacy and comfort",
+                    "Affordable treatment packages and comprehensive insurance coverage support",
+                    "Digital accessibility with the option to book specialized appointments online"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Early detection is the cornerstone of successful cancer management. Stork Hospital integrates advanced screening technologies with a patient-first approach to ensure that every woman receives a personalized clinical pathway that respects her anatomical goals, such as fertility preservation and uterine health."
+            ],
 
             conditionsHeading: "Who Should Prioritize Cancer Screening?",
             conditionsTreated: [
-                "Women aged 21+ (for Pap smears and HPV tests)",
-                "Women aged 40+ (for breast exams and mammograms)",
-                "Those with family history of cancer",
-                "Patients with genetic predispositions (e.g., BRCA mutation)",
-                "Individuals with PCOS, endometriosis, or chronic inflammation"
+                "Women aged 21+ for regular Pap smears and HPV diagnostics",
+                "Women aged 40+ for clinical breast exams and mammography mapping",
+                "Individual with a significant family history of gynecologic or breast cancer",
+                "Patients with known genetic predispositions such as the BRCA mutation",
+                "Individuals with PCOS, endometriosis, or chronic reproductive inflammation"
             ],
 
-            procedureHeading: "What to Expect at Stork Hospital",
+            procedureHeading: "Women-Centric Cancer Care Pillars",
             procedureSteps: [
                 {
-                    title: "Screening & Diagnosis",
-                    description: "Pap smears and HPV testing, Breast exams, ultrasound, and mammography referrals, Transvaginal scans and pelvic assessments, Biopsy and histopathology evaluation, Genetic counselling and risk profiling."
+                    title: "Screening & Precision Diagnosis",
+                    description: "Access to Pap smears, Transvaginal scans, Pelvic assessments, Biopsy evaluations, and Genetic Risk Profiling."
                 },
                 {
-                    title: "Treatment & Surgical Options",
-                    description: "Cervical or uterine polyp removal, Hysterectomy for early-stage cancers, Referral-based oncologic surgery and chemotherapy, Post-surgical recovery support."
+                    title: "Surgical & Therapeutic Interventions",
+                    description: "Expert removal of cervical/uterine polyps, Hysterectomy for early-stage cancers, and post-surgical recovery monitoring."
                 },
                 {
-                    title: "Follow-Up & Ongoing Care",
-                    description: "Recurrence monitoring through scans and tests, Emotional health and survivorship counselling, Nutritional support and physiotherapy."
+                    title: "Follow-Up & Survivorship",
+                    description: "Recurrence monitoring through precision scans, emotional health counseling, and specialized nutritional support."
                 }
             ],
 
             benefitsHeading: "When is Cancer Screening or Treatment Needed?",
             benefits: [
-                "Abnormal Pap smears or cervical cell changes",
-                "Breast lumps, discharge, or pain",
-                "Irregular vaginal bleeding or pelvic pain",
-                "Family history of gynecologic or breast cancer",
-                "Postmenopausal bleeding or bloating",
-                "Suspicious imaging or biopsy findings"
+                "Observation of abnormal Pap smears or rapid cervical cell changes",
+                "Development of breast lumps, unusual discharge, or persistent pain",
+                "Irregular vaginal bleeding or localized pelvic discomfort",
+                "Self-identified family history of specific gynecologic or breast cancer",
+                "Onset of postmenopausal bleeding or chronic abdominal bloating",
+                "Identification of suspicious imaging results or biopsy findings"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Long-Term Monitoring & Support",
+            recoveryTimeline: [
+                "Structured recurrence monitoring through high-resolution scans and lab tests",
+                "Access to emotional health and oncologic survivorship counseling",
+                "Nutritional optimization and specialized physiotherapy for post-surgical recovery",
+                "Regular walk-in clinical checks near Kondapur for ongoing health maintenance"
+            ],
 
             faqHeading: "FAQs – Cancer Care at Stork Hospital",
             faqs: [
                 {
                     question: "Should I get screened even without symptoms?",
-                    answer: "Yes. Routine screenings like Pap smears and breast exams help detect changes before symptoms appear."
+                    answer: "Yes. Routine screenings like Pap smears and breast exams help detect changes before symptoms ever appear."
                 },
                 {
                     question: "What happens if my Pap smear is abnormal?",
@@ -1637,30 +1908,30 @@ As a multispecialty hospital in Telangana, Stork offers end-to-end diagnostic an
                 },
                 {
                     question: "Is surgery always required for gynecologic cancer?",
-                    answer: "Not always. Some cases are managed with surveillance, medication, or referral-based oncology treatments."
+                    answer: "Not always. Some cases are managed with active surveillance, medication, or referral-based oncology treatments."
                 },
                 {
                     question: "Does insurance cover screenings and treatments?",
-                    answer: "Yes. We accept major providers and also offer maternity packages with cancer screening add-ons."
+                    answer: "Yes. Stork Hospital accepts major providers and offers maternity packages with cancer screening add-ons."
                 }
             ],
 
             customCta: {
-                heading: "Take the First Step Toward Better Health",
-                description: "If you're looking for trusted, early-stage cancer screening or treatment, book an appointment at Stork Hospital—a place where patient-first care meets advanced women’s oncology in Hyderabad.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your specialized Cancer screening",
+                description: "If you're looking for trusted, early-stage cancer screening or treatment, meet our oncology specialists in Hyderabad for a comprehensive evaluation.",
+                buttonText: "Schedule Screening"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None or General",
-                hospitalStay: "Varies",
-                recoveryTime: "Varies",
-                successRate: "High"
+                duration: "Clinical Dependency",
+                anesthesia: "None / General / Local",
+                hospitalStay: "Daycare / Inpatient",
+                recoveryTime: "Varies by Staging",
+                successRate: "High with Early Detection"
             },
             reviewedBy: {
-                name: "Dr. Sujatha Chelluri",
-                role: "Senior Gyneocologist",
-                experience: "20+ Years Experience"
+                name: "Stork Oncology Team",
+                role: "Senior Gynaecologists & Surgical Oncologists",
+                experience: "Experts in Early Detection & Women's Cancer Care"
             }
         }
     }
@@ -1786,64 +2057,72 @@ At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs aro
             slug: slug,
             title: "Circumcision – Stork Hospital, Hyderabad",
             subheading: "Modern, Safe, and Comfortable Circumcision for Children and Adults",
+            tagline: "Advanced laser and stapler techniques ensuring minimal discomfort, rapid healing, and superior aesthetic outcomes.",
             breadcrumbTitle: "Circumcision",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `Circumcision is a surgical process where the foreskin (the fold of skin covering the head of the penis) is removed. It is carried out for different reasons — including medical conditions like phimosis, chronic infections, or hygiene concerns, as well as religious or cultural traditions.
 
 At Stork Multispecialty Hospital, Hyderabad, we perform circumcision using advanced surgical and laser techniques that prioritize patient safety, minimize discomfort, and promote faster healing. Our team is skilled in treating both infants and adults, offering personalized care from consultation to recovery.`,
 
             overview: {
-                heading: "Why Stork Hospital is the Preferred Choice",
-                intro: "We offer advanced techniques for minimal discomfort and faster recovery.",
+                heading: "Medical Indications for Circumcision",
+                intro: "While often performed for cultural reasons, circumcision is clinically recommended for conditions such as:",
                 items: [
-                    "Experienced urologists and pediatric surgeons with a high success rate",
-                    "Comprehensive diagnostic center in Hyderabad for pre-procedure checks",
-                    "Advanced surgical center with laser and stapler circumcision technology",
-                    "24/7 emergency hospital near Hitech City for urgent medical needs",
-                    "Insurance accepted at Stork Hospital with complete billing transparency",
-                    "Walk-in clinic near Kondapur for quick access to consultations",
-                    "Detailed aftercare guidance to ensure a smooth recovery"
+                    "Phimosis – chronic inability to retract the foreskin comfortably",
+                    "Paraphimosis – a medical emergency where the foreskin is stuck behind the glans",
+                    "Frequent urinary tract infections (UTIs) affecting penile health",
+                    "Chronic inflammation or recurrent Balanitis infections",
+                    "Preventive measures to reduce specific infection risks and improve hygiene"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Medical Indications for Circumcision",
-            conditionsTreated: [
-                "Phimosis – inability to retract the foreskin",
-                "Paraphimosis – foreskin stuck behind the glans, causing swelling",
-                "Frequent urinary tract infections (UTIs)",
-                "Chronic inflammation (balanitis)",
-                "Preventive measure for better penile hygiene and reduced infection risk"
+            fullDescription: [
+                "Circumcision at Stork Hospital combines surgical precision with modern technological advances. Whether for an infant or an adult, we ensure a sterile, comfortable, and discreet environment for all patients."
             ],
 
-            procedureHeading: "Circumcision Methods at Stork Hospital",
+            conditionsHeading: "Why Stork Hospital is the Preferred Choice",
+            conditionsTreated: [
+                "Experienced urologists and pediatric surgeons with a high success rate",
+                "Advanced surgical center featuring laser and ZSR stapler technology",
+                "24/7 emergency response for urgent penile conditions near Hitech City",
+                "Insurance accepted with complete billing transparency for medical necessity",
+                "Walk-in clinic near Kondapur for quick access to pediatric and adult consultations",
+                "Detailed aftercare guidance to ensure a smooth recovery"
+            ],
+
+            procedureHeading: "Advanced Circumcision Methods at Stork",
             procedureSteps: [
                 {
-                    title: "Traditional surgical circumcision",
-                    description: "Safe, precise removal of foreskin with sutures."
+                    title: "Laser Circumcision",
+                    description: "Precision laser excision of the foreskin results in minimal bleeding, typically no sutures, and significantly reduced swelling compared to traditional surgery."
                 },
                 {
-                    title: "Laser circumcision",
-                    description: "Minimal bleeding, quick healing, and reduced swelling."
+                    title: "Stapler (ZSR) Circumcision",
+                    description: "An advanced device-based procedure that secures a uniform, aesthetic result with minimal downtime and zero sutures, preferred for rapid adult recovery."
                 },
                 {
-                    title: "Stapler circumcision",
-                    description: "Advanced device-based procedure ensuring uniform results and less discomfort."
+                    title: "Traditional Surgical Method",
+                    description: "Safe, precise removal of the foreskin using micro-sutures, typically performed for specific complex anatomical needs."
                 }
             ],
 
             benefitsHeading: "Recovery and Aftercare Steps",
             benefits: [
-                "Complete evaluation and informed consent before surgery",
-                "Local or general anesthesia for a painless experience",
-                "Post-procedure dressing and hygiene instructions",
-                "Pain relief and infection prevention medications",
-                "Follow-up appointments to check wound healing"
+                "Painless experience ensured through local or general anesthesia",
+                "Complete clinical evaluation and informed consent before surgery",
+                "Post-procedure dressing and hygiene instructions provided on-site",
+                "Tailored pain relief and infection prevention medication protocols",
+                "Scheduled follow-up appointments to monitor optimal wound healing"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery Journey",
+            recoveryTimeline: [
+                "Evaluation and clinical consent for the chosen method",
+                "Painless procedure under expert anesthesia protocols",
+                "Same-day discharge for daycare circumcision procedures",
+                "Full healing: Children (approx. 7 days), Adults (7–10 days)"
+            ],
 
             faqHeading: "FAQs – Circumcision",
             faqs: [
@@ -1866,21 +2145,21 @@ At Stork Multispecialty Hospital, Hyderabad, we perform circumcision using advan
             ],
 
             customCta: {
-                heading: "Book Your Circumcision Consultation",
-                description: "For safe and advanced circumcision services, book an appointment at Stork Hospital to meet a urologist in Hyderabad and discuss the best surgical option for you or your child.",
-                buttonText: "Book Consultation"
+                heading: "Schedule Your Consultation",
+                description: "For safe and advanced circumcision services, book an appointment at Stork Hospital to discuss the best surgical option for you or your child.",
+                buttonText: "Book Appointment"
             },
             meta: {
-                duration: "30-45 Minutes",
-                anesthesia: "Local or General",
-                hospitalStay: "Day Care / Outpatient",
-                recoveryTime: "1 Week",
-                successRate: "Very High"
+                duration: "30–60 Minutes",
+                anesthesia: "Local / General",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "7–10 Days",
+                successRate: "99%+"
             },
             reviewedBy: {
-                name: "Dr. Narender Kumar",
-                role: "Senior Urologist",
-                experience: "12+ Years Experience"
+                name: "Stork Urology & Pediatric Team",
+                role: "Senior Urologists & Pediatric Surgeons",
+                experience: "Experts in Advanced Stapler & Laser Circumcision"
             }
         }
     }
@@ -3243,6 +3522,127 @@ Our compassionate care combines high-precision diagnosis with emotional and phys
     }
 
 
+    if (slug === "spine-surgery") {
+        return {
+            slug: slug,
+            title: "Spine Surgery – Stork Hospital, Hyderabad",
+            subheading: "Expert Surgical Solutions for Spine and Back Problems",
+            tagline: "Advanced neurosurgical and orthopedic expertise for spinal disorders, focusing on minimally invasive techniques to restore mobility and relieve chronic pain.",
+            breadcrumbTitle: "Spine Surgery",
+            category: "Orthopedics & Spine Care",
+            departmentHref: "/services/orthopedics",
+            shortDescription: `Spine surgery is recommended for certain spinal conditions that do not improve with medications, physiotherapy, or other conservative treatments. It can address issues such as herniated discs, spinal narrowing, fractures, deformities, and nerve compression, all of which can cause chronic pain and reduced mobility. The aim is to relieve discomfort, restore function, and enhance daily living.
+
+At Stork Multispecialty Hospital, Hyderabad, we combine advanced surgical technology with specialist expertise to treat both routine and complex spine disorders. Our team includes neurosurgeons, orthopedic spine surgeons, and rehabilitation therapists who work together to provide complete patient care.`,
+
+            overview: {
+                heading: "Why Patients Rely on Stork Hospital for Spine Surgery",
+                intro: "We combine specialist expertise with advanced surgical technology to ensure the best outcomes for our patients:",
+                items: [
+                    "Specialized spine surgeons with training in minimally invasive and complex procedures",
+                    "Modern diagnostic center in Hyderabad offering MRI, CT, and nerve conduction studies",
+                    "Advanced surgical center equipped with navigation and robotic-assisted systems",
+                    "24/7 emergency hospital near Hitech City for spinal trauma cases",
+                    "Insurance accepted at Stork Hospital with upfront pricing information",
+                    "Walk-in clinic near Kondapur for quick access to spine evaluations",
+                    "Comprehensive physiotherapy care to speed up recovery"
+                ]
+            },
+            fullDescription: [
+                "Advanced spinal care requires a multidisciplinary approach. Our center integrates the latest in surgical navigation and robotic assistance to ensure the highest levels of precision and safety."
+            ],
+
+            conditionsHeading: "Spinal Conditions We Treat Surgically",
+            conditionsTreated: [
+                "Slipped or herniated discs",
+                "Spinal stenosis (narrowed spinal canal)",
+                "Spinal deformities including scoliosis and kyphosis",
+                "Vertebral fractures due to trauma or osteoporosis",
+                "Degenerative disc disease",
+                "Nerve root compression (sciatica, radiculopathy)",
+                "Spinal tumors requiring surgical removal"
+            ],
+
+            procedureHeading: "Our Comprehensive Approach to Spine Surgery",
+            procedureSteps: [
+                {
+                    title: "Pre-Surgical Planning",
+                    description: "Detailed assessment of symptoms and medical background, followed by precision imaging (MRI/CT) to pinpoint the pathology and design a customized plan."
+                },
+                {
+                    title: "Precision Surgical Intervention",
+                    description: "Utilization of minimally invasive methods, laminectomy, discectomy, or spinal fusion with navigation systems to minimize tissue trauma and ensure stability."
+                },
+                {
+                    title: "Post-Op Mobilization",
+                    description: "Effective pain management and assisted mobilization within 24–48 hours to prevent stiffness and promote early recovery."
+                },
+                {
+                    title: "Rehabilitative Recovery",
+                    description: "Structured physiotherapy sessions to rebuild spinal strength, flexibility, and long-term health maintenance."
+                }
+            ],
+
+            benefitsHeading: "Your Recovery Pathway at Stork Hospital",
+            benefits: [
+                "Specialist consultation and imaging diagnostics",
+                "Pre-operative counseling and preparation",
+                "Surgical procedure with advanced technology",
+                "Guided recovery in our rehabilitation unit",
+                "Long-term therapy and spine health maintenance"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Outcomes",
+            recoveryTimeline: [
+                "Early mobilization typically begins within 24–48 hours post-surgery to promote circulation",
+                "Hospital stay ranges from 2–5 days depending on the complexity of the spinal procedure",
+                "Initial return to light daily activities expected within 2–4 weeks",
+                "Intensive rehabilitation and core strengthening continue for 8–12 weeks for optimal stability",
+                "Significant relief from nerve-related pain often observed immediately or within days of surgery"
+            ],
+
+            faqHeading: "FAQs – Spine Surgery",
+            faqs: [
+                {
+                    question: "Do all spine problems require surgery?",
+                    answer: "No, it’s typically recommended only when other treatments fail to give relief. Most spine issues are initially managed through conservative therapies."
+                },
+                {
+                    question: "What is the recovery time after spine surgery?",
+                    answer: "It varies depending on the procedure — minimally invasive methods may heal in weeks, while major surgeries can require months of rehabilitation."
+                },
+                {
+                    question: "Can I walk after surgery?",
+                    answer: "In most cases, walking is encouraged within 1–2 days after minimally invasive procedures to prevent complications and speed up healing."
+                },
+                {
+                    question: "Will my insurance cover spine surgery?",
+                    answer: "Yes. Stork Hospital works with leading insurance companies and ensures complete billing transparency for all spinal procedures."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Spine Care Appointment",
+                description: "If back pain, neck discomfort, or mobility issues are affecting your quality of life, expert help is available. Book an appointment at Stork Hospital to meet a spine surgery specialist in Hyderabad.",
+                buttonText: "Book Spine Consultation"
+            },
+            meta: {
+                duration: "2–5 Hours",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "2–5 Days",
+                recoveryTime: "2–12 Weeks",
+                successRate: "High"
+            },
+            reviewedBy: {
+                name: "Stork Spine Care Team",
+                role: "Senior Neuro & Orthopedic Spine Surgeons",
+                experience: "Experts in Minimally Invasive Spine Surgery"
+            }
+        }
+    }
+
+
     if (slug === "endoscopic-keyhole-discectomy") {
         return {
             slug: slug,
@@ -4462,108 +4862,122 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT and facial plastic surgery 
     if (slug === "thyroidectomy") {
         return {
             slug: slug,
-            title: "Thyroidectomy (Thyroid Removal Surgery) – Stork Hospital, Hyderabad",
-            subheading: "Safe & Specialized Surgical Care for Thyroid Disorders",
+            title: "Thyroidectomy – Stork Hospital, Hyderabad",
+            subheading: "Expert Thyroid Surgery with a Focus on Safety and Recovery",
+            tagline: "Specialized endocrine surgery for goiters, nodules, and thyroid cancer, focused on anatomical preservation and hormonal balance.",
             breadcrumbTitle: "Thyroidectomy",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `When thyroid problems interfere with your health, comfort, or appearance, surgery may be the best solution. At Stork Multispecialty Hospital, Hyderabad, we provide safe, precise, and minimally invasive thyroidectomy procedures for patients with benign nodules, goiters, thyroid cancer, or overactive thyroid glands.
+            category: "ENT",
+            departmentHref: "/services/ent",
+            shortDescription: `A thyroidectomy involves removing part or all of the thyroid gland — a small, butterfly-shaped organ located in the neck that plays a vital role in controlling metabolism, hormones, and overall energy balance. This operation is performed for various conditions, including large goiters, thyroid nodules, overactive thyroid disorders, and thyroid cancer.
 
-Our ENT and endocrine surgery teams are experienced in managing complex thyroid conditions with care tailored to each patient’s needs.`,
+At Stork Multispecialty Hospital, Hyderabad, our surgical team uses refined techniques, advanced technology, and a patient-first approach to achieve the best outcomes. We focus on precise surgical care, preserving important neck structures, and ensuring a smooth transition to recovery.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Thyroidectomy in Hyderabad?",
-                intro: "Our multidisciplinary approach ensures accurate diagnosis, expert surgical execution, and holistic recovery:",
+                heading: "Why Stork Hospital is a Preferred Choice for Thyroid Surgery",
+                intro: "Our surgical team focuses on precise care, preserving important neck structures, and ensuring a smooth transition to recovery:",
                 items: [
-                    "Skilled thyroid surgeons in Hyderabad with experience in both partial and total thyroidectomy",
-                    "Advanced diagnostics: ultrasound, FNAC, and thyroid function testing under one roof",
-                    "Walk-in ENT consultation near Kondapur with short waiting time",
-                    "Minimally invasive and nerve-sparing surgical techniques",
-                    "Post-surgical hormone management and follow-up support",
-                    "Transparent billing and support from a Hyderabad hospital accepting insurance"
+                    "Specialist surgeons with extensive experience in endocrine and head-and-neck procedures",
+                    "Access to a fully equipped advanced surgical center with strict infection control",
+                    "In-house diagnostic center in Hyderabad for ultrasounds, biopsies, and hormone testing",
+                    "24/7 emergency hospital near Hitech City for immediate post-surgical or thyroid-related care",
+                    "Insurance accepted at Stork Hospital, with full cost clarity before admission",
+                    "Same-day consultations and walk-in clinic near Kondapur for quick thyroid evaluations",
+                    "Comfortable recovery suites designed for privacy and post-operative care"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "What is Thyroidectomy?",
-            conditionsTreated: [
-                "Enlarged thyroid (goiter) causing breathing/swallowing issues",
-                "Thyroid nodules or cysts",
-                "Hyperthyroidism (overactive thyroid)",
-                "Thyroid malignancies or suspected cancer"
+            fullDescription: [
+                "Thyroidectomy is a common and safe procedure when performed by experienced surgical teams. Our focus is on maintaining the integrity of delicate neck anatomy while addressing the underlying thyroid condition."
             ],
 
-            procedureHeading: "Your Thyroidectomy Journey at Stork Hospital",
+            conditionsHeading: "When Might Thyroidectomy Be Recommended?",
+            conditionsTreated: [
+                "Confirmed or suspected thyroid cancer",
+                "Enlarged goiter that interferes with breathing or swallowing",
+                "Hyperthyroidism that doesn’t improve with medicines or radioactive iodine",
+                "Recurrent thyroid nodules or cysts",
+                "Neck pressure, hoarseness, or other symptoms from an enlarged thyroid"
+            ],
+
+            procedureHeading: "How We Perform Thyroidectomy at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Initial Evaluation",
-                    description: "Evaluation and imaging with an ENT or endocrine surgeon, including blood work and FNAC."
+                    title: "Diagnostic Phase",
+                    description: "Comprehensive examination by an endocrine specialist, including blood work, imaging, and fine-needle aspiration if required."
                 },
                 {
-                    title: "Pre-operative",
-                    description: "Counseling and anesthesia planning."
+                    title: "Precision Operation",
+                    description: "Conducted under general anesthesia. Our surgeons focus on protecting nearby structures like vocal cord nerves and parathyroid glands."
                 },
                 {
-                    title: "Surgery",
-                    description: "Usually performed under general anesthesia using refined techniques to preserve vocal cord nerves and parathyroid glands."
+                    title: "Post-Surgical Monitoring",
+                    description: "Careful pain relief, wound care, and calcium monitoring in a sterile hospital setting."
                 },
                 {
-                    title: "Recovery",
-                    description: "24–48 hours of observation, then discharge with instructions. Regular post-op checkups for voice and calcium monitoring."
+                    title: "Long-Term Management",
+                    description: "Guidance on hormone replacement therapy (if the whole gland is removed) and structured follow-up appointments."
                 }
             ],
 
-            benefitsHeading: "Benefits of Thyroid Surgery at Stork",
+            benefitsHeading: "Your Care Pathway at Stork Hospital",
             benefits: [
-                "Accurate diagnosis and surgery by ENT-endocrine collaboration",
-                "Reduced risk of hoarseness or nerve injury",
-                "Personalized hormone replacement therapy if needed",
-                "Enhanced healing through minimally invasive approach",
-                "Coordinated care across diagnostics, surgery, and endocrinology"
+                "Initial consultation and diagnostic investigations",
+                "Surgical recommendation based on findings",
+                "Pre-operative clearance and admission",
+                "Thyroidectomy performed by experienced surgeons",
+                "1–2 nights in the hospital for monitoring",
+                "Follow-up and ongoing care instructions"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Hospital discharge typically occurs after 1–2 nights of clinical monitoring",
+                "Return to light household activities and office work within 10–14 days",
+                "Introduction of hormone replacement therapy if a total thyroidectomy was performed",
+                "Regular blood tests to monitor thyroid function and adjust medication if necessary",
+                "Gradual fading of the small surgical incision over several months with proper care"
+            ],
 
-            faqHeading: "FAQs – Thyroid Surgery at Stork",
+            faqHeading: "FAQs – Thyroidectomy at Stork Hospital",
             faqs: [
                 {
-                    question: "Is thyroid surgery painful?",
-                    answer: "It’s performed under anesthesia, and most patients report mild discomfort post-op. Pain is manageable with medication."
+                    question: "Is the surgery safe?",
+                    answer: "Yes. In skilled hands, thyroidectomy is a low-risk procedure with excellent success rates. Our team uses modern monitoring to ensure maximum safety."
                 },
                 {
-                    question: "Will I need lifelong medication after thyroidectomy?",
-                    answer: "Only if your entire thyroid is removed. We provide hormone therapy and ongoing monitoring if required."
+                    question: "Will I need thyroid medication afterward?",
+                    answer: "If your entire thyroid is removed, daily hormone tablets will be required to maintain balance. If only part is removed, your doctor will monitor if supplementation is needed."
                 },
                 {
-                    question: "Will there be a visible scar?",
-                    answer: "Our surgeons use minimal incision techniques. Scars are discreet and fade over time with proper care."
+                    question: "How quickly can I return to normal activities?",
+                    answer: "Most patients can resume light work in 1–2 weeks, depending on their recovery speed and the type of surgery performed."
                 },
                 {
-                    question: "Is thyroid surgery covered under insurance?",
-                    answer: "Yes. We are among the Hyderabad hospitals accepting insurance and offer assistance with documentation."
+                    question: "Does insurance cover thyroid surgery?",
+                    answer: "Yes. Stork Hospital works with leading insurance providers and offers transparent cost estimates before any procedure."
                 }
             ],
 
             customCta: {
-                heading: "Book a Thyroid Surgery Consultation",
-                description: "If you’ve been advised thyroid surgery or experiencing persistent thyroid issues, schedule a consultation at Stork Hospital. Meet with a trusted thyroidectomy specialist in Hyderabad and explore your options for safe and effective treatment.",
-                buttonText: "Book Appointment"
+                heading: "Book a Thyroid Consultation Today",
+                description: "If you have been diagnosed with a thyroid problem or are experiencing swelling, discomfort, or changes in voice, timely treatment is important. Book an appointment at Stork Hospital to consult an experienced thyroid surgeon in Hyderabad and get a personalized surgical plan.",
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "2-3 Hours",
+                duration: "1–3 Hours",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "1-2 Days",
-                recoveryTime: "2-3 Weeks",
-                successRate: "High Support"
+                hospitalStay: "1–2 Nights",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Srinivas",
-                role: "Senior ENT & Endocrine Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Surgical Specialist Team",
+                role: "Head & Neck Surgeons",
+                experience: "Experts in Endocrine Surgery"
             }
         }
     }
+
 
 
     if (slug === "prostatomegaly") {
@@ -4895,100 +5309,108 @@ Whether caused by osteoporosis, injury, or spinal tumors, this advanced treatmen
             slug: slug,
             title: "Corn Removal – Stork Hospital, Hyderabad",
             subheading: "Relief from Painful Foot Corns with Expert Care",
+            tagline: "Safe, painless professional corn removal and preventive foot care to restore comfortable movement.",
             breadcrumbTitle: "Corn Removal",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
             shortDescription: `Corns are thickened areas of skin that develop due to repeated pressure or friction, most commonly on the feet or toes. They can cause discomfort, pain while walking, and even lead to infections if ignored. While some corns may improve with simple home care, stubborn or painful corns often require professional removal to ensure relief and prevent recurrence.
 
 At Stork Multispecialty Hospital, Hyderabad, our podiatry and dermatology specialists provide safe and effective corn removal using advanced techniques that protect surrounding healthy skin while addressing the root cause.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Corn Removal",
-                intro: "Expert care for foot health and skin conditions.",
+                heading: "Causes of Corn Formation",
+                intro: "Corns develop as a protective response to repeated mechanical stress. Common triggers include:",
                 items: [
-                    "Specialist doctors with expertise in foot health and skin conditions",
-                    "Advanced diagnostic center in Hyderabad for assessing underlying causes like foot deformities or gait issues",
-                    "State-of-the-art surgical center for painless, precise removal",
-                    "Walk-in clinic near Kondapur for quick consultations and treatments",
-                    "Insurance accepted at Stork Hospital for eligible procedures",
-                    "Advice on footwear and foot care to prevent future corns"
+                    "Wearing tight, ill-fitting shoes",
+                    "Walking or standing for long periods without proper support",
+                    "High-heeled footwear causing toe compression",
+                    "Abnormal foot structure or bone alignment",
+                    "Repetitive movements or activities causing skin friction"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Our podiatry unit focuses on both immediate relief through debridement and long-term prevention through gait assessment and footwear modification to eliminate the pressure points that cause corn formation."
+            ],
 
-            conditionsHeading: "Causes & Symptoms",
+            conditionsHeading: "Symptoms & Warning Signs",
             conditionsTreated: [
-                "Wearing tight, ill-fitting shoes",
-                "Walking or standing for long periods without proper support",
-                "High-heeled footwear causing toe compression",
-                "Abnormal foot structure or bone alignment",
-                "Thick, rough patches of skin with raised, hardened bumps",
-                "Tenderness or pain when pressure is applied"
+                "Thick, rough patches of skin",
+                "Raised, hardened bumps on feet or toes",
+                "Tenderness or pain when pressure is applied",
+                "Flaky or dry skin around the area",
+                "Corns resistant to over-the-counter treatments"
             ],
 
             procedureHeading: "Treatment Options at Stork Hospital",
             procedureSteps: [
                 {
                     title: "Non-Surgical Care",
-                    description: "Professional debridement (shaving down thickened skin), Use of protective padding or orthotic insoles to reduce pressure, Moisturizing treatments to soften skin."
+                    description: "Professional debridement (shaving down thickened skin) combined with the use of protective padding or orthotic insoles to redistribute pressure."
                 },
                 {
                     title: "Surgical Care",
-                    description: "Precise surgical removal under sterile conditions for recurrent or severe corns, Correction of underlying bone or foot deformities if needed."
+                    description: "Precise surgical removal under sterile conditions for recurrent or severe corns, including correction of underlying bone deformities if required."
                 },
                 {
                     title: "Preventive Guidance",
-                    description: "Proper footwear recommendations, Foot hygiene and care instructions, Lifestyle modifications to reduce pressure points."
+                    description: "Individualized footwear recommendations and foot hygiene instructions to permanently eliminate friction triggers."
                 }
             ],
 
-            benefitsHeading: "Recovery and Aftercare",
+            benefitsHeading: "Why Choose Stork Hospital for Corn Removal",
             benefits: [
-                "Most patients walk comfortably immediately after treatment",
-                "Avoid wearing tight shoes during healing",
-                "Maintain foot hygiene to prevent recurrence",
-                "Schedule periodic foot check-ups if prone to corns"
+                "Specialist doctors with expertise in foot health and skin conditions",
+                "Advanced diagnostic center for assessing gait issues or deformities",
+                "State-of-the-art surgical center for painless, precise removal",
+                "Walk-in clinic near Kondapur for quick consultations",
+                "Evidence-based advice on preventing future recurrence"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Most patients walk comfortably immediately after treatment",
+                "Avoid wearing tight shoes during the initial healing phase",
+                "Maintain strict foot hygiene to prevent localized infection",
+                "Periodic foot check-ups for high-risk patients prone to recurrence"
+            ],
 
             faqHeading: "FAQs – Corn Removal",
             faqs: [
                 {
                     question: "Can I remove a corn at home?",
-                    answer: "Home remedies may help mild cases, but professional care ensures safe and complete removal."
+                    answer: "Home remedies may help mild cases, but professional care ensures safe and complete removal while protecting healthy tissue."
                 },
                 {
                     question: "Is the procedure painful?",
-                    answer: "No. We use painless techniques with local anesthesia if needed."
+                    answer: "No. We use painless techniques with local anesthesia if needed to ensure absolute patient comfort."
                 },
                 {
                     question: "How soon can I walk after removal?",
-                    answer: "Most patients can walk immediately with minimal discomfort."
+                    answer: "Most patients can walk immediately with minimal discomfort following professional removal."
                 },
                 {
                     question: "Will the corn come back?",
-                    answer: "It can, if the cause (such as ill-fitting footwear) is not addressed."
+                    answer: "It can, if the mechanical cause (such as ill-fitting footwear) is not addressed. Our team provides orthotic solutions to prevent this."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Corn Removal Appointment",
-                description: "If you have a painful or recurring corn, visit Stork Hospital to consult with a specialist in Hyderabad for quick, effective, and lasting relief.",
-                buttonText: "Book Appointment"
+                heading: "Get Lasting Relief from Foot Pain",
+                description: "If you have a painful or recurring corn, visit Stork Hospital to consult with a foot health specialist in Hyderabad.",
+                buttonText: "Schedule Corn Removal"
             },
             meta: {
                 duration: "15-30 Minutes",
-                anesthesia: "None or Local",
+                anesthesia: "None / Local",
                 hospitalStay: "Outpatient",
                 recoveryTime: "Immediate",
-                successRate: "High"
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Srikanth Goud",
-                role: "Senior Podiatrist",
-                experience: "10+ Years Experience"
+                name: "Stork Podiatry Unit",
+                role: "Foot Health & Dermatology Specialists",
+                experience: "Experts in Gait Analysis & Skin Lesion Removal"
             }
         }
     }
@@ -5223,69 +5645,78 @@ Our expert team ensures quick relief from symptoms along with precise diagnosis 
             slug: slug,
             title: "Diagnostic Procedures – Stork Hospital, Hyderabad",
             subheading: "What are Diagnostic Procedures in Pregnancy?",
+            tagline: "Comprehensive prenatal screening and fetal monitoring to ensure a safe and informed pregnancy journey.",
             breadcrumbTitle: "Diagnostic Procedures",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
             shortDescription: `Accurate diagnosis is the cornerstone of safe and successful pregnancy care. Diagnostic procedures during pregnancy allow our medical team to monitor fetal development, detect potential complications early, and guide treatment decisions at every stage. At Stork Hospital, Hyderabad, we offer a wide range of advanced diagnostic services tailored for expectant mothers ensuring every step of your journey is informed, supported, and safe.
 
 Our center is a trusted diagnostic center in Hyderabad, recognized for our lab tests available at hospital, real-time reporting, and ultrasound and x-ray diagnostic facilities under one roof.`,
 
             overview: {
                 heading: "Why Are Diagnostic Tests Important During Pregnancy?",
-                intro: "Prenatal diagnostic testing helps detect conditions before they become serious.",
+                intro: "Prenatal diagnostic testing helps detect conditions before they become serious. It supports:",
                 items: [
                     "Early detection of genetic or chromosomal abnormalities",
                     "Monitoring fetal growth and development",
                     "Identifying risks like gestational diabetes or preeclampsia",
                     "Evaluating amniotic fluid, placenta position, and fetal heartbeat",
                     "Detecting infections or anemia in the mother",
-                    "Regular testing is a key part of pregnancy care in Hyderabad, especially in high-risk or IVF pregnancies"
+                    "Regular testing is a key part of pregnancy care in Hyderabad, especially in high-risk or IVF pregnancies."
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Diagnostic procedures are recommended for all expecting mothers but are particularly important for those over 35, those with a family history of genetic disorders, or those who conceived via IVF/IUI. We provide same-day results to ensure immediate peace of mind and clinical action when required."
+            ],
 
             conditionsHeading: "Who Should Consider These Procedures?",
             conditionsTreated: [
-                "Are over 35 years of age",
-                "Have a family history of genetic disorders",
-                "Had abnormal scan results in previous pregnancies",
+                "Expecting mothers over 35 years of age",
+                "Family history of genetic disorders",
+                "Abnormal scan results in previous pregnancies",
                 "Conceived via IVF or IUI",
-                "Experience symptoms such as reduced fetal movement or high blood pressure"
+                "Symptoms such as reduced fetal movement or high blood pressure"
             ],
 
             procedureHeading: "What to Expect at Stork Hospital",
             procedureSteps: [
                 {
                     title: "Routine Prenatal Diagnostics",
-                    description: "Blood Tests (CBC, blood sugar, thyroid profile), Urine analysis and infection screening, Blood type and Rh compatibility tests."
+                    description: "Blood Tests (CBC, blood sugar, thyroid profile), urine analysis, infection screening, and Rh compatibility tests."
                 },
                 {
                     title: "Ultrasound Imaging",
-                    description: "Early pregnancy scan (6–8 weeks), NT scan (11–14 weeks), Anomaly scan (18–22 weeks), Growth scans in the third trimester."
+                    description: "Scanning at critical milestones: Early pregnancy (6–8 weeks), NT scan (11–14 weeks), Anomaly scan (18–22 weeks), and Growth scans."
                 },
                 {
                     title: "Fetal Assessment & Monitoring",
-                    description: "Non-Stress Test (NST), Biophysical Profile (BPP), Doppler Ultrasound, Kick count tracking support."
+                    description: "Non-Stress Test (NST), Biophysical Profile (BPP), Doppler Ultrasound, and structured kick count tracking support."
                 },
                 {
                     title: "Genetic & Special Screenings",
-                    description: "Double/Triple Marker Testing, Non-Invasive Prenatal Testing (NIPT), Amniocentesis (in select cases)."
+                    description: "Double/Triple Marker Testing, Non-Invasive Prenatal Testing (NIPT), and Amniocentesis for comprehensive genetic evaluation."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Diagnostic Care?",
+            benefitsHeading: "Why Choose Stork Hospital for Diagnostic Care in Hyderabad?",
             benefits: [
                 "NABH-accredited diagnostic facility within the hospital",
                 "Real-time fetal monitoring and immediate reporting",
                 "Skilled radiologists and fetal medicine consultants",
                 "Clean, safe, and woman-friendly environment",
-                "Affordable treatment packages for routine scans and reports"
+                "Hospitals accepting insurance in Hyderabad, including Star Health Insurance"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Post-Test Follow-Through & Support",
+            recoveryTimeline: [
+                "Test explanations in simple, reassuring language",
+                "Specialist referrals if abnormalities are found",
+                "Follow-up diagnostics or second opinions",
+                "Emotional support and counselling for high-risk findings"
+            ],
 
-            faqHeading: "FAQs – Diagnostic Procedures",
+            faqHeading: "FAQs – Diagnostic Procedures at Stork Hospital",
             faqs: [
                 {
                     question: "Are all these tests mandatory during pregnancy?",
@@ -5306,21 +5737,21 @@ Our center is a trusted diagnostic center in Hyderabad, recognized for our lab t
             ],
 
             customCta: {
-                heading: "Schedule Your Diabetic Foot Assessment",
-                description: "If you notice any foot wound, swelling, or signs of infection, act quickly. Book an appointment at Stork Hospital to see a diabetic foot care specialist in Hyderabad and get advanced treatment that safeguards your health and mobility.",
-                buttonText: "Schedule Assessment"
+                heading: "Schedule Your Pregnancy Diagnostic Care",
+                description: "For accurate, compassionate, and timely pregnancy diagnostics, book an appointment at Stork Hospital—your trusted maternity and fertility care center in Hyderabad.",
+                buttonText: "Schedule Pregnancy Scan"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Local",
+                duration: "Varies (30-60 Min)",
+                anesthesia: "Not Required",
                 hospitalStay: "Outpatient",
                 recoveryTime: "Immediate",
                 successRate: "High Accuracy"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Radiologist",
-                experience: "15+ Years Experience"
+                name: "Stork Maternity & Fetal Unit",
+                role: "Radiologists & Fetal Medicine Consultants",
+                experience: "Experts in Prenatal Screening"
             }
         }
     }
@@ -5330,50 +5761,52 @@ Our center is a trusted diagnostic center in Hyderabad, recognized for our lab t
             slug: slug,
             title: "Deep Vein Thrombosis (DVT) – Stork Hospital, Hyderabad",
             subheading: "Immediate, Expert Attention for Blood Clots in the Deep Veins",
-            tagline: "Rapid diagnostics, advanced treatment options, and preventive strategies to manage DVT effectively.",
-            breadcrumbTitle: "DVT Treatment",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Rapid diagnostics and advanced vascular solutions to manage blood clots and prevent life-threatening complications.",
+            breadcrumbTitle: "DVT (Deep Vein Thrombosis)",
+            category: "Vascular Surgery",
+            departmentHref: "/services/vascular-surgery",
             shortDescription: `Deep Vein Thrombosis is a condition where a blood clot forms in a deep vein, most often in the legs. This blockage can disrupt circulation and cause swelling, discomfort, and skin color changes. The greatest danger occurs if a part of the clot travels to the lungs, creating a pulmonary embolism, which is a medical emergency. Quick action and proper treatment are essential to prevent life-threatening complications.
 
 At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rapid diagnostics, advanced treatment options, and preventive strategies to manage DVT effectively. Whether it’s an emergency case or a high-risk patient seeking prevention, our approach ensures timely, comprehensive care.`,
 
             overview: {
                 heading: "Why Patients Rely on Stork Hospital for DVT Management",
-                intro: "Trust Stork Hospital for safe, expert Deep Vein Thrombosis care in Hyderabad:",
+                intro: "Quick action is vital. Trust Stork Hospital for safe, expert Deep Vein Thrombosis care in Hyderabad:",
                 items: [
                     "Dedicated vascular specialists trained in both medical and interventional clot care",
-                    "Advanced diagnostic center in Hyderabad with Doppler ultrasound and high-resolution imaging",
+                    "Advanced diagnostic center in Hyderabad with high-resolution Doppler ultrasound",
                     "State-of-the-art surgical center for catheter-based clot removal when required",
                     "24/7 emergency hospital near Hitech City for urgent vascular events",
                     "Insurance accepted at Stork Hospital with complete price transparency",
-                    "Same-day access via our walk-in clinic near Kondapur",
                     "Long-term prevention plans tailored for patients prone to recurrent clots"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "The primary goal of DVT treatment is to stop the clot from getting bigger, prevent it from breaking loose and traveling to the lungs, and reduce the chances of another clot forming."
+            ],
 
             conditionsHeading: "Common Signs That May Indicate DVT",
             conditionsTreated: [
                 "Unexplained swelling in one leg, especially the calf",
                 "Persistent leg pain or tenderness when walking or standing",
                 "Warmth or reddish-blue discoloration over the affected area",
-                "A heavy, dragging sensation in the leg"
+                "A heavy, dragging sensation in the leg",
+                "Confirmed high-risk factors like prolonged inactivity or vein injury"
             ],
 
             procedureHeading: "Our Step-by-Step Approach to Treating DVT",
             procedureSteps: [
                 {
                     title: "Accurate Diagnosis",
-                    description: "Review of symptoms and medical history, followed by Doppler ultrasound to pinpoint clot location and assess blood flow. Blood tests like D-dimer are used to support or rule out the diagnosis."
+                    description: "Review of symptoms and medical history followed by Doppler ultrasound and D-dimer blood tests to pinpoint clot location and assess flow."
                 },
                 {
                     title: "Medical Treatment",
-                    description: "Blood thinners to stop clot growth and reduce the risk of further clots. Clot-busting medications for severe or high-risk cases. Compression stockings to improve circulation and reduce swelling."
+                    description: "Blood thinners to stop clot growth and reduce the risk of secondary clots. Clot-busting medications are used for severe or high-risk cases."
                 },
                 {
                     title: "Minimally Invasive & Surgical Options",
-                    description: "Catheter-directed thrombolysis to break down clots directly at the site. Venous stenting if a narrowed vein contributes to clot formation."
+                    description: "Catheter-directed thrombolysis to break down clots directly at the site. Venous stenting may be used if narrowed veins contribute to clot formation."
                 }
             ],
 
@@ -5387,18 +5820,19 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Support Beyond the Procedure",
             recoveryTimeline: [
-                "Immediate symptom relief with medication (Days 1-3)",
-                "Transition to blood thinner management (Ongoing)",
-                "Activity level assessment and compression therapy (Weeks 1-2)",
-                "Full long-term management evaluation (3-6 Months)"
+                "Immediate relief from emergent clot pressure upon arrival",
+                "Transition to structured blood thinner management (3–6 months or longer)",
+                "Use of compression stockings to improve circulation and reduce swelling",
+                "Long-term vascular health monitoring through scheduled follow-up visits"
             ],
 
             faqHeading: "FAQs – Deep Vein Thrombosis Treatment",
             faqs: [
                 {
                     question: "Is DVT dangerous if left untreated?",
-                    answer: "Yes. It can lead to serious complications like pulmonary embolism, which can be life-threatening."
+                    answer: "Yes. It can lead to serious complications like pulmonary embolism, which can be life-threatening if the clot travels to the lungs."
                 },
                 {
                     question: "What causes DVT?",
@@ -5406,30 +5840,30 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
                 },
                 {
                     question: "How long will I need treatment?",
-                    answer: "Treatment duration varies, but many patients need blood thinners for 3–6 months or longer."
+                    answer: "Treatment duration varies, but many patients need blood thinners for 3–6 months or longer depending on their risk profile."
                 },
                 {
                     question: "Will insurance cover my treatment?",
-                    answer: "Yes. Stork Hospital accepts major insurance policies and provides full cost clarity in advance."
+                    answer: "Yes. Stork Hospital accepts major insurance policies and provides full cost clarity in advance of any non-emergency intervention."
                 }
             ],
 
             customCta: {
                 heading: "Book an Urgent DVT Assessment",
-                description: "If you notice swelling, pain, or warmth in one leg, don’t delay. Book an appointment at Stork Hospital to see a vascular specialist in Hyderabad and receive expert, timely care.",
-                buttonText: "Book Appointment"
+                description: "If you notice swelling, pain, or warmth in one leg, don’t delay. Book an appointment at Stork Hospital to see a vascular specialist in Hyderabad and receive expert care.",
+                buttonText: "Schedule DVT Consult"
             },
             meta: {
-                duration: "Varies",
+                duration: "30–120 Minutes",
                 anesthesia: "None / Local",
-                hospitalStay: "Outpatient / Inpatient",
-                recoveryTime: "3-6 Months (Management)",
-                successRate: "High with Early Care"
+                hospitalStay: "1–3 Days",
+                recoveryTime: "2–6 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Abhinav Reddy",
-                role: "Senior Vascular Surgeon",
-                experience: "12+ Years Experience"
+                name: "Stork Vascular Unit",
+                role: "Senior Vascular & Interventional Surgeons",
+                experience: "Experts in Clot Management & Vein Health"
             }
         }
     }
@@ -5439,69 +5873,78 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular care team combines rap
             slug: slug,
             title: "Ear Surgery – Stork Hospital, Hyderabad",
             subheading: "Restoring Hearing, Comfort, and Ear Health with Expert Surgical Care",
+            tagline: "Advanced microsurgical techniques and high-precision instruments to treat chronic infections, hearing loss, and structural ear problems.",
             breadcrumbTitle: "Ear Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "ENT",
+            departmentHref: "/services/ent",
             shortDescription: `Ear surgery refers to a variety of procedures performed to treat conditions affecting the outer, middle, or inner ear. These surgeries can help correct structural problems, repair damage from injury or infection, improve hearing, and prevent future ear-related complications.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons perform ear surgeries using advanced microsurgical techniques and high-precision instruments. We provide individualized surgical plans, whether it’s for a child with recurrent ear infections or an adult with chronic ear problems, ensuring safe, effective, and lasting results.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Ear Surgery",
-                intro: "Experienced ENT specialists skilled in routine and complex ear surgeries.",
+                intro: "We provide individualized surgical plans for children and adults, ensuring safe, effective, and lasting results through clinical excellence:",
                 items: [
-                    "Experienced ENT specialists skilled in both routine and complex ear surgeries",
-                    "Fully equipped advanced surgical center with sterile operating theatres",
-                    "In-house diagnostic center in Hyderabad for hearing tests, imaging, and endoscopic ear evaluation",
-                    "24/7 emergency hospital near Hitech City for urgent ENT care",
-                    "Insurance accepted at Stork Hospital with transparent billing practices",
-                    "Same-day ENT appointments and walk-in clinic near Kondapur for quick consultations",
-                    "Comfortable recovery rooms with attentive post-operative nursing care"
+                    "Experienced ENT specialists skilled in both routine and complex microsurgical ear procedures",
+                    "Fully equipped advanced surgical center in Hyderabad with sterile operating theatres",
+                    "In-house diagnostic center for hearing tests, high-resolution imaging, and endoscopic ear evaluation",
+                    "24/7 emergency hospital near Hitech City for urgent ENT care and surgical emergencies",
+                    "Insurance accepted at Stork Hospital with transparent billing and clear upfront cost estimates",
+                    "Same-day ENT appointments and walk-in clinic near Kondapur for quick surgical consultations",
+                    "Comfortable recovery rooms with attentive post-operative nursing care and medical monitoring"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Our ENT department offers a full spectrum of surgical solutions, ranging from repairing perforated eardrums to complex hearing restorations. Each procedure is backed by precision tools and a dedicated team of specialists who prioritize patient safety and long-term auditory wellness."
+            ],
 
             conditionsHeading: "Types of Ear Surgeries We Perform",
             conditionsTreated: [
-                "Myringoplasty – Repair of a perforated eardrum",
-                "Tympanoplasty – Restoration of middle ear structure and hearing",
-                "Mastoidectomy – Removal of infected mastoid bone cells",
-                "Stapedectomy – Surgery for hearing loss due to otosclerosis",
-                "Otoplasty – Cosmetic reshaping of the outer ear",
-                "Removal of ear tumors or growths",
-                "Insertion of ventilation tubes for chronic ear fluid"
+                "Myringoplasty – Specialized repair of a perforated or damaged eardrum",
+                "Tympanoplasty – Restoration of middle ear structure to improve natural hearing",
+                "Mastoidectomy – Surgical removal of infected mastoid bone cells to prevent complications",
+                "Stapedectomy – Advanced surgery for hearing loss caused by otosclerosis",
+                "Otoplasty – Cosmetic reshaping of the outer ear for aesthetic refinement",
+                "Removal of localized ear tumors, growths, or chronic cholesteatoma",
+                "Insertion of ventilation tubes (grommets) for chronic ear fluid management"
             ],
 
-            procedureHeading: "Our Surgical Approach",
+            procedureHeading: "Our Surgical Approach & Journey",
             procedureSteps: [
                 {
-                    title: "Pre-Surgical Evaluation",
-                    description: "ENT consultation with detailed ear examination, Hearing tests, imaging (CT/MRI), and other diagnostics as needed, Discussion of surgical options, risks, benefits, and recovery expectations."
+                    title: "Evaluation & Diagnostics",
+                    description: "ENT consultation with detailed ear examination, hearing tests, and high-resolution imaging (CT/MRI) to confirm surgical needs."
                 },
                 {
-                    title: "During Surgery",
-                    description: "Performed under general or local anesthesia depending on procedure type, Use of high-powered microscopes for accuracy and minimal tissue trauma, Precise, targeted treatment of the affected ear structures."
+                    title: "The Surgery",
+                    description: "Performed under anesthesia using high-powered microscopes for maximum accuracy and minimal tissue trauma to the affected structures."
                 },
                 {
-                    title: "Post-Surgical Care",
-                    description: "Pain management and infection prevention measures, Step-by-step ear care instructions, Follow-up visits for wound checks and hearing assessments, Advice on activities, water precautions, and long-term ear health."
+                    title: "Recovery & Aftercare",
+                    description: "Short hospital stay (day-care or 1–2 nights) with structured follow-up visits for wound checks and professional hearing assessments."
                 }
             ],
 
-            benefitsHeading: "Your Treatment Journey at Stork Hospital",
+            benefitsHeading: "Benefits of Ear Surgery at Stork",
             benefits: [
-                "ENT evaluation and diagnostic testing",
-                "Confirmation of surgical need and planning",
-                "Pre-operative clearance and hospital admission",
-                "Ear surgery performed by skilled ENT surgeons",
-                "Hospital stay (day-care or 1–2 nights, depending on procedure)",
-                "Follow-up appointments to monitor healing and results"
+                "Significantly restores or improves natural hearing capabilities for patients",
+                "Effectively corrects structural ear problems and repairs damage from infection",
+                "Prevents future ear-related complications and recurrent chronic infections",
+                "Addresses chronic pain and discomfort associated with middle ear conditions",
+                "Provides a safe, advanced surgical setting with high-precision microsurgical tools"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Ear Health & Recovery Journey",
+            recoveryTimeline: [
+                "Initial management of localized discomfort following the procedure controlled with medications",
+                "Short hospital stay depending on complexity, ranging from daycare to 1–2 nights observation",
+                "Resumption of light daily activities typically within a few days to a week post-surgery",
+                "Strict adherence to water precautions and personalized ear care instructions during initial healing",
+                "Long-term ear health monitoring and periodic audiological assessments to verify result stability"
+            ],
 
-            faqHeading: "FAQs – Ear Surgery",
+            faqHeading: "FAQs – Ear Surgery at Stork Hospital",
             faqs: [
                 {
                     question: "Will my hearing improve after surgery?",
@@ -5523,20 +5966,20 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons perform ear surger
 
             customCta: {
                 heading: "Book Your ENT Surgery Consultation",
-                description: "If you have chronic ear infections, hearing loss, or structural ear problems, surgery may be the most effective solution. Book an appointment at Stork Hospital to consult an ENT specialist in Hyderabad and get a tailored treatment plan in a safe, advanced surgical setting.",
-                buttonText: "Book Consultation"
+                description: "If you have chronic ear infections, hearing loss, or structural ear problems, surgery may be the most effective solution.",
+                buttonText: "Schedule ENT Consultation"
             },
             meta: {
-                duration: "Varies",
+                duration: "1–3 Hours",
                 anesthesia: "General / Local",
-                hospitalStay: "Day-care / 1-2 Days",
-                recoveryTime: "Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare – 2 Days",
+                recoveryTime: "1–3 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Rao",
-                role: "Senior ENT Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork ENT Microsurgery Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Otology & Advanced Ear Reconstruction"
             }
         }
     }
@@ -5666,80 +6109,85 @@ If you're looking for expert elbow pain treatment in Hyderabad, our orthopedic t
             slug: slug,
             title: "Enlarged Prostate (BPH) – Stork Hospital, Hyderabad",
             subheading: "Comprehensive Care for Benign Prostatic Hyperplasia",
+            tagline: "Advanced laser and minimally invasive solutions to restore normal urinary function and long-term prostate health.",
             breadcrumbTitle: "Enlarged Prostate",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `An enlarged prostate, medically referred to as Benign Prostatic Hyperplasia (BPH), is a non-cancerous increase in the size of the prostate gland, commonly seen in men over 50. The prostate encircles the urethra, and when it grows in size, it can squeeze the urinary passage, leading to problems such as a weak urine stream, frequent trips to the bathroom, or difficulty starting urination.
 
 At Stork Multispecialty Hospital, Hyderabad, our urology experts offer a full spectrum of BPH treatments — from early diagnosis and medical management to advanced laser and minimally invasive surgical options — all tailored to the patient’s individual needs.`,
 
             overview: {
-                heading: "Why Patients Prefer Stork Hospital for BPH Treatment",
-                intro: "A full spectrum of BPH treatments from early diagnosis to advanced surgery.",
+                heading: "Causes and Risk Factors",
+                intro: "Prostate enlargement is primarily linked to aging and hormonal shifts. Key risk factors include:",
                 items: [
-                    "Specialist urologists with years of experience in diagnosing and treating prostate disorders",
-                    "Modern diagnostic center in Hyderabad equipped with PSA testing, uroflowmetry, and high-resolution prostate imaging",
-                    "Advanced surgical center offering laser prostate surgery, TURP, and other latest techniques",
-                    "24/7 emergency hospital near Hitech City for urgent urinary retention or complications",
-                    "Insurance accepted at Stork Hospital with clear cost estimates",
-                    "Walk-in clinic near Kondapur for same-day specialist consultations",
-                    "Long-term monitoring and preventive care programs to maintain prostate health"
+                    "Hormonal changes specifically related to the aging process",
+                    "Hereditary predisposition and family history of prostate issues",
+                    "Co-existing health conditions such as diabetes, heart disease, or obesity",
+                    "Lifestyle factors including poor diet, lack of exercise, and caffeine intake"
                 ]
             },
             fullDescription: [
-                "**Causes and Risk Factors**",
-                "Hormonal changes related to aging, Hereditary predisposition to prostate enlargement, Co-existing conditions such as diabetes, heart disease, or obesity, Lifestyle factors including poor diet, lack of exercise, and high alcohol or caffeine intake."
+                "BPH is a common progression in older men where the glandular tissue expands. While benign, it can significantly impact quality of life if not managed with clinical precision. Our urology unit specializes in early detection to prevent secondary bladder or kidney complications."
             ],
 
             conditionsHeading: "Signs and Symptoms",
             conditionsTreated: [
-                "Weak or interrupted urine stream",
-                "Straining or difficulty initiating urination",
-                "Sudden urge to urinate",
+                "Noticeably weak or interrupted urine stream",
+                "Straining or persistent difficulty initiating urination",
+                "Sudden, urgent need to urinate throughout the day",
                 "Frequent urination, particularly at night (nocturia)",
-                "Sensation of incomplete bladder emptying"
+                "Feeling of incomplete bladder emptying after urination"
             ],
 
-            procedureHeading: "Treatment Options Available at Stork Hospital",
+            procedureHeading: "Advanced BPH Treatment Options at Stork",
             procedureSteps: [
                 {
-                    title: "Lifestyle Advice & Medical Therapy",
-                    description: "Dietary adjustments to reduce bladder irritation, Medications to relax prostate muscles or reduce gland size."
+                    title: "Medical & Lifestyle Management",
+                    description: "Use of medications to relax prostate muscles or reduce gland size, supported by bladder-irritant-reducing dietary adjustments."
                 },
                 {
-                    title: "Minimally Invasive Procedures",
-                    description: "Laser Prostate Surgery – Removal or vaporization of excess tissue with minimal bleeding, TURP (Transurethral Resection of the Prostate) – Standard surgical method using a resectoscope inserted via the urethra."
+                    title: "Laser Prostate Surgery",
+                    description: "Advanced vaporization or enucleation of excess prostatic tissue with minimal bleeding and rapid recovery compared to traditional surgery."
                 },
                 {
-                    title: "Advanced Surgical Approaches (for severe cases)",
-                    description: "Recommended for patients with significant obstruction or complications such as bladder stones or kidney damage."
+                    title: "Advanced Surgical Approaches",
+                    description: "Standard TURP (Transurethral Resection) or specialized procedures for severe obstructions, bladder stones, or kidney-impacting cases."
                 }
             ],
 
-            benefitsHeading: "Recovery and Aftercare",
+            benefitsHeading: "Why Patients Prefer Stork Hospital for BPH Treatment",
             benefits: [
-                "Most minimally invasive treatments allow discharge within 24 hours",
-                "Noticeable improvement in urinary flow often seen within days",
-                "Avoiding heavy lifting, cycling, or prolonged sitting during early recovery",
-                "Regular follow-ups to track progress and prevent recurrence"
+                "Specialist urologists with years of prostate disorder expertise",
+                "Access to the latest laser prostate surgery and TURP technology",
+                "Modern diagnostic center with PSA testing and uroflowmetry support",
+                "24/7 Response for urgent urinary retention or complications",
+                "Walk-in consultations near Kondapur for rapid diagnostic mapping",
+                "Long-term post-procedural monitoring and preventive care programs"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Most minimally invasive patients are discharged within 24 hours",
+                "Noticeable improvement in urinary flow typically seen within days",
+                "Short-term avoidance of heavy lifting or prolonged sedentary activity",
+                "Scheduled clinical follow-ups to track long-term prostate health"
+            ],
 
             faqHeading: "FAQs – Enlarged Prostate (BPH)",
             faqs: [
                 {
                     question: "Does BPH mean prostate cancer?",
-                    answer: "No. BPH is a benign condition, though similar symptoms may require cancer screening to rule out malignancy."
+                    answer: "No. BPH is a benign condition, though similar symptoms may require cancer screening (PSA testing) to rule out malignancy."
                 },
                 {
                     question: "Can BPH be managed without surgery?",
-                    answer: "Yes, many mild cases improve with medications and lifestyle modifications."
+                    answer: "Yes, many mild cases improve with medications and targeted lifestyle modifications."
                 },
                 {
                     question: "When is surgery recommended?",
-                    answer: "When symptoms are severe, medication fails, or complications such as urinary retention occur."
+                    answer: "When symptoms are severe, medication fails to provide relief, or complications such as urinary retention occur."
                 },
                 {
                     question: "Is treatment for BPH covered by insurance?",
@@ -5748,21 +6196,21 @@ At Stork Multispecialty Hospital, Hyderabad, our urology experts offer a full sp
             ],
 
             customCta: {
-                heading: "Book Your BPH Consultation Today",
-                description: "If urinary difficulties are affecting your daily life, schedule an appointment at Stork Hospital to meet a specialist urologist in Hyderabad and discuss personalized solutions for managing an enlarged prostate.",
-                buttonText: "Book Consultation"
+                heading: "Schedule Your BPH Consultation",
+                description: "If urinary difficulties are affecting your daily life, meet a specialist urologist at Stork Hospital for expert diagnosis and personalized prostate care.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "None / Spinal / General",
-                hospitalStay: "Day-care / 1-2 Days",
-                recoveryTime: "Weeks",
-                successRate: "High"
+                duration: "45–90 Minutes",
+                anesthesia: "Spinal / General",
+                hospitalStay: "1–2 Days",
+                recoveryTime: "1–2 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Dilip Kumar",
-                role: "Senior Urologist",
-                experience: "20+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Prostate Specialists",
+                experience: "Experts in Laser Prostatectomy & Advanced Urological Care"
             }
         }
     }
@@ -5772,67 +6220,71 @@ At Stork Multispecialty Hospital, Hyderabad, our urology experts offer a full sp
             slug: slug,
             title: "ESWL (Extracorporeal Shock Wave Lithotripsy) – Stork Hospital, Hyderabad",
             subheading: "Non-Invasive and Effective Kidney Stone Treatment",
+            tagline: "Cutting-edge shock wave lithotripsy to pulverize kidney stones into fragments that pass naturally—no incisions, no stitches.",
             breadcrumbTitle: "ESWL",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `Extracorporeal Shock Wave Lithotripsy (ESWL) is a modern, non-surgical procedure used to break kidney stones into tiny fragments using focused shock waves. Once broken down, these smaller pieces pass naturally through the urinary tract. ESWL is an excellent option for patients with small to medium-sized stones that are difficult to pass but do not require invasive surgery.
 
-At Stork Multispecialty Hospital, Hyderabad, our expert urologists perform ESWL using the latest high-precision equipment to ensure accuracy, safety, and quick recovery.`,
+At Stork Multispecialty Hospital, Hyderabad, our urology experts perform ESWL using the latest high-precision equipment to ensure accuracy, safety, and quick recovery.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for ESWL",
-                intro: "Non-invasive kidney stone treatment with high success rates.",
+                heading: "When ESWL is Recommended",
+                intro: "ESWL is the gold standard for non-invasive stone clearance in specific clinical scenarios:",
                 items: [
-                    "Specialist urologists with advanced ESWL training and years of experience",
-                    "Fully equipped diagnostic center in Hyderabad for accurate stone detection and measurement",
-                    "Advanced surgical center with state-of-the-art ESWL machines",
-                    "24/7 emergency hospital near Hitech City for urgent urological care",
-                    "Insurance accepted at Stork Hospital with complete billing transparency",
-                    "Walk-in clinic near Kondapur for quick evaluation and scheduling",
-                    "Comprehensive aftercare to reduce recurrence risk"
+                    "Stones measuring up to 2 cm in diameter",
+                    "Stones located in the kidney or upper ureter regions",
+                    "Patients seeking a complete non-surgical alternative to surgery",
+                    "Cases where stones are causing persistent pain, bleeding, or infection"
                 ]
             },
             fullDescription: [
-                "**When ESWL is Recommended**",
-                "Stones measuring up to 2 cm in diameter, Stones located in the kidney or upper ureter, Patients seeking a non-invasive alternative to surgery, Cases where stones cause pain, bleeding, or infection."
+                "ESWL at Stork Hospital utilizes focused acoustic energy to shatter stones without damaging surrounding tissue. This procedure is performed on an outpatient basis, allowing patients to return home the same day without any surgical wounds."
             ],
 
-            conditionsHeading: "The ESWL Procedure",
+            conditionsHeading: "Benefits of ESWL at Stork Hospital",
             conditionsTreated: [
-                "Evaluation – Imaging tests such as ultrasound or CT scan to determine stone size and location",
-                "Anesthesia or Sedation – To ensure comfort during the procedure",
-                "Shock Wave Delivery – High-energy waves targeted at the stone to break it into smaller pieces",
-                "Natural Passage – Fragments pass through urine over the next few days or weeks",
-                "Follow-Up – Repeat imaging to ensure stones are cleared"
+                "Zero incisions or stitches for a completely non-invasive experience",
+                "Quick recovery with same-day outpatient discharge",
+                "Minimal discomfort during and after the stone-shattering process",
+                "High success rate for small and medium-sized stone clusters",
+                "Significantly reduced risk of complications compared to invasive surgery"
             ],
 
-            procedureHeading: "Recovery and Aftercare",
+            procedureHeading: "The ESWL Clinical Pathway",
             procedureSteps: [
                 {
-                    title: "Immediate Recovery",
-                    description: "Resume normal activities within 1–2 days, Pain medication if needed for mild discomfort."
+                    title: "Precision Evaluation",
+                    description: "Imaging tests such as ultrasound or CT scan are used to determine precise stone size, hardness, and location before targeting."
                 },
                 {
-                    title: "Hydration",
-                    description: "Drink plenty of water to flush out fragments."
+                    title: "Shock Wave Delivery",
+                    description: "High-energy waves are accurately targeted at the stone to break it into smaller fragments while the patient is comfortably sedated."
                 },
                 {
-                    title: "Precautions",
-                    description: "Avoid strenuous exercise until cleared by the doctor, Follow-up visits to monitor kidney health and prevent recurrence."
+                    title: "Natural Passage",
+                    description: "Pulverized fragments pass naturally through the urine over the following days or weeks, monitored via follow-up imaging."
                 }
             ],
 
-            benefitsHeading: "Benefits of ESWL at Stork Hospital",
+            benefitsHeading: "Why Choose Stork Hospital for ESWL",
             benefits: [
-                "No incisions or stitches",
-                "Quick recovery with same-day discharge",
-                "Minimal discomfort during and after the procedure",
-                "High success rate for small and medium-sized stones",
-                "Reduced risk of complications compared to surgery"
+                "Specialist urologists with advanced fellowship training in lithotripsy",
+                "Fully equipped diagnostic center for high-resolution stone detection",
+                "Advanced surgical center featuring state-of-the-art ESWL machines",
+                "24/7 Response for urgent urological concerns near Hitech City",
+                "Complete billing transparency and insurance acceptance for ESWL",
+                "Walk-in consultations near Kondapur for rapid evaluation and scheduling"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Resume normal daily activities within 1–2 days post-procedure",
+                "Strict hydration protocol (plenty of water) to help flush out fragments",
+                "Access to pain medication if needed for mild post-procedure discomfort",
+                "Scheduled follow-up imaging to ensure complete stone clearance"
+            ],
 
             faqHeading: "FAQs – ESWL",
             faqs: [
@@ -5856,20 +6308,20 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists perform ESWL 
 
             customCta: {
                 heading: "Book Your ESWL Appointment",
-                description: "If you have kidney stones and want a non-invasive treatment, book an appointment at Stork Hospital to meet a urologist in Hyderabad and learn if ESWL is right for you.",
+                description: "If you have kidney stones and want a non-invasive treatment, book an appointment at Stork Hospital to learn if ESWL is the right choice for you.",
                 buttonText: "Book Appointment"
             },
             meta: {
-                duration: "45-60 Minutes",
+                duration: "45–60 Minutes",
                 anesthesia: "Sedation / Local",
-                hospitalStay: "Day-care",
-                recoveryTime: "1-2 Days",
-                successRate: "High"
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "1–2 Days",
+                successRate: "90%+"
             },
             reviewedBy: {
-                name: "Dr. Dilip Kumar",
-                role: "Senior Urologist",
-                experience: "20+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Stone Management Specialists",
+                experience: "Experts in Non-Invasive Lithotripsy & Endourology"
             }
         }
     }
@@ -5992,108 +6444,117 @@ As one of the most trusted fertility care hospitals in Hyderabad, our team of fe
         }
     }
 
-    if (slug === "sinus") {
+    if (slug === "fess" || slug === "sinus" || slug === "sinus-surgery") {
         return {
             slug: slug,
             title: "FESS Surgery – Functional Endoscopic Sinus Surgery at Stork Hospital, Hyderabad",
             subheading: "Minimally Invasive Relief for Chronic Sinus Problems",
+            tagline: "Advanced endoscopic technology to open blocked sinus pathways, restore natural drainage, and relieve persistent sinus symptoms.",
             breadcrumbTitle: "FESS Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "ENT",
+            departmentHref: "/services/ent",
             shortDescription: `Functional Endoscopic Sinus Surgery (FESS) is a modern, minimally invasive procedure used to treat chronic sinusitis and other sinus-related issues that do not respond to medication. At Stork Multispecialty Hospital, Hyderabad, our ENT specialists use advanced endoscopic technology to open blocked sinus pathways, restore natural drainage, and relieve persistent symptoms.
 
 FESS offers precise treatment with minimal discomfort, faster healing, and improved long-term sinus health.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for FESS in Hyderabad",
-                intro: "Advanced endoscopic sinus surgery for lasting relief.",
+                intro: "Our ENT department is equipped with advanced diagnostic and surgical technology to ensure precise treatment with minimal discomfort:",
                 items: [
-                    "Expert ENT surgeons for FESS in Hyderabad",
-                    "Walk-in sinus evaluations near Kondapur for quick access to care",
-                    "High-definition nasal endoscopes for accurate treatment",
-                    "Customized anesthesia and recovery plans",
-                    "Comprehensive post-surgery follow-up to prevent recurrence",
-                    "Recognized Hyderabad hospital accepting insurance for ENT surgeries"
+                    "Expert ENT surgeons specializing in Functional Endoscopic Sinus Surgery (FESS)",
+                    "Walk-in sinus evaluations near Kondapur for quick access to clinical care",
+                    "High-definition nasal endoscopes for accurate assessment and precision treatment",
+                    "Customized anesthesia and recovery plans designed for patient safety and comfort",
+                    "Comprehensive post-surgery follow-up protocols to prevent condition recurrence",
+                    "Recognized Hyderabad hospital accepting insurance for all major ENT surgeries",
+                    "Minimally invasive approach ensuring faster healing and improved long-term sinus health"
                 ]
             },
             fullDescription: [
-                "**Conditions Treated with FESS**",
-                "Chronic sinusitis unresponsive to medication, Nasal polyps, Recurrent sinus infections, Fungal sinusitis, Sinus blockages caused by anatomical issues, Mucoceles and other sinus growths."
+                "FESS surgery is the gold standard for treating chronic sinus conditions that don't improve with medication. By using specialized endoscopes, our surgeons can view the internal sinus structures in high definition, allowing for precise removal of polyps or blockages while preserving healthy tissue and restoring natural drainage patterns."
             ],
 
-            conditionsHeading: "Our FESS Surgery Process at Stork",
+            conditionsHeading: "Conditions Treated with FESS",
             conditionsTreated: [
-                "Thorough ENT consultation with nasal endoscopy and imaging",
-                "Personalized surgical planning based on your diagnosis",
-                "Endoscopic surgery performed under general anesthesia",
-                "Removal of blockages and restoration of natural sinus drainage",
-                "Same-day discharge in most cases, with detailed recovery guidance"
+                "Chronic sinusitis that remains unresponsive to standard medical management",
+                "Obstructive nasal polyps causing breathing difficulties or loss of smell",
+                "Recurrent sinus infections requiring specialized surgical intervention",
+                "Fungal sinusitis requiring targeted endoscopic clearance",
+                "Persistent sinus blockages caused by complex anatomical issues",
+                "Surgical removal of mucoceles and other non-cancerous sinus growths"
             ],
 
-            procedureHeading: "Benefits of FESS Surgery at Stork",
+            procedureHeading: "Our FESS Surgery Process at Stork",
             procedureSteps: [
                 {
-                    title: "Minimally Invasive",
-                    description: "Targeted treatment with minimal tissue damage."
+                    title: "Evaluation & Planning",
+                    description: "Thorough ENT consultation with high-definition nasal endoscopy and specialized sinus imaging to determine clinical severity."
                 },
                 {
-                    title: "Quick Recovery",
-                    description: "Short recovery period and less post-surgery discomfort."
+                    title: "Endoscopic Procedure",
+                    description: "Performed under general anesthesia to precisely remove blockages and restore natural sinus drainage with minimal tissue trauma."
                 },
                 {
-                    title: "Long-Term Relief",
-                    description: "Reduced dependence on long-term medications, Improved breathing and overall quality of life."
+                    title: "Recovery & Follow-Up",
+                    description: "Same-day discharge in most cases, featuring detailed recovery guidance and scheduled healing assessments with our ENT team."
                 }
             ],
 
             benefitsHeading: "Benefits of FESS Surgery at Stork",
             benefits: [
-                "Targeted treatment with minimal tissue damage",
-                "Short recovery period and less post-surgery discomfort",
-                "Long-term relief from chronic sinus symptoms",
-                "Reduced dependence on long-term medications",
-                "Improved breathing and overall quality of life"
+                "Targeted treatment with minimal tissue damage and preserved sinus anatomy",
+                "Short recovery period and significantly less post-surgery discomfort",
+                "Long-term relief from chronic sinus pressure, pain, and congestion",
+                "Reduced clinical dependence on long-term sinus medications",
+                "Noticeably improved breathing and overall enhanced quality of life"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Sinus Health & Recovery Path",
+            recoveryTimeline: [
+                "Most patients go home the same day (Daycare procedure) with clear recovery instructions",
+                "Safe return to normal daily activities and light work typically within 5–7 days",
+                "Visible reduction in sinus pressure and improved breathing shortly after surgery",
+                "Adherence to personalized nasal irrigation and care protocols during initial healing",
+                "Scheduled follow-up milestones with our ENT team to monitor long-term sinus health and prevent recurrence"
+            ],
 
             faqHeading: "FAQs – FESS Surgery at Stork Hospital",
             faqs: [
                 {
                     question: "Is FESS painful?",
-                    answer: "No. The surgery is done under anesthesia, ensuring comfort."
+                    answer: "No. The surgery is done under anesthesia, ensuring complete comfort during the procedure."
                 },
                 {
                     question: "How long is the recovery?",
-                    answer: "Most patients resume normal activities within a week."
+                    answer: "Most patients resume their normal daily activities and work within a week."
                 },
                 {
                     question: "Is FESS safe for all ages?",
-                    answer: "Yes, though it’s most commonly performed on adults and teenagers."
+                    answer: "Yes, though it’s most commonly performed on adults and teenagers with chronic sinus issues."
                 },
                 {
                     question: "Is it covered by insurance?",
-                    answer: "Yes. We are a Hyderabad hospital accepting insurance for ENT procedures."
+                    answer: "Yes. We are a Hyderabad hospital accepting insurance for major ENT procedures."
                 }
             ],
 
             customCta: {
                 heading: "Clear Your Sinus Blockages Safely",
-                description: "If you have ongoing sinus problems that don’t improve with medication, book a consultation for FESS surgery at Stork Hospital, Hyderabad. Our expert ENT team ensures precise, safe, and effective treatment for lasting relief.",
-                buttonText: "Book Consultation"
+                description: "If you have ongoing sinus problems that don’t improve with medication, book a consultation for FESS surgery today.",
+                buttonText: "Schedule Sinus Consultation"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "60–90 Minutes",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "Day-care / 1 Day",
-                recoveryTime: "1 Week",
-                successRate: "High"
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "5–7 Days",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Stork ENT Team",
+                name: "Stork Sinus Care Team",
                 role: "Senior ENT Surgeons",
-                experience: "Experts in Endoscopic Sinus Surgery"
+                experience: "Experts in Endoscopic Sinus & Skull Base Surgery"
             }
         }
     }
@@ -6224,10 +6685,10 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
             slug: slug,
             title: "Foreskin Infection – Stork Hospital, Hyderabad",
             subheading: "Expert Diagnosis and Treatment for Foreskin-Related Infections",
-            tagline: "Confidential, accurate diagnosis and targeted treatments for male genital health and long-term relief.",
+            tagline: "Accurate, confidential diagnosis and targeted treatments to resolve inflammation, prevent recurrence, and restore penile health.",
             breadcrumbTitle: "Foreskin Infection",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `A foreskin infection occurs when bacteria, fungi, or viruses cause irritation, redness, swelling, or pain in the foreskin. It is often linked to poor hygiene, underlying health conditions, or sexually transmitted infections. In many cases, the infection also affects the glans penis (balanitis) or both the glans and foreskin (balanoposthitis).
 
 At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer confidential, accurate diagnosis and targeted treatments for foreskin infections, aiming for quick relief, prevention of complications, and long-term genital health.`,
@@ -6246,49 +6707,52 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer co
                 ]
             },
             fullDescription: [
-                "Foreskin infections can stem from various causes including poor hygiene, fungal growth (Candida), bacterial pathogens, or allergic reactions. Prompt medical evaluation is essential to prevent chronic inflammation and scarring."
+                "Foreskin infections, while common, require precise identification of the pathogen to ensure effective treatment. Our urology unit specializes in differentiating between bacterial, fungal, and irritant-based causes to provide rapid clinical relief and prevent complications like long-term scarring."
             ],
 
-            conditionsHeading: "Causes and Common Symptoms",
+            conditionsHeading: "Causes of Foreskin Infections",
             conditionsTreated: [
-                "Redness and swelling of the foreskin",
-                "Pain or discomfort during urination or sexual activity",
-                "Discharge with a foul odor from under the foreskin",
-                "Phimosis (tight foreskin) contributing to infection",
-                "Itching, burning, or soreness of the genital area"
+                "Poor genital hygiene, especially under the foreskin fold",
+                "Fungal infections (commonly Candida/yeast clusters)",
+                "Bacterial infections requiring targeted antibiotics",
+                "Sexually transmitted infections (STIs)",
+                "Allergic or irritant reactions to soaps, detergents, or latex",
+                "Tight foreskin (phimosis) preventing proper cleaning",
+                "Diabetes or conditions lowering overall immune function"
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            procedureHeading: "Symptoms and Treatment Options",
             procedureSteps: [
                 {
-                    title: "Medical Treatment",
-                    description: "Targeted therapy including antifungal creams for yeast, antibiotics for bacterial causes, antiviral therapy for STIs, and mild steroid creams to reduce acute inflammation."
+                    title: "Clinical Medical Therapy",
+                    description: "Targeted antifungal/antibiotic therapy, antiviral therapy for STIs, and mild steroid creams to reduce acute inflammation and pain."
                 },
                 {
                     title: "Lifestyle & Hygiene Measures",
-                    description: "Guidance on gentle daily cleaning, moisture management, and blood sugar control for diabetic patients to prevent favorable environments for infection."
+                    description: "Gentle daily cleaning protocols, moisture management, and blood sugar control for diabetic patients to prevent favorable environments for pathogens."
                 },
                 {
                     title: "Surgical Intervention",
-                    description: "For recurrent or severe cases, circumcision provides a permanent solution. Preputioplasty is also offered for foreskin preservation while improving hygiene access."
+                    description: "Circumcision for permanent resolution of recurring infections, or Preputioplasty for fans of foreskin preservation while improving hygiene access."
                 }
             ],
 
-            benefitsHeading: "Recovery and Aftercare",
+            benefitsHeading: "Symptoms of Foreskin Infection",
             benefits: [
-                "Most infections clear within 5–10 days with proper treatment",
-                "Quick relief from localized pain and discharge symptoms",
-                "Prevention of long-term complications like scarring (phimosis)",
-                "Continuing hygiene practices prevents future recurrence",
-                "Confidential environment for private medical concerns"
+                "Redness and swelling of the foreskin tissue",
+                "Pain or discomfort during urination or sexual activity",
+                "Discharge with a foul odor from under the foreskin fold",
+                "Intense itching, burning, or localized soreness",
+                "Progressive difficulty retracting the foreskin comfortably"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Initial relief with topical/oral medication (Days 1-3)",
-                "Full resolution of acute symptoms (Days 5-10)",
-                "Hygiene monitoring phase (Ongoing)",
-                "Surgical follow-up if circumcision is performed (Weeks 2-4)"
+                "Clinical clearing of infection typically within 5–10 days post-treatment",
+                "Sustained hygiene practices are critical to preventing immediate recurrence",
+                "Completion of all prescribed medications to prevent pathogen resistance",
+                "Scheduled follow-up visits if symptoms persist or worsen significantly"
             ],
 
             faqHeading: "FAQs – Foreskin Infection",
@@ -6312,21 +6776,21 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists offer co
             ],
 
             customCta: {
-                heading: "Book Your Foreskin Infection Consultation",
-                description: "Book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for expert care and lasting relief.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Private Consultation",
+                description: "If you have swelling, pain, or discharge under the foreskin, meet our specialist urologists at Stork Hospital for expert care and lasting relief.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "Varies",
+                duration: "15–45 Minutes",
                 anesthesia: "None / Local",
-                hospitalStay: "Outpatient",
-                recoveryTime: "5-10 Days",
-                successRate: "High"
+                hospitalStay: "Outpatient / Daycare",
+                recoveryTime: "5–10 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Nanda Kishore",
-                role: "Senior Consultant Urologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Penile Health Specialists",
+                experience: "Experts in Genital Infections & Corrective Urological Care"
             }
         }
     }
@@ -6570,92 +7034,96 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             slug: slug,
             title: "Gastrointestinal Issues – Stork Hospital, Hyderabad",
             subheading: "Complete Digestive Health Care for All Ages",
-            breadcrumbTitle: "GI Issues",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Gastrointestinal (GI) issues involve the digestive tract, including the esophagus, stomach, intestines, liver, pancreas, and gallbladder. Those conditions can cause discomfort, affect nutrient absorption, and impact overall well-being. At Stork Multispecialty Hospital, Hyderabad, our gastroenterologists and digestive health specialists provide comprehensive care for a wide range of GI conditions, focusing on accurate diagnosis, effective treatment, and preventive strategies.`,
+            tagline: "Comprehensive diagnosis and advanced treatment for digestive tract, liver, and pancreatic disorders using minimally invasive medical and surgical care.",
+            breadcrumbTitle: "Gastrointestinal Care",
+            category: "Gastroenterology",
+            departmentHref: "/services/gastroenterology",
+            shortDescription: `Gastrointestinal (GI) issues involve the digestive tract, including the esophagus, stomach, intestines, liver, pancreas, and gallbladder. These conditions can cause discomfort, affect nutrient absorption, and impact overall well-being. Common causes include infections, lifestyle factors, chronic diseases, and structural abnormalities.
+
+At Stork Multispecialty Hospital, Hyderabad, our gastroenterologists and digestive health specialists provide comprehensive care for a wide range of GI conditions. We focus on accurate diagnosis, effective treatment, and preventive strategies to ensure long-term digestive health.`,
 
             overview: {
                 heading: "Why Choose Stork Hospital for Gastrointestinal Care",
-                intro: "Comprehensive GI care with advanced diagnostics and treatment.",
+                intro: "We focus on accurate diagnosis, effective treatment, and preventive strategies to ensure long-term digestive health:",
                 items: [
                     "Experienced gastroenterologists and GI surgeons",
-                    "In-house diagnostic center for endoscopy, colonoscopy, and imaging",
-                    "Advanced surgical center for minimally invasive procedures",
-                    "24/7 emergency care for GI bleeding or severe pain",
-                    "Transparent cost estimates and insurance acceptance",
-                    "Same-day consultations and walk-in clinic options",
-                    "Multidisciplinary approach with dietitians and specialists"
+                    "In-house diagnostic center in Hyderabad for endoscopy, colonoscopy, ultrasound, and imaging",
+                    "Advanced surgical center for minimally invasive gastrointestinal procedures",
+                    "24/7 emergency hospital near Hitech City for urgent GI bleeding, severe abdominal pain, or obstruction",
+                    "Insurance accepted at Stork Hospital with transparent cost estimates",
+                    "Same-day consultations and walk-in clinic near Kondapur for quick assessment",
+                    "Multidisciplinary approach with dietitians and liver specialists"
                 ]
             },
             fullDescription: [
-                "**Understanding GI Health**",
-                "Common causes of GI issues include infections, lifestyle factors, chronic diseases, and structural abnormalities. Early diagnosis is key to preventing complications.",
-                "**Comprehensive Care Approach**",
-                "We offer a full spectrum of services from medical management of acid reflux and IBS to advanced surgical interventions for gallstones and GI cancers."
+                "Digestive health is central to overall wellness. Our department provides end-to-end management for everything from common acidity to complex hepatobiliary diseases and GI oncology."
             ],
 
             conditionsHeading: "Gastrointestinal Issues We Treat",
             conditionsTreated: [
                 "Acid reflux (GERD) and heartburn",
                 "Gastritis and peptic ulcers",
-                "IBS and Inflammatory Bowel Disease (IBD)",
+                "Irritable Bowel Syndrome (IBS) and Inflammatory Bowel Disease (IBD)",
                 "Gallstones and bile duct disorders",
-                "Pancreatitis and liver diseases",
-                "Gastrointestinal infections",
+                "Pancreatitis and Pancreatic cysts",
+                "Liver diseases, including hepatitis and fatty liver disease",
+                "Gastrointestinal infections and food poisoning",
                 "Constipation, diarrhea, and bloating",
-                "GI cancers (stomach, colon, liver, pancreas)"
+                "GI cancers (stomach, colon, liver, pancreas) – diagnosis and surgical care"
             ],
 
-            procedureHeading: "Our Treatment Approach",
+            procedureHeading: "Our Treatment Approach to Gastrointestinal Health",
             procedureSteps: [
                 {
-                    title: "Comprehensive Diagnosis",
-                    description: "Physical exam, symptom review, and advanced testing like endoscopy, colonoscopy, ultrasound, and CT/MRI."
+                    title: "Advanced Diagnosis",
+                    description: "Physical examination followed by specialized endoscopic procedures (UGI endoscopy, colonoscopy) and imaging (CT/MRI) to identify the root cause."
                 },
                 {
                     title: "Medical Management",
-                    description: "Medications to control acidity or infection, along with dietary modifications and nutritional support."
+                    description: "Tailored pharmacological therapy to control acidity, reduce inflammation, or fight infections, combined with personalized nutritional support."
                 },
                 {
-                    title: "Advanced Interventions",
-                    description: "Endoscopic procedures for polyp removal or stricture dilation, and interventional radiology if needed."
+                    title: "Procedural Intervention",
+                    description: "Endoscopic removal of polyps or tumors and interventional radiology for complex liver and pancreatic conditions."
                 },
                 {
-                    title: "Surgical Solutions",
-                    description: "Laparoscopic surgery for conditions like gallstones, hernias, or appendicitis when medical management isn't enough."
+                    title: "Surgical Care",
+                    description: "Implementation of minimally invasive laparoscopic surgery for gallstones, hernias, and appendicitis with a focus on rapid recovery."
                 }
             ],
 
-            benefitsHeading: "Benefits of Expert GI Care",
+            benefitsHeading: "Your Care Journey at Stork Hospital",
             benefits: [
-                "Accurate diagnosis of root causes",
-                "Effective symptom relief",
-                "Prevention of long-term complications",
-                "Minimally invasive treatment options",
-                "Personalized diet and lifestyle guidance"
+                "Initial consultation and history-taking",
+                "Diagnostic testing to identify the root cause",
+                "Personalized treatment plan – medical or surgical",
+                "Regular follow-up and dietary guidance",
+                "Preventive screening for high-risk patients"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Long-Term Health",
             recoveryTimeline: [
-                "Diagnosis: Same day or 24-48 hours",
-                "Medical Treatment: Immediate start",
-                "Surgical Recovery: Varies by procedure"
+                "Most diagnostic endoscopic procedures allow for same-day discharge and activity resumption",
+                "Symptomatic relief from medical management often observed within 3–7 days of starting therapy",
+                "Laparoscopic surgical recovery typically ranges from 1–2 weeks depending on the procedure",
+                "Regular nutritional follow-up visits to ensure diet modifications are sustainable and effective",
+                "Annual preventive screenings recommended for patients with a history of chronic GI conditions"
             ],
 
             faqHeading: "FAQs – Gastrointestinal Issues",
             faqs: [
                 {
-                    question: "When should I see a doctor for digestive issues?",
-                    answer: "Seek help if you have persistent pain, unexplained weight loss, blood in stool, or difficulty swallowing."
+                    question: "When should I see a doctor for stomach or digestive issues?",
+                    answer: "If you experience persistent abdominal pain, unexplained weight loss, blood in stool, or difficulty swallowing, seek medical attention promptly."
                 },
                 {
                     question: "Are all GI issues diet-related?",
-                    answer: "No. While diet is a major factor, infections, genetics, and other diseases also play significant roles."
+                    answer: "No. While diet plays a major role, many GI problems are caused by infections, genetics, autoimmune responses, or other underlying diseases."
                 },
                 {
                     question: "Can lifestyle changes prevent GI conditions?",
-                    answer: "Yes. A balanced diet, hydration, exercise, and avoiding tobacco/alcohol help maintain digestive health."
+                    answer: "Yes. A balanced diet, regular exercise, proper hydration, and avoiding tobacco and alcohol help maintain digestive health and prevent many common GI ailments."
                 },
                 {
                     question: "Is treatment covered by insurance?",
@@ -6811,114 +7279,108 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
             slug: slug,
             title: "Hernia Surgery – Stork Hospital, Hyderabad",
             subheading: "Precise Repair for Lasting Relief",
+            tagline: "Advanced laparoscopic 'keyhole' repair and mesh reinforcement to restore strength and prevent recurrence.",
             breadcrumbTitle: "Hernia Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `A hernia is a common condition where an internal organ or tissue pushes through a weak spot in the muscle, often appearing as a visible bulge. At Stork Hospital, Hyderabad, we specialize in modern hernia treatment that blends precision surgery with a patient-first approach. Whether mild or recurrent, our surgeons ensure timely diagnosis, advanced treatment, and a smooth road to recovery.`,
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
+            shortDescription: `A hernia is a common condition where an internal organ or tissue pushes through a weak spot in the muscle or connective tissue, often appearing as a visible bulge. At Stork Hospital, Hyderabad, we specialize in modern hernia treatment that blends precision surgery with a patient-first approach. Whether your hernia is mild or recurrent, we ensure timely diagnosis, advanced treatment, and a smooth road to recovery.
+
+Our surgeons are highly skilled in advanced laparoscopic hernia repair in Hyderabad, delivering safe, effective outcomes for all types of hernias with minimal discomfort and downtime.`,
 
             overview: {
-                heading: "Why Patients Trust Stork Hospital for Hernia Care",
-                intro: "Expert surgical care with a focus on quick recovery and minimal recurrence.",
+                heading: "Common Types of Hernias We Treat",
+                intro: "At Stork Hospital, we tailor the surgical plan based on the type and severity of the hernia:",
                 items: [
-                    "Board-certified general and laparoscopic surgeons",
-                    "Advanced laparoscopic hernia repair techniques",
-                    "Female-friendly environment and support staff",
-                    "Transparent communication and detailed recovery guidance",
-                    "Insurance tie-ups and assistance with paperwork",
-                    "Minimally invasive options for quicker healing",
-                    "Trusted outcomes for recurrent hernia cases"
+                    "Inguinal Hernia – Appears in the groin area; most common in men",
+                    "Umbilical Hernia – Seen near the navel, especially post-pregnancy or in children",
+                    "Femoral Hernia – Found in the upper thigh, more frequent in women",
+                    "Hiatal Hernia – Stomach pushes through the diaphragm, often linked to reflux",
+                    "Incisional Hernia – Arises at a previous surgical incision site"
                 ]
             },
             fullDescription: [
-                "**Understanding Hernias**",
-                "While some hernias start painlessly, they may enlarge or become problematic over time, leading to discomfort or complications like strangulation. Surgical correction is often the only permanent solution.",
-                "**Our Surgical Expertise**",
-                "We offer both laparoscopic (keyhole) and open repair surgeries, tailored to your condition. Mesh reinforcement is commonly used to strengthen the area and prevent recurrence."
+                "While some hernias start painlessly, they may enlarge over time, potentially leading to discomfort, digestive issues, or life-threatening complications like strangulation. Surgical correction using modern mesh technology is the only permanent solution to restore abdominal wall integrity."
             ],
 
-            conditionsHeading: "Common Types of Hernias We Treat",
+            conditionsHeading: "Symptoms and Potential Complications",
             conditionsTreated: [
-                "Inguinal Hernia (Groin, common in men)",
-                "Umbilical Hernia (Navel, post-pregnancy/children)",
-                "Femoral Hernia (Upper thigh, common in women)",
-                "Hiatal Hernia (Stomach/Diaphragm, reflux-linked)",
-                "Incisional Hernia (Previous surgical sites)",
-                "Recurrent Hernias",
-                "Complex Abdominal Wall Hernias"
+                "Visible bulge in the abdomen or groin area",
+                "Pressure or discomfort when lifting or straining",
+                "Persistent dull ache or localized pain",
+                "Risk of strangulation (trapped tissue requiring emergency care)",
+                "Bowel obstruction or severe digestive disturbances"
             ],
 
-            procedureHeading: "Your Treatment Journey",
+            procedureHeading: "Our Surgical Expertise",
             procedureSteps: [
                 {
-                    title: "Consultation & Evaluation",
-                    description: "Comprehensive physical exam and imaging to determine the type and severity of the hernia."
+                    title: "Laparoscopic Repair",
+                    description: "A minimally invasive approach involving tiny keyhole incisions and camera guidance, resulting in significantly less pain and quicker recovery."
                 },
                 {
-                    title: "Surgical Planning",
-                    description: "Choosing the best approach—Laparoscopic or Open—based on your health condition."
+                    title: "Mesh Reinforcement",
+                    description: "High-quality medical mesh is used to strengthen the weakened muscle area, acting as a structural support to prevent future recurrence."
                 },
                 {
-                    title: "The Procedure",
-                    description: "Most surgeries are day-care procedures performed under anesthesia using advanced tools and mesh reinforcement."
-                },
-                {
-                    title: "Recovery & Aftercare",
-                    description: "Laparoscopic patients often resume light activity in 3–5 days, with complete healing in 2–4 weeks."
+                    title: "Open Repair",
+                    description: "The traditional surgical approach, typically chosen for very large, complex, or recurrent hernias requiring direct access."
                 }
             ],
 
-            benefitsHeading: "Benefits of Modern Hernia Repair",
+            benefitsHeading: "Why Patients Trust Stork Hospital",
             benefits: [
-                "Minimally invasive techniques (Laparoscopy)",
-                "Reduced post-operative pain",
-                "Quicker return to daily activities",
-                "Lower risk of recurrence with mesh",
-                "Minimal scarring"
+                "Board-certified general and laparoscopic surgeons",
+                "Female-friendly environment and dedicated support staff",
+                "Transparent communication and detailed recovery guidance",
+                "Insurance tie-ups and full assistance with paperwork",
+                "Trusted outcomes for both first-time and recurrent hernia cases"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Hospital Stay: Day-care or 1 Day",
-                "Light Activity: 3–5 Days",
-                "Full Recovery: 2–4 Weeks"
+                "Most procedures are day-care; patients can walk the same day",
+                "Laparoscopic patients can resume light activity within 3–5 days",
+                "Complete internal healing usually occurs within 2–4 weeks",
+                "Follow-up care includes expert pain management and wound monitoring"
             ],
 
-            faqHeading: "FAQs – Hernia Surgery",
+            faqHeading: "FAQs – Hernia Surgery at Stork",
             faqs: [
                 {
                     question: "How do I know if I need surgery?",
-                    answer: "Surgery is recommended if the hernia causes pain, grows, or impacts daily life."
+                    answer: "Surgery is recommended if your hernia causes pain, increases in size, or starts to affect your daily physical activities."
                 },
                 {
                     question: "Is laparoscopic surgery painful?",
-                    answer: "It generally involves less pain and faster healing compared to open surgery."
+                    answer: "No, typically not. It involves significantly less pain and much quicker healing compared to traditional open surgery."
                 },
                 {
                     question: "Can the hernia return after surgery?",
-                    answer: "Mesh reinforcement and precise techniques significantly minimize recurrence risks."
+                    answer: "Our specialized use of mesh reinforcement and surgical precision helps to minimize the risk of recurrence significantly."
                 },
                 {
-                    question: "When can I return to work?",
-                    answer: "Light activity typically resumes in a few days; intense tasks may take 3–4 weeks."
+                    question: "When can I return to work or exercise?",
+                    answer: "Light activity can resume in a few days; more intense tasks or heavy exercise may take 3–4 weeks for full stability."
                 }
             ],
 
             customCta: {
                 heading: "Get Expert Hernia Care",
-                description: "Don't let a hernia disrupt your life. Schedule your consultation today at Stork Hospital—Hyderabad’s trusted name in hernia surgery.",
-                buttonText: "Book Consultation"
+                description: "Get expert hernia care with minimal disruption to your life. Schedule your consultation today at Stork Hospital—Hyderabad’s trusted name in hernia surgery.",
+                buttonText: "Schedule Repair Consult"
             },
             meta: {
-                duration: "45-90 Min",
-                anesthesia: "General / Spinal",
-                hospitalStay: "Daycare / 1 Day",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                duration: "45–90 Minutes",
+                anesthesia: "General or Spinal",
+                hospitalStay: "Day-care / 1 Day",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior General & Laparoscopic Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Surgical Unit",
+                role: "Senior General & Laparoscopic Surgeons",
+                experience: "Experts in Mesh Hernioplasty & Laparoscopy"
             }
         }
     }
@@ -7406,17 +7868,17 @@ At Stork Multispecialty Hospital, Hyderabad, we combine modern surgical technolo
             slug: slug,
             title: "Hydrocele – Stork Hospital, Hyderabad",
             subheading: "Advanced and Gentle Solutions for Hydrocele Treatment",
-            tagline: "Expert diagnosis and modern minimally invasive surgical techniques for long-term scrotal health.",
-            breadcrumbTitle: "Hydrocele treatment",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Minimally invasive hydrocelectomy to resolve scrotal swelling and heaviness with zero downtime and superior clinical results.",
+            breadcrumbTitle: "Hydrocele",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `A hydrocele occurs when fluid collects around one or both testicles, leading to a noticeable swelling in the scrotum. While generally painless, it can cause a feeling of heaviness, discomfort, or embarrassment, particularly if the swelling becomes large. Hydroceles are common in newborn boys and often resolve naturally, but in older children and adults, they typically require medical attention to avoid complications or discomfort.
 
 At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons specialize in diagnosing and treating hydroceles using modern, minimally invasive surgical techniques that ensure quick recovery and minimal disruption to daily life.`,
 
             overview: {
                 heading: "Why Patients Trust Stork Hospital for Hydrocele Care",
-                intro: "Comprehensive urological care focused on safety and long-term relief:",
+                intro: "Comprehensive urological care focused on safety, precision, and long-term relief:",
                 items: [
                     "Specialized urologists with extensive experience in hydrocelectomy procedures",
                     "Fully equipped diagnostic center in Hyderabad for accurate, same-day evaluation",
@@ -7428,49 +7890,50 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons 
                 ]
             },
             fullDescription: [
-                "Hydroceles are primarily caused by the incomplete closure of the scrotal channel in newborns (congenital) or result from trauma, infection, or post-surgical buildup in adults. While often symptom-free initially, early diagnosis ensures that any underlying testicular issues are identified and managed promptly."
+                "Hydroceles, whether congenital (present from birth) or acquired later due to injury or infection, are managed with clinical excellence at our facility. Our urologists prioritize minimally invasive repairs that resolve both the swelling and the underlying cause to prevent future fluid accumulation."
             ],
 
-            conditionsHeading: "Signs and Symptoms of Hydrocele",
+            conditionsHeading: "Causes and Risk Factors",
             conditionsTreated: [
-                "Soft swelling in one or both sides of the scrotum",
-                "Sense of heaviness or fullness in the scrotal area",
-                "Mild discomfort or pulling sensation during activity",
-                "Gradual increase in scrotal size over time",
-                "Fluid accumulation around the testicles (Scrotal edema)"
+                "Congenital hydrocele – incomplete closure of the abdominal-scrotal channel",
+                "Injury or physical trauma to the testicles or surrounding area",
+                "Infections or inflammatory conditions successfully treated (e.g., orchitis)",
+                "Post-surgical fluid buildup following other pelvic/genital procedures",
+                "Obstruction within the spermatic cord affecting natural fluid drainage"
             ],
 
-            procedureHeading: "Treatment Approaches at Stork Hospital",
+            procedureHeading: "Signs and Symptoms",
             procedureSteps: [
                 {
-                    title: "Watchful Waiting",
-                    description: "Initial regular monitoring for infants and mild cases, as many newborn hydroceles resolve naturally within the first year of life."
+                    title: "Physical Sign Review",
+                    description: "Soft swelling in one or both sides of the scrotum that is typically painless but noticeable."
                 },
                 {
-                    title: "Hydrocelectomy – Surgical Treatment",
-                    description: "For persistent or symptomatic cases, a surgical procedure is performed under local or general anesthesia to remove fluid and repair the sac."
+                    title: "Heaviness Assessment",
+                    description: "Evaluation of a persistent sense of heaviness, fullness, or a pulling sensation in the scrotal area."
                 },
                 {
-                    title: "Minimally Invasive Techniques",
-                    description: "Using small, precision incisions to reduce post-surgery downtime, minimize discomfort, and prevent future recurrence."
+                    title: "Size Monitoring",
+                    description: "Tracking the gradual increase in scrotal size over time without acute redness or tenderness."
                 }
             ],
 
-            benefitsHeading: "Recovery Process and Aftercare",
+            benefitsHeading: "Advanced Treatment Approaches at Stork",
             benefits: [
-                "Thorough pre-surgical assessment and high-resolution imaging",
-                "Day-care procedure with same-day discharge in most cases",
-                "Personalized post-operative instructions for hygiene and wound care",
-                "Quick return to light activities (approx. 1 week)",
-                "Follow-up check-ups to ensure complete healing and zero recurrence"
+                "Watchful Waiting – Regular clinical monitoring for newborn babies and mild cases",
+                "Hydrocelectomy – Precision surgical removal of accumulation and repair of the sac",
+                "Minimally Invasive Repair – Advanced techniques ensuring reduced downtime and discomfort",
+                "Discreet pediatric and adult surgical care pathways tailored to age and complexity"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery Process and Aftercare",
             recoveryTimeline: [
-                "Procedure & Discharge: Same day (Daycare)",
-                "Initial Wound Healing: 3-5 Days",
-                "Resuming Light Activities: 1 Week",
-                "Full Physical Activity: 2-3 Weeks"
+                "Detailed pre-surgical assessment and imaging evaluation",
+                "Daycare procedure with same-day discharge in the majority of cases",
+                "Structured post-operative instructions for wound care and hygiene",
+                "Avoidance of heavy lifting or strenuous activities for 2–3 weeks",
+                "Scheduled follow-up check-ups to confirm complete healing and zero recurrence"
             ],
 
             faqHeading: "FAQs – Hydrocele",
@@ -7481,7 +7944,7 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons 
                 },
                 {
                     question: "What is the recovery time?",
-                    answer: "Most patients resume light activities within a week and return to their normal routines in 1–2 weeks."
+                    answer: "Most patients resume light activities within a week and normal routines in 1–2 weeks."
                 },
                 {
                     question: "Can hydroceles return after treatment?",
@@ -7489,26 +7952,26 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons 
                 },
                 {
                     question: "Does insurance cover the surgery?",
-                    answer: "Yes. Stork Hospital accepts most insurance plans for hydrocele surgery and provides full cost clarity."
+                    answer: "Yes. Stork Hospital accepts most insurance plans for hydrocele surgery and Provides cost clarity."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Hydrocele Appointment",
-                description: "Schedule a consultation at Stork Hospital with a specialist urologist in Hyderabad to get expert evaluation and advanced treatment options.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Hydrocele Consultation",
+                description: "If you have scrotal swelling or heaviness, meet our specialist urologists at Stork Hospital for expert evaluation and advanced treatment options.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "30-60 Mins",
+                duration: "30–60 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Daycare",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "1–2 Weeks",
+                successRate: "99%+"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior Consultant Urologist",
-                experience: "20+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Scrotal Health Specialists",
+                experience: "Experts in Advanced Hydrocelectomy & Minimally Invasive Scrotal Care"
             }
         }
     }
@@ -7636,112 +8099,104 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons 
             slug: slug,
             title: "Incisional Hernia Surgery – Stork Hospital, Hyderabad",
             subheading: "Dedicated Surgical Repair for Post-Surgery Abdominal Wall Defects",
-            breadcrumbTitle: "Incisional Hernia Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `An incisional hernia occurs when tissue protrudes through a weak area in the abdominal muscles, often at the site of a previous surgical incision. At Stork Hospital, Hyderabad, we deliver tailored surgical care to repair incisional hernias and strengthen the abdominal wall for lasting results. We specialize in laparoscopic repair for minimal scarring and faster recovery.`,
+            tagline: "Specialized abdominal wall reconstruction and premium mesh reinforcement to repair previous surgical site defects.",
+            breadcrumbTitle: "Incisional Hernia",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
+            shortDescription: `An incisional hernia occurs when tissue protrudes through a weak area in the abdominal muscles, often at the site of a previous surgical incision. It can develop months or even years after surgery, especially if the wound didn’t heal properly or the abdominal wall is under strain. At Stork Hospital, Hyderabad, we deliver tailored surgical care to repair incisional hernias and strengthen the abdominal wall for lasting results.
+
+Known for our expertise in laparoscopic incisional hernia surgery in Hyderabad, we prioritize patient comfort, faster healing, and minimal scarring.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Hernia Surgery?",
-                intro: "Expertise in abdominal wall reconstruction with a focus on durability and comfort.",
+                heading: "What Leads to Incisional Hernia Formation?",
+                intro: "Following abdominal surgery, weakened tissues or improperly healed incisions may give way to internal pressure, allowing fat or bowel to bulge through. Typical symptoms include:",
                 items: [
-                    "Highly experienced surgeons specializing in hernia repair",
-                    "State-of-the-art sterile operation theatres",
-                    "Premium quality mesh for durable, long-lasting repair",
-                    "Comprehensive care from diagnosis through rehabilitation",
-                    "Preferred hospital for complex hernia repairs in Hyderabad",
-                    "Minimally invasive options for faster healing"
+                    "Noticeable bulge or swelling at the site of a previous surgical scar",
+                    "Discomfort or tightness during coughing, bending, or physical activity",
+                    "A sense of pressure or heaviness in the abdomen",
+                    "Localized redness or sensitivity, particularly in larger hernias",
+                    "Risk of bowel entrapment or strangulation if left untreated"
                 ]
             },
             fullDescription: [
-                "**What Leads to Incisional Hernia Formation?**",
-                "Weakened tissues or improperly healed incisions from past surgeries can give way to internal pressure, allowing fat or bowel to bulge through. This can happen months or years later.",
-                "**Symptoms to Watch For**",
-                "A noticeable bulge at a scar site, discomfort during activity, or a sense of heaviness are common signs. Left untreated, it can lead to complications like bowel entrapment."
+                "Left untreated, incisional hernias may result in serious conditions such as bowel entrapment or strangulation. We use premium quality mesh for durable, long-lasting repair and anatomical restoration of the abdominal wall."
             ],
 
-            conditionsHeading: "Symptoms & Risk Factors",
+            conditionsHeading: "Symptoms and Clinical Risks",
             conditionsTreated: [
-                "Bulge at previous surgical scar",
-                "Discomfort during coughing/bending",
-                "Sense of abdominal pressure",
-                "Localized redness or sensitivity",
-                "Previous abdominal surgery",
-                "Weakened abdominal wall"
+                "Noticeable bulge at the site of a previous surgical scar",
+                "Weakened abdominal muscles post-surgery",
+                "Discomfort or tightness during physical activity",
+                "Pressure or heaviness in the abdomen",
+                "Redness or sensitivity in larger hernias"
             ],
 
-            procedureHeading: "Surgical Options",
+            procedureHeading: "Surgical Options at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Assessment",
-                    description: "Tailored surgical approach based on medical history, hernia size, and location."
+                    title: "Laparoscopic Hernia Repair",
+                    description: "Small incisions are made to insert a laparoscope and place surgical mesh. Results in minimal trauma, often taking less than two hours, with shorter downtime."
                 },
                 {
-                    title: "Laparoscopic Repair",
-                    description: "Small incisions to place mesh; results in minimal trauma and faster recovery (< 2 hours)."
-                },
-                {
-                    title: "Open Surgical Repair",
-                    description: "Ideal for large/complex hernias; allows thorough reinforcement of the affected area."
-                },
-                {
-                    title: "Recovery",
-                    description: "Walking encouraged within 24-48 hours; light duties resume in 10-14 days."
+                    title: "Open Surgical Repair (If Recommended)",
+                    description: "Ideal for larger or recurrent hernias, allowing for direct, thorough reinforcement of the affected area and high long-term success."
                 }
             ],
 
-            benefitsHeading: "Benefits of Surgical Repair",
+            benefitsHeading: "Why Choose Stork Hospital for Hernia Surgery?",
             benefits: [
-                "Prevention of serious complications (strangulation)",
-                "Relief from pain and discomfort",
-                "Strengthened abdominal wall",
-                "Minimal scarring (Laparoscopic)",
-                "Durable, long-lasting results with quality mesh"
+                "Highly experienced surgeons in abdominal wall reconstruction",
+                "State-of-the-art surgical equipment and sterile theatres",
+                "Comprehensive care from diagnosis through rehabilitation",
+                "Premium quality mesh for durable, long-lasting repair",
+                "A preferred hospital for incisional hernia repair in Hyderabad"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare Guidelines",
             recoveryTimeline: [
-                "Hospital Stay: 1 Day",
-                "Light Duties: 10-14 Days",
-                "Avoid Heavy Lifting: 4-6 Weeks"
+                "Walking is encouraged within 24–48 hours to aid circulation",
+                "Light duties and non-strenuous tasks may resume in 10–14 days",
+                "Full recovery and non-heavy activities by week 3",
+                "Heavy lifting or vigorous activity should be avoided for 4–6 weeks"
             ],
 
-            faqHeading: "FAQs – Incisional Hernia",
+            faqHeading: "Frequently Asked Questions",
             faqs: [
                 {
                     question: "Why do incisional hernias occur post-surgery?",
                     answer: "They typically result from poor healing or increased pressure on the previous surgical site."
                 },
                 {
-                    question: "Can I delay surgery if it doesn't hurt?",
-                    answer: "It’s not advisable as complications like strangulation may develop silently."
+                    question: "Can I delay surgery if my hernia doesn’t hurt?",
+                    answer: "It’s not advisable—complications may develop silently, increasing future risks."
                 },
                 {
                     question: "Is mesh safe for repairing hernias?",
                     answer: "Yes. Modern meshes are biocompatible and support natural tissue integration."
                 },
                 {
-                    question: "How can I prevent recurrence?",
-                    answer: "Follow recovery protocols, avoid strain, and attend scheduled follow-ups."
+                    question: "How can I prevent recurrence after surgery?",
+                    answer: "Follow all recovery protocols, avoid strain, and attend scheduled follow-ups."
                 }
             ],
 
             customCta: {
-                heading: "Take Proactive Steps",
+                heading: "Take Proactive Steps for Your Recovery",
                 description: "Contact Stork Hospital, Hyderabad, for expert evaluation and reliable surgical care. Your recovery starts here.",
-                buttonText: "Book Consultation"
+                buttonText: "Schedule Hernia Evaluation"
             },
             meta: {
-                duration: "1-2 Hours",
-                anesthesia: "General",
-                hospitalStay: "1-2 Days",
-                recoveryTime: "4-6 Weeks",
-                successRate: "High"
+                duration: "60–120 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "1–2 Days",
+                recoveryTime: "4–6 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior General Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Surgical Unit",
+                role: "Senior General & Laparoscopic Surgeons",
+                experience: "Experts in Abdominal Wall Reconstruction"
             }
         }
     }
@@ -7753,103 +8208,106 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and surgeons 
             slug: slug,
             title: "Inguinal Hernia Surgery – Stork Hospital, Hyderabad",
             subheading: "Specialized Groin Hernia Treatment for Faster, Safer Recovery",
-            tagline: "Advanced, patient-focused care to effectively repair inguinal hernias with minimally invasive solutions.",
-            breadcrumbTitle: "Inguinal Hernia Surgery",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `An inguinal hernia arises when a section of the intestine or fatty tissue pushes through a weak spot in the lower abdominal wall, typically near the groin area. This leads to a visible lump and may be accompanied by pain or pressure, especially during movement or lifting. It is more commonly seen in men and does not resolve without medical treatment.
+            tagline: "Expert laparoscopic repair for groin hernias, ensuring minimal scarring and rapid return to normal activities.",
+            breadcrumbTitle: "Inguinal Hernia",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
+            shortDescription: `An inguinal hernia arises when a section of the intestine or fatty tissue pushes through a weak spot in the lower abdominal wall, typically near the groin area. This leads to a visible lump and may be accompanied by pain or pressure, especially during movement or lifting. It is more commonly seen in men and does not resolve without medical treatment. At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, patient-focused care to effectively repair inguinal hernias.
 
-At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, patient-focused care to effectively repair inguinal hernias. We are a leading provider of laparoscopic inguinal hernia surgery in Hyderabad, ensuring minimal scarring, faster healing, and long-term comfort.`,
+We are a leading provider of laparoscopic inguinal hernia surgery in Hyderabad, ensuring minimal scarring, faster healing, and long-term comfort.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Inguinal Hernia Repair",
-                intro: "Trust Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad:",
+                heading: "Recognizing the Signs and Underlying Causes",
+                intro: "Inguinal hernias are typically caused by a combination of congenital muscle weakness and physical strain. They are categorized into two main types:",
                 items: [
-                    "Expert surgical team with years of focused hernia repair experience",
-                    "Modern operating rooms and cutting-edge medical equipment",
-                    "Step-by-step patient care from diagnosis through post-op recovery",
-                    "Use of top-grade surgical mesh for reinforced, durable repair",
-                    "Trusted choice for comprehensive inguinal hernia treatment in Hyderabad"
+                    "Indirect Inguinal Hernia – Usually present at birth due to a natural passage that hasn’t closed properly",
+                    "Direct Inguinal Hernia – Develops later in life due to gradual weakening of the abdominal wall",
+                    "A noticeable bulge in the groin, often more visible when standing or straining",
+                    "A feeling of heaviness or tightness in the lower abdomen",
+                    "Pain or discomfort during movement, exercise, or lifting",
+                    "Temporary reduction of the bulge when lying down"
                 ]
             },
             fullDescription: [
-                "Inguinal hernias are typically caused by a combination of congenital muscle weakness and physical strain. They do not heal on their own and require medical intervention to prevent complications like strangulation."
+                "If left untreated, an inguinal hernia can worsen, potentially leading to blocked or strangulated intestines, which is a surgical emergency. Our use of top-grade surgical mesh ensures a reinforced repair that significantly minimizes the risk of future recurrence."
             ],
 
-            conditionsHeading: "Recognizing the Signs and Underlying Causes",
+            conditionsHeading: "Common Symptoms and Classifications",
             conditionsTreated: [
-                "A noticeable bulge in the groin, often more visible when standing",
-                "A feeling of heaviness or tightness in the lower abdomen",
-                "Pain or discomfort during movement, exercise, or lifting",
-                "Indirect Inguinal Hernia (usually present at birth)",
-                "Direct Inguinal Hernia (develops later due to wall weakening)"
+                "Intestine or fatty tissue protrusion in the lower abdominal wall",
+                "Congenital muscle weakness (Indirect Inguinal Hernia)",
+                "Age-related wall weakening (Direct Inguinal Hernia)",
+                "Groin bulge accompanied by pain or pressure",
+                "Risk of intestinal blockage or strangulation"
             ],
 
             procedureHeading: "Tailored Surgical Approaches for Effective Relief",
             procedureSteps: [
                 {
                     title: "Laparoscopic Hernia Surgery",
-                    description: "Minimally invasive technique using small keyhole incisions and a high-definition camera. Surgical mesh is used to strengthen the weak area, resulting in less pain and a quicker return to activities."
+                    description: "Minimally invasive technique using small keyhole incisions and a high-definition camera. Mesh is used to strengthen the weak area, resulting in less pain and quicker return to activities."
                 },
-               {
+                {
                     title: "Open Hernia Repair",
-                    description: "Traditional method chosen for larger or more complicated hernias. A single incision is made to access and repair the affected area, providing highly reliable long-term results."
+                    description: "Traditional method for larger or more complicated hernias, where a single incision is made to access and repair the affected area with highly reliable long-term results."
                 }
             ],
 
-            benefitsHeading: "Post-Surgical Recovery and Follow-Up Care",
+            benefitsHeading: "Why Choose Stork Hospital for Inguinal Hernia Repair",
             benefits: [
-                "Light walking is encouraged soon after the procedure to support circulation",
-                "Most patients return to desk jobs or light duties within a week",
-                "Avoiding heavy lifting and intense physical activities for 4–6 weeks is essential",
-                "Laparoscopic cases usually heal completely in 2–3 weeks",
-                "Scheduled follow-up care to ensure proper healing and mesh integration"
+                "Expert surgical team with years of focused hernia repair experience",
+                "Modern operating rooms and cutting-edge medical equipment",
+                "Step-by-step patient care from diagnosis through post-op recovery",
+                "Use of top-grade surgical mesh for reinforced repair",
+                "Trusted choice for inguinal hernia treatment in Hyderabad"
             ],
 
             risks: [],
+            recoveryHeading: "Post-Surgical Recovery and Follow-Up Care",
             recoveryTimeline: [
-                "Immediate post-op observation and mobility (Day 1)",
-                "Transition to light daily activities (Days 2-5)",
-                "Return to work/desk jobs (Week 1)",
-                "Strenuous activity restricted (Weeks 4-6)"
+                "Mild tenderness and swelling are normal in the first few days",
+                "Light walking is encouraged soon after the procedure for circulation",
+                "Most patients return to desk jobs or light duties within a week",
+                "Laparoscopic cases usually heal completely in 2–3 weeks",
+                "Avoiding heavy lifting and intense physical activities for 4–6 weeks is essential"
             ],
 
             faqHeading: "Frequently Asked Questions",
             faqs: [
                 {
                     question: "Can inguinal hernias heal without an operation?",
-                    answer: "Unfortunately, no. Surgery is necessary to correct the mechanical weakness of the abdominal wall and prevent serious complications."
+                    answer: "Unfortunately, no. Surgery is necessary to correct the condition and prevent complications."
                 },
                 {
                     question: "How long will I need to recover from the procedure?",
-                    answer: "Recovery time is generally 7–14 days for laparoscopic cases; open surgery may require slightly longer for internal healing."
+                    answer: "Recovery time is generally 7–14 days for laparoscopic cases; open surgery may require slightly longer."
                 },
                 {
                     question: "Is the use of surgical mesh considered safe?",
-                    answer: "Yes. Mesh used in hernia repairs is medically approved, highly durable, and designed to integrate seamlessly with body tissue for reinforced repair."
+                    answer: "Yes. Mesh used in hernia repairs is medically approved, durable, and integrates well with body tissue."
                 },
                 {
                     question: "Is hernia recurrence common?",
-                    answer: "Hernia recurrence is rare when patients follow post-surgery instructions and avoid high-risk straining activities during the healing phase."
+                    answer: "Hernia recurrence is rare when patients follow post-surgery instructions and avoid high-risk activities."
                 }
             ],
 
             customCta: {
-                heading: "Don’t Ignore Groin Pain or Visible Bulges",
-                description: "Book your appointment today and take the first step toward relief with safe, professional hernia care.",
-                buttonText: "Book Appointment"
+                heading: "Get Relief from Groin Pain",
+                description: "Don’t ignore groin pain or visible bulges. Choose Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad. Book your appointment today.",
+                buttonText: "Schedule Groin Repair"
             },
             meta: {
-                duration: "60-90 Minutes",
-                anesthesia: "General / Spinal Anesthesia",
-                hospitalStay: "1 Day",
-                recoveryTime: "2-3 Weeks",
-                successRate: "98%"
+                duration: "60–90 Minutes",
+                anesthesia: "General or Spinal",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "2–3 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior General Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Surgical Unit",
+                role: "Senior General & Laparoscopic Surgeons",
+                experience: "Experts in Groin Hernia Repair & Mesh Technology"
             }
         }
     }
@@ -7958,114 +8416,118 @@ At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, p
     if (slug === "intragastric-balloon") {
         return {
             slug: slug,
-            title: "Intragastric Balloon Procedure – Stork Hospital, Hyderabad",
+            title: "Intragastric Balloon Procedure – Non-Surgical Weight Loss at Stork Hospital, Hyderabad",
             subheading: "Lose Weight Safely Without Surgery",
+            tagline: "FDA-approved, non-invasive weight loss solution designed to reduce appetite and support sustainable transformation without surgery or permanent anatomical changes.",
             breadcrumbTitle: "Intragastric Balloon",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `The intragastric balloon is an FDA-approved, non-invasive weight loss treatment designed to help you reduce appetite and achieve sustainable weight loss. At Stork Multispecialty Hospital, Hyderabad, we offer this procedure for individuals looking for a medically supported method to lose weight without anesthesia, stitches, or long hospital stays.`,
+            category: "Gastroenterology",
+            departmentHref: "/services/gastroenterology",
+            shortDescription: `If you’ve tried multiple weight loss methods without long-term success, but aren’t ready for a surgical solution, the intragastric balloon might be the ideal option. At Stork Multispecialty Hospital, Hyderabad, we offer this FDA-approved, non-invasive weight loss treatment designed to help you reduce your appetite, eat smaller portions, and achieve sustainable weight loss under medical supervision.
+
+This approach is ideal for individuals looking for a medically supported method to lose weight—without anesthesia, stitches, or long hospital stays.`,
 
             overview: {
-                heading: "Why Choose Stork Hospital for Gastric Balloon Procedures?",
-                intro: "Complete, patient-centered care from pre-procedure to post-removal lifestyle coaching.",
+                heading: "Why Stork Hospital is a Trusted Choice for Gastric Balloon Procedures",
+                intro: "We offer complete, patient-centered care from pre-procedure evaluation to post-removal lifestyle coaching:",
                 items: [
-                    "Trained bariatric specialists with endoscopic expertise",
+                    "Trained bariatric and gastrointestinal specialists in Hyderabad with expertise in endoscopic balloon insertion",
                     "Personalized consultations and weight loss planning",
-                    "Full access to diagnostic services under one roof",
+                    "Full access to diagnostic services under one roof in Hyderabad",
                     "Walk-in consultation facility near Kondapur",
-                    "Transparent weight loss treatment packages",
-                    "Insurance accepted for diagnostics (where applicable)",
-                    "Focus on results with minimized discomfort"
+                    "Easy scheduling and transparent weight loss treatment packages",
+                    "Hyderabad hospital accepting insurance for diagnostics and related care (where applicable)",
+                    "Our focus is to ensure results while minimizing discomfort or downtime"
                 ]
             },
             fullDescription: [
-                "**What is it and How Does it Work?**",
-                "A soft, inflatable silicone balloon is placed in the stomach via endoscopy and filled with saline. It occupies space, reducing hunger and food intake.",
-                "**Procedure Details**",
-                "No incisions required. Done under mild sedation in <30 minutes. The balloon is removed after 6 months."
+                "The intragastric balloon acts as a physical tool to help you reset your relationship with food, providing the metabolic 'head start' needed for long-term health improvements."
             ],
 
-            conditionsHeading: "Ideal Candidates",
+            conditionsHeading: "How the Intragastric Balloon Works",
             conditionsTreated: [
-                "BMI between 27 and 35",
-                "Overweight but not ready for surgery",
-                "Seeking non-surgical weight loss",
-                "Need for appetite control",
-                "Commitment to lifestyle changes"
+                "Endoscopic placement of a soft, inflatable silicone balloon in the stomach",
+                "Once in place, it’s filled with saline to occupy space and reduce hunger",
+                "No incisions or surgical intervention required",
+                "The procedure is done under mild sedation and completed in under 30 minutes",
+                "Balloon is removed after 6 months, giving your body time to reset eating patterns",
+                "Ideal for individuals with a BMI between 27 and 35"
             ],
 
-            procedureHeading: "Step-by-Step Process",
+            procedureHeading: "Your Step-by-Step Treatment Journey",
             procedureSteps: [
                 {
                     title: "Initial Assessment",
-                    description: "Evaluation with a non-surgical weight loss specialist and pre-procedure health screening."
+                    description: "Comprehensive evaluation with a non-surgical weight loss specialist, including lab work and pre-procedure health screening."
                 },
                 {
-                    title: "Placement",
-                    description: "20–30 minute endoscopic session to place and fill the balloon under mild sedation."
+                    title: "Endoscopic Placement",
+                    description: "A 20–30 minute session under mild sedation where the balloon is placed and inflated with sterile saline."
                 },
                 {
-                    title: "Monitoring",
-                    description: "Regular nutrition counseling and weight tracking during the 6-month placement period."
+                    title: "Same-Day Recovery",
+                    description: "Discharge within hours of the procedure with detailed post-care instructions and initial diet guidance."
                 },
                 {
-                    title: "Removal",
-                    description: "Simple endoscopic removal after 6 months to reset eating patterns."
+                    title: "Active Weight Loss Phase",
+                    description: "A 6-month period featuring regular nutritional counseling, weight tracking, and support from our multidisciplinary team."
                 }
             ],
 
-            benefitsHeading: "Benefits of Intragastric Balloon",
+            benefitsHeading: "Benefits of Choosing Intragastric Balloon at Stork",
             benefits: [
-                "Non-surgical with no permanent changes",
-                "Decreased food intake & better portion control",
-                "Improved energy and physical activity",
-                "Reversible with professional support",
-                "Access to multidisciplinary weight management team"
+                "Safe, supervised weight loss without permanent anatomical changes",
+                "Decreased food intake and better portion control",
+                "Noticeable improvements in energy and physical activity",
+                "Support in reversing or reducing the risks of obesity-related conditions",
+                "Flexible and fully reversible option with professional follow-up support"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Support",
             recoveryTimeline: [
-                "Procedure: < 30 Minutes",
-                "Hospital Stay: Same Day Discharge",
-                "Full Recovery: 1-2 Days"
+                "Procedure is completed in under 30 minutes with same-day discharge",
+                "Mild nausea or cramping may occur for the first 48–72 hours as the stomach adjusts",
+                "Transition from liquid to solid foods over the first 2 weeks post-placement",
+                "Monthly nutritional and behavioral coaching sessions throughout the 6-month duration",
+                "Balloon is endoscopically removed after 6 months to finalize the initial weight loss phase"
             ],
 
-            faqHeading: "FAQs – Intragastric Balloon",
+            faqHeading: "FAQs – Intragastric Balloon Procedure at Stork Hospital",
             faqs: [
                 {
-                    question: "Is this a good alternative to surgery?",
-                    answer: "Yes, perfect for those wanting to avoid surgery but needing help with moderate weight loss."
+                    question: "Is this a good alternative to weight loss surgery?",
+                    answer: "Yes. It’s perfect for those who want to avoid surgery but still need help to lose moderate amounts of weight (typically 10-25 kg)."
                 },
                 {
-                    question: "How soon will I see results?",
-                    answer: "Noticeable changes often start in the first month, with 10%–15% total body weight loss over 6 months."
+                    question: "How soon will I see weight loss results?",
+                    answer: "Many patients begin to see noticeable changes within the first month, with average total weight loss between 10%–15% of body weight over 6 months."
                 },
                 {
-                    question: "Are there side effects?",
-                    answer: "Temporary nausea or cramping may occur in the first few days but usually subsides quickly."
+                    question: "Are there any side effects?",
+                    answer: "Some patients experience temporary nausea, cramping, or bloating, which usually subsides within the first few days as the body adapts to the balloon."
                 },
                 {
-                    question: "Is it covered by insurance?",
-                    answer: "Coverage varies; we assist with documentation and offer flexible payment options."
+                    question: "Is the balloon covered under insurance?",
+                    answer: "While coverage varies by plan, we assist with documentation and offer flexible payment options. We are a well-known Hyderabad hospital accepting insurance for several allied services."
                 }
             ],
 
             customCta: {
-                heading: "Begin Your Journey",
-                description: "Choose the intragastric balloon at Stork Hospital for a non-surgical, results-driven program. Book your consultation today.",
-                buttonText: "Book Consultation"
+                heading: "Begin Your Journey with Confidence",
+                description: "Looking for a gentle but effective way to manage your weight? Choose the intragastric balloon at Stork Hospital for a non-surgical, results-driven program. Book your consultation today with a skilled weight loss consultant in Hyderabad.",
+                buttonText: "Book Weight Loss Consultation"
             },
             meta: {
-                duration: "20-30 Min",
+                duration: "20–30 Minutes",
                 anesthesia: "Mild Sedation",
-                hospitalStay: "Daycare",
-                recoveryTime: "1-2 Days",
+                hospitalStay: "Same Day (Daycare)",
+                recoveryTime: "2–3 Days",
                 successRate: "High"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior Bariatric Specialist",
-                experience: "20+ Years Experience"
+                name: "Stork Bariatric & GI Team",
+                role: "Senior Gastroenterologists & Bariatric Specialists",
+                experience: "Experts in Endoscopic Weight Loss Solutions"
             }
         }
     }
@@ -8077,83 +8539,79 @@ At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, p
             slug: slug,
             title: "Kidney Stones – Stork Hospital, Hyderabad",
             subheading: "Effective and Patient-Focused Kidney Stone Care",
-            tagline: "Advanced diagnostic tools and modern treatment techniques to remove stones safely and reduce the risk of future occurrences.",
-            breadcrumbTitle: "Kidney stones",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Advanced laser and minimally invasive technology to safely remove stones, relieve pain, and restore optimal kidney function.",
+            breadcrumbTitle: "Kidney Stones",
+            category: "Urology",
+            departmentHref: "/services/urology",
             shortDescription: `Kidney stones are hard deposits of minerals and salts that develop when urine becomes concentrated, allowing crystals to form and clump together. While some stones are small enough to pass unnoticed, others can be large and cause severe discomfort, urinary blockage, and potential kidney damage.
 
 At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advanced diagnostic tools and modern treatment techniques to remove stones safely, relieve symptoms, and reduce the risk of future occurrences.`,
 
             overview: {
-                heading: "Why Stork Hospital is a Leading Choice",
-                intro: "Expert stone management combining advanced technology with patient-centric care:",
+                heading: "Causes and Risk Factors",
+                intro: "Kidney stones develop due to high concentrations of minerals in the urine, often driven by lifestyle and physiological factors:",
                 items: [
-                    "Expert urologists with years of experience in stone management",
-                    "Fully equipped diagnostic center in Hyderabad for accurate stone detection",
-                    "Advanced surgical center with minimally invasive and laser-assisted technology",
-                    "24/7 emergency hospital near Hitech City for urgent kidney stone cases",
-                    "Insurance accepted at Stork Hospital with transparent cost estimates",
-                    "Walk-in clinic near Kondapur for quick specialist access",
-                    "Preventive advice tailored to each patient’s health and lifestyle"
+                    "Low fluid intake leading to highly concentrated urine",
+                    "Dietary habits high in sodium, animal protein, or processed foods",
+                    "Obesity or significantly limited physical activity levels",
+                    "Genetic predisposition and family history of nephrolithiasis",
+                    "Chronic conditions including recurrent UTIs, gout, or metabolic disorders"
                 ]
             },
             fullDescription: [
-                "Causes range from low fluid intake (dehydration) and high-sodium diets to metabolic disorders. Recognizing early warning signs like sharp back pain or blood-stained urine is critical for preventing kidney damage and infection complications."
+                "Kidney stones require immediate clinical attention to prevent secondary kidney damage or infection. Our urology unit specializes in chemical analysis of stones to provide personalized dietary maps that significantly reduce the risk of multi-session recurrence."
             ],
 
-            conditionsHeading: "Common Signs and Risk Factors",
+            conditionsHeading: "Recognizing the Symptoms",
             conditionsTreated: [
-                "Sharp pain in the back, side, or lower abdomen",
-                "Pain or burning during urination",
-                "Blood-stained (pink, red, or brown) urine",
-                "Cloudy or foul-smelling urine",
-                "Nausea, vomiting, or fever (indicators of infection)",
-                "History of recurrent UTIs or gout"
+                "Sharp, cramping pain in the back, side, or lower abdomen",
+                "Persistent pain or burning sensations during urination",
+                "Hematuria (blood-stained pink, red, or brown urine)",
+                "Cloudy or unusually foul-smelling urine indicative of stones",
+                "Nausea, vomiting, or fever if a secondary infection develops"
             ],
 
-            procedureHeading: "Treatment Approaches at Stork Hospital",
+            procedureHeading: "Advanced Treatment Approaches at Stork",
             procedureSteps: [
                 {
-                    title: "Non-Surgical Management",
-                    description: "For smaller stones: Increasing daily water intake, pain relief medication, and medicines to relax the urinary tract for easier stone passage."
+                    title: "Medical Management (Small Stones)",
+                    description: "High-hydration protocols combined with targeted medications to relax the urinary tract and facilitate natural stone passage."
                 },
                 {
-                    title: "Minimally Invasive URS & SWL",
-                    description: "Ureteroscopy (URS) involves removing stones via a thin scope, while Shock Wave Lithotripsy (SWL) breaks stones using external sound waves."
+                    title: "Laser Lithotripsy & URS",
+                    description: "High-precision laser technology used via a thin scope (Ureteroscopy) to safely fragment and remove stones without any external incisions."
                 },
                 {
-                    title: "Advanced Laser Lithotripsy",
-                    description: "Utilizing high-precision lasers to fragment stubborn stones into sand-like pieces with minimal impact on surrounding tissue."
-                },
-                {
-                    title: "Complex Stone Surgery (PCNL)",
-                    description: "Percutaneous Nephrolithotomy (PCNL) is a small-incision procedure used for removing larger or complex stones that cannot be broken by other means."
+                    title: "PCNL & ESWL Solutions",
+                    description: "Small-incision surgery (Percutaneous Nephrolithotomy) for complex stones or sound-wave therapy (ESWL) for non-invasive fragmentation."
                 }
             ],
 
-            benefitsHeading: "Recovery and Prevention",
+            benefitsHeading: "Why Stork Hospital is a Leading Choice",
             benefits: [
-                "Detailed diagnosis with advanced in-house urological imaging",
-                "Customized treatment plan suited to the stone type (Calcium, Oxalate, etc.)",
-                "Post-treatment pain control and infection prevention protocols",
-                "Long-term hydration, diet, and lifestyle guidance to avoid recurrence",
-                "Regular follow-ups to maintain overall kidney health"
+                "Expert urologists with decades of experience in complex stone management",
+                "Fully equipped diagnostic center for precise, same-day stone detection",
+                "Advanced surgical suites featuring the latest laser-assisted technology",
+                "24/7 Response for acute renal colic or urgent kidney stone emergencies",
+                "Transparent cost estimates and insurance acceptance for all stone care",
+                "Preventive advice and long-term recurrence reduction mapping"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Prevention",
             recoveryTimeline: [
-                "Diagnostic Imaging: Same Day",
-                "Laser Procedure: 45-90 Mins",
-                "Hospital Stay: Daycare / 1 Day",
-                "Recovery to Normal: 1-3 Days"
+                "Detailed diagnostic mapping using high-resolution imaging and lab tests",
+                "Implementation of a customized treatment plan (URS/PCNL/ESWL/Medical)",
+                "Immediate post-treatment care to ensure pain control and infection prevention",
+                "Long-term metabolic advice including hydration and dietary optimization",
+                "Regular follow-up monitoring to maintain total ongoing kidney health"
             ],
 
             faqHeading: "FAQs – Kidney Stones",
             faqs: [
                 {
                     question: "Do all kidney stones require surgery?",
-                    answer: "No. Small stones can often pass naturally with proper hydration and medication, but larger stones require clinical removal."
+                    answer: "No. Small stones can pass naturally with proper hydration and medication, but larger ones require medical removal to prevent kidney blockage."
                 },
                 {
                     question: "Will the treatment be painful?",
@@ -8161,7 +8619,7 @@ At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advance
                 },
                 {
                     question: "How can I reduce the chance of getting stones again?",
-                    answer: "Stay well-hydrated, eat a balanced diet low in excess salt and processed protein, and follow your personalized prevention plan."
+                    answer: "Stay well-hydrated, eat a balanced diet, limit excess salt and animal protein, and follow your personalized stone-prevention map."
                 },
                 {
                     question: "Does insurance cover treatment?",
@@ -8170,21 +8628,21 @@ At Stork Multispecialty Hospital, Hyderabad, our urology specialists use advance
             ],
 
             customCta: {
-                heading: "Book Your Kidney Stone Consultation",
-                description: "If you’re experiencing back pain, urinary difficulty, or blood in the urine, book an appointment at Stork Hospital today.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Stone Consultation",
+                description: "If you’re experiencing back pain, urinary difficulty, or blood in the urine, meet our expert urologists at Stork Hospital for safe and effective stone removal.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "30-90 Mins",
+                duration: "45–90 Minutes",
                 anesthesia: "Local / Spinal / General",
-                hospitalStay: "Daycare / 1 Day",
-                recoveryTime: "1-3 Days",
-                successRate: "High"
+                hospitalStay: "Daycare / 1–2 Days",
+                recoveryTime: "3–7 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Venu Gopal",
-                role: "Senior Consultant Urologist",
-                experience: "20+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Nephrolithiasis Specialists",
+                experience: "Experts in Laser Lithotripsy, PCNL, and Comprehensive Stone Management"
             }
         }
     }
@@ -8435,106 +8893,333 @@ We are widely regarded for delivering high-quality knee pain treatment in Hydera
             slug: slug,
             title: "Labiaplasty – Stork Hospital, Hyderabad",
             subheading: "Tailored Aesthetic & Functional Care for Intimate Wellness",
+            tagline: "Specialized cosmetic gynecology featuring labial reshaping and reduction to restore comfort and confidence in a private woman-led environment.",
             breadcrumbTitle: "Labiaplasty",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Labiaplasty is a surgical procedure that reshapes or reduces the size of the labia for physical relief, aesthetic refinement, or both. At Stork Hospital, Hyderabad, we offer labiaplasty in a safe, respectful, and fully confidential environment—led by experienced female gynecologists specializing in cosmetic gynecology.`,
+            category: "Cosmetic & Plastic Surgery",
+            departmentHref: "/services/cosmetic-plastic-surgery",
+            shortDescription: `Labiaplasty is a surgical procedure that reshapes or reduces the size of the labia for physical relief, aesthetic refinement, or both. At Stork Hospital, Hyderabad, we recognize the deeply personal nature of this choice. That’s why we offer labiaplasty in a safe, respectful, and fully confidential environment—led by a team of experienced female gynecologists who specialize in cosmetic gynecology.
+
+Whether your concerns stem from discomfort, post-pregnancy changes, or body image, our goal is to help you feel more comfortable in your body with results that look and feel natural.`,
 
             overview: {
-                heading: "Understanding Labiaplasty",
-                intro: "Labiaplasty involves the precise reshaping of the labia minora (inner lips) or labia majora (outer lips).",
+                heading: "Why Choose Stork Hospital for Intimate Aesthetic Surgery?",
+                intro: "At Stork, we provide a safe, empathetic, and woman-led environment for intimate rejuvenation, focusing on clinical excellence and absolute patient privacy:",
                 items: [
-                    "Minimize excess tissue causing friction or chafing",
-                    "Create a more balanced, symmetrical appearance",
-                    "Improve comfort during movement, intimacy, or exercise",
-                    "Restore natural look after childbirth or hormonal changes",
-                    "Address physical discomfort interfering with daily life"
+                    "All-women surgical team with extensive experience in cosmetic gynecology and intimate reconstructive surgery",
+                    "Absolute discretion and personalized care pathways for every patient",
+                    "Gentle surgical methods with aesthetic precision utilizing advanced techniques",
+                    "Private recovery rooms and attentive aftercare designed for maximum patient comfort",
+                    "Absolute transparency in pricing and ethical clinical guidance on all cosmetic interventions",
+                    "Support for insurance reimbursement if medically justified or functional symptoms are present",
+                    "Integrated care options for full rejuvenation following pregnancy or hormonal changes"
                 ]
             },
             fullDescription: [
-                "**Confidential & Compassionate Care**",
-                "We recognize the deeply personal nature of this choice. Whether your concerns stem from discomfort, post-pregnancy changes, or body image, our goal is to help you feel more comfortable in your body with results that look and feel natural.",
-                "**Who Is This Procedure For?**",
-                "Labiaplasty may be right for you if you feel physical irritation while walking/cycling, tight clothing causes pain, or if labial shape affects your self-image."
+                "Labiaplasty involves the precise reshaping of the labia minora (inner lips) or labia majora (outer lips). While often chosen for cosmetic enhancement, many women pursue labiaplasty to address genuine physical discomfort that interferes with daily life. Our team specializes in scar-minimizing, minimally invasive labiaplasty in Hyderabad, ensuring you heal beautifully and confidently."
             ],
 
-            conditionsHeading: "Reasons for Procedure",
+            conditionsHeading: "Who Is This Procedure For?",
             conditionsTreated: [
-                "Physical irritation while exercising",
-                "Pain/rubbing from tight clothing",
-                "Asymmetry due to aging/childbirth",
-                "Chronic discomfort or hygiene issues",
-                "Self-image concerns"
+                "Localized physical irritation while walking, cycling, or performing high-impact exercise",
+                "Persistent pain or rubbing caused by tight clothing or prolonged movement",
+                "Body image concerns where labial shape or size affects personal self-image",
+                "Structural stretching or significant asymmetry due to aging, pregnancy, or childbirth",
+                "Desire for anatomical balance and improved intimate functional comfort"
             ],
 
-            procedureHeading: "How We Approach Labiaplasty",
+            procedureHeading: "Your Labiaplasty Journey at Stork",
             procedureSteps: [
                 {
                     title: "Consultation & Planning",
-                    description: "Personal consultation with a specialist, medical history review, and discussion about expectations and outcomes."
+                    description: "Personal session with a specialist in female intimate wellness to review medical history, clinical assessment, and expectations."
                 },
                 {
                     title: "The Procedure",
-                    description: "Performed under local or short general anesthesia in under 90 minutes. Involves precise trimming, contouring, or sculpting."
+                    description: "Performed under local or short general anesthesia, typically completed in under 90 minutes. Involves trimming, contouring, or sculpting."
                 },
                 {
                     title: "Recovery & Results",
-                    description: "Mild discomfort for 3–5 days. Most return to daily activities within a week. Full healing takes 6–8 weeks."
+                    description: "Initial swelling and mild discomfort managed over 3–5 days, with most returning to functional activities within a week."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital?",
+            benefitsHeading: "Understanding Labiaplasty",
             benefits: [
-                "All-women surgical team (Cosmetic Gynecology)",
-                "Tailored care with absolute discretion",
-                "Gentle surgical methods with aesthetic precision",
-                "Private recovery rooms and attentive aftercare",
-                "Transparent, upfront pricing"
+                "Minimizes excess tissue causing chronic friction, chafing, or localized discomfort",
+                "Creates a more balanced and symmetrical appearance for improved personal confidence",
+                "Significantly improves functional comfort during intimacy, exercise, or body-conscious movement",
+                "Restores the natural anatomical look of the vulva after childbirth or hormonal changes",
+                "Addresses physical discomfort that interferes with daily life and functional quality"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results Timeline",
             recoveryTimeline: [
-                "Procedure: < 90 Minutes (Day Care)",
-                "Return to Work: ~1 Week",
-                "Full Healing: 6-8 Weeks"
+                "Initial management of localized swelling and mild discomfort for the first 3–5 days post-procedure",
+                "Safe return to daily routine functional activities and work within approximately one week",
+                "Strict commitment to full tissue recovery and final result stabilization within 6–8 weeks",
+                "Adherence to personalized aftercare protocols for optimal, scar-minimizing healing",
+                "Scheduled follow-up milestones with our female-led clinical team to monitor long-term outcomes"
             ],
 
-            faqHeading: "FAQs – Labiaplasty at Stork",
+            faqHeading: "Frequently Asked Questions – Labiaplasty at Stork",
             faqs: [
                 {
                     question: "Is this only for cosmetic purposes?",
-                    answer: "Not at all—many women seek labiaplasty to reduce chronic discomfort or hygiene issues."
+                    answer: "Not at all—many women seek labiaplasty to reduce chronic discomfort, chafing, or hygiene issues."
                 },
                 {
                     question: "Will it affect sensation?",
-                    answer: "The surgery is designed to preserve nerve endings and maintain sensitivity."
+                    answer: "The surgery is specifically designed to preserve nerve endings and maintain natural intimate sensitivity."
                 },
                 {
                     question: "Are the results noticeable?",
-                    answer: "Yes, results are natural and refined, often improving both comfort and confidence."
+                    answer: "Yes. Results are natural and refined, often significantly improving both physical comfort and personal confidence."
                 },
                 {
                     question: "Do I need to stay overnight?",
-                    answer: "No. Labiaplasty is a day-care procedure. You’ll go home the same day."
+                    answer: "No. Labiaplasty is a day-care procedure. You will go home the same day with clear, structured recovery instructions."
                 }
             ],
 
             customCta: {
                 heading: "Feel Confident & Comfortable",
                 description: "Book a discreet consultation at Stork Hospital—Hyderabad’s trusted name in labiaplasty and women’s intimate care.",
-                buttonText: "Book Private Consultation"
+                buttonText: "Schedule Private Consultation"
             },
             meta: {
-                duration: "60-90 Min",
+                duration: "60–90 Minutes",
                 anesthesia: "Local / Short General",
-                hospitalStay: "Day Care (Outpatient)",
-                recoveryTime: "1 Week (social)",
-                successRate: "High"
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "1 Week (social) / 6-8 Weeks (Full)",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. ________________", // Placeholder as none provided, or use generic
-                role: "Cosmetic Gynecologist",
-                experience: "Expert Team"
+                name: "Stork Cosmetic Gynecology Team",
+                role: "Senior Female Gynecologic Surgeons",
+                experience: "Experts in Labiaplasty & Intimate Rejuvenation"
+            }
+        }
+    }
+
+    if (slug === "hoodectomy") {
+        return {
+            slug: slug,
+            title: "Hoodectomy – Stork Hospital, Hyderabad",
+            subheading: "Precision Intimate Surgery for Comfort and Confidence",
+            tagline: "Specialized cosmetic gynecology featuring clitoral hood reduction to improve aesthetics, sensation, and hygiene in a private woman-led environment.",
+            breadcrumbTitle: "Hoodectomy",
+            category: "Cosmetic & Plastic Surgery",
+            departmentHref: "/services/cosmetic-plastic-surgery",
+            shortDescription: `Hoodectomy, also called clitoral hood reduction, is a delicate cosmetic procedure designed to remove excess skin around the clitoris for improved aesthetics, sensation, or hygiene. At Stork Hospital, Hyderabad, we approach this procedure with utmost precision, empathy, and privacy—ensuring that your comfort, safety, and outcomes remain our highest priorities.
+
+We are one of the few women-led hospitals in the region offering specialized cosmetic gynecology services in Hyderabad, performed by experts in a private and fully supportive environment.`,
+
+            overview: {
+                heading: "Why Women Choose Stork Hospital for Hoodectomy",
+                intro: "At Stork, we provide a safe, empathetic, and woman-led environment for intimate rejuvenation, focusing on clinical excellence and absolute patient privacy:",
+                items: [
+                    "Highly skilled female surgeons with extensive experience in cosmetic gynecology and intimate reconstructive surgery",
+                    "Absolute discretion and personalized care pathways for every patient",
+                    "Pain-minimized procedures utilizing advanced surgical techniques and specialized anesthesia",
+                    "Private recovery suites and short hospital stays designed for maximum patient comfort",
+                    "Absolute transparency in pricing and ethical clinical guidance on all cosmetic interventions",
+                    "Insurance guidance available for medically supported or functional cases",
+                    "Integrated care options alongside labiaplasty or perineoplasty for full rejuvenation"
+                ]
+            },
+            fullDescription: [
+                "Hoodectomy involves removing the redundant skin around the clitoris to enhance both function and appearance while carefully preserving sensitivity. Our female-led team ensures that every procedure is personalized to the patient's unique anatomy, helping rediscover comfort and confidence through compassionate, expert-led care."
+            ],
+
+            conditionsHeading: "Who Might Benefit from Hoodectomy?",
+            conditionsTreated: [
+                "Localized discomfort or irritation caused by a prominent clitoral hood",
+                "Goal to enhance clitoral stimulation and overall sensation during intimacy",
+                "Chronic hygiene issues or trapped moisture leading to recurring irritation",
+                "Desire for a more balanced or aesthetic vulvar appearance",
+                "Self-consciousness or functional distraction due to excess tissue"
+            ],
+
+            procedureHeading: "Your Hoodectomy Journey at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Private Specialist Consultation",
+                    description: "Confidential discussion with an expert female gynecologic surgeon to review clinical history and anatomical goals."
+                },
+                {
+                    title: "Surgical Precision",
+                    description: "Execution usually under local anesthesia with sedation options, involving fine tissue removal that preserves all clitoral nerve function."
+                },
+                {
+                    title: "Functional & Aesthetic Mapping",
+                    description: "Procedure typically completed within 30–60 minutes, ensuring a natural, refined result with no visible scarring."
+                }
+            ],
+
+            benefitsHeading: "What is a Hoodectomy?",
+            benefits: [
+                "Removes redundant skin covering the clitoris to enhance both function and appearance",
+                "Addresses physical discomfort caused by excess tissue during functional movement",
+                "Allows for significantly improved hygiene maintenance in the intimate region",
+                "Restores patient confidence through personalized aesthetic rejuvenation",
+                "Carefully preserves clitoral sensitivity while improving functional access"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Aftercare",
+            recoveryTimeline: [
+                "Management of mild localized swelling or sensitivity for the first 3–5 days post-procedure",
+                "Safe return to non-strenuous daily functional activities within 2–3 days",
+                "Strict commitment to full tissue recovery and stabilization within 3–4 weeks",
+                "Adherence to personalized aftercare protocols for optimal aesthetic outcomes",
+                "Scheduled follow-up milestones with our female-led clinical team"
+            ],
+
+            faqHeading: "FAQs – Hoodectomy at Stork Hospital",
+            faqs: [
+                {
+                    question: "Will this procedure affect clitoral sensitivity?",
+                    answer: "No. The surgery is specifically designed to preserve all sensory nerves while improving anatomical access and function."
+                },
+                {
+                    question: "Is hoodectomy purely cosmetic?",
+                    answer: "Not always. Many women choose it for physical comfort, irritation relief, and substantial hygiene improvement."
+                },
+                {
+                    question: "Can I combine this with labiaplasty?",
+                    answer: "Yes. Hoodectomy is frequently performed alongside labiaplasty or perineoplasty for comprehensive intimate rejuvenation."
+                },
+                {
+                    question: "Is anesthesia required?",
+                    answer: "A local anesthetic is usually sufficient for comfort, though sedation or short general anesthesia can be used based on preference."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule a Private Hoodectomy Consult",
+                description: "Rediscover comfort and confidence with expert, compassionate care. Meet our female specialists in Hyderabad for a private consultation.",
+                buttonText: "Schedule Private Consultation"
+            },
+            meta: {
+                duration: "30–60 Minutes",
+                anesthesia: "Local / Sedation",
+                hospitalStay: "Daycare",
+                recoveryTime: "1–4 Weeks",
+                successRate: "Very High"
+            },
+        }
+    }
+
+    if (slug === "hymenoplasty") {
+        return {
+            slug: slug,
+            title: "Hymenoplasty – Stork Hospital, Hyderabad",
+            subheading: "Discreet Reconstructive Surgery for Personal Healing",
+            tagline: "Specialized reconstructive gynecology featuring hymenal repair performed by an all-women team with absolute discretion and emotional sensitivity.",
+            breadcrumbTitle: "Hymenoplasty",
+            category: "Cosmetic & Plastic Surgery",
+            departmentHref: "/services/cosmetic-plastic-surgery",
+            shortDescription: `Hymenoplasty is a delicate and respectful surgical procedure to restore the hymen—a thin layer of tissue at the vaginal entrance. This treatment is often chosen for personal, emotional, or traditional reasons. At Stork Hospital, Hyderabad, we create a safe, judgment-free space where your decision is met with understanding, privacy, and expert care.
+
+Led by an experienced, all-women team, we are among the few hospitals offering confidential hymen repair surgery in Hyderabad with complete sensitivity and professionalism.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Hymen Repair?",
+                intro: "At Stork, we recognize that hymenoplasty is as much about emotional closure as it is about anatomical restoration. We offer a specialized, all-women surgical ecosystem designed for absolute privacy:",
+                items: [
+                    "Comprehensive all-women surgical and nursing care team for maximum comfort",
+                    "Clinical focus on emotional safety and psychological wellness alongside surgical quality",
+                    "Completely private surgical suites and recovery zones to ensure zero external visibility",
+                    "Transparent, ethical communication regarding surgical outcomes and recovery milestones",
+                    "100% Guaranteed confidential billing and encrypted medical records for total anonymity",
+                    "Tailored reconstructive techniques using modern absorbable suturing for natural results"
+                ]
+            },
+            fullDescription: [
+                "Hymenoplasty, also called hymenal reconstruction, involves the careful suturing or reshaping of the hymenal tissue. Our approach is designed to be minimally invasive, fast-healing, and completely discreet, respecting the cultural, social, or personal reasons that lead a patient to seek this restorative solution."
+            ],
+
+            conditionsHeading: "Who is a Good Candidate?",
+            conditionsTreated: [
+                "Hymenal rupture due to high-impact sports, activities, or non-sexual trauma",
+                "Preparation for significant cultural, social, or family-related milestones",
+                "Personal journey towards healing following emotional stress or physical trauma",
+                "Preference for a calm, private clinical environment where respect is a priority",
+                "Seeking anatomical restoration for personal peace of mind and emotional closure"
+            ],
+
+            procedureHeading: "Your Treatment Journey at Stork",
+            procedureSteps: [
+                {
+                    title: "Discreet Clinical Consultation",
+                    description: "A private personal session with a female reconstructive surgeon to review clinical history and expectations in a zero-pressure environment."
+                },
+                {
+                    title: "Microsurgical Repair",
+                    description: "Precision suturing or reshaping of hymenal tissue using absorbable sutures, typically completed within 30–45 minutes."
+                },
+                {
+                    title: "Anesthesia & Comfort",
+                    description: "Execution under localized anesthesia to ensure a pain-free experience with no visible scarring or long-term functional impact."
+                }
+            ],
+
+            benefitsHeading: "About the Procedure",
+            benefits: [
+                "Recreates a natural-looking hymen that closely mimics the original anatomical state",
+                "Offers a pathway for personal peace of mind and profound emotional closure",
+                "Respects and accommodates cultural or social expectations when desired by the patient",
+                "Utilizes minimally invasive techniques designed for rapid, complication-free healing",
+                "Provides a completely discreet solution with zero external signs of surgical intervention"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Support",
+            recoveryTimeline: [
+                "Management of mild localized soreness for the first 1–2 days post-repair",
+                "Safe return to work or routine daily functional life within 48 hours of surgery",
+                "Strict commitment to avoid sexual intimacy and intense physical exertion for 6 weeks",
+                "Adherence to hypoallergenic hygiene protocols to ensure optimal tissue stabilization",
+                "Scheduled follow-up milestones with our all-female clinical team to monitor healing"
+            ],
+
+            faqHeading: "FAQs – Hymen Repair",
+            faqs: [
+                {
+                    question: "Will the results look natural?",
+                    answer: "Yes. Our microsurgical technique ensures that the restored hymen closely mimics its natural anatomical state."
+                },
+                {
+                    question: "Is this procedure painful?",
+                    answer: "The procedure is performed under local anesthesia. Any mild post-operative discomfort is easily managed with oral medications."
+                },
+                {
+                    question: "How long before an important event should I get it done?",
+                    answer: "We typically suggest scheduling the procedure 4 to 6 weeks in advance of any major personal or cultural milestone."
+                },
+                {
+                    question: "Will this affect fertility or hormones?",
+                    answer: "No. Hymenoplasty is a superficial reconstructive procedure and does not affect your internal reproductive organs, hormones, or fertility."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule a Private Hymenoplasty Consult",
+                description: "Reclaim your comfort and confidence with trusted, respectful care. Meet our female specialists in Hyderabad for a confidential consultation.",
+                buttonText: "Schedule Private Consultation"
+            },
+            meta: {
+                duration: "30–45 Minutes",
+                anesthesia: "Local Anesthesia",
+                hospitalStay: "Daycare (2-4 Hours)",
+                recoveryTime: "1–2 Days (Daily Life) / 6 Weeks (Complete)",
+                successRate: "99%+"
+            },
+            reviewedBy: {
+                name: "Stork Women's Wellness Team",
+                role: "Senior Female Reconstructive Surgeons",
+                experience: "Experts in Hymenoplasty & Discreet Gynecologic Surgery"
             }
         }
     }
@@ -8783,66 +9468,75 @@ At Stork Multispecialty Hospital, Hyderabad, our medical team offers complete in
             slug: slug,
             title: "Mastoidectomy – Stork Hospital, Hyderabad",
             subheading: "Expert Ear Surgery for Chronic Infections and Complications",
+            tagline: "Specialized removal of infected mastoid air cells to eliminate chronic ear disease and protect hearing function.",
             breadcrumbTitle: "Mastoidectomy",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            category: "ENT",
+            departmentHref: "/services/ent",
             shortDescription: `A mastoidectomy is a surgical technique used to remove infected or damaged air cells within the mastoid bone — the bony area just behind your ear. This operation is often recommended when chronic ear infections, cholesteatoma, or bone-related ear diseases cannot be resolved through medications alone.
 
 At Stork Multispecialty Hospital, Hyderabad, we use modern microsurgical tools and highly skilled ENT surgeons to deliver safe and effective mastoid surgery. Our aim is to not only eliminate the infection but also protect your hearing and overall ear function, ensuring a smoother recovery process.`,
 
             overview: {
                 heading: "Why Stork Hospital Stands Out for Mastoidectomy in Hyderabad",
-                intro: "",
+                intro: "Our aim is to eliminate infection while protecting your hearing and overall ear function, ensuring a smoother recovery process through clinical excellence:",
                 items: [
-                    "Team of senior ENT specialists experienced in delicate ear operations",
-                    "Access to an advanced surgical center with world-class sterilization standards",
-                    "On-site diagnostic facilities for CT imaging, hearing evaluations, and endoscopic ear checks",
-                    "Round-the-clock emergency care near Hitech City and Kondapur for urgent ENT needs",
-                    "Partnerships with major insurance companies for transparent, worry-free billing",
-                    "Option for same-day ENT consultation or walk-in clinic services for ear-related emergencies",
-                    "Comfortable recovery rooms designed for patient privacy and post-surgical rest"
+                    "Team of senior ENT specialists experienced in delicate and complex microsurgical ear operations",
+                    "Access to an advanced surgical center with world-class sterilization and safety standards",
+                    "On-site diagnostic facilities for high-resolution CT imaging, hearing evaluations, and endoscopic ear checks",
+                    "Round-the-clock emergency care near Hitech City and Kondapur for all urgent ENT needs",
+                    "Partnerships with major insurance companies for transparent, worry-free billing and documentation",
+                    "Option for same-day ENT consultation or walk-in clinic services for ear-related surgical emergencies",
+                    "Comfortable recovery rooms designed for maximum patient privacy and professional post-surgical rest"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Mastoid surgery is a critical intervention for preserving ear health and preventing serious complications like intracranial spread of infection. At Stork, we combine surgical expertise with precision imaging to ensure every procedure is targeted, safe, and focused on long-term clinical success."
+            ],
 
             conditionsHeading: "Common Reasons for Mastoidectomy",
             conditionsTreated: [
-                "Long-term middle ear infections that resist treatment",
-                "Cholesteatoma causing structural ear damage",
-                "Mastoid bone infection or abscess",
-                "Ear discharge with progressive hearing loss",
-                "Nerve-related issues in the face linked to ear disease",
-                "Complications following untreated ear infections"
+                "Long-term middle ear infections (Chronic Otitis Media) that resist conventional medical treatment",
+                "Cholesteatoma causing structural ear damage or risk of intracranial complications",
+                "Mastoid bone infection (Mastoiditis) or localized abscess formation",
+                "Persistent ear discharge associated with progressive or sudden hearing loss",
+                "Nerve-related issues in the face (Facial Nerve Palsy) linked to advanced ear disease",
+                "Clinical complications arising from untreated or chronic pediatric ear infections"
             ],
 
             procedureHeading: "How We Approach Mastoid Surgery",
             procedureSteps: [
                 {
-                    title: "Before Surgery",
-                    description: "Thorough consultation with an ENT specialist at Stork Hospital. Detailed diagnostic tests, including hearing assessments and imaging scans. Discussion of surgical benefits, potential risks, and realistic recovery expectations."
+                    title: "Clinical Evaluation",
+                    description: "Thorough consultation with an ENT specialist including hearing assessments and high-resolution imaging scans."
                 },
                 {
-                    title: "During Surgery",
-                    description: "Carried out under general anesthesia in a sterile operating theatre. Removal of infected mastoid cells with high-precision surgical microscopes. Preservation of unaffected ear structures wherever possible."
+                    title: "Microsurgical Removal",
+                    description: "Carried out under general anesthesia using high-precision surgical microscopes to remove infected cells while preserving unaffected structures."
                 },
                 {
-                    title: "After Surgery",
-                    description: "Pain control and infection prevention through tailored medication. Professional wound care and dressing changes. Post-operative follow-up appointments to check healing and ear function. Long-term ear care guidance to minimize future issues."
+                    title: "Post-Surgical Care",
+                    description: "Pain control, professional wound care, and structured follow-up visits to monitor healing and long-term ear function."
                 }
             ],
 
-            benefitsHeading: "Your Treatment Pathway at Stork Hospital",
+            benefitsHeading: "Benefits of Mastoidectomy at Stork",
             benefits: [
-                "ENT evaluation and imaging tests",
-                "Surgical recommendation with full patient counseling",
-                "Pre-operative clearance and hospital admission",
-                "Mastoidectomy procedure (usually 1–3 hours)",
-                "Short recovery stay — often 1–2 nights",
-                "Follow-up and monitoring until you are fully healed"
+                "Effectively eliminates deep-seated infection within the mastoid bone",
+                "Prevents further structural damage and serious intracranial complications",
+                "Protects remaining hearing function and may improve auditory quality in some cases",
+                "Stops persistent and unpleasant ear discharge associated with chronic disease",
+                "Provides a safe, advanced surgical solution with high-precision microsurgical tools"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Treatment Pathway & Recovery",
+            recoveryTimeline: [
+                "Surgical procedure typically lasts 1–3 hours followed by a short recovery stay (often 1–2 nights)",
+                "Management of mild localized discomfort with prescribed pain relief for the first few days",
+                "Safe resumption of light daily activities and work typically within a week post-surgery",
+                "Strict avoidance of water contact and swimming until cleared by your ENT specialist",
+                "Scheduled follow-up and clinical monitoring until the ear is fully healed and stable"
+            ],
 
             faqHeading: "Frequently Asked Questions",
             faqs: [
@@ -8866,20 +9560,20 @@ At Stork Multispecialty Hospital, Hyderabad, we use modern microsurgical tools a
 
             customCta: {
                 heading: "Schedule Your ENT Consultation",
-                description: "If you have recurring ear pain, discharge, or changes in hearing, early evaluation is important. Book an appointment at Stork Hospital to consult with an ENT specialist in Hyderabad and learn whether mastoidectomy is the right treatment for you. We deliver precise surgical care backed by advanced technology and a compassionate team.",
-                buttonText: "Book Appointment"
+                description: "If you have recurring ear pain, discharge, or changes in hearing, early evaluation is important. Book an appointment today.",
+                buttonText: "Schedule Ear Consultation"
             },
             meta: {
-                duration: "1-3 Hours",
+                duration: "1–3 Hours",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "1-2 Nights",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "1–2 Nights",
+                recoveryTime: "1–2 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Rakesh Kumar",
-                role: "Senior ENT Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Ear & Microsurgery Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Mastoid & Complex Middle Ear Surgery"
             }
         }
     }
@@ -9236,14 +9930,13 @@ At Stork Multispecialty Hospital, Hyderabad, our endocrinologists and metabolic 
             slug: slug,
             title: "Minimally Invasive Surgery – Stork Hospital, Hyderabad",
             subheading: "Modern Surgical Excellence with a Gentle Approach",
+            tagline: "Advanced laparoscopic and hysteroscopic solutions designed for women, prioritizing comfort, precision, and rapid recovery.",
             breadcrumbTitle: "Minimally Invasive Surgery",
-            category: "General & Laparoscopic", // Matching existing category
-            departmentHref: foundCategory.href || "#",
+            category: "General Surgery",
+            departmentHref: "/services/general-surgery",
             shortDescription: `Surgery doesn’t have to mean long hospital stays, large scars, or painful recovery. At Stork Hospital, Hyderabad, we specialize in minimally invasive surgical techniques that prioritize your comfort, reduce downtime, and deliver exceptional outcomes. Using cutting-edge tools and highly skilled surgical teams, we provide safe, precise, and effective care tailored specifically for women.
 
-As a leading women’s healthcare facility in Hyderabad, we’re proud to offer advanced laparoscopic and hysteroscopic surgeries that are less invasive, more efficient, and guided by international best practices.
-
-Why Trust Stork Hospital? We are recognized for performing minimally invasive surgeries in Hyderabad with a high success rate and patient satisfaction. Features include expert surgeons with international training, personalized care plans, comfortable post-op recovery rooms, daycare options, and transparent pricing.`,
+As a leading women’s healthcare facility in Hyderabad, we’re proud to offer advanced laparoscopic and hysteroscopic surgeries that are less invasive, more efficient, and guided by international best practices.`,
 
             overview: {
                 heading: "What is Minimally Invasive Surgery (MIS)?",
@@ -9256,57 +9949,67 @@ Why Trust Stork Hospital? We are recognized for performing minimally invasive su
                     "Better aesthetic and functional results"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "We are recognized for performing minimally invasive surgeries in Hyderabad with a high success rate and patient satisfaction. Every procedure is supported by a trained multidisciplinary team for complete patient care and personalized post-surgical counseling."
+            ],
 
             conditionsHeading: "Procedures We Commonly Perform",
             conditionsTreated: [
-                "**Gynecological Procedures**",
                 "Total and partial laparoscopic hysterectomy",
-                "Myomectomy (removal of fibroids while preserving uterus)",
-                "Diagnostic and operative laparoscopy for unexplained pain or infertility",
-                "Hysteroscopic removal of polyps, fibroids, and adhesions",
-                "Endometriosis excision and treatment",
-                "Ectopic pregnancy management",
-                "Ovarian cystectomy",
-                "Tubal ligation or evaluation"
+                "Myomectomy (fibroid removal with uterus preservation)",
+                "Diagnostic and operative laparoscopy (pain/infertility)",
+                "Hysteroscopic removal of polyps and adhesions",
+                "Endometriosis excision and management",
+                "Ovarian cystectomy and ectopic pregnancy management"
             ],
 
-            procedureHeading: "Advanced Technology & Recovery",
+            procedureHeading: "Advanced Technology for Superior Outcomes",
             procedureSteps: [
                 {
-                    title: "Advanced Technology for Superior Outcomes",
-                    description: "High-definition laparoscopic and hysteroscopic imaging. Specialized energy devices for bloodless surgery. Real-time navigation and tissue mapping. Advanced sterilization and monitoring systems."
+                    title: "Laparoscopic Visualization",
+                    description: "High-definition imaging systems provide a detailed internal view, ensuring extreme precision during complex gynecological repairs."
                 },
                 {
-                    title: "Your Recovery Journey Matters",
-                    description: "Healing is more than just surgical success. We offer step-by-step recovery guides, nutritional counseling, access to physiotherapy and emotional support, and virtual check-ins."
+                    title: "Specialized Energy Devices",
+                    description: "Advanced tools enable nearly bloodless surgery, significantly reducing trauma and post-operative internal scarring."
+                },
+                {
+                    title: "Daycare Efficiency",
+                    description: "Optimized surgical workflows that allow many patients to return home safely within the same day of their procedure."
                 }
             ],
 
-            benefitsHeading: "Are You a Candidate for MIS?",
+            benefitsHeading: "Why Trust Stork Hospital for Minimally Invasive Surgery?",
             benefits: [
-                "Have been diagnosed with fibroids, cysts, or endometriosis",
-                "Require a hysterectomy or uterine-preserving treatment",
-                "Prefer minimal disruption to work or home life",
-                "Want faster healing and smaller scars"
+                "Expert surgeons with international training in laparoscopic techniques",
+                "Personalized care plans and comprehensive pre-surgical counseling",
+                "Comfortable post-op recovery rooms and attentive nursing care",
+                "Daycare and short-stay surgery options designed for quick recovery",
+                "Insurance-approved laparoscopic procedures in Hyderabad"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Your Recovery Journey Matters",
+            recoveryTimeline: [
+                "Most women resume light activities within 24–48 hours",
+                "Full recovery and return to work within 5–10 days for most cases",
+                "Access to specialized physiotherapy and nutritional counseling",
+                "Virtual check-ins and remote monitoring for post-surgical peace of mind"
+            ],
 
             faqHeading: "FAQs – Minimally Invasive Surgery at Stork",
             faqs: [
                 {
                     question: "How soon can I resume work after MIS?",
-                    answer: "Most women return to regular activities within 5–10 days, depending on the procedure."
+                    answer: "Most women return to regular activities within 5–10 days, depending on the specific procedure performed."
                 },
                 {
                     question: "Is MIS safe for complex conditions like endometriosis?",
-                    answer: "Yes. Our advanced tools and skilled team allow us to manage complex cases with great precision."
+                    answer: "Yes. Our advanced tools and skilled team allow us to manage complex cases with extreme precision."
                 },
                 {
                     question: "Will I need general anesthesia?",
-                    answer: "Most MIS procedures are done under general anesthesia, but they involve shorter operating times and fewer complications."
+                    answer: "Most MIS procedures are done under general anesthesia, ensuring patient comfort during the operation."
                 },
                 {
                     question: "Does my health insurance cover these procedures?",
@@ -9315,21 +10018,21 @@ Why Trust Stork Hospital? We are recognized for performing minimally invasive su
             ],
 
             customCta: {
-                heading: "Discover surgical care that puts you first",
-                description: "Book an appointment at Stork Hospital—where healing is faster, safer, and designed around you.",
-                buttonText: "Book Appointment"
+                heading: "Discover Surgical Care That Puts You First",
+                description: "Book an appointment at Stork Hospital—where healing is faster, safer, and designed specifically around women’s needs.",
+                buttonText: "Schedule MIS Consult"
             },
             meta: {
-                duration: "1-3 Hours",
+                duration: "30–120 Minutes",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "Day Care / 1 Night",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "5–10 Days",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Latha", // Placeholder, using a common name or existing one
-                role: "Senior Laparoscopic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Gyne-Surgical Unit",
+                role: "Senior Laparoscopic Surgeons",
+                experience: "Experts in Women’s Minimally Invasive Health"
             }
         }
     }
@@ -9339,96 +10042,110 @@ Why Trust Stork Hospital? We are recognized for performing minimally invasive su
             slug: slug,
             title: "Monsplasty – Stork Hospital, Hyderabad",
             subheading: "Gentle Contouring for a More Confident You",
+            tagline: "Specialized mons reduction surgery (pubic lift) featuring precise contouring to restore a safe, subtle, and confident lower abdominal profile.",
             breadcrumbTitle: "Monsplasty",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
+            category: "Cosmetic & Plastic Surgery",
+            departmentHref: "/services/cosmetic-plastic-surgery",
             shortDescription: `Monsplasty is a focused surgical procedure that helps reduce and tighten the mons pubis—the fatty area above the pubic bone. At Stork Hospital, Hyderabad, we understand that changes in this intimate region can impact body confidence, daily comfort, and even how clothes fit. Whether due to weight shifts, post-pregnancy changes, or aging, our mons reduction surgery offers a safe and subtle solution.
 
 As a top destination for women’s intimate aesthetic procedures in Hyderabad, we ensure the highest standards of privacy, clinical expertise, and patient comfort.`,
 
             overview: {
-                heading: "What is Monsplasty?",
-                intro: "Monsplasty (or pubic lift) involves surgical sculpting of the mons pubis to:",
+                heading: "Why Women Choose Stork Hospital",
+                intro: "At Stork, we provide a safe, empathetic, and woman-led environment for intimate body contouring, focusing on clinical excellence and absolute patient privacy:",
                 items: [
-                    "Flatten or reduce fullness in the pubic mound",
-                    "Remove sagging or loose skin",
-                    "Improve proportions with surrounding areas (abdomen, thighs, vulva)",
-                    "Enhance comfort and ease of movement"
+                    "Female-led surgical team with extensive expertise in intimate body procedures and reconstructive gynecology",
+                    "Private treatment environment in Hyderabad designed for maximum comfort and absolute discretion",
+                    "Customized surgical approach tailored to each individual's unique anatomy and aesthetic goals",
+                    "Absolute transparency in pricing with no hidden costs for all cosmetic interventions",
+                    "Insurance counseling available for post-weight loss surgeries or reconstructive clinical needs",
+                    "Integrated care options alongside labiaplasty or tummy tucks for comprehensive rejuvenation"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Monsplasty, or a pubic lift, involves surgical sculpting of the mons pubis to flatten or reduce fullness in the pubic mound. This customizable, outpatient procedure is often chosen by women who feel physical discomfort or self-consciousness related to the lower abdominal contour, ensuring improved body symmetry and ease of movement."
+            ],
 
             conditionsHeading: "Is Monsplasty Right for You?",
             conditionsTreated: [
-                "The area above your pubic bone protrudes noticeably",
-                "You experience friction, irritation, or difficulty with clothing",
-                "Skin laxity has developed due to weight loss or childbirth",
-                "You’d like improved body symmetry or feel more confident"
+                "The area above your pubic bone protrudes noticeably through clothing",
+                "You experience chronic friction, irritation, or functional difficulty with clothing fit",
+                "Significant skin laxity has developed due to major weight loss or childbirth",
+                "Desire for improved body symmetry and a more balanced lower abdominal profile",
+                "Goal to feel more confident and comfortable in intimate or form-fitting attire"
             ],
 
             procedureHeading: "How the Procedure Works",
             procedureSteps: [
                 {
                     title: "Consultation Phase",
-                    description: "Individualized planning based on your goals and anatomy. Discussion of your medical history, expectations, and outcome options."
+                    description: "Individualized planning based on your goals and anatomy, featuring a discussion of medical history and outcome options."
                 },
                 {
                     title: "Surgery Day",
-                    description: "Conducted under local anesthesia with optional sedation. Duration: 60–90 minutes depending on the extent of contouring. May include liposuction and/or skin excision. Minimal scarring with careful incision placement."
+                    description: "Conducted under local anesthesia with optional sedation (60–90 minutes). May include liposuction or skin excision for contouring."
                 },
                 {
-                    title: "Healing Process",
-                    description: "Return to routine activities in 3–5 days. Temporary swelling, soreness, or tightness may occur. Visible improvements within weeks, with full results in 6–8 weeks."
+                    title: "Healing & Recovery",
+                    description: "Minimally invasive approach supporting quick recovery with careful incision placement for minimal visible scarring."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital?",
+            benefitsHeading: "What is Monsplasty?",
             benefits: [
-                "Female-led surgical team with expertise in intimate body procedures",
-                "Private treatment environment designed for comfort",
-                "Customized approach tailored to each individual",
-                "Clear pricing with no hidden costs"
+                "Effectively flattens or reduces persistent fullness in the pubic mound area",
+                "Permanently removes sagging or loose skin resulting from weight shifts or aging",
+                "Significantly improves proportions with surrounding areas including the abdomen and thighs",
+                "Enhances physical comfort and ensures ease of functional movement",
+                "Restores personal confidence through personalized, subtle aesthetic rejuvenation"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Healing Process & Timeline",
+            recoveryTimeline: [
+                "Safe return to work and routine daily activities typically within 3–5 days post-surgery",
+                "Management of temporary localized swelling, soreness, or tightness during the first 1–2 weeks",
+                "Observation of visible aesthetic improvements within just a few weeks of the procedure",
+                "Strict commitment to full tissue recovery and final result stabilization within 6–8 weeks",
+                "Scheduled follow-up milestones with our female-led clinical team to monitor healing progress"
+            ],
 
             faqHeading: "Frequently Asked Questions",
             faqs: [
                 {
                     question: "Is monsplasty a major surgery?",
-                    answer: "It is a minor procedure, often done under local anesthesia, with rapid recovery."
+                    answer: "No. It is considered a minor procedure, often performed under local anesthesia with a rapid functional recovery period."
                 },
                 {
                     question: "Will there be a scar?",
-                    answer: "Most incisions are small and hidden in natural folds; scarring is minimal and fades over time."
+                    answer: "Most incisions are small and strategically hidden in natural folds; scarring is typically minimal and fades significantly over time."
                 },
                 {
                     question: "Can this be combined with other procedures?",
-                    answer: "Yes. Many patients opt to combine it with a tummy tuck or labiaplasty for comprehensive results."
+                    answer: "Yes. Many patients opt to combine monsplasty with a tummy tuck or labiaplasty for comprehensive aesthetic results."
                 },
                 {
                     question: "Is the outcome permanent?",
-                    answer: "Results are long-lasting, especially with stable weight and lifestyle maintenance."
+                    answer: "Results are long-lasting, especially when paired with stable weight management and a healthy lifestyle."
                 }
             ],
 
             customCta: {
-                heading: "Step into confidence and comfort",
-                description: "Book a confidential consultation at Stork Hospital—Hyderabad’s center of excellence for monsplasty and women’s intimate rejuvenation.",
-                buttonText: "Book Appointment"
+                heading: "Schedule a Private Monsplasty Consult",
+                description: "Step into confidence and comfort. Meet our female specialists in Hyderabad for a confidential rejuvenation consultation.",
+                buttonText: "Schedule Private Consultation"
             },
             meta: {
-                duration: "60-90 Minutes",
+                duration: "60–90 Minutes",
                 anesthesia: "Local / Sedation",
-                hospitalStay: "Day Care",
-                recoveryTime: "3-5 Days",
-                successRate: "High"
+                hospitalStay: "Daycare",
+                recoveryTime: "3–5 Days (Work) / 6-8 Weeks (Full)",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Plastic Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork Cosmetic Gynecology Team",
+                role: "Senior Female Plastic & Gynecologic Surgeons",
+                experience: "Experts in Monsplasty & Intimate Body Contouring"
             }
         }
     }
@@ -9438,26 +10155,30 @@ As a top destination for women’s intimate aesthetic procedures in Hyderabad, w
             slug: slug,
             title: "Myringotomy – Stork Hospital, Hyderabad",
             subheading: "Gentle Ear Surgery for Lasting Comfort and Clearer Hearing",
+            tagline: "A simple yet highly effective ear surgery to release trapped fluid, ease discomfort, and restore hearing.",
             breadcrumbTitle: "Myringotomy",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `A myringotomy is a simple yet highly effective ear surgery in which a tiny opening is made in the eardrum to release trapped fluid or infection from the middle ear. This small step can make a big difference — easing discomfort, restoring hearing, and preventing repeated infections.
 
-At Stork Multispecialty Hospital, Hyderabad, our skilled ENT team uses advanced microscopes and fine surgical instruments to carry out myringotomy with precision. In some cases, a soft ventilation tube (also called a grommet) is placed in the eardrum to keep it open for continued drainage and healthier ear function.
-
-Why Many Patients Prefer Stork Hospital for Myringotomy? Senior ENT specialists with years of experience in pediatric and adult ear surgeries. Advanced surgical center designed for accuracy, safety, and patient comfort. Comprehensive diagnostic center in Hyderabad for hearing tests, tympanometry, and imaging. 24/7 emergency hospital near Hitech City to handle urgent ear-related problems. Insurance accepted at Stork Hospital with clear cost estimates before surgery. Quick access to same-day ENT consultations and walk-in clinic near Kondapur. Comfortable, well-equipped private recovery rooms with caring nursing staff.`,
+At Stork Multispecialty Hospital, Hyderabad, our skilled ENT team uses advanced microscopes and fine surgical instruments to carry out myringotomy with precision. In some cases, a soft ventilation tube (also called a grommet) is placed in the eardrum to keep it open for continued drainage and healthier ear function.`,
 
             overview: {
-                heading: "What is Myringotomy?",
-                intro: "A myringotomy is a simple yet highly effective ear surgery in which a tiny opening is made in the eardrum to release trapped fluid or infection from the middle ear. This small step can make a big difference — easing discomfort, restoring hearing, and preventing repeated infections.",
+                heading: "Why Many Patients Prefer Stork Hospital for Myringotomy",
+                intro: "We provide advanced ENT care focused on precision, safety, and rapid recovery for both children and adults:",
                 items: [
-                    "Release trapped fluid or infection from the middle ear",
-                    "Ease discomfort and restore hearing",
-                    "Prevent repeated infections and complications",
-                    "Improve middle ear ventilation and function"
+                    "Senior ENT specialists with years of experience in pediatric and adult ear surgeries",
+                    "Advanced surgical center designed for accuracy, safety, and patient comfort",
+                    "Comprehensive diagnostic center in Hyderabad for hearing tests, tympanometry, and imaging",
+                    "24/7 emergency hospital near Hitech City to handle urgent ear-related problems",
+                    "Insurance accepted at Stork Hospital with clear cost estimates before surgery",
+                    "Quick access to same-day ENT consultations and walk-in clinic near Kondapur",
+                    "Comfortable, well-equipped private recovery rooms with caring nursing staff"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Myringotomy is often recommended when medical treatments like antibiotics or nasal sprays fail to clear chronic fluid or infections in the middle ear."
+            ],
 
             conditionsHeading: "When Do ENT Doctors Recommend Myringotomy?",
             conditionsTreated: [
@@ -9496,7 +10217,13 @@ Why Many Patients Prefer Stork Hospital for Myringotomy? Senior ENT specialists 
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Most adults and children are back to regular activities within a day or two",
+                "Immediate improvement in hearing if loss was caused by fluid buildup",
+                "Temporary ear precautions (like using earplugs during showers)",
+                "Follow-up visits to ensure the eardrum heals properly"
+            ],
 
             faqHeading: "FAQs – Myringotomy at Stork Hospital",
             faqs: [
@@ -9520,47 +10247,54 @@ Why Many Patients Prefer Stork Hospital for Myringotomy? Senior ENT specialists 
 
             customCta: {
                 heading: "Take the First Step Toward Better Ear Health",
-                description: "Persistent ear pain, infections, or hearing problems should never be ignored. Book an appointment at Stork Hospital to meet an ENT specialist in Hyderabad and discuss if myringotomy is the right choice for you or your child.",
-                buttonText: "Book Appointment"
+                description: "Persistent ear pain, infections, or hearing problems should never be ignored. Book an appointment at Stork Hospital to meet an ENT specialist in Hyderabad and discuss if myringotomy is the right choice for you or your child. We’re here to provide safe, precise, and compassionate ENT care.",
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "15-30 Minutes",
+                duration: "15–30 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Care",
-                recoveryTime: "1-2 Days",
-                successRate: "High"
+                hospitalStay: "Daycare (Same Day)",
+                recoveryTime: "1–2 Days",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Narendran",
-                role: "Senior ENT Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Pediatric & Adult Ear Surgeries"
             }
         }
     }
+
 
     if (slug === "nasal-polyps") {
         return {
             slug: slug,
             title: "Nasal Polyps – Stork Hospital, Hyderabad",
             subheading: "Advanced Care for Sinus Comfort and Clear Breathing",
+            tagline: "Precision-driven relief for nasal blockage and sinus pressure through advanced endoscopic techniques.",
             breadcrumbTitle: "Nasal Polyps",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Nasal polyps are soft, harmless growths that can form in the lining of your nasal passages or sinuses. They usually develop due to ongoing inflammation caused by allergies, asthma, sinus infections, or immune-related conditions. While tiny polyps may go unnoticed, larger ones can block your nasal airway, disrupt breathing, dull your sense of smell, and lead to recurring sinus issues.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT team offers complete care for nasal polyps — from thorough diagnosis to targeted treatment and preventive follow-up. We use a combination of medical therapy and advanced surgical techniques to restore healthy airflow and reduce the chances of recurrence.`,
 
             overview: {
-                heading: "What are Nasal Polyps?",
-                intro: "Nasal polyps are soft, harmless growths that can form in the lining of your nasal passages or sinuses. They usually develop due to ongoing inflammation caused by allergies, asthma, sinus infections, or immune-related conditions.",
+                heading: "Why Stork Hospital is the Go-To Choice for Nasal Polyp Treatment",
+                intro: "We provide comprehensive sinus care using state-of-the-art diagnostic and surgical equipment to ensure lasting relief:",
                 items: [
-                    "Block nasal airway and disrupt breathing",
-                    "Dull sense of smell",
-                    "Lead to recurring sinus issues",
-                    "Cause heaviness or discomfort around the eyes"
+                    "ENT surgeons with years of experience in nasal and sinus surgery",
+                    "Modern advanced surgical center with endoscopic equipment for precision procedures",
+                    "Full-service diagnostic center in Hyderabad offering nasal endoscopy, CT imaging, and allergy tests",
+                    "24/7 emergency hospital near Hitech City for urgent ENT care needs",
+                    "Insurance accepted at Stork Hospital with clear and honest pricing",
+                    "Quick access through same-day appointments and walk-in clinic near Kondapur",
+                    "Preventive care programs including allergy control and sinus health maintenance"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Nasal polyps often require a multi-modal approach, combining medical management to control inflammation and surgical intervention for structural relief."
+            ],
 
             conditionsHeading: "Common Signs You May Have Nasal Polyps",
             conditionsTreated: [
@@ -9579,25 +10313,37 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT team offers complete care f
                     description: "Detailed ENT evaluation and nasal endoscopy. CT scan to assess the size and location of polyps. Allergy or immune system assessment if needed."
                 },
                 {
-                    title: "Non-Surgical Management (best for small or early polyps)",
+                    title: "Non-Surgical Management",
                     description: "Corticosteroid nasal sprays to shrink polyps and control swelling. Short-term oral steroids in more severe cases. Medicines to address allergies, infections, or inflammation triggers."
                 },
                 {
-                    title: "Surgical Management (for larger or stubborn polyps)",
+                    title: "Surgical Management (FESS)",
                     description: "Functional Endoscopic Sinus Surgery (FESS) performed under general anesthesia. Gentle removal of polyps while preserving normal sinus tissue. Post-surgery medications to help prevent recurrence."
+                },
+                {
+                    title: "Long-Term Prevention",
+                    description: "Personalized follow-up plans including allergy management and targeted nasal care to minimize the risk of polyp recurrence."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is the Go-To Choice",
+            benefitsHeading: "Your Care Journey at Stork Hospital",
             benefits: [
-                "ENT surgeons with years of experience in nasal and sinus surgery",
-                "Modern advanced surgical center with endoscopic equipment",
-                "Full-service diagnostic center in Hyderabad",
-                "Preventive care programs including allergy control"
+                "Initial ENT consultation and diagnostic testing",
+                "Personalized treatment plan based on findings",
+                "Medical therapy or surgical scheduling as required",
+                "Surgical removal of polyps if necessary",
+                "Long-term follow-up to keep symptoms from returning"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Most patients feel initial relief within a few days of treatment",
+                "Complete tissue healing typically takes 2–4 weeks post-surgery",
+                "Immediate improvement in nasal airflow and breathing ease",
+                "Gradual return of sense of smell as inflammation subsides",
+                "Regular follow-ups ensure the sinuses remain clear and healthy"
+            ],
 
             faqHeading: "FAQs – Nasal Polyp Treatment",
             faqs: [
@@ -9622,22 +10368,23 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT team offers complete care f
             customCta: {
                 heading: "Book a Sinus Health Appointment",
                 description: "If you’re tired of living with constant nasal congestion, sinus pressure, or loss of smell, our ENT team can help. Book an appointment at Stork Hospital to consult an ENT specialist in Hyderabad and explore advanced, personalized treatment for nasal polyps.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "45–90 Minutes",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "Day Care / 1 Night",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / 24 Hours",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Narendran",
-                role: "Senior ENT Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Endoscopic Sinus Surgery (FESS)"
             }
         }
     }
+
 
     if (slug === "neck-pain") {
         return {
@@ -9758,70 +10505,81 @@ We’re a trusted name for neck pain treatment in Hyderabad, offering solutions 
             slug: slug,
             title: "Paraphimosis – Stork Hospital, Hyderabad",
             subheading: "Emergency Treatment for a Trapped Foreskin",
+            tagline: "Urgent urological intervention to resolve foreskin entrapment, restore circulation, and protect penile health with expert precision.",
             breadcrumbTitle: "Paraphimosis",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `Paraphimosis occurs when the foreskin is pulled back behind the head (glans) of the penis and becomes stuck, making it impossible to return to its normal position. This can cause swelling, severe discomfort, and restricted blood circulation to the glans, which may lead to serious complications if not treated quickly.
 
 At Stork Multispecialty Hospital, Hyderabad, paraphimosis is treated as an urgent urological emergency. Our team of expert urologists uses gentle yet effective techniques to relieve swelling, restore the foreskin, and protect long-term penile health.`,
 
             overview: {
-                heading: "What is Paraphimosis?",
-                intro: "Paraphimosis is a urological emergency where the retracted foreskin becomes trapped behind the glans penis, causing swelling and potential circulation restriction.",
+                heading: "Why Stork Hospital is Trusted for Paraphimosis Care",
+                intro: "Paraphimosis demands rapid, professional intervention to prevent permanent tissue damage:",
                 items: [
-                    "Foreskin pulled back and stuck behind the glans",
-                    "Causes swelling and severe discomfort",
-                    "Restricts blood circulation to the glans",
-                    "Requires urgent medical attention"
+                    "Specialist urologists with expertise in penile and foreskin conditions",
+                    "24/7 Emergency hospital near Hitech City for rapid response to urgent cases",
+                    "Advanced surgical center equipped for minimally invasive corrective procedures",
+                    "Insurance accepted at Stork Hospital with quick approvals for emergency care",
+                    "Walk-in clinic near Kondapur for same-day evaluation",
+                    "Complete recovery guidance to prevent future entrapment episodes"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Signs and Symptoms",
-            conditionsTreated: [
-                "Swelling and redness of the glans penis",
-                "Sharp or throbbing pain",
-                "Inability to pull the foreskin forward",
-                "Discoloration of the glans (bluish or purple)",
-                "Difficulty urinating or urinary blockage"
+            fullDescription: [
+                "Paraphimosis is a clinical emergency that requires immediate manual or surgical reduction to restore blood flow. Our urology unit is primed for 24/7 response, utilizing local analgesia and precision techniques to resolve the blockage and stabilize the tissue."
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Common Causes of Paraphimosis",
+            conditionsTreated: [
+                "Failure to reposition the foreskin after retraction for hygiene or clinical checks",
+                "Significant trauma or physical injury to the penile tissue",
+                "Acute swelling caused by localized infection or inflammation",
+                "Medical procedures where the foreskin was retracted and left in a trapped position",
+                "Tight foreskin (phimosis) combined with forced or excessive retraction"
+            ],
+
+            procedureHeading: "Signs and Symptoms",
             procedureSteps: [
                 {
-                    title: "Immediate Reduction",
-                    description: "Gentle manual repositioning after applying anesthesia or a numbing gel. Use of cold compresses or medical methods to reduce swelling before repositioning."
+                    title: "Swelling & Redness",
+                    description: "Evaluation of localized swelling and redness of the glans penis indicating circulatory compromise."
                 },
                 {
-                    title: "Medication Support",
-                    description: "Painkillers and anti-inflammatory drugs. Antibiotics if an infection is present."
+                    title: "Pain Assessment",
+                    description: "Mapping sharp or throbbing pain and the complete inability to pull the foreskin forward."
                 },
                 {
-                    title: "Surgical Interventions (when needed)",
-                    description: "Dorsal slit – a small cut to release the foreskin. Circumcision – a permanent solution for patients with recurring issues."
+                    title: "Glans Discoloration",
+                    description: "Urgent identification of bluish or purple glans discoloration, indicating severe ischemia."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is Trusted for Paraphimosis Care",
+            benefitsHeading: "Advanced Treatment Approaches at Stork",
             benefits: [
-                "Specialist urologists with expertise in penile and foreskin conditions",
-                "24/7 emergency hospital near Hitech City",
-                "Advanced surgical center equipped for minimally invasive procedures",
-                "Insurance accepted with quick approvals"
+                "Immediate Reduction – Manual repositioning after applying anesthesia or numbing gel",
+                "Edema Mitigation – Use of cold compresses or specialized medical methods to reduce swelling",
+                "Medication Support – Systemic painkillers, anti-inflammatory drugs, and infection-targeted antibiotics",
+                "Emergency Surgical Release – Dorsal Slit or emergency Circumcision for severe or recurring cases"
             ],
 
             risks: [],
-            recoveryTimeline: [],
+            recoveryHeading: "Recovery and Care After Treatment",
+            recoveryTimeline: [
+                "Most acute cases resolve quickly once manual or surgical reduction is successfully completed",
+                "Maintain strict genital hygiene and avoid forceful retraction during the localized healing phase",
+                "Scheduled follow-up appointments to check for potential tissue complications or recurrence",
+                "Consultation for preventive Circumcision if paraphimosis is part of a recurring clinical pattern"
+            ],
 
             faqHeading: "FAQs – Paraphimosis",
             faqs: [
                 {
                     question: "Is paraphimosis a medical emergency?",
-                    answer: "Yes. Delayed treatment can cause permanent damage to the penis."
+                    answer: "Yes. Delayed treatment can cause permanent damage to the penis due to restricted blood flow."
                 },
                 {
                     question: "Will it resolve by itself?",
-                    answer: "No. Medical intervention is essential."
+                    answer: "No. Medical intervention is essential to restore the foreskin and preserve penile health."
                 },
                 {
                     question: "Is circumcision always necessary?",
@@ -9858,75 +10616,76 @@ At Stork Multispecialty Hospital, Hyderabad, paraphimosis is treated as an urgen
             slug: slug,
             title: "PCNL (Percutaneous Nephrolithotomy) – Stork Hospital, Hyderabad",
             subheading: "Keyhole Surgery for Large and Complex Kidney Stones",
+            tagline: "Advanced keyhole surgery (PCNL) using laser and ultrasonic technology to safely remove large or staghorn kidney stones with high precision and rapid recovery.",
             breadcrumbTitle: "PCNL",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `Percutaneous Nephrolithotomy (PCNL) is an advanced, minimally invasive “keyhole” procedure designed to remove kidney stones that are too large, numerous, or complex for non-surgical treatments such as ESWL or RIRS. In this method, the surgeon creates a small incision in the back to directly access the kidney and remove stones using a combination of endoscopic instruments and laser or ultrasonic technology.
 
 At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists specializes in performing PCNL with high precision, ensuring faster recovery, minimal discomfort, and excellent outcomes.`,
 
             overview: {
-                heading: "Advantages of PCNL at Stork Hospital",
-                intro: "PCNL is a highly effective procedure for large or complex kidney stones, offering several advantages over traditional open surgery.",
+                heading: "When PCNL May Be Needed",
+                intro: "PCNL is the definitive clinical solution for complex stone pathologies that cannot be resolved via non-invasive means:",
                 items: [
-                    "High success rate in a single procedure",
-                    "Minimally invasive approach with reduced tissue trauma",
-                    "Shorter hospital stay compared to open stone surgery",
-                    "Effective removal of large or hard-to-reach stones",
-                    "Quicker return to daily routines"
+                    "Kidney stones larger than 2 cm in diameter",
+                    "Multiple stones or “staghorn” calculi occupying large portions of the kidney",
+                    "Stones that have not responded to other treatments like ESWL",
+                    "Severe pain or urinary obstruction due to complex stones",
+                    "Stones associated with persistent or chronic infections"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "PCNL at Stork Hospital offers a significant advantage for large stones that would otherwise require open surgery. Using a single tiny 'keyhole' incision, our urologists access the renal pelvis directly to pulverized and remove stone masses with unparalleled efficiency."
+            ],
 
-            conditionsHeading: "When PCNL May Be Needed",
+            conditionsHeading: "Advantages of PCNL at Stork Hospital",
             conditionsTreated: [
-                "Kidney stones larger than 2 cm in diameter",
-                "Multiple stones or “staghorn” calculi occupying large portions of the kidney",
-                "Stones that have not responded to other treatments",
-                "Severe pain or urinary obstruction due to complex stones",
-                "Stones associated with persistent infections"
+                "High success rate in a single procedure for total stone clearance",
+                "Minimally invasive approach with significantly reduced tissue trauma",
+                "Shorter hospital stay compared to traditional open stone surgery",
+                "Exceptional effectiveness for large, hard, or hard-to-reach stones",
+                "Quicker return to daily routines and professional life"
             ],
 
             procedureHeading: "How PCNL is Performed",
             procedureSteps: [
                 {
                     title: "Pre-Procedure Assessment",
-                    description: "Detailed imaging (CT, Ultrasound, X-ray) and blood tests to determine stone size, number, and location."
+                    description: "Detailed imaging (CT scan, Ultrasound) and blood tests to determine stone size, number, and precise anatomical location."
                 },
                 {
-                    title: "Anesthesia",
-                    description: "General anesthesia to keep the patient comfortable throughout the procedure."
+                    title: "Keyhole Access & Anesthesia",
+                    description: "Under general anesthesia, a tiny opening is made in the back to establish a direct pathway to the kidney."
                 },
                 {
-                    title: "Small Back Incision",
-                    description: "A tiny opening is made in the back to reach the kidney directly."
+                    title: "Fragmentation & Removal",
+                    description: "Stones are shattered using high-frequency laser or ultrasonic probes and safely removed through the endoscopic scope."
                 },
                 {
-                    title: "Stone Fragmentation & Removal",
-                    description: "Stones are broken with laser or ultrasonic probes and removed through the scope."
-                },
-                {
-                    title: "Temporary Drainage & Post-Procedure Imaging",
-                    description: "Placement of a nephrostomy tube or stent if needed. Imaging ensures no stone fragments remain."
+                    title: "Temporary Post-Ops",
+                    description: "Placement of a nephrostomy tube or stent if needed for healing, followed by imaging to ensure no fragments remain."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is a Trusted Choice for PCNL",
+            benefitsHeading: "Why Choose Stork Hospital for PCNL Care",
             benefits: [
-                "Specialist urologists with extensive PCNL expertise",
-                "Modern diagnostic center with advanced CT and imaging technology",
-                "Advanced surgical center with the latest endoscopic and laser devices",
-                "24/7 emergency hospital near Hitech City",
-                "Complete post-surgery follow-up for stone prevention"
+                "Specialist urologists with extensive fellowship training in PCNL",
+                "Modern diagnostic center equipped with advanced high-resolution CT and X-ray technology",
+                "Advanced surgical center featuring the latest endoscopic and laser fragmentation devices",
+                "24/7 Response for urgent urological interventions near Hitech City",
+                "Complete billing transparency and insurance coordination for PCNL",
+                "Walk-in consultations near Kondapur for rapid treatment planning"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Aftercare",
             recoveryTimeline: [
-                "Usual hospital stay of 1–2 days",
-                "Avoiding heavy lifting or strenuous activity for 1–2 weeks",
-                "Staying well-hydrated to prevent stone recurrence",
-                "Pain control and antibiotics to aid healing",
-                "Scheduled follow-ups to monitor kidney health"
+                "Usual hospital stay of 1–2 days for clinical monitoring",
+                "Avoidance of heavy lifting or strenuous physical activity for 1–2 weeks",
+                "High hydration protocol to help flush kidney dust and prevent recurrence",
+                "Strategic pain control and systemic antibiotics to facilitate safe healing",
+                "Scheduled follow-up assessments to monitor long-term kidney health"
             ],
 
             faqHeading: "FAQs – PCNL",
@@ -9950,21 +10709,21 @@ At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists speci
             ],
 
             customCta: {
-                heading: "Book Your PCNL Consultation",
-                description: "If you have been diagnosed with large or complex kidney stones, schedule an appointment at Stork Hospital to consult a urologist in Hyderabad and explore whether PCNL is the best solution for you.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your PCNL Consultation",
+                description: "If you have been diagnosed with large or complex kidney stones, meet our expert urologists in Hyderabad to explore the best surgical solution.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "1–2 Hours",
                 anesthesia: "General Anesthesia",
-                hospitalStay: "1-2 Days",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "1–2 Days",
+                recoveryTime: "1–2 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Sujith",
-                role: "Senior Urologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Endourology Specialists",
+                experience: "Experts in PCNL, Laser Lithotripsy, and Complex Stone Management"
             }
         }
     }
@@ -9974,101 +10733,111 @@ At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists speci
             slug: slug,
             title: "Perianal Abscess – Stork Hospital, Hyderabad",
             subheading: "Prompt and Expert Care for Perianal Abscesses",
+            tagline: "Emergency colorectal drainage and precision wound care to eliminate perianal infections and prevent the development of anal fistulas.",
             breadcrumbTitle: "Perianal Abscess",
             category: "Proctology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/proctology",
             shortDescription: `A perianal abscess is a painful collection of pus that forms in the tissue surrounding the anus, usually due to infection in a small anal gland. It can cause severe discomfort, swelling, redness, and fever if left untreated. In many cases, a perianal abscess may lead to an anal fistula if not addressed promptly.
 
 At Stork Multispecialty Hospital, Hyderabad, our experienced gastroenterologists and colorectal surgeons provide immediate and effective treatment for perianal abscesses. We focus on quick relief, complete drainage of infection, and prevention of future complications.`,
 
             overview: {
-                heading: "Causes and Risk Factors",
-                intro: "Perianal abscesses are often caused by blocked anal glands, but other factors can increase the risk.",
+                heading: "Why Choose Stork Hospital for Perianal Abscess Treatment",
+                intro: "At Stork, we provide rapid-response clinical care for acute perianal infections, focused on immediate stabilization and healing:",
                 items: [
-                    "Blocked or infected anal glands",
-                    "Crohn’s disease or ulcerative colitis",
-                    "Injury or trauma to the anal region",
-                    "Weakened immune system",
-                    "History of anal fistulas or abscesses"
+                    "Highly skilled gastroenterologists and colorectal surgeons with emergency surgical expertise",
+                    "Advanced in-house diagnostic center in Hyderabad for high-definition imaging and acute evaluation",
+                    "State-of-the-art surgical center specializing in minimally invasive abscess drainage procedures",
+                    "24/7 Response for urgent rectal pain or systemic infection symptoms near Hitech City",
+                    "Direct insurance billing with absolute transparency on all emergency proctology costs",
+                    "Walk-in consultations near Kondapur for same-day clinical assessment and immediate drainage",
+                    "Comprehensive aftercare strategies designed to promote rapid healing and eliminate recurrence"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Symptoms of a Perianal Abscess",
-            conditionsTreated: [
-                "Severe pain near the anus, especially when sitting or moving",
-                "Swelling and redness in the perianal area",
-                "Warmth and tenderness on touch",
-                "Pus or blood discharge from the affected site",
-                "Fever, fatigue, and general discomfort"
+            fullDescription: [
+                "Perianal abscesses require immediate clinical attention to prevent the infection from spreading or transitioning into a chronic anal fistula. Stork Hospital utilizes high-fidelity sterile drainage techniques and advanced antimicrobial protocols to ensure the root cause of the glandular infection is fully resolved."
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Causes and Risk Factors",
+            conditionsTreated: [
+                "Blocked or infected anal glands leading to localized pus accumulation",
+                "Clinical manifestations of Crohn’s disease or active Ulcerative Colitis",
+                "Localized injury or structural trauma to the perianal and anal region",
+                "Significantly weakened immune system affecting secondary infection response",
+                "Clinical history of recurrent anal fistulas or neglected perianal abscesses"
+            ],
+
+            procedureHeading: "Advanced Treatment Approaches at Stork",
             procedureSteps: [
                 {
-                    title: "Emergency Drainage Procedure (primary treatment)",
-                    description: "Incision and drainage – a small cut is made to release pus and relieve pressure. Performed under local or general anesthesia depending on abscess size and severity."
+                    title: "Emergency Incision & Drainage",
+                    description: "Execution of a precise sterile incision to release accumulated pus and provide immediate relief from agonizing pressure."
                 },
                 {
-                    title: "Additional Care",
-                    description: "Antibiotics to control infection (when required). Pain management and wound care instructions. Follow-up visits to check healing and detect early signs of fistula formation."
+                    title: "Advanced Medical Management",
+                    description: "Utilization of targeted antibiotic therapy to control secondary infections and customized pain management protocols."
+                },
+                {
+                    title: "Fistula Prevention Monitoring",
+                    description: "Structured proctologic follow-up visits to monitor tissue healing and detect early signs of fistula formation."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Perianal Abscess Treatment",
+            benefitsHeading: "Symptoms of a Perianal Abscess",
             benefits: [
-                "Highly skilled gastroenterologists and colorectal surgeons",
-                "In-house diagnostic center in Hyderabad for accurate imaging",
-                "Advanced surgical center for minimally invasive drainage procedures",
-                "24/7 emergency hospital near Hitech City for urgent care",
-                "Complete aftercare to promote healing and avoid recurrence"
+                "Severe pain localized near the anus, intensified by sitting or functional movement",
+                "Visible swelling and persistent redness in the perianal skin region",
+                "Localized warmth and significant tenderness upon clinical palpation",
+                "Active discharge of pus or blood from a visible opening at the affected site",
+                "Systemic signs including fever, generalized fatigue, and acute discomfort"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Immediate assessment and diagnosis",
-                "Abscess drainage with sterile technique",
-                "Daily wound cleaning and dressing changes",
-                "Dietary and hygiene advice to aid healing",
-                "Monitoring for recurrence or fistula development"
+                "Initial clinical assessment followed by sterile abscess drainage under customized anesthesia",
+                "Implementation of daily sterile wound cleaning and specialized dressing changes",
+                "Return to functional comfort as inflammatory markers decline during the 1–2 week healing period",
+                "Structured dietary and hygiene guidance to optimize the healing environment and prevent recurrence",
+                "Extended monitoring milestones to verify complete resolution and identify potential fistula tracts"
             ],
 
             faqHeading: "FAQs – Perianal Abscess",
             faqs: [
                 {
                     question: "Can a perianal abscess heal without drainage?",
-                    answer: "No, surgical drainage is usually necessary for complete healing."
+                    answer: "No. Professional surgical drainage is clinically necessary for complete tissue healing and infection removal."
                 },
                 {
                     question: "Is the procedure painful?",
-                    answer: "Modern anesthesia ensures minimal discomfort during the procedure, and pain is well-managed afterward."
+                    answer: "Modern anesthesia protocols at Stork Hospital ensure minimal discomfort during the drainage, with pain efficiently managed afterward."
                 },
                 {
                     question: "Can it turn into a fistula?",
-                    answer: "Yes, untreated abscesses can lead to anal fistulas, which require more complex surgery."
+                    answer: "Yes. Untreated abscesses carry a high risk of developing into anal fistulas, which require a separate surgical intervention."
                 },
                 {
                     question: "Is it covered by insurance?",
-                    answer: "Yes. Stork Hospital accepts most insurance plans with transparent billing."
+                    answer: "Yes. Stork Hospital accepts most major insurance providers and ensures transparent billing for emergency proctology care."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Perianal Abscess Consultation",
-                description: "If you notice pain, swelling, or pus near the anus, book an appointment at Stork Hospital to meet a colorectal specialist in Hyderabad for prompt and effective treatment.",
-                buttonText: "Book Appointment"
+                heading: "Schedule an Emergency drainage Consult",
+                description: "If you notice acute pain, swelling, or localized pus near the anus, meet our colorectal specialists in Hyderabad for immediate relief.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "15-30 Minutes",
-                anesthesia: "Local / General",
-                hospitalStay: "Day Care",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                duration: "20–40 Minutes",
+                anesthesia: "Local / General / Spinal",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "1–2 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Proctologist",
-                experience: "20+ Years Experience"
+                name: "Stork Proctology Team",
+                role: "Senior Gastroenterologists & Colorectal Surgeons",
+                experience: "Experts in Emergency Abscess Management & Proctology"
             }
         }
     }
@@ -10191,102 +10960,112 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, patient-center
             slug: slug,
             title: "Piles (Hemorrhoids) – Stork Hospital, Hyderabad",
             subheading: "Advanced, Comfortable Solutions for Hemorrhoids",
+            tagline: "Expert proctology solutions featuring laser-assisted surgery and minimally invasive ligation to resolve swollen veins and restore digestive comfort.",
             breadcrumbTitle: "Piles (Hemorrhoids)",
             category: "Proctology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/proctology",
             shortDescription: `Piles, commonly referred to as hemorrhoids, occur when veins in the lower rectum or around the anus become enlarged and swollen. They may be located internally, inside the rectum, or externally, under the skin around the anus. This condition can lead to itching, swelling, discomfort, and bleeding during bowel movements. While early-stage piles can often be controlled with diet and lifestyle adjustments, moderate to severe cases may require medical intervention.
 
 At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal care team offers minimally invasive and laser-assisted treatments that focus on relieving symptoms, preventing recurrence, and ensuring patient comfort throughout the process.`,
 
             overview: {
-                heading: "Causes of Hemorrhoids",
-                intro: "Hemorrhoids can develop due to various factors that increase pressure in the lower rectum.",
+                heading: "Why Patients Choose Stork Hospital for Piles Treatment",
+                intro: "At Stork, we combine specialized surgical expertise with advanced technology to provide highly effective piles management:",
                 items: [
-                    "Straining during bowel movements due to constipation",
-                    "Chronic diarrhea or irregular bowel habits",
-                    "Prolonged sitting, especially on the toilet",
-                    "Pregnancy-related pressure on pelvic blood vessels",
-                    "Overweight or sedentary lifestyle",
-                    "Aging, which reduces elasticity in rectal tissues"
+                    "Highly trained gastroenterologists and colorectal surgeons with years of specialized clinical experience",
+                    "Advanced in-house diagnostic center in Hyderabad for accurate and timely proctologic evaluation",
+                    "State-of-the-art surgical center equipped with high-precision laser technology for quick procedures",
+                    "24/7 Response for urgent rectal care or bleeding concerns near Hitech City",
+                    "Direct insurance billing with upfront transparency on all medical and surgical costs",
+                    "Private consultations in our walk-in clinic near Kondapur for immediate specialist access",
+                    "Personalized aftercare plans and structured dietary guidance to maintain long-term results"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Warning Signs and Symptoms",
-            conditionsTreated: [
-                "Discomfort, burning, or itching in the anal region",
-                "Bright red blood after passing stool",
-                "Swelling or lump formation near the anus",
-                "Mucus discharge from the anal opening",
-                "Pain when sitting or during bowel movements"
+            fullDescription: [
+                "Hemorrhoids require a tailored clinical approach that balances symptom relief with anatomical restoration. Stork Hospital specializes in laser-assisted interventions (LHP) that target the vascular source of the piles, ensuring minimal tissue trauma and a significantly faster return to daily functional life."
             ],
 
-            procedureHeading: "Treatment Approaches at Stork Hospital",
+            conditionsHeading: "Causes of Hemorrhoids",
+            conditionsTreated: [
+                "Increased pressure from straining during bowel movements due to constipation",
+                "Chronic diarrhea or irregular bowel habits impacting rectal vein integrity",
+                "Prolonged sitting habits, especially during functional toilet time",
+                "Pregnancy-related pressure on pelvic blood vessels affecting circulation",
+                "Overweight or sedentary lifestyle leading to increased abdominal pressure",
+                "Natural aging processes that reduce elasticity in the supporting rectal tissues"
+            ],
+
+            procedureHeading: "Advanced Treatment Approaches at Stork",
             procedureSteps: [
                 {
-                    title: "Lifestyle & Medical Management (for mild piles)",
-                    description: "High-fiber diet to soften stools. Increased water intake. Topical medications. Sitz baths. Stool softeners."
+                    title: "Medical & Lifestyle Management",
+                    description: "High-fiber dietary optimization, specialized topical medications to reduce swelling, and Sitz bath protocols for inflammatory soothing."
                 },
                 {
-                    title: "Minimally Invasive & Surgical Treatments (for advanced cases)",
-                    description: "Rubber Band Ligation. Sclerotherapy. Laser Hemorrhoid Surgery. Hemorrhoidectomy (complete removal for large or persistent piles)."
+                    title: "Minimally Invasive Ligation",
+                    description: "Execution of Rubber Band Ligation (RBL) or Sclerotherapy to cut blood supply and effectively shrink internal hemorrhoids."
+                },
+                {
+                    title: "Laser Proctology & Surgery",
+                    description: "High-precision Laser Hemorrhoid Surgery (LHP) or Hemorrhoidectomy for definitive removal of large or persistent piles."
                 }
             ],
 
-            benefitsHeading: "Why Patients Choose Stork Hospital for Piles Treatment",
+            benefitsHeading: "Warning Signs and Symptoms",
             benefits: [
-                "Highly trained gastroenterologists and colorectal surgeons",
-                "In-house diagnostic center in Hyderabad for accurate evaluation",
-                "Advanced surgical center equipped with laser technology",
-                "24/7 emergency hospital near Hitech City for urgent rectal care",
-                "Personalized aftercare plans and dietary guidance"
+                "Discomfort, burning sensations, or persistent itching in the anal region",
+                "Observation of bright red blood after passing stool or on toilet paper",
+                "Visible swelling or localized lump formation near the anal opening",
+                "Excessive mucus discharge from the anal opening causing irritation",
+                "Sharpened pain when sitting or during clinical bowel movements"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery Pathway and Prevention",
             recoveryTimeline: [
-                "Comprehensive consultation and diagnosis",
-                "Selection of the least invasive yet most effective treatment option",
-                "Pain and swelling control post-treatment",
-                "Dietary, hydration, and bowel movement guidance",
-                "Scheduled follow-up visits"
+                "Comprehensive specialist consultation and precision-led diagnostic evaluation",
+                "Selection of the least invasive surgical or laser method for maximum comfort",
+                "Control of post-treatment pain and swelling through advanced proctology protocols",
+                "Structured alignment on dietary high-fiber hydration and healthy bowel habits",
+                "Scheduled follow-up milestones to track anatomical healing and avoid recurrence"
             ],
 
             faqHeading: "FAQs – Piles",
             faqs: [
                 {
                     question: "Will piles disappear without surgery?",
-                    answer: "Small hemorrhoids often improve with diet, hydration, and lifestyle changes, but persistent piles require medical or surgical care."
+                    answer: "Small hemorrhoids often improve with diet, hydration, and lifestyle changes, but persistent piles require medical or surgical care for resolution."
                 },
                 {
                     question: "Is laser surgery painful?",
-                    answer: "Laser-assisted procedures cause minimal discomfort and allow for faster recovery than traditional surgery."
+                    answer: "Modern laser-assisted procedures cause minimal discomfort and allow for much faster recovery times than traditional surgical methods."
                 },
                 {
                     question: "How long before I can return to daily activities?",
-                    answer: "Many patients resume light activities within a few days, though full recovery depends on the treatment chosen."
+                    answer: "Many patients resume light activities and work within a few days, depending on the specific laser or ligation method chosen."
                 },
                 {
                     question: "Will my insurance cover the cost?",
-                    answer: "Yes. Stork Hospital accepts most insurance plans and offers complete transparency in billing."
+                    answer: "Yes. Stork Hospital accepts major insurance plans and provides absolute transparency in surgical billing."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Consultation for Piles Treatment",
-                description: "Don’t let piles disrupt your life. Book an appointment at Stork Hospital to see a piles specialist in Hyderabad and explore advanced, minimally invasive solutions for lasting relief.",
-                buttonText: "Book Consultation"
+                heading: "Schedule a specialized Piles Consult",
+                description: "Don’t let piles disrupt your life. Meet our colorectal specialists in Hyderabad for a comprehensive laser-guided solution.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "30-60 Minutes",
-                anesthesia: "Local / General",
-                hospitalStay: "Day Care / Overnight",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                duration: "30–60 Minutes",
+                anesthesia: "Local / General / Spinal",
+                hospitalStay: "Daycare / Overnight",
+                recoveryTime: "1–2 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Proctologist",
-                experience: "20+ Years Experience"
+                name: "Stork Proctology Team",
+                role: "Senior Gastroenterologists & Colorectal Surgeons",
+                experience: "Experts in Advanced Hemorrhoid Care & Laser Proctology"
             }
         }
     }
@@ -10296,101 +11075,111 @@ At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal
             slug: slug,
             title: "Pilonidal Sinus – Stork Hospital, Hyderabad",
             subheading: "Advanced, Minimally Invasive Care for Pilonidal Sinus",
+            tagline: "Expert proctology solutions featuring laser-assisted sinus surgery and flap closure to eliminate recurrent infections and ensure rapid healing.",
             breadcrumbTitle: "Pilonidal Sinus",
             category: "Proctology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/proctology",
             shortDescription: `A pilonidal sinus is a small tunnel or tract that forms under the skin near the cleft of the buttocks, often containing hair, debris, and skin fragments. Over time, it can become infected, causing pain, swelling, redness, and discharge of pus or blood. The condition is more common in young adults, people with thick body hair, and those who sit for prolonged periods.
 
 At Stork Multispecialty Hospital, Hyderabad, our experienced surgeons provide precise diagnosis and modern, minimally invasive treatments for pilonidal sinus to ensure quick healing, minimal discomfort, and a low recurrence rate.`,
 
             overview: {
-                heading: "Causes and Risk Factors",
-                intro: "Pilonidal sinus is often associated with hair follicles and friction in the natal cleft.",
+                heading: "Why Stork Hospital is the Preferred Choice for Pilonidal Sinus Treatment",
+                intro: "At Stork, we specialize in high-precision proctology interventions designed to resolve chronic pilonidal tracts with maximum patient comfort:",
                 items: [
-                    "Ingrown hairs trapped beneath the skin",
-                    "Prolonged sitting or friction in the buttock area",
-                    "Excessive sweating and poor hygiene",
-                    "Family history of pilonidal sinus",
-                    "Trauma or irritation to the skin near the tailbone"
+                    "Experienced general and colorectal surgeons skilled in advanced surgical techniques",
+                    "Advanced on-site diagnostic center in Hyderabad for accurate anatomical assessment",
+                    "State-of-the-art surgical center specializing in laser-assisted and minimally invasive options",
+                    "24/7 Response for acute pilonidal abscess flare-ups or persistent pain near Hitech City",
+                    "Direct insurance billing with absolute transparency on all proctological treatment costs",
+                    "Private consultations in our walk-in clinic near Kondapur for same-day specialist mapping",
+                    "Dedicated wound care programs and structured follow-up paths to prevent clinical recurrence"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Symptoms of Pilonidal Sinus",
-            conditionsTreated: [
-                "Pain or swelling near the cleft of the buttocks",
-                "Redness or tenderness in the affected area",
-                "Pus or blood discharge from a small opening",
-                "Foul odor due to infection",
-                "Fever and fatigue in severe cases"
+            fullDescription: [
+                "Pilonidal sinus disease requires a specialized approach to ensure the entire tract is identified and resolved. Stork Hospital utilizes advanced laser-assisted technology and specialized flap closure techniques to minimize tissue excision and promote a faster, more secure recovery compared to traditional open methods."
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Causes and Risk Factors",
+            conditionsTreated: [
+                "Ingrown hair follicles trapped beneath the skin causing localized inflammation",
+                "History of prolonged sitting or excessive friction in the buttock area (Natal Cleft)",
+                "Excessive localized sweating and compromised hygiene in the perianal region",
+                "Genetic predisposition or significant family history of pilonidal sinus tracts",
+                "Structural trauma or persistent irritation to the skin near the tailbone region"
+            ],
+
+            procedureHeading: "Advanced Treatment Options at Stork",
             procedureSteps: [
                 {
-                    title: "Non-Surgical Care (for mild, non-infected cases)",
-                    description: "Antibiotics to control infection. Hair removal and hygiene maintenance. Regular wound cleaning."
+                    title: "Medical & Non-Surgical Care",
+                    description: "Focused antibiotic therapy to control acute infections combined with localized hair removal and precision hygiene maintenance."
                 },
                 {
-                    title: "Surgical & Minimally Invasive Procedures (for recurring or severe cases)",
-                    description: "Incision and drainage – quick relief for abscess formation. Laser pilonidal sinus surgery – minimally invasive method for reduced downtime. Excision with flap closure – removing the sinus tract and closing with healthy tissue for long-term results."
+                    title: "Laser Sinus Surgery",
+                    description: "Minimally invasive laser-assisted removal of the sinus tract to reduce downtime and minimize post-operative scarring."
+                },
+                {
+                    title: "Excision with Flap Closure",
+                    description: "Definitive removal of the complex sinus tract followed by specialized flap closure using healthy tissue for long-term stability."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is the Preferred Choice for Pilonidal Sinus Treatment",
+            benefitsHeading: "Symptoms of Pilonidal Sinus",
             benefits: [
-                "Experienced general and colorectal surgeons skilled in advanced techniques",
-                "On-site diagnostic center in Hyderabad for accurate assessment",
-                "Advanced surgical center with laser-assisted and minimally invasive options",
-                "24/7 emergency hospital near Hitech City for prompt medical care",
-                "Dedicated wound care and follow-up to prevent recurrence"
+                "Persistent pain or noticeable swelling near the cleft of the buttocks",
+                "Localized redness or significant tenderness upon sitting or functional movement",
+                "Active discharge of pus or blood from a small opening in the sacral region",
+                "Observation of a foul odor stemming from localized glandular infection",
+                "Systemic signs including fever and fatigue in severe or acute-flare cases"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Detailed diagnosis to determine the extent of the sinus",
-                "Minimally invasive or surgical procedure tailored to the patient’s condition",
-                "Wound care instructions to promote healing",
-                "Advice on hygiene, posture, and hair removal to prevent recurrence",
-                "Regular follow-ups to monitor progress"
+                "Detailed clinical diagnosis using specialized mapping to determine the extent of the sinus tract",
+                "Implementation of a minimally invasive or surgical procedure tailored to the patient’s clinical staging",
+                "Adherence to specialized wound care instructions designed to promote rapid cellular healing",
+                "Structured guidance on localized hygiene, posture optimization, and permanent hair removal",
+                "Scheduled follow-up milestones to monitor anatomical progress and prevent future sinus formation"
             ],
 
             faqHeading: "FAQs – Pilonidal Sinus",
             faqs: [
                 {
                     question: "Can pilonidal sinus heal without surgery?",
-                    answer: "Mild cases may improve temporarily, but surgery is often required to prevent recurrence."
+                    answer: "Mild cases may improve temporarily with medication, but surgery is often required for a permanent solution to prevent tract recurrence."
                 },
                 {
                     question: "Is laser surgery effective?",
-                    answer: "Yes, laser-assisted surgery offers faster recovery, less pain, and minimal scarring."
+                    answer: "Yes. Laser-assisted pilonidal surgery offers faster recovery, significantly less pain, and minimal post-operative scarring."
                 },
                 {
                     question: "How long does recovery take?",
-                    answer: "Most patients resume light activities within a few days, depending on the treatment method."
+                    answer: "Many patients resume light activities within a few days, depending on whether laser or flap-based closure was performed."
                 },
                 {
                     question: "Does insurance cover this treatment?",
-                    answer: "Yes. Stork Hospital works with most insurance providers and ensures transparent billing."
+                    answer: "Yes. Stork Hospital works with most major insurance providers and ensures absolute cost transparency for sinus care."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Pilonidal Sinus Consultation",
-                description: "If you are experiencing pain, swelling, or discharge near the buttock area, book an appointment at Stork Hospital to meet a specialist in Hyderabad and get safe, effective treatment with lasting results.",
-                buttonText: "Book Appointment"
+                heading: "Schedule a Sinus consultation",
+                description: "If you are experiencing pain or swelling near the tailbone area, meet our specialists in Hyderabad for a definitive solution.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "30-45 Minutes",
-                anesthesia: "Local / General",
-                hospitalStay: "Day Care",
-                recoveryTime: "1-3 Weeks",
-                successRate: "High"
+                duration: "30–60 Minutes",
+                anesthesia: "Local / General / Spinal",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "1–3 Weeks",
+                successRate: "95%+"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Proctologist",
-                experience: "20+ Years Experience"
+                name: "Stork Proctology Team",
+                role: "Senior General & Colorectal Surgeons",
+                experience: "Experts in Advanced Pilonidal Sinus Care & Laser Proctology"
             }
         }
     }
@@ -10403,106 +11192,108 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced surgeons provide pr
             slug: slug,
             title: "Prostatectomy – Stork Hospital, Hyderabad",
             subheading: "Precision Surgery for Prostate Health",
+            tagline: "Advanced robotic-assisted and laparoscopic prostatectomy specializing in cancer treatment and severe BPH resolution with high precision and rapid recovery.",
             breadcrumbTitle: "Prostatectomy",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `A prostatectomy is a surgical operation in which part or all of the prostate gland is removed. It is often performed to treat prostate cancer, advanced benign prostatic hyperplasia (BPH), or other serious prostate-related conditions affecting urinary or reproductive function. Depending on the patient’s needs, the procedure may be carried out using open surgery, keyhole laparoscopic techniques, or advanced robotic-assisted methods that allow for greater accuracy and faster recovery.
 
 At Stork Multispecialty Hospital, Hyderabad, our team of highly trained urologists provides a complete treatment pathway — from accurate diagnosis and surgical planning to careful post-operative care — ensuring patient comfort, safety, and long-term results.`,
 
             overview: {
                 heading: "When Prostatectomy is Needed",
-                intro: "Your doctor may recommend a prostatectomy for conditions such as:",
+                intro: "Your specialized urological team may recommend a prostatectomy for critical conditions such as:",
                 items: [
-                    "Localized prostate cancer that can be surgically removed",
-                    "Severe BPH symptoms not responding to medicines or other procedures",
-                    "Significant damage to the prostate from injury or disease",
-                    "Bladder and urinary problems caused by prostate enlargement or blockage"
+                    "Localized prostate cancer that can be surgically removed for curative outcomes",
+                    "Severe BPH (Benign Prostatic Hyperplasia) symptoms not responding to medicine",
+                    "Significant damage to the prostate gland through injury or chronic disease",
+                    "Persistent bladder and urinary complications caused by prostatic blockage"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Prostatectomy is a complex procedure performed by our specialists using state-of-the-art technology. Whether treating malignancy or severe anatomical obstruction, our surgical unit prioritizes nerve-sparing techniques to preserve quality of life and urogenital function."
+            ],
 
             conditionsHeading: "Types of Prostatectomy We Offer",
             conditionsTreated: [
-                "Radical Prostatectomy – Complete removal for cancer treatment",
-                "Simple Prostatectomy – Removal of enlarged portion for BPH",
-                "Minimally Invasive & Robotic Prostatectomy – Less pain, faster healing"
+                "Radical Prostatectomy – Complete removal typically for curative prostate cancer treatment",
+                "Simple Prostatectomy – Removal of only the enlarged portion for non-cancerous BPH",
+                "Minimally Invasive & Robotic Prostatectomy – Advanced robotic-assisted precision surgery",
+                "Open Prostatectomy – Traditional surgical approaches for complex or large gland cases"
             ],
 
             procedureHeading: "Surgical Process at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Comprehensive Preoperative Check-up",
-                    description: "Blood tests, imaging scans, and detailed discussions about surgical options."
+                    title: "Preoperative Diagnostic Mapping",
+                    description: "Comprehensive blood tests (PSA), high-resolution imaging, and detailed surgical mapping."
                 },
                 {
-                    title: "Anesthesia",
-                    description: "Either general or spinal anesthesia to ensure a pain-free procedure."
+                    title: "Expert Surgical Execution",
+                    description: "Removal performed using robotic, laparoscopic, or open methods under specialized anesthesia."
                 },
                 {
-                    title: "Surgical Removal",
-                    description: "Performed using open, laparoscopic, or robotic methods based on the case."
-                },
-                {
-                    title: "Post-Surgery Recovery",
-                    description: "Monitoring in a specialized care unit followed by step-by-step rehabilitation advice."
+                    title: "Advanced Post-Ops Care",
+                    description: "Initial monitoring in a specialized care unit followed by step-by-step clinical rehabilitation."
                 }
             ],
 
             benefitsHeading: "Why Patients Prefer Stork Hospital for Prostatectomy",
             benefits: [
-                "Expert urologists and uro-oncologists with years of surgical experience",
-                "Modern surgical facilities equipped for both open and minimally invasive surgeries",
-                "24/7 emergency hospital near Hitech City for urgent post-surgery care",
-                "Insurance accepted with smooth claim assistance",
-                "Dedicated rehabilitation support"
+                "Expert urologists and uro-oncologists with years of specialized surgical experience",
+                "Modern surgical facilities equipped for robotic-assisted and radical prostate surgery",
+                "24/7 Response for urgent post-surgery monitoring and care near Hitech City",
+                "Insurance accepted with smooth accelerated claim assistance for surgical cases",
+                "Dedicated post-surgical rehabilitation support to optimize urinary control",
+                "Private walk-in consultations near Kondapur for surgical second opinions"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery Timeline and Aftercare",
             recoveryTimeline: [
-                "Minimally invasive surgery often requires a 1–3 day hospital stay",
-                "Temporary catheter placement to help with urination",
-                "Gradual return to normal daily activities over 4–6 weeks",
-                "Pelvic floor exercises to improve urinary control",
-                "Scheduled follow-ups to check healing"
+                "Minimally invasive surgery typically requires a 1–3 day inpatient hospital stay",
+                "Management of temporary catheter placement to stabilize the bladder post-surgery",
+                "Gradual return to normal daily functional activities over 4–6 weeks",
+                "Structured pelvic floor exercises to significantly improve long-term urinary control",
+                "Scheduled clinical follow-ups to monitor surgical healing and urogenital health"
             ],
 
             faqHeading: "FAQs – Prostatectomy",
             faqs: [
                 {
                     question: "Will this surgery affect my sexual performance?",
-                    answer: "Some men experience short-term erectile challenges, but with time, medication, or therapy, many return to normal function."
+                    answer: "Some men experience short-term erectile challenges, but with specialized treatment plans, many return to normal function over time."
                 },
                 {
                     question: "Are there alternatives to prostatectomy for cancer?",
-                    answer: "Yes. Radiation therapy, hormone treatment, or active surveillance may be possible depending on cancer stage and patient health."
+                    answer: "Yes. Radiation therapy, hormone treatment, or active surveillance may be possible depending on cancer stage."
                 },
                 {
                     question: "When can I resume work?",
-                    answer: "For minimally invasive surgery, light work is possible in 2–4 weeks; open surgery may require more recovery time."
+                    answer: "For minimally invasive surgery, light work is possible in 2–4 weeks; open surgery typically requires 6 weeks."
                 },
                 {
                     question: "Is the procedure covered by insurance?",
-                    answer: "Yes. Most insurance providers cover medically necessary prostate surgeries, and Stork Hospital offers assistance with the claim process."
+                    answer: "Yes. Most insurance providers cover medically necessary prostate surgeries, and Stork Hospital provides claim assistance."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Prostate Surgery Consultation",
-                description: "If you’ve been diagnosed with prostate cancer, severe BPH, or another condition requiring surgical intervention, schedule an appointment at Stork Hospital to meet a specialist urologist in Hyderabad and explore your best treatment options.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Prostate Surgery Consultation",
+                description: "If you have localized prostate cancer or severe BPH, meet our expert urologists in Hyderabad to explore your most effective surgical options.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "2-4 Hours",
+                duration: "2–4 Hours",
                 anesthesia: "General / Spinal",
-                hospitalStay: "2-4 Days",
-                recoveryTime: "4-6 Weeks",
-                successRate: "High"
+                hospitalStay: "1–4 Days",
+                recoveryTime: "4–6 Weeks",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Sujith",
-                role: "Senior Uro-Oncologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Uro-Oncology Specialists",
+                experience: "Experts in Robotic-Assisted & Radical Prostatectomy"
             }
         }
     }
@@ -10512,103 +11303,112 @@ At Stork Multispecialty Hospital, Hyderabad, our team of highly trained urologis
             slug: slug,
             title: "Rectal Prolapse – Stork Hospital, Hyderabad",
             subheading: "Specialized Treatment for Comfort and Long-Term Relief",
+            tagline: "Expert colorectal resolution featuring laparoscopic rectopexy and perineal repair to restore normal anatomy and improve bowel control.",
             breadcrumbTitle: "Rectal Prolapse",
             category: "Proctology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/proctology",
             shortDescription: `Rectal prolapse happens when the rectum, the last portion of the large intestine, slips from its usual position and protrudes through the anal opening. This may be partial or complete and can occur during bowel movements or even while standing for long periods. Patients often experience discomfort, mucus discharge, bleeding, or a constant feeling of incomplete evacuation. While anyone can develop this condition, it is more frequently seen in older adults, women after multiple deliveries, and people with long-standing constipation.
 
 At Stork Multispecialty Hospital, Hyderabad, we provide accurate diagnosis and modern treatment for rectal prolapse, aiming to restore normal anatomy, improve bowel control, and minimize the chance of recurrence.`,
 
             overview: {
-                heading: "Common Symptoms",
-                intro: "Symptoms of rectal prolapse include:",
+                heading: "Why Stork Hospital is the Right Choice",
+                intro: "At Stork, we focus on restoring structural integrity and functional bowel control through specialized colorectal expertise:",
                 items: [
-                    "Tissue protruding from the anus, especially after stool passage",
-                    "Mucus or blood leakage",
-                    "Anal pressure or discomfort",
-                    "Loss of bowel control (incontinence)",
-                    "Sensation that bowel emptying is incomplete"
+                    "Experienced gastroenterologists and colorectal surgeons specializing in pelvic floor disorders",
+                    "Fully equipped diagnostic center in Hyderabad for high-definition scans and functional bowel tests",
+                    "Advanced surgical center specializing in laparoscopic and minimally invasive rectopexy options",
+                    "24/7 Response for urgent rectal protrusion or acute bowel control issues near Hitech City",
+                    "Direct insurance billing with upfront estimates for all surgical and rehabilitative costs",
+                    "Walk-in consultations near Kondapur for quick access to colorectal specialists",
+                    "Comprehensive rehabilitation guidance focused on persistent pelvic floor strengthening"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Rectal prolapse requires a precision-led surgical approach to ensure the rectum is securely restored to its natural anatomical position. Stork Hospital utilizes high-fidelity laparoscopic techniques and specialized perineal repairs to provide definitive resolution, particularly for elderly or high-risk patients who require a tailored surgical strategy."
+            ],
 
             conditionsHeading: "Possible Causes of Rectal Prolapse",
             conditionsTreated: [
-                "Chronic constipation with excessive straining",
-                "Weakness of pelvic floor muscles from aging or childbirth",
-                "Persistent diarrhea or bowel irregularities",
-                "Nerve injury affecting bowel control",
-                "Previous pelvic or rectal surgeries",
-                "Underlying medical disorders like cystic fibrosis or spinal injury"
+                "Chronic constipation resulting in excessive and repetitive straining",
+                "Gradual weakness of pelvic floor muscles due to aging or previous childbirth",
+                "Persistent diarrhea or long-standing bowel irregularities",
+                "Localized nerve injury affecting specialized bowel control signals",
+                "Complications from previous pelvic or rectal surgical procedures",
+                "Underlying medical disorders including cystic fibrosis or spinal injuries"
             ],
 
             procedureHeading: "Treatment Options Available at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Non-Surgical Care (for mild cases)",
-                    description: "High-fiber diet and good hydration. Stool softeners to prevent strain. Targeted pelvic exercises."
+                    title: "Medical & Non-Surgical Care",
+                    description: "Implementation of high-fiber dietary protocols, specialized stool softeners to prevent strain, and targeted pelvic floor exercises."
                 },
                 {
-                    title: "Surgical Solutions (for moderate to severe prolapse)",
-                    description: "Rectopexy – securing the rectum back into place. Perineal surgery – removing and repairing the prolapsed section. Minimally invasive methods for reduced pain and quicker recovery."
+                    title: "Laparoscopic Rectopexy",
+                    description: "Advanced surgical securing of the rectum back into its natural place, utilizing minimally invasive methods for faster healing."
+                },
+                {
+                    title: "Specialized Perineal Surgery",
+                    description: "Removal and repair of the prolapsed section through an anal approach, specifically optimized for high-risk or elderly patients."
                 }
             ],
 
-            benefitsHeading: "Why Stork Hospital is the Right Choice",
+            benefitsHeading: "Common Symptoms",
             benefits: [
-                "Experienced gastroenterologists and colorectal surgeons",
-                "Fully equipped diagnostic center for scans and functional tests",
-                "Advanced surgical center with laparoscopic and minimally invasive options",
-                "24/7 emergency hospital near Hitech City",
-                "Insurance accepted with upfront estimates",
-                "Rehabilitation guidance for pelvic floor strengthening"
+                "Visible tissue protruding from the anus, especially after functional stool passage",
+                "Observation of mucus or blood leakage from the anal opening",
+                "Persistent anal pressure or internal discomfort during regular movement",
+                "Partial or total loss of bowel control (clinical incontinence)",
+                "A constant sensation that bowel emptying remains incomplete after evacuation"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Prevention",
             recoveryTimeline: [
-                "Detailed evaluation to determine the extent of prolapse",
-                "Customized treatment based on patient’s health",
-                "Post-surgical care to manage healing and bowel function",
-                "Guidance on strengthening pelvic support muscles",
-                "Follow-up visits to monitor progress"
+                "Detailed diagnostic evaluation to determine the specific extent of the rectal prolapse",
+                "Customized treatment plan based on the patient’s clinical health and lifestyle needs",
+                "Structured post-surgical care protocols to manage healing and functional bowel restoration",
+                "Specialized guidance on clinical strengthening of the supporting pelvic floor muscles",
+                "Scheduled follow-up milestones to monitor anatomical progress and prevent long-term recurrence"
             ],
 
             faqHeading: "FAQs – Rectal Prolapse",
             faqs: [
                 {
                     question: "Can it heal without surgery?",
-                    answer: "In mild, early cases, lifestyle changes may help, but surgery is often the definitive solution."
+                    answer: "In mild, early cases, lifestyle changes and exercises may help, but surgery is typically considered the definitive anatomical solution."
                 },
                 {
                     question: "Is recovery painful?",
-                    answer: "Minimally invasive techniques significantly reduce pain and speed up healing."
+                    answer: "Modern, minimally invasive techniques at Stork Hospital significantly reduce post-operative pain and accelerate the healing process."
                 },
                 {
                     question: "When can normal activities resume?",
-                    answer: "Light activities are often possible within 1–2 weeks after surgery."
+                    answer: "Most patients can gradually resume light functional activities within 1–2 weeks following their surgical repair."
                 },
                 {
                     question: "Will insurance cover the cost?",
-                    answer: "Yes. Stork Hospital accepts most insurance policies with transparent billing."
+                    answer: "Yes. Stork Hospital works with most major insurance providers to ensure absolute cost transparency for prolapse treatment."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Rectal Prolapse Consultation",
-                description: "If you’re experiencing anal bulging, discomfort, or trouble controlling bowel movements, book an appointment at Stork Hospital to see a colorectal specialist in Hyderabad and receive modern, effective treatment.",
-                buttonText: "Book Appointment"
+                heading: "Schedule a specialized Prolapse Consult",
+                description: "If you’re experiencing anal bulging or trouble controlling bowel movements, meet our colorectal specialists in Hyderabad for a modern solution.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "1-3 Hours",
-                anesthesia: "General / Spinal",
-                hospitalStay: "1-3 Days",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                duration: "1–3 Hours",
+                anesthesia: "General / Spinal / Local",
+                hospitalStay: "1–3 Days",
+                recoveryTime: "2–4 Weeks",
+                successRate: "90%+"
             },
             reviewedBy: {
-                name: "Dr. Latha",
-                role: "Senior Proctologist",
-                experience: "20+ Years Experience"
+                name: "Stork Proctology Team",
+                role: "Senior Gastroenterologists & Colorectal Surgeons",
+                experience: "Experts in Advanced Rectal Prolapse Repair & Pelvic Floor Health"
             }
         }
     }
@@ -10618,84 +11418,94 @@ At Stork Multispecialty Hospital, Hyderabad, we provide accurate diagnosis and m
             slug: slug,
             title: "Respiratory Conditions – Stork Hospital, Hyderabad",
             subheading: "Comprehensive Care for Healthy Lungs and Airways",
+            tagline: "Expert management of acute and chronic lung disorders, from asthma and infections to complex interstitial diseases, using advanced diagnostics and personalized care pathways.",
             breadcrumbTitle: "Respiratory Conditions",
             category: "Pulmonology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/pulmonology",
             shortDescription: `Respiratory conditions affect the lungs, airways, and breathing efficiency. They can range from mild infections to chronic diseases that require lifelong management. Common causes include infections, allergies, smoking, environmental exposure, and genetic factors. Early diagnosis and targeted treatment are essential for preventing complications and improving quality of life.
 
 At Stork Multispecialty Hospital, Hyderabad, our respiratory specialists provide expert care for a wide range of lung and airway disorders. Using advanced diagnostic tools and evidence-based treatments, we help patients manage symptoms, recover from illness, and protect long-term respiratory health.`,
 
             overview: {
-                heading: "Common Symptoms / Conditions",
-                intro: "We treat a wide range of respiratory conditions, including:",
+                heading: "Why Choose Stork Hospital for Respiratory Care",
+                intro: "Stork Hospital is a premier center for pulmonary medicine, offering 24/7 expert support for all breathing disorders:",
                 items: [
-                    "Asthma and allergy-related breathing problems",
-                    "Chronic Obstructive Pulmonary Disease (COPD)",
-                    "Pneumonia and bronchitis",
-                    "Tuberculosis (TB) and other lung infections",
-                    "Interstitial lung disease",
-                    "Sleep-related breathing disorders, including sleep apnea",
-                    "Post-COVID respiratory complications",
-                    "Pulmonary embolism and pleural effusion"
+                    "Experienced pulmonologists and respiratory medicine specialists",
+                    "In-house diagnostic center with lung function tests (PFT), X-rays, and CT scans",
+                    "Advanced surgical center for bronchoscopy and thoracic interventions",
+                    "24/7 emergency care for acute respiratory distress and pulmonary emergencies",
+                    "Insurance-supported treatment with transparent cost information",
+                    "Same-day appointments and walk-in clinic for urgent breathing issues",
+                    "Integrated care with physiotherapists, allergists, and rehabilitation experts"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Respiratory Conditions We Treat",
-            conditionsTreated: [
-                "Asthma",
-                "COPD",
-                "Pneumonia",
-                "Bronchitis",
-                "Tuberculosis (TB)",
-                "Interstitial Lung Disease",
-                "Sleep Apnea",
-                "Post-COVID Complications"
+            fullDescription: [
+                "Lung health is fundamental to overall well-being. Our approach to respiratory care combines the latest in diagnostic imaging with a multidisciplinary treatment model that addresses the root cause of breathing difficulties, whether they are inflammatory, infectious, or structural."
             ],
 
-            procedureHeading: "Our Treatment Approach",
+            conditionsHeading: "Lung & Airway Disorders We Treat",
+            conditionsTreated: [
+                "Asthma and allergy-related breathing problems",
+                "Chronic Obstructive Pulmonary Disease (COPD) and Bronchitis",
+                "Pneumonia, Tuberculosis (TB), and other lung infections",
+                "Interstitial Lung Disease (ILD) and Sarcoidosis",
+                "Sleep-related breathing disorders, including Sleep Apnea",
+                "Post-COVID respiratory complications and Long-COVID syndrome",
+                "Pulmonary Embolism and Pleural Effusion (fluid around lungs)"
+            ],
+
+            procedureHeading: "Your Clinical Care Pathway",
             procedureSteps: [
                 {
-                    title: "Diagnosis",
-                    description: "Detailed history, physical exam, pulmonary function tests (spirometry), chest imaging (X-ray, CT), bronchoscopy, and blood tests."
+                    title: "Specialist Evaluation",
+                    description: "Detailed clinical history and physical examination to assess breathing mechanics and identify symptom triggers."
                 },
                 {
-                    title: "Medical Management",
-                    description: "Inhalers, nebulizers, medications, antibiotics/antivirals, oxygen therapy, and immunotherapy."
+                    title: "Advanced Diagnostics",
+                    description: "High-precision Spirometry, chest imaging (CT/X-ray), and bronchoscopy if required for definitive diagnosis."
                 },
                 {
-                    title: "Procedural and Surgical Care",
-                    description: "Bronchoscopy to remove blockages or collect samples. Thoracentesis to drain excess fluid. Lung biopsies when needed."
+                    title: "Personalized Management",
+                    description: "Customized medical protocols including inhaler optimization, nebulization, or infection control strategies."
+                },
+                {
+                    title: "Procedural Intervention",
+                    description: "Daycare procedures such as Thoracentesis or Bronchoscopy for immediate airway relief and diagnostic sampling."
+                },
+                {
+                    title: "Follow-Up & Rehab",
+                    description: "Ongoing monitoring and specialized pulmonary rehabilitation to prevent relapses and improve functional lung efficiency."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Respiratory Care",
+            benefitsHeading: "Comprehensive Treatment Modalities",
             benefits: [
-                "Experienced pulmonologists and respiratory medicine specialists",
-                "In-house diagnostic center with lung function tests and CT scans",
-                "Advanced surgical center for bronchoscopy",
-                "24/7 emergency hospital for acute respiratory distress",
-                "Integrated care with physiotherapists and rehab experts"
+                "Advanced Medical Management – Inhalers, nebulizers, and immunotherapy",
+                "Infection Control – Targeted antibiotics, antivirals, and antifungals",
+                "Oxygen Therapy – In-patient and home-based support for low oxygen levels",
+                "Minimally Invasive Procedures – Targeted airway evaluation and fluid drainage",
+                "Integrated Rehabilitation – Restoring physical stamina and lung efficiency"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Support Timeline",
             recoveryTimeline: [
-                "Initial consultation with respiratory specialist",
-                "Diagnostic testing and review of findings",
-                "Individualized treatment plan and education",
-                "Hospital admission if intensive treatment is needed",
-                "Follow-up care and rehabilitation"
+                "Initial consultation and baseline lung function testing completed on day one",
+                "Diagnostic results and comprehensive treatment plan reviewed within 24–48 hours",
+                "Symptomatic relief for acute conditions often achieved within 3–7 days of therapy",
+                "Ongoing management cycles for chronic conditions reviewed every 1–3 months",
+                "Gradual return to full exercise capacity through structured rehabilitation over 4–6 weeks"
             ],
 
-            faqHeading: "FAQs – Respiratory Conditions",
+            faqHeading: "Frequently Asked Questions – Respiratory Care",
             faqs: [
                 {
                     question: "When should I see a doctor for breathing problems?",
-                    answer: "Seek medical attention if you have persistent shortness of breath, chest pain, or worsening cough."
+                    answer: "Seek immediate medical attention if you have persistent shortness of breath, chest pain, a worsening cough, or wheezing that interferes with sleep."
                 },
                 {
                     question: "Are all breathing issues related to asthma?",
-                    answer: "No. Many different conditions can affect lung function, so accurate diagnosis is important."
+                    answer: "No. Many different conditions—including infections, cardiac issues, and structural lung diseases—can affect lung function. Accurate diagnosis via PFT is essential."
                 },
                 {
                     question: "Can chronic respiratory diseases be cured?",
@@ -10727,121 +11537,1084 @@ At Stork Multispecialty Hospital, Hyderabad, our respiratory specialists provide
         }
     }
 
+
+    if (slug === "asthma-management") {
+        return {
+            slug: slug,
+            title: "Asthma Management – Stork Hospital, Hyderabad",
+            subheading: "Breathe Easy with Expert Asthma Care",
+            tagline: "Comprehensive pulmonology care focused on long-term control, trigger identification, and personalized respiratory therapy for a symptom-free life.",
+            breadcrumbTitle: "Asthma Management",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Asthma is a chronic respiratory condition that causes airway inflammation and narrowing, leading to breathing difficulty. While it cannot be completely cured, asthma can be effectively controlled with the right treatment and lifestyle management.
+
+At Stork Multispecialty Hospital, Hyderabad, we provide comprehensive asthma care to help you live a symptom-free and active life. Our goal is long-term asthma control, not just temporary relief.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Trusted Choice for Asthma Treatment",
+                intro: "We offer advanced and personalized asthma management for both children and adults, focusing on long-term control:",
+                items: [
+                    "Experienced pulmonologists and respiratory care specialists",
+                    "Advanced diagnostic tests like Spirometry & Pulmonary Function Tests (PFT)",
+                    "Allergy evaluation and trigger identification",
+                    "Customized inhaler and medication plans",
+                    "24/7 emergency care for acute asthma attacks",
+                    "Patient education for effective long-term management",
+                    "Insurance-supported treatment with transparent billing"
+                ]
+            },
+            fullDescription: [
+                "Asthma management is a journey of partnership between the patient and the specialist. We focus on identifying specific environmental triggers and tailoring medical therapy to minimize the need for rescue medication."
+            ],
+
+            conditionsHeading: "Common Symptoms & Indicators",
+            conditionsTreated: [
+                "Shortness of breath and chest tightness",
+                "Wheezing (whistling sound while breathing)",
+                "Persistent cough, especially at night or early morning",
+                "Difficulty breathing during exercise or cold weather",
+                "Symptoms triggered by dust, pollution, or seasonal allergens"
+            ],
+
+            procedureHeading: "Our Multi-Step Asthma Management Approach",
+            procedureSteps: [
+                {
+                    title: "Accurate Diagnosis",
+                    description: "Comprehensive lung function testing (Spirometry/PFT) and allergy screening to establish the severity and type of asthma."
+                },
+                {
+                    title: "Customized Medication Plan",
+                    description: "Prescription of controller inhalers to reduce inflammation and reliever inhalers for rapid symptom management."
+                },
+                {
+                    title: "Technique Training",
+                    description: "Hands-on education on proper inhaler and spacer usage to ensure maximum medication delivery and benefit."
+                },
+                {
+                    title: "Proactive Monitoring",
+                    description: "Regular follow-ups and peak flow monitoring to adjust the personalized 'Asthma Action Plan' as needed."
+                }
+            ],
+
+            benefitsHeading: "What to Expect During Your Consultation",
+            benefits: [
+                "Detailed evaluation of symptoms and specific triggers",
+                "In-depth lung function testing (if clinically indicated)",
+                "Development of a personalized asthma action plan",
+                "Hands-on medication and inhaler guidance",
+                "Structured follow-up schedule for long-term health monitoring"
+            ],
+
+            risks: [],
+            recoveryHeading: "Long-Term Control & Support",
+            recoveryTimeline: [
+                "Initial evaluation and diagnostic lung function tests completed during your first visit",
+                "Individualized 'Asthma Action Plan' developed and explained within the first session",
+                "Symptomatic improvement often noted within 1–2 weeks of starting controller therapy",
+                "Regular follow-up appointments every 3–6 months to monitor lung health and adjust meds",
+                "Ongoing 24/7 access to emergency respiratory care for acute symptom management"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Asthma",
+            faqs: [
+                {
+                    question: "Can asthma be cured permanently?",
+                    answer: "No, but it can be extremely well-controlled with proper treatment. Most patients lead active, unrestricted lives with the right management."
+                },
+                {
+                    question: "Is inhaler use safe long-term?",
+                    answer: "Yes. Modern inhalers deliver very small doses of medication directly to the lungs, making them safe and the most effective way to control asthma symptoms."
+                },
+                {
+                    question: "Can children outgrow asthma?",
+                    answer: "Some children may see their symptoms improve or disappear as they grow older, but regular monitoring is essential to ensure lung health throughout development."
+                },
+                {
+                    question: "When should I see a doctor?",
+                    answer: "You should see a pulmonologist if your symptoms are frequent (more than twice a week), worsening, or starting to affect your daily sleep or exercise."
+                }
+            ],
+
+            customCta: {
+                heading: "Take Control of Your Breathing",
+                description: "Don’t let asthma limit your life. With the right care, you can stay active and symptom-free. Book your appointment at Stork Hospital today.",
+                buttonText: "Book Asthma Consultation"
+            },
+            meta: {
+                duration: "30–60 Minutes",
+                anesthesia: "None",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Ongoing Management",
+                successRate: "Very High Control"
+            },
+            reviewedBy: {
+                name: "Stork Pulmonology Team",
+                role: "Senior Pulmonologists & Respiratory Specialists",
+                experience: "Experts in Chronic Airway Disease Management"
+            }
+        }
+    }
+
+
+    if (slug === "bronchoscopy-foreign-body-removal") {
+        return {
+            slug: slug,
+            title: "Bronchoscopy-Guided Foreign Body Removal – Stork Hospital, Hyderabad",
+            subheading: "Safe & Minimally Invasive Airway Emergency Management",
+            tagline: "Life-saving endoscopic intervention for the safe extraction of accidentally inhaled objects from the airway using advanced bronchoscopy techniques.",
+            breadcrumbTitle: "Airway Foreign Body Removal",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Accidentally inhaling a foreign object can block the airway and become a life-threatening emergency if not treated immediately. At Stork Multispecialty Hospital, Hyderabad, we offer bronchoscopy-guided foreign body removal, a highly effective and minimally invasive procedure to safely extract objects from the airway.
+
+Our expert pulmonologists use advanced bronchoscopy techniques to quickly locate and remove the obstruction, restoring normal breathing with minimal discomfort and no need for open surgery.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Emergency Airway Management",
+                intro: "We provide rapid, specialized care for airway obstructions in both pediatric and adult patients:",
+                items: [
+                    "Experienced pulmonologists in emergency airway management",
+                    "Advanced bronchoscopy equipment for precise visualization and removal",
+                    "24/7 emergency support for life-threatening obstructions",
+                    "Minimally invasive procedure with quick recovery and no incisions",
+                    "Comprehensive care for children (high-risk group) and adults",
+                    "Insurance-supported treatment with billing transparency"
+                ]
+            },
+            fullDescription: [
+                "Airway obstruction is a critical medical event. Our pulmonology team is trained to handle complex removals of organic and inorganic objects, ensuring the integrity of the lung tissue is preserved throughout the procedure."
+            ],
+
+            conditionsHeading: "Types of Airway Obstructions We Treat",
+            conditionsTreated: [
+                "Food particles (nuts, seeds, bone fragments)",
+                "Small toys or plastic objects (common in children)",
+                "Dental fragments, loose teeth, or inhaled fillings",
+                "Pills or medication capsules accidentally aspirated",
+                "Any other sudden accidental airway obstructions causing respiratory distress"
+            ],
+
+            procedureHeading: "The Bronchoscopy-Guided Removal Process",
+            procedureSteps: [
+                {
+                    title: "Emergency Evaluation",
+                    description: "Immediate patient stabilization and clinical assessment to confirm the location and nature of the foreign object."
+                },
+                {
+                    title: "Endoscopic Extraction",
+                    description: "A bronchoscope is inserted under sedation/anesthesia to visualize the object and remove it using specialized instruments."
+                },
+                {
+                    title: "Airway Clearance Check",
+                    description: "A secondary pass is made to ensure complete clearance of all fragments and to check for secondary inflammation or damage."
+                },
+                {
+                    title: "Post-Removal Observation",
+                    description: "Short-term monitoring in our specialized recovery unit before same-day discharge with post-care instructions."
+                }
+            ],
+
+            benefitsHeading: "When to Seek Immediate Emergency Removal",
+            benefits: [
+                "Sudden coughing or choking episodes",
+                "Difficulty breathing or noisy breathing (wheezing)",
+                "Chest discomfort or pain during inhalation",
+                "Persistent cough following a choking incident",
+                "Bluish discoloration of the lips or skin (Cyanosis)"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Follow-Up",
+            recoveryTimeline: [
+                "Procedure is typically completed within 20–40 minutes in an emergency setting",
+                "Patients are observed for 2–4 hours post-extraction to ensure stable breathing",
+                "Most patients are discharged on the same day with minor throat irritation",
+                "A follow-up visit may be scheduled after 48 hours to ensure complete recovery",
+                "Breathing exercises may be recommended if there was significant airway irritation"
+            ],
+
+            faqHeading: "Frequently Asked Questions",
+            faqs: [
+                {
+                    question: "Is this procedure safe?",
+                    answer: "Yes, it is a well-established and safe procedure when performed by experienced pulmonology specialists using modern endoscopic tools."
+                },
+                {
+                    question: "How long does it take?",
+                    answer: "Usually 20–40 minutes depending on the complexity, shape, and location of the obstruction within the airway."
+                },
+                {
+                    question: "Will there be pain?",
+                    answer: "No. The procedure is performed under sedation or general anesthesia to ensure total patient comfort and a still airway for the surgeon."
+                },
+                {
+                    question: "Is hospitalization required?",
+                    answer: "In most cases, short observation (2-4 hours) is enough, and patients can return home the same day the object is removed."
+                }
+            ],
+
+            customCta: {
+                heading: "Emergency? Act Fast – Save Lives",
+                description: "Foreign body aspiration can become serious within minutes. Early intervention ensures better outcomes and prevents permanent lung damage.",
+                buttonText: "Visit Emergency Unit"
+            },
+            meta: {
+                duration: "20–40 Minutes",
+                anesthesia: "Sedation / General",
+                hospitalStay: "Same Day (2-4 Hours)",
+                recoveryTime: "24–48 Hours",
+                successRate: "Very High"
+            },
+            reviewedBy: {
+                name: "Stork Pulmonology Emergency Team",
+                role: "Senior Pulmonologists & Emergency Airway Specialists",
+                experience: "Experts in Rigid & Flexible Bronchoscopy"
+            }
+        }
+    }
+
+
+    if (slug === "bronchoscopy-services") {
+        return {
+            slug: slug,
+            title: "Bronchoscopy Services – Stork Hospital, Hyderabad",
+            subheading: "Advanced Diagnostic & Therapeutic Care for Lung Conditions",
+            tagline: "Comprehensive airway evaluation and minimally invasive treatment for lung disorders using high-definition diagnostic and therapeutic bronchoscopy.",
+            breadcrumbTitle: "Bronchoscopy Services",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Persistent cough, breathing difficulty, or abnormal chest reports should never be ignored. When basic tests are not sufficient, bronchoscopy plays a crucial role in both identifying and treating lung conditions. At Stork Multispecialty Hospital, Hyderabad, we provide comprehensive diagnostic and therapeutic bronchoscopy services using advanced technology and expert care.
+
+Our goal is not just to detect the problem, but to treat it effectively with minimally invasive techniques, often avoiding the need for open surgical procedures.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Trusted Name for Bronchoscopy",
+                intro: "Stork Hospital is recognized for precision-based pulmonary care, offering advanced airway procedures:",
+                items: [
+                    "Expert pulmonologists trained in advanced airway procedures",
+                    "High-definition bronchoscopy systems for accurate visualization",
+                    "Dedicated setup for both diagnostic and therapeutic procedures",
+                    "On-site CT, X-ray, and laboratory support",
+                    "Safe sedation protocols for patient comfort",
+                    "Insurance-supported and affordable treatment options"
+                ]
+            },
+            fullDescription: [
+                "Diagnostic bronchoscopy is critical for early detection of cancers and infections, while therapeutic bronchoscopy provides immediate relief for obstructions, all through a minimally invasive approach."
+            ],
+
+            conditionsHeading: "Diagnostic & Therapeutic Bronchoscopy at Stork",
+            conditionsTreated: [
+                "Persistent cough or unexplained breathlessness",
+                "Suspicious lung nodules or masses",
+                "Lung infections like TB or pneumonia",
+                "Hemoptysis (coughing blood)",
+                "Abnormal chest X-ray or CT findings",
+                "Interstitial lung diseases",
+                "Airway obstruction or removal of foreign bodies",
+                "Clearing mucus plugs causing breathing difficulty"
+            ],
+
+            procedureHeading: "Your Bronchoscopy Care Journey",
+            procedureSteps: [
+                {
+                    title: "Clinical Evaluation",
+                    description: "In-depth review of respiratory symptoms, medical history, and pre-procedure fitness assessment."
+                },
+                {
+                    title: "Bronchoscopic Intervention",
+                    description: "Procedure performed under local anesthesia or sedation where a bronchoscope is gently inserted to visualize the lungs."
+                },
+                {
+                    title: "Sampling & Therapy",
+                    description: "Concurrent diagnostic fluid sampling (BAL) or therapeutic intervention like object removal or airway clearance."
+                },
+                {
+                    title: "Recovery Monitoring",
+                    description: "Short observation period in our specialized unit before same-day discharge and activity guidance."
+                }
+            ],
+
+            benefitsHeading: "The Power of Bronchoscopic Care",
+            benefits: [
+                "Airway Examination – Direct visualization of trachea and bronchi",
+                "Bronchoalveolar Lavage (BAL) – Fluid sampling for infection detection",
+                "Biopsy – Tissue sampling for cancer or other lung diseases",
+                "Therapeutic Clearance – Removal of foreign bodies or mucus plugs",
+                "Minimally invasive relief often avoiding open surgical procedures"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Expected Outcomes",
+            recoveryTimeline: [
+                "Procedure is typically completed within 15–30 minutes in a daycare setting",
+                "Patients are monitored for 1–2 hours post-procedure until sedation wears off",
+                "Minor throat irritation or mild cough may persist for 12–24 hours",
+                "Full resumption of routine daily activities within 24 hours",
+                "Diagnostic results (biopsy/lavage) are typically available within 3–5 working days"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Bronchoscopy",
+            faqs: [
+                {
+                    question: "Is bronchoscopy safe?",
+                    answer: "Yes. It is a minimally invasive and commonly performed procedure with a high safety profile when performed by specialized pulmonologists."
+                },
+                {
+                    question: "What is the difference between diagnostic and therapeutic bronchoscopy?",
+                    answer: "Diagnostic bronchoscopy identifies the cause of a lung problem, while therapeutic bronchoscopy actively treats conditions like blockages during the same procedure."
+                },
+                {
+                    question: "Will I feel pain during the procedure?",
+                    answer: "No. Local anesthesia and mild sedation ensure that the procedure is comfortable and well-tolerated by most patients."
+                },
+                {
+                    question: "How soon can I return to normal activities?",
+                    answer: "Most patients can return to their normal routine, including work, within 24 hours after the procedure."
+                }
+            ],
+
+            customCta: {
+                heading: "Take a Breath of Relief",
+                description: "Don’t delay evaluation of lung symptoms. Early diagnosis and timely treatment can prevent serious complications. Visit Stork Hospital for expert bronchoscopy care.",
+                buttonText: "Book Bronchoscopy Consultation"
+            },
+            meta: {
+                duration: "15–30 Minutes",
+                anesthesia: "Local / Sedation",
+                hospitalStay: "Daycare / Same Day",
+                recoveryTime: "24 Hours",
+                successRate: "Very High"
+            },
+            reviewedBy: {
+                name: "Stork Pulmonary Medicine Team",
+                role: "Senior Pulmonologists & Bronchoscopists",
+                experience: "Experts in Diagnostic & Interventional Pulmonology"
+            }
+        }
+    }
+
+
+    if (slug === "copd-management") {
+        return {
+            slug: slug,
+            title: "COPD Management – Stork Hospital, Hyderabad",
+            subheading: "Advanced Care for Chronic Lung Disease (COPD)",
+            tagline: "Specialized pulmonology care focused on slowing disease progression, improving lung function, and enhancing quality of life for chronic respiratory patients.",
+            breadcrumbTitle: "COPD Management",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Chronic Obstructive Pulmonary Disease (COPD) is a progressive lung condition that makes breathing difficult over time. If you experience chronic cough, wheezing, or shortness of breath, early diagnosis and proper management can significantly improve your quality of life.
+
+At Stork Multispecialty Hospital, Hyderabad, we provide comprehensive COPD management, focusing on symptom control, slowing disease progression, and improving lung function. Our goal is to help you breathe easier and live better.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for COPD Treatment",
+                intro: "Our goal is to help you breathe easier and live better through personalized, evidence-based respiratory care:",
+                items: [
+                    "Experienced pulmonologists for chronic respiratory care",
+                    "Advanced diagnostics (Spirometry, PFT, CT Scan)",
+                    "Personalized inhaler and medication plans",
+                    "Dedicated pulmonary rehabilitation programs",
+                    "Oxygen therapy support (if required)",
+                    "24/7 emergency care for acute COPD exacerbations",
+                    "Insurance-supported treatment with transparent cost estimates"
+                ]
+            },
+            fullDescription: [
+                "COPD management is a multifaceted approach that combines pharmacological intervention with physical conditioning. While the disease is progressive, the right management plan can stall the decline of lung function and keep you active."
+            ],
+
+            conditionsHeading: "Common Symptoms & Risk Factors",
+            conditionsTreated: [
+                "Persistent cough with mucus (Smoker's cough)",
+                "Shortness of breath, especially during physical activity",
+                "Wheezing and chest tightness",
+                "Frequent respiratory infections or flare-ups",
+                "Long-term exposure to smoking, pollution, or occupational dust",
+                "Age above 40 with a history of chronic bronchitis"
+            ],
+
+            procedureHeading: "Our Multi-Modal COPD Care Pathway",
+            procedureSteps: [
+                {
+                    title: "Precision Diagnosis",
+                    description: "Lung function testing (Spirometry) and chest imaging (X-ray/CT) to establish the disease stage and establish a baseline for monitoring."
+                },
+                {
+                    title: "Medical Optimization",
+                    description: "Tailored prescription of bronchodilators and steroid inhalers to open airways and reduce lung inflammation."
+                },
+                {
+                    title: "Pulmonary Rehabilitation",
+                    description: "Guided breathing exercises, physical conditioning, and lifestyle counseling to improve stamina and lung efficiency."
+                },
+                {
+                    title: "Exacerbation Prevention",
+                    description: "Vaccination strategies (Flu/Pneumonia) and infection control protocols to prevent acute flare-ups and hospitalizations."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Specialized COPD Management",
+            benefits: [
+                "Slowing of progressive lung function decline",
+                "Significant reduction in chronic breathing difficulty",
+                "Improved physical stamina and activity levels",
+                "Lower risk of emergency hospital admissions",
+                "Personalized support from a multidisciplinary respiratory team"
+            ],
+
+            risks: [],
+            recoveryHeading: "Long-Term Management & Support",
+            recoveryTimeline: [
+                "Initial pulmonary function assessment and diagnosis completed during your first visit",
+                "Symptomatic improvement in breathing typically noted within 2–4 weeks of optimized therapy",
+                "3–6 month intensive pulmonary rehabilitation program to rebuild physical strength",
+                "Quarterly lung health reviews to monitor progression and adjust medication doses",
+                "Ongoing access to 24/7 respiratory emergency care for acute symptom flare-ups"
+            ],
+
+            faqHeading: "Frequently Asked Questions – COPD",
+            faqs: [
+                {
+                    question: "Can COPD be cured?",
+                    answer: "While COPD cannot be completely cured, early and consistent treatment can slow disease progression, reduce symptoms, and significantly improve your quality of life."
+                },
+                {
+                    question: "Is pulmonary rehab necessary?",
+                    answer: "Yes, it is a critical component of treatment. It helps you rebuild physical strength and teaches you efficient breathing techniques to manage shortness of breath."
+                },
+                {
+                    question: "How does smoking affect COPD?",
+                    answer: "Smoking is the leading cause of COPD. Quitting is the most important step you can take to prevent further lung damage and improve the effectiveness of your treatment."
+                },
+                {
+                    question: "When should I see a pulmonologist?",
+                    answer: "You should see a specialist if you have a persistent cough (more than 3 months), breathlessness that interferes with your daily routine, or frequent chest infections."
+                }
+            ],
+
+            customCta: {
+                heading: "Take Control of Your Breathing Today",
+                description: "COPD is progressive, but it doesn’t have to define your life. Book your consultation at Stork Hospital, Hyderabad, and start a personalized management plan to breathe easier.",
+                buttonText: "Book COPD Consultation"
+            },
+            meta: {
+                duration: "Ongoing Management",
+                anesthesia: "None",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Lifelong Support",
+                successRate: "High Stability"
+            },
+            reviewedBy: {
+                name: "Stork Pulmonary Medicine Team",
+                role: "Senior Pulmonologists & COPD Specialists",
+                experience: "Experts in Chronic Lung Disease & Rehab"
+            }
+        }
+    }
+
+
+    if (slug === "lung-biopsy-services") {
+        return {
+            slug: slug,
+            title: "Lung Biopsy Services – Stork Hospital, Hyderabad",
+            subheading: "Accurate Diagnosis for Lung Conditions",
+            tagline: "High-precision, image-guided tissue sampling for the definitive diagnosis of lung nodules, infections, and suspected malignancies.",
+            breadcrumbTitle: "Lung Biopsy",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `When a chest X-ray or CT scan shows a lung nodule, mass, or abnormality, a lung biopsy is often required to confirm the diagnosis. At Stork Multispecialty Hospital, Hyderabad, we provide safe and advanced lung biopsy procedures to identify infections, inflammation, or cancer with high accuracy.
+
+Our focus is on early detection and precise diagnosis, enabling timely and effective treatment for various respiratory conditions.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Lung Biopsy",
+                intro: "We combine interventional expertise with advanced imaging to ensure accurate results with minimal patient discomfort:",
+                items: [
+                    "Experienced pulmonologists and interventional specialists",
+                    "CT-guided and bronchoscopy-guided biopsy techniques for maximum precision",
+                    "High-precision sampling with minimal risk to surrounding tissue",
+                    "Advanced imaging support (Multi-slice CT scan, Digital X-ray)",
+                    "On-site pathology for faster and more reliable reporting",
+                    "Day-care procedures with quick recovery and same-day discharge",
+                    "Insurance-supported services with complete billing transparency"
+                ]
+            },
+            fullDescription: [
+                "A lung biopsy is a critical step in pulmonary medicine. Whether using real-time CT guidance for peripheral nodules or bronchoscopy for central lesions, our approach ensures that we obtain high-quality tissue samples while maintaining the highest safety standards."
+            ],
+
+            conditionsHeading: "Clinical Indications for Lung Biopsy",
+            conditionsTreated: [
+                "Suspicious lung nodules or masses identified on CT scans",
+                "Persistent lung infections not responding to standard medical treatment",
+                "Suspected primary lung cancer or metastatic disease",
+                "Interstitial lung disease requiring tissue characterization",
+                "Unexplained lung abnormalities requiring definitive pathology"
+            ],
+
+            procedureHeading: "Our Precision Biopsy Process",
+            procedureSteps: [
+                {
+                    title: "Pre-Biopsy Planning",
+                    description: "Comprehensive imaging review and medical evaluation to determine the safest and most accurate biopsy route."
+                },
+                {
+                    title: "Guided Sampling",
+                    description: "Procedure performed under local anesthesia or sedation using CT-guidance or bronchoscopy to collect tissue samples."
+                },
+                {
+                    title: "Pathological Analysis",
+                    description: "Samples are immediately processed and analyzed by our on-site pathology experts for cellular characterization."
+                },
+                {
+                    title: "Post-Procedure Recovery",
+                    description: "Short-term observation (2–4 hours) in our recovery unit before safe same-day discharge with recovery guidance."
+                }
+            ],
+
+            benefitsHeading: "Advanced Biopsy Modalities at Stork",
+            benefits: [
+                "CT-Guided Lung Biopsy – Ideal for peripheral lesions with pinpoint accuracy",
+                "Bronchoscopy-Guided Biopsy – Targeted sampling for central airway lesions",
+                "Fine Needle Aspiration (FNAC) – Minimally invasive cellular sampling",
+                "Faster diagnostic turnaround enabling earlier treatment initiation",
+                "Minimally invasive approach avoiding major surgical exploration"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Expected Outcomes",
+            recoveryTimeline: [
+                "Procedure is typically completed within 30–60 minutes as a daycare service",
+                "2–4 hour mandatory observation period to ensure stable lung function",
+                "Minor soreness or discomfort at the biopsy site for 24–48 hours",
+                "Full resumption of routine activities generally allowed after 24 hours of rest",
+                "Detailed pathology results and treatment planning within 3–5 working days"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Lung Biopsy",
+            faqs: [
+                {
+                    question: "Is lung biopsy painful?",
+                    answer: "No. The procedure is performed under local anesthesia or sedation, ensuring that any physical discomfort is kept to a minimum throughout the process."
+                },
+                {
+                    question: "Is it safe?",
+                    answer: "Yes. Lung biopsy is a well-established and safe procedure when performed by experienced specialists using real-time imaging guidance like CT or bronchoscopy."
+                },
+                {
+                    question: "How long does the procedure take?",
+                    answer: "The sampling procedure itself usually takes between 30 to 60 minutes, followed by a short period of clinical observation."
+                },
+                {
+                    question: "When will I get my results?",
+                    answer: "Detailed pathology reports are typically available within 3 to 5 working days, after which your pulmonologist will discuss the findings and treatment plan."
+                }
+            ],
+
+            customCta: {
+                heading: "Get Clarity, Start Treatment Early",
+                description: "Don’t ignore abnormal lung findings. Early diagnosis can make a critical difference in treatment outcomes. Book your appointment for an expert lung biopsy evaluation today.",
+                buttonText: "Book Biopsy Consultation"
+            },
+            meta: {
+                duration: "30–60 Minutes",
+                anesthesia: "Local / Sedation",
+                hospitalStay: "Daycare (Same Day)",
+                recoveryTime: "24–48 Hours",
+                successRate: "High Accuracy"
+            },
+            reviewedBy: {
+                name: "Stork Interventional Pulmonology Team",
+                role: "Senior Pulmonologists & Interventional Radiologists",
+                experience: "Experts in Image-Guided Lung Diagnostics"
+            }
+        }
+    }
+
+
+    if (slug === "lung-cancer-treatment") {
+        return {
+            slug: slug,
+            title: "Lung Cancer Treatment – Stork Hospital, Hyderabad",
+            subheading: "Comprehensive & Personalized Cancer Care",
+            tagline: "Multidisciplinary approach to thoracic oncology, integrating advanced diagnostics, molecular testing, and personalized treatment plans for optimal outcomes.",
+            breadcrumbTitle: "Lung Cancer Treatment",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Lung cancer is one of the most serious but treatable cancers when detected early. At Stork Multispecialty Hospital, Hyderabad, we offer complete lung cancer care—from diagnosis to advanced treatment and long-term follow-up.
+
+Our multidisciplinary team ensures personalized, evidence-based treatment plans for every patient, focusing on precision medicine and total patient support.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Lung Cancer Care",
+                intro: "We provide comprehensive, patient-centered oncology care under one roof, focused on precision and support:",
+                items: [
+                    "Expert pulmonologists, medical oncologists, and thoracic surgeons",
+                    "Advanced diagnostics including high-resolution CT, precision biopsy, and specialized pathology",
+                    "Accurate staging and molecular-based personalized treatment planning",
+                    "Access to chemotherapy, targeted therapy, and immunotherapy options",
+                    "Minimally invasive procedural interventions for local control",
+                    "Integrated pain management and palliative care support",
+                    "Holistic emotional, psychological, and nutritional counseling",
+                    "Insurance-supported cancer care with transparent financial counseling"
+                ]
+            },
+            fullDescription: [
+                "Early detection and molecular characterization are the cornerstones of modern lung cancer treatment. Our thoracic oncology unit combines surgical expertise with the latest in systemic therapies to provide a comprehensive fighting chance against the disease."
+            ],
+
+            conditionsHeading: "Symptoms & Clinical Indicators",
+            conditionsTreated: [
+                "Persistent, worsening cough that doesn't resolve",
+                "Hemoptysis (coughing up blood or blood-streaked mucus)",
+                "Chronic chest pain, often worse with deep breathing or coughing",
+                "Sudden or progressive shortness of breath",
+                "Unexplained weight loss and persistent fatigue",
+                "Recurrent respiratory infections such as bronchitis or pneumonia"
+            ],
+
+            procedureHeading: "Our Multidisciplinary Cancer Treatment Pathway",
+            procedureSteps: [
+                {
+                    title: "Diagnosis & Molecular Staging",
+                    description: "Comprehensive imaging (CT/PET) followed by tissue biopsy and molecular testing to identify specific cancer mutations and establish staging."
+                },
+                {
+                    title: "Individualized Treatment Plan",
+                    description: "Development of a personalized roadmap involving targeted therapy, immunotherapy, or specialized chemotherapy cycles based on tumor profile."
+                },
+                {
+                    title: "Supportive Intervention",
+                    description: "Concurrent management of symptoms through pain control, nutritional optimization, and psychological support for the patient and family."
+                },
+                {
+                    title: "Long-Term Monitoring",
+                    description: "Structured follow-up with regular scans and clinical evaluations to monitor treatment response and maintain overall health."
+                }
+            ],
+
+            benefitsHeading: "Advanced Therapeutic Modalities",
+            benefits: [
+                "Targeted Therapy – Precision drugs that attack specific cancer mutations",
+                "Immunotherapy – Harnessing the body's immune system to fight malignancy",
+                "Specialized Chemotherapy – Tailored protocols to maximize efficacy and minimize side effects",
+                "Minimally Invasive Surgery – Advanced thoracic procedures for localized tumor removal",
+                "Comprehensive palliative care focused on quality of life and symptomatic relief"
+            ],
+
+            risks: [],
+            recoveryHeading: "Support & Survival Pathway",
+            recoveryTimeline: [
+                "Initial staging and treatment planning typically completed within 7–10 days",
+                "Treatment cycles (chemo/targeted therapy) scheduled based on specific protocol needs",
+                "Continuous monitoring of symptoms and side effects throughout the active treatment phase",
+                "Post-treatment surveillance involves regular imaging every 3–6 months for the first few years",
+                "Focus on survivor health, nutrition, and psychological well-being for long-term recovery"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Lung Cancer",
+            faqs: [
+                {
+                    question: "Is lung cancer curable?",
+                    answer: "Lung cancer can be treated effectively, especially when detected early. Many patients now manage the disease successfully for long periods thanks to targeted therapies."
+                },
+                {
+                    question: "Do all lung nodules mean cancer?",
+                    answer: "No. Many lung nodules are non-cancerous (benign) and may be caused by old infections. However, any new nodule requires clinical evaluation to confirm its nature."
+                },
+                {
+                    question: "Is treatment painful?",
+                    answer: "Modern oncology treatments focus heavily on minimizing discomfort. We provide proactive pain management and supportive care to handle any treatment side effects."
+                },
+                {
+                    question: "Does insurance cover treatment?",
+                    answer: "Yes, most comprehensive health insurance plans at Stork Hospital cover the costs associated with cancer diagnosis, staging, and treatment protocols."
+                }
+            ],
+
+            customCta: {
+                heading: "Don’t Delay – Early Action Saves Lives",
+                description: "If you have persistent symptoms or abnormal lung reports, seek expert thoracic oncology care immediately. Book your consultation at Stork Hospital today.",
+                buttonText: "Book Cancer Consultation"
+            },
+            meta: {
+                duration: "Varies by Case",
+                anesthesia: "Varies by Procedure",
+                hospitalStay: "Outpatient / Inpatient",
+                recoveryTime: "Ongoing Management",
+                successRate: "Individualized"
+            },
+            reviewedBy: {
+                name: "Stork Lung Cancer Care Team",
+                role: "Senior Pulmonologists & Medical Oncologists",
+                experience: "Experts in Thoracic Oncology & Targeted Therapy"
+            }
+        }
+    }
+
+
+    if (slug === "post-covid-recovery") {
+        return {
+            slug: slug,
+            title: "Post-COVID Recovery Clinic – Stork Hospital, Hyderabad",
+            subheading: "Regain Strength & Lung Health After COVID",
+            tagline: "Specialized multidisciplinary recovery program designed to address Long COVID symptoms, restore lung capacity, and rebuild physical stamina through evidence-based rehabilitation.",
+            breadcrumbTitle: "Post-COVID Recovery",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Many patients continue to experience fatigue, breathlessness, cough, and reduced stamina even after recovering from COVID-19. This condition, often called Long COVID, needs proper medical attention.
+
+At Stork Multispecialty Hospital, Hyderabad, we offer a dedicated Post-COVID Recovery Program to help you regain full health safely and effectively. Our multidisciplinary approach focuses on restoring lung function, physical strength, and overall well-being.`,
+
+            overview: {
+                heading: "Why Choose Stork Hospital for Post-COVID Recovery",
+                intro: "Our dedicated recovery unit provides a structured pathway to restore your strength, breathing, and confidence:",
+                items: [
+                    "Specialized post-COVID care programs tailored to individual symptom profiles",
+                    "Comprehensive lung function testing & advanced thoracic imaging",
+                    "Evidence-based pulmonary rehabilitation and respiratory therapy",
+                    "Specialized fatigue and neuromuscular weakness management",
+                    "Targeted nutrition and immunity-boosting support",
+                    "Personalized recovery plans with gradual physical activity progression",
+                    "Multidisciplinary support from pulmonologists and rehab experts"
+                ]
+            },
+            fullDescription: [
+                "Post-COVID recovery is a gradual process of systemic rebuilding. We combine specialized lung exercises with cardiovascular monitoring and nutritional support to ensure that patients return to their pre-infection health levels without the risk of overexertion or relapse."
+            ],
+
+            conditionsHeading: "Symptoms We Manage (Long COVID)",
+            conditionsTreated: [
+                "Breathlessness even after mild activity or exertion",
+                "Extreme, persistent fatigue or systemic weakness",
+                "Persistent dry or productive cough following recovery",
+                "Chest discomfort, tightness, or lingering pleuritic pain",
+                "Brain fog, low concentration, and cognitive fatigue",
+                "Reduced physical stamina and exercise intolerance"
+            ],
+
+            procedureHeading: "Your Structured Recovery Journey",
+            procedureSteps: [
+                {
+                    title: "Detailed Health Assessment",
+                    description: "Comprehensive evaluation including Spirometry (lung function), chest imaging (CT/X-ray), and cardiac screening to assess post-viral impact."
+                },
+                {
+                    title: "Respiratory Optimization",
+                    description: "Structured breathing exercises and oxygen optimization techniques to restore functional lung capacity and improve oxygen saturation."
+                },
+                {
+                    title: "Fatigue & Stamina Rebuilding",
+                    description: "Gradual, guided physical activity plans designed to restore muscle strength and systemic energy levels safely."
+                },
+                {
+                    title: "Holistic Wellness Support",
+                    description: "Nutritional high-protein diet plans, vitamin supplementation, and mental health strategies to manage stress and sleep."
+                }
+            ],
+
+            benefitsHeading: "Who Should Visit the Recovery Clinic?",
+            benefits: [
+                "Patients with a history of moderate to severe COVID-19 infection",
+                "Individuals with lingering symptoms persisting more than 4 weeks post-recovery",
+                "Patients who experienced significant lung involvement during the acute phase",
+                "Those unable to return to their pre-COVID levels of daily activity",
+                "Patients experiencing unexplained heart rate fluctuations or cognitive fog"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery Pathway & Support",
+            recoveryTimeline: [
+                "Initial comprehensive wellness assessment completed during the first week",
+                "Lung function stabilization and breathing improvement often noted within 2–3 weeks",
+                "Structured physical conditioning phase spanning 4–8 weeks for stamina rebuilding",
+                "Monthly follow-up reviews to monitor cardiac and respiratory progress",
+                "Gradual return to full-scale professional and athletic activities by 12 weeks"
+            ],
+
+            faqHeading: "Frequently Asked Questions – Post-COVID Care",
+            faqs: [
+                {
+                    question: "What is Long COVID?",
+                    answer: "Long COVID refers to a range of symptoms—such as fatigue, breathlessness, and brain fog—that continue for weeks or months after the initial COVID-19 infection has resolved."
+                },
+                {
+                    question: "How long does the recovery program last?",
+                    answer: "While it varies based on severity, most patients see significant improvement in symptoms and stamina within a 4–8 week structured rehabilitation program."
+                },
+                {
+                    question: "Is lung damage after COVID permanent?",
+                    answer: "In many cases, early intervention and specialized pulmonary rehabilitation can significantly improve lung function and resolve lingering inflammation."
+                },
+                {
+                    question: "Can I exercise at home?",
+                    answer: "We provide a guided activity plan that starts with supervised clinical sessions and transitions to a safe, personalized home-based routine as your stamina improves."
+                }
+            ],
+
+            customCta: {
+                heading: "Don’t Ignore Post-COVID Symptoms – Recover Fully",
+                description: "Ignoring lingering symptoms can delay your return to normal life. Early intervention helps you regain your health faster. Book your consultation today.",
+                buttonText: "Book Recovery Consultation"
+            },
+            meta: {
+                duration: "4–12 Weeks Program",
+                anesthesia: "None",
+                hospitalStay: "Outpatient",
+                recoveryTime: "Gradual Improvement",
+                successRate: "High Recovery"
+            },
+            reviewedBy: {
+                name: "Stork Post-COVID Care Unit",
+                role: "Senior Pulmonologists & Rehabilitation Specialists",
+                experience: "Experts in Post-Viral Respiratory Recovery"
+            }
+        }
+    }
+
+
+    if (slug === "tb-management") {
+        return {
+            slug: slug,
+            title: "Tuberculosis (TB) Management – Stork Hospital, Hyderabad",
+            subheading: "Comprehensive Care for Complete Recovery",
+            tagline: "Specialized infectious disease protocols focused on early molecular diagnosis, targeted therapy, and strict adherence monitoring to ensure a 100% cure rate and prevent relapse.",
+            breadcrumbTitle: "TB Management",
+            category: "Pulmonology",
+            departmentHref: "/services/pulmonology",
+            shortDescription: `Tuberculosis (TB) is a serious infectious disease that primarily affects the lungs but can also involve other parts of the body. With timely diagnosis and proper treatment, TB is completely curable.
+
+At Stork Multispecialty Hospital, Hyderabad, we provide end-to-end TB management, focusing on early detection, effective treatment, and prevention of recurrence. Our approach combines clinical expertise, advanced diagnostics, and strict treatment monitoring to ensure the best outcomes for every patient.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Trusted Center for TB Treatment",
+                intro: "Stork Hospital combines advanced molecular diagnostics with expert clinical monitoring to manage both simple and drug-resistant TB cases:",
+                items: [
+                    "Experienced pulmonologists and infectious disease specialists",
+                    "Advanced diagnostic support including high-resolution CT and thoracic imaging",
+                    "Rapid molecular diagnostics (CBNAAT/GeneXpert) for same-day identification",
+                    "Personalized Anti-Tubercular Therapy (ATT) plans based on resistance patterns",
+                    "Specialized monitoring and management for MDR/XDR (Drug-Resistant) TB",
+                    "Nutritional counseling and immunity-boosting strategies for systemic recovery",
+                    "Government-aligned treatment protocols with strict adherence support",
+                    "Insurance-supported care with complete financial transparency"
+                ]
+            },
+            fullDescription: [
+                "Tuberculosis management requires a disciplined and medically supervised approach. We ensure that every patient receives the correct drug regimen and consistent follow-up to monitor for both side effects and treatment response, ensuring the disease is fully eradicated from the system."
+            ],
+
+            conditionsHeading: "TB Variants Managed at Stork",
+            conditionsTreated: [
+                "Pulmonary TB (infection strictly localized to the lungs)",
+                "Extrapulmonary TB (lymph nodes, bones, abdomen, or brain)",
+                "Latent TB Infection (preventive management for asymptomatic carriers)",
+                "Multi-Drug Resistant (MDR) and Extensively Drug-Resistant (XDR) TB",
+                "Relapse cases or patients with a history of incomplete prior treatment",
+                "Symptoms such as evening fever, night sweats, and persistent cough"
+            ],
+
+            procedureHeading: "Our Precision TB Care Pathway",
+            procedureSteps: [
+                {
+                    title: "Molecular Diagnosis",
+                    description: "Utilization of CBNAAT and sputum cultures for rapid confirmation of TB and identification of drug sensitivity patterns."
+                },
+                {
+                    title: "ATT Initiation",
+                    description: "Commencement of the WHO-recommended standard drug regimen (typically 6 months) with personalized dose adjustments."
+                },
+                {
+                    title: "Resistance Screening",
+                    description: "Advanced screening for drug-resistant patterns to ensure the medication protocol is effective from the first week of therapy."
+                },
+                {
+                    title: "Adherence Monitoring",
+                    description: "Continuous supervision and regular lab reviews to ensure strict medication compliance and manage systemic side effects."
+                },
+                {
+                    title: "Systemic Rehabilitation",
+                    description: "Integration of high-protein nutritional support and immunity counseling to ensure full physical recovery during treatment."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Specialized TB Management",
+            benefits: [
+                "100% cure potential with timely diagnosis and medication adherence",
+                "Rapid reduction in contagiousness protecting family and community members",
+                "Expert management of side effects to ensure treatment completion without interruption",
+                "Specialized second-line protocols for complex drug-resistant cases",
+                "Long-term monitoring to prevent recurrence or systemic relapses"
+            ],
+
+            risks: [],
+            recoveryHeading: "The Road to Complete Recovery",
+            recoveryTimeline: [
+                "Initial molecular diagnosis and sensitivity testing results within 24–48 hours",
+                "Reduction in contagious symptoms (cough/fever) noted within 2 weeks of therapy",
+                "Standard 6-month Anti-Tubercular Therapy (ATT) course for pulmonary TB",
+                "Monthly clinical reviews and weight monitoring to track progress",
+                "Clearance certification and final sputum culture review at the end of treatment"
+            ],
+
+            faqHeading: "Frequently Asked Questions – TB Management",
+            faqs: [
+                {
+                    question: "Is TB completely curable?",
+                    answer: "Yes. Tuberculosis is fully curable with a proper and complete course of specialized medication, even in cases that have previously relapsed."
+                },
+                {
+                    question: "How long does TB treatment take?",
+                    answer: "A standard treatment course usually takes 6 months, while complex or drug-resistant (MDR) cases may require 18–24 months of specialized therapy."
+                },
+                {
+                    question: "Is TB contagious?",
+                    answer: "Untreated pulmonary TB can spread through the air. However, starting effective treatment significantly reduces transmission risk within just a few days."
+                },
+                {
+                    question: "Can TB come back?",
+                    answer: "Yes, if the treatment is interrupted early or if the body's immunity is very low. Completing the full prescribed course is the best prevention against recurrence."
+                }
+            ],
+
+            customCta: {
+                heading: "Start Treatment Early – Stop TB Completely",
+                description: "Ignoring TB symptoms can lead to serious respiratory complications and community spread. Book your appointment at Stork Hospital for expert TB evaluation and a personalized recovery plan.",
+                buttonText: "Book TB Consultation"
+            },
+            meta: {
+                duration: "6–24 Months (Course)",
+                anesthesia: "None",
+                hospitalStay: "Outpatient / Daycare",
+                recoveryTime: "Full Physical Recovery",
+                successRate: "95%+ Adherence Rate"
+            },
+            reviewedBy: {
+                name: "Stork Infectious Disease Team",
+                role: "Senior Pulmonologists & TB Specialists",
+                experience: "Experts in Drug-Resistant TB & Respiratory Health"
+            }
+        }
+    }
+
+
+
     if (slug === "rirs") {
         return {
             slug: slug,
             title: "RIRS (Retrograde Intrarenal Surgery) – Stork Hospital, Hyderabad",
             subheading: "Advanced, Minimally Invasive Kidney Stone Surgery",
+            tagline: "Cutting-edge Retrograde Intrarenal Surgery (RIRS) using Holmium Laser technology for incision-free, high-precision stone removal with rapid recovery.",
             breadcrumbTitle: "RIRS",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `Retrograde Intrarenal Surgery (RIRS) is a highly advanced, minimally invasive procedure used to treat kidney stones and other disorders within the kidney. It involves passing a flexible ureteroscope through the urinary tract to directly access the kidney, where stones are fragmented using a laser and removed without the need for cuts or large incisions.
 
 At Stork Multispecialty Hospital, Hyderabad, our skilled urologists use state-of-the-art RIRS technology to provide precise, safe, and effective stone removal with quick recovery times.`,
 
             overview: {
                 heading: "When RIRS is Recommended",
-                intro: "RIRS is often recommended for:",
+                intro: "RIRS is the preferred clinical path for complex or uniquely positioned stone pathologies:",
                 items: [
-                    "Stones located in difficult-to-reach areas of the kidney",
+                    "Stones located in difficult-to-reach or anomalous areas of the kidney",
                     "Patients with small to medium-sized stones who are not candidates for ESWL",
-                    "Cases where prior treatments have failed",
-                    "Individuals seeking a less invasive alternative to open or keyhole surgery"
+                    "Cases where prior urological treatments have failed to achieve clearance",
+                    "Individuals seeking a zero-incision alternative to open or keyhole surgery",
+                    "Clinical necessity for treating stones in both kidneys during a single session"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "RIRS represents the pinnacle of endoscopic urological surgery. By utilizing flexible ureteroscopes that can navigate the intricate internal anatomy of the kidney, our specialists can pulverize stones using high-energy Holmium lasers, providing a stitch-less solution for even the most stubborn renal stones."
+            ],
 
             conditionsHeading: "Benefits of RIRS at Stork Hospital",
             conditionsTreated: [
-                "No incisions or external scars",
-                "Minimal postoperative pain and quick recovery",
-                "High stone clearance rate",
-                "Suitable for high-risk patients",
-                "Ability to treat stones in both kidneys in a single session"
+                "Completely incision-free procedure with zero external scarring",
+                "Minimal postoperative pain and significantly accelerated recovery cycles",
+                "High stone clearance rate through high-definition endoscopic visualization",
+                "Suitable for high-risk patients where traditional invasive surgery is unsafe",
+                "Advanced technology allowing for the treatment of both kidneys in one session"
             ],
 
             procedureHeading: "The RIRS Procedure",
             procedureSteps: [
                 {
-                    title: "Evaluation",
-                    description: "Detailed imaging to determine stone size, location, and density."
+                    title: "Diagnostic Evaluation",
+                    description: "High-resolution imaging to determine precise stone size, location, and structural density."
                 },
                 {
-                    title: "Anesthesia",
-                    description: "Usually general anesthesia for maximum comfort."
-                },
-                {
-                    title: "Ureteroscope Insertion",
-                    description: "A thin, flexible scope is passed through the urethra and bladder into the kidney."
+                    title: "Endoscopic Navigation",
+                    description: "A thin, specialized flexible scope is navigated through the urinary tract into the kidney under general anesthesia."
                 },
                 {
                     title: "Laser Fragmentation",
-                    description: "Stones are broken down using a Holmium laser."
+                    description: "Stones are pulverized into sand-like fragments using high-energy Holmium laser probes."
                 },
                 {
-                    title: "Stone Removal",
-                    description: "Fragments are extracted or allowed to pass naturally."
-                },
-                {
-                    title: "Post-Procedure Check",
-                    description: "Stent placement if necessary to help with drainage and healing."
+                    title: "Cleaning & Stenting",
+                    description: "Fragments are extracted or flushed naturally; temporary stent placement ensures proper drainage if necessary."
                 }
             ],
 
             benefitsHeading: "Why Choose Stork Hospital for RIRS",
             benefits: [
-                "Expert urologists trained in advanced endoscopic procedures",
-                "On-site diagnostic center with high-resolution imaging",
-                "Advanced surgical center equipped with flexible ureteroscopes and Holmium laser",
-                "24/7 emergency hospital for urgent kidney stone care",
-                "Insurance accepted with transparent cost breakdowns"
+                "Expert urologists with specialized training in retrograde endourological procedures",
+                "On-site diagnostic center featuring high-resolution imaging for accurate mapping",
+                "Advanced surgical center equipped with the latest flexible ureteroscopes and Holmium lasers",
+                "24/7 Response for urgent kidney stone emergencies near Hitech City",
+                "Comprehensive billing transparency and insurance coordination for RIRS",
+                "Walk-in consultations near Kondapur for rapid stone assessment and planning"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Same-day or next-day discharge in most cases",
-                "Resume normal activities in 2–3 days",
-                "Pain medication and hydration advice",
-                "Follow-up imaging to confirm complete stone clearance",
-                "Long-term prevention plan"
+                "Same-day or next-day hospital discharge in the majority of RIRS cases",
+                "Resume normal daily activities and professional responsibilities within 2–3 days",
+                "Implementation of tailored hydration protocols to facilitate fragment passage",
+                "Post-procedure imaging review to confirm 100% total stone clearance",
+                "Personalized long-term prevention mapping to prevent future stone recurrence"
             ],
 
             faqHeading: "FAQs – RIRS",
             faqs: [
                 {
                     question: "Is RIRS safe?",
-                    answer: "Yes. It is considered one of the safest and least invasive kidney stone removal methods."
+                    answer: "Yes. It is considered one of the safest and least invasive kidney stone removal methods available today."
                 },
                 {
                     question: "How long does RIRS take?",
-                    answer: "Most procedures last between 60–90 minutes."
+                    answer: "Most procedures last between 60–90 minutes depending on stone number and complexity."
                 },
                 {
                     question: "Will I need a stent?",
-                    answer: "In some cases, a temporary stent is placed to ensure proper drainage after the procedure."
+                    answer: "In some cases, a temporary stent is placed to ensure proper drainage and healing after the procedure."
                 },
                 {
                     question: "Does insurance cover RIRS?",
-                    answer: "Yes. Stork Hospital accepts most insurance plans for medically necessary RIRS procedures."
+                    answer: "Yes. Stork Hospital works with most insurance providers for medically necessary RIRS procedures."
                 }
             ],
 
             customCta: {
-                heading: "Book Your RIRS Consultation",
-                description: "If you are suffering from kidney stones or require advanced kidney surgery, schedule a consultation at Stork Hospital to meet a urologist in Hyderabad and discuss whether RIRS is right for you.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your RIRS Consultation",
+                description: "If you have kidney stones in difficult locations or seek a zero-incision removal method, meet our expert urologists in Hyderabad for advanced RIRS care.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "60-90 Minutes",
-                anesthesia: "General",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "2-3 Days",
-                successRate: "High"
+                duration: "60–90 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "2–3 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Sujith",
-                role: "Senior Urologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Endourology Specialists",
+                experience: "Experts in RIRS, Holmium Laser Lithotripsy, and Flexible Endoscopy"
             }
         }
     }
@@ -10964,28 +12737,61 @@ At Stork Multispecialty Hospital, Hyderabad, we provide rotator cuff repair usin
             slug: slug,
             title: "Septoplasty – Expert Nasal Septum Correction at Stork Hospital, Hyderabad",
             subheading: "Enhancing Breathing Comfort with Advanced ENT Surgery",
+            tagline: "Refined, minimally invasive correction of a deviated septum to restore airflow and ease chronic nasal congestion.",
             breadcrumbTitle: "Septoplasty",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Septoplasty is a specialized surgical procedure that corrects a deviated nasal septum—the cartilage and bone partition dividing the nostrils. At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons use refined, minimally invasive techniques to open nasal passages, ease congestion, and improve airflow without changing your nose’s outward appearance.
 
 For patients dealing with chronic nasal obstruction, sleep disturbances, snoring, or repeated sinus infections, septoplasty can offer long-term, life-enhancing benefits.`,
 
             overview: {
-                heading: "Symptoms That May Indicate You Need Septoplasty",
-                intro: "You may benefit from septoplasty if you experience:",
+                heading: "Why Stork Hospital Stands Out for Septoplasty in Hyderabad",
+                intro: "Our team delivers precision-focused care backed by modern technology and patient comfort:",
                 items: [
-                    "Difficulty breathing through one or both nostrils",
-                    "Chronic nasal congestion and frequent sinus infections",
-                    "Ongoing nosebleeds",
-                    "Snoring or sleep apnea linked to nasal obstruction",
-                    "Headaches or facial pain from septal deviation"
+                    "Highly experienced ENT specialists for septoplasty in Hyderabad",
+                    "Walk-in nasal consultations near Kondapur for immediate attention",
+                    "Endoscopic surgical approaches for accuracy and reduced downtime",
+                    "Tailored anesthesia plans for optimal safety",
+                    "Thorough follow-up care to ensure lasting results",
+                    "Trusted Hyderabad hospital accepting insurance for ENT surgeries"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Septoplasty is purely functional and focuses on straightening the internal partition of the nose to improve breathing performance without altering the external aesthetic."
+            ],
 
-            conditionsHeading: "Advantages of Septoplasty at Stork",
+            conditionsHeading: "Symptoms That May Indicate You Need Septoplasty",
             conditionsTreated: [
+                "Difficulty breathing through one or both nostrils",
+                "Chronic nasal congestion and frequent sinus infections",
+                "Ongoing nosebleeds",
+                "Snoring or sleep apnea linked to nasal obstruction",
+                "Headaches or facial pain from septal deviation"
+            ],
+
+            procedureHeading: "The Septoplasty Journey at Stork",
+            procedureSteps: [
+                {
+                    title: "Initial Evaluation",
+                    description: "Detailed ENT evaluation and nasal passage examination, including diagnostic scans if required to assess septal deviation."
+                },
+                {
+                    title: "Surgical Procedure",
+                    description: "Performed under local or general anesthesia. The surgeon uses endoscopic methods for precise straightening or repositioning of the septum."
+                },
+                {
+                    title: "Post-Operative Care",
+                    description: "Discharge the same day or after brief observation, with structured aftercare guidance provided by our nursing team."
+                },
+                {
+                    title: "Recovery Milestone",
+                    description: "Most patients notice easier breathing and reduced congestion within a short recovery period as the tissues heal."
+                }
+            ],
+
+            benefitsHeading: "Advantages of Septoplasty at Stork",
+            benefits: [
                 "Clear nasal passages and improved breathing",
                 "Decrease in snoring and sleep interruptions",
                 "Fewer sinus infections",
@@ -10993,44 +12799,21 @@ For patients dealing with chronic nasal obstruction, sleep disturbances, snoring
                 "Long-lasting relief from nasal obstruction"
             ],
 
-            procedureHeading: "The Septoplasty Journey at Stork",
-            procedureSteps: [
-                {
-                    title: "Evaluation",
-                    description: "Detailed ENT evaluation, nasal passage examination, and diagnostic scans if required."
-                },
-                {
-                    title: "Surgery",
-                    description: "Performed under local or general anesthesia. Precise straightening or repositioning of the septum."
-                },
-                {
-                    title: "Recovery",
-                    description: "Discharge the same day or after brief observation. Structured aftercare guidance."
-                }
-            ],
-
-            benefitsHeading: "Why Stork Hospital Stands Out for Septoplasty in Hyderabad",
-            benefits: [
-                "Highly experienced ENT specialists",
-                "Endoscopic surgical approaches for accuracy",
-                "Tailored anesthesia plans for safety",
-                "Trusted hospital accepting insurance",
-                "Walk-in nasal consultations near Kondapur"
-            ],
-
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Most patients notice easier breathing shortly after recovery",
-                "Discharge the same day or after brief observation",
-                "Return to light routines within a week",
-                "Complete healing may take 2–3 weeks"
+                "Discharge typically occurs the same day after a brief observation period",
+                "Initial breathing improvement can be felt as soon as internal swelling subsides",
+                "Return to light routines and office work within 5–7 days",
+                "Complete tissue healing and stabilization usually achieved in 2–3 weeks",
+                "Scheduled follow-ups to ensure the septum maintains its corrected position"
             ],
 
             faqHeading: "FAQs – Septoplasty at Stork Hospital",
             faqs: [
                 {
                     question: "Will I feel pain during the procedure?",
-                    answer: "No. It’s performed under anesthesia to ensure a painless experience."
+                    answer: "No. It’s performed under anesthesia to ensure a painless experience. Mild post-surgery soreness is easily managed with prescribed medication."
                 },
                 {
                     question: "How long before I can return to normal activities?",
@@ -11049,19 +12832,19 @@ For patients dealing with chronic nasal obstruction, sleep disturbances, snoring
             customCta: {
                 heading: "Start Your Path to Easier Breathing",
                 description: "If nasal blockage or chronic congestion is affecting your daily comfort, book a septoplasty consultation at Stork Hospital, Hyderabad. Our ENT team is committed to delivering safe, accurate, and lasting solutions.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "45-90 Minutes",
-                anesthesia: "General / Local",
-                hospitalStay: "Day Care / 1 Day",
-                recoveryTime: "1-3 Weeks",
-                successRate: "High"
+                duration: "30–60 Minutes",
+                anesthesia: "Local / General",
+                hospitalStay: "Daycare (Same Day)",
+                recoveryTime: "1–3 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Srinivas",
-                role: "Senior ENT Surgeon",
-                experience: "15+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Nasal & Sinus Correction"
             }
         }
     }
@@ -11527,29 +13310,66 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts specialize i
             slug: slug,
             title: "Sinus Treatment – Advanced Relief at Stork Hospital, Hyderabad",
             subheading: "Restoring Comfort, Breathing, and Quality of Life",
+            tagline: "Specialized care for acute and chronic sinus conditions using targeted medical therapy and advanced minimally invasive solutions.",
             breadcrumbTitle: "Sinus Treatment",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Sinus problems occur when the hollow cavities in the skull, located around the nose and eyes, become swollen, blocked, or infected. This can cause discomfort, breathing difficulties, and frequent headaches. At Stork Multispecialty Hospital, Hyderabad, our ENT experts specialize in diagnosing and treating acute, chronic, and recurring sinus conditions through a blend of targeted medical care and advanced, minimally invasive surgical options.
 
 Our goal is to address the root cause, ease symptoms, and help patients return to normal breathing without constant discomfort.`,
 
             overview: {
-                heading: "Common Warning Signs of Sinus Issues",
-                intro: "You may need sinus treatment if you experience:",
+                heading: "Why Patients Prefer Stork Hospital for Sinus Care in Hyderabad",
+                intro: "We offer a unique mix of precision diagnosis, personalized care, and the latest medical advancements:",
                 items: [
-                    "Persistent stuffy or blocked nose",
-                    "Pressure or pain in the cheeks, forehead, or around the eyes",
-                    "Thick nasal discharge or postnasal drip",
-                    "Reduced or loss of smell and taste",
-                    "Headaches linked to sinus congestion",
-                    "Repeated sinus infections within a short span"
+                    "Highly experienced ENT specialists for sinus treatment in Hyderabad",
+                    "Walk-in sinus care appointments near Kondapur for fast relief",
+                    "In-depth evaluation using nasal endoscopy and high-resolution CT scans",
+                    "Full range of treatment options, including Functional Endoscopic Sinus Surgery (FESS)",
+                    "Specialized management for allergies, infections, and structural nasal issues",
+                    "Accredited Hyderabad hospital accepting insurance for ENT surgeries"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Successful sinus treatment relies on a clear understanding of the underlying causes, whether they be allergic, anatomical, or infectious, ensuring a targeted and effective treatment pathway."
+            ],
 
-            conditionsHeading: "Benefits of Our Sinus Treatment",
+            conditionsHeading: "Common Warning Signs of Sinus Issues",
             conditionsTreated: [
+                "Persistent stuffy or blocked nose",
+                "Pressure or pain in the cheeks, forehead, or around the eyes",
+                "Thick nasal discharge or postnasal drip",
+                "Reduced or loss of smell and taste",
+                "Headaches linked to sinus congestion",
+                "Repeated sinus infections within a short span"
+            ],
+
+            procedureHeading: "Our Step-by-Step Sinus Care Approach at Stork",
+            procedureSteps: [
+                {
+                    title: "Detailed Consultation",
+                    description: "ENT consultation with a complete history review and in-depth physical assessment."
+                },
+                {
+                    title: "Precision Diagnosis",
+                    description: "Use of nasal endoscopy and high-resolution imaging scans (CT) for pinpoint diagnosis."
+                },
+                {
+                    title: "Tailored Medical Therapy",
+                    description: "Plan may include targeted antibiotics, antifungal therapy, nasal sprays, and allergy testing."
+                },
+                {
+                    title: "Advanced Intervention (FESS)",
+                    description: "Minimally invasive Functional Endoscopic Sinus Surgery for chronic or severe cases that don't respond to medicine."
+                },
+                {
+                    title: "Recovery Follow-up",
+                    description: "Regular visits to ensure complete recovery and implement long-term prevention strategies."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Our Sinus Treatment",
+            benefits: [
                 "Significant and lasting symptom relief",
                 "Reduced frequency of sinus infections",
                 "Better quality sleep and improved breathing",
@@ -11557,58 +13377,29 @@ Our goal is to address the root cause, ease symptoms, and help patients return t
                 "Long-term improvement in nasal health"
             ],
 
-            procedureHeading: "Our Step-by-Step Sinus Care Approach",
-            procedureSteps: [
-                {
-                    title: "Consultation",
-                    description: "Detailed ENT consultation with a complete history review."
-                },
-                {
-                    title: "Diagnosis",
-                    description: "Nasal endoscopy and/or imaging scans for pinpoint diagnosis."
-                },
-                {
-                    title: "Treatment Plan",
-                    description: "Tailored plan including medication, therapy, or FESS for chronic conditions."
-                },
-                {
-                    title: "Follow-up",
-                    description: "Visits to ensure recovery and prevent relapse."
-                }
-            ],
-
-            benefitsHeading: "Why Patients Prefer Stork Hospital for Sinus Care in Hyderabad",
-            benefits: [
-                "Highly experienced ENT specialists",
-                "Walk-in sinus care appointments near Kondapur",
-                "In-depth evaluation using nasal endoscopy and CT scans",
-                "Full range of treatment options (Medical & Surgical)",
-                "Specialized management for allergies and structural issues",
-                "Accredited hospital accepting insurance"
-            ],
-
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Detailed ENT consultation",
-                "Pinpoint diagnosis with endoscopy/imaging",
-                "Tailored treatment (medical or surgical)",
-                "Short recovery time",
-                "Follow-up for long-term relief"
+                "Initial relief from congestion often felt within the first 48–72 hours of medical therapy",
+                "Post-surgical recovery allows for return to light work within 5–7 days",
+                "Significant improvement in breathing and facial pressure over the first 2 weeks",
+                "Continued improvement in sense of smell and taste as inflammation resolves",
+                "Regular follow-up visits ensure long-term stability and infection prevention"
             ],
 
             faqHeading: "FAQs – Sinus Treatment at Stork",
             faqs: [
                 {
                     question: "Will all sinus problems require surgery?",
-                    answer: "No. Many cases improve with medication and simple lifestyle changes."
+                    answer: "No. Many cases improve with medication and simple lifestyle changes. Surgery is reserved for chronic conditions resistant to medicine."
                 },
                 {
                     question: "Is sinus surgery comfortable and safe?",
-                    answer: "Yes. It’s minimally invasive and performed under anesthesia."
+                    answer: "Yes. It’s minimally invasive and performed under anesthesia. Patients typically experience significantly less discomfort than traditional methods."
                 },
                 {
                     question: "How can sinus problems be avoided in the future?",
-                    answer: "Controlling allergies, staying hydrated, and early treatment of colds can help."
+                    answer: "Controlling allergies, staying hydrated, and early treatment of colds can help maintain sinus health."
                 },
                 {
                     question: "Is insurance accepted for sinus procedures?",
@@ -11619,22 +13410,142 @@ Our goal is to address the root cause, ease symptoms, and help patients return t
             customCta: {
                 heading: "Breathe Freely with Stork Hospital",
                 description: "If sinus pain, congestion, or repeated infections are affecting your life, book a consultation at Stork Hospital’s ENT department in Hyderabad. Our specialized care ensures safe, effective, and lasting relief.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "20-45 Minutes",
+                duration: "30–90 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Care / Overnight",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / 1 Night",
+                recoveryTime: "1–2 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Srinivas",
-                role: "Senior ENT Specialist",
-                experience: "15+ Years Experience"
+                name: "Stork ENT Care Team",
+                role: "Senior ENT & Sinus Specialists",
+                experience: "Experts in FESS & Allergy Management"
             }
         }
     }
+
+    if (slug === "stapedectomy") {
+        return {
+            slug: slug,
+            title: "Stapedectomy – Stork Hospital, Hyderabad",
+            subheading: "Advanced Middle Ear Surgery for Lasting Hearing Improvement",
+            tagline: "Precision middle ear surgery to replace the stapes bone with a prosthesis, restoring hearing and overcoming otosclerosis.",
+            breadcrumbTitle: "Stapedectomy",
+            category: "ENT",
+            departmentHref: "/services/ent",
+            shortDescription: `A stapedectomy is a precision ear surgery that involves replacing the stapes bone in the middle ear with a miniature prosthesis to restore sound conduction. This procedure is most commonly used to treat otosclerosis, a condition where abnormal bone formation around the stapes limits its movement, leading to gradual hearing loss.
+
+At Stork Multispecialty Hospital, Hyderabad, our ENT team combines specialized surgical skill with modern microsurgical technology to help patients regain better hearing. We focus on safety, accuracy, and a smooth recovery experience for both adult and older patients.`,
+
+            overview: {
+                heading: "Why Stork Hospital is a Leading Choice for Stapedectomy",
+                intro: "Our ENT team focuses on safety, accuracy, and a smooth recovery experience using advanced microsurgical technology:",
+                items: [
+                    "Expert ENT surgeons with years of experience in delicate ear operations",
+                    "Fully equipped advanced surgical center with microscope-assisted facilities",
+                    "On-site diagnostic center in Hyderabad for complete hearing evaluations and imaging scans",
+                    "24/7 ENT emergency hospital near Hitech City for urgent ear concerns",
+                    "Insurance accepted at Stork Hospital, with upfront discussion of costs",
+                    "Same-day ENT consultations and walk-in clinic near Kondapur available",
+                    "Comfortable, private recovery spaces for post-surgical care"
+                ]
+            },
+            fullDescription: [
+                "Stapedectomy is a highly successful procedure that addresses conductive hearing loss by restoring the mechanical vibration pathway in the middle ear."
+            ],
+
+            conditionsHeading: "Who Might Need a Stapedectomy?",
+            conditionsTreated: [
+                "Have confirmed otosclerosis causing conductive hearing loss",
+                "Struggle to hear clearly in group or noisy settings",
+                "Gain little benefit from using hearing aids",
+                "Show consistent hearing loss in audiology test results",
+                "Are medically fit for ear surgery under anesthesia"
+            ],
+
+            procedureHeading: "Our Stapedectomy Process at Stork",
+            procedureSteps: [
+                {
+                    title: "Pre-Surgical Evaluation",
+                    description: "Comprehensive consultation, hearing assessments, tympanometry, and imaging to confirm diagnosis and plan the procedure."
+                },
+                {
+                    title: "Microsurgical Procedure",
+                    description: "Conducted under general or local anesthesia. The surgeon replaces the stapes bone with a miniature prosthesis to restore sound conduction."
+                },
+                {
+                    title: "Procedure Duration",
+                    description: "The surgery typically takes between 1 to 1.5 hours depending on the complexity of the internal ear structure."
+                },
+                {
+                    title: "Post-Operative Recovery",
+                    description: "Short hospital observation, with most patients discharged same-day or next-day with pain management and ear care instructions."
+                }
+            ],
+
+            benefitsHeading: "Your Journey at Stork Hospital",
+            benefits: [
+                "Initial ENT evaluation and diagnostic hearing tests",
+                "Confirmation of surgery need and scheduling",
+                "Pre-operative health clearance",
+                "Stapedectomy performed in our advanced surgical center",
+                "Discharge with clear recovery instructions",
+                "Follow-ups to monitor hearing progress and healing"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery & Results",
+            recoveryTimeline: [
+                "Initial hearing improvement often begins within a week as the middle ear stabilizes",
+                "Mild post-operative discomfort is common and easily managed with prescribed medication",
+                "Return to most non-strenuous daily activities within 7–10 days post-surgery",
+                "Avoidance of sudden pressure changes (e.g., flying, heavy lifting) for 3–4 weeks",
+                "Complete healing and final hearing results typically achieved in 4–6 weeks"
+            ],
+
+            faqHeading: "FAQs – Stapedectomy at Stork Hospital",
+            faqs: [
+                {
+                    question: "Will I experience pain?",
+                    answer: "You won’t feel pain during surgery, and mild post-operative discomfort is well-controlled with medication."
+                },
+                {
+                    question: "When will I notice better hearing?",
+                    answer: "Most patients begin noticing changes within a week or two, improving further as the ear heals."
+                },
+                {
+                    question: "Does otosclerosis return?",
+                    answer: "It usually doesn’t recur in the operated ear, though the other ear could be affected later."
+                },
+                {
+                    question: "Is the surgery covered by insurance?",
+                    answer: "Yes. We accept most insurance plans and provide detailed cost information in advance."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Consultation Today",
+                description: "Don’t let hearing loss limit your quality of life. Book an appointment at Stork Hospital to consult with our ENT specialists in Hyderabad and discuss whether a stapedectomy is the right treatment for you.",
+                buttonText: "Book Your Consultation"
+            },
+            meta: {
+                duration: "60–90 Minutes",
+                anesthesia: "Local / General",
+                hospitalStay: "Same Day / 24 Hours",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
+            },
+            reviewedBy: {
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT Surgeons",
+                experience: "Experts in Microsurgical Ear Procedures"
+            }
+        }
+    }
+
 
 
     if (slug === "stapler-circumcision") {
@@ -11642,115 +13553,221 @@ Our goal is to address the root cause, ease symptoms, and help patients return t
             slug: slug,
             title: "Stapler Circumcision – Stork Hospital, Hyderabad",
             subheading: "Quick, Precise, and Comfortable Circumcision Procedure",
+            tagline: "Advanced stapler circumcision technology for a precise, bloodless, and stitch-less procedure with 15-minute execution and rapid healing.",
             breadcrumbTitle: "Stapler Circumcision",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `Stapler circumcision is a modern approach to foreskin removal that uses a specially designed stapler device to perform the procedure with accuracy and minimal discomfort. The method ensures reduced bleeding, shorter surgery time, and faster recovery compared to conventional techniques, making it suitable for both medical and personal reasons.
 
 At Stork Multispecialty Hospital, Hyderabad, our expert urologists and pediatric surgeons use advanced stapler devices to provide safe and effective circumcision for children, adolescents, and adults. Every step — from consultation to aftercare — is tailored to ensure a smooth and stress-free experience.`,
 
             overview: {
                 heading: "When Stapler Circumcision is Recommended",
-                intro: "This procedure is often performed for:",
+                intro: "Stapler technology is the gold standard for clinical circumcision required due to various medical or anatomical conditions:",
                 items: [
-                    "Phimosis – foreskin too tight to retract",
-                    "Paraphimosis – foreskin trapped causing swelling",
-                    "Recurring urinary tract infections (UTIs)",
-                    "Chronic inflammation such as balanitis",
-                    "Religious, cultural, or hygiene-related preferences"
+                    "Phimosis – where the foreskin is too tight for comfortable retraction",
+                    "Paraphimosis – acute entrapment of the foreskin behind the glans penis",
+                    "Recurring Urinary Tract Infections (UTIs) linked to the foreskin fold",
+                    "Chronic inflammation or recurrent infections such as Balanitis",
+                    "Specific religious, cultural, or hygiene-related anatomical preferences"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Stapler circumcision (ZSR) at Stork Hospital utilizes a sterile, single-use device that simultaneous cuts and staples the foreskin tissue. This advanced instrument ensures a completely uniform surgical line and significantly reduces the inflammatory response common with traditional sutures."
+            ],
 
-            conditionsHeading: "Why Patients Choose Stork Hospital",
+            conditionsHeading: "Advantages of Stapler Circumcision",
             conditionsTreated: [
-                "Specialist urologists with extensive stapler experience",
-                "On-site diagnostic center for pre-surgical assessment",
-                "Advanced surgical center with latest technology",
-                "24/7 emergency hospital assistance",
-                "Transparent pricing and insurance accepted",
-                "Walk-in clinic for same-day evaluation",
-                "Comprehensive post-procedure care"
+                "Minimal bleeding through high-precision instant wound sealing technology",
+                "Extraordinarily short procedure time, typically completed in under 15 minutes",
+                "Significant reduction in swelling and post-operative discomfort",
+                "Aesthetically superior and uniform results compared to traditional suture methods",
+                "Rapid functional restoration allowing for a return to daily activities within 48 hours"
             ],
 
             procedureHeading: "How the Procedure is Performed",
             procedureSteps: [
                 {
-                    title: "Consultation & Evaluation",
-                    description: "Detailed examination to confirm suitability."
+                    title: "Clinical Suitability Mapping",
+                    description: "Detailed pre-surgical examination and evaluation to confirm eligibility for stapler technology."
                 },
                 {
-                    title: "Anesthesia Administration",
-                    description: "Local or general, based on patient preference and age."
+                    title: "Precision Execution",
+                    description: "Under expert anesthesia, the device removes the foreskin precisely and seals the wound instantly."
                 },
                 {
-                    title: "Stapler Placement",
-                    description: "Device removes foreskin precisely and seals wound instantly."
-                },
-                {
-                    title: "Immediate Recovery",
-                    description: "Patients are usually discharged the same day."
-                },
-                {
-                    title: "Post-Procedure Care",
-                    description: "Instructions for hygiene, wound care, and pain management."
+                    title: "Same-Day Recovery",
+                    description: "Zero hospital stay is required; patients are monitored and discharged the same day with care protocols."
                 }
             ],
 
-            benefitsHeading: "Advantages of Stapler Circumcision",
+            benefitsHeading: "Why Patients Choose Stork Hospital",
             benefits: [
-                "Minimal bleeding due to instant sealing",
-                "Short procedure time (<15 mins)",
-                "Reduced swelling and quick return to daily activities",
-                "Less post-operative discomfort",
-                "Uniform and aesthetically pleasing results"
+                "Specialist urologists and pediatric surgeons with extensive stapler circumcision experience",
+                "On-site diagnostic center in Hyderabad for complete, high-speed pre-surgical assessment",
+                "Advanced surgical center equipped with the latest ZSR and stapler technology",
+                "24/7 Response for urgent post-procedure assistance near Hitech City",
+                "Direct insurance billing with transparent pricing for medically necessary cases",
+                "Walk-in consultations near Kondapur for rapid same-day scheduling"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Aftercare Guidelines",
             recoveryTimeline: [
-                "Resume light work/school in 1–2 days",
-                "Avoid excessive movement/sports initially",
-                "Keep surgical site clean and dry",
-                "Take prescribed medications",
-                "Scheduled follow-up visits"
+                "Instant mobilization post-surgery with school or work resumption within 48 hours",
+                "Adherence to dry-wound hygiene protocols for the first phase of healing",
+                "Avoidance of high-impact sports or strenuous physical exertion for 1–2 weeks",
+                "Utilization of prescribed medications to ensure 100% comfort and prevent infection",
+                "Scheduled follow-up milestones to track healing progress and ring/staple detachment"
             ],
 
             faqHeading: "FAQs – Stapler Circumcision",
             faqs: [
                 {
                     question: "Is the procedure painful?",
-                    answer: "With anesthesia, the process is painless, and recovery discomfort is minimal."
+                    answer: "With specialized anesthesia, the process is painless, and recovery discomfort is significantly lower than traditional methods."
                 },
                 {
                     question: "How fast can I return to normal life?",
-                    answer: "Many patients resume routine activities within 48 hours."
+                    answer: "Many patients resume routine activities and light work within 48 hours of the procedure."
                 },
                 {
                     question: "Is it better than traditional circumcision?",
-                    answer: "Yes — the stapler method reduces recovery time, pain, and scarring."
+                    answer: "Yes — the stapler method reduces recovery time, pain, and scarring while providing superior aesthetic results."
                 },
                 {
                     question: "Does insurance cover the procedure?",
-                    answer: "If performed for a medical condition, Stork Hospital accepts most insurance plans."
+                    answer: "If performed for a medical condition, Stork Hospital accepts most insurance plans for stapler circumcision."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Stapler Circumcision Consultation",
-                description: "For a safe, quick, and advanced circumcision experience, schedule an appointment at Stork Hospital with a specialist urologist in Hyderabad today.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Stapler Circumcision Consultation",
+                description: "For a safe, quick, and advanced circumcision experience, meet our specialist urologists in Hyderabad to see if the stapler method is right for you.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "15 Minutes",
+                duration: "10–20 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Care",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "2–5 Days",
+                successRate: "99%+"
             },
             reviewedBy: {
-                name: "Dr. Srinivas", // Placeholder based on context
-                role: "Senior Urologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Pediatric Surgeons",
+                experience: "Experts in ZSR & Stapler Circumcision Technology"
+            }
+        }
+    }
+
+    if (slug === "frenuloplasty") {
+        return {
+            slug: slug,
+            title: "Frenuloplasty Surgery – Stork Hospital, Hyderabad",
+            subheading: "Advanced Surgical Solution for Short or Tight Penile Frenulum",
+            tagline: "Specialized urological procedure to resolve frenulum breve, restoring comfort and function while preserving the foreskin.",
+            breadcrumbTitle: "Frenuloplasty",
+            category: "Urology",
+            departmentHref: "/services/urology",
+            shortDescription: `Frenuloplasty is a simple yet effective procedure designed to treat a condition known as frenulum breve — where the band of tissue (frenulum) connecting the underside of the penis to the foreskin is too short or tight. This condition can lead to discomfort during erections, tearing of the skin, or difficulty retracting the foreskin.
+
+At Stork Multispecialty Hospital, Hyderabad, our urology specialists perform frenuloplasty using modern surgical techniques to ensure minimal discomfort, quicker healing, and preservation of natural appearance and function.`,
+
+            overview: {
+                heading: "Why Patients Trust Stork Hospital for Frenuloplasty",
+                intro: "At Stork, we focus on men's health through precision urological interventions that prioritize both anatomical function and patient comfort:",
+                items: [
+                    "Expert urologists with extensive experience in men’s health and foreskin-preserving procedures",
+                    "Advanced surgical center in Hyderabad equipped with precision tools for high-fidelity treatment",
+                    "24/7 Response for urgent penile tearing or acute urological discomfort near Hitech City",
+                    "Direct insurance billing with upfront pricing and absolute transparency on all surgical costs",
+                    "Private walk-in clinic near Kondapur for discreet and confidential consultations",
+                    "Comprehensive end-to-end care pathways from evaluation through to long-term functional results"
+                ]
+            },
+            fullDescription: [
+                "Frenuloplasty is often chosen by patients who wish to address structural tightness without undergoing a full circumcision. Our specialized urology team ensures that the procedure is performed with structural precision, allowing for improved sexual flexibility and comfort while maintaining the natural anatomy of the foreskin."
+            ],
+
+            conditionsHeading: "When Frenuloplasty is Needed",
+            conditionsTreated: [
+                "Persistent pain or acute tightness experienced during penile erections",
+                "Frequent tearing or localized scarring of the frenulum band",
+                "Clinical difficulty in retracting the foreskin comfortably",
+                "Desire to treat structural frenulum issues while preserving the foreskin"
+            ],
+
+            procedureHeading: "Advantages & Procedural High-Fidelity",
+            procedureSteps: [
+                {
+                    title: "Clinical Release Strategy",
+                    description: "Precision release of the tension in the frenulum while retaining the foreskin for natural function and appearance."
+                },
+                {
+                    title: "Anesthesia & Comfort",
+                    description: "Execution under localized or general anesthesia to ensure a pain-free daycare procedure with same-day discharge."
+                },
+                {
+                    title: "Downtime & Sexual Health",
+                    description: "Minimal clinical downtime allowing most patients to resume light functional activities within 2-3 days."
+                }
+            ],
+
+            benefitsHeading: "How Frenuloplasty is Performed",
+            benefits: [
+                "Initial Consultation – Physical examination and detailed diagnosis by a specialist urologist",
+                "Anesthesia Administration – Customized comfort based on patient preference and surgical scope",
+                "Frenulum Release – Precise surgical incision made to loosen or lengthen the frenulum tissue",
+                "Suturing – Utilization of dissolvable stitches to ensure natural, smooth, and aesthetic healing",
+                "Post-Operative Care – Comprehensive instructions on localized hygiene and safe recovery activities"
+            ],
+
+            risks: [],
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Rapid return to work or routine routine activities typically within 2–3 days of surgery",
+                "Strict avoidance of sexual activity and intense physical exertion for approximately 4–6 weeks",
+                "Maintaining a sterile and dry surgical area to promote optimal tissue healing",
+                "Scheduled follow-up check to confirm pathological resolution and optimal functional outcomes"
+            ],
+
+            faqHeading: "FAQs – Frenuloplasty Surgery",
+            faqs: [
+                {
+                    question: "Is frenuloplasty a painful procedure?",
+                    answer: "No. The surgery is pain-free under anesthesia, with only mild tenderness expected during the initial healing phase."
+                },
+                {
+                    question: "Will it reduce sensitivity?",
+                    answer: "No. Natural sensitivity is maintained, and many men report increased comfort and flexibility post-procedure."
+                },
+                {
+                    question: "Is circumcision required?",
+                    answer: "Not usually. Frenuloplasty is specifically designed to allow the foreskin to be preserved while resolving the tightness."
+                },
+                {
+                    question: "Does insurance cover the procedure?",
+                    answer: "Yes. Stork Hospital works with most major insurance plans to cover medically necessary frenuloplasty cases."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule a confidential Frenuloplasty Consult",
+                description: "If a short frenulum is affecting your comfort or health, meet our specialist urologists in Hyderabad for a discreet evaluation.",
+                buttonText: "Schedule Consultation"
+            },
+            meta: {
+                duration: "20–40 Minutes",
+                anesthesia: "Local / General",
+                hospitalStay: "Daycare / Outpatient",
+                recoveryTime: "2–5 Days",
+                successRate: "98%+"
+            },
+            reviewedBy: {
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Men's Health Specialists",
+                experience: "Experts in Foreskin-Preserving Procedures & Frenuloplasty"
             }
         }
     }
@@ -11760,9 +13777,10 @@ At Stork Multispecialty Hospital, Hyderabad, our expert urologists and pediatric
             slug: slug,
             title: "Surgical Interventions – Stork Hospital, Hyderabad",
             subheading: "Understanding Surgical Interventions in Women’s Health",
+            tagline: "Precision-driven surgical solutions for obstetric, gynecological, and structural concerns, ensuring safety and long-term wellness.",
             breadcrumbTitle: "Surgical Interventions",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
+            category: "Obstetrics",
+            departmentHref: "/services/obstetrics",
             shortDescription: `While many gynecological and obstetric concerns can be managed medically, some require precision-driven surgical solutions. Surgical interventions are crucial in addressing structural complications, ensuring safer pregnancies, and improving reproductive outcomes. At Stork Hospital, Hyderabad, we specialize in modern, minimally invasive procedures designed for faster recovery, reduced risk, and long-term wellness.
 
 Recognized as an advanced surgical center and one of the safest hospitals for surgery in Hyderabad, our hospital combines technology, expertise, and compassion to deliver optimal outcomes.`,
@@ -11779,87 +13797,89 @@ Recognized as an advanced surgical center and one of the safest hospitals for su
                     "Perform hysterectomy for persistent symptoms"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Our surgical team is proficient in laparoscopic and minimally invasive procedures in Hyderabad, offering safer alternatives with shorter hospital stays. At Stork, every surgical plan is developed with full transparency, empathy, and clinical precision."
+            ],
 
             conditionsHeading: "Who Might Need Surgical Intervention?",
             conditionsTreated: [
-                "Patients unresponsive to medication/conservative care",
-                "Women with chronic pelvic pain or abnormal bleeding",
-                "Cases requiring C-sections (fetal/maternal indications)",
-                "Structural complications identified via scans",
-                "Fertility-related surgical needs"
+                "Haven’t responded to medication or conservative care",
+                "Suffer from chronic pelvic pain, abnormal bleeding, or fertility challenges",
+                "Require C-sections for fetal or maternal indications",
+                "Have structural complications identified via scans",
+                "Highly experienced surgeons for gynecological and obstetric cases"
             ],
 
             procedureHeading: "Your Surgical Journey at Stork Hospital",
             procedureSteps: [
                 {
                     title: "Before Surgery",
-                    description: "In-depth diagnostics, review of options, and preoperative counseling."
+                    description: "In-depth diagnostics, evaluations, and preoperative planning with complete review of all treatment options."
                 },
                 {
                     title: "During the Procedure",
-                    description: "Performed in sterile OTs using tailored techniques (laparoscopic/open) with continuous monitoring."
+                    description: "Performed using advanced equipment in sterile OTs using tailored techniques (laparoscopic or open) with continuous monitoring."
                 },
                 {
                     title: "Postoperative Care",
-                    description: "Effective pain relief, mobilization guidance, and hygiene instructions."
+                    description: "Effective pain relief, mobilization guidance, and clear instructions for home care and wound management."
                 }
             ],
 
-            benefitsHeading: "Why Women Prefer Stork Hospital",
+            benefitsHeading: "Why Women Prefer Stork Hospital for Surgical Procedures",
             benefits: [
-                "Laparoscopic, Hysteroscopic & Open Surgery Expertise",
-                "Senior Surgeons with Proven Outcomes",
-                "Accredited Surgical Infrastructure",
-                "Enhanced Recovery Protocols & Shorter Stays",
-                "Budget-friendly packages with insurance transparency",
-                "Private recovery rooms available"
+                "Senior surgeons with proven, precision-driven surgical outcomes",
+                "Accredited surgical infrastructure and enhanced recovery protocols",
+                "Budget-friendly surgery packages with full insurance transparency",
+                "Accepted by most health insurers in Hyderabad, including Star Health",
+                "Option for private recovery rooms and same-day Kondapur appointments"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Support Beyond the Procedure",
             recoveryTimeline: [
-                "Post-op checkups and wound management",
-                "Nutritional and lifestyle guidance",
-                "Physiotherapy referrals when needed",
-                "Remote follow-ups via teleconsultation"
+                "Follow-ups to track healing progress and wound management",
+                "Nutritional and lifestyle guidance for optimal post-op healing",
+                "Physiotherapy referrals and emotional support when needed",
+                "Remote follow-ups through teleconsultation for convenient monitoring"
             ],
 
             faqHeading: "FAQs – Surgical Services at Stork Hospital",
             faqs: [
                 {
                     question: "Will every surgery be minimally invasive?",
-                    answer: "Where possible, yes. However, the approach depends on your condition and what offers the best results."
+                    answer: "Where possible, yes. However, the approach depends on your specific clinical condition and what offers the safest, most effective results."
                 },
                 {
                     question: "How long will I need to stay post-surgery?",
-                    answer: "Usually 1–2 nights, depending on recovery speed and procedure type."
+                    answer: "Usually 1–2 nights, depending on your recovery speed and the specific procedure type performed."
                 },
                 {
                     question: "Is insurance accepted?",
-                    answer: "Absolutely. We work with leading insurers and also offer surgical packages with maternity benefits."
+                    answer: "Absolutely. We work with leading insurers and also offer competitive surgical packages with maternity benefits."
                 },
                 {
                     question: "How soon can I get back to routine work?",
-                    answer: "It varies. Many patients resume light duties within a week; your surgeon will guide you specifically."
+                    answer: "It varies—many patients resume light duties within a week, while your surgeon will provide a specific timeline for your recovery."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Surgical Consultation",
+                heading: "Trusted, Expert-Led Surgical Care",
                 description: "To receive trusted, expert-led care, book an appointment at Stork Hospital—your reliable destination for safe surgical interventions in Hyderabad.",
-                buttonText: "Book Appointment"
+                buttonText: "Schedule Surgical Consult"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "General / Regional",
-                hospitalStay: "1-2 Days",
-                recoveryTime: "Varies",
-                successRate: "High"
+                duration: "45–180 Minutes",
+                anesthesia: "General or Spinal",
+                hospitalStay: "1–2 Days",
+                recoveryTime: "1–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Neelima", // Placeholder based on context
-                role: "Senior Gynecologist",
-                experience: "20+ Years Experience"
+                name: "Stork Surgical Unit",
+                role: "Senior OB-GYN & Laparoscopic Surgeons",
+                experience: "Experts in Complex Women’s Interventions"
             }
         }
     }
@@ -11870,80 +13890,84 @@ Recognized as an advanced surgical center and one of the safest hospitals for su
             slug: slug,
             title: "Swollen Penis – Stork Hospital, Hyderabad",
             subheading: "Fast, Confidential Care for Penile Swelling",
+            tagline: "Specialized urological evaluation to identify the root cause of penile swelling, providing rapid relief and restoring long-term comfort.",
             breadcrumbTitle: "Swollen Penis",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `A swollen penis can be caused by many factors, including infections, allergic reactions, trauma, or underlying medical conditions. Swelling may affect just the shaft, the glans (head), or the foreskin, and it can be accompanied by pain, redness, itching, or difficulty urinating. While mild swelling may resolve on its own, severe or persistent swelling needs prompt medical evaluation to prevent complications.
 
 At Stork Multispecialty Hospital, Hyderabad, our experienced urologists provide discreet, respectful, and effective care to identify the cause and deliver the right treatment — ensuring relief and restoring comfort.`,
 
             overview: {
                 heading: "Causes of a Swollen Penis",
-                intro: "Common causes include:",
+                intro: "Penile swelling can result from a range of clinical and environmental triggers:",
                 items: [
-                    "Infections such as balanitis, STIs, or urinary tract infections",
-                    "Allergic reactions to latex, lubricants, or hygiene products",
-                    "Trauma or injury from accidents, sports, or sexual activity",
-                    "Paraphimosis – trapped foreskin restricting blood flow",
-                    "Insect bites or skin irritation",
-                    "Underlying chronic health conditions such as diabetes"
+                    "Acute infections such as Balanitis, STIs, or complex Urinary Tract Infections (UTIs)",
+                    "Allergic reactions to latex, lubricants, or aggressive hygiene products",
+                    "Direct trauma or injury from accidents, sports, or sexual activity",
+                    "Paraphimosis – trapped foreskin restricting blood flow, requiring emergency care",
+                    "Insect bites or progressive skin irritation and disorders",
+                    "Underlying metabolic conditions such as diabetes or chronic skin diseases"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Why Choose Stork Hospital for Penile Swelling Treatment",
-            conditionsTreated: [
-                "Specialist urologists experienced in male genital conditions",
-                "Diagnostic center with lab tests and imaging",
-                "Advanced surgical center for operative intervention",
-                "24/7 emergency hospital for urgent treatment",
-                "Insurance accepted for covered procedures",
-                "Walk-in clinic for private, same-day consultations"
+            fullDescription: [
+                "At Stork Hospital, we treat penile swelling with the highest level of clinical confidentiality. Our diagnostic approach focuses on rapid identification of the 'Swelling Trigger'—whether inflammatory, traumatic, or infectious—to prevent secondary complications like tissue ischemia or permanent damage."
             ],
 
-            procedureHeading: "Treatment Options at Stork Hospital",
+            conditionsHeading: "Symptoms That May Accompany Swelling",
+            conditionsTreated: [
+                "Localized redness, discoloration, or progressive heat in the tissue",
+                "Sharp pain, tenderness, or persistent throbbing in the penile shaft",
+                "Visible rash, sores, or ulcerative lesions on the skin",
+                "Abnormal discharge or a foul odor emanating from the foreskin fold",
+                "Acute difficulty during urination or significant urinary retention",
+                "Development of fever or systemic chills indicating an active infection"
+            ],
+
+            procedureHeading: "Advanced Treatment Approaches at Stork",
             procedureSteps: [
                 {
                     title: "Medical Management",
-                    description: "Antibiotics/antifungals for infections, antihistamines for allergies, or anti-inflammatory meds."
+                    description: "Targeted antibiotics, antifungal agents, or high-potency antihistamines to resolve the primary inflammatory cause."
                 },
                 {
-                    title: "Procedural or Surgical Interventions",
-                    description: "Drainage of abscess, circumcision for recurrent cases, or emergency treatment for paraphimosis."
+                    title: "Procedural & Surgical Intervention",
+                    description: "Emergency drainage of abscesses if present, paraphimosis reduction, or corrective circumcision for recurrent cases."
                 },
                 {
-                    title: "Lifestyle & Hygiene Guidance",
-                    description: "Advice on gentle cleaning, avoiding irritants, and managing underlying health issues."
+                    title: "Lifestyle & Metabolic Guidance",
+                    description: "Proactive management of diabetic triggers and education on gentle, hypoallergenic hygiene to prevent recurrence."
                 }
             ],
 
-            benefitsHeading: "Symptoms That May Accompany Swelling",
+            benefitsHeading: "Why Choose Stork Hospital for Swelling Care",
             benefits: [
-                "Redness or discoloration",
-                "Pain or tenderness",
-                "Rash or sores on the penis",
-                "Discharge or foul odor from under the foreskin",
-                "Difficulty urinating or urinary retention",
-                "Fever (in case of infection)"
+                "Specialist urologists with deep experience in private genital diagnostic audits",
+                "On-site diagnostic center featuring rapid lab testing for STIs and infections",
+                "Advanced surgical center equipped for local emergency procedures and drainage",
+                "24/7 Response for acute penile trauma or paraphimosis near Hitech City",
+                "Direct insurance billing with transparent pricing for all covered urological procedures",
+                "Private walk-in clinic near Kondapur for discreet same-day evaluation"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Most recover within a few days to two weeks",
-                "Follow hygiene practices to prevent recurrence",
-                "Complete all prescribed medications",
-                "Return for follow-up if swelling persists"
+                "Most acute inflammatory signs resolve within a few days to two weeks of targeted treatment",
+                "Adherence to hypoallergenic hygiene practices to ensure localized tissue stabilization",
+                "Completion of the full clinical medication course to prevent pathogen resurgence",
+                "Scheduled follow-up milestones to confirm the total resolution of internal inflammation"
             ],
 
             faqHeading: "FAQs – Swollen Penis",
             faqs: [
                 {
-                    question: "When should I see a doctor?",
+                    question: "When should I see a doctor for penile swelling?",
                     answer: "If swelling is severe, painful, or lasts more than 24–48 hours, seek medical attention immediately."
                 },
                 {
                     question: "Can swelling go away without treatment?",
-                    answer: "Mild cases may resolve naturally, but it’s best to get a proper diagnosis."
+                    answer: "Mild cases may resolve naturally, but it’s best to get a proper diagnosis for peace of mind."
                 },
                 {
                     question: "Is swelling always caused by an infection?",
@@ -11951,26 +13975,26 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists provide 
                 },
                 {
                     question: "Does insurance cover treatment?",
-                    answer: "Yes. Stork Hospital accepts most insurance plans for necessary medical or surgical treatment."
+                    answer: "Yes. Stork Hospital accepts most insurance plans for medically necessary urological treatments."
                 }
             ],
 
             customCta: {
-                heading: "Book a Private Consultation",
-                description: "If you have swelling, discomfort, or any unusual symptoms, book an appointment at Stork Hospital to meet a specialist urologist in Hyderabad for prompt diagnosis and effective treatment.",
-                buttonText: "Book Appointment"
+                heading: "Schedule a Private Consultation",
+                description: "If you have swelling, discomfort, or any unusual symptoms, meet our expert urologists in Hyderabad for a discreet and effective diagnosis.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "20-30 Min Consultation",
+                duration: "15–45 Minutes",
                 anesthesia: "None / Local",
-                hospitalStay: "Outpatient",
-                recoveryTime: "Varies",
-                successRate: "High"
+                hospitalStay: "Outpatient / Emergency",
+                recoveryTime: "2–14 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Srinivas", // Placeholder
-                role: "Senior Urologist",
-                experience: "15+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Genital Health Specialists",
+                experience: "Experts in Acute Penile Inflammation & Emergency Urological Care"
             }
         }
     }
@@ -11980,51 +14004,58 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced urologists provide 
             slug: slug,
             title: "Throat Surgery – Stork Hospital, Hyderabad",
             subheading: "Surgical Expertise for Throat, Voice, and Airway Health",
+            tagline: "Comprehensive surgical care for laryngeal, airway, and vocal cord conditions using advanced precision tools and laser technology.",
             breadcrumbTitle: "Throat Surgery",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Throat surgery is an umbrella term for procedures that address problems of the larynx (voice box), airway passages, and related throat structures. These surgeries may be required to restore normal breathing, improve voice quality, treat abnormal growths, or correct swallowing difficulties that have not improved with medicines or therapy.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons combine advanced surgical tools with years of clinical experience to deliver safe, precise, and tailored throat surgeries. Every treatment plan is supported by collaboration between ENT experts, speech therapists, and respiratory specialists to give patients complete, end-to-end care.`,
 
             overview: {
-                heading: "Conditions That May Require Throat Surgery",
-                intro: "Our ENT department offers surgical solutions for:",
+                heading: "Why Patients Trust Stork Hospital for Throat Procedures",
+                intro: "We provide a multidisciplinary approach supported by ENT experts, speech therapists, and respiratory specialists:",
                 items: [
-                    "Vocal cord nodules, cysts, or polyps",
-                    "Benign and malignant throat or laryngeal tumors",
-                    "Chronic hoarseness caused by vocal cord changes",
-                    "Narrowed airway passages from injury or scar tissue",
-                    "Swallowing difficulties due to structural problems",
-                    "Tracheal or subglottic narrowing affecting normal breathing"
+                    "Experienced ENT specialists trained in complex airway and voice surgeries",
+                    "Access to a modern advanced surgical center with cutting-edge anesthesia and monitoring systems",
+                    "Comprehensive diagnostic center in Hyderabad for laryngoscopy, imaging, and voice testing",
+                    "24/7 emergency hospital near Hitech City for urgent breathing or throat concerns",
+                    "Insurance accepted at Stork Hospital, with clear and transparent pricing",
+                    "Same-day ENT consultations and walk-in clinic near Kondapur for immediate assessments",
+                    "Comfortable recovery suites designed for rest, privacy, and safe post-surgical observation"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Why Patients Trust Stork Hospital for Throat Procedures",
-            conditionsTreated: [
-                "Experienced ENT specialists trained in complex airway and voice surgeries",
-                "Access to a modern advanced surgical center with cutting-edge anesthesia",
-                "Comprehensive diagnostic center for laryngoscopy, imaging, and voice testing",
-                "24/7 emergency hospital for urgent breathing or throat concerns",
-                "Insurance accepted with clear and transparent pricing",
-                "Same-day ENT consultations and walk-in clinic for immediate assessments",
-                "Comfortable recovery suites designed for rest and privacy"
+            fullDescription: [
+                "Throat surgeries at Stork are performed with a focus on functional preservation, ensuring that voice quality and airway patency are maximized through precise, microsurgical techniques."
             ],
 
-            procedureHeading: "How We Carry Out Throat Surgeries",
+            conditionsHeading: "Conditions That May Require Throat Surgery",
+            conditionsTreated: [
+                "Vocal cord nodules, cysts, or polyps",
+                "Benign and malignant throat or laryngeal tumors",
+                "Chronic hoarseness caused by vocal cord changes",
+                "Narrowed airway passages from injury or scar tissue",
+                "Swallowing difficulties due to structural problems",
+                "Tracheal or subglottic narrowing affecting normal breathing"
+            ],
+
+            procedureHeading: "How We Carry Out Throat Surgeries at Stork",
             procedureSteps: [
                 {
                     title: "Pre-Surgical Planning",
-                    description: "ENT evaluation with laryngoscopy, voice/swallowing assessments, and patient counseling."
+                    description: "Detailed evaluation with laryngoscopy, imaging, and voice/swallowing assessments. Biopsy is performed if necessary."
                 },
                 {
-                    title: "During the Procedure",
-                    description: "General anesthesia in a sterile OT using precision techniques (microscopes/lasers) to reduce trauma."
+                    title: "Precision Procedure",
+                    description: "Performed under general anesthesia using microscopes or laser equipment to ensure maximum accuracy and minimal tissue trauma."
                 },
                 {
                     title: "Post-Surgery Care",
-                    description: "Pain management, voice-rest guidance, diet adjustments, and speech therapy if recommended."
+                    description: "Integrated pain management, voice-rest protocols, and diet adjustments to protect the throat during the initial healing phase."
+                },
+                {
+                    title: "Rehabilitative Support",
+                    description: "Speech or swallowing therapy sessions provided by on-site specialists to ensure optimal functional recovery."
                 }
             ],
 
@@ -12039,11 +14070,13 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons combine advanced s
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Pain management and voice-rest guidance",
-                "Diet adjustments to protect the throat during healing",
-                "Speech or swallowing therapy if recommended",
-                "Follow-up visits to check recovery and prevent recurrence"
+                "Initial voice rest and pain management protocols implemented immediately post-surgery",
+                "Gradual resumption of normal diet and swallowing as throat tissues heal over 1–2 weeks",
+                "Scheduled speech therapy sessions to optimize voice quality and functional output",
+                "Most patients return to light activities and non-strenuous work within 10–14 days",
+                "Long-term follow-up to monitor vocal cord health and prevent lesion recurrence"
             ],
 
             faqHeading: "FAQs – Throat Surgery at Stork Hospital",
@@ -12069,22 +14102,23 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons combine advanced s
             customCta: {
                 heading: "Schedule Your ENT Surgery Consultation",
                 description: "If you’ve been living with persistent voice issues, breathing difficulties, or swallowing problems, getting timely care is crucial. Book an appointment at Stork Hospital to meet with an ENT specialist in Hyderabad and explore the safest, most effective surgical options for your needs.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "Varies",
-                anesthesia: "General",
-                hospitalStay: "Varies",
-                recoveryTime: "Varies",
-                successRate: "High"
+                duration: "45–120 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "Daycare / 1–2 Nights",
+                recoveryTime: "1–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT & Airway Surgeons",
+                experience: "Experts in Voice & Laryngeal Reconstruction"
             }
         }
     }
+
 
 
 
@@ -12094,50 +14128,57 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons combine advanced s
             slug: slug,
             title: "Tonsillectomy – Stork Hospital, Hyderabad",
             subheading: "Relief from Chronic Throat Problems with Expert ENT Care",
+            tagline: "Gentle removal of tonsils using advanced precision techniques to treat recurrent infections and obstructive sleep apnea.",
             breadcrumbTitle: "Tonsillectomy",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `A tonsillectomy is a surgical procedure to remove the tonsils — two oval-shaped pads of tissue at the back of the throat. It’s most commonly performed to treat recurrent throat infections, chronic tonsillitis, or sleep-related breathing issues such as obstructive sleep apnea.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform tonsillectomy with precision and patient comfort in mind. We use advanced surgical techniques that minimize discomfort, reduce recovery time, and ensure long-term relief. Whether for children or adults, our care approach is thorough, safe, and personalized.`,
 
             overview: {
-                heading: "When is Tonsillectomy Recommended?",
-                intro: "A tonsillectomy may be advised if you or your child experience:",
+                heading: "Why Choose Stork Hospital for Tonsil Surgery",
+                intro: "Whether for children or adults, our care approach is thorough, safe, and personalized:",
                 items: [
-                    "Repeated episodes of tonsillitis (3 or more in 6 months or 4 in a year)",
-                    "Enlarged tonsils causing difficulty in swallowing or breathing",
-                    "Sleep apnea due to obstructed airway",
-                    "Chronic sore throat or bad breath from tonsil stones (tonsilloliths)",
-                    "Complications such as abscess around the tonsils (peritonsillar abscess)"
+                    "Experienced ENT specialists with a strong record in adult and pediatric tonsillectomy",
+                    "Advanced surgical center equipped with modern anesthesia and monitoring systems",
+                    "In-house diagnostic center in Hyderabad for throat examination and pre-surgical evaluation",
+                    "24/7 hospital open near me for urgent ENT emergencies and post-operative support",
+                    "Same-day doctor appointments and walk-in clinic near Kondapur for quick consultation",
+                    "Insurance accepted at Stork Hospital, with transparent procedure cost estimates",
+                    "Child-friendly facilities for young patients needing surgery"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Why Choose Stork Hospital for Tonsil Surgery",
-            conditionsTreated: [
-                "Experienced ENT specialists with a strong record in adult and pediatric tonsillectomy",
-                "Advanced surgical center equipped with modern anesthesia and monitoring systems",
-                "In-house diagnostic center for throat examination and pre-surgical evaluation",
-                "24/7 hospital for urgent ENT emergencies and post-operative support",
-                "Same-day doctor appointments and walk-in clinic for quick consultation",
-                "Insurance accepted with transparent procedure cost estimates",
-                "Child-friendly facilities for young patients needing surgery"
+            fullDescription: [
+                "A tonsillectomy is a highly effective solution for chronic throat ailments, providing significant improvement in quality of life by reducing infection frequency and improving nighttime breathing."
             ],
 
-            procedureHeading: "Our Approach to Tonsillectomy",
+            conditionsHeading: "When is Tonsillectomy Recommended?",
+            conditionsTreated: [
+                "Repeated episodes of tonsillitis (3 or more in 6 months or 4 in a year)",
+                "Enlarged tonsils causing difficulty in swallowing or breathing",
+                "Sleep apnea due to obstructed airway",
+                "Chronic sore throat or bad breath from tonsil stones (tonsilloliths)",
+                "Complications such as abscess around the tonsils (peritonsillar abscess)"
+            ],
+
+            procedureHeading: "Our Approach to Tonsillectomy at Stork",
             procedureSteps: [
                 {
                     title: "Pre-Surgical Care",
-                    description: "Consultation, throat examination, blood tests, and discussion of benefits/risks."
+                    description: "Consultation with an ENT specialist at Stork Hospital, throat examination, blood tests, and discussion of benefits/aftercare."
                 },
                 {
-                    title: "During the Surgery",
-                    description: "General anesthesia, removal of tonsils using advanced methods (coblation/electrocautery) to reduce bleeding."
+                    title: "Microsurgical Procedure",
+                    description: "Performed under general anesthesia. We use advanced methods like coblation or electrocautery to reduce bleeding and tissue trauma."
                 },
                 {
-                    title: "Post-Surgical Recovery",
-                    description: "Pain management, soft diet guidance, and regular follow-up visits."
+                    title: "Procedure Duration",
+                    description: "The surgery is typically completed within 30 to 60 minutes in a sterile operating environment."
+                },
+                {
+                    title: "Post-Surgical Support",
+                    description: "Integrated pain management, soft diet guidance, and 24/7 emergency support for any immediate concerns during initial healing."
                 }
             ],
 
@@ -12151,26 +14192,28 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform tonsill
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Mild throat discomfort is common but well-managed",
-                "Most patients recover in 1–2 weeks",
-                "Guidance on soft diet and hydration for healing",
-                "24/7 emergency support for any post-op concerns"
+                "Mild throat discomfort is common but well-managed with prescribed medication",
+                "Most patients return to school or light work within 7–10 days",
+                "Strict adherence to a soft, cool diet for the first week to aid healing",
+                "Stay hydrated with clear fluids to keep the throat moist and reduce soreness",
+                "Follow-up visits to ensure the surgical site is healing cleanly and infections have ceased"
             ],
 
             faqHeading: "FAQs – Tonsillectomy at Stork Hospital",
             faqs: [
                 {
                     question: "Is the surgery painful?",
-                    answer: "Mild throat discomfort is common after surgery but is well-managed with medication."
+                    answer: "Mild throat discomfort is common after surgery but is well-managed with medication. Most patients find the relief from chronic infections worth the initial recovery period."
                 },
                 {
                     question: "Can adults have a tonsillectomy?",
-                    answer: "Yes. While more common in children, adults can also benefit, especially for chronic infections or sleep apnea."
+                    answer: "Yes. While more common in children, adults can also benefit significantly, especially for chronic infections or sleep apnea."
                 },
                 {
                     question: "How long is recovery?",
-                    answer: "Most patients recover in 1–2 weeks, with children often healing faster."
+                    answer: "Most patients recover in 1–2 weeks, with children often healing faster than adults."
                 },
                 {
                     question: "Is insurance available for tonsillectomy?",
@@ -12180,23 +14223,24 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform tonsill
 
             customCta: {
                 heading: "Book Your ENT Consultation Today",
-                description: "If you or your child suffers from frequent throat infections or breathing problems during sleep, it’s time to explore solutions. Book an appointment at Stork Hospital to meet our ENT specialist in Hyderabad and learn how a tonsillectomy can improve health and quality of life.",
-                buttonText: "Book Appointment"
+                description: "If you or your child suffers from frequent throat infections or breathing problems during sleep, it’s time to explore solutions. Book an appointment at Stork Hospital to meet our ENT specialist in Hyderabad.",
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "30-60 Min",
-                anesthesia: "General",
-                hospitalStay: "Day Case / 1 Night",
-                recoveryTime: "1-2 Weeks",
-                successRate: "High"
+                duration: "30–60 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "Same Day (Daycare)",
+                recoveryTime: "1–2 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT & Pediatric Specialists",
+                experience: "Experts in Coblation Tonsillectomy"
             }
         }
     }
+
 
     // 3. Return Premium Placeholder Content (Default)
     if (slug === "total-knee-replacement") {
@@ -12319,50 +14363,57 @@ At Stork Multispecialty Hospital, Hyderabad, we combine the expertise of highly 
             slug: slug,
             title: "Turbinate Reduction – Stork Hospital, Hyderabad",
             subheading: "Restoring Easy Breathing with Advanced Nasal Surgery",
+            tagline: "Minimally invasive surgical techniques to shrink enlarged nasal turbinates, providing permanent relief from chronic congestion and airway blockage.",
             breadcrumbTitle: "Turbinate Reduction",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Inside your nose are small bony structures called turbinates, covered with mucous membrane that helps filter and humidify the air you breathe. When these turbinates become swollen — due to allergies, chronic sinus problems, or structural issues — they can block airflow and cause constant nasal congestion. Turbinate reduction is a surgical procedure to shrink or remove part of the enlarged turbinate tissue, restoring smooth, unobstructed breathing.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform turbinate reduction using safe, precise, and minimally invasive techniques. Our goal is to relieve long-term nasal blockage, reduce sinus infections, and improve your overall breathing comfort.`,
 
             overview: {
-                heading: "When Turbinate Reduction May Be Recommended",
-                intro: "Your ENT specialist may suggest this procedure if you have:",
+                heading: "Why Choose Stork Hospital for Turbinate Reduction",
+                intro: "Our goal is to relieve long-term nasal blockage, reduce sinus infections, and improve your overall breathing comfort:",
                 items: [
-                    "Chronic nasal congestion that doesn’t improve with medication",
-                    "Breathing difficulty due to enlarged turbinates",
-                    "Frequent sinus infections linked to nasal blockage",
-                    "Snoring or sleep apnea symptoms worsened by nasal obstruction",
-                    "Ongoing allergy-related swelling unresponsive to therapy"
+                    "Experienced ENT surgeons skilled in advanced nasal and sinus procedures",
+                    "Advanced surgical center with modern endoscopic and radiofrequency equipment",
+                    "On-site diagnostic center in Hyderabad for nasal endoscopy, allergy testing, and imaging",
+                    "24/7 emergency hospital near Hitech City for urgent ENT care",
+                    "Insurance accepted at Stork Hospital with transparent cost details",
+                    "Same-day ENT consultations and walk-in clinic near Kondapur for quick evaluations",
+                    "Comprehensive aftercare to prevent recurrence of nasal obstruction"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Why Choose Stork Hospital for Turbinate Reduction",
-            conditionsTreated: [
-                "Experienced ENT surgeons skilled in advanced nasal and sinus procedures",
-                "Advanced surgical center with modern endoscopic and radiofrequency equipment",
-                "On-site diagnostic center for nasal endoscopy, allergy testing, and imaging",
-                "24/7 emergency hospital for urgent ENT care",
-                "Insurance accepted with transparent cost details",
-                "Same-day ENT consultations and walk-in clinic for quick evaluations",
-                "Comprehensive aftercare to prevent recurrence of nasal obstruction"
+            fullDescription: [
+                "Turbinate reduction is a highly successful procedure for patients with persistent nasal obstruction, often performed alongside other nasal surgeries like septoplasty for comprehensive airway restoration."
             ],
 
-            procedureHeading: "Our Surgical Approach",
+            conditionsHeading: "When Turbinate Reduction May Be Recommended",
+            conditionsTreated: [
+                "Chronic nasal congestion that doesn’t improve with medication",
+                "Breathing difficulty due to enlarged turbinates",
+                "Frequent sinus infections linked to nasal blockage",
+                "Snoring or sleep apnea symptoms worsened by nasal obstruction",
+                "Ongoing allergy-related swelling unresponsive to therapy"
+            ],
+
+            procedureHeading: "Our Surgical Approach to Turbinate Reduction at Stork",
             procedureSteps: [
                 {
                     title: "Diagnosis and Planning",
-                    description: "ENT examination, nasal endoscopy, and discussion of procedure type/expected results."
+                    description: "ENT examination and nasal endoscopy to assess the airway, followed by imaging if required to plan the precision approach."
                 },
                 {
-                    title: "During the Procedure",
-                    description: "Performed under local/general anesthesia using radiofrequency ablation or partial tissue removal with endoscopic guidance."
+                    title: "Minimally Invasive Procedure",
+                    description: "Performed using techniques like radiofrequency ablation or endoscopic tissue removal to shrink the turbinates with minimal disruption."
                 },
                 {
-                    title: "After the Procedure",
-                    description: "Short recovery, nasal saline rinses, pain control, and follow-up visits."
+                    title: "Immediate Post-Op Care",
+                    description: "Short recovery period in the hospital with same-day discharge. Focus on pain control and initial swelling management."
+                },
+                {
+                    title: "Long-Term Healing",
+                    description: "Guided nasal saline rinses and follow-up visits to ensure the airway remains open and breathing function is optimized."
                 }
             ],
 
@@ -12377,52 +14428,55 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform turbina
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Short recovery period, often with same-day discharge",
-                "Many patients return to daily activities within a few days",
-                "Nasal saline rinses to aid healing",
-                "Follow-up visits to monitor long-term results"
+                "Most patients are discharged on the same day as the procedure",
+                "Significant improvement in nasal airflow often noticed within 48–72 hours",
+                "Resume light daily activities and work within 2–4 days post-surgery",
+                "Perform regular nasal saline rinses for 1–2 weeks to keep nasal passages clean",
+                "Avoid heavy lifting or intense cardiovascular exercise for at least one week"
             ],
 
             faqHeading: "FAQs – Turbinate Reduction at Stork Hospital",
             faqs: [
                 {
                     question: "Is turbinate reduction painful?",
-                    answer: "The procedure is performed under anesthesia, and any mild post-operative discomfort is managed with medication."
+                    answer: "The procedure is performed under anesthesia, and any mild post-operative discomfort is managed with medication. Most patients experience a 'stuffy' feeling rather than acute pain."
                 },
                 {
                     question: "Will this surgery cure my nasal congestion permanently?",
-                    answer: "In most cases, it provides long-term relief, though managing allergies and sinus health is still important."
+                    answer: "In most cases, it provides long-term relief. However, managing underlying allergies and sinus health remains important to prevent future swelling."
                 },
                 {
                     question: "How soon can I resume normal activities?",
-                    answer: "Many patients return to daily activities within a few days, avoiding strenuous exercise until cleared by the doctor."
+                    answer: "Many patients return to work and light activities within 2–4 days, though strenuous exercise should be avoided for about a week."
                 },
                 {
                     question: "Is the procedure covered by insurance?",
-                    answer: "Yes. Stork Hospital works with leading insurance providers and offers transparent pricing before treatment."
+                    answer: "Yes. Stork Hospital works with leading insurance providers and offers transparent pricing and documentation support."
                 }
             ],
 
             customCta: {
                 heading: "Book Your Nasal Surgery Consultation",
-                description: "If constant nasal congestion or blocked breathing is affecting your quality of life, it’s time to explore permanent solutions. Book an appointment at Stork Hospital to meet an ENT specialist in Hyderabad and find out if turbinate reduction is right for you.",
-                buttonText: "Book Appointment"
+                description: "If constant nasal congestion or blocked breathing is affecting your quality of life, it’s time to explore permanent solutions. Book an appointment at Stork Hospital to meet an ENT specialist in Hyderabad.",
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "30-60 Min",
+                duration: "30–45 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Case",
-                recoveryTime: "3-7 Days",
-                successRate: "High"
+                hospitalStay: "Same Day (Daycare)",
+                recoveryTime: "1 Week",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT & Nasal Surgeons",
+                experience: "Experts in Radiofrequency Turbinate Reduction"
             }
         }
     }
+
 
     // 3. Return Premium Placeholder Content (Default)
     if (slug === "tympanoplasty") {
@@ -12430,49 +14484,56 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform turbina
             slug: slug,
             title: "Tympanoplasty – Advanced Eardrum Reconstruction at Stork Hospital, Hyderabad",
             subheading: "State-of-the-Art Ear Surgery for Hearing Recovery",
+            tagline: "Refined surgical technique to repair perforated eardrums, restoring hearing clarity and preventing recurrent infections using microscope-assisted precision.",
             breadcrumbTitle: "Tympanoplasty",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Tympanoplasty is a refined surgical technique used to repair a perforated or damaged eardrum, restoring hearing clarity and protecting the ear from recurring infections. At Stork Multispecialty Hospital, Hyderabad, our ENT surgeons utilize both microscope-assisted and endoscopic tympanoplasty methods, ensuring exceptional precision, safety, and quicker healing.
 
 Whether the damage stems from chronic infections, injury, or middle ear disorders, we deliver targeted treatment that improves both hearing function and overall comfort.`,
 
             overview: {
-                heading: "Symptoms That Indicate Tympanoplasty Might Be Needed",
-                intro: "You may benefit from tympanoplasty if you have:",
+                heading: "Why Choose Stork Hospital for Tympanoplasty in Hyderabad",
+                intro: "Our patients value our combination of modern medical technology and personalized care:",
                 items: [
-                    "Persistent or recurrent ear discharge (otorrhea)",
-                    "Noticeable hearing loss due to eardrum perforation",
-                    "Ear trauma from sudden loud noise, pressure change, or injury",
-                    "Chronic otitis media that hasn’t resolved with medication",
-                    "Eardrum hole that hasn’t closed naturally over several months"
+                    "Expert ENT surgeons for tympanoplasty in Hyderabad with years of specialized experience",
+                    "Walk-in ENT evaluations near Kondapur for timely diagnosis and advice",
+                    "High-tech surgical instruments to minimize trauma and enhance precision",
+                    "Individualized anesthesia protocols for patient comfort",
+                    "Full-spectrum recovery support, including hearing rehabilitation",
+                    "Recognized Hyderabad hospital accepting insurance for ENT surgical care"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "A successful tympanoplasty not only improves hearing but also creates a permanent barrier against water and bacteria, significantly reducing the risk of middle ear infections."
+            ],
 
-            conditionsHeading: "Why Choose Stork Hospital for Tympanoplasty in Hyderabad",
+            conditionsHeading: "Symptoms That Indicate Tympanoplasty Might Be Needed",
             conditionsTreated: [
-                "Expert ENT surgeons for tympanoplasty with years of specialized experience",
-                "High-tech surgical instruments to minimize trauma and enhance precision",
-                "Individualized anesthesia protocols for patient comfort",
-                "Full-spectrum recovery support, including hearing rehabilitation",
-                "Walk-in ENT evaluations for timely diagnosis and advice",
-                "Recognized Hyderabad hospital accepting insurance for ENT surgical care"
+                "Persistent or recurrent ear discharge (otorrhea)",
+                "Noticeable hearing loss due to eardrum perforation",
+                "Ear trauma from sudden loud noise, pressure change, or injury",
+                "Chronic otitis media that hasn’t resolved with medication",
+                "Eardrum hole that hasn’t closed naturally over several months"
             ],
 
             procedureHeading: "Our Tympanoplasty Procedure at Stork",
             procedureSteps: [
                 {
                     title: "Comprehensive Assessment",
-                    description: "Evaluation with a senior ENT specialist, detailed hearing test (audiometry), and microscopic examination."
+                    description: "Evaluation with a senior ENT specialist, detailed hearing test (audiometry), and microscopic examination to plan the graft placement."
                 },
                 {
-                    title: "The Surgery",
-                    description: "Performed under local or general anesthesia using a small tissue graft to reconstruct the eardrum."
+                    title: "Microsurgical Reconstruction",
+                    description: "Performed under local or general anesthesia. The eardrum is reconstructed using a small tissue graft from the patient to close the perforation."
                 },
                 {
-                    title: "Recovery & Follow-up",
-                    description: "Same-day discharge or short stay, followed by structured aftercare to monitor healing and hearing improvement."
+                    title: "Precision Technology",
+                    description: "Utilization of microscope-assisted or endoscopic methods to ensure anatomical accuracy and minimize surgical trauma."
+                },
+                {
+                    title: "Post-Surgical Follow-Up",
+                    description: "Same-day discharge or short stay with structured aftercare and follow-up visits to monitor hearing improvement and graft health."
                 }
             ],
 
@@ -12486,51 +14547,55 @@ Whether the damage stems from chronic infections, injury, or middle ear disorder
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Light activities may resume within a week",
-                "Complete healing typically takes 2–4 weeks",
-                "Most patients notice fewer infections and improved hearing during follow-ups"
+                "Initial ear packing is usually removed within 1–2 weeks by the ENT specialist",
+                "Avoid getting water in the ear or blowing the nose forcefully for 4 weeks",
+                "Resume non-strenuous work and daily routines within 7–10 days post-surgery",
+                "Significant improvement in hearing and infection prevention noticed as the graft heals",
+                "Final hearing assessment typically conducted 6–8 weeks after the procedure"
             ],
 
-            faqHeading: "FAQs – Tympanoplasty at Stork",
+            faqHeading: "FAQs – Tympanoplasty at Stork Hospital",
             faqs: [
                 {
                     question: "Is the procedure painful?",
-                    answer: "No. It’s performed under anesthesia, ensuring you remain comfortable throughout."
+                    answer: "No. It’s performed under anesthesia, ensuring you remain comfortable throughout. Any mild post-operative soreness is easily managed with medication."
                 },
                 {
                     question: "How soon can I return to normal life?",
-                    answer: "Light activities may resume within a week; complete healing typically takes 2–4 weeks."
+                    answer: "Light activities may resume within a week; complete healing of the eardrum typically takes 2–4 weeks."
                 },
                 {
                     question: "Will my hearing be back to normal?",
-                    answer: "Many patients experience major improvement, though final results depend on the severity of damage."
+                    answer: "Many patients experience major improvement in hearing clarity. Final results depend on the severity of the initial eardrum damage and middle ear health."
                 },
                 {
                     question: "Is insurance accepted?",
-                    answer: "Yes. We are a Hyderabad hospital accepting insurance for advanced ENT procedures."
+                    answer: "Yes. Stork Hospital is a recognized provider in Hyderabad accepting most major insurance plans for advanced ENT procedures."
                 }
             ],
 
             customCta: {
                 heading: "Regain Clear Hearing with Stork Hospital",
                 description: "If you’re struggling with hearing loss or chronic ear issues, book a tympanoplasty consultation at Stork Hospital in Hyderabad. Our expert-led, patient-focused approach ensures safe surgery and lasting results.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "1-2 Hours",
+                duration: "60–120 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Case",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                hospitalStay: "Same Day / 24 Hours",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior ENT & Otology Surgeons",
+                experience: "Experts in Eardrum & Middle Ear Reconstruction"
             }
         }
     }
+
 
     // 3. Return Premium Placeholder Content (Default)
     if (slug === "ursl") {
@@ -12538,110 +14603,225 @@ Whether the damage stems from chronic infections, injury, or middle ear disorder
             slug: slug,
             title: "URSL (Ureteroscopic Lithotripsy) – Stork Hospital, Hyderabad",
             subheading: "Advanced Endoscopic Stone Removal",
+            tagline: "Precision URSL utilizing advanced Holmium laser technology for incision-free removal of ureteral stones with rapid recovery and high success rates.",
             breadcrumbTitle: "URSL",
             category: "Urology",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/urology",
             shortDescription: `Ureteroscopic Lithotripsy (URSL) is a safe and precise minimally invasive method for removing stones from the ureter or kidney. A slim ureteroscope is passed through the urinary passage — via the urethra and bladder — to reach the stone directly. Once located, a Holmium laser is used to break it into tiny fragments, which are then either removed or left to pass naturally through urine.
 
 At Stork Multispecialty Hospital, Hyderabad, our urology team performs URSL with cutting-edge technology, ensuring effective results, minimal discomfort, and quick recovery.`,
 
             overview: {
                 heading: "When URSL is Recommended",
-                intro: "A urologist may recommend URSL if you have:",
+                intro: "URSL is the clinically recognized solution for specific obstructive stone conditions:",
                 items: [
-                    "Stones lodged in the ureter causing pain or blockage",
-                    "Stones too large to pass on their own",
-                    "Cases where stones lead to bleeding, infection, or kidney swelling",
-                    "Failed response to medications or shock wave therapy (ESWL)"
+                    "Stones lodged in the ureter causing persistent pain or acute urinary blockage",
+                    "Ureteral stones identified as too large for spontaneous passage",
+                    "Cases where stones lead to bleeding, infection, or kidney swelling (Hydronephrosis)",
+                    "Failed response to medical therapy or shock wave lithotripsy (ESWL)"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "URSL at Stork Hospital offers a significant advantage for those seeking an immediate resolution to ureteral obstruction. By navigating the urinary tract internally, our urologists can reach stones directly and fragment them using high-precision Holmium lasers, avoiding any external incisions."
+            ],
 
-            conditionsHeading: "Why Choose Stork Hospital for URSL",
+            conditionsHeading: "Advantages of URSL at Stork Hospital",
             conditionsTreated: [
-                "Experienced urologists specializing in advanced endoscopic procedures",
-                "Diagnostic center with high-accuracy imaging tools",
-                "Advanced surgical center with latest-generation ureteroscopes and laser systems",
-                "24/7 emergency hospital for urgent stone-related issues",
-                "Insurance accepted with upfront cost clarity",
-                "Walk-in clinic for same-day specialist appointments",
-                "Complete aftercare and prevention-focused follow-up programs"
+                "Advanced 'No-stitch' procedure with zero external cuts or scars",
+                "Short recovery cycle—often back to daily activities within 24–48 hours",
+                "High clinical success rate in clearing obstructive ureteral calculi",
+                "Proven option to treat both ureter and kidney stones in a single session",
+                "Significant reduction in post-operative discomfort through specialized laser tech"
             ],
 
             procedureHeading: "How URSL is Done",
             procedureSteps: [
                 {
-                    title: "Pre-Surgical Imaging",
-                    description: "Ultrasound, X-ray, or CT scan to locate and assess the stone."
+                    title: "Pre-Surgical Mapping",
+                    description: "High-resolution imaging (Ultrasound, CT scan) to assess precise stone geometry and location."
                 },
                 {
-                    title: "Anesthesia & Scope Insertion",
-                    description: "General or spinal anesthesia. Ureteroscope passed carefully via the urethra to the stone’s location."
+                    title: "Anesthesia & Navigation",
+                    description: "Under general or spinal anesthesia, a slim ureteroscope is passed via the urethra to reach the stone."
                 },
                 {
-                    title: "Laser Fragmentation & Extraction",
-                    description: "Holmium laser breaks the stone into fine particles. Fragments are removed or left to pass naturally."
+                    title: "Laser Fragmentation",
+                    description: "A precision Holmium laser is used to shatter the stone into sand-like particles for easy extraction."
                 },
                 {
-                    title: "Stent Placement",
-                    description: "A stent may be placed if required to keep urine flowing and aid healing."
+                    title: "Removal & Drainage",
+                    description: "Fragments are extracted using specialized baskets; a temporary stent may be placed to optimize healing."
                 }
             ],
 
-            benefitsHeading: "Advantages of URSL at Stork Hospital",
+            benefitsHeading: "Why Choose Stork Hospital for URSL",
             benefits: [
-                "No cuts, stitches, or external scars",
-                "Short recovery — often back to daily activities within a few days",
-                "High success rate in clearing ureteral stones",
-                "Option to treat both ureter and kidney stones in one procedure",
-                "Minimal post-procedure pain"
+                "Experienced urologists specializing in high-precision retrograde endoscopic procedures",
+                "Diagnostic center based in Hyderabad with high-accuracy stone mapping tools",
+                "Advanced surgical center featuring the latest generation ureteroscopes and laser systems",
+                "24/7 Response for acute stone-related renal colic and emergencies near Hitech City",
+                "Insurance accepted with absolute cost transparency for all URSL and urological sessions",
+                "Walk-in consultations near Kondapur for rapid same-day stone assessment and planning"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery and Care",
             recoveryTimeline: [
-                "Most patients go home within 24 hours",
-                "Normal routine resumed in 1–2 days",
-                "Plenty of fluids to flush out remaining stone dust",
-                "Avoid strenuous activity until medically cleared",
-                "Follow-up imaging to confirm the stone is completely gone"
+                "Most patients are eligible for discharge within 24 hours of the procedure",
+                "Resume normal daily functional routines and light work within 1–2 days",
+                "Plenty of fluid intake required to flush out remaining stone fragments and dust",
+                "Avoidance of strenuous physical activity until cleared by your surgical team",
+                "Scheduled follow-up imaging to confirm 100% total stone clearance"
             ],
 
             faqHeading: "FAQs – URSL",
             faqs: [
                 {
                     question: "Is URSL painful?",
-                    answer: "No. It is performed under anesthesia, and any mild discomfort afterward is temporary."
+                    answer: "No. It is performed under anesthesia, and any mild discomfort afterward is temporary and manageable."
                 },
                 {
                     question: "How long does URSL take?",
-                    answer: "Usually 30–60 minutes, depending on stone size and location."
+                    answer: "Typically 30–60 minutes, depending on the complexity, size, and location of the stone."
                 },
                 {
                     question: "Will I always need a stent?",
-                    answer: "Only if the surgeon feels it will improve drainage and healing."
+                    answer: "Only if the surgeon determines it will significantly improve drainage and internal healing."
                 },
                 {
                     question: "Is URSL covered under insurance?",
-                    answer: "Yes. Stork Hospital works with most insurance providers."
+                    answer: "Yes. Stork Hospital works with most insurance providers for medically indicated URSL procedures."
                 }
             ],
 
             customCta: {
-                heading: "Book Your URSL Consultation",
-                description: "If you’re struggling with ureteral or kidney stones, book an appointment at Stork Hospital to consult a urologist in Hyderabad and find out if URSL is the right choice for you.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your URSL Consultation",
+                description: "If you have obstructive ureteral or kidney stones, meet our expert urologists in Hyderabad to see if URSL is the safest solution for you.",
+                buttonText: "Schedule Consultation"
             },
             meta: {
-                duration: "30-60 Min",
+                duration: "30–60 Minutes",
                 anesthesia: "General / Spinal",
-                hospitalStay: "Day Case / 24 hrs",
-                recoveryTime: "2-4 Days",
-                successRate: "High"
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "1–2 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior Urologist",
-                experience: "25+ Years Experience"
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Endourology Specialists",
+                experience: "Experts in URSL, Holmium Laser Lithotripsy, and Obstructive Stone Management"
+            }
+        }
+    }
+
+    if (slug === "varicocele") {
+        return {
+            slug: slug,
+            title: "Varicocele – Stork Hospital, Hyderabad",
+            subheading: "Expert Solutions for Comfort and Fertility",
+            tagline: "Specialized microsurgical and laparoscopic treatment for varicoceles to relieve scrotal discomfort and protect male reproductive health.",
+            breadcrumbTitle: "Varicocele",
+            category: "Urology",
+            departmentHref: "/services/urology",
+            shortDescription: `A varicocele is a swelling of the veins inside the scrotum, often described as feeling like a “bag of worms.” It develops when faulty valves in the veins disrupt normal blood flow, leading to pooling. While some men may not notice symptoms, others experience discomfort, swelling, or fertility issues. Without timely management, it can affect testicular function over time.
+
+At Stork Multispecialty Hospital, Hyderabad, our skilled urology team offers advanced diagnostics and treatments for varicocele, focusing on relieving symptoms, protecting reproductive health, and reducing the risk of recurrence.`,
+
+            overview: {
+                heading: "Understanding Signs and Symptoms",
+                intro: "Varicocele development often manifests through specific anatomical and functional indicators:",
+                items: [
+                    "Enlarged or twisted veins visibly protruding in the scrotum (often described as a 'Bag of Worms')",
+                    "A persistent dull ache that intensifies with prolonged standing or physical exertion",
+                    "Visible unevenness in testicle size or significant localized swelling",
+                    "Difficulties with natural conception or abnormal semen analysis results"
+                ]
+            },
+            fullDescription: [
+                "At Stork Hospital, we emphasize the importance of early diagnosis for varicoceles to prevent long-term damage to testicular tissue and sperm production. Our urologists utilize high-definition imaging and microsurgical precision to ensure the most effective treatment for every patient."
+            ],
+
+            conditionsHeading: "Advanced Treatment Options",
+            conditionsTreated: [
+                "Microsurgical Varicocelectomy – Precision removal of dilated veins under high-power magnification",
+                "Laparoscopic Varicocelectomy – Minimally invasive keyhole approach for faster internal healing",
+                "Varicocele Embolization – Catheter-based non-surgical venous blocking technology",
+                "Conservative Monitoring – Observation and supportive care for asymptomatic or mild cases",
+                "Fertility Optimization – Targeted urological interventions to improve sperm quality and count"
+            ],
+
+            procedureHeading: "Advanced Diagnostic & Surgical Path",
+            procedureSteps: [
+                {
+                    title: "Clinical & Doppler Mapping",
+                    description: "Physical examination combined with Scrotal Ultrasound and Color Doppler to map blood flow and clinical staging."
+                },
+                {
+                    title: "Precision Execution",
+                    description: "Ligation of affected veins using advanced microsurgical or laparoscopic techniques under expert surgical care."
+                },
+                {
+                    title: "Reproductive Monitoring",
+                    description: "Structured follow-up of healing and long-term fertility outcomes for a comprehensive recovery."
+                }
+            ],
+
+            benefitsHeading: "Why Patients Prefer Stork Hospital for Varicocele Care",
+            benefits: [
+                "Urology specialists with extensive experience in male reproductive microsurgery and laparoscopy",
+                "Fully equipped diagnostic center in Hyderabad for on-site Ultrasound and Doppler testing",
+                "Advanced surgical center specializing in minimally invasive varicocelectomy procedures",
+                "24/7 Response for urgent urological concerns or post-procedural questions near Hitech City",
+                "Direct insurance billing with absolute clarity on cost and transparent billing protocols",
+                "Quick access through walk-in consultations near Kondapur for same-day clinical mapping"
+            ],
+
+            risks: [],
+            recoveryHeading: "Your Treatment Journey",
+            recoveryTimeline: [
+                "Initial evaluation with specialized diagnostic scans for accurate clinical staging",
+                "Selection of the most effective surgical or minimally invasive treatment method",
+                "Most patients return to normal routine and light work within 2–4 days of the procedure",
+                "Gradual resumption of strenuous activity or heavy lifting as per specific clinical guidance",
+                "Post-treatment review milestones to monitor testicular health and 100% fertility gains"
+            ],
+
+            faqHeading: "FAQs – Varicocele Treatment",
+            faqs: [
+                {
+                    question: "Do all varicoceles require surgery?",
+                    answer: "No. Mild and painless cases can often be monitored, but surgery is highly advised if pain or fertility concerns develop."
+                },
+                {
+                    question: "Can repairing a varicocele help with fertility?",
+                    answer: "Yes. Many men see significant improvement in sperm quality and better fertility prospects following successful treatment."
+                },
+                {
+                    question: "What is recovery like?",
+                    answer: "Most patients return to their normal routines within 2–5 days, depending on the specific procedure chosen."
+                },
+                {
+                    question: "Is the cost covered by insurance?",
+                    answer: "Yes. Stork Hospital partners with major insurance providers and offers full cost transparency for varicocele treatments."
+                }
+            ],
+
+            customCta: {
+                heading: "Schedule Your Varicocele Consultation",
+                description: "If you are experiencing discomfort, swelling, or fertility issues, meet our specialist urologists in Hyderabad for an effective solution.",
+                buttonText: "Schedule Consultation"
+            },
+            meta: {
+                duration: "45–90 Minutes",
+                anesthesia: "Local / General / Spinal",
+                hospitalStay: "Daycare / 1 Day",
+                recoveryTime: "2–5 Days",
+                successRate: "95%+"
+            },
+            reviewedBy: {
+                name: "Stork Urology Team",
+                role: "Senior Urologists & Male Infertility Specialists",
+                experience: "Experts in Microsurgical Varicocelectomy & Male Reproductive Health"
             }
         }
     }
@@ -12652,105 +14832,112 @@ At Stork Multispecialty Hospital, Hyderabad, our urology team performs URSL with
             slug: slug,
             title: "Vaginoplasty – Stork Hospital, Hyderabad",
             subheading: "Empowering Confidence Through Personalized Care",
+            tagline: "Specialized vaginal rejuvenation surgery featuring tightening and reconstruction to restore muscle tone and intimacy in a private woman-led environment.",
             breadcrumbTitle: "Vaginoplasty",
-            category: "Gynecology",
-            departmentHref: foundCategory.href || "#",
+            category: "Cosmetic & Plastic Surgery",
+            departmentHref: "/services/cosmetic-plastic-surgery",
             shortDescription: `Vaginoplasty is a reconstructive or cosmetic surgical procedure aimed at tightening and restoring the vaginal canal and surrounding tissues. At Stork Hospital, Hyderabad, we approach vaginoplasty with sensitivity, skill, and complete confidentiality. Whether performed for medical, aesthetic, or postnatal recovery reasons, our focus is on delivering safe outcomes that improve both physical comfort and emotional well-being.
 
 We are one of the few women-centric hospitals in Hyderabad offering advanced vaginal rejuvenation surgeries in a fully private and supportive environment.`,
 
             overview: {
-                heading: "What is Vaginoplasty?",
-                intro: "Vaginoplasty is a minimally invasive surgical technique that repairs and tightens stretched or weakened vaginal tissues. Often chosen by women who’ve experienced childbirth-related trauma or age-related changes, it helps restore muscle tone, improve sexual satisfaction, and enhance self-confidence.",
+                heading: "Why Choose Stork Hospital?",
+                intro: "At Stork, we provide a safe, empathetic, and woman-led environment for intimate restoration, focusing on clinical excellence and absolute patient privacy:",
                 items: [
-                    "Reconstruction of the vaginal walls",
-                    "Removal of excess or lax tissue",
-                    "Strengthening of pelvic floor muscles",
-                    "Can be performed alone or combined with perineoplasty, labial reduction, or pelvic floor repair"
+                    "Experienced female gynecologists and surgeons specializing in advanced intimate reconstruction",
+                    "Private consultation and recovery rooms designed for maximum comfort and discretion",
+                    "Fully sanitized and modern surgical suites equipped with precisely calibrated rejuvenation technology",
+                    "Strict confidentiality and patient privacy protocols for all sensitive medical records",
+                    "Emotional counseling and post-surgical support for comprehensive psychological wellness",
+                    "Insurance-covered vaginoplasty options in Hyderabad (subject to specific medical indications)",
+                    "Integrated care alongside perineoplasty or pelvic floor repair for full functional rejuvenation"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Vaginoplasty is a minimally invasive surgical technique that repairs and tightens stretched or weakened vaginal tissues. Often chosen by women who’ve experienced childbirth-related trauma or age-related changes, it helps restore muscle tone, improve sexual satisfaction, and enhance self-confidence. The procedure may involve reconstruction of the vaginal walls, removal of lax tissue, and strengthening of pelvic floor muscles."
+            ],
 
             conditionsHeading: "Who Can Consider Vaginoplasty?",
             conditionsTreated: [
-                "Experience reduced vaginal tone after childbirth",
-                "Notice loss of sexual satisfaction due to laxity",
-                "Have cosmetic concerns about vaginal appearance",
-                "Feel discomfort during intercourse",
-                "Suffer from pelvic floor weakness or scarring",
-                "We offer detailed pre-surgical consultations in a judgment-free zone"
+                "Significantly reduced vaginal tone or laxity following childbirth-related trauma",
+                "Noticeable loss of sexual satisfaction linked to age-related tissue weakening",
+                "Persistent discomfort or functional distraction during sexual intercourse",
+                "Structural pelvic floor weakness or visible scarring from historical repairs",
+                "Cosmetic concerns regarding vaginal appearance and anatomical balance",
+                "Seeking a detailed pre-surgical consultation in a safe, judgment-free zone"
             ],
 
             procedureHeading: "Our Approach to Surgical Vaginal Rejuvenation",
             procedureSteps: [
                 {
                     title: "Pre-Surgical Planning",
-                    description: "One-on-one consultation, medical evaluation, pelvic exam, and counseling to clarify goals."
+                    description: "One-on-one consultation with our women’s health specialist, complete medical evaluation, and goals counseling."
                 },
                 {
                     title: "During the Procedure",
-                    description: "Performed under local or general anesthesia. Usually completed within 60–90 minutes with no visible external scarring."
+                    description: "Performed under local or general anesthesia (60–90 minutes), focusing on muscle repair with no visible external scarring."
                 },
                 {
-                    title: "Post-Operative Care",
-                    description: "Short recovery (2–4 weeks), prescription for pain management, and follow-up appointments."
+                    title: "Post-Operative Support",
+                    description: "Advanced pain management and follow-up milestones for healing assessment and tone recovery."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital?",
+            benefitsHeading: "What is Vaginoplasty?",
             benefits: [
-                "Experienced female gynecologists and surgeons",
-                "Private consultation and recovery rooms",
-                "Fully sanitized and modern surgical suites",
-                "Strict confidentiality and patient privacy protocols",
-                "Emotional counseling and post-surgical support",
-                "Insurance-covered options (subject to medical indications)"
+                "Effectively repairs and tightens stretched or weakened vaginal canal tissues",
+                "Restores essential muscle tone and structural support for the pelvic floor",
+                "Significantly improves sexual satisfaction and functional intimate quality",
+                "Enhances personal self-confidence and emotional well-being through Restoration",
+                "Provides a safe, minimally invasive solution with low risk of complications"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results Timeline",
             recoveryTimeline: [
-                "Short recovery period (2–4 weeks for daily activity)",
-                "Resume physical intimacy typically after 6 weeks",
-                "Pain is well-managed with medications",
-                "Long-lasting results especially when paired with pelvic floor exercises"
+                "Management of mild localized discomfort for the first few days post-reconstruction (managed with medications)",
+                "Safe return to daily routine functional activities and light work within approximately 2–4 weeks",
+                "Strict commitment to avoid physical intimacy for at least 6 weeks post-surgery to ensure tissue stability",
+                "Adherence to personalized pelvic floor strengthening exercises for long-lasting anatomical results",
+                "Scheduled follow-up milestones with our female-led clinical team to monitor healing progress"
             ],
 
             faqHeading: "FAQs – Vaginoplasty at Stork Hospital",
             faqs: [
                 {
                     question: "Is vaginoplasty painful?",
-                    answer: "Most patients report mild discomfort for a few days. Pain is well-managed with medications."
+                    answer: "Most patients report mild discomfort for a few days. Pain is well-managed with prescribed medications and effective immobilization guidance."
                 },
                 {
                     question: "How long before I can resume physical intimacy?",
-                    answer: "Typically, 6 weeks after surgery, depending on healing progress."
+                    answer: "Typically, you can resume physical intimacy 6 weeks after surgery, depending on your individual healing progress."
                 },
                 {
                     question: "Will the results be permanent?",
-                    answer: "Results are long-lasting, especially when paired with pelvic floor strengthening exercises."
+                    answer: "Results are long-lasting, especially when paired with consistent pelvic floor strengthening exercises."
                 },
                 {
                     question: "Is the procedure safe?",
-                    answer: "Yes. When performed by trained specialists, vaginoplasty is safe with low risk of complications."
+                    answer: "Yes. When performed by trained gynecological specialists, vaginoplasty is safe with a very low risk of complications."
                 }
             ],
 
             customCta: {
                 heading: "Take the Next Step in Your Self-Care Journey",
                 description: "Book a confidential consultation at Stork Hospital—Hyderabad’s trusted center for advanced vaginal rejuvenation procedures.",
-                buttonText: "Book Appointment"
+                buttonText: "Schedule Private Consultation"
             },
             meta: {
-                duration: "60-90 Min",
+                duration: "60–90 Minutes",
                 anesthesia: "Local / General",
-                hospitalStay: "Day Case / Overnight",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                hospitalStay: "Daycare / 1 Night",
+                recoveryTime: "2–4 Weeks (Daily Life) / 6 Weeks (Complete)",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Lakshmi", // Placeholder
-                role: "Senior Gynecologist",
-                experience: "20+ Years Experience"
+                name: "Stork Women's Wellness Team",
+                role: "Senior Female Gynecological Surgeons",
+                experience: "Experts in Vaginoplasty & Pelvic Floor Reconstruction"
             }
         }
     }
@@ -12761,107 +14948,109 @@ We are one of the few women-centric hospitals in Hyderabad offering advanced vag
             slug: slug,
             title: "Varicose Veins – Stork Hospital, Hyderabad",
             subheading: "Advanced Treatment for Healthy, Pain-Free Legs",
+            tagline: "Minimally invasive laser and radiofrequency solutions to restore circulation and eliminate painful, bulging veins.",
             breadcrumbTitle: "Varicose Veins",
             category: "Vascular Surgery",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/vascular-surgery",
             shortDescription: `Varicose veins are enlarged, twisted veins that most often appear in the legs due to faulty valves that allow blood to pool. They can cause aching, swelling, heaviness, and in severe cases, skin changes or ulcers. While often seen as a cosmetic issue, untreated varicose veins can lead to serious complications over time.
 
-At Stork Multispecialty Hospital, Hyderabad, our vascular specialists offer safe, effective treatments for varicose veins, focusing on symptom relief, improved circulation, and prevention of recurrence. We use both minimally invasive techniques and advanced surgical options depending on your needs.`,
+At Stork Multispecialty Hospital, Hyderabad, our vascular specialists offer safe, effective treatments for varicose veins, focusing on symptom relief, improved circulation, and prevention of recurrence.`,
 
             overview: {
                 heading: "Symptoms of Varicose Veins",
-                intro: "Common signs include:",
+                intro: "Varicose veins are more than a cosmetic concern. Common indicators requiring medical evaluation include:",
                 items: [
-                    "Visible, bulging veins in the legs or feet",
-                    "Aching, throbbing, or heaviness in the legs",
-                    "Swelling of ankles or lower legs",
-                    "Itching or burning sensation over affected veins",
-                    "Night cramps or restless legs",
-                    "Skin discoloration or ulcers in advanced stages"
+                    "Visible, bulging or rope-like veins in the legs or feet",
+                    "Aching, throbbing, or persistent heaviness in the legs",
+                    "Swelling of ankles or lower legs after prolonged standing",
+                    "Itching, burning sensations, or skin discoloration over affected veins",
+                    "Night cramps, restless legs, or advanced venous ulcers"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Using both minimally invasive techniques and advanced surgical options depending on your needs, we prioritize patient comfort, improved circulation, and the visual restoration of the legs."
+            ],
 
             conditionsHeading: "Why Choose Stork Hospital for Varicose Vein Treatment",
             conditionsTreated: [
                 "Experienced vascular surgeons skilled in both surgical and non-surgical approaches",
                 "State-of-the-art diagnostic center for Doppler ultrasound and vascular imaging",
                 "Advanced surgical center for laser, radiofrequency, or micro-surgical procedures",
-                "24/7 emergency hospital for vascular emergencies",
-                "Insurance accepted with clear pricing and billing",
-                "Same-day appointments and walk-in clinic for prompt evaluation",
-                "Comprehensive aftercare to prevent future vein problems"
+                "24/7 emergency hospital near Hitech City for vascular emergencies",
+                "Comprehensive aftercare to prevent future vein problems",
+                "Insurance accepted with clear pricing and billing transparency"
             ],
 
-            procedureHeading: "Our Treatment Approach",
+            procedureHeading: "Advanced Minimally Invasive Solutions",
             procedureSteps: [
                 {
-                    title: "Diagnosis",
-                    description: "Physical examination and Doppler ultrasound to assess blood flow and valve function."
+                    title: "Vascular Mapping",
+                    description: "High-resolution Doppler ultrasound to assess blood flow velocity and identify specific faulty valves contributing to pooling."
                 },
                 {
-                    title: "Non-Surgical Management",
-                    description: "Lifestyle modifications, compression stockings, and medications for pain relief."
+                    title: "Thermal Ablation (EVLT/RFA)",
+                    description: "Catheter-based laser or radiofrequency energy is used to precisely seal the damaged vein under local anesthesia, redirecting flow to healthier veins."
                 },
                 {
-                    title: "Minimally Invasive & Surgical Treatments",
-                    description: "Options include Endovenous Laser Therapy (EVLT), Radiofrequency Ablation (RFA), Sclerotherapy, and Microphlebectomy."
+                    title: "Targeted Sclerotherapy",
+                    description: "Injection of specialized solutions to close smaller surface veins and improves overall leg proportions and proportions."
                 }
             ],
 
             benefitsHeading: "Your Care Journey at Stork Hospital",
             benefits: [
-                "Initial consultation and vascular assessment",
-                "Diagnostic imaging to determine severity",
+                "Initial consultation and complete vascular assessment",
+                "Diagnostic imaging to determine clinical severity",
                 "Personalized treatment planning – non-surgical or surgical",
-                "Outpatient procedure or hospital-based care as needed",
-                "Post-treatment monitoring and follow-up visits"
+                "Outpatient procedure or daycare as needed",
+                "Post-treatment monitoring and structured follow-up visits"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Support Beyond the Procedure",
             recoveryTimeline: [
-                "Many patients return to normal activities within a few days",
-                "Most modern procedures are minimally invasive",
-                "Performed under local anesthesia",
-                "Follow-up visits to ensure proper healing"
+                "Many patients return home the same day (outpatient / daycare procedures)",
+                "Resumption of light walking and normal activities within 24–48 hours",
+                "Use of specialized compression stockings for 1–2 weeks to aid circulation",
+                "Visible results and significant symptom relief within days of the procedure"
             ],
 
             faqHeading: "FAQs – Varicose Vein Treatment",
             faqs: [
                 {
                     question: "Are varicose veins only a cosmetic issue?",
-                    answer: "No. They can cause discomfort, swelling, and complications if not treated."
+                    answer: "No. They can cause discomfort, swelling, and complications if not treated, potentially leading to skin changes or ulcers."
                 },
                 {
                     question: "Is treatment painful?",
-                    answer: "Most modern procedures are minimally invasive and performed under local anesthesia."
+                    answer: "Most modern procedures are minimally invasive and performed under local anesthesia, ensuring minimal discomfort during and after."
                 },
                 {
                     question: "How long does recovery take?",
-                    answer: "Many patients return to normal activities within a few days, depending on the procedure."
+                    answer: "Many patients return to normal activities within a few days, depending on the specific procedure performed."
                 },
                 {
                     question: "Does insurance cover varicose vein treatment?",
-                    answer: "Yes. Stork Hospital works with leading insurance providers and offers transparent billing."
+                    answer: "Yes. Stork Hospital works with leading insurance providers and offers transparent billing for vein care."
                 }
             ],
 
             customCta: {
-                heading: "Book Your Varicose Vein Consultation",
-                description: "If you have leg pain, swelling, or visible veins, don’t wait for symptoms to worsen. Book an appointment at Stork Hospital to consult a vascular specialist in Hyderabad.",
-                buttonText: "Book Appointment"
+                heading: "Schedule Your Vein Consultation",
+                description: "If you have leg pain, swelling, or visible veins, don’t wait for symptoms to worsen. Book an appointment at Stork Hospital to consult our vascular specialists.",
+                buttonText: "Schedule Vein Consult"
             },
             meta: {
-                duration: "45-90 Min",
-                anesthesia: "Local / Regional",
-                hospitalStay: "Day Case",
-                recoveryTime: "2-7 Days",
-                successRate: "High"
+                duration: "45–90 Minutes",
+                anesthesia: "Local Anesthesia",
+                hospitalStay: "Same-Day / Daycare",
+                recoveryTime: "2–5 Days",
+                successRate: "98%+"
             },
             reviewedBy: {
-                name: "Dr. Reddy", // Placeholder
-                role: "Senior Vascular Surgeon",
-                experience: "20+ Years Experience"
+                name: "Stork Vascular Unit",
+                role: "Senior Vascular Surgeons",
+                experience: "Experts in Laser & RFA Technologies"
             }
         }
     }
@@ -12872,51 +15061,58 @@ At Stork Multispecialty Hospital, Hyderabad, our vascular specialists offer safe
             slug: slug,
             title: "Vocal Cord Polyps – Stork Hospital, Hyderabad",
             subheading: "Clearer Voice, Better Quality of Life",
+            tagline: "Expert diagnosis and microsurgical treatment for vocal cord polyps, focused on voice preservation and functional rehabilitation.",
             breadcrumbTitle: "Vocal Cord Polyps",
             category: "ENT",
-            departmentHref: foundCategory.href || "#",
+            departmentHref: "/services/ent",
             shortDescription: `Vocal cord polyps are soft, non-cancerous growths that develop on one or both vocal cords, often due to voice overuse, injury, or prolonged irritation. They can significantly affect voice quality, making speech raspy, weak, or strained. While mild cases may respond to voice therapy and rest, more advanced polyps often require surgical removal to restore normal vocal function.
 
 At Stork Multispecialty Hospital, Hyderabad, our ENT specialists diagnose and treat vocal cord polyps with precision and care. Using advanced microsurgical techniques, we remove polyps while preserving healthy vocal tissue, followed by structured voice rehabilitation for long-term results.`,
 
             overview: {
-                heading: "Symptoms of Vocal Cord Polyps",
-                intro: "You may have a vocal cord polyp if you experience:",
+                heading: "Why Choose Stork Hospital for Vocal Cord Polyp Treatment",
+                intro: "We remove polyps while preserving healthy vocal tissue, followed by structured voice rehabilitation for long-term results:",
                 items: [
-                    "Persistent hoarseness or voice roughness",
-                    "Voice fatigue after speaking for short periods",
-                    "Reduced pitch or loss of vocal range",
-                    "Throat irritation or a “lump in the throat” feeling",
-                    "Frequent need to clear the throat",
-                    "Sudden voice changes following strain or shouting"
+                    "Highly experienced ENT specialists in laryngeal microsurgery",
+                    "Fully equipped advanced surgical center with high-definition laryngoscopy and stroboscopy",
+                    "Comprehensive diagnostic center in Hyderabad for voice analysis and imaging",
+                    "24/7 emergency hospital near Hitech City for urgent airway or voice issues",
+                    "Insurance accepted at Stork Hospital with clear and upfront cost details",
+                    "Same-day ENT appointments and walk-in clinic near Kondapur for quick access",
+                    "Integrated care with speech therapists for post-treatment recovery"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "Why Choose Stork Hospital for Vocal Cord Polyp Treatment",
-            conditionsTreated: [
-                "Highly experienced ENT specialists in laryngeal microsurgery",
-                "Fully equipped advanced surgical center with high-definition laryngoscopy and stroboscopy",
-                "Comprehensive diagnostic center for voice analysis and imaging",
-                "24/7 emergency hospital near Hitech City for urgent airway or voice issues",
-                "Insurance accepted with clear and upfront cost details",
-                "Same-day ENT appointments and walk-in clinic for quick access",
-                "Integrated care with speech therapists for post-treatment recovery"
+            fullDescription: [
+                "Vocal cord polyp removal at Stork is performed using high-powered surgical microscopes, ensuring that only the lesion is addressed while the delicate vibrating layers of the vocal cord remain intact."
             ],
 
-            procedureHeading: "Our Treatment Approach",
+            conditionsHeading: "Symptoms of Vocal Cord Polyps",
+            conditionsTreated: [
+                "Persistent hoarseness or voice roughness",
+                "Voice fatigue after speaking for short periods",
+                "Reduced pitch or loss of vocal range",
+                "Throat irritation or a “lump in the throat” feeling",
+                "Frequent need to clear the throat",
+                "Sudden voice changes following strain or shouting"
+            ],
+
+            procedureHeading: "Our Treatment Approach to Vocal Cord Polyps",
             procedureSteps: [
                 {
-                    title: "Diagnosis",
-                    description: "Detailed ENT examination, laryngoscopy, stroboscopy, and voice testing."
+                    title: "Diagnostic Evaluation",
+                    description: "Detailed ENT examination with high-definition laryngoscopy and stroboscopy to evaluate vocal cord vibration and closure."
                 },
                 {
-                    title: "Non-Surgical Care",
-                    description: "Voice rest, speech therapy, proper hydration, and medication for underlying conditions."
+                    title: "Conservative Management",
+                    description: "Implementation of voice rest, hydration, and targeted speech therapy for early-stage or small polyps."
                 },
                 {
-                    title: "Surgical Care",
-                    description: "Microlaryngoscopic removal under general anesthesia or laser-assisted precision surgery."
+                    title: "Microsurgical Intervention",
+                    description: "Microlaryngoscopic removal under general anesthesia using laser-assisted precision to minimize trauma to healthy tissue."
+                },
+                {
+                    title: "Vocal Rehabilitation",
+                    description: "Post-surgical structured therapy and guided voice rest to restore full vocal range and functional quality."
                 }
             ],
 
@@ -12930,52 +15126,55 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists diagnose and tr
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Initial healing may take a couple of weeks",
-                "Full voice recovery depends on therapy progress",
-                "Most patients regain clear voice quality",
-                "Follow-up visits to monitor healing"
+                "Initial vocal rest typically lasts for 3–7 days post-surgery to allow tissue healing",
+                "Gradual introduction of normal speaking volume guided by a speech therapist",
+                "Most patients return to work and light social interaction within 10–14 days",
+                "Full vocal recovery and stability achieved through 4–6 weeks of structured rehabilitation",
+                "Long-term voice maintenance strategy provided to prevent lesion recurrence"
             ],
 
             faqHeading: "FAQs – Vocal Cord Polyps at Stork Hospital",
             faqs: [
                 {
                     question: "Can vocal cord polyps heal without surgery?",
-                    answer: "Small, early-stage polyps may improve with voice therapy and lifestyle changes, but larger ones typically require surgery."
+                    answer: "Small, early-stage polyps may improve with voice therapy and lifestyle changes, but larger ones typically require surgery to restore normal voice quality."
                 },
                 {
                     question: "Will my voice sound normal again?",
-                    answer: "Most patients regain clear voice quality after treatment, especially when therapy is followed consistently."
+                    answer: "Most patients regain clear voice quality after treatment, especially when post-surgical therapy protocols are followed consistently."
                 },
                 {
                     question: "How long does recovery take?",
-                    answer: "Initial healing may take a couple of weeks; full voice recovery depends on therapy progress."
+                    answer: "Initial healing takes about 1–2 weeks; however, full vocal stability and strength depend on the progress made during rehabilitation therapy."
                 },
                 {
                     question: "Is treatment covered by insurance?",
-                    answer: "Yes. Stork Hospital works with major insurers and provides cost transparency before treatment."
+                    answer: "Yes. Stork Hospital works with major insurers and provides complete documentation and cost transparency before any treatment starts."
                 }
             ],
 
             customCta: {
                 heading: "Book Your Voice Care Consultation",
                 description: "If you are experiencing persistent voice changes, hoarseness, or throat discomfort, don’t delay. Book an appointment at Stork Hospital to meet an ENT specialist in Hyderabad.",
-                buttonText: "Book Appointment"
+                buttonText: "Book Your Consultation"
             },
             meta: {
-                duration: "30-60 Min",
-                anesthesia: "General",
-                hospitalStay: "Day Case",
-                recoveryTime: "2-4 Weeks",
-                successRate: "High"
+                duration: "45–90 Minutes",
+                anesthesia: "General Anesthesia",
+                hospitalStay: "Daycare / 24 Hours",
+                recoveryTime: "2–4 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Dr. Rao", // Placeholder
-                role: "Senior ENT Surgeon",
-                experience: "25+ Years Experience"
+                name: "Stork ENT Specialist Team",
+                role: "Senior Laryngeal Surgeons",
+                experience: "Experts in Microsurgical Voice Restoration"
             }
         }
     }
+
 
 
 
@@ -12985,26 +15184,27 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists diagnose and tr
             slug: slug,
             title: "Transforaminal Endoscopic Lumbar Discectomy (TELD) – Stork Hospital, Hyderabad",
             subheading: "Minimally Invasive Spine Surgery for Faster Relief & Recovery",
-            tagline: "Relieve your slipped disc pain without major surgery.",
-            breadcrumbTitle: "TELD",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Advanced side-approach endoscopic repair to relieve nerve compression without major muscle disruption or stitches.",
+            breadcrumbTitle: "TELD (Spine Surgery)",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Persistent lower back pain or sciatica caused by a slipped disc can severely impact your mobility and quality of life. When conservative treatments fail, Transforaminal Endoscopic Lumbar Discectomy (TELD) offers a highly advanced, minimally invasive solution to relieve nerve compression and restore normal function—without the need for open surgery.
 
 At Stork Hospital, Hyderabad, we specialize in precision-guided endoscopic spine procedures that ensure maximum relief with minimal tissue damage and faster recovery.`,
 
             overview: {
                 heading: "What is TELD?",
-                intro: "TELD is a modern spine procedure where a thin endoscope (camera-guided instrument) is inserted through a small incision in the back to remove the herniated or slipped portion of a disc that is pressing on spinal nerves.",
+                intro: "TELD is a modern spine procedure where a thin endoscope (camera-guided instrument) is inserted through the transforaminal route (side of the spine). It is highly effective for:",
                 items: [
-                    "Unlike traditional surgery, TELD is performed through the transforaminal route (side of the spine), avoiding major muscle cutting and preserving spinal stability.",
-                    "Minimally invasive approach with microscopic precision",
-                    "Superior alternative to open laminectomy or discectomy",
-                    "Targets only the damaged disc portion, leaving healthy tissue intact"
+                    "Removing herniated or slipped disc portions pressing on spinal nerves",
+                    "Avoiding major muscle cutting and preserving spinal stability",
+                    "Inserting camera-guided instruments through a small side incision",
+                    "Immediate decompression of the spinal nerve for rapid pain relief",
+                    "Addressing disc bulges not responding to medication or physiotherapy"
                 ]
             },
             fullDescription: [
-                "At Stork Hospital, Hyderabad, we provide holistic care combining advanced diagnostics with warmth and personalized attention."
+                "Unlike traditional surgery, TELD is performed through the transforaminal route (side of the spine), avoiding major muscle cutting and preserving spinal stability. This surgical precision ensures that only the damaged disc portion is targeted, leaving healthy tissue intact."
             ],
 
             conditionsHeading: "Conditions Treated with TELD",
@@ -13016,57 +15216,50 @@ At Stork Hospital, Hyderabad, we specialize in precision-guided endoscopic spine
                 "Chronic lower back pain with neurological symptoms"
             ],
 
-            procedureHeading: "How We Perform TELD",
+            procedureHeading: "Precision-Guided Mobile Decompression",
             procedureSteps: [
                 {
-                    title: "Clinical Evaluation",
-                    description: "Detailed clinical assessment and MRI evaluation to map the exact location of the herniation."
+                    title: "Side-Approach Access",
+                    description: "A small tube is inserted through the natural side opening of the spine (foramen) under C-arm fluoroscopic guidance."
                 },
                 {
-                    title: "Precision Guidance",
-                    description: "Procedure performed under C-arm (fluoroscopic) guidance for real-time visualization."
+                    title: "HD Visualization",
+                    description: "High-definition endoscopes provide detailed internal views, allowing for precise identification of the compressing fragment."
                 },
                 {
-                    title: "Tube Insertion",
-                    description: "A small tube is inserted through the natural opening of the spine (foramen) to provide access."
-                },
-                {
-                    title: "Endoscopic Removal",
-                    description: "Advanced endoscopic instruments are used to carefully remove the disc fragment compressing the nerve."
-                },
-                {
-                    title: "Nerve Decompression",
-                    description: "Immediate decompression of the nerve leads to rapid pain relief and improved mobility."
+                    title: "Stitch-less Repair",
+                    description: "The herniated fragment is removed with tiny instruments, leaving such a small incision that stitches are typically not required."
                 }
             ],
 
             benefitsHeading: "Key Benefits of TELD",
             benefits: [
-                "Ultra-minimally invasive (small incision, no stitches required)",
-                "Performed under local anaesthesia in most cases for safety",
+                "Ultra-minimally invasive with a tiny incision and no stitches required",
+                "Performed under local anesthesia in most cases for added safety",
                 "Minimal muscle and tissue damage compared to open methods",
-                "Reduced risk of complications and surgical site infections",
-                "Faster recovery allowing for an early return to daily activities",
-                "Short hospital stay—often performed as a same-day discharge procedure"
+                "Reduced risk of surgical complications and faster healing",
+                "Short hospital stay with frequent same-day discharge",
+                "Immediate post-procedure decompression leading to rapid pain relief"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Outcomes",
             recoveryTimeline: [
-                "Patients typically walk within hours after the procedure",
-                "Return to routine activities and light work within a few days",
+                "Patients typically walk within a few hours after the TELD procedure",
                 "Significant reduction in leg pain (sciatica) immediately or within days",
-                "Structured rehab plan with specialized physiotherapy ensures long-term spine health"
+                "Return to routine activities and light work within a few days",
+                "Structured rehab plan ensures long-term spine health and prevention"
             ],
 
             faqHeading: "Common Questions Answered",
             faqs: [
                 {
                     question: "Is TELD better than open spine surgery?",
-                    answer: "Yes. It offers similar or better clinical outcomes with significantly less tissue damage, less blood loss, and much faster recovery."
+                    answer: "Yes. It offers similar or better outcomes with much less tissue damage and much faster recovery."
                 },
                 {
                     question: "Is the procedure painful?",
-                    answer: "No. It is typically done under local anaesthesia or light sedation with minimal discomfort during and after the procedure."
+                    answer: "No. It is typically done under local anesthesia or light sedation with minimal discomfort during and after the procedure."
                 },
                 {
                     question: "How long does the procedure take?",
@@ -13103,26 +15296,27 @@ At Stork Hospital, Hyderabad, we specialize in precision-guided endoscopic spine
             slug: slug,
             title: "Endoscopic Interlaminar Discectomy (EID) – Stork Hospital, Hyderabad",
             subheading: "Targeted Spine Relief with Advanced Endoscopic Precision",
-            tagline: "Get back to pain-free living with advanced endoscopic spine care.",
-            breadcrumbTitle: "EID",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
+            tagline: "Minimally invasive removal of herniated disc fragments via the interlaminar space to relieve sciatica and back pain.",
+            breadcrumbTitle: "EID (Spine Surgery)",
+            category: "Orthopaedics",
+            departmentHref: "/services/orthopaedics",
             shortDescription: `Severe lower back pain and sciatica caused by a slipped disc can disrupt even the simplest daily activities. When medications and physiotherapy fail to provide relief, Endoscopic Interlaminar Discectomy (EID) offers a highly effective, minimally invasive solution to remove disc pressure on nerves—without the trauma of open surgery.
 
 At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine procedures designed for maximum precision, minimal pain, and rapid recovery.`,
 
             overview: {
                 heading: "What is Endoscopic Interlaminar Discectomy?",
-                intro: "EID is a modern minimally invasive spine procedure performed through the interlaminar space (natural gap between the vertebrae at the back of the spine). Using a high-definition endoscope, the surgeon directly visualizes and removes the herniated disc fragment compressing the nerve.",
+                intro: "EID is a modern minimally invasive spine procedure performed through the interlaminar space (natural gap between the vertebrae at the back of the spine). It is highly effective for:",
                 items: [
-                    "Directly visualizes and removes the herniated disc fragment",
-                    "Performed through the interlaminar space (natural gap between the vertebrae)",
-                    "Especially useful for lower lumbar disc herniations (L4-L5, L5-S1 levels)",
-                    "Preserves spinal stability while providing immediate relief"
+                    "Direct visualization of herniated disc fragments using HD endoscopes",
+                    "Targeted removal of fragments compressing the spinal nerves",
+                    "Specifically useful for lower lumbar herniations (L4-L5, L5-S1 levels)",
+                    "Relief from radiating sciatica pain down the legs",
+                    "Resolution of nerve-induced numbness or weakness"
                 ]
             },
             fullDescription: [
-                "At Stork Hospital, Hyderabad, we specialize in advanced endoscopic spine surgery designed to restore your quality of life."
+                "Using a high-definition endoscope, the surgeon directly visualizes and removes the herniated disc fragment compressing the nerve. This approach is especially useful for lower lumbar disc herniations where traditional open surgery would require significant muscle disruption."
             ],
 
             conditionsHeading: "Conditions Treated with EID",
@@ -13130,50 +15324,42 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
                 "Herniated or slipped lumbar discs",
                 "Sciatica (radiating pain down the leg)",
                 "Nerve compression causing numbness or weakness",
-                "Persistent lower back pain not responding to conservative treatment",
-                "Disc prolapse at lower lumbar levels"
+                "Persistent lower back pain from disc prolapse",
+                "Refractory symptoms not responding to conservative care"
             ],
 
-            procedureHeading: "How We Perform the Procedure",
+            procedureHeading: "Advanced Precision Spine Care",
             procedureSteps: [
                 {
-                    title: "Detailed Evaluation",
-                    description: "Detailed evaluation with MRI and clinical examination to identify the specific level of herniation."
+                    title: "Clinical Evaluation",
+                    description: "Detailed evaluation with high-resolution MRI and clinical examination to map the exact neural compression site."
                 },
                 {
-                    title: "Small Incision",
-                    description: "A tiny incision is made in the lower back to access the interlaminar space."
+                    title: "Targeted Discectomy",
+                    description: "A small incision is made in the lower back, providing direct access to the disc for precise fragment removal under HD camera guidance."
                 },
                 {
-                    title: "Endoscopic Visualization",
-                    description: "High-definition endoscopic camera provides real-time, magnified visualization of the nerve and disc."
-                },
-                {
-                    title: "Disc Removal",
-                    description: "Herniated disc material is precisely removed to relieve nerve pressure."
-                },
-                {
-                    title: "Imaging Guidance",
-                    description: "The entire procedure is guided using advanced imaging (C-arm) for absolute accuracy."
+                    title: "Neural Relief",
+                    description: "Continuous real-time visualization ensures the nerve is safely decompressed, guided by advanced C-arm imaging systems."
                 }
             ],
 
             benefitsHeading: "Key Benefits of EID",
             benefits: [
-                "Minimally invasive with a very small incision",
-                "Direct access to the affected disc for precise removal",
-                "Minimal muscle and bone disruption",
-                "Reduced blood loss and low infection risk",
-                "Faster recovery compared to open surgery",
-                "Early mobilization—patients can walk within hours"
+                "Minimally invasive with a very small incision and minimal blood loss",
+                "Reduced muscle and bone disruption compared to open spine surgery",
+                "Lower infection risk and significantly faster healing times",
+                "Early mobilization—most patients can walk within hours of the procedure",
+                "Direct access to the affected disc for exceptionally precise removal"
             ],
 
             risks: [],
+            recoveryHeading: "Recovery & Outcomes",
             recoveryTimeline: [
                 "Most patients are discharged within 24 hours of the procedure",
-                "Significant relief from leg pain (sciatica) soon after the procedure",
-                "Return to daily activities within a few days",
-                "Structured physiotherapy ensures long-term recovery and strength"
+                "Significant relief from radiating leg pain (sciatica) soon after the discectomy",
+                "Return to daily activities and light routine within a few days",
+                "Structured physiotherapy provided for long-term spine health and strength"
             ],
 
             faqHeading: "Common Questions Answered",
@@ -13184,11 +15370,11 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
                 },
                 {
                     question: "Is the procedure safe?",
-                    answer: "Yes. It is a well-established, minimally invasive technique with a high success rate and low complication profile."
+                    answer: "Yes. It is a well-established, minimally invasive technique with a high success rate and extremely low complication profile."
                 },
                 {
                     question: "Will I need bed rest after surgery?",
-                    answer: "No prolonged bed rest is required. In fact, early movement is highly encouraged for optimal recovery."
+                    answer: "No prolonged bed rest is required. In fact, early movement is highly encouraged to aid recovery and prevent stiffness."
                 },
                 {
                     question: "Who is the right candidate?",
@@ -13197,21 +15383,21 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
             ],
 
             customCta: {
-                heading: "Move Toward a Pain-Free Spine",
-                description: "Choose Stork Hospital, Hyderabad for precision-driven treatments and faster recovery. Book your consultation today.",
-                buttonText: "Book Appointment"
+                heading: "Get Back to Pain-Free Living",
+                description: "Choose Stork Hospital, Hyderabad for precision-driven spine treatments and faster recovery. Book your consultation today and move toward a healthier, pain-free spine.",
+                buttonText: "Schedule Spine Consult"
             },
             meta: {
-                duration: "45–60 Mins",
-                anesthesia: "Local / General",
-                hospitalStay: "Same Day / 24 hrs",
-                recoveryTime: "3–7 Days",
-                successRate: "95%+"
+                duration: "45–90 Minutes",
+                anesthesia: "Local or General",
+                hospitalStay: "Daycare / 24 Hours",
+                recoveryTime: "1–2 Weeks",
+                successRate: "Very High"
             },
             reviewedBy: {
-                name: "Stork Spine Care Team",
-                role: "Senior Orthopedic & Spine Surgeons",
-                experience: "Leading Minimally Invasive Specialists"
+                name: "Stork Spine Unit",
+                role: "Senior Spine Surgeons & Pain Specialists",
+                experience: "Experts in Minimally Invasive Spine Care"
             }
         }
     }

@@ -56,14 +56,14 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                                 onClick={() => toggleMenu("departments")}
                                 className="w-full flex items-center justify-between px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
                             >
-                                Departments <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "departments" && "rotate-180 text-[var(--color-primary)]")} />
+                                Departments <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "departments" && "rotate-180 text-[#ff8202]")} />
                             </button>
                             {expandedMenu === "departments" && (
                                 <div className="bg-slate-50 px-4 py-3 space-y-2 rounded-b-lg">
                                     <Link
                                         href="/services"
                                         onClick={() => setIsOpen(false)}
-                                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                                        className="block px-4 py-2 text-sm font-semibold text-[#ff8202] hover:underline"
                                     >
                                         View All Departments →
                                     </Link>
@@ -72,7 +72,7 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                                             key={dept.title}
                                             href={dept.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="block px-4 py-2 text-sm text-slate-600 hover:text-[var(--color-primary)]"
+                                            className="block px-4 py-2 text-sm text-slate-600 hover:text-[#ff8202]"
                                         >
                                             {dept.title}
                                         </Link>
@@ -87,26 +87,26 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                                 onClick={() => toggleMenu("treatments")}
                                 className="w-full flex items-center justify-between px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
                             >
-                                Treatments <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "treatments" && "rotate-180 text-[var(--color-primary)]")} />
+                                Treatments <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "treatments" && "rotate-180 text-[#ff8202]")} />
                             </button>
                             {expandedMenu === "treatments" && (
                                 <div className="bg-slate-50 px-4 py-4 space-y-6 rounded-b-lg">
                                     <Link
                                         href="/treatments"
                                         onClick={() => setIsOpen(false)}
-                                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                                        className="block px-4 py-2 text-sm font-semibold text-[#ff8202] hover:underline"
                                     >
                                         View All Treatments →
                                     </Link>
                                     {(groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS).map(section => (
                                         <div key={section.title} className="space-y-2">
-                                            <h5 className="px-4 text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">{section.title}</h5>
+                                            <h5 className="px-4 text-xs font-bold text-[#ff8202] uppercase tracking-wider">{section.title}</h5>
                                             {section.items.map(item => (
                                                 <Link
                                                     key={item.title}
                                                     href={`/treatments/${item.href.split("/").pop()}`}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[var(--color-primary)]"
+                                                    className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[#ff8202]"
                                                 >
                                                     {item.title}
                                                 </Link>
@@ -123,26 +123,26 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                                 onClick={() => toggleMenu("procedures")}
                                 className="w-full flex items-center justify-between px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
                             >
-                                Procedures <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "procedures" && "rotate-180 text-[var(--color-primary)]")} />
+                                Procedures <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "procedures" && "rotate-180 text-[#ff8202]")} />
                             </button>
                             {expandedMenu === "procedures" && (
                                 <div className="bg-slate-50 px-4 py-4 space-y-6 rounded-b-lg">
                                     <Link
                                         href="/procedures"
                                         onClick={() => setIsOpen(false)}
-                                        className="block px-4 py-2 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+                                        className="block px-4 py-2 text-sm font-semibold text-[#ff8202] hover:underline"
                                     >
                                         View All Procedures →
                                     </Link>
                                     {PROCEDURES.map(section => (
                                         <div key={section.title} className="space-y-2">
-                                            <h5 className="px-4 text-xs font-bold text-[var(--color-primary)] uppercase tracking-wider">{section.title}</h5>
+                                            <h5 className="px-4 text-xs font-bold text-[#ff8202] uppercase tracking-wider">{section.title}</h5>
                                             {section.items.map(item => (
                                                 <Link
                                                     key={item.title}
                                                     href={`/procedures/${item.href.split("/").pop()}`}
                                                     onClick={() => setIsOpen(false)}
-                                                    className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[var(--color-primary)]"
+                                                    className="block px-4 py-1.5 text-sm text-slate-600 hover:text-[#ff8202]"
                                                 >
                                                     {item.title}
                                                 </Link>
@@ -178,7 +178,7 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
 
 
                         <div className="pt-6 space-y-3 px-2">
-                            <Button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 gap-2 rounded-full h-12 text-base font-semibold shadow-md">
+                            <Button className="w-full bg-[#ff8202] hover:bg-[#ff8202]/90 gap-2 rounded-full h-12 text-base font-semibold shadow-md">
                                 <Calendar className="w-5 h-5" /> Book Appointment
                             </Button>
 

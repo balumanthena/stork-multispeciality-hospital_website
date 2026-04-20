@@ -224,18 +224,38 @@ export default function Home() {
         <BlogScrollSection />
       </Suspense>
 
-      {/* 8. FOOTER CTA */}
-      <section className="py-20 bg-[var(--color-primary)] text-white">
-        <div className="container max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Need Emergency Assistance?</h2>
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">
-            We are available 24/7 to handle any medical emergency with our rapid response team.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+      {/* 8. FOOTER CTA - Authority-Focused Emergency Section */}
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        {/* Abstract Background Glow */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#3e7dca] rounded-full blur-[160px] opacity-10 pointer-events-none" />
 
-            <Button size="lg" variant="outline" className="bg-transparent border-white/20 text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-full">
-              Book Online
-            </Button>
+        <div className="container max-w-5xl mx-auto px-6 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#ff8202] text-xs font-black uppercase tracking-[0.2em] mb-8">
+            <Clock className="w-4 h-4" />
+            <span>Available 24/7 For You</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 tracking-tight leading-[1.1] text-white">
+            Need <span className="text-[#ff8202]">Emergency</span> Assistance?
+          </h2>
+          
+          <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+            Our rapid response team is standing by 24/7 to provide expert medical care when every second counts.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link href="/appointments" className="w-full sm:w-auto">
+              <Button size="lg" className="bg-[#ff8202] hover:bg-[#ff8202]/90 text-white h-16 px-12 text-lg font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto">
+                Book Online Now
+              </Button>
+            </Link>
+            <a href="tel:+917610810819" className="flex items-center gap-3 text-white font-bold text-lg hover:text-[#ff8202] transition-colors group">
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#ff8202]/20 transition-colors">
+                <Phone className="w-5 h-5" />
+              </div>
+              Emergency: +91 76108 10819
+            </a>
           </div>
         </div>
       </section>

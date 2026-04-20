@@ -48,7 +48,7 @@ export function ProceduresMegaMenu({ procedures, onClose }: ProceduresMegaMenuPr
                                             onClick={onClose}
                                             className="inline-block"
                                         >
-                                            <h3 className="text-[14px] font-bold text-[#1E40AF] uppercase tracking-[1px] border-b border-gray-100 pb-4 mb-4 hover:text-[#F97316] transition-colors">
+                                            <h3 className="text-[14px] font-bold text-[#ff8202] uppercase tracking-[1px] border-b border-gray-100 pb-4 mb-4 hover:text-[#e67502] transition-colors">
                                                 {category.title}
                                             </h3>
                                         </Link>
@@ -60,9 +60,9 @@ export function ProceduresMegaMenu({ procedures, onClose }: ProceduresMegaMenuPr
                                                     <Link
                                                         href={item.href}
                                                         onClick={onClose}
-                                                        className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#F97316] transition-all duration-200 ease-in-out hover:pl-1.5"
+                                                        className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#ff8202] transition-all duration-200 ease-in-out hover:pl-1.5"
                                                     >
-                                                        <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#F97316] group-hover/item:mr-2 transition-all duration-200">
+                                                        <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#ff8202] group-hover/item:mr-2 transition-all duration-200">
                                                             <ChevronRight className="w-3 h-3" />
                                                         </span>
                                                         {item.title}
@@ -82,7 +82,7 @@ export function ProceduresMegaMenu({ procedures, onClose }: ProceduresMegaMenuPr
                     <Link
                         href="/procedures"
                         onClick={onClose}
-                        className="group/cta inline-flex items-center text-[15px] font-semibold text-[#F97316] hover:text-[#ea580c] transition-colors"
+                        className="group/cta inline-flex items-center text-[15px] font-semibold text-[#ff8202] hover:text-[#e67502] transition-colors"
                     >
                         View All Procedures
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" />

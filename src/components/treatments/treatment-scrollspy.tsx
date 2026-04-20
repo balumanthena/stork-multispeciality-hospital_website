@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
-export function TreatmentScrollspy({ navItems }: { navItems: { id: string; label: string }[] }) {
-    const [activeId, setActiveId] = useState<string>(navItems[0]?.id || "overview")
+export function TreatmentScrollspy({ navItems = [] }: { navItems: { id: string; label: string }[] }) {
+    const [activeId, setActiveId] = useState<string>(navItems && navItems.length > 0 ? navItems[0].id : "overview")
 
     useEffect(() => {
+        if (!navItems || navItems.length === 0) return;
         // Observer callback: Detect which section is most visible in the "active region"
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
             entries.forEach((entry) => {

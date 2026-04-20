@@ -223,10 +223,17 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
                         </div>
 
-                        {/* RIGHT: NAVIGATION/CTA (4 Cols) */}
                         <div className="md:col-span-4 space-y-8 relative">
                             <div className="sticky top-32 space-y-8">
-                                <TreatmentScrollspy />
+                                <TreatmentScrollspy 
+                                    navItems={[
+                                        { id: "overview", label: "Overview" },
+                                        { id: "conditions", label: treatment.conditionsHeading || "Conditions Treated" },
+                                        { id: "procedure", label: treatment.procedureHeading || "How It Works" },
+                                        { id: "benefits", label: treatment.benefitsHeading || "Benefits" },
+                                        { id: "faq", label: treatment.faqHeading || "FAQ" }
+                                    ]}
+                                />
                             </div>
                         </div>
 

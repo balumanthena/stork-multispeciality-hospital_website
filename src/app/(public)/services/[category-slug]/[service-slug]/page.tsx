@@ -302,7 +302,16 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                             <div className="sticky top-32 space-y-8">
 
                                 {/* On This Page Navigation */}
-                                <TreatmentScrollspy />
+                                <TreatmentScrollspy 
+                                    navItems={[
+                                        { id: "overview", label: "Overview" },
+                                        { id: "conditions", label: treatment.conditionsHeading || "Conditions Treated" },
+                                        { id: "procedure", label: treatment.procedureHeading || "Process" },
+                                        { id: "benefits", label: treatment.benefitsHeading || "Benefits" },
+                                        { id: "faq", label: treatment.faqHeading || "FAQs" },
+                                        ...(videos.length > 0 ? [{ id: "video", label: "Videos" }] : [])
+                                    ]} 
+                                />
 
                             </div>
                         </div>
