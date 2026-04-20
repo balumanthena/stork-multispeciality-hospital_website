@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { MapPin, MessageCircle, ChevronRight, Star } from 'lucide-react'
+import { MapPin, MessageCircle, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Doctor } from '@/lib/data/doctors'
 import { motion } from 'framer-motion'
@@ -38,10 +38,6 @@ export function DoctorCard({
               className="object-cover group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-          {/* Rating badge */}
-          <div className="absolute -bottom-2 -right-2 bg-white px-2 py-0.5 rounded-full shadow-sm border border-slate-50 flex items-center gap-1">
-             <Star className="w-2.5 h-2.5 text-orange-400 fill-orange-400" />
-             <span className="text-[10px] font-bold text-slate-700">{doctor.rating}</span>
           </div>
         </div>
 
@@ -62,17 +58,10 @@ export function DoctorCard({
       {/* BOTTOM: Buttons */}
       <div className="flex gap-3 pt-6 mt-auto">
         <Button 
-          variant="outline"
-          onClick={() => onBookAppointment(doctor)}
-          className="flex-1 h-11 rounded-xl border-[#ff8202]/20 text-[#ff8202] hover:bg-[#ff8202]/5 hover:border-[#ff8202]/40 font-bold transition-all text-xs"
-        >
-          Online Consult
-        </Button>
-        <Button 
           onClick={() => onBookAppointment(doctor)}
           className="flex-1 h-11 rounded-xl bg-[#ff8202] hover:bg-[#e67502] text-white font-bold shadow-lg shadow-[#ff8202]/20 transition-all text-xs"
         >
-          Hospital Visit
+          Online Consult
         </Button>
       </div>
     </motion.div>
