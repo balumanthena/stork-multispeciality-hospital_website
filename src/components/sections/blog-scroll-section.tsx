@@ -33,7 +33,7 @@ export async function BlogScrollSection() {
                     {duplicatedBlogs.map((blog, idx) => (
                         <Link
                             key={`${blog.id}-${idx}`}
-                            href={`/blogs/${blog.slug}`}
+                            href={`/insights/articles/${blog.slug}`}
                             className="group flex-shrink-0 w-[300px] sm:w-[360px] bg-white rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.12)] transition-all duration-500 block focus:outline-none relative border-b-0 hover:border-b-4 hover:border-b-[#ff8202]"
                         >
                             <div className="relative aspect-[16/11] w-full bg-slate-100 overflow-hidden">

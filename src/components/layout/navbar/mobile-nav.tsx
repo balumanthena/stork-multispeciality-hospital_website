@@ -2,7 +2,7 @@
 
 import React, { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, Phone, X, Menu, Calendar } from "lucide-react"
+import { ChevronDown, Phone, X, Menu, Calendar, BookOpen, PlayCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DEPARTMENTS, TREATMENTS, PROCEDURES, NAV_LINKS } from "./nav-data"
 import { cn } from "@/lib/utils"
@@ -161,20 +161,34 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                         >
                             Doctors
                         </Link>
-                        <Link
-                            href="/blog"
-                            onClick={() => setIsOpen(false)}
-                            className="px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
-                        >
-                            Blogs
-                        </Link>
-                        <Link
-                            href="/videos"
-                            onClick={() => setIsOpen(false)}
-                            className="px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
-                        >
-                            Videos
-                        </Link>
+                        {/* Accordion: Insights */}
+                        <div>
+                            <button
+                                onClick={() => toggleMenu("insights")}
+                                className="w-full flex items-center justify-between px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
+                            >
+                                Insights <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform", expandedMenu === "insights" && "rotate-180 text-[#ff8202]")} />
+                            </button>
+                            {expandedMenu === "insights" && (
+                                <div className="bg-slate-50 px-4 py-3 space-y-2 rounded-b-lg">
+                                    <Link
+                                        href="/insights/articles"
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:text-[#ff8202]"
+                                    >
+                                        <BookOpen className="w-4 h-4" /> Articles
+                                    </Link>
+                                    <Link
+                                        href="/insights/videos"
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:text-[#ff8202]"
+                                    >
+                                        <PlayCircle className="w-4 h-4" /> Videos
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
 
 
                         <div className="pt-6 space-y-3 px-2">

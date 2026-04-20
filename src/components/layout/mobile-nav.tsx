@@ -41,8 +41,8 @@ export function MobileNav() {
     const exploreLinks = [
         { label: "Departments", icon: Building2, href: "/services" },
         { label: "Doctors", icon: User2, href: "/doctors" },
-        { label: "Blogs", icon: BookOpen, href: "/blog" },
-        { label: "Videos", icon: Video, href: "/videos" },
+        { label: "Articles", icon: BookOpen, href: "/insights/articles" },
+        { label: "Videos", icon: Video, href: "/insights/videos" },
         { label: "Locations", icon: MapPin, href: "/contact" },
         { label: "Contact Us", icon: Phone, href: "/contact" },
     ];

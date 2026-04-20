@@ -53,7 +53,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                 </span>
                                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Featured Videos</h2>
                             </div>
-                            <Link href="/videos">
+                            <Link href="/insights/videos">
                                 <Button variant="ghost" className="hidden sm:flex items-center text-[#3E7DCA] hover:text-[#2d62a3] hover:bg-blue-50">
                                     View Video Gallery <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
@@ -136,7 +136,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                 <span className="text-[#FF8202] font-bold tracking-wider uppercase text-sm mb-3 block">Expert Insights</span>
                                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Related Articles</h2>
                             </div>
-                            <Link href="/blog">
+                            <Link href="/insights/articles">
                                 <Button variant="ghost" className="hidden sm:flex items-center text-[#3E7DCA] hover:text-[#2d62a3] hover:bg-blue-50">
                                     View Full Blog <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
@@ -145,7 +145,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {blogs.slice(0, 3).map((blog) => (
-                                <Link href={`/blog/${blog.slug}`} key={blog.id} className="group flex flex-col h-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+                                <Link href={`/insights/articles/${blog.slug}`} key={blog.id} className="group flex flex-col h-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
                                     <div className="aspect-[16/10] relative overflow-hidden bg-slate-200">
                                         {blog.image_url ? (
                                             <Image src={blog.image_url} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />

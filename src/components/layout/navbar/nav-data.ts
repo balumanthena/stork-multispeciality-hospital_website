@@ -29,8 +29,6 @@ export const NAV_LINKS = [
     { title: "Home", href: "/" },
     { title: "About Hospital", href: "/about" },
     { title: "Doctors", href: "/doctors" },
-    { title: "Blogs", href: "/blog" },
-    { title: "Videos", href: "/videos" },
     { title: "Contact", href: "/contact" },
 ]
 

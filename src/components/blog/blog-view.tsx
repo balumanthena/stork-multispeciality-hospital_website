@@ -31,7 +31,7 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
             {/* Header / Meta Section */}
             <div className="bg-white pt-24 pb-12">
                 <div className="container mx-auto px-4 md:px-6 max-w-[760px]">
-                    <Link href="/blog" className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-[var(--color-primary)] transition-colors mb-12 uppercase tracking-[0.2em]">
+                    <Link href="/insights/articles" className="inline-flex items-center text-sm font-bold text-slate-400 hover:text-[var(--color-primary)] transition-colors mb-12 uppercase tracking-[0.2em]">
                         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Insights
                     </Link>
 
@@ -151,7 +151,7 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Related <span className="text-[var(--color-primary)]">Insights</span></h2>
                         </div>
                         <Button asChild variant="outline" className="rounded-full px-8 font-bold border-2 hover:bg-[var(--color-primary)] hover:text-white transition-all">
-                            <Link href="/blog">View All Articles</Link>
+                            <Link href="/insights/articles">View All Articles</Link>
                         </Button>
                     </div>
 

@@ -45,7 +45,7 @@ export default function BlogList({ initialData }: { initialData: BlogPost[] }) {
             {selectedCategory === "All" && featuredPost && (
                 <section className="py-16 bg-slate-50/50">
                     <div className="container mx-auto px-4 md:px-6">
-                        <Link href={`/blog/${featuredPost.slug}`} className="group">
+                        <Link href={`/insights/articles/${featuredPost.slug}`} className="group">
                             <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col lg:flex-row transition-all duration-500 hover:shadow-2xl">
                                 <div className="lg:w-3/5 relative aspect-video lg:aspect-auto overflow-hidden">
                                     <Image
@@ -114,7 +114,7 @@ export default function BlogList({ initialData }: { initialData: BlogPost[] }) {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {remainingPosts.map((post, index) => (
-                        <Link key={post.slug + index} href={`/blog/${post.slug}`} className="group h-full">
+                        <Link key={post.slug + index} href={`/insights/articles/${post.slug}`} className="group h-full">
                             <Card className="h-full flex flex-col border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden bg-white">
                                 <div className="relative h-64 w-full overflow-hidden">
                                     <Image

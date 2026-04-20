@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronDown, ArrowRight } from "lucide-react"
+import { ChevronDown, ArrowRight, BookOpen, PlayCircle } from "lucide-react"
 
 import { DEPARTMENTS, TREATMENTS, PROCEDURES, NavItem } from "./nav-data"
 import { MegaMenuGrid, MegaMenuItem, MegaMenuCategory } from "./mega-menu"
@@ -240,32 +240,50 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     isActive("/doctors") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
-            <Link
-                href="/blog"
-                className={cn(
-                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/blog") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
-                )}
+            {/* Insights Dropdown */}
+            <div
+                className="h-full flex items-center relative"
+                onMouseEnter={() => setActiveMenu("insights")}
             >
-                Blogs
-                <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
-                    isActive("/blog") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                )}></span>
-            </Link>
-            <Link
-                href="/videos"
-                className={cn(
-                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/videos") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
-                )}
-            >
-                Videos
-                <span className={cn(
-                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
-                    isActive("/videos") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                )}></span>
-            </Link>
+                <div
+                    className={cn(
+                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none cursor-pointer",
+                        activeMenu === "insights" || pathname.startsWith("/insights") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                    )}>
+                    Insights <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "insights" ? "rotate-180" : "opacity-60")} />
+                    <span className={cn(
+                        "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
+                        activeMenu === "insights" || pathname.startsWith("/insights") ? "scale-x-100" : "scale-x-0"
+                    )}></span>
+                </div>
+                {/* Dropdown Content */}
+                <div className={cn(
+                    "absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white border border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 p-2 rounded-xl",
+                    activeMenu === "insights" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                )}>
+                    <Link 
+                        href="/insights/articles" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors group/item"
+                    >
+                        <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center group-hover/item:bg-[#ff8202] transition-colors">
+                            <BookOpen className="w-4 h-4 text-[#ff8202] group-hover/item:text-white" />
+                        </div>
+                        <span className="text-[14px] font-semibold text-slate-700 group-hover/item:text-[#ff8202]">Articles</span>
+                    </Link>
+                    <Link 
+                        href="/insights/videos" 
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors group/item"
+                    >
+                        <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover/item:bg-[#3e7dca] transition-colors">
+                            <PlayCircle className="w-4 h-4 text-[#3e7dca] group-hover/item:text-white" />
+                        </div>
+                        <span className="text-[14px] font-semibold text-slate-700 group-hover/item:text-[#3e7dca]">Videos</span>
+                    </Link>
+                </div>
+            </div>
+
 
         </nav>
     )

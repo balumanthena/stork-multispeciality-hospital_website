@@ -66,8 +66,8 @@ export function Footer() {
                                 { name: "Find a Doctor", href: "/doctors" },
                                 { name: "Book Appointment", href: "/appointments" },
                                 { name: "Second Opinion", href: "/second-opinion" },
-                                { name: "Blogs", href: "/blog" },
-                                { name: "Videos", href: "/videos" },
+                                { name: "Articles", href: "/insights/articles" },
+                                { name: "Videos", href: "/insights/videos" },
                                 { name: "Contact Us", href: "/contact" },
                             ].map((link) => (
                                 <li key={link.name}>

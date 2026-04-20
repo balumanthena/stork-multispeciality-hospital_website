@@ -335,13 +335,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <h2 className="text-3xl font-bold text-[#0f172a] mb-2">Related Articles</h2>
                                 <p className="text-slate-600">Latest insights and information about {treatment.title}</p>
                             </div>
-                            <Link href="/blog" className="text-[#3e7dca] font-semibold flex items-center gap-2 hover:text-[#2e62a3] transition-colors shrink-0">
-                                View Full Blog <ArrowRight className="w-5 h-5" />
+                            <Link href="/insights/articles" className="text-[#3e7dca] font-semibold flex items-center gap-2 hover:text-[#2e62a3] transition-colors shrink-0">
+                                View All Articles <ArrowRight className="w-5 h-5" />
                             </Link>
                         </div>
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {blogs.map((post) => (
-                                <Link key={post.id} href={`/blog/${post.slug}`} className="group h-full">
+                                <Link key={post.id} href={`/insights/articles/${post.slug}`} className="group h-full">
                                     <div className="bg-white rounded-2xl h-full flex flex-col border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                                         <div className="relative h-48 w-full bg-slate-100">
                                             {/* eslint-disable-next-line @next/next/no-img-element */}
