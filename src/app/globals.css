@@ -5,6 +5,8 @@
 }
 
 @theme {
+  --font-sans: var(--font-sans);
+
   --color-primary: #ff8202;
   /* Stork Orange */
   --color-primary-foreground: #FFFFFF;
