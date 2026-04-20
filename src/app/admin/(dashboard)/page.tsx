@@ -15,6 +15,7 @@ export default async function AdminDashboard() {
     const { count: treatmentCount } = await supabase.from('treatments').select('*', { count: 'exact', head: true })
     const { count: blogCount } = await supabase.from('blogs').select('*', { count: 'exact', head: true })
     const { count: userCount } = await supabase.from('profiles').select('*', { count: 'exact', head: true })
+    const { count: videoCount } = await supabase.from('treatment_videos').select('*', { count: 'exact', head: true })
 
     // Role-Aware Stats Definition
     let stats: any[] = []
@@ -30,7 +31,7 @@ export default async function AdminDashboard() {
         stats = [
             { label: "Published Articles", value: blogCount || 0, icon: FileText, trend: "Live Site", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Pending Review", value: 3, icon: Shield, trend: "Attention Required", trendColor: "text-orange-600 bg-orange-50" },
-            { label: "Total Videos", value: 42, icon: PlayCircle, trend: "Live Site", trendColor: "text-green-600 bg-green-50" },
+            { label: "Total Videos", value: videoCount || 0, icon: PlayCircle, trend: "Live Site", trendColor: "text-green-600 bg-green-50" },
         ]
     } else if (role === 'seo_manager') {
         stats = [
@@ -40,7 +41,7 @@ export default async function AdminDashboard() {
     } else { // Editor
         stats = [
             { label: "My Articles", value: blogCount || 0, icon: FileText, trend: "Current Month", trendColor: "text-orange-600 bg-orange-50" },
-            { label: "Total Videos", value: 42, icon: PlayCircle, trend: "Content Library", trendColor: "text-green-600 bg-green-50" },
+            { label: "Total Videos", value: videoCount || 0, icon: PlayCircle, trend: "Content Library", trendColor: "text-green-600 bg-green-50" },
         ]
     }
 

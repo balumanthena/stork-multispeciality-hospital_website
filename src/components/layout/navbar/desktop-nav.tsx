@@ -152,7 +152,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 </Link>
                 {/* Dropdown */}
                 <div className={cn(
-                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "departments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <div className="container max-w-[1280px] mx-auto">
@@ -183,7 +183,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     )}></span>
                 </Link>
                 <div className={cn(
-                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "treatments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <TreatmentsMegaMenu
@@ -216,7 +216,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     ></span>
                 </Link>
                 <div className={cn(
-                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "procedures" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <ProceduresMegaMenu
@@ -259,7 +259,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 </div>
                 {/* Dropdown Content */}
                 <div className={cn(
-                    "absolute top-[84px] left-1/2 -translate-x-1/2 w-48 bg-white border border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 p-2 rounded-xl",
+                    "absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white border border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 p-2 rounded-xl",
                     activeMenu === "insights" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <Link 
