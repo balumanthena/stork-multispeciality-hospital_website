@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -14,21 +14,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configure Nodemailer transporter with robust Gmail settings
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true, // Use SSL/TLS
-      auth: {
-        user: process.env.EMAIL_USER,
-        // Gmail app passwords often have spaces in the UI, but they must be stripped or handled correctly
-        pass: process.env.EMAIL_PASS?.replace(/\s+/g, ""),
-      },
-      // Increase timeout for reliability
-      connectionTimeout: 10000, 
-      greetingTimeout: 10000,
-    });
-
     const formattedDate = new Date(date).toLocaleDateString("en-IN", {
       weekday: "short",
       year: "numeric",
@@ -36,237 +21,88 @@ export async function POST(request: Request) {
       day: "numeric",
     });
 
-    const mailOptions = {
-      from: `Stork Hospital Appointment <${process.env.EMAIL_USER}>`,
-      to: "storkhospitalsmedia@gmail.com",
-      replyTo: email,
-      subject: "New Appointment Booking – Stork Hospital",
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>New Appointment Request</title>
-        </head>
-        <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f5;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f4f5; padding: 40px 20px;">
-            <tr>
-              <td align="center">
-                
-                <!-- Main Container -->
-                <table role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-                  
-                  <!-- Header Section -->
-                  <tr>
-                    <td style="background-color: #2563eb; padding: 32px 24px; text-align: center;">
-                      <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold; letter-spacing: -0.5px;">Stork Multispeciality Hospital</h1>
-                      <p style="color: #bfdbfe; margin: 8px 0 0 0; font-size: 15px; font-weight: 500;">New Appointment Request</p>
-                    </td>
-                  </tr>
+    // 1. Prepare Hospital Notification Email
+    const hospitalHtml = `
+      <!DOCTYPE html>
+      <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+          <div style="background-color: #2563eb; padding: 24px; text-align: center; color: white;">
+            <h2 style="margin: 0;">New Appointment Request</h2>
+          </div>
+          <div style="padding: 24px;">
+            <p>A new appointment has been booked through the website.</p>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Patient Name:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${name}</td></tr>
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Phone:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${phone}</td></tr>
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Email:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${email}</td></tr>
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Department:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${department}</td></tr>
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Doctor:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${doctor || "Any Available"}</td></tr>
+              <tr><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;"><strong>Preferred Date:</strong></td><td style="padding: 8px 0; border-bottom: 1px solid #f1f5f9;">${formattedDate}</td></tr>
+            </table>
+            <div style="margin-top: 20px; padding: 16px; background-color: #fefce8; border: 1px solid #fef08a; border-radius: 8px;">
+              <p style="margin: 0;"><strong>Message/Notes:</strong></p>
+              <p style="margin: 8px 0 0 0;">${message || "No additional notes provided."}</p>
+            </div>
+          </div>
+          <div style="background-color: #f8fafc; padding: 16px; text-align: center; font-size: 12px; color: #64748b;">
+            Sent via Stork Hospital Online Booking System
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
 
-                  <!-- Body Content -->
-                  <tr>
-                    <td style="padding: 32px 24px;">
-                      
-                      <!-- Section 1: Patient Details -->
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border-radius: 8px; margin-bottom: 24px;">
-                        <tr>
-                          <td style="padding: 16px;">
-                            <h2 style="margin: 0 0 12px 0; color: #0f172a; font-size: 16px; font-weight: bold; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">Patient Details</h2>
-                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Name:</strong> ${name}</p>
-                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Phone:</strong> <a href="tel:${phone}" style="color: #2563eb; text-decoration: none;">${phone}</a></p>
-                            <p style="margin: 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 60px;">Email:</strong> <a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></p>
-                          </td>
-                        </tr>
-                      </table>
+    // 2. Prepare Patient Confirmation Email
+    const patientHtml = `
+      <!DOCTYPE html>
+      <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
+          <div style="background-color: #2563eb; padding: 24px; text-align: center; color: white;">
+            <h2 style="margin: 0;">Appointment Received</h2>
+          </div>
+          <div style="padding: 24px;">
+            <p>Dear ${name},</p>
+            <p>Thank you for choosing Stork Multispecialty Hospital. We have received your appointment request for <strong>${department}</strong>.</p>
+            <p>Our coordination team will review the availability and call you shortly to confirm your final slot.</p>
+            <div style="text-align: center; margin: 32px 0;">
+              <a href="https://wa.me/919999988888" style="background-color: #22c55e; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Connect with us on WhatsApp</a>
+            </div>
+          </div>
+          <div style="background-color: #f8fafc; padding: 16px; text-align: center; font-size: 12px; color: #64748b;">
+            &copy; 2026 Stork Multispecialty Hospital. All rights reserved.
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
 
-                      <!-- Section 2: Appointment Information -->
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; border-radius: 8px; margin-bottom: 24px;">
-                        <tr>
-                          <td style="padding: 16px;">
-                            <h2 style="margin: 0 0 12px 0; color: #0f172a; font-size: 16px; font-weight: bold; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">Appointment Information</h2>
-                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Department:</strong> ${department}</p>
-                            <p style="margin: 0 0 8px 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Doctor:</strong> ${doctor || "Any Available"}</p>
-                            <p style="margin: 0; color: #475569; font-size: 14px;"><strong style="color: #0f172a; display: inline-block; width: 100px;">Preferred Date:</strong> ${date}</p>
-                          </td>
-                        </tr>
-                      </table>
+    // 3. Dispatch Emails
+    const [hospitalInfo, patientInfo] = await Promise.all([
+      sendEmail({
+        to: process.env.EMAIL_USER || "storkhospitalsmedia@gmail.com",
+        subject: `New Appointment: ${name} (${department})`,
+        html: hospitalHtml,
+        replyTo: email
+      }),
+      sendEmail({
+        to: email,
+        subject: "Your Appointment Request at Stork Hospital",
+        html: patientHtml
+      })
+    ]);
 
-                      <!-- Section 3: Additional Notes -->
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #fffbeb; border-radius: 8px; border: 1px solid #fde68a;">
-                        <tr>
-                          <td style="padding: 16px;">
-                            <h2 style="margin: 0 0 8px 0; color: #92400e; font-size: 15px; font-weight: bold;">Notes:</h2>
-                            <p style="margin: 0; color: #b45309; font-size: 14px; line-height: 1.5;">${message || "No additional notes provided by the patient."}</p>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-
-                  <!-- Footer Section -->
-                  <tr>
-                    <td style="background-color: #f1f5f9; border-top: 1px solid #e2e8f0; padding: 24px; text-align: center;">
-                      <h3 style="margin: 0 0 4px 0; color: #334155; font-size: 14px; font-weight: bold;">Stork Multispeciality Hospital</h3>
-                      <p style="margin: 0 0 12px 0; color: #64748b; font-size: 13px;">Survey No 14 & 15, NH44<br>Kompally, Hyderabad</p>
-                      
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                        <tr>
-                          <td align="center">
-
-                            <p style="margin: 0; color: #64748b; font-size: 13px;"><strong style="color: #334155;">Phone:</strong> <a href="tel:+919999988888" style="color: #2563eb; text-decoration: none;">+91 99999 88888</a></p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
-        </html>
-      `,
-    };
-
-    const patientMailOptions = {
-      from: `Stork Hospital <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "Appointment Request Received – Stork Hospital",
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Appointment Confirmation</title>
-        </head>
-        <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; padding: 40px 20px;">
-            <tr>
-              <td align="center">
-                <table role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
-                  
-                  <!-- Header -->
-                  <tr>
-                    <td style="background-color: #2563eb; padding: 40px 24px; text-align: center;">
-                      <div style="display: inline-block; padding: 12px; background-color: rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 16px;">
-                        <span style="color: #ffffff; font-size: 24px; font-weight: bold;">STORK</span>
-                      </div>
-                      <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: bold; letter-spacing: -0.5px;">Thank You, ${name}!</h1>
-                      <p style="color: #bfdbfe; margin: 12px 0 0 0; font-size: 16px; font-weight: 500;">We've received your appointment request.</p>
-                    </td>
-                  </tr>
-
-                  <!-- Content -->
-                  <tr>
-                    <td style="padding: 40px 32px;">
-                      <p style="color: #475569; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
-                        Hello ${name.split(' ')[0]}, your request for an appointment in the <strong>${department}</strong> department has been successfully submitted. Our team is currently reviewing the availability and will contact you shortly to finalize your slot.
-                      </p>
-                      
-                      <div style="background-color: #f1f5f9; border-radius: 12px; padding: 24px; margin-bottom: 32px;">
-                        <h2 style="color: #0f172a; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0;">Request Summary</h2>
-                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td style="padding: 8px 0; color: #64748b; font-size: 14px;">Department:</td>
-                            <td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: bold; text-align: right;">${department}</td>
-                          </tr>
-                          <tr>
-                            <td style="padding: 8px 0; color: #64748b; font-size: 14px;">Preferred Date:</td>
-                            <td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: bold; text-align: right;">${formattedDate}</td>
-                          </tr>
-                        </table>
-                      </div>
-
-                      <div style="text-align: center;">
-                        <p style="color: #64748b; font-size: 14px; margin-bottom: 24px;">If you have any urgent queries, please feel free to connect with us on WhatsApp.</p>
-                        <a href="https://wa.me/919999988888" style="background-color: #22c55e; color: #ffffff; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 15px; display: inline-block;">Connect on WhatsApp</a>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <!-- Footer -->
-                  <tr>
-                    <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 32px 24px; text-align: center;">
-                      <p style="margin: 0; color: #94a3b8; font-size: 13px;">
-                        &copy; 2026 Stork Multispeciality Hospital. All rights reserved.<br>
-                        Survey No 14 & 15, NH44, Kompally, Hyderabad, 500014
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </body>
-        </html>
-      `,
-    };
-
-    try {
-      // Verify connection configuration
-      await transporter.verify();
-      console.log("SMTP connection verified successfully");
-
-      // Send to hospital AND patient
-      const [infoHospital, infoPatient] = await Promise.all([
-        transporter.sendMail({ ...mailOptions, priority: "high" }),
-        transporter.sendMail({ ...patientMailOptions, priority: "high" })
-      ]);
-      
-      console.log("Hospital notification sent:", infoHospital.messageId);
-      console.log("Patient confirmation sent:", infoPatient.messageId);
-
-    } catch (emailError: any) {
-      console.error("CRITICAL EMAIL ERROR:", emailError.message);
-      // Detailed logging for Gmail common issues
-      if (emailError.message.includes("Invalid login")) {
-        console.warn("TIP: Please verify your Gmail App Password in .env.local. Ensure 2FA is enabled.");
-      }
-      // We do NOT throw here so that the frontend still succeeds and triggers the WhatsApp redirect.
+    if (!hospitalInfo.success) {
+      console.error("Failed to notify hospital:", hospitalInfo.error);
+    }
+    if (!patientInfo.success) {
+      console.error("Failed to notify patient:", patientInfo.error);
     }
 
-    // --- WHATSAPP CLOUD API INTEGRATION ---
-    try {
-      const whatsappResponse = await fetch("https://graph.facebook.com/v22.0/1002955742901568/messages", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer EAAWZC3DLZBtx0BQ7qi72PcQ4kYho5h2v2cCb8qa1h1f6Dpj7Oy9PiBbCuCG4gjFrH5zkmVraJGi0xgDZCTaFX6U6YnqZBAv4DGXjx2HjfJc1JIxAB5rBtrZA5hueqXTlbKioYGsX4NLxkkiuOgfZALVmY4ZCRCoKGC23ywaxloFUjhVtueb7wFo13xReHZBDwGNVRHsHGmkRrDZC4pJZBUrkACnsMfjT7HykWwORekHZCkLWUn3ZC8GlHMUqIADCT44UF5BQCPNZC9jPrME5ZCZBH3CVeka",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          messaging_product: "whatsapp",
-          to: "919494408050",
-          type: "template",
-          template: {
-            name: "hello_world",
-            language: { code: "en_US" }
-          }
-        })
-      });
-
-      if (!whatsappResponse.ok) {
-        const waError = await whatsappResponse.text();
-        // We log this but do NOT throw, because if the Email succeeded, the booking is still technically captured.
-        console.warn("WhatsApp API failed to send notification:", waError);
-      }
-    } catch (waRuntimeError) {
-      console.error("WhatsApp Request Error:", waRuntimeError);
-    }
-
-    return NextResponse.json(
-      { success: true, message: "Appointment request sent successfully" },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
-    console.error("Email send error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to send appointment request. Please try again later." },
-      { status: 500 }
-    );
+    console.error("Appointment API Error:", error);
+    return NextResponse.json({ error: "An internal error occurred. Please try again later." }, { status: 500 });
   }
 }
