@@ -55,10 +55,10 @@ export function MobileNav() {
             {/* Bottom Nav Bar */}
             <nav
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] md:hidden pb-safe"
+                    "fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.03)] md:hidden pb-safe"
                 )}
             >
-                <div className="flex items-center justify-around h-16 w-full max-w-md mx-auto px-1">
+                <div className="flex items-center justify-between h-16 w-full max-w-lg mx-auto px-2">
                     {navItems.map((item, index) => {
                         const isActive = pathname === item.href
                         return (
@@ -66,15 +66,21 @@ export function MobileNav() {
                                 key={index}
                                 href={item.href}
                                 className={cn(
-                                    "flex flex-col items-center justify-center w-full h-full py-1 active:scale-95 transition-transform",
-                                    isActive ? "text-orange-500" : "text-slate-500 hover:text-slate-900"
+                                    "flex flex-col items-center justify-center flex-1 h-full transition-all duration-200 active:scale-90",
+                                    isActive ? "text-[#ff8202]" : "text-slate-400 hover:text-slate-600"
                                 )}
                             >
-                                <item.icon
-                                    className={cn("w-6 h-6 mb-1", isActive && "fill-current/20")}
-                                    strokeWidth={isActive ? 2.5 : 2}
-                                />
-                                <span className="text-[10px] font-medium leading-none">{item.label}</span>
+                                <div className="relative flex flex-col items-center">
+                                    <item.icon
+                                        className={cn("w-[22px] h-[22px] mb-1", isActive && "stroke-[2.5px]")}
+                                    />
+                                    <span className={cn(
+                                        "text-[10px] font-bold tracking-tight text-center",
+                                        isActive ? "text-[#ff8202]" : "text-slate-500"
+                                    )}>
+                                        {item.label}
+                                    </span>
+                                </div>
                             </Link>
                         )
                     })}
@@ -84,9 +90,11 @@ export function MobileNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center w-full h-full py-1 active:scale-95 transition-transform text-slate-500 hover:text-slate-900">
-                                <MoreHorizontal className="w-6 h-6 mb-1" />
-                                <span className="text-[10px] font-medium leading-none">More</span>
+                            <button className="flex flex-col items-center justify-center flex-1 h-full transition-all duration-200 active:scale-90 text-slate-400 hover:text-slate-600">
+                                <div className="relative flex flex-col items-center">
+                                    <MoreHorizontal className="w-[22px] h-[22px] mb-1" />
+                                    <span className="text-[10px] font-bold tracking-tight text-center text-slate-500">More</span>
+                                </div>
                             </button>
                         </SheetTrigger>
                         <SheetContent side="bottom" className="rounded-t-3xl pb-8">
