@@ -55,10 +55,10 @@ export function MobileNav() {
             {/* Bottom Nav Bar */}
             <nav
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.03)] md:hidden pb-safe"
+                    "fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-t border-slate-100 md:hidden pb-safe"
                 )}
             >
-                <div className="flex items-center justify-between h-16 w-full max-w-lg mx-auto px-2">
+                <div className="flex items-center justify-around h-16 w-full max-w-lg mx-auto px-4">
                     {navItems.map((item, index) => {
                         const isActive = pathname === item.href
                         return (
@@ -66,21 +66,25 @@ export function MobileNav() {
                                 key={index}
                                 href={item.href}
                                 className={cn(
-                                    "flex flex-col items-center justify-center flex-1 h-full transition-all duration-200 active:scale-90",
-                                    isActive ? "text-[#ff8202]" : "text-slate-400 hover:text-slate-600"
+                                    "relative flex flex-col items-center justify-center flex-1 h-full transition-all duration-300 active:scale-90",
+                                    isActive ? "text-[#ff8202]" : "text-slate-400"
                                 )}
                             >
-                                <div className="relative flex flex-col items-center">
+                                <div className="flex flex-col items-center gap-1">
                                     <item.icon
-                                        className={cn("w-[22px] h-[22px] mb-1", isActive && "stroke-[2.5px]")}
+                                        className={cn("w-5 h-5 transition-transform", isActive && "scale-110")}
+                                        strokeWidth={isActive ? 2.5 : 2}
                                     />
                                     <span className={cn(
-                                        "text-[10px] font-bold tracking-tight text-center",
+                                        "text-[10px] font-medium tracking-tight",
                                         isActive ? "text-[#ff8202]" : "text-slate-500"
                                     )}>
                                         {item.label}
                                     </span>
                                 </div>
+                                {isActive && (
+                                    <div className="absolute bottom-1 w-1 h-1 rounded-full bg-[#ff8202] animate-in fade-in zoom-in duration-300" />
+                                )}
                             </Link>
                         )
                     })}
@@ -90,10 +94,10 @@ export function MobileNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center flex-1 h-full transition-all duration-200 active:scale-90 text-slate-400 hover:text-slate-600">
-                                <div className="relative flex flex-col items-center">
-                                    <MoreHorizontal className="w-[22px] h-[22px] mb-1" />
-                                    <span className="text-[10px] font-bold tracking-tight text-center text-slate-500">More</span>
+                            <button className="flex flex-col items-center justify-center flex-1 h-full transition-all duration-300 active:scale-90 text-slate-400">
+                                <div className="flex flex-col items-center gap-1">
+                                    <MoreHorizontal className="w-5 h-5" />
+                                    <span className="text-[10px] font-medium tracking-tight text-slate-500">More</span>
                                 </div>
                             </button>
                         </SheetTrigger>
