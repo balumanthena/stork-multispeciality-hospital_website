@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
     try {
@@ -14,21 +14,7 @@ export async function POST(request: Request) {
             );
         }
 
-        // Configure Nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
-
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER, // Sending to hospital email
-            replyTo: email,
-            subject: `Website Contact Form: ${subject}`,
-            html: `
+        const hospitalHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
           <div style="background-color: #0f172a; padding: 24px; text-align: center;">
             <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 700;">Stork Multispeciality Hospital</h1>
@@ -72,10 +58,18 @@ export async function POST(request: Request) {
             </p>
           </div>
         </div>
-      `,
-        };
+      `;
 
-        await transporter.sendMail(mailOptions);
+        const result = await sendEmail({
+            to: process.env.EMAIL_USER || "storkhospitalsmedia@gmail.com",
+            subject: `Website Contact Form: ${subject}`,
+            html: hospitalHtml,
+            replyTo: email,
+        });
+
+        if (!result.success) {
+            throw new Error(result.error);
+        }
 
         return NextResponse.json(
             { success: true, message: "Contact request sent successfully" },

@@ -33,11 +33,30 @@ export function LeadPopup() {
             return
         }
         setIsSubmitting(true)
-        const message = `New Lead from Website Popup\n\nName: ${formData.name}\nPhone: ${formData.phone}`
-        window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
-        toast.success("Thank you! Our team will reach out to you shortly.")
-        handleClose()
-        setIsSubmitting(false)
+
+        try {
+            const response = await fetch("/api/leads", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    type: "Home Page Consultation Popup"
+                }),
+            });
+
+            if (response.ok) {
+                toast.success("Details sent successfully! Our team will call you shortly.")
+                handleClose()
+            } else {
+                toast.error("Failed to send details. Please try again or call us directly.")
+            }
+        } catch (error) {
+            console.error("Submission error:", error)
+            toast.error("Something went wrong. Please check your connection.")
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     if (!isVisible) return null
