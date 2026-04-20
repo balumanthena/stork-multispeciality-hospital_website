@@ -55,11 +55,10 @@ export function MobileNav() {
             {/* Bottom Nav Bar - Truly Full Width Viewport Spanning */}
             <nav
                 className={cn(
-                    "fixed bottom-0 left-0 right-0 z-[9999] bg-white/80 backdrop-blur-xl border-t border-slate-100 md:hidden pb-safe w-screen"
+                    "fixed bottom-0 left-0 w-[100vw] z-50 bg-white/90 backdrop-blur-md border-t border-slate-100 md:hidden pb-safe"
                 )}
-                style={{ left: 0, right: 0 }}
             >
-                <div className="flex items-center justify-around h-16 w-full px-2">
+                <div className="flex items-center justify-around h-16 w-full">
                     {navItems.map((item, index) => {
                         const isActive = pathname === item.href
                         return (
@@ -67,7 +66,7 @@ export function MobileNav() {
                                 key={index}
                                 href={item.href}
                                 className={cn(
-                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-90",
+                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95",
                                     isActive ? "text-[#ff8202]" : "text-slate-400"
                                 )}
                             >
@@ -84,7 +83,7 @@ export function MobileNav() {
                                     </span>
                                 </div>
                                 {isActive && (
-                                    <div className="absolute bottom-1.5 w-1 h-1 rounded-full bg-[#ff8202] animate-in fade-in zoom-in duration-300" />
+                                    <div className="absolute bottom-1 w-1 h-1 rounded-full bg-[#ff8202] animate-in fade-in zoom-in duration-300" />
                                 )}
                             </Link>
                         )
@@ -95,14 +94,14 @@ export function MobileNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-90 text-slate-400">
+                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-slate-400">
                                 <div className="flex flex-col items-center gap-1">
                                     <MoreHorizontal className="w-5 h-5" />
                                     <span className="text-[10px] font-medium tracking-tight text-slate-500">More</span>
                                 </div>
                             </button>
                         </SheetTrigger>
-                        <SheetContent side="bottom" className="rounded-t-3xl pb-8 z-[10000]">
+                        <SheetContent side="bottom" className="rounded-t-3xl pb-8 z-[100]">
                             {view === "menu" ? (
                                 <>
                                     <SheetHeader className="mb-6 text-left">
