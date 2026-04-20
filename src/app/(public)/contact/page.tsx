@@ -1,13 +1,19 @@
-import React from "react"
-import type { Metadata } from "next"
-import { MapPin, Phone, Mail, Clock, ShieldAlert, ArrowRight } from "lucide-react"
+"use client"
 
-export const metadata: Metadata = {
-    title: "Visit Us | Stork Multispeciality Hospital",
-    description: "Location and contact information for Stork Multispeciality Hospital in Kompally, Hyderabad.",
-}
+import React from "react"
+import { MapPin, Phone, Mail, Clock, ShieldAlert, ArrowRight } from "lucide-react"
+import { useSettings } from "@/providers/SettingsProvider"
 
 export default function ContactPage() {
+    const { settings, isLoading } = useSettings()
+
+    // Fallback values if settings aren't loaded yet
+    const address = settings?.address || "Survey No 14 & 15, NH44, Kompally, Hyderabad, Telangana 500014"
+    const phone = settings?.whatsapp_number || "+91 94944 08050"
+    const email = settings?.email || "info@storkhospital.com"
+    const workingHours = settings?.working_hours || "Mon - Sat: 9:00 AM - 8:00 PM | Sunday: 10:00 AM - 2:00 PM"
+    const emergencyNumber = settings?.emergency_number || "+91 76108 10819"
+
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
 
@@ -15,7 +21,7 @@ export default function ContactPage() {
             <section className="pt-20 pb-12 bg-white border-b border-slate-100">
                 <div className="container max-w-7xl mx-auto px-6 text-center lg:text-left flex flex-col items-center lg:items-start">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-                        Visit Stork Hospital
+                        Visit {settings?.hospital_name || "Stork Hospital"}
                     </h1>
                     <p className="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed">
                         We are here to serve you with compassionate and advanced care.
@@ -35,11 +41,10 @@ export default function ContactPage() {
                                 24/7 Emergency Services
                             </h2>
                             <p className="text-red-700/80 font-medium text-sm">
-                                Immediate care for trauma and critical medical needs.
+                                Call for immediate assistance: <a href={`tel:${emergencyNumber}`} className="underline decoration-red-300 hover:decoration-red-500 transition-all">{emergencyNumber}</a>
                             </p>
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -62,12 +67,18 @@ export default function ContactPage() {
                                         <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                             <MapPin className="w-5 h-5" />
                                         </div>
-                                        <div>
+                                        <div className="flex-1">
                                             <h4 className="font-semibold text-slate-900 text-lg mb-1">Hospital Address</h4>
-                                            <p className="text-slate-600 leading-relaxed text-[15px]">
-                                                Survey No 14 & 15, NH44, Kompally,<br />
-                                                Hyderabad, Telangana 500014
-                                            </p>
+                                            {isLoading ? (
+                                                <div className="space-y-2 animate-pulse">
+                                                    <div className="h-4 bg-slate-100 rounded w-full"></div>
+                                                    <div className="h-4 bg-slate-100 rounded w-2/3"></div>
+                                                </div>
+                                            ) : (
+                                                <p className="text-slate-600 leading-relaxed text-[15px] whitespace-pre-line">
+                                                    {address}
+                                                </p>
+                                            )}
                                         </div>
                                     </div>
 
@@ -76,12 +87,17 @@ export default function ContactPage() {
                                         <div className="w-12 h-12 bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-slate-800 group-hover:text-white transition-colors">
                                             <Clock className="w-5 h-5" />
                                         </div>
-                                        <div>
+                                        <div className="flex-1">
                                             <h4 className="font-semibold text-slate-900 text-lg mb-1">OP Timings</h4>
-                                            <div className="text-slate-600 text-[15px] space-y-1">
-                                                <p>Mon - Sat: <span className="font-medium text-slate-800">9:00 AM - 8:00 PM</span></p>
-                                                <p>Sunday: <span className="font-medium text-slate-800">10:00 AM - 2:00 PM</span></p>
-                                            </div>
+                                            {isLoading ? (
+                                                <div className="space-y-2 animate-pulse">
+                                                    <div className="h-4 bg-slate-100 rounded w-3/4"></div>
+                                                </div>
+                                            ) : (
+                                                <div className="text-slate-600 text-[15px] space-y-1 whitespace-pre-line italic">
+                                                    {workingHours}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
@@ -90,14 +106,23 @@ export default function ContactPage() {
                                         <div className="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-green-600 group-hover:text-white transition-colors">
                                             <Phone className="w-5 h-5" />
                                         </div>
-                                        <div>
+                                        <div className="flex-1">
                                             <h4 className="font-semibold text-slate-900 text-lg mb-1">Direct Line & WhatsApp</h4>
-                                            <a href="tel:+919494408050" className="text-slate-600 text-[15px] hover:text-green-600 transition-colors block mb-1">
-                                                +91 94944 08050
-                                            </a>
-                                            <a href="mailto:info@storkhospital.com" className="text-slate-500 hover:text-orange-600 transition-colors text-sm flex items-center gap-2 mt-2">
-                                                <Mail className="w-4 h-4" /> info@storkhospital.com
-                                            </a>
+                                            {isLoading ? (
+                                                <div className="space-y-2 animate-pulse">
+                                                    <div className="h-4 bg-slate-100 rounded w-1/2"></div>
+                                                    <div className="h-4 bg-slate-100 rounded w-1/3"></div>
+                                                </div>
+                                            ) : (
+                                                <>
+                                                    <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-slate-600 text-[15px] hover:text-green-600 font-bold transition-colors block mb-1">
+                                                        {phone}
+                                                    </a>
+                                                    <a href={`mailto:${email}`} className="text-slate-500 hover:text-orange-600 transition-colors text-sm flex items-center gap-2 mt-2">
+                                                        <Mail className="w-4 h-4" /> {email}
+                                                    </a>
+                                                </>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +130,7 @@ export default function ContactPage() {
                                 {/* Get Directions Button */}
                                 <div className="mt-10 pt-8 border-t border-slate-100">
                                     <a
-                                        href="https://maps.app.goo.gl/roNgtXcEgrSNqoLG9"
+                                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-xl transition-all shadow-md active:scale-[0.98] text-[15px]"
@@ -120,11 +145,10 @@ export default function ContactPage() {
                         {/* RIGHT SIDE: Map Embed (7 Cols) */}
                         <div className="lg:col-span-7 w-full h-full min-h-[400px]">
                             <div className="bg-slate-200 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/50 h-[400px] lg:h-[500px] w-full border border-slate-100 relative group">
-                                {/* Map loading skeleton/placeholder overlay */}
                                 <div className="absolute inset-0 bg-slate-100 animate-pulse -z-10" />
 
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15228.619077977435!2d78.4756535!3d17.5240366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMxJzE3LjEiTiA3OMKwMjgnMzEuMiJF!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin&q=GFCM%2BQG+Hyderabad,+Telangana"
+                                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}&q=${encodeURIComponent(address)}`}
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
