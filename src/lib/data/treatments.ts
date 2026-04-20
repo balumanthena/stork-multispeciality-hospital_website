@@ -54,7 +54,7 @@ const getBodyRegion = (dept: string, name: string): string => {
 };
 
 export const TREATMENTS_MASTER: MasterTreatment[] = [
-    { id: 1, name: "Abdominal pain", department: "Pain Management" },
+    { id: 105, name: "Ablation Therapy", department: "Pain Management" },
     { id: 2, name: "Back pain", department: "Pain Management" },
     { id: 3, name: "Headache / Migraine", department: "Pain Management" },
     { id: 4, name: "Neck pain", department: "Pain Management" },
@@ -157,8 +157,7 @@ export const TREATMENTS_MASTER: MasterTreatment[] = [
     { id: 101, name: "Lung cancer care", department: "Pulmonology" },
     { id: 102, name: "Post-COVID recovery", department: "Pulmonology" },
     { id: 103, name: "Respiratory conditions", department: "Pulmonology" },
-    { id: 104, name: "TB management", department: "Pulmonology" },
-    { id: 105, name: "Ablation Therapy", department: "Pain Management" }
+    { id: 104, name: "TB management", department: "Pulmonology" }
 ].map(t => ({
     ...t,
     slug: slugify(t.name),

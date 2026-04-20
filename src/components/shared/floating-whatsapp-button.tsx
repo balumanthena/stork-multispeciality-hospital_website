@@ -11,7 +11,7 @@ export function FloatingWhatsappButton() {
     return (
         <button
             onClick={handleWhatsAppClick}
-            className="fixed bottom-[90px] right-4 md:bottom-8 md:right-8 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#22c35e] text-white rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group"
+            className="fixed bottom-[90px] right-4 md:bottom-8 md:right-8 z-50 hidden md:flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#22c35e] text-white rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 group"
             aria-label="Chat on WhatsApp"
         >
             {/* Subtle Pulse Effect */}
