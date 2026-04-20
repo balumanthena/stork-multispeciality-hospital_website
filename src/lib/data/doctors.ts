@@ -233,7 +233,6 @@ export const doctors: Doctor[] = [
     ],
     availability: "Mon-Sat, 8:00 AM - 2:00 PM"
   },
-  },
   {
     id: "dr-veda-sree",
     name: "Dr. Chimmana Veda Sree",
