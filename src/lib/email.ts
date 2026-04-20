@@ -88,6 +88,14 @@ export async function sendOTPEmail({ to, subject, otp, hospitalName = 'Stork Mul
     </html>
   `
 
+  await transporter.sendMail({
+    from: `"Stork Hospital Security" <${process.env.EMAIL_USER}>`,
+    to,
+    subject,
+    html: htmlContent,
+  })
+}
+
 export async function sendEmail({ to, subject, html, replyTo }: { to: string; subject: string; html: string; replyTo?: string }) {
   try {
     const info = await transporter.sendMail({
