@@ -21,9 +21,9 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">Proctology</span>
                     </nav>
@@ -44,7 +44,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                                     "Free Consult & Fast Recovery Plans"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -56,7 +56,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book Proctology Consultation
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#3E7DCA] hover:text-[#3E7DCA] rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
                                     Consult Proctologist
                                 </Button>
                             </div>
@@ -73,7 +73,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Relief from Piles & Pain <br />
-                        <span className="text-[#3E7DCA]">Without Embarrassment, Delay, or Discomfort</span>
+                        <span className="text-[#ff8202]">Without Embarrassment, Delay, or Discomfort</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-8 space-y-6">
@@ -92,7 +92,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="max-w-3xl mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">
-                            Why Stork Is the <span className="text-[#3E7DCA]">Right Place for Proctology Care</span>
+                            Why Stork Is the <span className="text-[#ff8202]">Right Place for Proctology Care</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed font-light">
                             We’ve helped hundreds of patients get relief from conditions they were too embarrassed to talk about. You’ll find:
@@ -110,7 +110,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                             "Quick access from anywhere in Kompally, Petbasheerabad, and surrounding areas"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -165,7 +165,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                         {/* General Discomfort - Blue theme */}
                         <div className="bg-[#F0F9FF] rounded-3xl p-10 border border-blue-100">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="h-12 w-12 rounded-xl bg-[#3E7DCA] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                <div className="h-12 w-12 rounded-xl bg-[#ff8202] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                                     <Scale className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-[#0F172A]">Related Issues</h3>
@@ -177,7 +177,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                                     "Rectal prolapse and age-related anorectal issues"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-[#3E7DCA] mt-2 flex-shrink-0"></span>
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff8202] mt-2 flex-shrink-0"></span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -186,7 +186,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                     </div>
 
                     <div className="text-center mt-16 max-w-3xl mx-auto">
-                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#3E7DCA] pl-6 py-2 bg-slate-50 rounded-r-lg">
+                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#ff8202] pl-6 py-2 bg-slate-50 rounded-r-lg">
                             No unnecessary tests. No scare tactics. Just honest care and timely solutions.
                         </p>
                     </div>
@@ -228,7 +228,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
 
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
-                            Most patients are back on their feet the <span className="text-[#3E7DCA]">next day</span>. no stitches, no overnight hospital stay, no repeated visits.
+                            Most patients are back on their feet the <span className="text-[#ff8202]">next day</span>. no stitches, no overnight hospital stay, no repeated visits.
                         </p>
                     </div>
                 </div>
@@ -239,7 +239,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Our Promise: <br />
-                        <span className="text-[#3E7DCA]">Privacy, Patience & Clarity</span>
+                        <span className="text-[#ff8202]">Privacy, Patience & Clarity</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-12 space-y-6">
@@ -261,7 +261,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                                 "Female and male doctors available for gender-sensitive comfort"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-3">
-                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                         <Shield className="h-3 w-3" />
                                     </div>
                                     <span className="text-slate-700 font-medium text-lg">{item}</span>
@@ -326,7 +326,7 @@ export const ProctologyContent = ({ blogs, videos }: { blogs: any[], videos: any
                         Ready to Schedule Your Visit?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Proctology Consultation
                         </Button>
                         <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">

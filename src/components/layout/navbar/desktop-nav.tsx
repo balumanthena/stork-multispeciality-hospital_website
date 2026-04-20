@@ -97,13 +97,13 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
     })
 
     return (
-        <nav className="hidden lg:flex items-center gap-8 h-full" onMouseLeave={() => setActiveMenu(null)}>
+        <nav className="hidden lg:flex items-center gap-7 h-full" onMouseLeave={() => setActiveMenu(null)}>
 
             {/* Home */}
             <Link
                 href="/"
                 className={cn(
-                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
+                    "relative flex items-center h-full px-1 text-[15px] font-semibold tracking-wide transition-colors group",
                     isActive("/") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
                 style={isActive("/") ? { color: '#ff8202' } : {}}
@@ -122,7 +122,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
             <Link
                 href="/about"
                 className={cn(
-                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
+                    "relative flex items-center h-full px-1 text-[15px] font-semibold tracking-wide transition-colors group",
                     isActive("/about") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                 )}
             >
@@ -141,8 +141,8 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 <Link
                     href="/services"
                     className={cn(
-                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                        "relative flex items-center gap-1.5 px-1 text-[15px] font-bold tracking-wide h-full transition-colors group outline-none",
+                        activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
                     )}>
                     Departments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "departments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
@@ -152,7 +152,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 </Link>
                 {/* Dropdown */}
                 <div className={cn(
-                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "departments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <div className="container max-w-[1280px] mx-auto">
@@ -173,8 +173,8 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 <Link
                     href="/treatments"
                     className={cn(
-                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                        "relative flex items-center gap-1.5 px-1 text-[15px] font-bold tracking-wide h-full transition-colors group outline-none",
+                        activeMenu === "treatments" || pathname.startsWith("/treatments") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
                     )}>
                     Treatments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "treatments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
@@ -183,7 +183,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     )}></span>
                 </Link>
                 <div className={cn(
-                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "treatments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <TreatmentsMegaMenu
@@ -201,8 +201,8 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 <Link
                     href="/procedures"
                     className={cn(
-                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none",
-                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                        "relative flex items-center gap-1.5 px-1 text-[15px] font-bold tracking-wide h-full transition-colors group outline-none",
+                        activeMenu === "procedures" || pathname.startsWith("/procedures") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
                     )}
                     style={activeMenu === "procedures" || pathname.startsWith("/procedures") ? { color: '#ff8202' } : {}}
                 >
@@ -216,7 +216,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     ></span>
                 </Link>
                 <div className={cn(
-                    "absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
+                    "absolute top-[84px] left-0 w-full bg-white border-t border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 transform perspective-1000",
                     activeMenu === "procedures" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <ProceduresMegaMenu
@@ -226,12 +226,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 </div>
             </div>
 
-            {/* Doctors & Blogs */}
+            {/* Doctors */}
             <Link
                 href="/doctors"
                 className={cn(
-                    "relative flex items-center h-full px-1 text-[16px] font-medium transition-colors group",
-                    isActive("/doctors") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                    "relative flex items-center h-full px-1 text-[15px] font-bold tracking-wide transition-colors group",
+                    isActive("/doctors") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
                 )}
             >
                 Doctors
@@ -240,6 +240,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     isActive("/doctors") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                 )}></span>
             </Link>
+            
             {/* Insights Dropdown */}
             <div
                 className="h-full flex items-center relative"
@@ -247,7 +248,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
             >
                 <div
                     className={cn(
-                        "relative flex items-center gap-1.5 px-1 text-[16px] font-medium h-full transition-colors group outline-none cursor-pointer",
+                        "relative flex items-center gap-1.5 px-1 text-[15px] font-semibold tracking-wide h-full transition-colors group outline-none cursor-pointer",
                         activeMenu === "insights" || pathname.startsWith("/insights") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
                     )}>
                     Insights <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "insights" ? "rotate-180" : "opacity-60")} />
@@ -258,7 +259,7 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 </div>
                 {/* Dropdown Content */}
                 <div className={cn(
-                    "absolute top-full left-1/2 -translate-x-1/2 w-48 bg-white border border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 p-2 rounded-xl",
+                    "absolute top-[84px] left-1/2 -translate-x-1/2 w-48 bg-white border border-slate-100 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300 origin-top z-40 p-2 rounded-xl",
                     activeMenu === "insights" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <Link 
@@ -276,13 +277,28 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                         onClick={() => setActiveMenu(null)}
                         className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors group/item"
                     >
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center group-hover/item:bg-[#3e7dca] transition-colors">
-                            <PlayCircle className="w-4 h-4 text-[#3e7dca] group-hover/item:text-white" />
+                        <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center group-hover/item:bg-[#ff8202] transition-colors">
+                            <PlayCircle className="w-4 h-4 text-[#ff8202] group-hover/item:text-white" />
                         </div>
-                        <span className="text-[14px] font-semibold text-slate-700 group-hover/item:text-[#3e7dca]">Videos</span>
+                        <span className="text-[14px] font-semibold text-slate-700 group-hover/item:text-[#ff8202]">Videos</span>
                     </Link>
                 </div>
             </div>
+
+            {/* Contact */}
+            <Link
+                href="/contact"
+                className={cn(
+                    "relative flex items-center h-full px-1 text-[15px] font-semibold tracking-wide transition-colors group",
+                    isActive("/contact") ? "text-[#ff8202]" : "text-slate-600 hover:text-[#ff8202]"
+                )}
+            >
+                Contact
+                <span className={cn(
+                    "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
+                    isActive("/contact") ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                )}></span>
+            </Link>
 
 
         </nav>

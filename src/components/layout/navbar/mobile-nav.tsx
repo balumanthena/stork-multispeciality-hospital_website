@@ -188,11 +188,19 @@ export function MobileNav({ departments = [], groupedTreatments = [] }: { depart
                                 </div>
                             )}
                         </div>
+                        {/* Static Links Bottom */}
+                        <Link
+                            href="/contact"
+                            onClick={() => setIsOpen(false)}
+                            className="px-4 py-3 text-[15px] font-medium text-slate-800 border-b border-slate-100 active:bg-slate-50"
+                        >
+                            Contact
+                        </Link>
 
 
 
                         <div className="pt-6 space-y-3 px-2">
-                            <Button className="w-full bg-[#ff8202] hover:bg-[#ff8202]/90 gap-2 rounded-full h-12 text-base font-semibold shadow-md">
+                            <Button className="w-full bg-[#ff8202] hover:bg-[#ff8202]/90 gap-2 rounded-lg h-12 text-base font-bold shadow-md">
                                 <Calendar className="w-5 h-5" /> Book Appointment
                             </Button>
 

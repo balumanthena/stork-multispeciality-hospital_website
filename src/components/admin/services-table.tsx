@@ -80,14 +80,14 @@ export default function AdminTreatmentsTable({ initialData, currentUserRole }: {
                                     <td className="px-6 py-4 text-slate-600 max-w-xs truncate">{item.summary}</td>
                                     <td className="px-6 py-4 text-slate-500 font-mono text-xs">{item.videoId || "-"}</td>
                                     <td className="px-6 py-4 text-slate-600">
-                                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-50 text-blue-700">
                                             {item.department || "General"}
                                         </span>
                                     </td>
                                     {canManage && (
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex justify-end gap-2">
-                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
+                                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-orange-600">
                                                     <Edit2 className="h-4 w-4" />
                                                 </Button>
                                                 <Button

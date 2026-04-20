@@ -89,7 +89,7 @@ export function SmartSearch({ onSearch, suggestions, className }: SmartSearchPro
             {/* SEARCH INPUT */}
             <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                    <Search className="h-6 w-6 text-slate-400 group-focus-within:text-[#3e7dca] transition-colors" />
+                    <Search className="h-6 w-6 text-slate-400 group-focus-within:text-[#ff8202] transition-colors" />
                 </div>
                 <input
                     ref={inputRef}
@@ -99,7 +99,7 @@ export function SmartSearch({ onSearch, suggestions, className }: SmartSearchPro
                     onKeyDown={handleKeyDown}
                     onFocus={() => query.length > 0 && setIsOpen(true)}
                     placeholder="Search treatments, procedures, or departments..."
-                    className="block w-full pl-16 pr-12 py-5 bg-white border border-slate-200 rounded-full text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#3e7dca]/10 focus:border-[#3e7dca] shadow-lg shadow-slate-200/40 transition-all text-lg font-medium"
+                    className="block w-full pl-16 pr-12 py-5 bg-white border border-slate-200 rounded-full text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-[#ff8202]/10 focus:border-[#ff8202] shadow-lg shadow-slate-200/40 transition-all text-lg font-medium"
                 />
                 {query && (
                     <button
@@ -132,13 +132,13 @@ export function SmartSearch({ onSearch, suggestions, className }: SmartSearchPro
                             >
                                 <div className="flex items-center gap-4">
                                     <div className={cn(
-                                        "w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-[#3e7dca]/10 group-hover:text-[#3e7dca] transition-colors",
-                                        index === activeIndex && "bg-[#3e7dca]/10 text-[#3e7dca]"
+                                        "w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-[#ff8202]/10 group-hover:text-[#ff8202] transition-colors",
+                                        index === activeIndex && "bg-[#ff8202]/10 text-[#ff8202]"
                                     )}>
                                         <Activity className="w-4 h-4" />
                                     </div>
                                     <div>
-                                        <div className="text-slate-900 font-medium group-hover:text-[#3e7dca] transition-colors">
+                                        <div className="text-slate-900 font-medium group-hover:text-[#ff8202] transition-colors">
                                             {/* Highlight Match logic could go here, for now plain text */}
                                             {item.title}
                                         </div>
@@ -147,7 +147,7 @@ export function SmartSearch({ onSearch, suggestions, className }: SmartSearchPro
                                         </div>
                                     </div>
                                 </div>
-                                <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#3e7dca] transition-colors" />
+                                <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#ff8202] transition-colors" />
                             </Link>
                         ))}
                     </div>
@@ -156,7 +156,7 @@ export function SmartSearch({ onSearch, suggestions, className }: SmartSearchPro
                     <div className="px-4 py-3 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
                         <span>Press <strong>Enter</strong> to select</span>
                         {suggestions.length > 6 && (
-                            <span className="font-medium text-[#3e7dca]">
+                            <span className="font-medium text-[#ff8202]">
                                 View all {suggestions.length} results
                             </span>
                         )}

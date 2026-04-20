@@ -72,7 +72,7 @@ function PartnerLogo({ name }: { name: string }) {
             ) : (
                 // Fallback UI if the image isn't available locally
                 <div className="w-full h-full flex flex-col items-center justify-center text-center px-1">
-                    <span className="text-[12px] sm:text-[13px] font-semibold text-slate-600 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-slate-600 leading-snug group-hover:text-orange-600 transition-colors line-clamp-2">
                         {name}
                     </span>
                 </div>
@@ -165,7 +165,7 @@ export function InsurancePartners() {
                     <Link href="/insurance-partners">
                         <Button
                             variant="outline"
-                            className="rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm px-8 h-12 font-semibold"
+                            className="rounded-full border-2 border-blue-600 text-orange-600 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm px-8 h-12 font-semibold"
                         >
                             View All Insurance Partners &rarr;
                         </Button>

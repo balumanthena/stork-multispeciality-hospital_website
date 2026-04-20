@@ -54,7 +54,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Featured Videos</h2>
                             </div>
                             <Link href="/insights/videos">
-                                <Button variant="ghost" className="hidden sm:flex items-center text-[#3E7DCA] hover:text-[#2d62a3] hover:bg-blue-50">
+                                <Button variant="ghost" className="hidden sm:flex items-center text-[#ff8202] hover:text-[#2d62a3] hover:bg-orange-50">
                                     View Video Gallery <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
@@ -137,7 +137,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Related Articles</h2>
                             </div>
                             <Link href="/insights/articles">
-                                <Button variant="ghost" className="hidden sm:flex items-center text-[#3E7DCA] hover:text-[#2d62a3] hover:bg-blue-50">
+                                <Button variant="ghost" className="hidden sm:flex items-center text-[#ff8202] hover:text-[#2d62a3] hover:bg-orange-50">
                                     View Full Blog <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
                             </Link>
@@ -145,7 +145,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {blogs.slice(0, 3).map((blog) => (
-                                <Link href={`/insights/articles/${blog.slug}`} key={blog.id} className="group flex flex-col h-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+                                <Link href={`/insights/articles/${blog.slug}`} key={blog.id} className="group flex flex-col h-full bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300">
                                     <div className="aspect-[16/10] relative overflow-hidden bg-slate-200">
                                         {blog.image_url ? (
                                             <Image src={blog.image_url} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -156,7 +156,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                         )}
                                         {blog.category && (
                                             <div className="absolute top-4 left-4 z-10">
-                                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#3E7DCA] text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
+                                                <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-[#ff8202] text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
                                                     {blog.category}
                                                 </span>
                                             </div>
@@ -171,7 +171,7 @@ export function RelatedMedia({ blogs = [], videos = [] }: RelatedMediaProps) {
                                                 </span>
                                             )}
                                         </div>
-                                        <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#3E7DCA] transition-colors line-clamp-2">
+                                        <h3 className="text-lg font-bold text-slate-800 mb-2 group-hover:text-[#ff8202] transition-colors line-clamp-2">
                                             {blog.title}
                                         </h3>
                                         <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 mb-4">

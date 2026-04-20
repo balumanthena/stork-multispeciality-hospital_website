@@ -103,22 +103,22 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <Section className="bg-gradient-to-b from-slate-50 to-white pt-12 md:pt-16 pb-16 relative overflow-hidden">
                 <div className="container max-w-6xl mx-auto px-6 relative z-10">
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
-                        <Link href="/treatments" className="hover:text-[#3e7dca] transition-colors">Treatments</Link>
+                        <Link href="/treatments" className="hover:text-[#ff8202] transition-colors">Treatments</Link>
                         <ChevronRight className="w-4 h-4" />
-                        <Link href={treatment.departmentHref} className="hover:text-[#3e7dca] transition-colors">{treatment.category}</Link>
+                        <Link href={treatment.departmentHref} className="hover:text-[#ff8202] transition-colors">{treatment.category}</Link>
                         <ChevronRight className="w-4 h-4" />
                         <span className="text-slate-900 font-semibold">{treatment.breadcrumbTitle || treatment.title}</span>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center">
                         <div className="lg:col-span-3">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-[#3e7dca] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-[#ff8202] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
                                 <Activity className="w-3 h-3" />
                                 {treatment.category} Department
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f172a] mb-6 leading-[1.1] tracking-tight">{treatment.title}</h1>
                             {treatment.subheading && <h2 className="text-xl md:text-2xl font-semibold text-slate-700 mb-3 leading-snug">{treatment.subheading}</h2>}
-                            {treatment.tagline && <p className="text-lg text-[#3e7dca] font-medium mb-8">{treatment.tagline}</p>}
+                            {treatment.tagline && <p className="text-lg text-[#ff8202] font-medium mb-8">{treatment.tagline}</p>}
                             <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">{treatment.shortDescription}</p>
                             <div className="flex flex-col sm:flex-row gap-4 mb-10">
                                 <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
@@ -128,9 +128,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
                                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#3e7dca]" /><span>Top Specialists</span></div>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#ff8202]" /><span>Top Specialists</span></div>
                                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#3e7dca]" /><span>Insurance Accepted</span></div>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#ff8202]" /><span>Insurance Accepted</span></div>
                             </div>
                         </div>
                     </div>
@@ -188,9 +188,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     <div className="space-y-0 relative border-l-2 border-slate-100 ml-5 md:ml-8 pl-8 md:pl-12 py-4">
                                         {treatment.procedureSteps.map((step: { title: string; description: string }, i: number) => (
                                             <div key={i} className="relative mb-12 last:mb-0 group">
-                                                <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#3e7dca] transition-colors"><span className="text-[#3e7dca] font-bold text-sm">{i + 1}</span></div>
+                                                <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#ff8202] transition-colors"><span className="text-[#ff8202] font-bold text-sm">{i + 1}</span></div>
                                                 <div>
-                                                    <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#3e7dca] transition-colors">{step.title}</h4>
+                                                    <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#ff8202] transition-colors">{step.title}</h4>
                                                     <p className="text-slate-600 text-lg leading-relaxed">{step.description}</p>
                                                 </div>
                                             </div>
@@ -205,7 +205,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.benefitsHeading || "Benefits"}</h2>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         {treatment.benefits.map((benefit: string, i: number) => (
-                                            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#3e7dca]/20 flex items-start gap-4">
+                                            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#ff8202]/20 flex items-start gap-4">
                                                 <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600"><CheckCircle2 className="w-5 h-5" /></div>
                                                 <span className="text-lg text-slate-800 font-medium pt-1">{benefit}</span>
                                             </div>
@@ -237,8 +237,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.recoveryHeading || "Recovery & Aftercare"}</h2>
                                     <div className="grid grid-cols-1 gap-4">
                                         {treatment.recoveryTimeline.map((item: string, i: number) => (
-                                            <div key={i} className="flex items-center gap-5 p-6 bg-blue-50/50 rounded-2xl border border-blue-100 group hover:bg-blue-50 transition-colors">
-                                                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#3e7dca] shrink-0 group-hover:scale-110 transition-transform"><Clock className="w-6 h-6" /></div>
+                                            <div key={i} className="flex items-center gap-5 p-6 bg-orange-50/50 rounded-2xl border border-blue-100 group hover:bg-orange-50 transition-colors">
+                                                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#ff8202] shrink-0 group-hover:scale-110 transition-transform"><Clock className="w-6 h-6" /></div>
                                                 <span className="text-lg text-slate-700 font-semibold">{item}</span>
                                             </div>
                                         ))}
@@ -252,8 +252,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                     <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.faqHeading || "Frequently Asked Questions"}</h2>
                                     <div className="space-y-4">
                                         {treatment.faqs.map((faq: { question: string; answer: string }, i: number) => (
-                                            <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#3e7dca]/50 transition-colors group">
-                                                <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3"><span className="text-[#3e7dca] mt-0.5">Q.</span>{faq.question}</h4>
+                                            <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#ff8202]/50 transition-colors group">
+                                                <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3"><span className="text-[#ff8202] mt-0.5">Q.</span>{faq.question}</h4>
                                                 <div className="pl-7"><p className="text-slate-600 leading-relaxed">{faq.answer}</p></div>
                                             </div>
                                         ))}
@@ -261,27 +261,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 </div>
                             )}
 
-                            {/* MEDICAL REVIEW CARD */}
-                            {treatment.reviewedBy && (
-                                <div className="pt-12 border-t border-slate-100">
-                                    <div className="bg-slate-50 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 border border-slate-200 shadow-sm relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 p-4 opacity-5"><ShieldCheck className="w-24 h-24 text-slate-900" /></div>
-                                        <div className="w-24 h-24 rounded-full bg-[#3e7dca]/10 flex items-center justify-center shrink-0 border-4 border-white shadow-md">
-                                            <User className="w-12 h-12 text-[#3e7dca]" />
-                                        </div>
-                                        <div className="text-center md:text-left relative z-10">
-                                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
-                                                <h5 className="text-2xl font-bold text-slate-900">{treatment.reviewedBy.name}</h5>
-                                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider">
-                                                    <ShieldCheck className="w-3 h-3" /> Medically Reviewed
-                                                </span>
-                                            </div>
-                                            <p className="text-lg font-bold text-[#3e7dca] mb-1">{treatment.reviewedBy.role}</p>
-                                            <p className="text-slate-600 font-medium">{treatment.reviewedBy.experience}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
+
                         </div>
                         <div className="md:col-span-4 space-y-8 relative">
                             <div className="sticky top-32 space-y-8">
@@ -296,7 +276,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             <Section className="py-24 bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-[#1e3a8a] z-0"></div>
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3e7dca]/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ff8202]/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#ff8202]/10 rounded-full blur-[100px] -ml-32 -mb-32"></div>
                 <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center">
                     <span className="inline-block px-4 py-1 bg-white/10 text-white rounded-full text-sm font-bold tracking-wider mb-6 border border-white/10">PREMIUM HEALTHCARE</span>

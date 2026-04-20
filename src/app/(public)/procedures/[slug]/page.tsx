@@ -75,9 +75,9 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
-                        <Link href="/procedures" className="hover:text-[#3e7dca] transition-colors">Procedures</Link>
+                        <Link href="/procedures" className="hover:text-[#ff8202] transition-colors">Procedures</Link>
                         <ChevronRight className="w-4 h-4" />
-                        <Link href={treatment.departmentHref} className="hover:text-[#3e7dca] transition-colors">{treatment.category}</Link>
+                        <Link href={treatment.departmentHref} className="hover:text-[#ff8202] transition-colors">{treatment.category}</Link>
                         <ChevronRight className="w-4 h-4" />
                         <span className="text-slate-900 font-semibold">{treatment.breadcrumbTitle || treatment.title}</span>
                     </div>
@@ -85,14 +85,14 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center">
                         {/* LEFT CONTENT (60%) */}
                         <div className="lg:col-span-3">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-[#3e7dca] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-[#ff8202] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
                                 <Activity className="w-3 h-3" />
                                 {treatment.category} Department
                             </span>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f172a] mb-6 leading-[1.1] tracking-tight">{treatment.title}</h1>
                             {treatment.subheading && <h2 className="text-xl md:text-2xl font-semibold text-slate-700 mb-3 leading-snug">{treatment.subheading}</h2>}
-                            {treatment.tagline && <p className="text-lg text-[#3e7dca] font-medium mb-8">{treatment.tagline}</p>}
+                            {treatment.tagline && <p className="text-lg text-[#ff8202] font-medium mb-8">{treatment.tagline}</p>}
                             <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">{treatment.shortDescription}</p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -106,9 +106,9 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
                                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
                                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#3e7dca]" /><span>Top Specialists</span></div>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#ff8202]" /><span>Top Specialists</span></div>
                                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#3e7dca]" /><span>Insurance Accepted</span></div>
+                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#ff8202]" /><span>Insurance Accepted</span></div>
                             </div>
                         </div>
 
@@ -178,11 +178,11 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                                 <div className="space-y-0 relative border-l-2 border-slate-100 ml-5 md:ml-8 pl-8 md:pl-12 py-4">
                                     {treatment.procedureSteps.map((step: { title: string; description: string }, i: number) => (
                                         <div key={i} className="relative mb-12 last:mb-0 group">
-                                            <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#3e7dca] transition-colors">
-                                                <span className="text-[#3e7dca] font-bold text-sm">{i + 1}</span>
+                                            <div className="absolute -left-[45px] md:-left-[61px] top-0 w-10 h-10 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center z-10 group-hover:border-[#ff8202] transition-colors">
+                                                <span className="text-[#ff8202] font-bold text-sm">{i + 1}</span>
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#3e7dca] transition-colors">{step.title}</h4>
+                                                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#ff8202] transition-colors">{step.title}</h4>
                                                 <p className="text-slate-600 text-lg leading-relaxed">{step.description}</p>
                                             </div>
                                         </div>
@@ -194,7 +194,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                                 <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.benefitsHeading || "Benefits"}</h2>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     {treatment.benefits.map((benefit: string, i: number) => (
-                                        <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#3e7dca]/20 flex items-start gap-4">
+                                        <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1 hover:border-[#ff8202]/20 flex items-start gap-4">
                                             <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600">
                                                 <CheckCircle2 className="w-5 h-5" />
                                             </div>
@@ -208,9 +208,9 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                                 <h2 className="text-3xl font-bold text-[#0f172a] mb-8">{treatment.faqHeading || "Frequently Asked Questions"}</h2>
                                 <div className="space-y-4">
                                     {treatment.faqs.map((faq: { question: string; answer: string }, i: number) => (
-                                        <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#3e7dca]/50 transition-colors group">
+                                        <div key={i} className="border border-slate-200 rounded-2xl p-6 bg-white hover:border-[#ff8202]/50 transition-colors group">
                                             <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-start gap-3">
-                                                <span className="text-[#3e7dca] mt-0.5">Q.</span>
+                                                <span className="text-[#ff8202] mt-0.5">Q.</span>
                                                 {faq.question}
                                             </h4>
                                             <div className="pl-7">
@@ -246,7 +246,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
             {/* CTA SECTION */}
             <Section className="py-24 bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-[#1e3a8a] z-0"></div>
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3e7dca]/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#ff8202]/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#ff8202]/10 rounded-full blur-[100px] -ml-32 -mb-32"></div>
 
                 <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center">

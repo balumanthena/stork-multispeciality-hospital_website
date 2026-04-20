@@ -55,7 +55,7 @@ export function HomepageTreatmentIcons({ allTreatments: initialTreatments }: { a
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        className="inline-block bg-[#3e7dca]/10 text-[#3e7dca] px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
+                        className="inline-block bg-[#ff8202]/10 text-[#ff8202] px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
                     >
                         Unified Care System
                     </motion.div>

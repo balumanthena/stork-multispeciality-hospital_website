@@ -27,7 +27,7 @@ export function TreatmentsClient() {
                         placeholder="Search treatments..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-14 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#3e7dca]/10 text-lg shadow-sm bg-white"
+                        className="w-full pl-14 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#ff8202]/10 text-lg shadow-sm bg-white"
                     />
                 </div>
 
@@ -55,12 +55,12 @@ export function TreatmentsClient() {
                                 <Link
                                     key={name}
                                     href={`/treatments/${slug}`}
-                                    className="group bg-white p-8 rounded-2xl border border-slate-100 hover:border-[#3e7dca] hover:shadow-xl transition-all duration-300 flex flex-col items-start gap-4"
+                                    className="group bg-white p-8 rounded-2xl border border-slate-100 hover:border-[#ff8202] hover:shadow-xl transition-all duration-300 flex flex-col items-start gap-4"
                                 >
-                                    <h4 className="text-[19px] font-bold text-slate-900 group-hover:text-[#3e7dca] transition-colors leading-snug">
+                                    <h4 className="text-[19px] font-bold text-slate-900 group-hover:text-[#ff8202] transition-colors leading-snug">
                                         {name}
                                     </h4>
-                                    <div className="mt-auto flex items-center text-sm font-bold text-[#ff8202] group-hover:text-[#3e7dca] transition-colors uppercase tracking-wider">
+                                    <div className="mt-auto flex items-center text-sm font-bold text-[#ff8202] group-hover:text-[#ff8202] transition-colors uppercase tracking-wider">
                                         Learn More <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                                     </div>
                                 </Link>
@@ -71,7 +71,7 @@ export function TreatmentsClient() {
                             <p className="text-slate-500 text-lg">No treatments found matching "{searchQuery}"</p>
                             <button
                                 onClick={() => setSearchQuery("")}
-                                className="mt-4 text-[#3e7dca] font-semibold hover:underline"
+                                className="mt-4 text-[#ff8202] font-semibold hover:underline"
                             >
                                 View All Treatments
                             </button>

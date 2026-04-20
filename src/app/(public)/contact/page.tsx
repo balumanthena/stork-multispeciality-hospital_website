@@ -59,7 +59,7 @@ export default function ContactPage() {
                                 <div className="space-y-8">
                                     {/* Location */}
                                     <div className="flex items-start gap-5 group">
-                                        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                                             <MapPin className="w-5 h-5" />
                                         </div>
                                         <div>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                                             <a href="tel:+919494408050" className="text-slate-600 text-[15px] hover:text-green-600 transition-colors block mb-1">
                                                 +91 94944 08050
                                             </a>
-                                            <a href="mailto:info@storkhospital.com" className="text-slate-500 hover:text-blue-600 transition-colors text-sm flex items-center gap-2 mt-2">
+                                            <a href="mailto:info@storkhospital.com" className="text-slate-500 hover:text-orange-600 transition-colors text-sm flex items-center gap-2 mt-2">
                                                 <Mail className="w-4 h-4" /> info@storkhospital.com
                                             </a>
                                         </div>

@@ -22,24 +22,24 @@ export default async function AdminDashboard() {
     if (role === 'super_admin') {
         stats = [
             { label: "Total Departments", value: deptCount || 0, icon: Building2, trend: "Infrastructure", trendColor: "text-orange-600 bg-orange-50" },
-            { label: "Total Treatments", value: treatmentCount || 0, icon: Stethoscope, trend: "Clinical Data", trendColor: "text-blue-600 bg-blue-50" },
+            { label: "Total Treatments", value: treatmentCount || 0, icon: Stethoscope, trend: "Clinical Data", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Total Articles", value: blogCount || 0, icon: FileText, trend: "Content Hub", trendColor: "text-green-600 bg-green-50" },
-            { label: "Active Users", value: userCount || 0, icon: Users, trend: "RBAC Hub", trendColor: "text-purple-600 bg-purple-50" },
+            { label: "Active Users", value: userCount || 0, icon: Users, trend: "RBAC Hub", trendColor: "text-orange-600 bg-orange-50" },
         ]
     } else if (role === 'admin') {
         stats = [
-            { label: "Published Articles", value: blogCount || 0, icon: FileText, trend: "Live Site", trendColor: "text-blue-600 bg-blue-50" },
+            { label: "Published Articles", value: blogCount || 0, icon: FileText, trend: "Live Site", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Pending Review", value: 3, icon: Shield, trend: "Attention Required", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Total Videos", value: 42, icon: PlayCircle, trend: "Live Site", trendColor: "text-green-600 bg-green-50" },
         ]
     } else if (role === 'seo_manager') {
         stats = [
-            { label: "Optimized Pages", value: treatmentCount || 0, icon: FileText, trend: "Clinical Pages", trendColor: "text-blue-600 bg-blue-50" },
+            { label: "Optimized Pages", value: treatmentCount || 0, icon: FileText, trend: "Clinical Pages", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Active Articles", value: blogCount || 0, icon: Activity, trend: "Content Hub", trendColor: "text-green-600 bg-green-50" },
         ]
     } else { // Editor
         stats = [
-            { label: "My Articles", value: blogCount || 0, icon: FileText, trend: "Current Month", trendColor: "text-blue-600 bg-blue-50" },
+            { label: "My Articles", value: blogCount || 0, icon: FileText, trend: "Current Month", trendColor: "text-orange-600 bg-orange-50" },
             { label: "Total Videos", value: 42, icon: PlayCircle, trend: "Content Library", trendColor: "text-green-600 bg-green-50" },
         ]
     }
@@ -98,7 +98,7 @@ export default async function AdminDashboard() {
                         <div className="divide-y divide-slate-100">
                             {[
                                 { action: "Blog Published", target: "New Ortho Post", time: "2 min ago", icon: FileText, color: "text-orange-500 bg-orange-50 border-orange-100" },
-                                { action: "Video Linked", target: "Knee Surgery Video", time: "1 hour ago", icon: PlayCircle, color: "text-blue-500 bg-blue-50 border-blue-100" },
+                                { action: "Video Linked", target: "Knee Surgery Video", time: "1 hour ago", icon: PlayCircle, color: "text-blue-500 bg-orange-50 border-blue-100" },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-4 p-4 hover:bg-slate-50 transition-colors">
                                     <div className={`h-10 w-10 rounded-full flex items-center justify-center shrink-0 border ${item.color}`}>
@@ -130,9 +130,9 @@ export default async function AdminDashboard() {
                                 </div>
                             </Link>
 
-                            <Link href="/admin/videos/new" className="group bg-white border border-slate-200 hover:border-blue-200 hover:bg-blue-50 p-6 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md transition-all duration-200">
+                            <Link href="/admin/videos/new" className="group bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 p-6 rounded-xl flex items-center gap-4 shadow-sm hover:shadow-md transition-all duration-200">
                                 <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
-                                    <PlayCircle className="h-6 w-6 text-blue-600" />
+                                    <PlayCircle className="h-6 w-6 text-orange-600" />
                                 </div>
                                 <div className="text-left">
                                     <span className="block text-sm font-bold text-slate-800">Upload Video</span>
@@ -164,9 +164,9 @@ export default async function AdminDashboard() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                        <Link href="/admin/system/users" className="p-5 bg-white border border-slate-200 rounded-2xl hover:border-blue-200 hover:bg-blue-50 transition-all flex items-center gap-4 shadow-sm hover:shadow-md group">
+                        <Link href="/admin/system/users" className="p-5 bg-white border border-slate-200 rounded-2xl hover:border-orange-200 hover:bg-orange-50 transition-all flex items-center gap-4 shadow-sm hover:shadow-md group">
                             <div className="h-12 w-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:bg-white transition-colors">
-                                <Users className="h-6 w-6 text-slate-600 group-hover:text-blue-600" />
+                                <Users className="h-6 w-6 text-slate-600 group-hover:text-orange-600" />
                             </div>
                             <div>
                                 <span className="block text-sm font-bold text-slate-900">Permissions</span>

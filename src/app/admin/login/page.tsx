@@ -41,16 +41,16 @@ export default function AdminLoginPage() {
     return (
         <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
             {/* Left: Branding */}
-            <div className="hidden lg:flex flex-col justify-between bg-[var(--color-primary)] text-white p-12 relative overflow-hidden">
+            <div className="hidden lg:flex flex-col justify-between bg-[#ff8202] text-white p-12 relative overflow-hidden">
                 <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-6">
-                        <ShieldCheck className="h-8 w-8 text-blue-200" />
+                        <ShieldCheck className="h-8 w-8 text-orange-100" />
                         <span className="text-xl font-bold tracking-wider">STORK ADMIN</span>
                     </div>
                     <h1 className="text-4xl font-bold mb-4">Secure Access Portal</h1>
-                    <p className="text-blue-100 text-lg">Restricted access for authorized hospital administrators only.</p>
+                    <p className="text-orange-50 text-lg">Restricted access for authorized hospital administrators only.</p>
                 </div>
-                <div className="relative z-10 text-sm text-blue-200">
+                <div className="relative z-10 text-sm text-orange-100">
                     &copy; 2026 Stork Multispecialty Hospital.
                 </div>
                 {/* Decorative circle */}
@@ -61,8 +61,8 @@ export default function AdminLoginPage() {
             <div className="flex items-center justify-center p-8">
                 <div className="w-full max-w-sm space-y-8 bg-white p-10 rounded-xl shadow-sm border border-slate-100">
                     <div className="text-center">
-                        <div className="mx-auto w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-                            <Lock className="h-6 w-6 text-[var(--color-primary)]" />
+                        <div className="mx-auto w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mb-4">
+                            <Lock className="h-6 w-6 text-[#ff8202]" />
                         </div>
                         <h2 className="text-2xl font-bold text-slate-900">Admin Login</h2>
                         <p className="text-sm text-slate-500 mt-2">Enter credentials to access the CMS</p>
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
                                 <Label htmlFor="password">Password</Label>
                                 <Link
                                     href="/admin/forgot-password"
-                                    className="text-sm text-[var(--color-primary)] hover:underline font-medium"
+                                    className="text-sm text-[#ff8202] hover:underline font-medium"
                                 >
                                     Forgot password?
                                 </Link>
@@ -110,7 +110,7 @@ export default function AdminLoginPage() {
 
                         <Button
                             type="submit"
-                            className="w-full h-11 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-md"
+                            className="w-full h-11 bg-[#ff8202] hover:bg-[#ff8202]/90 text-md"
                             disabled={loading}
                         >
                             {loading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : "Sign In"}

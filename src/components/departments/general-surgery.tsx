@@ -19,9 +19,9 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">General & Laparoscopic Surgery</span>
                     </nav>
@@ -43,7 +43,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                                     "Daycare Surgery Options with Insurance Support"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -55,7 +55,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book Surgical Consultation
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#3E7DCA] text-[#3E7DCA] hover:bg-blue-50 rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#ff8202] text-[#ff8202] hover:bg-orange-50 rounded-full">
                                     Explore Procedures
                                 </Button>
                             </div>
@@ -71,7 +71,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
             <Section className="py-24 bg-white">
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
-                        Expert Surgical Solutions with a <span className="text-[#3E7DCA]">Personal Touch</span>
+                        Expert Surgical Solutions with a <span className="text-[#ff8202]">Personal Touch</span>
                     </h2>
 
                     <p className="text-xl text-slate-800 font-medium max-w-3xl mx-auto leading-relaxed mb-10">
@@ -108,7 +108,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                             "Located in Kompally – easily reachable for patients across Hyderabad"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -119,7 +119,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                     <div className="text-center border-t border-slate-200 pt-12">
                         <p className="text-2xl font-serif italic text-slate-800">
                             We don’t just perform surgeries <br />
-                            <span className="font-bold not-italic text-[#3E7DCA] block mt-2">we help you walk in strong and walk out stronger.</span>
+                            <span className="font-bold not-italic text-[#ff8202] block mt-2">we help you walk in strong and walk out stronger.</span>
                         </p>
                     </div>
                 </div>
@@ -198,7 +198,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
                             For patients seeking minimally invasive surgery in Hyderabad, <br />
-                            <span className="text-[#3E7DCA]">Stork Hospital delivers the ideal combination of technical skill and patient-centered recovery.</span>
+                            <span className="text-[#ff8202]">Stork Hospital delivers the ideal combination of technical skill and patient-centered recovery.</span>
                         </p>
                     </div>
                 </div>
@@ -208,7 +208,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
             <Section className="py-24 bg-white border-b border-slate-100">
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8">
-                        We Make Surgery Feel <span className="text-[#3E7DCA]">Less Overwhelming</span>
+                        We Make Surgery Feel <span className="text-[#ff8202]">Less Overwhelming</span>
                     </h2>
 
                     <p className="text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -225,7 +225,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                                 "Support with insurance paperwork and post-discharge care"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-700">
-                                    <ShieldCheck className="h-5 w-5 text-[#3E7DCA]" />
+                                    <ShieldCheck className="h-5 w-5 text-[#ff8202]" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -291,7 +291,7 @@ export const GeneralSurgeryContent = ({ blogs, videos }: { blogs: any[], videos:
                         Book a consultation with our experienced surgeons today.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Surgical Consultation
                         </Button>
 

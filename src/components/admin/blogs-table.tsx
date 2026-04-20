@@ -102,7 +102,7 @@ export default function AdminBlogsTable({ initialData, currentUserRole }: { init
                                             <div className="flex justify-end gap-2">
                                                 {canEdit && (
                                                     <Link href={`/admin/blogs/${item.id}`}>
-                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-blue-600">
+                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-500 hover:text-orange-600">
                                                             <Edit2 className="h-4 w-4" />
                                                         </Button>
                                                     </Link>

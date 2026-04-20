@@ -16,9 +16,9 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
             <section className="relative pt-32 pb-24 border-b border-slate-100 overflow-hidden bg-slate-50">
                 <div className="container mx-auto px-6 relative z-10">
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">Cosmetic & Plastic Surgery</span>
                     </nav>
@@ -39,7 +39,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                                     "Private Consults & Post-Surgery Recovery Support"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -64,7 +64,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Reclaim Confidence. Restore Comfort. <br />
-                        <span className="text-[#3E7DCA]">Redefine You On Your Terms.</span>
+                        <span className="text-[#ff8202]">Redefine You On Your Terms.</span>
                     </h2>
 
                     <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -84,7 +84,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="max-w-3xl mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">
-                            Why Choose Stork for <span className="text-[#3E7DCA]">Cosmetic & Reconstructive Surgery?</span>
+                            Why Choose Stork for <span className="text-[#ff8202]">Cosmetic & Reconstructive Surgery?</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed font-light">
                             Because you're not just changing how you look you’re changing how you feel. And that deserves care beyond the surface.
@@ -103,7 +103,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                             "Discreet, centrally located facility in Kompally for full privacy"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -162,7 +162,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                         {/* Reconstructive Surgery */}
                         <div className="bg-[#F0F9FF] rounded-3xl p-10 border border-blue-100">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="h-12 w-12 rounded-xl bg-[#3E7DCA] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                <div className="h-12 w-12 rounded-xl bg-[#ff8202] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                                     <Activity className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-[#0F172A]">Reconstructive & Restorative</h3>
@@ -179,7 +179,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                                     "Tumor or cyst excision with cosmetic preservation"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-[#3E7DCA]"></span>
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff8202]"></span>
                                         {item}
                                     </li>
                                 ))}
@@ -274,7 +274,7 @@ export const CosmeticSurgeryContent = ({ blogs, videos }: { blogs: any[], videos
                         Ready to Schedule Your Visit?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Consultation
                         </Button>
 

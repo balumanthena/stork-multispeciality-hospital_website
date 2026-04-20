@@ -214,9 +214,9 @@ Notes: ${data.message || "None"}
                             </SelectTrigger>
                             <SelectContent className="z-[400] bg-white border border-slate-100 shadow-xl rounded-xl">
                                 {Array.from(new Set(doctors.map(d => d.specialization))).map(spec => (
-                                    <SelectItem key={spec} value={spec} className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">{spec}</SelectItem>
+                                    <SelectItem key={spec} value={spec} className="focus:bg-orange-50 focus:text-orange-600 rounded-lg mx-1">{spec}</SelectItem>
                                 ))}
-                                <SelectItem value="Other" className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">Other</SelectItem>
+                                <SelectItem value="Other" className="focus:bg-orange-50 focus:text-orange-600 rounded-lg mx-1">Other</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -237,7 +237,7 @@ Notes: ${data.message || "None"}
                                 {doctors
                                   .filter(d => !formData.department || d.specialization === formData.department)
                                   .map(doc => (
-                                    <SelectItem key={doc.id} value={doc.name} className="focus:bg-blue-50 focus:text-blue-600 rounded-lg mx-1">
+                                    <SelectItem key={doc.id} value={doc.name} className="focus:bg-orange-50 focus:text-orange-600 rounded-lg mx-1">
                                         {doc.name}
                                     </SelectItem>
                                 ))}

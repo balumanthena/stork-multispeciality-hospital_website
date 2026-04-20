@@ -21,10 +21,10 @@ export function BodySelector({ selectedRegion, onSelect, className }: BodySelect
             <path
                 d={d}
                 className={cn(
-                    "transition-all duration-300 stroke-[#3e7dca] stroke-[1.5] fill-white",
+                    "transition-all duration-300 stroke-[#ff8202] stroke-[1.5] fill-white",
                     isActive
-                        ? "fill-[#3e7dca] stroke-[#3e7dca] filter drop-shadow-md"
-                        : "group-hover:fill-[#3e7dca]/10 group-hover:filter group-hover:drop-shadow-sm"
+                        ? "fill-[#ff8202] stroke-[#ff8202] filter drop-shadow-md"
+                        : "group-hover:fill-[#ff8202]/10 group-hover:filter group-hover:drop-shadow-sm"
                 )}
             />
             {/* Label Tooltip on Hover */}

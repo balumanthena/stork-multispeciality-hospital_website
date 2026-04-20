@@ -11,12 +11,7 @@ export const metadata: Metadata = {
     description: "Your Trusted Family Hospital in Kompally, Hyderabad. Welcome to Stork Multispecialty Hospital — a premier healthcare destination delivering comprehensive, affordable, and compassionate medical care.",
 }
 
-const stats = [
-    { label: "Years of Trust", value: "15+" },
-    { label: "Happy Patients", value: "100k+" },
-    { label: "Expert Doctors", value: "50+" },
-    { label: "Beds Capacity", value: "200+" },
-]
+
 
 export default function AboutPage() {
     return (
@@ -74,7 +69,7 @@ export default function AboutPage() {
 
                             {/* Floating Stat Card */}
                             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-6 duration-1000 hidden md:flex">
-                                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center text-orange-600">
                                     <Award className="w-6 h-6" />
                                 </div>
                                 <div>
@@ -88,19 +83,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* 2. STATS BAR (Clean & Minimal) */}
-            <section className="bg-white border-b border-slate-100 py-12">
-                <div className="container max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 divide-x-0 md:divide-x divide-slate-100">
-                        {stats.map((stat, i) => (
-                            <div key={i} className="flex flex-col items-center justify-center text-center">
-                                <div className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-2">{stat.value}</div>
-                                <div className="text-sm font-semibold text-slate-500 uppercase tracking-wide">{stat.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
             {/* 3. MISSION & VISION */}
             <Section className="py-20 lg:py-28 bg-slate-50">
@@ -108,8 +91,8 @@ export default function AboutPage() {
                     <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
                         {/* Vision Card */}
                         <div className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110" />
-                            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110" />
+                            <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 mb-8">
                                 <Target className="w-7 h-7" />
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
@@ -189,32 +172,33 @@ export default function AboutPage() {
             <Section className="py-20 lg:py-32 bg-slate-50">
                 <div className="container max-w-6xl mx-auto px-6">
                     <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 grid lg:grid-cols-2">
-                        <div className="relative h-[400px] lg:h-auto order-2 lg:order-1">
+                        <div className="relative h-[450px] lg:h-auto order-2 lg:order-1">
                             <Image
-                                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=1200"
-                                alt="Medical Director"
+                                src="/images/dr narender reddy.png"
+                                alt="Dr. Narendar Reddy"
                                 fill
                                 className="object-cover object-top"
                             />
                         </div>
                         <div className="p-10 md:p-14 order-1 lg:order-2 flex flex-col justify-center">
                             <span className="text-[#FF8202] font-semibold tracking-wider uppercase text-xs mb-3 block">Leadership Insight</span>
-                            <h3 className="text-3xl font-bold text-slate-900 mb-8">Message From The Director</h3>
+                            <h3 className="text-3xl font-bold text-slate-900 mb-8">Message From Our Expert</h3>
                             <div className="relative">
                                 <FileText className="absolute -top-4 -left-6 w-12 h-12 text-slate-100 -z-10" />
-                                <h3 className="text-2xl font-bold text-slate-900 mb-6">Compassionate Care Delivery</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-6">Advancing Pain-Free Living</h3>
                                 <div className="space-y-6">
                                     <p className="text-lg text-slate-600 leading-relaxed italic">
-                                        "From safe deliveries and emergency treatments to advanced surgeries and chronic disease management, Stork Multispecialty Hospital in Kompally is committed to supporting you at every stage. We are proud to be a trusted community hospital that families depend on for comprehensive healthcare services."
+                                        "At Stork Hospital, we believe that chronic pain shouldn't limit your potential. Through advanced interventional techniques and precision-guided care, we are committed to helping our patients reclaim their mobility and quality of life without always relying on major surgery."
                                     </p>
                                     <p className="text-lg text-slate-900 font-semibold leading-relaxed">
-                                        At Stork, your health and well-being are our utmost priorities. Together, we are fostering a healthier and happier Kompally.
+                                        Dr. Narendar Reddy specializes in managing complex chronic pain, bringing over 15 years of clinical expertise to our patients in Kompally.
                                     </p>
                                 </div>
                             </div>
                             <div className="mt-auto pt-8 border-t border-slate-100">
-                                <h4 className="font-bold text-slate-900 text-xl">Clinical Excellence</h4>
-                                <p className="text-slate-500 font-medium text-sm mt-1">Stork Multispecialty Hospital, Kompally</p>
+                                <h4 className="font-bold text-slate-900 text-xl">Dr. Narendar Reddy</h4>
+                                <p className="text-[#FF8202] font-bold text-sm mt-1 uppercase tracking-wider">Chief Interventional Pain Specialist</p>
+                                <p className="text-slate-500 font-medium text-sm">Stork Multispecialty Hospital, Kompally</p>
                             </div>
                         </div>
                     </div>

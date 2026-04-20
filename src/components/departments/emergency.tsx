@@ -18,9 +18,9 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">Emergency & Trauma</span>
                     </nav>
@@ -42,7 +42,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                                     "Ambulance, Surgery & ICU — All in One Place"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -51,7 +51,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-5">
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#3E7DCA] text-[#3E7DCA] hover:bg-blue-50 rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#ff8202] text-[#ff8202] hover:bg-orange-50 rounded-full">
                                     <MapPin className="h-4 w-4 mr-2" />
                                     Find Us
                                 </Button>
@@ -69,7 +69,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         When Life Changes in a Moment — <br />
-                        <span className="text-[#3E7DCA]">We Respond with Everything We Have</span>
+                        <span className="text-[#ff8202]">We Respond with Everything We Have</span>
                     </h2>
 
                     <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -109,7 +109,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                             "Located in Kompally — no traffic, no waiting for what matters"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -120,7 +120,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                     <div className="text-center border-t border-slate-200 pt-12">
                         <p className="text-2xl font-serif italic text-slate-800">
                             This is not a “casualty room.” <br />
-                            <span className="font-bold not-italic text-[#3E7DCA] block mt-2">This is a life-defense system.</span>
+                            <span className="font-bold not-italic text-[#ff8202] block mt-2">This is a life-defense system.</span>
                         </p>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
 
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
-                            Whether we’re saving a life or preserving dignity — <span className="text-[#3E7DCA]">we never stop watching over our patients.</span>
+                            Whether we’re saving a life or preserving dignity — <span className="text-[#ff8202]">we never stop watching over our patients.</span>
                         </p>
                     </div>
                 </div>
@@ -213,7 +213,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8">
                         More Than Emergency Treatment.<br />
-                        <span className="text-[#3E7DCA]">It’s Human Protection</span>
+                        <span className="text-[#ff8202]">It’s Human Protection</span>
                     </h2>
 
                     <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -233,7 +233,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                                 "We document, guide, and help you recover emotionally too"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-slate-700">
-                                    <ShieldCheck className="h-5 w-5 text-[#3E7DCA]" />
+                                    <ShieldCheck className="h-5 w-5 text-[#ff8202]" />
                                     <span>{item}</span>
                                 </li>
                             ))}

@@ -89,7 +89,7 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                     {/* LEFT: BODY SELECTOR (Desktop) / TOP (Mobile) */}
                     <div className="lg:col-span-4 lg:sticky lg:top-24">
                         <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 border border-slate-100 overflow-hidden relative">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3e7dca] to-[#ff8202]" />
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ff8202] to-[#ff8202]" />
 
                             <h3 className="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-[#ff8202]" />
@@ -105,8 +105,8 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                         className={cn(
                                             "px-4 py-3 rounded-xl text-sm font-medium transition-all text-left border",
                                             selectedRegion === region
-                                                ? "bg-[#3e7dca] text-white border-[#3e7dca] shadow-md"
-                                                : "bg-slate-50 text-slate-600 border-slate-100 hover:border-[#3e7dca]"
+                                                ? "bg-[#ff8202] text-white border-[#ff8202] shadow-md"
+                                                : "bg-slate-50 text-slate-600 border-slate-100 hover:border-[#ff8202]"
                                         )}
                                     >
                                         {REGION_LABELS[region]}
@@ -130,8 +130,8 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                             className={cn(
                                                 "px-3 py-1.5 rounded-full text-xs font-semibold transition-all border",
                                                 selectedRegion === r
-                                                    ? "bg-[#3e7dca] text-white border-[#3e7dca]"
-                                                    : "bg-slate-50 text-slate-500 border-slate-200 hover:border-[#3e7dca]"
+                                                    ? "bg-[#ff8202] text-white border-[#ff8202]"
+                                                    : "bg-slate-50 text-slate-500 border-slate-200 hover:border-[#ff8202]"
                                             )}
                                         >
                                             {REGION_LABELS[r]}
@@ -153,7 +153,7 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                 placeholder={`Search ${labelPlural.toLowerCase()}...`}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-14 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#3e7dca]/10 text-lg shadow-sm"
+                                className="w-full pl-14 pr-4 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#ff8202]/10 text-lg shadow-sm"
                             />
                         </div>
 
@@ -179,15 +179,15 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                     <Link
                                         key={procedure.title}
                                         href={hrefPrefix ? `${hrefPrefix}/${procedure.href.split("/").pop()}` : procedure.href}
-                                        className="group bg-white p-6 rounded-2xl border border-slate-100 hover:border-[#3e7dca] hover:shadow-lg transition-all duration-300 flex flex-col items-start"
+                                        className="group bg-white p-6 rounded-2xl border border-slate-100 hover:border-[#ff8202] hover:shadow-lg transition-all duration-300 flex flex-col items-start"
                                     >
                                         <span className="text-xs font-bold text-[#ff8202] uppercase tracking-wider mb-2">
                                             {procedure.category}
                                         </span>
-                                        <h4 className="text-lg font-bold text-slate-800 group-hover:text-[#3e7dca] transition-colors mb-1">
+                                        <h4 className="text-lg font-bold text-slate-800 group-hover:text-[#ff8202] transition-colors mb-1">
                                             {procedure.title}
                                         </h4>
-                                        <div className="mt-auto pt-4 flex items-center text-sm font-medium text-slate-400 group-hover:text-[#3e7dca] transition-colors">
+                                        <div className="mt-auto pt-4 flex items-center text-sm font-medium text-slate-400 group-hover:text-[#ff8202] transition-colors">
                                             Learn More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
                                         </div>
                                     </Link>

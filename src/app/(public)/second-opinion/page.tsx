@@ -76,8 +76,8 @@ export default function SecondOpinionPage() {
                                 </div>
 
                                 <div className="flex gap-5">
-                                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 border border-blue-100">
-                                        <FileBadge className="w-6 h-6 text-blue-600" />
+                                    <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center shrink-0 border border-blue-100">
+                                        <FileBadge className="w-6 h-6 text-orange-600" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">Evidence-Based Pathways</h3>

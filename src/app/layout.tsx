@@ -12,6 +12,9 @@ const fontSans = Inter({
 export const metadata: Metadata = {
   title: "Stork Multispecialty Hospital",
   description: "World-class healthcare with a compassionate touch.",
+  icons: {
+    icon: "/images/512.png",
+  },
 };
 
 import { SettingsProvider } from "@/providers/SettingsProvider";

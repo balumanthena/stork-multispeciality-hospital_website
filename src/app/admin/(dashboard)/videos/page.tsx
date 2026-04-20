@@ -108,7 +108,7 @@ export default async function AdminVideosPage() {
                                                         href={video.youtube_url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-xs text-blue-600 hover:underline flex items-center gap-1 mt-1"
+                                                        className="text-xs text-orange-600 hover:underline flex items-center gap-1 mt-1"
                                                     >
                                                         View on YouTube <ExternalLink className="w-3 h-3" />
                                                     </a>
@@ -123,8 +123,8 @@ export default async function AdminVideosPage() {
                                                     </span>
                                                 )}
                                                 {deptCount > 0 && (
-                                                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-blue-600 uppercase">
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> {deptCount} Department{deptCount > 1 ? 's' : ''}
+                                                    <span className="flex items-center gap-1.5 text-[10px] font-bold text-orange-600 uppercase">
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span> {deptCount} Department{deptCount > 1 ? 's' : ''}
                                                     </span>
                                                 )}
                                                 {treatCount > 0 && (
@@ -151,7 +151,7 @@ export default async function AdminVideosPage() {
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex items-center justify-end gap-2">
                                                 <Link href={`/admin/videos/${video.id}`}>
-                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-blue-600" title="Edit Video">
+                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-orange-600" title="Edit Video">
                                                         <Edit className="w-4 h-4" />
                                                     </Button>
                                                 </Link>

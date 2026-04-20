@@ -17,9 +17,9 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">ENT (Ear, Nose & Throat)</span>
                     </nav>
@@ -41,7 +41,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                                     "Quick Relief Through Endoscopic ENT Care"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -53,7 +53,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book ENT Consultation
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#3E7DCA] text-[#3E7DCA] hover:bg-blue-50 rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#ff8202] text-[#ff8202] hover:bg-orange-50 rounded-full">
                                     Find Our Specialists
                                 </Button>
                             </div>
@@ -70,7 +70,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         The Sounds, Smells, and Words of Life. <br />
-                        <span className="text-[#3E7DCA]">Don’t Let Them Fade</span>
+                        <span className="text-[#ff8202]">Don’t Let Them Fade</span>
                     </h2>
 
                     <div className="space-y-6 text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -89,7 +89,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="max-w-3xl mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">
-                            Why People Come to Stork <span className="text-[#3E7DCA]">And Recommend It Quietly</span>
+                            Why People Come to Stork <span className="text-[#ff8202]">And Recommend It Quietly</span>
                         </h2>
                         <div className="text-lg text-slate-600 leading-relaxed font-light space-y-2">
                             <p>There are hospitals that treat. And then there are hospitals that understand.</p>
@@ -108,7 +108,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                             "Private, quiet consultations in Kompally, away from city chaos"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -119,7 +119,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                     <div className="text-center border-t border-slate-200 pt-12">
                         <p className="text-2xl font-serif italic text-slate-800">
                             We’ve helped people get back their sleep, their sound, and their voice <br />
-                            <span className="font-bold not-italic text-[#3E7DCA] block mt-2">and that changes more than just health. It changes confidence.</span>
+                            <span className="font-bold not-italic text-[#ff8202] block mt-2">and that changes more than just health. It changes confidence.</span>
                         </p>
                     </div>
                 </div>
@@ -202,7 +202,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
                             These aren’t just treatments. <br />
-                            <span className="text-[#3E7DCA]">They’re the turning point between “putting up with it” and actually feeling better.</span>
+                            <span className="text-[#ff8202]">They’re the turning point between “putting up with it” and actually feeling better.</span>
                         </p>
                     </div>
                 </div>
@@ -213,7 +213,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8">
                         Not Just Treatment <br />
-                        <span className="text-[#3E7DCA]">A Sense of Normalcy, Restored</span>
+                        <span className="text-[#ff8202]">A Sense of Normalcy, Restored</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-12">
@@ -293,7 +293,7 @@ export const ENTContent = ({ blogs, videos }: { blogs: any[], videos: any[] }) =
                         Don't let ENT issues silence your life.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book ENT Consultation
                         </Button>
 

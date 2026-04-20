@@ -45,7 +45,7 @@ export function TaxonomyList({
                     <Icon className={`h-5 w-5 ${iconColor}`} />
                     {title} ({treatments.length})
                 </h2>
-                <button className="text-xs font-bold text-blue-600 hover:underline">Manage All</button>
+                <button className="text-xs font-bold text-orange-600 hover:underline">Manage All</button>
             </div>
             <Card className="border-slate-200 shadow-sm overflow-hidden bg-white">
                 <CardContent className="p-0">

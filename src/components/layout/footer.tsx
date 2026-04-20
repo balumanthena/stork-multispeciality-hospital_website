@@ -49,7 +49,7 @@ export function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={label}
-                                    className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-50 border border-slate-100 text-slate-500 hover:bg-[#3E7DCA]/10 hover:text-[#3E7DCA] hover:border-[#3E7DCA]/20 transition-all duration-200"
+                                    className="h-10 w-10 flex items-center justify-center rounded-full bg-slate-50 border border-slate-100 text-slate-500 hover:bg-[#ff8202]/10 hover:text-[#ff8202] hover:border-[#ff8202]/20 transition-all duration-200"
                                 >
                                     <Icon className="h-4 w-4" />
                                 </Link>
@@ -71,8 +71,8 @@ export function Footer() {
                                 { name: "Contact Us", href: "/contact" },
                             ].map((link) => (
                                 <li key={link.name}>
-                                    <Link href={link.href} className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
-                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#3E7DCA]" />
+                                    <Link href={link.href} className="text-slate-500 hover:text-[#ff8202] transition-colors flex items-center gap-2 group">
+                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#ff8202]" />
                                         <span className="group-hover:translate-x-1 transition-transform">{link.name}</span>
                                     </Link>
                                 </li>
@@ -95,8 +95,8 @@ export function Footer() {
                                 { name: "Emergency", href: "/services/emergency" },
                             ].map((item) => (
                                 <li key={item.name}>
-                                    <Link href={item.href} className="text-slate-500 hover:text-[#3E7DCA] transition-colors flex items-center gap-2 group">
-                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#3E7DCA]" />
+                                    <Link href={item.href} className="text-slate-500 hover:text-[#ff8202] transition-colors flex items-center gap-2 group">
+                                        <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#ff8202]" />
                                         <span className="group-hover:translate-x-1 transition-transform">{item.name}</span>
                                     </Link>
                                 </li>
@@ -109,14 +109,14 @@ export function Footer() {
                         <h3 className="text-[#0F172A] font-bold mb-6 text-sm uppercase tracking-wider">Get in Touch</h3>
                         <ul className="space-y-6 text-sm">
                             <li className="flex gap-4 items-start">
-                                <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
+                                <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#ff8202]">
                                     <MapPin className="h-4 w-4" />
                                 </div>
                                 <span className="text-slate-600 leading-relaxed">{address}</span>
                             </li>
 
                             <li className="flex gap-4 items-center">
-                                <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#3E7DCA]">
+                                <div className="h-8 w-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-[#ff8202]">
                                     <Mail className="h-4 w-4" />
                                 </div>
                                 <span className="text-slate-600">{email}</span>
@@ -128,9 +128,9 @@ export function Footer() {
                 <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 font-medium">
                     <p>© {new Date().getFullYear()} Stork Multispecialty Hospital. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <Link href="/privacy-policy" className="hover:text-[#3E7DCA] transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-[#3E7DCA] transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-[#3E7DCA] transition-colors">Sitemap</Link>
+                        <Link href="/privacy-policy" className="hover:text-[#ff8202] transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-[#ff8202] transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-[#ff8202] transition-colors">Sitemap</Link>
                     </div>
                 </div>
             </div>

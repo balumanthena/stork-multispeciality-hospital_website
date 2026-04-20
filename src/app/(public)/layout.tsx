@@ -18,7 +18,7 @@ export default async function PublicLayout({
     return (
         <div className="flex flex-col min-h-screen">
             <Header departments={departments} groupedTreatments={groupedTreatments} />
-            <main className="flex-1 pt-[76px]">
+            <main className="flex-1 pt-[124px]">
                 {children}
             </main>
             <Footer />

@@ -1,24 +1,24 @@
 "use client"
 
 import { useState } from "react"
-import { supabase } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { ArrowLeft, Loader2, Mail } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 export default function AdminForgotPasswordPage() {
+    const router = useRouter()
     const [email, setEmail] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
-    const [success, setSuccess] = useState(false)
 
-    const handleReset = async (e: React.FormEvent) => {
+    const handleSendOTP = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
         setError(null)
-        setSuccess(false)
 
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             setError("Please enter a valid email address.")
@@ -26,65 +26,58 @@ export default function AdminForgotPasswordPage() {
             return
         }
 
-        // Using standard link-based reset for admins
-        const { error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: `${window.location.origin}/auth/callback?next=/admin/reset-password`,
-        })
+        try {
+            const response = await fetch("/api/auth/send-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+            })
 
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-        } else {
-            setSuccess(true)
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to send OTP")
+            }
+
+            toast.success("OTP sent successfully to your email")
+            
+            // Redirect to verify-otp page with email in query param
+            router.push(`/admin/verify-otp?email=${encodeURIComponent(email)}`)
+        } catch (err: any) {
+            setError(err.message)
+            toast.error(err.message)
+        } finally {
             setLoading(false)
         }
     }
 
-    if (success) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-                <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-sm border border-slate-100 text-center space-y-4">
-                    <div className="w-16 h-16 bg-blue-50 text-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto">
-                        <Mail className="h-8 w-8" />
-                    </div>
-                    <h2 className="text-2xl font-bold text-slate-900">Link Sent</h2>
-                    <p className="text-slate-600">
-                        Check <strong>{email}</strong> for instructions to reset your admin password.
-                    </p>
-                    <Link href="/admin/login">
-                        <Button variant="outline" className="w-full mt-4 h-11">
-                            Back to Admin Login
-                        </Button>
-                    </Link>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
                 <div>
-                    <Link href="/admin/login" className="inline-flex items-center text-sm text-slate-500 hover:text-slate-800 mb-6">
-                        <ArrowLeft className="h-4 w-4 mr-1" /> Back
+                    <Link href="/admin/login" className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-[#ff8202] mb-6 transition-colors group">
+                        <ArrowLeft className="h-4 w-4 mr-1 transition-transform group-hover:-translate-x-1" /> Back to Login
                     </Link>
                     <div className="text-center">
-                        <h2 className="text-2xl font-bold text-slate-900">Admin Recovery</h2>
-                        <p className="text-sm text-slate-500 mt-2">
-                            Enter your registered admin email.
+                        <div className="w-16 h-16 bg-orange-50 text-[#ff8202] rounded-2xl flex items-center justify-center mx-auto mb-4 rotate-3 group-hover:rotate-0 transition-transform">
+                            <Mail className="h-8 w-8" />
+                        </div>
+                        <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Admin Recovery</h2>
+                        <p className="text-slate-500 mt-3 font-medium">
+                            Enter your email to receive a 6-digit verification code.
                         </p>
                     </div>
                 </div>
 
-                <form onSubmit={handleReset} className="space-y-6">
+                <form onSubmit={handleSendOTP} className="space-y-6">
                     {error && (
-                        <div className="bg-red-50 text-red-600 text-sm p-4 rounded-md border border-red-100">
+                        <div className="bg-red-50 text-red-600 text-sm font-medium p-4 rounded-xl border border-red-100 animate-in fade-in slide-in-from-top-1">
                             {error}
                         </div>
                     )}
 
                     <div className="space-y-2">
-                        <Label htmlFor="email">Email Address</Label>
+                        <Label htmlFor="email" className="text-slate-700 font-bold ml-1 uppercase text-[11px] tracking-widest">Email Address</Label>
                         <Input
                             id="email"
                             type="email"
@@ -92,18 +85,22 @@ export default function AdminForgotPasswordPage() {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="h-11"
+                            className="h-12 rounded-xl border-slate-200 focus:border-[#ff8202] focus:ring-[#ff8202]/10 transition-all text-base"
                         />
                     </div>
 
                     <Button
                         type="submit"
-                        className="w-full h-11 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90"
+                        className="w-full h-12 bg-[#ff8202] hover:bg-[#ff8202]/90 text-white font-bold rounded-xl shadow-lg shadow-orange-600/10 hover:shadow-orange-600/20 transition-all active:scale-[0.98]"
                         disabled={loading}
                     >
-                        {loading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : "Send Reset Link"}
+                        {loading ? <Loader2 className="h-5 w-5 animate-spin mr-2" /> : "Send Verification Code"}
                     </Button>
                 </form>
+
+                <p className="text-center text-xs text-slate-400 font-medium pt-4">
+                    Secure verification powered by Stork Security.
+                </p>
             </div>
         </div>
     )

@@ -48,8 +48,8 @@ export function AdminHeaderProfile() {
     const getRoleBadgeStyle = (role: string) => {
         switch (role) {
             case 'super_admin': return 'text-orange-600 bg-orange-50'
-            case 'admin': return 'text-blue-600 bg-blue-50'
-            case 'seo_manager': return 'text-purple-600 bg-purple-50'
+            case 'admin': return 'text-orange-600 bg-orange-50'
+            case 'seo_manager': return 'text-emerald-600 bg-emerald-50'
             default: return 'text-slate-700 bg-slate-100' // editor
         }
     }

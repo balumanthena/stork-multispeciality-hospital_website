@@ -90,7 +90,7 @@ export function VideoSection({ videos, heading = "Doctor Talk", variant = "grid"
 
                             {/* Video Title */}
                             <div>
-                                <h3 className="text-lg font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#3e7dca] transition-colors">
+                                <h3 className="text-lg font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#ff8202] transition-colors">
                                     {video.title}
                                 </h3>
                                 <p className="text-sm text-slate-500 mt-2 font-medium line-clamp-1">

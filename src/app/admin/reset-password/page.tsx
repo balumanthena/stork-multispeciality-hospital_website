@@ -1,85 +1,95 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { supabase } from "@/lib/supabase/client"
+import { useState, useEffect, Suspense } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Loader2, Lock, CheckCircle } from "lucide-react"
+import { Loader2, Lock, CheckCircle, Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+import { toast } from "sonner"
 
-export default function AdminResetPasswordPage() {
+function ResetPasswordContent() {
     const router = useRouter()
+    const searchParams = useSearchParams()
+    const email = searchParams.get("email") || ""
+    const verified = searchParams.get("verified") === "true"
+
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
     const [success, setSuccess] = useState(false)
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
 
     useEffect(() => {
-        const searchParams = new URLSearchParams(window.location.search)
-        const urlError = searchParams.get('error')
-
-        if (urlError) {
-            setError(decodeURIComponent(urlError))
+        if (!email || !verified) {
+            router.push("/admin/forgot-password")
         }
+    }, [email, verified, router])
 
-        // Verify if user is logged in after the callback exchanged the code
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            if (!session && !urlError) {
-                setError("Your session has expired or is invalid. Please request a new password reset link.")
-            }
-        })
-    }, [])
-
-    const handleUpdatePassword = async (e: React.FormEvent) => {
+    const handleResetPassword = async (e: React.FormEvent) => {
         e.preventDefault()
-        setLoading(true)
-        setError(null)
-
-        if (password.length < 8) {
-            setError("Password must be at least 8 characters.")
-            setLoading(false)
+        
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters.")
             return
         }
 
         if (password !== confirmPassword) {
             setError("Passwords do not match.")
-            setLoading(false)
             return
         }
 
-        const { error } = await supabase.auth.updateUser({
-            password: password
-        })
+        setLoading(true)
+        setError(null)
 
-        if (error) {
-            setError(error.message)
-            setLoading(false)
-        } else {
+        try {
+            const response = await fetch("/api/auth/reset-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+            })
+
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to reset password")
+            }
+
             setSuccess(true)
-            setLoading(false)
+            toast.success("Password updated successfully")
+            
             setTimeout(() => {
-                router.push('/admin/login')
+                router.push("/admin/login")
             }, 3000)
+        } catch (err: any) {
+            setError(err.message)
+            toast.error(err.message)
+        } finally {
+            setLoading(false)
         }
     }
 
     if (success) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-                <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-sm border border-slate-100 text-center space-y-4">
-                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
-                        <CheckCircle className="h-8 w-8" />
+                <div className="max-w-md w-full bg-white p-10 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 text-center space-y-6">
+                    <div className="w-20 h-20 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto animate-bounce">
+                        <CheckCircle className="h-10 w-10" />
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-900">Success!</h2>
-                    <p className="text-slate-600">
-                        Admin password updated. Redirecting to login...
-                    </p>
+                    <div className="space-y-2">
+                        <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Success!</h2>
+                        <p className="text-slate-500 font-medium text-lg">
+                            Your password has been updated.
+                        </p>
+                        <p className="text-slate-400 text-sm">
+                            Redirecting to login page in 3 seconds...
+                        </p>
+                    </div>
                     <Link href="/admin/login">
-                        <Button className="w-full mt-4 bg-[var(--color-primary)]">
-                            Go to Login
+                        <Button className="w-full h-12 bg-[#ff8202] hover:bg-[#ff8202]/90 text-white font-bold rounded-xl shadow-lg shadow-orange-600/10 transition-all">
+                            Login Now
                         </Button>
                     </Link>
                 </div>
@@ -89,55 +99,83 @@ export default function AdminResetPasswordPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-sm border border-slate-100">
+            <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold text-slate-900">Set New Password</h2>
-                    <p className="text-sm text-slate-500 mt-2">
-                        Create a strong password for your admin account.
+                    <div className="w-16 h-16 bg-orange-50 text-[#ff8202] rounded-2xl flex items-center justify-center mx-auto mb-4 rotate-3 group-hover:rotate-0 transition-transform">
+                        <Lock className="h-8 w-8" />
+                    </div>
+                    <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">New Password</h2>
+                    <p className="text-slate-500 mt-3 font-medium">
+                        Secure your account with a new password.
                     </p>
                 </div>
 
-                <form onSubmit={handleUpdatePassword} className="space-y-6">
+                <form onSubmit={handleResetPassword} className="space-y-6">
                     {error && (
-                        <div className="bg-red-50 text-red-600 text-sm p-4 rounded-md border border-red-100">
+                        <div className="bg-red-50 text-red-600 text-sm font-medium p-4 rounded-xl border border-red-100 animate-in fade-in slide-in-from-top-1">
                             {error}
                         </div>
                     )}
 
-                    <div className="space-y-2">
-                        <Label htmlFor="password">New Password</Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            required
-                            minLength={8}
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="h-11"
-                        />
-                    </div>
+                    <div className="space-y-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="password" title="New Password" className="text-slate-700 font-bold ml-1 uppercase text-[11px] tracking-widest">New Password</Label>
+                            <div className="relative">
+                                <Input
+                                    id="password"
+                                    type={showPassword ? "text" : "password"}
+                                    required
+                                    minLength={6}
+                                    placeholder="••••••••"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="h-12 rounded-xl border-slate-200 focus:border-[#ff8202] focus:ring-[#ff8202]/10 transition-all pr-12 text-base"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                                >
+                                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                                </button>
+                            </div>
+                        </div>
 
-                    <div className="space-y-2">
-                        <Label htmlFor="confirmPassword">Confirm Password</Label>
-                        <Input
-                            id="confirmPassword"
-                            type="password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="h-11"
-                        />
+                        <div className="space-y-2">
+                            <Label htmlFor="confirmPassword" title="Confirm Password" className="text-slate-700 font-bold ml-1 uppercase text-[11px] tracking-widest">Confirm Password</Label>
+                            <Input
+                                id="confirmPassword"
+                                type={showPassword ? "text" : "password"}
+                                required
+                                placeholder="••••••••"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                className="h-12 rounded-xl border-slate-200 focus:border-[#ff8202] focus:ring-[#ff8202]/10 transition-all text-base"
+                            />
+                        </div>
                     </div>
 
                     <Button
                         type="submit"
-                        className="w-full h-11 bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90"
+                        className="w-full h-12 bg-[#ff8202] hover:bg-[#ff8202]/90 text-white font-bold rounded-xl shadow-lg shadow-orange-600/10 hover:shadow-orange-600/20 transition-all active:scale-[0.98]"
                         disabled={loading}
                     >
-                        {loading ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : "Update Password"}
+                        {loading ? <Loader2 className="h-5 w-5 animate-spin mr-2" /> : "Update Password"}
                     </Button>
                 </form>
             </div>
         </div>
+    )
+}
+
+export default function ResetPasswordPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
+                <Loader2 className="h-8 w-8 animate-spin text-[#ff8202]" />
+            </div>
+        }>
+            <ResetPasswordContent />
+        </Suspense>
     )
 }

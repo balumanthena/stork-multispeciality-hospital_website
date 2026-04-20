@@ -421,7 +421,7 @@ export default function NewBlogPage() {
                                                     {formData.selected_departments.slice(0, 5).map(id => (
                                                         <div
                                                             key={id}
-                                                            className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-100 text-blue-700 px-2 py-1 rounded-md text-xs font-medium group transition-all hover:border-blue-200"
+                                                            className="inline-flex items-center gap-1.5 bg-orange-50 border border-blue-100 text-blue-700 px-2 py-1 rounded-md text-xs font-medium group transition-all hover:border-orange-200"
                                                         >
                                                             {departments.find(d => d.id === id)?.name}
                                                             <button

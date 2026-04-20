@@ -60,6 +60,7 @@ export async function middleware(request: NextRequest) {
     const isAdminAuthPath =
         request.nextUrl.pathname.startsWith('/admin/login') ||
         request.nextUrl.pathname.startsWith('/admin/forgot-password') ||
+        request.nextUrl.pathname.startsWith('/admin/verify-otp') ||
         request.nextUrl.pathname.startsWith('/admin/reset-password')
 
     if (request.nextUrl.pathname === '/login') {

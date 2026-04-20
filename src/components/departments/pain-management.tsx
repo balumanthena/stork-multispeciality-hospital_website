@@ -21,9 +21,9 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">Pain Management</span>
                     </nav>
@@ -44,7 +44,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                                     "Minimal Medication, Maximum Mobility"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -56,7 +56,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book Pain Consultation
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#3E7DCA] hover:text-[#3E7DCA] rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
                                     Consult Pain Specialist
                                 </Button>
                             </div>
@@ -73,7 +73,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Relief Is Possible. <br />
-                        <span className="text-[#3E7DCA]">You Don’t Have to Live with Pain Forever.</span>
+                        <span className="text-[#ff8202]">You Don’t Have to Live with Pain Forever.</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-8 space-y-6">
@@ -92,7 +92,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="max-w-3xl mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">
-                            Why Chronic Pain Needs a <span className="text-[#3E7DCA]">Different Kind of Attention</span>
+                            Why Chronic Pain Needs a <span className="text-[#ff8202]">Different Kind of Attention</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed font-light">
                             Pain isn’t always visible. But it’s real. At Stork, we take the time to understand not just where it hurts but how it affects your life.
@@ -111,7 +111,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                             "Personalized, step-by-step plans designed for relief without dependency"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -167,7 +167,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                         {/* Nerve & Specialized Pain - Blue theme */}
                         <div className="bg-[#F0F9FF] rounded-3xl p-10 border border-blue-100">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="h-12 w-12 rounded-xl bg-[#3E7DCA] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                <div className="h-12 w-12 rounded-xl bg-[#ff8202] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                                     <Zap className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-[#0F172A]">Nerve & Systemic Pain</h3>
@@ -180,7 +180,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                                     "Fibromyalgia or full-body sensitivity"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-[#3E7DCA] mt-2 flex-shrink-0"></span>
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff8202] mt-2 flex-shrink-0"></span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -189,7 +189,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                     </div>
 
                     <div className="text-center mt-16 max-w-3xl mx-auto">
-                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#3E7DCA] pl-6 py-2 bg-slate-50 rounded-r-lg">
+                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#ff8202] pl-6 py-2 bg-slate-50 rounded-r-lg">
                             If your pain is affecting your focus, sleep, movement, or relationships, we’re ready to step in.
                         </p>
                     </div>
@@ -232,7 +232,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
 
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
-                            We focus on function: helping you return to work, walk longer, <span className="text-[#3E7DCA]">sleep deeper</span> and enjoy life without flinching.
+                            We focus on function: helping you return to work, walk longer, <span className="text-[#ff8202]">sleep deeper</span> and enjoy life without flinching.
                         </p>
                     </div>
                 </div>
@@ -243,7 +243,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Pain Looks Different on Everyone <br />
-                        <span className="text-[#3E7DCA]">So Does Our Treatment</span>
+                        <span className="text-[#ff8202]">So Does Our Treatment</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-12 space-y-6">
@@ -262,7 +262,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                                 "Family education and caregiver involvement, where needed"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-3">
-                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                         <Brain className="h-3 w-3" />
                                     </div>
                                     <span className="text-slate-700 font-medium text-lg">{item}</span>
@@ -327,7 +327,7 @@ export const PainManagementContent = ({ blogs, videos }: { blogs: any[], videos:
                         Ready to Schedule Your Visit?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Pain Consultation
                         </Button>
                         <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">

@@ -14,13 +14,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // Configure Nodemailer transporter
+    // Configure Nodemailer transporter with robust Gmail settings
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // Use SSL/TLS
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        // Gmail app passwords often have spaces in the UI, but they must be stripped or handled correctly
+        pass: process.env.EMAIL_PASS?.replace(/\s+/g, ""),
       },
+      // Increase timeout for reliability
+      connectionTimeout: 10000, 
+      greetingTimeout: 10000,
     });
 
     const formattedDate = new Date(date).toLocaleDateString("en-IN", {
@@ -31,7 +37,7 @@ export async function POST(request: Request) {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `Stork Hospital Appointment <${process.env.EMAIL_USER}>`,
       to: "storkhospitalsmedia@gmail.com",
       replyTo: email,
       subject: "New Appointment Booking – Stork Hospital",
@@ -126,10 +132,101 @@ export async function POST(request: Request) {
       `,
     };
 
+    const patientMailOptions = {
+      from: `Stork Hospital <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Appointment Request Received – Stork Hospital",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Appointment Confirmation</title>
+        </head>
+        <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f8fafc; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table role="presentation" width="100%" max-width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                  
+                  <!-- Header -->
+                  <tr>
+                    <td style="background-color: #2563eb; padding: 40px 24px; text-align: center;">
+                      <div style="display: inline-block; padding: 12px; background-color: rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 16px;">
+                        <span style="color: #ffffff; font-size: 24px; font-weight: bold;">STORK</span>
+                      </div>
+                      <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: bold; letter-spacing: -0.5px;">Thank You, ${name}!</h1>
+                      <p style="color: #bfdbfe; margin: 12px 0 0 0; font-size: 16px; font-weight: 500;">We've received your appointment request.</p>
+                    </td>
+                  </tr>
+
+                  <!-- Content -->
+                  <tr>
+                    <td style="padding: 40px 32px;">
+                      <p style="color: #475569; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                        Hello ${name.split(' ')[0]}, your request for an appointment in the <strong>${department}</strong> department has been successfully submitted. Our team is currently reviewing the availability and will contact you shortly to finalize your slot.
+                      </p>
+                      
+                      <div style="background-color: #f1f5f9; border-radius: 12px; padding: 24px; margin-bottom: 32px;">
+                        <h2 style="color: #0f172a; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px 0;">Request Summary</h2>
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="padding: 8px 0; color: #64748b; font-size: 14px;">Department:</td>
+                            <td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: bold; text-align: right;">${department}</td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 8px 0; color: #64748b; font-size: 14px;">Preferred Date:</td>
+                            <td style="padding: 8px 0; color: #0f172a; font-size: 14px; font-weight: bold; text-align: right;">${formattedDate}</td>
+                          </tr>
+                        </table>
+                      </div>
+
+                      <div style="text-align: center;">
+                        <p style="color: #64748b; font-size: 14px; margin-bottom: 24px;">If you have any urgent queries, please feel free to connect with us on WhatsApp.</p>
+                        <a href="https://wa.me/919999988888" style="background-color: #22c55e; color: #ffffff; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 15px; display: inline-block;">Connect on WhatsApp</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Footer -->
+                  <tr>
+                    <td style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 32px 24px; text-align: center;">
+                      <p style="margin: 0; color: #94a3b8; font-size: 13px;">
+                        &copy; 2026 Stork Multispeciality Hospital. All rights reserved.<br>
+                        Survey No 14 & 15, NH44, Kompally, Hyderabad, 500014
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    };
+
     try {
-      await transporter.sendMail(mailOptions);
+      // Verify connection configuration
+      await transporter.verify();
+      console.log("SMTP connection verified successfully");
+
+      // Send to hospital AND patient
+      const [infoHospital, infoPatient] = await Promise.all([
+        transporter.sendMail({ ...mailOptions, priority: "high" }),
+        transporter.sendMail({ ...patientMailOptions, priority: "high" })
+      ]);
+      
+      console.log("Hospital notification sent:", infoHospital.messageId);
+      console.log("Patient confirmation sent:", infoPatient.messageId);
+
     } catch (emailError: any) {
-      console.warn("Nodemailer failed to send email. Check credentials:", emailError.message);
+      console.error("CRITICAL EMAIL ERROR:", emailError.message);
+      // Detailed logging for Gmail common issues
+      if (emailError.message.includes("Invalid login")) {
+        console.warn("TIP: Please verify your Gmail App Password in .env.local. Ensure 2FA is enabled.");
+      }
       // We do NOT throw here so that the frontend still succeeds and triggers the WhatsApp redirect.
     }
 

@@ -68,7 +68,7 @@ function PartnerLogo({ name }: { name: string }) {
                 </div>
             ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center text-center px-1">
-                    <span className="text-[12px] sm:text-[13px] font-semibold text-slate-700 leading-snug group-hover:text-blue-600 transition-colors line-clamp-3">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-slate-700 leading-snug group-hover:text-orange-600 transition-colors line-clamp-3">
                         {name}
                     </span>
                 </div>
@@ -97,7 +97,7 @@ export default function InsurancePartnersPage() {
             >
                 <div className="absolute inset-0 bg-[#ffffff03] bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
                 <div className="container max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center flex flex-col items-center">
-                    <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 backdrop-blur-sm text-blue-100 text-sm font-semibold tracking-wide mb-8 shadow-sm">
+                    <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full border border-blue-400/30 bg-orange-500/10 backdrop-blur-sm text-blue-100 text-sm font-semibold tracking-wide mb-8 shadow-sm">
                         Seamless Healthcare Financing
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
@@ -118,7 +118,7 @@ export default function InsurancePartnersPage() {
 
                     <div className="relative group max-w-[600px] mx-auto mb-8">
                         <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                            <Search className="h-5 w-5 text-slate-400 group-focus-within:text-blue-600 transition-colors" />
+                            <Search className="h-5 w-5 text-slate-400 group-focus-within:text-orange-600 transition-colors" />
                         </div>
                         <Input
                             type="text"
@@ -149,17 +149,17 @@ export default function InsurancePartnersPage() {
                 <div className="max-w-4xl mx-auto mb-12 pb-12 border-b border-slate-200">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-[15px] font-semibold text-slate-700">
                         <span className="flex items-center gap-2.5">
-                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <CheckCircle2 className="w-5 h-5 text-orange-600" />
                             30+ Insurance Partners
                         </span>
                         <span className="hidden md:block w-1.5 h-1.5 rounded-full bg-slate-300"></span>
                         <span className="flex items-center gap-2.5">
-                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <CheckCircle2 className="w-5 h-5 text-orange-600" />
                             Cashless Treatment Facility
                         </span>
                         <span className="hidden md:block w-1.5 h-1.5 rounded-full bg-slate-300"></span>
                         <span className="flex items-center gap-2.5">
-                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <CheckCircle2 className="w-5 h-5 text-orange-600" />
                             Dedicated Insurance Help Desk
                         </span>
                     </div>
@@ -204,8 +204,8 @@ export default function InsurancePartnersPage() {
             {/* Support Section */}
             <section className="bg-white border-t border-slate-200">
                 <div className="container max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
-                    <div className="bg-blue-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-8">
-                        <Phone className="h-10 w-10 text-blue-600" />
+                    <div className="bg-orange-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-8">
+                        <Phone className="h-10 w-10 text-orange-600" />
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Don't see your insurance provider?</h2>
                     <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">

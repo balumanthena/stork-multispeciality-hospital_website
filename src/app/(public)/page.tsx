@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -13,7 +14,7 @@ import { Suspense } from "react"
 import {
   ArrowRight, Activity, Heart, Brain, Stethoscope, Clock,
   ShieldCheck, Users, Award, Phone, Calendar, User, Microscope,
-  CheckCircle2, Star, Quote, ChevronRight, MapPin
+  CheckCircle2, Star, Quote, ChevronRight, MapPin, UserCheck
 } from "lucide-react"
 
   const allTreatments = HARDCODED_TREATMENTS.flatMap(cat => cat.items)
@@ -55,7 +56,7 @@ export default function Home() {
                   <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-4 h-4 text-slate-500" />
                   </div>
-                  <span>Survey No 14 & 15, Kompally</span>
+                  <span>C-35, opp. Narayana School, near DMart, Petbasheerabad, Kompally, Hyderabad, Secunderabad, Telangana 500067</span>
                 </div>
               </div>
 
@@ -157,53 +158,118 @@ export default function Home() {
       <InsurancePartners />
 
       {/* 5. WHY CHOOSE US (Institutional Look) */}
-      <Section className="py-24 bg-white border-y border-slate-100">
-        <div className="container max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-[var(--color-accent)] font-bold tracking-wider uppercase text-xs mb-3 block">Why Stork Hospital</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                Committed to Clinical Excellence & Patient Safety
-              </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                We are a JCI accredited institution providing multi-disciplinary care with outcomes matching global standards.
-              </p>
+      <Section className="py-10 md:py-24 bg-white border-y border-slate-100">
+        <div className="container max-w-7xl mx-auto px-4 md:px-6">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* LEFT CONTENT */}
+            <div className="text-center lg:text-left space-y-6 md:space-y-8 order-2 lg:order-1">
+              <div>
+                <span className="text-[#ff8202] font-bold tracking-wider uppercase text-[10px] md:text-xs mb-3 block">
+                  Why Stork Hospital
+                </span>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-4 md:mb-6">
+                  Committed to Clinical Excellence & Patient Safety
+                </h2>
+                <p className="text-[15px] md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  We are a JCI accredited institution providing multi-disciplinary care with outcomes matching global standards.
+                </p>
+              </div>
 
-              <div className="space-y-6">
+              {/* Feature List (Clean Institutional Look) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-y-6 md:gap-y-10">
                 {[
-                  "Internationally Trained Doctors",
-                  "State-of-the-art Operation Theaters",
-                  "24/7 Emergency & Pharmacy",
-                  "Insurance Support Desk"
+                  {
+                    title: "Expert Doctors",
+                    desc: "Internationally trained specialists with global expertise.",
+                    icon: Users,
+                    color: "text-[#ff8202]"
+                  },
+                  {
+                    title: "Modern OTs",
+                    desc: "Advanced theaters for minimally invasive surgeries.",
+                    icon: Microscope,
+                    color: "text-[#3e7dca]"
+                  },
+                  {
+                    title: "24/7 Support",
+                    desc: "Round-the-clock emergency and pharmacy services.",
+                    icon: Clock,
+                    color: "text-green-600"
+                  },
+                  {
+                    title: "Insurance Desk",
+                    desc: "Seamless cashless hospitalization support.",
+                    icon: ShieldCheck,
+                    color: "text-purple-600"
+                  }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="h-6 w-6 rounded-full bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="h-4 w-4" />
+                  <div 
+                    key={i} 
+                    className="flex flex-col sm:flex-row items-center lg:items-start gap-4 md:gap-6 group"
+                  >
+                    <div className={cn(
+                      "h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-slate-50 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-white group-hover:shadow-lg border border-transparent group-hover:border-slate-100",
+                      item.color
+                    )}>
+                      <item.icon className="h-7 w-7 md:h-8 md:w-8" />
                     </div>
-                    <span className="text-slate-700 font-medium">{item}</span>
+                    <div className="space-y-1 md:space-y-2">
+                      <h4 className="text-lg md:text-xl font-bold text-slate-900 tracking-tight">{item.title}</h4>
+                      <p className="text-[14px] md:text-[15px] text-slate-500 leading-relaxed max-w-sm">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10">
-                <Button variant="outline" className="border-slate-300 text-slate-700 hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] rounded-full px-8 h-12">
+              <div className="pt-6 md:pt-8 flex justify-center lg:justify-start">
+                <Button variant="outline" className="border-slate-300 text-slate-700 hover:text-[#ff8202] hover:border-[#ff8202] rounded-full px-10 h-14 text-base font-bold transition-all shadow-sm">
                   Know More About Us
                 </Button>
               </div>
             </div>
 
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/doctor-highlight.png"
-                alt="Modern Infrastructure"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur rounded-xl p-5 shadow-lg max-w-[200px]">
-                <div className="flex gap-1 mb-2">
-                  {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-orange-400 text-orange-400" />)}
+            {/* RIGHT IMAGE */}
+            <div className="w-full order-1 lg:order-2">
+              <div className="relative h-[350px] sm:h-[450px] lg:h-[600px] rounded-[40px] overflow-hidden shadow-2xl group">
+                <Image
+                  src="/images/doctor-highlight.png"
+                  alt="Modern Healthcare Infrastructure"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                
+                {/* Floating Review Badge */}
+                <div className="absolute top-6 right-6 sm:top-10 sm:right-10 bg-white/95 backdrop-blur-md rounded-[24px] p-5 sm:p-6 shadow-2xl max-w-[200px] sm:max-w-[240px] border border-white/20 animate-in fade-in slide-in-from-right-8 duration-1000">
+                  <div className="flex gap-1 mb-3">
+                    {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-[#ff8202] text-[#ff8202]" />)}
+                  </div>
+                  <p className="text-[12px] sm:text-[13px] text-slate-700 font-bold italic leading-relaxed">
+                    "Best multispecialty hospital for advanced surgical care in the region."
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
+                      <UserCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Verified Patient</p>
+                      <p className="text-[9px] text-slate-400 font-bold">Patient ID: #STORK882</p>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs text-slate-500 font-medium">"Best hospital for cardiac care in the region."</p>
+
+                {/* Stat Overlay (Removed 15k+) */}
+                <div className="absolute bottom-8 left-8 right-8 flex justify-center gap-12 sm:gap-24 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[28px] p-6 text-white">
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-black mb-1">105+</p>
+                    <p className="text-[10px] sm:text-[11px] uppercase font-bold tracking-[2px] opacity-90">Treatments</p>
+                  </div>
+                  <div className="w-[1px] h-12 bg-white/20 my-auto" />
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-black mb-1">24/7</p>
+                    <p className="text-[10px] sm:text-[11px] uppercase font-bold tracking-[2px] opacity-90">Emergency</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -228,7 +294,7 @@ export default function Home() {
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         {/* Abstract Background Glow */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#3e7dca] rounded-full blur-[160px] opacity-10 pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
 
         <div className="container max-w-5xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#ff8202] text-xs font-black uppercase tracking-[0.2em] mb-8">

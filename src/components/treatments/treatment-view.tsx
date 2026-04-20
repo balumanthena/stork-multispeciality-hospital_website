@@ -63,7 +63,7 @@ export default function TreatmentView({ initialData }: { initialData: Treatment 
                             <CardContent className="p-8 relative z-10">
                                 <h3 className="text-xl font-bold mb-2">Need a Consultation?</h3>
                                 <p className="text-blue-100 mb-6">Book an appointment with our specialists today.</p>
-                                <Button variant="secondary" className="w-full bg-white text-[var(--color-primary)] hover:bg-blue-50">
+                                <Button variant="secondary" className="w-full bg-white text-[var(--color-primary)] hover:bg-orange-50">
                                     Book Appointment
                                 </Button>
                             </CardContent>

@@ -22,9 +22,9 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Breadcrumb */}
                     <nav className="flex items-center text-sm font-medium text-slate-500 mb-8">
-                        <Link href="/" className="hover:text-[#3E7DCA] transition-colors">Home</Link>
+                        <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
-                        <Link href="/services" className="hover:text-[#3E7DCA] transition-colors">Centers of Excellence</Link>
+                        <Link href="/services" className="hover:text-[#ff8202] transition-colors">Centers of Excellence</Link>
                         <ChevronRight className="h-4 w-4 mx-2 text-slate-300" />
                         <span className="text-[#0F172A] font-semibold">Oncology (Cancer Care)</span>
                     </nav>
@@ -45,7 +45,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                                     "Daycare Chemo, Emotional & Family Support"
                                 ].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3">
-                                        <div className="h-6 w-6 rounded-full bg-blue-50 flex items-center justify-center text-[#3E7DCA]">
+                                        <div className="h-6 w-6 rounded-full bg-orange-50 flex items-center justify-center text-[#ff8202]">
                                             <CheckCircle2 className="h-4 w-4" />
                                         </div>
                                         <span className="text-lg font-medium text-slate-700">{item}</span>
@@ -57,7 +57,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book Oncology Consultation
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#3E7DCA] hover:text-[#3E7DCA] rounded-full">
+                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
                                     Request Second Opinion
                                 </Button>
                             </div>
@@ -74,7 +74,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         Expert Cancer Care That Sees the Person, <br />
-                        <span className="text-[#3E7DCA]">Not Just the Diagnosis.</span>
+                        <span className="text-[#ff8202]">Not Just the Diagnosis.</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-8 space-y-6">
@@ -93,7 +93,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                 <div className="container max-w-7xl mx-auto px-6">
                     <div className="max-w-3xl mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-6">
-                            What Makes Cancer Care at <span className="text-[#3E7DCA]">Stork So Different?</span>
+                            What Makes Cancer Care at <span className="text-[#ff8202]">Stork So Different?</span>
                         </h2>
                         <p className="text-lg text-slate-600 leading-relaxed font-light">
                             We don’t just treat cells, we care for humans. Real people with families, futures, and fears. At Stork, you’re not just a patient. You’re a partner in your fight.
@@ -112,7 +112,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                             "Based in Kompally accessible but away from the clinical noise of big city centers"
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-100 transition-colors">
-                                <div className="mt-1 h-5 w-5 rounded-full bg-blue-50 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                <div className="mt-1 h-5 w-5 rounded-full bg-orange-50 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-3 w-3" />
                                 </div>
                                 <span className="text-slate-700 font-medium">{point}</span>
@@ -168,7 +168,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                         {/* Complex & Specialized Cancers - Blue theme */}
                         <div className="bg-[#F0F9FF] rounded-3xl p-10 border border-blue-100">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="h-12 w-12 rounded-xl bg-[#3E7DCA] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                <div className="h-12 w-12 rounded-xl bg-[#ff8202] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
                                     <Activity className="h-6 w-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold text-[#0F172A]">Specialized Care</h3>
@@ -181,7 +181,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                                     "Palliative oncology care – because quality of life matters too"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
-                                        <span className="h-1.5 w-1.5 rounded-full bg-[#3E7DCA] mt-2 flex-shrink-0"></span>
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff8202] mt-2 flex-shrink-0"></span>
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -190,7 +190,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                     </div>
 
                     <div className="text-center mt-16 max-w-3xl mx-auto">
-                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#3E7DCA] pl-6 py-2 bg-slate-50 rounded-r-lg">
+                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#ff8202] pl-6 py-2 bg-slate-50 rounded-r-lg">
                             Every care plan is unique built around your condition, your strength, your life.
                         </p>
                     </div>
@@ -234,7 +234,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
 
                     <div className="text-center mt-16 pt-12 border-t border-white/10">
                         <p className="text-2xl font-medium text-white">
-                            We know what to fight. But more importantly, we know how to <span className="text-[#3E7DCA]">fight with you</span>.
+                            We know what to fight. But more importantly, we know how to <span className="text-[#ff8202]">fight with you</span>.
                         </p>
                     </div>
                 </div>
@@ -245,7 +245,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                 <div className="container max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-8 leading-tight">
                         The Support You Didn’t Know <br />
-                        <span className="text-[#3E7DCA]">You’d Need But Deserve</span>
+                        <span className="text-[#ff8202]">You’d Need But Deserve</span>
                     </h2>
 
                     <div className="text-lg text-slate-600 font-light leading-relaxed mb-12 space-y-6">
@@ -267,7 +267,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                                 "Support groups, if you want them. Quiet space, if you don’t."
                             ].map((item, i) => (
                                 <li key={i} className="flex items-start gap-3">
-                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#3E7DCA] flex items-center justify-center flex-shrink-0">
+                                    <div className="mt-1 h-5 w-5 rounded-full bg-blue-100 text-[#ff8202] flex items-center justify-center flex-shrink-0">
                                         <Heart className="h-3 w-3" />
                                     </div>
                                     <span className="text-slate-700 font-medium text-lg">{item}</span>
@@ -332,7 +332,7 @@ export const OncologyContent = ({ blogs, videos }: { blogs: any[], videos: any[]
                         Ready to Schedule Your Visit?
                     </h2>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#3E7DCA] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Oncology Consultation
                         </Button>
                         <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
