@@ -233,28 +233,6 @@ export const doctors: Doctor[] = [
     ],
     availability: "Mon-Sat, 8:00 AM - 2:00 PM"
   },
-  {
-    id: "dr-soma-raju",
-    name: "Dr. Soma Raju",
-    title: "Senior Consultant - Pediatrics",
-    department: "Pediatrics",
-    languages: ["English", "Hindi", "Telugu"],
-    locations: ["Kompally"],
-    qualification: "MBBS, MD (Pediatrics)",
-    experience: "20+ Years Experience",
-    specialization: "Pediatrician",
-    tags: ["Child Vaccination", "Neonatal Care", "Pediatric Emergencies"],
-    positioning: "Compassionate care for infants and children",
-    rating: 4.9,
-    patientsTreated: "20,000+",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800",
-    about: "Dr. Soma Raju is a veteran in pediatrics, ensuring the healthy development of children in the Kompally region for over two decades.",
-    highlights: ["20+ Years Experience", "Newborn Care Expert", "Pediatric Emergency Specialist"],
-    expertise: ["Immunization", "Newborn Care", "Growth Monitoring", "Adolescent Health"],
-    education: [{ degree: "MD Pediatrics" }, { degree: "MBBS" }],
-    achievements: ["Successfully treated complex neonatal cases", "Lead for pediatric community outreach"],
-    services: [{ category: "Child Care", items: ["Vaccinations", "Growth checks"] }],
-    availability: "Mon-Sat, 9:00 AM - 1:00 PM"
   },
   {
     id: "dr-veda-sree",
