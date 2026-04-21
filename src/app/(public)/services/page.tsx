@@ -13,26 +13,8 @@ import {
   Users 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getDepartmentIcon } from '@/lib/data/department-icons';
+import { DEPARTMENTS_LIST } from '@/lib/data/departments';
 import { ServiceItem } from '@/components/services/ServiceItem';
-
-const DEPARTMENTS_DATA = [
-  { name: "Cosmetic & Plastic Surgery", slug: "cosmetic-surgery" },
-  { name: "Emergency, Trauma & Critical Care", slug: "emergency", isEmergency: true },
-  { name: "ENT", slug: "ent" },
-  { name: "General Surgery", slug: "general-surgery" },
-  { name: "General Medicine", slug: "general-medicine" },
-  { name: "GI & Bariatric Surgery", slug: "bariatric" },
-  { name: "Gynaecology & Obstetrics", slug: "gynaecology" },
-  { name: "Neurosurgery", slug: "neurosurgery" },
-  { name: "Oncology", slug: "oncology" },
-  { name: "Orthopaedics", slug: "orthopaedics" },
-  { name: "Pain Management", slug: "pain-management" },
-  { name: "Proctology", slug: "proctology" },
-  { name: "Pulmonology", slug: "pulmonology" },
-  { name: "Urology", slug: "urology" },
-  { name: "Vascular Surgery", slug: "vascular" },
-];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -40,18 +22,6 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1
-    }
-  }
-};
-
-const floatingIconVariants = {
-  floating: {
-    y: [0, -10, 0],
-    scale: [1, 1.05, 1],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut" as const
     }
   }
 };
@@ -106,13 +76,13 @@ export default function ServicesPage() {
             animate="show"
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-16 gap-x-12"
           >
-            {DEPARTMENTS_DATA.map((dept) => (
+            {DEPARTMENTS_LIST.map((dept) => (
               <ServiceItem
                 key={dept.slug}
-                name={dept.name}
+                name={dept.title}
                 slug={dept.slug}
-                iconPath={getDepartmentIcon(dept.slug) || "/images/general-medicine.png"}
-                isEmergency={dept.isEmergency}
+                iconPath={dept.iconUrl}
+                isEmergency={dept.slug === 'emergency'}
               />
             ))}
           </motion.div>

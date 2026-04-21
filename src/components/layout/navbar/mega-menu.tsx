@@ -19,7 +19,9 @@ export const MegaMenuGrid = ({ children, cols = 4 }: { children: React.ReactNode
     )
 }
 
-export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href: string, icon?: LucideIcon }) => {
+import Image from "next/image"
+
+export const MegaMenuItem = ({ title, href, icon: Icon, iconUrl }: { title: string, href: string, icon?: any, iconUrl?: string }) => {
     const pathname = usePathname()
     const isActive = pathname === href
 
@@ -28,12 +30,26 @@ export const MegaMenuItem = ({ title, href, icon: Icon }: { title: string, href:
             href={href}
             className="group flex items-center gap-4 p-2 -ml-2 rounded-xl transition-all duration-200 outline-none"
         >
-            {Icon && (
-                <Icon className={cn("transition-transform duration-200 group-hover:scale-105", isActive && "scale-105")} />
-            )}
+            <div className={cn(
+                "w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg bg-orange-50 transition-all duration-300 group-hover:bg-orange-100",
+                isActive && "bg-orange-100"
+            )}>
+                {iconUrl ? (
+                    <div className="relative w-7 h-7">
+                        <Image 
+                            src={iconUrl} 
+                            alt={title} 
+                            fill 
+                            className="object-contain transition-transform duration-300 group-hover:scale-110" 
+                        />
+                    </div>
+                ) : Icon && (
+                    <Icon className={cn("w-5 h-5 text-[#ff8202] transition-transform duration-200 group-hover:scale-105", isActive && "scale-105")} />
+                )}
+            </div>
             <span className={cn(
-                "text-[15px] font-medium transition-colors duration-200 line-clamp-2",
-                isActive ? "text-[#ff8202]" : "text-slate-800 group-hover:text-[#ff8202]"
+                "text-[15px] font-bold transition-colors duration-200 line-clamp-2",
+                isActive ? "text-[#ff8202]" : "text-slate-700 group-hover:text-[#ff8202]"
             )}>
                 {title}
             </span>

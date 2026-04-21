@@ -1,8 +1,9 @@
 "use client"
 
+import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { getDepartmentIcon } from "@/lib/data/department-icons"
 import { Sparkles } from "lucide-react"
+import { DEPARTMENTS_LIST } from "@/lib/data/departments"
 
 interface DepartmentHeroIconProps {
     slug: string
@@ -11,10 +12,11 @@ interface DepartmentHeroIconProps {
 }
 
 export function DepartmentHeroIcon({ slug, className, fallbackIcon: FallbackIcon }: DepartmentHeroIconProps) {
-    const iconPath = getDepartmentIcon(slug)
+    const department = DEPARTMENTS_LIST.find(d => d.slug === slug)
+    const iconUrl = department?.iconUrl
 
     // Fallback if no icon found (shouldn't happen if map is complete, but good for safety)
-    if (!iconPath) {
+    if (!iconUrl) {
         const Icon = FallbackIcon || Sparkles
         return (
             <div className={cn("hidden lg:flex w-[220px] h-[220px] rounded-2xl bg-gradient-to-br from-[#fff7ed] to-[#eff6ff] border border-gray-100 items-center justify-center flex-shrink-0 shadow-xl relative overflow-hidden group", className)}>
@@ -30,20 +32,13 @@ export function DepartmentHeroIcon({ slug, className, fallbackIcon: FallbackIcon
             {/* Glow Effect */}
             <div className="absolute w-[80%] h-[80%] bg-[#ff8202] opacity-[0.05] blur-3xl rounded-full pointer-events-none"></div>
 
-            {/* Icon with CSS Mask for Color */}
-            <div className="relative w-[120px] h-[120px] transition-all duration-300 ease-in-out group-hover:scale-105">
-                <div
-                    className="w-full h-full bg-[#ff8202]"
-                    style={{
-                        maskImage: `url('${iconPath}')`,
-                        maskSize: "contain",
-                        maskRepeat: "no-repeat",
-                        maskPosition: "center",
-                        WebkitMaskImage: `url('${iconPath}')`,
-                        WebkitMaskSize: "contain",
-                        WebkitMaskRepeat: "no-repeat",
-                        WebkitMaskPosition: "center"
-                    }}
+            {/* Premium Clinical Icon */}
+            <div className="relative w-[130px] h-[130px] transition-all duration-300 ease-in-out group-hover:scale-110">
+                <Image
+                    src={iconUrl}
+                    alt={department?.title || "Department Icon"}
+                    fill
+                    className="object-contain"
                 />
             </div>
         </div>

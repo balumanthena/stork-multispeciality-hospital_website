@@ -70,31 +70,13 @@ function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: stri
 
 import { Department } from "@/types"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+import { DEPARTMENTS_LIST } from "@/lib/data/departments"
 
-export function DesktopNav({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
+export function DesktopNav({ groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const pathname = usePathname()
     const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
-    // ... rest of component
-
     const isActive = (path: string) => pathname === path
-
-    // Merge static and dynamic departments or just use dynamic if available
-    // For now, we'll map dynamic departments to NavItem format
-    const dynamicDepartments: NavItem[] = departments.length > 0 ? departments.map(d => {
-        return {
-            title: d.name,
-            href: `/departments/${d.slug}`,
-            icon: (props: React.ComponentProps<"svg">) => <DepartmentIcon slug={d.slug} defaultIcon={d.icon || "Activity"} {...props} />
-        }
-    }) : DEPARTMENTS.map(d => {
-        // Extract slug from href
-        const slug = d.href.split('/').pop() || ''
-        return {
-            ...d,
-            icon: (props: React.ComponentProps<"svg">) => <DepartmentIcon slug={slug} defaultIcon={d.icon} {...props} />
-        }
-    })
 
     return (
         <nav className="hidden lg:flex items-center gap-7 h-full" onMouseLeave={() => setActiveMenu(null)}>
@@ -142,12 +124,12 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                     href="/services"
                     className={cn(
                         "relative flex items-center gap-1.5 px-1 text-[15px] font-bold tracking-wide h-full transition-colors group outline-none",
-                        activeMenu === "departments" || pathname.startsWith("/departments") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
+                        activeMenu === "departments" || pathname.startsWith("/services") ? "text-[#ff8202]" : "text-slate-700 hover:text-[#ff8202]"
                     )}>
                     Departments <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeMenu === "departments" ? "rotate-180" : "opacity-60")} />
                     <span className={cn(
                         "absolute bottom-0 left-0 w-full h-[3px] bg-[#ff8202] rounded-t-sm transition-transform origin-left duration-300",
-                        activeMenu === "departments" || pathname.startsWith("/departments") ? "scale-x-100" : "scale-x-0"
+                        activeMenu === "departments" || pathname.startsWith("/services") ? "scale-x-100" : "scale-x-0"
                     )}></span>
                 </Link>
                 {/* Dropdown */}
@@ -157,8 +139,13 @@ export function DesktopNav({ departments = [], groupedTreatments = [] }: { depar
                 )}>
                     <div className="container max-w-[1280px] mx-auto">
                         <MegaMenuGrid cols={4}>
-                            {dynamicDepartments.map((dept) => (
-                                <MegaMenuItem key={dept.title} {...dept} />
+                            {DEPARTMENTS_LIST.map((dept) => (
+                                <MegaMenuItem 
+                                    key={dept.title} 
+                                    title={dept.title}
+                                    href={`/services/${dept.slug}`}
+                                    iconUrl={dept.iconUrl}
+                                />
                             ))}
                         </MegaMenuGrid>
                     </div>

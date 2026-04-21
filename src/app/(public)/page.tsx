@@ -8,6 +8,7 @@ import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
 import { InsurancePartners } from "@/components/sections/insurance-partners"
 import { Testimonials } from "@/components/sections/testimonials"
+import { DEPARTMENTS_LIST } from "@/lib/data/departments"
 import { HomepageTreatmentIcons } from "@/components/sections/homepage-treatment-icons"
 import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { Suspense } from "react"
@@ -127,25 +128,23 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
-            {[
-              { title: "General Medicine", slug: "general-medicine", iconUrl: "/images/general-medicine.png" },
-              { title: "Neurosurgery", slug: "neurosurgery", iconUrl: "/images/neurosurgery.png" },
-              { title: "Orthopaedics", slug: "orthopaedics", iconUrl: "/images/orthopedics.png" },
-              { title: "Oncology", slug: "oncology", iconUrl: "/images/oncology.png" },
-              { title: "GI & Bariatric", slug: "bariatric", iconUrl: "/images/gi-surgery-and-weight-loss.png" },
-              { title: "Urology", slug: "urology", iconUrl: "/images/urology-and-andrology.png" },
-              { title: "Gynaecology", slug: "gynaecology", iconUrl: "/images/gynecology.png" },
-              { title: "Emergency", slug: "emergency", iconUrl: "/images/emergency-trauma-and-critical-care.png" },
-            ].map((dept, index) => (
+            {DEPARTMENTS_LIST.slice(0, 8).map((dept, index) => (
               <Link
                 key={index}
                 href={`/services/${dept.slug}`}
-                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] py-5 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
+                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] py-6 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 mb-2 flex items-center justify-center">
-                  <Image src={dept.iconUrl} alt={dept.title} width={44} height={44} className="object-contain filter-orange group-hover:scale-105 transition-transform duration-300" />
+                <div className="w-14 h-14 md:w-16 md:h-16 mb-3 flex items-center justify-center relative">
+                  <Image 
+                    src={dept.iconUrl} 
+                    alt={dept.title} 
+                    width={56} 
+                    height={56} 
+                    className="object-contain transition-transform duration-300 group-hover:scale-105" 
+                    priority={index < 4}
+                  />
                 </div>
-                <h3 className="text-[15px] md:text-[16px] font-semibold text-orange-500 group-hover:text-orange-600 text-center transition-colors">
+                <h3 className="text-[14px] md:text-[15px] font-bold text-slate-800 group-hover:text-orange-600 text-center transition-colors">
                   {dept.title}
                 </h3>
               </Link>

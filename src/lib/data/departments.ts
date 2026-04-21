@@ -486,3 +486,26 @@ export const departmentsData: Record<string, DepartmentData> = {
         ]
     }
 }
+export interface DepartmentListItem {
+    title: string;
+    slug: string;
+    iconUrl: string;
+}
+
+export const DEPARTMENTS_LIST: DepartmentListItem[] = [
+    { title: "Pain Management", slug: "pain-management", iconUrl: "/images/Departmentsicons/departments/pain-management.png" },
+    { title: "Gynecology & Obstetrics", slug: "gynaecology", iconUrl: "/images/Departmentsicons/departments/gynecology-%26-obs.png" },
+    { title: "Orthopedic & Trauma", slug: "orthopaedics", iconUrl: "/images/Departmentsicons/departments/orthopedics.png" },
+    { title: "General Medicine", slug: "general-medicine", iconUrl: "/images/Departmentsicons/departments/general-medicine.png" },
+    { title: "General Surgery", slug: "general-surgery", iconUrl: "/images/Departmentsicons/departments/general-surgery.png" },
+    { title: "Spine Care", slug: "spine-care", iconUrl: "/images/Departmentsicons/departments/spine-surgery.png" },
+    { title: "Vascular Surgery", slug: "vascular", iconUrl: "/images/Departmentsicons/departments/vascular.png" },
+    { title: "Urology", slug: "urology", iconUrl: "/images/Departmentsicons/departments/urology.png" },
+    { title: "Oncology", slug: "oncology", iconUrl: "/images/Departmentsicons/departments/oncology.png" },
+    { title: "Proctology", slug: "proctology", iconUrl: "/images/Departmentsicons/departments/proctology.png" },
+    { title: "Cosmetic & Plastic Surgery", slug: "cosmetic-surgery", iconUrl: "/images/Departmentsicons/departments/plastic-surgey.png" },
+    { title: "ENT", slug: "ent", iconUrl: "/images/Departmentsicons/departments/ent.png" },
+    { title: "GI & Bariatric Surgery", slug: "bariatric", iconUrl: "/images/Departmentsicons/departments/gi-surgery.png" },
+    { title: "Neurosurgery", slug: "neurosurgery", iconUrl: "/images/Departmentsicons/departments/neurosurgery.png" },
+    { title: "Pulmonology", slug: "pulmonology", iconUrl: "/images/Departmentsicons/departments/pulmonology.png" },
+];

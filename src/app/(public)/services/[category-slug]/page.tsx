@@ -136,9 +136,7 @@ export default async function DepartmentPage({
                             </div>
 
                             {/* Hero Icon/Graphic (Desktop) */}
-                            <div className="hidden lg:flex h-48 w-48 rounded-3xl bg-slate-50 border border-slate-100 items-center justify-center flex-shrink-0 text-[var(--color-primary)]">
-                                <Icon className="h-24 w-24 opacity-80" />
-                            </div>
+                            <DepartmentHeroIcon slug={slug.toLowerCase()} />
                         </div>
                     </div>
                 </div>

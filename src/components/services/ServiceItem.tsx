@@ -35,7 +35,7 @@ export function ServiceItem({ name, slug, iconPath, isEmergency }: ServiceItemPr
               src={iconPath}
               alt={name}
               fill
-              className="object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+              className="object-contain transition-all duration-300"
             />
           </div>
         </div>
