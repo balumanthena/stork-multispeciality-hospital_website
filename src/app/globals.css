@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shift for images */
+img {
+  content-visibility: auto;
+}
+
+/* Premium smooth transitions */
+.transition-premium {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.will-change-height {
+  will-change: height;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom);
 }
