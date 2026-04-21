@@ -5,9 +5,9 @@ export const iconMap: Record<string, string> = {
     "Back pain": "Back-Pain.png",
     "Headache / Migraine": "Migraine.png",
     "Neck pain": "Neck-Pain.png",
-    "Regenerative therapies": "Pain-Management.png",
+    "Regenerative therapies": "General-Medicine.png",
     "Sports pain": "Pain-Management.png",
-    "Ablation Therapy": "Pain-Management.png",
+    "Ablation Therapy": "General-Medicine.png",
 
     // Orthopedics
     "Foot & ankle pain": "Ankle-Pain.png",
@@ -58,7 +58,7 @@ export const iconMap: Record<string, string> = {
     "Adenoidectomy": "Adenoidectomy.png",
     "FESS": "FESS.png",
     "Mastoidectomy": "Mastoidectomy.png",
-    "Myringotomy": "Myringotomy.png",
+    "Myringotomy": "ENT.png",
     "Septoplasty": "Septoplasty.png",
     "Tonsillectomy": "Tonsillectomy.png",
     "Tympanoplasty": "Tympanoplasty.png",
