@@ -11,7 +11,7 @@ import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
 import { Department } from "@/types"
 import { useSettings } from "@/providers/SettingsProvider"
 
-export function MobileNav({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
+export function MobileDrawer({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const [isOpen, setIsOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
     const { settings } = useSettings()

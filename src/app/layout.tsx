@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { SettingsProvider } from "@/providers/SettingsProvider";
+import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
+import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
 
 const fontSans = Inter({
   variable: "--font-sans",
@@ -16,13 +19,6 @@ export const metadata: Metadata = {
     icon: "/images/512.png",
   },
 };
-
-import { SettingsProvider } from "@/providers/SettingsProvider";
-
-
-
-import { MobileNav } from "@/components/layout/mobile-nav";
-import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
 
 
 export default function RootLayout({
@@ -41,7 +37,7 @@ export default function RootLayout({
         <SettingsProvider>
           {children}
         </SettingsProvider>
-        <MobileNav />
+        <MobileBottomNav />
         <Toaster />
         <AuthErrorHandler />
       </body>

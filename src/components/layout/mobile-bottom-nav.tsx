@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Button } from "@/components/ui/button"
 import { LocationMap } from "./location-map"
 
-export function MobileNav() {
+export function MobileBottomNav() {
     const pathname = usePathname()
     const [view, setView] = useState<"menu" | "location">("menu")
 

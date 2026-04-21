@@ -1,4 +1,4 @@
-import { GroupedTreatmentCategory } from "./grouped-treatments"
+import { GroupedTreatmentCategory } from "./types"
 
 // MASTER PROCEDURES LIST (25 ITEMS ONLY)
 export const HARDCODED_PROCEDURES: GroupedTreatmentCategory[] = [

@@ -7,7 +7,7 @@ import { Phone, Calendar, Mail, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { DesktopNav } from "./navbar/desktop-nav"
-import { MobileNav } from "./navbar/mobile-nav"
+import { MobileDrawer } from "./navbar/mobile-drawer"
 import { useSettings } from "@/providers/SettingsProvider"
 
 import { Department } from "@/types"
@@ -96,7 +96,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                     </div>
 
                     {/* Mobile Navigation Toggle */}
-                    <MobileNav departments={departments} groupedTreatments={groupedTreatments} />
+                    <MobileDrawer departments={departments} groupedTreatments={groupedTreatments} />
                 </div>
             </header>
         </>

@@ -28,6 +28,7 @@ import { PulmonologyContent } from "@/components/departments/pulmonology"
 import { UrologyContent } from "@/components/departments/urology"
 import { VascularSurgeryContent } from "@/components/departments/vascular"
 import { RelatedMedia } from "@/components/shared/related-media"
+import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
 export const revalidate = 0;
 

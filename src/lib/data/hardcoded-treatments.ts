@@ -1,4 +1,4 @@
-import { GroupedTreatmentCategory, BodyRegion } from "./grouped-treatments"
+import { GroupedTreatmentCategory, BodyRegion } from "./types"
 import { TREATMENTS_MASTER } from "./treatments"
 
 const DEPARTMENT_INFO: Record<string, { slug: string; href: string }> = {
