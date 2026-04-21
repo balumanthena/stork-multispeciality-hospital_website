@@ -111,7 +111,7 @@ export function Testimonials() {
 
     return (
         <section className="bg-white py-24 border-y border-slate-100">
-            <div className="container max-w-7xl mx-auto px-6">
+            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6">
 
                 {/* SECTION TITLE & PART 1: GOOGLE REVIEW SUMMARY */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">

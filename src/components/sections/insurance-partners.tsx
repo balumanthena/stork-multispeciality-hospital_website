@@ -103,7 +103,7 @@ export function InsurancePartners() {
 
     return (
         <Section className="py-[80px] bg-[#f7f9fc] overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Header Section */}
                 <div className="text-center max-w-3xl mx-auto mb-[48px]">
@@ -140,7 +140,7 @@ export function InsurancePartners() {
                 </motion.div>
             </div>
 
-            <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Trust Indicators & Navigation Action */}
                 <div className="mt-12 pt-8 max-w-4xl mx-auto text-center">

@@ -26,7 +26,7 @@ export default function Home() {
 
       {/* 1. HERO SECTION (Institutional Split - Corporate Look) */}
       <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100vh-124px)] flex items-center">
-        <div className="container max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-0">
+        <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-0">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
             {/* LEFT CONTENT */}
@@ -117,7 +117,7 @@ export default function Home() {
 
       {/* 3. CENTERS OF EXCELLENCE */}
       <section className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-800">
               Our Specialties
@@ -132,14 +132,14 @@ export default function Home() {
               <Link
                 key={index}
                 href={`/services/${dept.slug}`}
-                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] py-6 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
+                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] pt-6 pb-4 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 mb-3 flex items-center justify-center relative">
+                <div className="w-20 h-20 md:w-24 md:h-24 mb-4 flex items-center justify-center relative">
                   <Image 
                     src={dept.iconUrl} 
                     alt={dept.title} 
-                    width={56} 
-                    height={56} 
+                    width={96} 
+                    height={96} 
                     className="object-contain transition-transform duration-300 group-hover:scale-105" 
                     priority={index < 4}
                   />
@@ -158,7 +158,7 @@ export default function Home() {
 
       {/* 5. WHY CHOOSE US (Institutional Look) */}
       <Section className="py-10 md:py-24 bg-white border-y border-slate-100">
-        <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* LEFT CONTENT */}
@@ -260,7 +260,7 @@ export default function Home() {
                 {/* Stat Overlay (Removed 15k+) */}
                 <div className="absolute bottom-8 left-8 right-8 flex justify-center gap-12 sm:gap-24 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[28px] p-6 text-white">
                   <div className="text-center">
-                    <p className="text-2xl sm:text-3xl font-black mb-1">105+</p>
+                    <p className="text-2xl sm:text-3xl font-black mb-1">63+</p>
                     <p className="text-[10px] sm:text-[11px] uppercase font-bold tracking-[2px] opacity-90">Treatments</p>
                   </div>
                   <div className="w-[1px] h-12 bg-white/20 my-auto" />
@@ -295,7 +295,7 @@ export default function Home() {
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
 
-        <div className="container max-w-5xl mx-auto px-6 text-center relative z-10">
+        <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#ff8202] text-xs font-black uppercase tracking-[0.2em] mb-8">
             <Clock className="w-4 h-4" />
             <span>Available 24/7 For You</span>

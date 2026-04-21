@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { DEPARTMENTS_LIST } from '@/lib/data/departments';
 import { ServiceItem } from '@/components/services/ServiceItem';
+import { Container } from '@/components/layout/container';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -37,7 +38,7 @@ export default function ServicesPage() {
               }}
           />
 
-          <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <Container className="px-6 relative z-10 w-full">
               <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                   {/* Left Side */}
                   <div className="max-w-2xl text-center md:text-left">
@@ -64,12 +65,12 @@ export default function ServicesPage() {
                       </div>
                   </div>
               </div>
-          </div>
+          </Container>
       </section>
 
       {/* 2. SERVICES GRID */}
       <section className="pt-24 md:pt-32 pb-32">
-        <div className="container max-w-7xl mx-auto px-6">
+        <Container className="px-6">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -86,13 +87,13 @@ export default function ServicesPage() {
               />
             ))}
           </motion.div>
-        </div>
+        </Container>
       </section>
 
       {/* 3. CTA SECTION */}
       <section className="bg-slate-900 py-32 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-0 skew-x-12 translate-x-32" />
-        <div className="container max-w-7xl mx-auto px-6 relative z-10">
+        <Container className="px-6 relative z-10">
           <div className="bg-white/5 border border-white/5 backdrop-blur-xl rounded-[40px] p-12 md:p-20 flex flex-col items-center text-center gap-10">
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight max-w-4xl">
               Ready to <span className="text-[#ff8202]">Prioritize</span> Your Health?
@@ -127,7 +128,7 @@ export default function ServicesPage() {
                ))}
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* DIVIDER WAVE */}

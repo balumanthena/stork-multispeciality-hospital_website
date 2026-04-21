@@ -83,7 +83,33 @@ export const iconMap: Record<string, string> = {
 
     // General Medicine
     "Diabetic foot ulcer": "Diabetic-Foot.png",
-    "General Medicine": "General-Medicine.png"
+    "General Medicine": "General-Medicine.png",
+
+    // New List Aliases
+    "Anal fistulas": "Anal-Fistula.png",
+    "laser circumsession": "Stapler-Circumcision.png",
+    "Umbilical hernia": "Inguinal-Hernia.png",
+    "Gall stones": "Gallstones.png",
+    "Diabetic foot": "Diabetic-Foot.png",
+    "DVT": "Vascular.png",
+    "TKR": "Knee-Replacement.png",
+    "Endoscopic interlaminar": "Endocopic-key-hole-discectomy.png",
+    "Transforaminal endoscopic": "Endocopic-key-hole-discectomy.png",
+    "Headach migraine": "Migraine.png",
+    "Backpain": "Back-Pain.png",
+    "PLDD": "Spine-Surgery.png",
+    "Elbow pain": "Shoulder-Pain.png",
+    "Carpal tunnel syndrome": "Orthopedics.png",
+    "Cancer pain": "Cancer-Pain.png",
+    "Regenerative therapy (PRP)": "General-Medicine.png",
+    "Labioplasty": "Labioplasty.png",
+    "URSL": "Kidney-Stones.png",
+    "RIRS": "Kidney-Stones.png",
+    "TURP (Prostatectomy)": "Prostatomegaly-(BPH).png",
+    "Kidney stone ( PCNL)": "Kidney-Stones.png",
+    "Adenoidectomy / Tonsillectomy": "Tonsillectomy.png",
+    "Typanoplasty": "Tympanoplasty.png",
+    "Bariatric": "Bariatric-Surgery.png"
 };
 
 /**

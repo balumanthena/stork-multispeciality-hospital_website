@@ -7,6 +7,8 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode
 }
 
+import { Container } from "./container"
+
 export function Section({
     container = true,
     className,
@@ -19,7 +21,7 @@ export function Section({
             {...props}
         >
             {container ? (
-                <div className="container mx-auto px-4 md:px-6">{children}</div>
+                <Container>{children}</Container>
             ) : (
                 children
             )}

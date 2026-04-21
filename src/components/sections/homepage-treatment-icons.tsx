@@ -10,7 +10,7 @@ import { getTreatmentIcon } from "@/lib/data/treatment-icons-map"
 
 function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { name: string }, slug: string, priority?: boolean }) {
     const iconPath = getTreatmentIcon(treatment.name)
-    
+
     return (
         <Link
             href={`/treatments/${slug}`}
@@ -44,8 +44,8 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
 
     return (
         <section ref={sectionRef} className="py-16 md:py-20 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24">
-            <div className="container max-w-[1440px] mx-auto px-4 md:px-10">
-                
+            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-10">
+
                 <div className="text-center mb-12 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -57,17 +57,17 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                     </motion.div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Expert Care for Every Need</h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium opacity-80">
-                        Explore our comprehensive range of 105 specialized treatments across expert departments.
+                        Explore our comprehensive specialized treatments across expert departments.
                     </p>
                 </div>
 
                 <div className="relative">
                     <motion.div
-                        animate={{ 
-                            height: expanded ? "auto" : 580 
+                        animate={{
+                            height: expanded ? "auto" : 580
                         }}
-                        transition={{ 
-                            duration: 0.6, 
+                        transition={{
+                            duration: 0.6,
                             ease: [0.23, 1, 0.32, 1]
                         }}
                         className="relative overflow-hidden will-change-height"
@@ -75,10 +75,10 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         <div ref={contentRef} className="w-full">
                             <div className="flex flex-wrap justify-center gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-6 pb-16">
                                 {TREATMENTS_MASTER.map((treatment, index) => (
-                                    <TreatmentIconBox 
-                                        key={treatment.id} 
-                                        treatment={treatment} 
-                                        slug={treatment.slug} 
+                                    <TreatmentIconBox
+                                        key={treatment.id}
+                                        treatment={treatment}
+                                        slug={treatment.slug}
                                         priority={index < 18} // Priority load first 2 rows
                                     />
                                 ))}
@@ -88,7 +88,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         {/* Fade Overlay when collapsed */}
                         <AnimatePresence>
                             {!expanded && (
-                                <motion.div 
+                                <motion.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
@@ -104,8 +104,8 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         onClick={handleToggle}
                         className="group flex items-center gap-4 px-12 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all shadow-xl active:scale-95 active:translate-y-1"
                     >
-                        <span className="text-[15px]">{expanded ? "Show Less" : `View All 105 Treatments`}</span>
-                        <motion.div 
+                        <span className="text-[15px]">{expanded ? "Show Less" : `View All 63 Treatments`}</span>
+                        <motion.div
                             animate={{ rotate: expanded ? 180 : 0 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
                         >

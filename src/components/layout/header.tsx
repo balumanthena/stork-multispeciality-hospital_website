@@ -12,6 +12,7 @@ import { useSettings } from "@/providers/SettingsProvider"
 
 import { Department } from "@/types"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+import { Container } from "@/components/layout/container"
 
 export interface HeaderProps {
     departments?: Department[]
@@ -37,7 +38,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                 "w-full bg-[#f8fafc] border-b border-slate-200 py-2.5 hidden lg:block transition-all duration-300 overflow-hidden",
                 isScrolled ? "h-0 py-0 border-none opacity-0" : "h-[40px]"
             )}>
-                <div className="container max-w-[1440px] mx-auto px-10 flex justify-between items-center text-[13px] text-slate-600 font-medium tracking-wide">
+                <Container className="px-10 flex justify-between items-center text-[13px] text-slate-600 font-medium tracking-wide">
                     <div className="flex items-center gap-8">
                         <div className="flex items-center gap-2 group cursor-pointer">
                             <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center text-[#ff8202] group-hover:bg-[#ff8202] group-hover:text-white transition-colors">
@@ -56,7 +57,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                             <span>OP: 9:00 AM - 8:00 PM</span>
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
 
             <header
@@ -65,7 +66,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                     isScrolled ? "h-[72px] shadow-md border-slate-200" : "h-[84px] border-[#eaeef3]"
                 )}
             >
-                <div className="container max-w-[1440px] mx-auto px-4 lg:px-10 h-full flex items-center justify-between">
+                <Container className="px-4 lg:px-10 h-full flex items-center justify-between">
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 flex-shrink-0 z-50 group">
@@ -97,7 +98,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
 
                     {/* Mobile Navigation Toggle */}
                     <MobileDrawer departments={departments} groupedTreatments={groupedTreatments} />
-                </div>
+                </Container>
             </header>
         </>
     )

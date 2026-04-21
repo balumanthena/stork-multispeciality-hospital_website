@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight, Youtube, MessageCircle } from "lucide-react"
 import { useSettings } from "@/providers/SettingsProvider"
+import { Container } from "@/components/layout/container"
 
 export function Footer() {
     const { settings } = useSettings()
@@ -25,7 +26,7 @@ export function Footer() {
 
     return (
         <footer className="bg-white text-slate-600 py-16 md:py-20 border-t border-slate-100">
-            <div className="container max-w-7xl mx-auto px-6">
+            <Container className="px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand & About */}
                     <div>
@@ -133,7 +134,7 @@ export function Footer() {
                         <Link href="#" className="hover:text-[#ff8202] transition-colors">Sitemap</Link>
                     </div>
                 </div>
-            </div>
+            </Container>
         </footer>
     )
 }

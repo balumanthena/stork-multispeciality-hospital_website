@@ -19,6 +19,7 @@ import { DoctorCard } from '@/components/doctors/DoctorCard';
 import { FiltersSidebar } from '@/components/doctors/FiltersSidebar';
 import { DoctorProfileDialog } from '@/components/doctors/DoctorProfileDialog';
 import { DoctorSkeleton } from '@/components/doctors/DoctorSkeleton';
+import { Container } from '@/components/layout/container';
 
 export default function DoctorsPage() {
   const router = useRouter();
@@ -72,7 +73,7 @@ export default function DoctorsPage() {
       
       {/* 1. HERO SECTION */}
       <section className="bg-white border-b border-slate-100 pt-32 pb-12">
-        <div className="container max-w-7xl mx-auto px-6">
+        <Container className="px-6">
           <nav className="flex items-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">
             <Link href="/" className="hover:text-[#ff8202] transition-colors">Home</Link>
             <ChevronRight className="h-3 w-3 mx-3 text-slate-300" />
@@ -91,12 +92,12 @@ export default function DoctorsPage() {
                <span className="text-[#ff8202]">Specialized Doctors</span>
             </h1>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* 2. RESULTS AREA */}
       <Section className="py-12 md:py-16">
-        <div className="container max-w-7xl mx-auto px-6">
+        <Container className="px-6">
           <div className="flex flex-col lg:flex-row gap-8">
             
             {/* Sidebar */}
@@ -182,13 +183,13 @@ export default function DoctorsPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </Section>
 
       {/* CTA SECTION */}
       <section className="bg-[#ff8202] py-24 relative overflow-hidden">
          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-         <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center space-y-8">
+         <Container className="max-w-4xl px-6 relative z-10 text-center space-y-8">
             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
               Looking for a Specific Specialist?
             </h2>
@@ -202,7 +203,7 @@ export default function DoctorsPage() {
                   </Button>
                </Link>
             </div>
-         </div>
+         </Container>
       </section>
 
       {/* PROFILE DIALOG */}

@@ -13,7 +13,7 @@ export async function BlogScrollSection() {
 
     return (
         <section className="py-16 bg-slate-50 overflow-hidden border-t border-slate-100">
-            <div className="container max-w-7xl mx-auto px-6 mb-8 text-right">
+            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6 mb-8 text-right">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-1">
                     Latest Articles
                 </h2>

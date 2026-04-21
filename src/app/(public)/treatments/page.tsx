@@ -3,6 +3,7 @@ import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { ProceduresClient } from "@/components/treatments/procedures-client"
 import { Activity } from "lucide-react"
 import { Section } from "@/components/layout/section"
+import { Container } from "@/components/layout/container"
 
 export const metadata: Metadata = {
     title: "Treatments | Stork Multispecialty Hospital",
@@ -24,7 +25,7 @@ export default function TreatmentsPage() {
                     }}
                 />
 
-                <div className="container max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <Container className="px-6 relative z-10 w-full">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                         {/* Left Side */}
                         <div className="max-w-2xl text-center md:text-left">
@@ -51,7 +52,7 @@ export default function TreatmentsPage() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Container>
             </Section>
 
             {/* Reusing the ProceduresClient but pointing to /treatments */}
