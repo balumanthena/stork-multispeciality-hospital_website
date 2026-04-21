@@ -16,17 +16,17 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
             href={`/treatments/${slug}`}
             className="flex flex-col items-center justify-start w-full group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
-            <div className="w-[72px] h-[72px] sm:w-[84px] sm:h-[84px] rounded-[20px] bg-white border border-slate-100/80 shadow-sm flex items-center justify-center p-1 group-hover:border-[#ff8202]/30 group-hover:shadow-md transition-all duration-500 relative mb-3 overflow-hidden">
+            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-[24px] bg-white border border-slate-100/80 shadow-sm flex items-center justify-center p-2 group-hover:border-[#ff8202]/30 group-hover:shadow-md transition-all duration-500 relative mb-3 overflow-hidden">
                 <Image
                     src={iconPath}
                     alt={treatment.name}
                     fill
-                    className="object-contain p-3.5 transition-transform duration-500 group-hover:scale-110"
-                    sizes="84px"
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                    sizes="110px"
                     priority={priority}
                 />
             </div>
-            <span className="text-[11px] sm:text-[13px] font-semibold text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1">
+            <span className="text-[12px] sm:text-[14px] font-bold text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1">
                 {treatment.name}
             </span>
         </Link>
@@ -64,7 +64,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                 <div className="relative">
                     <motion.div
                         animate={{ 
-                            height: expanded ? "auto" : 520 
+                            height: expanded ? "auto" : 580 
                         }}
                         transition={{ 
                             duration: 0.6, 
@@ -73,7 +73,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         className="relative overflow-hidden will-change-height"
                     >
                         <div ref={contentRef} className="w-full">
-                            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9 gap-y-12 gap-x-2 sm:gap-x-3 pb-16">
+                            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-9 gap-y-8 sm:gap-y-10 gap-x-3 sm:gap-x-4 pb-16">
                                 {TREATMENTS_MASTER.map((treatment, index) => (
                                     <TreatmentIconBox 
                                         key={treatment.id} 
