@@ -27,6 +27,7 @@ import { ProctologyContent } from "@/components/departments/proctology"
 import { PulmonologyContent } from "@/components/departments/pulmonology"
 import { UrologyContent } from "@/components/departments/urology"
 import { VascularSurgeryContent } from "@/components/departments/vascular"
+import { SpineCareContent } from "@/components/departments/spine-care"
 import { RelatedMedia } from "@/components/shared/related-media"
 import { DepartmentHeroIcon } from "@/components/department-hero-icon"
 
@@ -98,6 +99,7 @@ export default async function DepartmentPage({
         case 'pain-management': return <PainManagementContent blogs={blogs} videos={videos} />
         case 'proctology': return <ProctologyContent blogs={blogs} videos={videos} />
         case 'pulmonology': return <PulmonologyContent blogs={blogs} videos={videos} />
+        case 'spine-care': return <SpineCareContent blogs={blogs} videos={videos} />
         case 'urology': return <UrologyContent blogs={blogs} videos={videos} />
         case 'vascular': return <VascularSurgeryContent blogs={blogs} videos={videos} />
     }

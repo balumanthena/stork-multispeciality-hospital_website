@@ -484,6 +484,14 @@ export const departmentsData: Record<string, DepartmentData> = {
             { name: "Dr. Maheshwar Rao", role: "Vascular Surgeon", exp: "23+ Years", qual: "MBBS, MS, MCh (Vascular)" },
             { name: "Dr. Sujata K", role: "Endovascular Specialist", exp: "14+ Years", qual: "MBBS, DNB" },
         ]
+    },
+    "spine-care": {
+        title: "Spine Care",
+        description: "Advanced, minimally invasive spine care for slipped discs, sciatica, and chronic back pain. Restore your mobility with expert targeted treatments.",
+        icon: Bone,
+        services: [], // Services mapped via full UI override
+        procedures: [],
+        doctors: []
     }
 }
 export interface DepartmentListItem {
