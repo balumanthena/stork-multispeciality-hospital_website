@@ -22,10 +22,10 @@ import {
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-sans text-slate-900 bg-slate-50">
+    <div className="font-sans text-slate-900 bg-slate-50">
 
       {/* 1. HERO SECTION (Institutional Split - Corporate Look) */}
-      <section className="w-full bg-[#f8fafc] overflow-hidden lg:h-[calc(100vh-124px)] flex items-center">
+      <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100vh-124px)] flex items-center">
         <div className="container max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-0">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 

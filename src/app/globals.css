@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@source "../components";
+@source "../lib";
+@source "../app";
 
 html {
   scroll-behavior: smooth;
@@ -6,9 +9,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent layout shift for images */
+/* Ensure image responsiveness without content-visibility */
 img {
-  content-visibility: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Premium smooth transitions */
