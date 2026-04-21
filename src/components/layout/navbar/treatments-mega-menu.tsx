@@ -2,67 +2,79 @@
 
 import React from "react"
 import Link from "next/link"
-import { ArrowRight, ChevronRight } from "lucide-react"
-import { usePathname, useRouter } from "next/navigation"
+import { ArrowRight } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+import { MEGA_MENU_TREATMENTS } from "@/lib/data/mega-menu-treatments"
 import { MegaMenuSection } from "./nav-data"
 
 interface TreatmentsMegaMenuProps {
-    treatments: MegaMenuSection[] | GroupedTreatmentCategory[]
     onClose?: () => void
     title?: "Treatments" | "Procedures"
     viewAllHref?: string
 }
 
-export function TreatmentsMegaMenu({ treatments, onClose, title = "Treatments", viewAllHref = "/treatments" }: TreatmentsMegaMenuProps) {
-    const pathname = usePathname()
+const TARGET_CATEGORIES = [
+    "Pain Management",
+    "Gynecology & Obstetrics",
+    "Orthopedics & Trauma",
+    "General Medicine",
+    "General Surgery"
+]
+
+export function TreatmentsMegaMenu({ onClose, title = "Treatments", viewAllHref = "/treatments" }: TreatmentsMegaMenuProps) {
     const router = useRouter()
 
-    // Take only first 5 categories to maintain the 5-column layout
-    const displayTreatments = treatments.slice(0, 5)
+    // Dynamically fetch the 5 exact target categories from the data, preserving order
+    const displayTreatments = TARGET_CATEGORIES.map(targetTitle => {
+        return MEGA_MENU_TREATMENTS.find(cat => cat.title.toLowerCase() === targetTitle.toLowerCase())
+    }).filter(Boolean) as GroupedTreatmentCategory[]
 
     return (
         <div className="container max-w-[1300px] mx-auto py-10 px-8">
             <div className="bg-white rounded-[16px]">
-                {/* Main Grid Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10">
+                
+                {/* 5-Column Layout Desktop, 2-Column Tablet */}
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
                     {displayTreatments.map((category, index) => (
                         <div
                             key={category.title}
                             className={cn(
-                                "group/column flex flex-col",
-                                // Add border to all except the last column on desktop
-                                index !== displayTreatments.length - 1 && "xl:border-r xl:border-slate-100"
+                                "flex flex-col relative",
+                                // Vertical divider for desktop (all columns except last)
+                                index !== displayTreatments.length - 1 && "lg:after:content-[''] lg:after:absolute lg:after:top-2 lg:after:bottom-2 lg:after:-right-6 lg:after:w-[1px] lg:after:bg-slate-100"
                             )}
                         >
-                            {/* Department Title */}
+                            {/* Column Header */}
                             <Link
                                 href={category.slug ? `/services/${category.slug}` : "#"}
                                 onClick={onClose}
-                                className="inline-block"
+                                className="inline-block mb-4"
                             >
-                                <h3 className="text-[14px] font-bold text-[#ff8202] uppercase tracking-[1px] border-b border-gray-100 pb-4 mb-4 hover:text-[#e67502] transition-colors">
+                                <h3 className="text-[13px] font-bold text-[#ff8202] uppercase tracking-[1.5px] hover:text-[#e67502] transition-colors">
                                     {category.title}
                                 </h3>
                             </Link>
 
-                            {/* Treatments List */}
-                            <ul className="flex flex-col space-y-1">
-                                {category.items.slice(0, 8).map((item, idx) => (
-                                    <li key={idx}>
-                                        <Link
-                                            href={`/treatments/${item.href.split("/").pop()}`}
-                                            onClick={onClose}
-                                            className="group/item flex items-center text-[15px] text-[#374151] leading-[34px] hover:text-[#ff8202] transition-all duration-200 ease-in-out hover:pl-1.5"
-                                        >
-                                            <span className="opacity-0 w-0 -ml-2 group-hover/item:opacity-100 group-hover/item:w-auto group-hover/item:text-[#ff8202] group-hover/item:mr-2 transition-all duration-200">
-                                                <ChevronRight className="w-3 h-3" />
-                                            </span>
-                                            {item.title}
-                                        </Link>
-                                    </li>
-                                ))}
+                            {/* Treatment Items */}
+                            <ul className="flex flex-col space-y-2.5">
+                                {category.items.slice(0, 10).map((item, idx) => {
+                                    // Extract final part of href
+                                    const slug = typeof item.href === 'string' ? item.href.split("/").pop() : "";
+                                    
+                                    return (
+                                        <li key={idx}>
+                                            <Link
+                                                href={`/treatments/${slug}`}
+                                                onClick={onClose}
+                                                className="block text-[14px] font-medium text-slate-600 hover:text-[#ff8202] hover:translate-x-1 transition-all duration-200 ease-in-out cursor-pointer"
+                                            >
+                                                {item.title}
+                                            </Link>
+                                        </li>
+                                    )
+                                })}
                             </ul>
                         </div>
                     ))}
@@ -75,7 +87,7 @@ export function TreatmentsMegaMenu({ treatments, onClose, title = "Treatments", 
                             onClose?.()
                             router.push(viewAllHref)
                         }}
-                        className="group/cta inline-flex items-center text-[15px] font-semibold text-[#ff8202] hover:text-[#e67502] transition-colors cursor-pointer"
+                        className="group/cta inline-flex items-center text-[14px] font-bold text-[#ff8202] hover:text-[#e67502] transition-colors cursor-pointer uppercase tracking-wider"
                     >
                         View All {title}
                         <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" />

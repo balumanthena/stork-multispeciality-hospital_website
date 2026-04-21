@@ -3,18 +3,34 @@
 import React, { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import Link from "next/link"
-import { ChevronRight, Phone, X, Menu, Calendar, Building2, Stethoscope, Users, Info, MapPin } from "lucide-react"
+import { ChevronRight, ChevronDown, Phone, X, Menu, Calendar, Building2, Stethoscope, Users, Info, MapPin } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { DEPARTMENTS, TREATMENTS } from "./nav-data"
 import { cn } from "@/lib/utils"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
+import { MEGA_MENU_TREATMENTS } from "@/lib/data/mega-menu-treatments"
 import { Department } from "@/types"
 import { useSettings } from "@/providers/SettingsProvider"
 
 export function MobileDrawer({ departments = [], groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const [isOpen, setIsOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
+    const [isTreatmentsOpen, setIsTreatmentsOpen] = useState(false)
+    const [expandedCategory, setExpandedCategory] = useState<string | null>(null)
     const { settings } = useSettings()
+
+    const TARGET_CATEGORIES = [
+        "Pain Management",
+        "Gynecology & Obstetrics",
+        "Orthopedics & Trauma",
+        "General Medicine",
+        "General Surgery"
+    ]
+
+    const displayTreatments = TARGET_CATEGORIES.map(targetTitle => {
+        return MEGA_MENU_TREATMENTS.find(cat => cat.title.toLowerCase() === targetTitle.toLowerCase())
+    }).filter(Boolean) as GroupedTreatmentCategory[]
 
     useEffect(() => {
         setMounted(true)
@@ -89,12 +105,92 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                 label="Departments" 
                                 onClick={() => setIsOpen(false)} 
                             />
-                            <MenuCard 
-                                href="/treatments" 
-                                icon={Stethoscope} 
-                                label="Treatments" 
-                                onClick={() => setIsOpen(false)} 
-                            />
+                            {/* Treatments Accordion */}
+                            <div className="flex flex-col rounded-xl bg-white border border-gray-100 shadow-sm overflow-hidden">
+                                <button
+                                    onClick={() => setIsTreatmentsOpen(!isTreatmentsOpen)}
+                                    className="flex items-center justify-between px-4 py-4 active:bg-slate-50 transition-colors w-full group"
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <div className="bg-gray-50 p-2 rounded-lg text-slate-400 group-hover:text-[#ff8202] group-hover:bg-orange-50 transition-colors">
+                                            <Stethoscope className="w-5 h-5" />
+                                        </div>
+                                        <span className="text-[15px] font-medium text-slate-700">Treatments</span>
+                                    </div>
+                                    <motion.div animate={{ rotate: isTreatmentsOpen ? 180 : 0 }}>
+                                        <ChevronDown className="w-4 h-4 text-slate-400" />
+                                    </motion.div>
+                                </button>
+                                
+                                <AnimatePresence>
+                                    {isTreatmentsOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="overflow-hidden bg-slate-50 border-t border-slate-100"
+                                        >
+                                            <div className="py-2 px-3 space-y-1">
+                                                {displayTreatments.map((category) => (
+                                                    <div key={category.title} className="flex flex-col">
+                                                        <button
+                                                            onClick={() => setExpandedCategory(expandedCategory === category.title ? null : category.title)}
+                                                            className="flex items-center justify-between p-3 rounded-lg text-left text-[14px] font-bold text-slate-700 hover:bg-white transition-colors"
+                                                        >
+                                                            <span>{category.title}</span>
+                                                            <ChevronDown className={cn("w-3.5 h-3.5 text-slate-400 transition-transform", expandedCategory === category.title && "rotate-180")} />
+                                                        </button>
+                                                        
+                                                        <AnimatePresence>
+                                                            {expandedCategory === category.title && (
+                                                                <motion.div
+                                                                    initial={{ height: 0, opacity: 0 }}
+                                                                    animate={{ height: "auto", opacity: 1 }}
+                                                                    exit={{ height: 0, opacity: 0 }}
+                                                                    className="overflow-hidden"
+                                                                >
+                                                                    <ul className="py-1 px-4 space-y-2 mb-2">
+                                                                        {category.items.slice(0, 8).map((item, idx) => {
+                                                                            const slug = typeof item.href === 'string' ? item.href.split("/").pop() : "";
+                                                                            return (
+                                                                                <li key={idx}>
+                                                                                    <Link
+                                                                                        href={`/treatments/${slug}`}
+                                                                                        onClick={() => setIsOpen(false)}
+                                                                                        className="block text-[14px] text-slate-500 py-1 hover:text-[#ff8202] hover:pl-1 transition-all"
+                                                                                    >
+                                                                                        {item.title}
+                                                                                    </Link>
+                                                                                </li>
+                                                                            )
+                                                                        })}
+                                                                        <li>
+                                                                            <Link
+                                                                                href="/treatments"
+                                                                                onClick={() => setIsOpen(false)}
+                                                                                className="block text-[13px] font-bold text-[#ff8202] mt-2 py-1 uppercase tracking-wider"
+                                                                            >
+                                                                                View All →
+                                                                            </Link>
+                                                                        </li>
+                                                                    </ul>
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
+                                                    </div>
+                                                ))}
+                                                <Link 
+                                                    href="/treatments"
+                                                    onClick={() => setIsOpen(false)}
+                                                    className="flex justify-center items-center p-3 text-[13px] font-bold text-slate-500 hover:text-[#ff8202] mt-2 border-t border-slate-200"
+                                                >
+                                                    Explore All Categories
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
                             <MenuCard 
                                 href="/doctors" 
                                 icon={Users} 

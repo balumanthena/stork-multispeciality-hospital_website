@@ -79,7 +79,16 @@ export function DesktopNav({ groupedTreatments = [] }: { departments?: Departmen
     const isActive = (path: string) => pathname === path
 
     return (
-        <nav className="hidden lg:flex items-center gap-7 h-full" onMouseLeave={() => setActiveMenu(null)}>
+        <>
+            {/* Mega Menu Global Backdrop Overlay */}
+            <div 
+                className={cn(
+                    "fixed inset-0 top-[114px] bg-slate-900/20 backdrop-blur-[2px] z-30 transition-all duration-300 pointer-events-none",
+                    activeMenu && activeMenu !== "insights" ? "opacity-100 visible" : "opacity-0 invisible"
+                )}
+            />
+
+            <nav className="hidden lg:flex items-center gap-7 h-full" onMouseLeave={() => setActiveMenu(null)}>
 
             {/* Home */}
             <Link
@@ -174,7 +183,6 @@ export function DesktopNav({ groupedTreatments = [] }: { departments?: Departmen
                     activeMenu === "treatments" ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 )}>
                     <TreatmentsMegaMenu
-                        treatments={groupedTreatments.length > 0 ? groupedTreatments : TREATMENTS}
                         onClose={() => setActiveMenu(null)}
                     />
                 </div>
@@ -289,5 +297,6 @@ export function DesktopNav({ groupedTreatments = [] }: { departments?: Departmen
 
 
         </nav>
+        </>
     )
 }
