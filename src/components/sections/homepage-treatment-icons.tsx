@@ -43,15 +43,6 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
     // We'll use a height-based approach for maximum smoothness
 
     const handleToggle = () => {
-        if (expanded) {
-            // Smoothly scroll to section top before/during collapse
-            const yOffset = -100; // Offset for fixed header
-            const element = sectionRef.current;
-            if (element) {
-                const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        }
         setExpanded(!expanded);
     };
 
