@@ -21,7 +21,7 @@ function TreatmentIconBox({ treatment, slug }: { treatment: { name: string }, sl
                     src={iconPath}
                     alt={treatment.name}
                     fill
-                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110 filter-orange"
+                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
                     sizes="68px"
                 />
             </div>
