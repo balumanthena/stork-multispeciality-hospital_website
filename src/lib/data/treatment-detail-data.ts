@@ -74,7 +74,8 @@ const PROCEDURE_ALIAS_MAP: Record<string, string> = {
     "knee-replacement": "total-knee-replacement",
     "hip-replacement": "hip-replacement-surgery",
     "acl-pcl-tear": "arthroscopy-surgery",
-    "uterine-fibroids-surgery": "uterine-fibroids"
+    "uterine-fibroids-surgery": "uterine-fibroids",
+    "cancer-pain": "cancer-pain-management"
 }
 
 export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
@@ -4527,106 +4528,112 @@ At Stork Multispecialty Hospital, Hyderabad, our spine specialists use the lates
     if (slug === "mtp") {
         return {
             slug: slug,
-            title: "Safe Abortion & Family Planning – Stork Hospital, Hyderabad",
-            subheading: "Confidential, Compassionate Reproductive Health Services for Women",
-            breadcrumbTitle: "MTP & Family Planning",
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `At Stork Multispecialty Hospital, Hyderabad, we believe that every woman deserves access to informed and respectful reproductive care. Our facility offers legal and safe abortion services (MTP) and comprehensive family planning options in a secure, judgment-free setting.
+            title: "MTP (Medical Termination of Pregnancy) – Stork Hospital, Hyderabad",
+            subheading: "Safe, Legal & Confidential Abortion Care for Women",
+            tagline: "Medical Termination of Pregnancy (MTP) is a safe and legally approved method to end a pregnancy under medical supervision, as per the Medical Termination of Pregnancy Act, 1971.",
+            breadcrumbTitle: "MTP",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services/gynecology",
+            shortDescription: `Medical Termination of Pregnancy (MTP) is a safe and legally approved method to end a pregnancy under medical supervision, as per the Medical Termination of Pregnancy Act, 1971. At Stork Multispecialty Hospital, Hyderabad, we ensure that every woman receives respectful, confidential, and medically safe care in a supportive environment.
 
-From choosing a contraceptive method to seeking guidance for an unplanned pregnancy, our women’s health specialists provide complete support at every stage.`,
-
+Whether it is an unplanned pregnancy or a medical necessity, our experienced gynecologists provide complete guidance and treatment tailored to your individual needs.`,
+            
             overview: {
-                heading: "Why Women Trust Stork for Reproductive Health in Hyderabad",
-                intro: "We combine medical expertise with respectful and private care:",
+                heading: "Why Choose Stork Hospital for MTP Services",
+                intro: "We ensure every woman receives respectful, confidential, and medically safe care:",
                 items: [
-                    "Experienced gynecologists specializing in MTP and contraception in Hyderabad",
-                    "Walk-in family planning support near Kondapur with same-day appointments",
-                    "Legal termination services in accordance with the MTP Act (up to 24 weeks in eligible scenarios)",
-                    "Both non-surgical and surgical procedures available",
-                    "Discreet, all-female care team in a comforting environment",
-                    "Fully certified Hyderabad hospital accepting insurance for eligible procedures"
+                    "Experienced gynecologists specializing in safe abortion care",
+                    "100% confidential and judgment-free consultation",
+                    "Legal procedures as per MTP guidelines (up to eligible weeks)",
+                    "Medical and surgical options available",
+                    "Discreet and comfortable environment for women",
+                    "Same-day consultation and treatment support",
+                    "Complete counseling and follow-up care"
                 ]
             },
-            fullDescription: [],
-
-            conditionsHeading: "What We Offer in Family Planning & MTP",
-            conditionsTreated: [
-                "Medical abortion using prescribed medications with doctor supervision",
-                "Surgical abortion (vacuum aspiration) for early-stage pregnancies",
-                "Counseling on birth control pills, IUDs, implants, and injectables",
-                "Emergency contraceptive pills (ECP)",
-                "Permanent options like tubal ligation or laparoscopic sterilization"
+            fullDescription: [
+                "At Stork Multispecialty Hospital, Hyderabad, we ensure that every woman receives respectful, confidential, and medically safe care in a supportive environment."
             ],
 
-            procedureHeading: "Our Process for MTP at Stork",
+            conditionsHeading: "When is MTP Considered",
+            conditionsTreated: [
+                "Unplanned or unwanted pregnancy",
+                "Contraceptive failure",
+                "Risk to mother’s physical or mental health",
+                "Fetal abnormalities",
+                "Pregnancy due to unforeseen circumstances"
+            ],
+
+            procedureHeading: "Types of MTP Procedures",
             procedureSteps: [
                 {
-                    title: "Consultation",
-                    description: "One-on-one session with a registered MTP doctor. Evaluation including pregnancy test and overall health review."
+                    title: "Medical Abortion",
+                    description: "Use of prescribed medications under doctor supervision. Suitable for early-stage pregnancy. Non-invasive and safe when monitored properly."
                 },
                 {
-                    title: "Decision",
-                    description: "Choosing the safest termination option suited to the patient’s condition."
-                },
-                {
-                    title: "Procedure",
-                    description: "Done in a sterile, private setting—either medically or surgically."
-                },
-                {
-                    title: "Recovery",
-                    description: "Recovery guidance and optional birth control counseling."
+                    title: "Surgical Abortion",
+                    description: "Vacuum aspiration or minor procedure. Performed in a sterile environment. Quick, effective, and safe."
                 }
             ],
 
-            benefitsHeading: "Supportive Approach to Family Planning",
+            benefitsHeading: "Our MTP Process at Stork Hospital",
             benefits: [
-                "Female professionals available for personalized counseling",
-                "Private consultation areas and short waiting times",
-                "Recognized Hyderabad center for confidential contraception and abortion",
-                "Friendly guidance in choosing the right contraceptive method",
-                "Every service is delivered with counseling, privacy, and informed consent"
+                "Private consultation with a registered gynecologist",
+                "Pregnancy confirmation and health evaluation",
+                "Selection of safest method based on patient condition",
+                "Procedure in a secure, sterile setup",
+                "Post-procedure care and recovery guidance",
+                "Optional contraception counseling"
             ],
 
             risks: [],
-            recoveryTimeline: [],
 
-            faqHeading: "FAQs – Abortion & Birth Control at Stork",
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Mild cramping and bleeding for a few days",
+                "Rest and proper hygiene are important",
+                "Follow prescribed medications carefully",
+                "Avoid heavy physical activity temporarily",
+                "Attend follow-up visit for complete recovery"
+            ],
+
+            faqHeading: "FAQs – MTP",
             faqs: [
                 {
-                    question: "Is abortion allowed in India?",
-                    answer: "Yes. Under the MTP Act, it is permitted for various medical and social reasons up to 24 weeks (under qualifying conditions)."
+                    question: "Is MTP safe?",
+                    answer: "Yes, it is very safe when done under expert medical supervision."
                 },
                 {
-                    question: "Will my details be confidential?",
-                    answer: "Absolutely. We provide discreet services in a secure environment."
+                    question: "Is it legal in India?",
+                    answer: "Yes, under the MTP Act with specific conditions and timelines."
                 },
                 {
-                    question: "Is the procedure painful?",
-                    answer: "Some discomfort is common with medical abortion. Surgical options are performed under local or general anesthesia."
+                    question: "Will it affect future pregnancy?",
+                    answer: "No, safe procedures do not impact future fertility."
                 },
                 {
-                    question: "Can I start birth control after an abortion?",
-                    answer: "Yes. We help you choose and begin the method right away."
+                    question: "Is privacy maintained?",
+                    answer: "Yes, complete confidentiality is ensured."
                 }
             ],
 
             customCta: {
-                heading: "Schedule a Private Consultation Today",
-                description: "If you need guidance about terminating a pregnancy or planning your future family, speak to the family planning team at Stork Hospital in Hyderabad. We offer expert, respectful care for your most personal decisions.",
-                buttonText: "Book Appointment"
+                heading: "Book Your Confidential Consultation",
+                description: "If you are facing an unplanned pregnancy and need safe, respectful care, consult our expert gynecologists at Stork Multispecialty Hospital, Hyderabad. We provide complete support with privacy and compassion.",
+                buttonText: "Schedule Consultation"
             },
+            
             meta: {
-                duration: "Varies",
-                anesthesia: "Varies",
-                hospitalStay: "Day Care / Outpatient",
-                recoveryTime: "1-3 Days",
-                successRate: "High"
+                duration: "Varies (Medical/Surgical)",
+                anesthesia: "None or Local/General",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "A few days",
+                successRate: "Highly Safe & Effective"
             },
             reviewedBy: {
-                name: "Dr. Sarah",
-                role: "Senior Gynecologist",
-                experience: "18+ Years Experience"
+                name: "Stork Gynecology Team",
+                role: "Senior Gynecologists",
+                experience: "Experts in Safe & Legal MTP Services"
             }
         }
     }
@@ -8206,108 +8213,122 @@ Known for our expertise in laparoscopic incisional hernia surgery in Hyderabad, 
     if (slug === "inguinal-hernia") {
         return {
             slug: slug,
-            title: "Inguinal Hernia Surgery – Stork Hospital, Hyderabad",
-            subheading: "Specialized Groin Hernia Treatment for Faster, Safer Recovery",
-            tagline: "Expert laparoscopic repair for groin hernias, ensuring minimal scarring and rapid return to normal activities.",
+            title: "Inguinal Hernia – Stork Hospital, Hyderabad",
+            subheading: "Advanced and Safe Treatment for Inguinal Hernia",
+            tagline: "An inguinal hernia occurs when a portion of the intestine or fatty tissue protrudes through a weak spot in the abdominal muscles, typically in the groin region.",
             breadcrumbTitle: "Inguinal Hernia",
             category: "General Surgery",
             departmentHref: "/services/general-surgery",
-            shortDescription: `An inguinal hernia arises when a section of the intestine or fatty tissue pushes through a weak spot in the lower abdominal wall, typically near the groin area. This leads to a visible lump and may be accompanied by pain or pressure, especially during movement or lifting. It is more commonly seen in men and does not resolve without medical treatment. At Stork Hospital, Hyderabad, our experienced surgical team provides advanced, patient-focused care to effectively repair inguinal hernias.
+            shortDescription: `An inguinal hernia occurs when a portion of the intestine or fatty tissue protrudes through a weak spot in the abdominal muscles, typically in the groin region. It often appears as a visible bulge and may cause pain or discomfort, especially while lifting, coughing, or bending. If left untreated, it can lead to serious complications like strangulation of the intestine.
 
-We are a leading provider of laparoscopic inguinal hernia surgery in Hyderabad, ensuring minimal scarring, faster healing, and long-term comfort.`,
+At Stork Multispecialty Hospital, Hyderabad, our expert general surgeons provide advanced and minimally invasive treatment for inguinal hernias. We focus on accurate diagnosis, effective repair, and faster recovery with minimal discomfort.`,
 
             overview: {
-                heading: "Recognizing the Signs and Underlying Causes",
-                intro: "Inguinal hernias are typically caused by a combination of congenital muscle weakness and physical strain. They are categorized into two main types:",
+                heading: "Why Choose Stork Hospital for Inguinal Hernia Treatment",
+                intro: "We focus on accurate diagnosis, effective repair, and faster recovery with minimal discomfort:",
                 items: [
-                    "Indirect Inguinal Hernia – Usually present at birth due to a natural passage that hasn’t closed properly",
-                    "Direct Inguinal Hernia – Develops later in life due to gradual weakening of the abdominal wall",
-                    "A noticeable bulge in the groin, often more visible when standing or straining",
-                    "A feeling of heaviness or tightness in the lower abdomen",
-                    "Pain or discomfort during movement, exercise, or lifting",
-                    "Temporary reduction of the bulge when lying down"
+                    "Highly experienced general and laparoscopic surgeons",
+                    "In-house diagnostic facilities for accurate evaluation",
+                    "Advanced surgical center for laparoscopic (keyhole) hernia repair",
+                    "Minimally invasive procedures with faster recovery",
+                    "Insurance support with transparent cost structure",
+                    "Same-day consultation and planned surgery options",
+                    "Comprehensive post-surgery care and follow-up"
                 ]
             },
             fullDescription: [
-                "If left untreated, an inguinal hernia can worsen, potentially leading to blocked or strangulated intestines, which is a surgical emergency. Our use of top-grade surgical mesh ensures a reinforced repair that significantly minimizes the risk of future recurrence."
+                "At Stork Multispecialty Hospital, Hyderabad, our expert general surgeons provide advanced and minimally invasive treatment for inguinal hernias. We focus on accurate diagnosis, effective repair, and faster recovery with minimal discomfort."
             ],
 
-            conditionsHeading: "Common Symptoms and Classifications",
+            conditionsHeading: "Causes and Risk Factors",
             conditionsTreated: [
-                "Intestine or fatty tissue protrusion in the lower abdominal wall",
-                "Congenital muscle weakness (Indirect Inguinal Hernia)",
-                "Age-related wall weakening (Direct Inguinal Hernia)",
-                "Groin bulge accompanied by pain or pressure",
-                "Risk of intestinal blockage or strangulation"
+                "Weakness in abdominal wall muscles",
+                "Heavy lifting or physical strain",
+                "Chronic cough or constipation",
+                "Obesity or sudden weight gain",
+                "Previous abdominal surgeries",
+                "Aging and natural muscle weakness"
             ],
 
-            procedureHeading: "Tailored Surgical Approaches for Effective Relief",
+            procedureHeading: "Treatment Options at Stork Hospital",
             procedureSteps: [
                 {
-                    title: "Laparoscopic Hernia Surgery",
-                    description: "Minimally invasive technique using small keyhole incisions and a high-definition camera. Mesh is used to strengthen the weak area, resulting in less pain and quicker return to activities."
+                    title: "Open Hernia Repair",
+                    description: "Traditional method with a small incision. Hernia is pushed back and muscle wall is strengthened using mesh."
                 },
                 {
-                    title: "Open Hernia Repair",
-                    description: "Traditional method for larger or more complicated hernias, where a single incision is made to access and repair the affected area with highly reliable long-term results."
+                    title: "Laparoscopic Hernia Repair",
+                    description: "Minimally invasive keyhole surgery. Smaller incisions, less pain, faster recovery. Ideal for bilateral or recurrent hernias."
+                },
+                {
+                    title: "Additional Care",
+                    description: "Pain management for post-surgical comfort. Use of mesh for long-term strength and prevention of recurrence. Lifestyle and activity guidance after surgery. Regular follow-up to monitor healing."
                 }
             ],
 
-            benefitsHeading: "Why Choose Stork Hospital for Inguinal Hernia Repair",
+            benefitsHeading: "Symptoms of an Inguinal Hernia",
             benefits: [
-                "Expert surgical team with years of focused hernia repair experience",
-                "Modern operating rooms and cutting-edge medical equipment",
-                "Step-by-step patient care from diagnosis through post-op recovery",
-                "Use of top-grade surgical mesh for reinforced repair",
-                "Trusted choice for inguinal hernia treatment in Hyderabad"
+                "Visible bulge in the groin area",
+                "Pain or discomfort while lifting or bending",
+                "Burning or aching sensation in the groin",
+                "Heaviness or pressure in the lower abdomen",
+                "Pain that worsens by the end of the day",
+                "Sudden severe pain (in case of complication)"
             ],
 
             risks: [],
-            recoveryHeading: "Post-Surgical Recovery and Follow-Up Care",
+
+            recoveryHeading: "Recovery and Aftercare",
             recoveryTimeline: [
-                "Mild tenderness and swelling are normal in the first few days",
-                "Light walking is encouraged soon after the procedure for circulation",
-                "Most patients return to desk jobs or light duties within a week",
-                "Laparoscopic cases usually heal completely in 2–3 weeks",
-                "Avoiding heavy lifting and intense physical activities for 4–6 weeks is essential"
+                "Early diagnosis and surgical planning",
+                "Safe and sterile surgical procedure",
+                "Short hospital stay (often same-day or next-day discharge)",
+                "Gradual return to normal activities",
+                "Avoid heavy lifting for a few weeks",
+                "Diet and lifestyle advice for faster healing"
             ],
 
-            faqHeading: "Frequently Asked Questions",
+            faqHeading: "FAQs – Inguinal Hernia",
             faqs: [
                 {
-                    question: "Can inguinal hernias heal without an operation?",
-                    answer: "Unfortunately, no. Surgery is necessary to correct the condition and prevent complications."
+                    question: "Can an inguinal hernia heal without surgery?",
+                    answer: "No, hernias do not heal on their own. Surgery is the only permanent solution."
                 },
                 {
-                    question: "How long will I need to recover from the procedure?",
-                    answer: "Recovery time is generally 7–14 days for laparoscopic cases; open surgery may require slightly longer."
+                    question: "Is laparoscopic surgery safe?",
+                    answer: "Yes, it is a safe and commonly performed procedure with faster recovery and less pain."
                 },
                 {
-                    question: "Is the use of surgical mesh considered safe?",
-                    answer: "Yes. Mesh used in hernia repairs is medically approved, durable, and integrates well with body tissue."
+                    question: "How long is the recovery time?",
+                    answer: "Most patients return to normal activities within 1–2 weeks, depending on the procedure."
                 },
                 {
-                    question: "Is hernia recurrence common?",
-                    answer: "Hernia recurrence is rare when patients follow post-surgery instructions and avoid high-risk activities."
+                    question: "Can the hernia come back after surgery?",
+                    answer: "Recurrence is rare with proper surgical technique and post-operative care."
+                },
+                {
+                    question: "Is it covered by insurance?",
+                    answer: "Yes, most insurance plans cover hernia surgery at Stork Hospital."
                 }
             ],
 
             customCta: {
-                heading: "Get Relief from Groin Pain",
-                description: "Don’t ignore groin pain or visible bulges. Choose Stork Hospital for reliable, advanced inguinal hernia surgery in Hyderabad. Book your appointment today.",
-                buttonText: "Schedule Groin Repair"
+                heading: "Book Your Inguinal Hernia Consultation",
+                description: "If you notice a bulge or discomfort in the groin area, don’t ignore it. Early treatment can prevent complications. Book your consultation at Stork Multispecialty Hospital, Hyderabad, and get expert care for safe and effective hernia treatment.",
+                buttonText: "Schedule Consultation"
             },
+            
             meta: {
-                duration: "60–90 Minutes",
+                duration: "60-90 Minutes",
                 anesthesia: "General or Spinal",
                 hospitalStay: "Daycare / 1 Day",
-                recoveryTime: "2–3 Weeks",
-                successRate: "Very High"
+                recoveryTime: "1-2 Weeks",
+                successRate: "Highly Effective"
             },
             reviewedBy: {
                 name: "Stork Surgical Unit",
-                role: "Senior General & Laparoscopic Surgeons",
-                experience: "Experts in Groin Hernia Repair & Mesh Technology"
+                role: "Senior General Surgeons",
+                experience: "Experts in Laparoscopic Hernia Repair"
             }
         }
     }
@@ -15465,6 +15486,376 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
                 name: "Stork Medical Board",
                 role: "Senior Specialists",
                 experience: "Multi-disciplinary Team"
+            }
+        }
+    }
+
+    if (slug === "carpal-tunnel-syndrome") {
+        return {
+            slug: slug,
+            title: "Carpal Tunnel Syndrome – Stork Hospital, Hyderabad",
+            subheading: "Advanced Treatment for Hand Numbness & Wrist Pain",
+            tagline: "Carpal Tunnel Syndrome is a common condition caused by compression of the Median Nerve as it passes through the carpal tunnel in the wrist.",
+            breadcrumbTitle: "Carpal Tunnel",
+            category: "Orthopedics & Trauma",
+            departmentHref: "/services/orthopaedics",
+            shortDescription: `Carpal Tunnel Syndrome is a common condition caused by compression of the Median Nerve as it passes through the carpal tunnel in the wrist. This pressure leads to pain, numbness, tingling, and weakness in the hand and fingers, often affecting daily activities.
+
+If left untreated, it can worsen over time and lead to permanent nerve damage.
+
+At Stork Multispecialty Hospital, Hyderabad, our expert orthopedic and hand specialists provide accurate diagnosis and advanced treatment options—from non-surgical care to minimally invasive procedures—for long-lasting relief.`,
+            
+            overview: {
+                heading: "Why Choose Stork Hospital for Carpal Tunnel Treatment",
+                intro: "We provide comprehensive, advanced care for wrist and hand conditions:",
+                items: [
+                    "Experienced orthopedic and hand surgeons",
+                    "Advanced diagnostic tools for nerve assessment",
+                    "Minimally invasive and endoscopic release procedures",
+                    "Non-surgical pain management options available",
+                    "Day-care procedures with quick recovery",
+                    "Insurance support with transparent pricing",
+                    "Comprehensive rehabilitation and follow-up care"
+                ]
+            },
+            fullDescription: [
+                "Symptoms of Carpal Tunnel Syndrome:",
+                "• Numbness or tingling in fingers (especially thumb, index, and middle fingers)",
+                "• Burning or electric shock-like sensation in hand",
+                "• Weak grip or difficulty holding objects",
+                "• Pain radiating to the forearm or arm",
+                "• Symptoms worse at night or early morning"
+            ],
+
+            conditionsHeading: "Causes and Risk Factors",
+            conditionsTreated: [
+                "Repetitive hand or wrist movements (typing, mobile use)",
+                "Prolonged computer work",
+                "Wrist injuries or fractures",
+                "Diabetes or thyroid disorders",
+                "Pregnancy-related fluid retention",
+                "Obesity and lifestyle factors"
+            ],
+
+            procedureHeading: "Treatment Options at Stork Hospital",
+            procedureSteps: [
+                {
+                    title: "Non-Surgical Treatment",
+                    description: "Wrist splints to reduce pressure on the nerve. Medications for pain and inflammation. Physiotherapy and ergonomic correction. Lifestyle modifications."
+                },
+                {
+                    title: "Carpal Tunnel Release Surgery (Minimally Invasive)",
+                    description: "Small incision or endoscopic technique. Releases pressure on the median nerve. Quick procedure with minimal pain. Faster healing and return to normal activities."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Early Treatment",
+            benefits: [
+                "Prevents permanent nerve damage",
+                "Relieves pain and numbness effectively",
+                "Improves hand strength and function",
+                "Avoids progression to severe stages"
+            ],
+
+            risks: [],
+
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Same-day or short hospital stay",
+                "Mild discomfort for a few days",
+                "Gradual improvement in symptoms",
+                "Hand exercises and physiotherapy",
+                "Avoid repetitive strain during recovery",
+                "Regular follow-up for optimal healing"
+            ],
+
+            faqHeading: "FAQs – Carpal Tunnel Syndrome",
+            faqs: [
+                {
+                    question: "Can it go away without surgery?",
+                    answer: "Mild cases can improve with non-surgical treatment, but advanced cases may require surgery."
+                },
+                {
+                    question: "Is surgery safe?",
+                    answer: "Yes, it is a commonly performed and safe procedure with high success rates."
+                },
+                {
+                    question: "How long does recovery take?",
+                    answer: "Most patients recover within a few weeks and return to daily activities quickly."
+                },
+                {
+                    question: "What happens if untreated?",
+                    answer: "It may lead to permanent nerve damage and loss of hand function."
+                },
+                {
+                    question: "Is it covered by insurance?",
+                    answer: "Yes, most insurance plans cover treatment at Stork Hospital."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Carpal Tunnel Consultation",
+                description: "If you are experiencing numbness, tingling, or wrist pain, don't ignore the signs. Early treatment can prevent complications. Book your consultation at Stork Multispecialty Hospital, Hyderabad, and regain pain-free hand function.",
+                buttonText: "Schedule Consultation"
+            },
+            
+            meta: {
+                duration: "Varies (Minimally Invasive)",
+                anesthesia: "None or Local",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "A few weeks",
+                successRate: "Highly Effective"
+            },
+            reviewedBy: {
+                name: "Stork Orthopedics Team",
+                role: "Hand Surgeons & Orthopedic Specialists",
+                experience: "Experts in Nerve Compression & Release"
+            }
+        }
+    }
+
+    if (slug === "pldd") {
+        return {
+            slug: slug,
+            title: "PLDD (Percutaneous Laser Disc Decompression) – Stork Hospital, Hyderabad",
+            subheading: "Advanced Non-Surgical Relief for Slip Disc & Back Pain",
+            tagline: "Percutaneous Laser Disc Decompression (PLDD) is a minimally invasive procedure used to treat herniated (slipped) discs and chronic back pain without open surgery.",
+            breadcrumbTitle: "PLDD",
+            category: "Spine Care",
+            departmentHref: "/services",
+            shortDescription: `Percutaneous Laser Disc Decompression (PLDD) is a minimally invasive procedure used to treat herniated (slipped) discs and chronic back pain without open surgery. It uses laser energy to reduce pressure inside the affected disc, relieving nerve compression and pain.
+
+PLDD is especially beneficial for patients suffering from conditions like Herniated Disc and Sciatica, offering quick relief with minimal downtime.
+
+At Stork Multispecialty Hospital, Hyderabad, our pain management and spine specialists use advanced image-guided PLDD techniques to provide safe, effective, and faster recovery solutions.`,
+            
+            overview: {
+                heading: "Why Choose Stork Hospital for PLDD Treatment",
+                intro: "We provide safe, effective, and faster recovery solutions:",
+                items: [
+                    "Experienced interventional pain specialists and spine experts",
+                    "Advanced imaging guidance for precision treatment",
+                    "Minimally invasive laser procedure – no major cuts",
+                    "Day-care procedure with quick discharge",
+                    "Reduced pain, minimal blood loss, faster recovery",
+                    "Insurance support with transparent pricing",
+                    "Comprehensive rehabilitation and follow-up care"
+                ]
+            },
+            fullDescription: [
+                "Symptoms That May Require PLDD:",
+                "• Persistent lower back pain",
+                "• Pain radiating to legs (sciatica)",
+                "• Numbness or tingling in legs",
+                "• Muscle weakness due to nerve compression",
+                "• Pain not improving with medications or physiotherapy"
+            ],
+
+            conditionsHeading: "Conditions Treated with PLDD",
+            conditionsTreated: [
+                "Herniated (slipped) disc",
+                "Sciatica (radiating leg pain)",
+                "Chronic lower back pain",
+                "Bulging disc causing nerve compression",
+                "Early-stage degenerative disc disease"
+            ],
+
+            procedureHeading: "How PLDD Works",
+            procedureSteps: [
+                {
+                    title: "Needle Insertion",
+                    description: "A thin needle is inserted into the affected disc under imaging guidance."
+                },
+                {
+                    title: "Laser Application",
+                    description: "Laser energy is applied to shrink the disc material."
+                },
+                {
+                    title: "Decompression",
+                    description: "This reduces pressure on the compressed nerve."
+                },
+                {
+                    title: "Pain Relief",
+                    description: "Pain relief is achieved without removing the disc surgically."
+                }
+            ],
+
+            benefitsHeading: "Benefits of PLDD",
+            benefits: [
+                "No open surgery or stitches",
+                "Minimal hospital stay (same-day discharge)",
+                "Faster recovery and return to daily activities",
+                "Lower risk compared to traditional spine surgery",
+                "Preserves normal spine structure"
+            ],
+
+            risks: [],
+
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Procedure completed within 30–60 minutes",
+                "Short observation period post-procedure",
+                "Mild soreness for a few days",
+                "Gradual return to routine activities",
+                "Physiotherapy guidance for long-term spine health",
+                "Regular follow-up to monitor recovery"
+            ],
+
+            faqHeading: "FAQs – PLDD",
+            faqs: [
+                {
+                    question: "Is PLDD a surgery?",
+                    answer: "No, it is a minimally invasive, needle-based procedure without major surgery."
+                },
+                {
+                    question: "Is the procedure painful?",
+                    answer: "It is performed under local anesthesia, ensuring minimal discomfort."
+                },
+                {
+                    question: "How soon can I return to work?",
+                    answer: "Most patients resume normal activities within a few days."
+                },
+                {
+                    question: "Is PLDD safe?",
+                    answer: "Yes, it is a well-established and safe procedure when performed by experienced specialists."
+                },
+                {
+                    question: "Is it covered by insurance?",
+                    answer: "Coverage depends on the policy, but many insurance plans include it."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your PLDD Consultation",
+                description: "If you are suffering from chronic back pain or sciatica and want a non-surgical solution, consult the experts at Stork Multispecialty Hospital, Hyderabad. Get advanced, minimally invasive spine care and return to a pain-free life faster.",
+                buttonText: "Schedule Consultation"
+            },
+            
+            meta: {
+                duration: "30-60 Minutes",
+                anesthesia: "Local Anesthesia",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "A few days",
+                successRate: "Highly Effective"
+            },
+            reviewedBy: {
+                name: "Stork Spine Care Team",
+                role: "Spine & Pain Management Specialists",
+                experience: "Experts in Minimally Invasive Spine Procedures"
+            }
+        }
+    }
+
+    if (slug === "tubectomy-family-planning") {
+        return {
+            slug: slug,
+            title: "Tubectomy (Family Planning) – Stork Hospital, Hyderabad",
+            subheading: "Permanent Family Planning Solution for Women",
+            tagline: "Tubectomy, also known as female sterilization, is a safe and permanent method of contraception where the fallopian tubes are blocked or sealed to prevent pregnancy.",
+            breadcrumbTitle: "Tubectomy",
+            category: "Gynecology & Obstetrics",
+            departmentHref: "/services",
+            shortDescription: `Tubectomy, also known as female sterilization, is a safe and permanent method of contraception where the fallopian tubes are blocked or sealed to prevent pregnancy. It is one of the most effective family planning options for women who have completed their family.
+
+At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally invasive tubectomy procedures with a focus on safety, comfort, and long-term effectiveness.`,
+            
+            overview: {
+                heading: "Why Choose Stork Hospital for Tubectomy",
+                intro: "We provide advanced and minimally invasive tubectomy procedures:",
+                items: [
+                    "Experienced gynecologists and laparoscopic surgeons",
+                    "Safe and minimally invasive sterilization procedures",
+                    "Day-care procedure with quick discharge",
+                    "Confidential counseling and decision support",
+                    "Advanced operation theatre with high safety standards",
+                    "Affordable pricing with insurance assistance",
+                    "Complete pre- and post-procedure care"
+                ]
+            },
+            fullDescription: [
+                "At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally invasive tubectomy procedures with a focus on safety, comfort, and long-term effectiveness."
+            ],
+
+            conditionsHeading: "Who Should Consider Tubectomy",
+            conditionsTreated: [
+                "Women who have completed their family",
+                "Those looking for a permanent birth control solution",
+                "When other contraceptive methods are not suitable",
+                "Couples seeking a reliable, long-term option"
+            ],
+
+            procedureHeading: "Types of Tubectomy Procedures & Overview",
+            procedureSteps: [
+                {
+                    title: "Laparoscopic Tubectomy",
+                    description: "Minimally invasive (keyhole surgery). Small incisions with faster recovery. Less pain and minimal scarring."
+                },
+                {
+                    title: "Mini-Laparotomy",
+                    description: "Small incision in the abdomen. Commonly done after delivery (postpartum sterilization). Safe and effective method."
+                },
+                {
+                    title: "Procedure Overview",
+                    description: "Pre-procedure counseling and consent. Basic health evaluation and tests. Procedure performed under anesthesia. Fallopian tubes are sealed, clipped, or cut. Short hospital stay (often same-day discharge)."
+                }
+            ],
+
+            benefitsHeading: "Benefits of Tubectomy",
+            benefits: [
+                "Permanent and highly effective contraception",
+                "No need for ongoing birth control methods",
+                "Does not affect hormones or menstrual cycle",
+                "One-time procedure with long-term benefit"
+            ],
+
+            risks: [],
+
+            recoveryHeading: "Recovery and Aftercare",
+            recoveryTimeline: [
+                "Mild pain or discomfort for a few days",
+                "Resume normal activities within a short time",
+                "Avoid heavy lifting temporarily",
+                "Follow doctor’s instructions for faster healing",
+                "Regular follow-up if required"
+            ],
+
+            faqHeading: "FAQs – Tubectomy",
+            faqs: [
+                {
+                    question: "Is tubectomy reversible?",
+                    answer: "It is considered permanent; reversal is complex and not always successful."
+                },
+                {
+                    question: "Does it affect periods?",
+                    answer: "No, menstrual cycles remain normal."
+                },
+                {
+                    question: "Is it a major surgery?",
+                    answer: "No, it is a minor, commonly performed procedure."
+                },
+                {
+                    question: "How effective is it?",
+                    answer: "It is one of the most reliable permanent contraception methods."
+                }
+            ],
+
+            customCta: {
+                heading: "Book Your Family Planning Consultation",
+                description: "If you are looking for a safe and permanent birth control option, consult our experts at Stork Multispecialty Hospital, Hyderabad. Get personalized guidance and make an informed decision for your future.",
+                buttonText: "Schedule Consultation"
+            },
+            
+            meta: {
+                duration: "30-60 Minutes",
+                anesthesia: "General or Local",
+                hospitalStay: "Daycare (Outpatient)",
+                recoveryTime: "A few days",
+                successRate: "Highly Effective"
+            },
+            reviewedBy: {
+                name: "Stork Gynecology Team",
+                role: "Senior Gynecologists",
+                experience: "Experts in Laparoscopic Sterilization"
             }
         }
     }
