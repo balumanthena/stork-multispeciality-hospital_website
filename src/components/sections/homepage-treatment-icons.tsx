@@ -16,7 +16,7 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
             href={`/treatments/${slug}`}
             className="flex flex-col items-center justify-start w-full group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
-            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-[24px] bg-white border border-slate-100/80 shadow-sm flex items-center justify-center p-2 group-hover:border-[#ff8202]/30 group-hover:shadow-md transition-all duration-500 relative mb-3 overflow-hidden">
+            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3">
                 <Image
                     src={iconPath}
                     alt={treatment.name}
@@ -26,7 +26,7 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                     priority={priority}
                 />
             </div>
-            <span className="text-[12px] sm:text-[14px] font-bold text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1">
+            <span className="text-[12px] sm:text-[14px] font-medium text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1">
                 {treatment.name}
             </span>
         </Link>

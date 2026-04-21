@@ -20,31 +20,24 @@ export function ServiceItem({ name, slug, iconPath, isEmergency }: ServiceItemPr
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 }
       }}
-      className="flex flex-col items-center"
+      className="flex flex-col w-full h-full"
     >
       <Link 
         href={`/services/${slug}`}
-        className="group flex flex-col items-center text-center focus:outline-none"
+        className="group flex flex-col items-center justify-center text-center p-6 md:p-8 bg-white border border-slate-200 rounded-2xl hover:border-[#ff8202] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 h-full min-h-[180px]"
       >
-        <div className={`relative flex items-center justify-center transition-all duration-300 ease-in-out
-          w-[100px] h-[100px] bg-slate-50 group-hover:bg-[#ff8202] group-hover:shadow-2xl group-hover:shadow-orange-500/30
-          rounded-full overflow-hidden mb-6 transform group-hover:scale-110 group-hover:-translate-y-2`}
-        >
-          <div className="relative w-12 h-12 transition-all duration-300">
-            <Image
-              src={iconPath}
-              alt={name}
-              fill
-              className="object-contain transition-all duration-300"
-            />
-          </div>
+        <div className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 mb-4 transform group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300">
+          <Image
+            src={iconPath}
+            alt={name}
+            fill
+            className="object-contain"
+          />
         </div>
         
-        <div className="space-y-1">
-          <h3 className="text-[17px] font-bold tracking-tight transition-colors duration-300 text-slate-900 group-hover:text-[#ff8202]">
-            {name}
-          </h3>
-        </div>
+        <h3 className="text-[15px] md:text-[16px] font-bold text-slate-800 leading-tight group-hover:text-[#ff8202] transition-colors duration-300">
+          {name}
+        </h3>
       </Link>
     </motion.div>
   );
