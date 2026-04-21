@@ -33,32 +33,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
 
     return (
         <>
-            {/* Top Bar - Hidden on Mobile, Hides on Scroll for Desktop */}
-            <div className={cn(
-                "w-full bg-[#f8fafc] border-b border-slate-200 py-2.5 hidden lg:block transition-all duration-300 overflow-hidden",
-                isScrolled ? "h-0 py-0 border-none opacity-0" : "h-[40px]"
-            )}>
-                <Container className="px-10 flex justify-between items-center text-[13px] text-slate-600 font-medium tracking-wide">
-                    <div className="flex items-center gap-8">
-                        <div className="flex items-center gap-2 group cursor-pointer">
-                            <div className="w-6 h-6 rounded-md bg-orange-50 flex items-center justify-center text-[#ff8202] group-hover:bg-[#ff8202] group-hover:text-white transition-colors">
-                                <Phone className="w-3.5 h-3.5" />
-                            </div>
-                            <span>Emergency: <a href={`tel:${settings?.emergency_number || "+91 99999 88888"}`} className="text-slate-900 font-bold hover:text-[#ff8202] transition-colors">{settings?.emergency_number || "+91 99999 88888"}</a></span>
-                        </div>
-                        <div className="flex items-center gap-2 group">
-                            <MapPin className="w-3.5 h-3.5 text-[#ff8202]" />
-                            <span className="truncate max-w-[400px]">{settings?.address || "Survey No 14 & 15, NH44, Kompally, Hyderabad"}</span>
-                        </div>
-                    </div>
-                    <div className="flex items-center gap-8">
-                        <div className="flex items-center gap-2 group">
-                            <Clock className="w-3.5 h-3.5 text-[#ff8202]" />
-                            <span>OP: 9:00 AM - 8:00 PM</span>
-                        </div>
-                    </div>
-                </Container>
-            </div>
+            {/* Top Bar - Removed to prevent scroll flickering */}
 
             <header
                 className={cn(

@@ -6,10 +6,10 @@ import Image from "next/image"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TREATMENTS_MASTER } from "@/lib/data/treatments"
-import { getTreatmentIcon } from "@/lib/data/treatment-icons-map"
+import { getTreatmentIcon } from "@/lib/treatmentIcons"
 
 function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { name: string }, slug: string, priority?: boolean }) {
-    const iconPath = getTreatmentIcon(treatment.name)
+    const iconPath = getTreatmentIcon(slug)
 
     return (
         <Link
@@ -20,9 +20,9 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                 <Image
                     src={iconPath}
                     alt={treatment.name}
-                    fill
+                    width={80}
+                    height={80}
                     className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
-                    sizes="110px"
                     priority={priority}
                 />
             </div>
