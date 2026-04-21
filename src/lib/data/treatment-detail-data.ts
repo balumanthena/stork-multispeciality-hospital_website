@@ -15423,74 +15423,7 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
         }
     }
 
-    // 3. Return Premium Placeholder Content (Default)
-    if (foundItem && foundCategory) {
-        return {
-            slug: slug,
-            title: foundItem.title,
-            category: foundCategory.title,
-            departmentHref: foundCategory.href || "#",
-            shortDescription: `Comprehensive care and advanced treatment for ${foundItem.title} at Stork Hospital.`,
-            overview: {
-                heading: `About ${foundItem.title}`,
-                intro: `Stork Hospital provides expert care for ${foundItem.title}. Our team of specialists ensures the best possible outcomes using advanced medical technology.`,
-                items: [
-                    "Expert Specialist Care",
-                    "Advanced Medical Facilities",
-                    "Patient-Centric Approach",
-                    "Comprehensive Post-Procedure Support"
-                ]
-            },
-            fullDescription: [],
-            conditionsHeading: "Conditions Treated",
-            conditionsTreated: [
-                `Medical conditions related to ${foundItem.title}`
-            ],
-            procedureHeading: "What to Expect",
-            procedureSteps: [
-                {
-                    title: "Consultation",
-                    description: "Detailed evaluation by our specialists."
-                },
-                {
-                    title: "Procedure",
-                    description: "Performed with precision and care."
-                },
-                {
-                    title: "Recovery",
-                    description: "Guided recovery plan for optimal health."
-                }
-            ],
-            benefitsHeading: "Benefits",
-            benefits: [
-                "Experienced Medical Team",
-                "State-of-the-art Infrastructure",
-                "Personalized Care Plans"
-            ],
-            risks: [],
-            recoveryTimeline: [],
-            faqHeading: "Common Questions",
-            faqs: [
-                {
-                    question: "How do I book an appointment?",
-                    answer: "You can book an appointment online or call our helper line."
-                }
-            ],
-            meta: {
-                duration: "Consult Doctor",
-                anesthesia: "Consult Doctor",
-                hospitalStay: "Consult Doctor",
-                recoveryTime: "Consult Doctor"
-            },
-            reviewedBy: {
-                name: "Stork Medical Board",
-                role: "Senior Specialists",
-                experience: "Multi-disciplinary Team"
-            }
-        }
-    }
-
-    if (slug === "carpal-tunnel-syndrome") {
+if (slug === "carpal-tunnel-syndrome") {
         return {
             slug: slug,
             title: "Carpal Tunnel Syndrome – Stork Hospital, Hyderabad",
@@ -15856,6 +15789,74 @@ At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally i
                 name: "Stork Gynecology Team",
                 role: "Senior Gynecologists",
                 experience: "Experts in Laparoscopic Sterilization"
+            }
+        }
+    }
+
+    
+    // 3. Return Premium Placeholder Content (Default)
+    if (foundItem && foundCategory) {
+        return {
+            slug: slug,
+            title: foundItem.title,
+            category: foundCategory.title,
+            departmentHref: foundCategory.href || "#",
+            shortDescription: `Comprehensive care and advanced treatment for ${foundItem.title} at Stork Hospital.`,
+            overview: {
+                heading: `About ${foundItem.title}`,
+                intro: `Stork Hospital provides expert care for ${foundItem.title}. Our team of specialists ensures the best possible outcomes using advanced medical technology.`,
+                items: [
+                    "Expert Specialist Care",
+                    "Advanced Medical Facilities",
+                    "Patient-Centric Approach",
+                    "Comprehensive Post-Procedure Support"
+                ]
+            },
+            fullDescription: [],
+            conditionsHeading: "Conditions Treated",
+            conditionsTreated: [
+                `Medical conditions related to ${foundItem.title}`
+            ],
+            procedureHeading: "What to Expect",
+            procedureSteps: [
+                {
+                    title: "Consultation",
+                    description: "Detailed evaluation by our specialists."
+                },
+                {
+                    title: "Procedure",
+                    description: "Performed with precision and care."
+                },
+                {
+                    title: "Recovery",
+                    description: "Guided recovery plan for optimal health."
+                }
+            ],
+            benefitsHeading: "Benefits",
+            benefits: [
+                "Experienced Medical Team",
+                "State-of-the-art Infrastructure",
+                "Personalized Care Plans"
+            ],
+            risks: [],
+            recoveryTimeline: [],
+            faqHeading: "Common Questions",
+            faqs: [
+                {
+                    question: "How do I book an appointment?",
+                    answer: "You can book an appointment online or call our helper line."
+                }
+            ],
+            meta: {
+                duration: "Consult Doctor",
+                anesthesia: "Consult Doctor",
+                hospitalStay: "Consult Doctor",
+                recoveryTime: "Consult Doctor"
+            },
+            reviewedBy: {
+                name: "Stork Medical Board",
+                role: "Senior Specialists",
+                experience: "Multi-disciplinary Team"
             }
         }
     }
