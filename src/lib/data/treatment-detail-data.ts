@@ -75,7 +75,8 @@ const PROCEDURE_ALIAS_MAP: Record<string, string> = {
     "hip-replacement": "hip-replacement-surgery",
     "acl-pcl-tear": "arthroscopy-surgery",
     "uterine-fibroids-surgery": "uterine-fibroids",
-    "cancer-pain": "cancer-pain-management"
+    "cancer-pain": "cancer-pain-management",
+    "ablation": "ablation-therapy"
 }
 
 export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
