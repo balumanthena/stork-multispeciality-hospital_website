@@ -74,7 +74,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                     >
                         <div ref={contentRef} className="w-full">
                             <div className="flex flex-wrap justify-center gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-6 pb-16">
-                                {TREATMENTS_MASTER.map((treatment, index) => (
+                                {TREATMENTS_MASTER.slice(0, 63).map((treatment, index) => (
                                     <TreatmentIconBox
                                         key={treatment.id}
                                         treatment={treatment}
