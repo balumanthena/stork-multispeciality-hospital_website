@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { SettingsProvider } from "@/providers/SettingsProvider";
 import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
-
+import Script from "next/script";
 const fontSans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -48,6 +48,21 @@ export default function RootLayout({
         <MobileBottomNav />
         <Toaster />
         <AuthErrorHandler />
+
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            id="microsoft-clarity"
+            strategy="afterInteractive"
+          >
+            {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "wfkzldnae5");
+            `}
+          </Script>
+        )}
       </body>
 
     </html>
