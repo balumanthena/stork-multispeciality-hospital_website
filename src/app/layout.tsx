@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   title: "Stork Multispecialty Hospital",
   description: "World-class healthcare with a compassionate touch.",
   icons: {
-    icon: "/images/512.png",
+    icon: [
+      { url: "/images/stork1.ico" },
+      { url: "/images/stork1.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
   },
 };
 
