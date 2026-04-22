@@ -2,28 +2,46 @@
 
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TREATMENTS_MASTER } from "@/lib/data/treatments"
 import { getTreatmentIcon } from "@/lib/treatmentIcons"
 
+// Icons whose artwork is extremely tiny within their SVG viewBox
+const TINY_ICONS = new Set([
+    "High risk pregnancy",
+])
+
+// Icons whose artwork is drawn small within their SVG viewBox — need moderate scaling
+const SMALL_ICONS = new Set([
+    "Antepartum and intrapartum",
+    "Elbow pain",
+    "Neck pain",
+])
+
 function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { name: string }, slug: string, priority?: boolean }) {
-    const iconPath = getTreatmentIcon(slug)
+    const iconPath = getTreatmentIcon(treatment.name)
+    const isSvg = decodeURIComponent(iconPath).endsWith(".svg")
+    const isTiny = TINY_ICONS.has(treatment.name)
+    const isSmall = SMALL_ICONS.has(treatment.name)
 
     return (
         <Link
             href={`/treatments/${slug}`}
             className="flex flex-col items-center justify-start w-[100px] sm:w-[140px] group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
-            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3">
-                <Image
+            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                     src={iconPath}
                     alt={treatment.name}
                     width={80}
                     height={80}
-                    className="object-contain p-2 transition-transform duration-500 group-hover:scale-110"
-                    priority={priority}
+                    className={`object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : isSvg ? "p-0 group-hover:scale-110" : "p-2 group-hover:scale-110"}`}
+                    loading={priority ? "eager" : "lazy"}
+                    onError={(e) => {
+                        e.currentTarget.src = "/images/default-icon.svg";
+                    }}
                 />
             </div>
             <span className="text-[12px] sm:text-[14px] font-medium text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1 w-full">
