@@ -500,20 +500,40 @@ export interface DepartmentListItem {
     iconUrl: string;
 }
 
+export const DEPARTMENT_ORDER = [
+    "Pain Management",
+    "Obstetrics and Gynecology",
+    "Ortho",
+    "General surgery",
+    "General medicine",
+    "Urology",
+    "Proctology",
+    "ENT",
+    "GI and Bariatric surgery",
+    "Neuro/ Spine Surgery",
+    "Oral Maxillofacial surgery",
+    "Vascular surgery",
+    "Cosmetic and Plastic surgery",
+    "Oncology medical / Oncology surgical",
+    "Interaventional pulmonology",
+    "Emergency / Trauma / Critical care"
+];
+
 export const DEPARTMENTS_LIST: DepartmentListItem[] = [
     { title: "Pain Management", slug: "pain-management", iconUrl: "/images/Departmentsicons/departments/pain-management.png" },
-    { title: "Gynecology & Obstetrics", slug: "gynaecology", iconUrl: "/images/Departmentsicons/departments/gynecology-%26-obs.png" },
-    { title: "Orthopedic & Trauma", slug: "orthopaedics", iconUrl: "/images/Departmentsicons/departments/orthopedics.png" },
-    { title: "General Medicine", slug: "general-medicine", iconUrl: "/images/Departmentsicons/departments/general-medicine.png" },
-    { title: "General Surgery", slug: "general-surgery", iconUrl: "/images/Departmentsicons/departments/general-surgery.png" },
-    { title: "Spine Care", slug: "spine-care", iconUrl: "/images/Departmentsicons/departments/spine-surgery.png" },
-    { title: "Vascular Surgery", slug: "vascular", iconUrl: "/images/Departmentsicons/departments/vascular.png" },
+    { title: "Obstetrics and Gynecology", slug: "gynaecology", iconUrl: "/images/Departmentsicons/departments/gynecology-%26-obs.png" },
+    { title: "Ortho", slug: "orthopaedics", iconUrl: "/images/Departmentsicons/departments/orthopedics.png" },
+    { title: "General medicine", slug: "general-medicine", iconUrl: "/images/Departmentsicons/departments/general-medicine.png" },
+    { title: "General surgery", slug: "general-surgery", iconUrl: "/images/Departmentsicons/departments/general-surgery.png" },
+    { title: "Vascular surgery", slug: "vascular", iconUrl: "/images/Departmentsicons/departments/vascular.png" },
     { title: "Urology", slug: "urology", iconUrl: "/images/Departmentsicons/departments/urology.png" },
-    { title: "Oncology", slug: "oncology", iconUrl: "/images/Departmentsicons/departments/oncology.png" },
+    { title: "Oncology medical / Oncology surgical", slug: "oncology", iconUrl: "/images/Departmentsicons/departments/oncology.png" },
     { title: "Proctology", slug: "proctology", iconUrl: "/images/Departmentsicons/departments/proctology.png" },
-    { title: "Cosmetic & Plastic Surgery", slug: "cosmetic-surgery", iconUrl: "/images/Departmentsicons/departments/plastic-surgey.png" },
+    { title: "Cosmetic and Plastic surgery", slug: "cosmetic-surgery", iconUrl: "/images/Departmentsicons/departments/plastic-surgey.png" },
     { title: "ENT", slug: "ent", iconUrl: "/images/Departmentsicons/departments/ent.png" },
-    { title: "GI & Bariatric Surgery", slug: "bariatric", iconUrl: "/images/Departmentsicons/departments/gi-surgery.png" },
-    { title: "Neurosurgery", slug: "neurosurgery", iconUrl: "/images/Departmentsicons/departments/neurosurgery.png" },
-    { title: "Pulmonology", slug: "pulmonology", iconUrl: "/images/Departmentsicons/departments/pulmonology.png" },
+    { title: "GI and Bariatric surgery", slug: "bariatric", iconUrl: "/images/Departmentsicons/departments/gi-surgery.png" },
+    { title: "Neuro/ Spine Surgery", slug: "neurosurgery", iconUrl: "/images/Departmentsicons/departments/neurosurgery.png" },
+    { title: "Interaventional pulmonology", slug: "pulmonology", iconUrl: "/images/Departmentsicons/departments/pulmonology.png" },
+    { title: "Oral Maxillofacial surgery", slug: "oral-maxillofacial", iconUrl: "/images/Departmentsicons/departments/general-surgery.png" },
+    { title: "Emergency / Trauma / Critical care", slug: "emergency", iconUrl: "/images/Departmentsicons/departments/critical-care.png" },
 ];

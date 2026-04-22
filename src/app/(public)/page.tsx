@@ -8,8 +8,9 @@ import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
 import { InsurancePartners } from "@/components/sections/insurance-partners"
 import { Testimonials } from "@/components/sections/testimonials"
-import { DEPARTMENTS_LIST } from "@/lib/data/departments"
+import { DEPARTMENTS_LIST, DEPARTMENT_ORDER } from "@/lib/data/departments"
 import { HomepageTreatmentIcons } from "@/components/sections/homepage-treatment-icons"
+import { HomepageDepartments } from "@/components/sections/homepage-departments"
 import { HARDCODED_TREATMENTS } from "@/lib/data/hardcoded-treatments"
 import { Suspense } from "react"
 import {
@@ -21,6 +22,17 @@ import {
   const allTreatments = HARDCODED_TREATMENTS.flatMap(cat => cat.items)
 
 export default function Home() {
+  const sortedDepartments = [...DEPARTMENTS_LIST].sort((a, b) => {
+    const indexA = DEPARTMENT_ORDER.indexOf(a.title);
+    const indexB = DEPARTMENT_ORDER.indexOf(b.title);
+    
+    if (indexA === -1 && indexB === -1) return 0;
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    
+    return indexA - indexB;
+  });
+
   return (
     <div className="font-sans text-slate-900 bg-slate-50">
 
@@ -116,42 +128,7 @@ export default function Home() {
       <HomepageTreatmentIcons allTreatments={allTreatments} />
 
       {/* 3. CENTERS OF EXCELLENCE */}
-      <section className="bg-slate-50 py-20">
-        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-            <h2 className="text-3xl md:text-4xl font-semibold text-slate-800">
-              Our Specialties
-            </h2>
-            <Link href="/services" className="group flex items-center text-slate-600 font-medium hover:text-[var(--color-accent)] transition-colors">
-              View All Departments <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
-            {DEPARTMENTS_LIST.slice(0, 8).map((dept, index) => (
-              <Link
-                key={index}
-                href={`/services/${dept.slug}`}
-                className="bg-white border-[1.5px] border-slate-200/80 rounded-[20px] pt-6 pb-4 px-3 flex flex-col items-center justify-center transition-all duration-300 hover:border-orange-500 hover:shadow-[0_4px_15px_-4px_rgba(249,115,22,0.15)] group"
-              >
-                <div className="w-20 h-20 md:w-24 md:h-24 mb-4 flex items-center justify-center relative">
-                  <Image 
-                    src={dept.iconUrl} 
-                    alt={dept.title} 
-                    width={96} 
-                    height={96} 
-                    className="object-contain transition-transform duration-300 group-hover:scale-105" 
-                    priority={index < 4}
-                  />
-                </div>
-                <h3 className="text-[14px] md:text-[15px] font-bold text-slate-800 group-hover:text-orange-600 text-center transition-colors">
-                  {dept.title}
-                </h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomepageDepartments departments={sortedDepartments} />
 
       {/* 4. CASHLESS INSURANCE PARTNERS */}
       <InsurancePartners />

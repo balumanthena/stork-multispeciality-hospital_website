@@ -70,13 +70,24 @@ function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: stri
 
 import { Department } from "@/types"
 import { GroupedTreatmentCategory } from "@/lib/data/grouped-treatments"
-import { DEPARTMENTS_LIST } from "@/lib/data/departments"
+import { DEPARTMENTS_LIST, DEPARTMENT_ORDER } from "@/lib/data/departments"
 
 export function DesktopNav({ groupedTreatments = [] }: { departments?: Department[], groupedTreatments?: GroupedTreatmentCategory[] }) {
     const pathname = usePathname()
     const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
     const isActive = (path: string) => pathname === path
+
+    const sortedDepartments = [...DEPARTMENTS_LIST].sort((a, b) => {
+        const indexA = DEPARTMENT_ORDER.indexOf(a.title);
+        const indexB = DEPARTMENT_ORDER.indexOf(b.title);
+        
+        if (indexA === -1 && indexB === -1) return 0;
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+        
+        return indexA - indexB;
+    });
 
     return (
         <>
@@ -148,7 +159,7 @@ export function DesktopNav({ groupedTreatments = [] }: { departments?: Departmen
                 )}>
                     <div className="container max-w-[1280px] mx-auto">
                         <MegaMenuGrid cols={4}>
-                            {DEPARTMENTS_LIST.map((dept) => (
+                            {sortedDepartments.map((dept) => (
                                 <MegaMenuItem 
                                     key={dept.title} 
                                     title={dept.title}
