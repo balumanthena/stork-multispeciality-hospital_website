@@ -4195,10 +4195,11 @@ Our urology team ensures accurate diagnosis, short surgery time, fast discharge,
             slug: slug,
             title: "Hysterectomy Surgery – Stork Hospital, Hyderabad",
             subheading: "Expert Uterus Removal Surgery with Minimal Downtime",
+            tagline: "A hysterectomy is a surgical procedure to remove the uterus, done to treat various gynecological conditions such as fibroids, endometriosis, or abnormal bleeding.",
             breadcrumbTitle: "Hysterectomy",
             category: foundCategory.title,
             departmentHref: foundCategory.href || "#",
-            shortDescription: `A hysterectomy is a surgical procedure to remove the uterus, done to treat various gynecological conditions such as fibroids, endometriosis, or abnormal bleeding. At Stork Multispecialty Hospital, Hyderabad, we offer advanced laparoscopic, abdominal, and vaginal hysterectomy procedures tailored to each woman’s health needs.
+            shortDescription: `At Stork Multispecialty Hospital, Hyderabad, we offer advanced laparoscopic, abdominal, and vaginal hysterectomy procedures tailored to each woman’s health needs.
 
 Our priority is safe surgery, minimal discomfort, and quick recovery—delivered by experienced specialists in a private and supportive environment.`,
 
@@ -4214,7 +4215,9 @@ Our priority is safe surgery, minimal discomfort, and quick recovery—delivered
                     "Trusted Hyderabad hospital accepting insurance for gynecological surgeries"
                 ]
             },
-            fullDescription: [],
+            fullDescription: [
+                "Your doctor will guide you to the safest and most appropriate option."
+            ],
 
             conditionsHeading: "When is Hysterectomy Recommended?",
             conditionsTreated: [
@@ -4222,30 +4225,31 @@ Our priority is safe surgery, minimal discomfort, and quick recovery—delivered
                 "Persistent abnormal uterine bleeding",
                 "Uterine prolapse",
                 "Endometriosis or adenomyosis",
-                "Cancer of uterus, cervix, or ovaries (in select cases)"
+                "Cancer of uterus, cervix, or ovaries (in select cases)",
+                "Each case is evaluated thoroughly to ensure this is the right step for long-term health."
             ],
 
             procedureHeading: "Types of Hysterectomy We Perform",
             procedureSteps: [
                 {
                     title: "Total Hysterectomy",
-                    description: "Removal of uterus and cervix."
+                    description: "removal of uterus and cervix"
                 },
                 {
                     title: "Subtotal (Partial) Hysterectomy",
-                    description: "Uterus removed, cervix left intact."
+                    description: "uterus removed, cervix left intact"
                 },
                 {
                     title: "Radical Hysterectomy",
-                    description: "Done in cancer cases, includes removal of surrounding tissues."
+                    description: "done in cancer cases, includes surrounding tissues"
                 },
                 {
                     title: "Laparoscopic Hysterectomy",
-                    description: "Minimally invasive, performed through small incisions for faster recovery."
+                    description: "minimally invasive, faster recovery"
                 },
                 {
                     title: "Vaginal Hysterectomy",
-                    description: "Performed through the vaginal canal with no abdominal cut."
+                    description: "performed through the vaginal canal with no abdominal cut"
                 }
             ],
 
@@ -4259,11 +4263,13 @@ Our priority is safe surgery, minimal discomfort, and quick recovery—delivered
             ],
 
             risks: [],
+            recoveryHeading: "Our Surgical Process at Stork",
             recoveryTimeline: [
-                "Pre-surgery: Consultation, diagnosis, and health screening (bloodwork, ultrasound).",
-                "Surgery: Done under general or spinal anesthesia in sterile conditions.",
-                "Recovery: Monitoring and post-operative care for 1–3 days in recovery ward.",
-                "Post-discharge: At-home recovery plan and follow-up schedule."
+                "Pre-surgery consultation with a hysterectomy specialist in Hyderabad",
+                "Complete diagnosis and health screening (bloodwork, ultrasound, etc.)",
+                "Surgery done under general or spinal anesthesia in sterile conditions",
+                "Monitoring and post-operative care for 1–3 days in recovery ward",
+                "At-home recovery plan and follow-up schedule"
             ],
 
             faqHeading: "FAQs – Hysterectomy at Stork Hospital",
@@ -4299,9 +4305,9 @@ Our priority is safe surgery, minimal discomfort, and quick recovery—delivered
                 successRate: "High Safety"
             },
             reviewedBy: {
-                name: "Dr. Sarah",
-                role: "Senior Gynecologist",
-                experience: "18+ Years Experience"
+                name: "Stork Gynecology Team",
+                role: "Senior Gynecologists",
+                experience: "Experts in Advanced Hysterectomy"
             }
         }
     }
