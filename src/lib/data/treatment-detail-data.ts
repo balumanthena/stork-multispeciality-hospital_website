@@ -80,6 +80,8 @@ const PROCEDURE_ALIAS_MAP: Record<string, string> = {
 }
 
 export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
+    const slug = PROCEDURE_ALIAS_MAP[rawSlug] || rawSlug
+    
     // 1. Find the treatment in HARDCODED_TREATMENTS OR HARDCODED_PROCEDURES to get real title/category
     let foundItem = null
     let foundCategory = null
@@ -88,7 +90,7 @@ export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
     const allCategories = [...HARDCODED_TREATMENTS, ...HARDCODED_PROCEDURES]
 
     for (const cat of allCategories) {
-        const item = cat.items.find(i => i.href.endsWith(`/${rawSlug}`))
+        const item = cat.items.find(i => i.href.endsWith(`/${slug}`))
         if (item) {
             foundItem = item
             foundCategory = cat
@@ -99,8 +101,6 @@ export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
     if (!foundItem || !foundCategory) {
         return null
     }
-
-    const slug = PROCEDURE_ALIAS_MAP[rawSlug] || rawSlug
 
     if (slug === "ablation-therapy") {
         return {
