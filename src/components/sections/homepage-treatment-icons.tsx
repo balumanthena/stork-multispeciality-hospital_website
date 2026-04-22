@@ -104,7 +104,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         onClick={handleToggle}
                         className="group flex items-center gap-4 px-12 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all shadow-xl active:scale-95 active:translate-y-1"
                     >
-                        <span className="text-[15px]">{expanded ? "Show Less" : `View All 63 Treatments`}</span>
+                        <span className="text-[15px]">{expanded ? "Show Less" : `View All Treatments`}</span>
                         <motion.div
                             animate={{ rotate: expanded ? 180 : 0 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
