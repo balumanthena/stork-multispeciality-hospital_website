@@ -55,8 +55,8 @@ export const GynaecologyContent = ({ blogs, videos }: { blogs: any[], videos: an
                                 <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
                                     Book Appointment
                                 </Button>
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
-                                    Consult a Specialist
+                                <Button asChild variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
+                                    <Link href="/second-opinion">Get a Second Opinion</Link>
                                 </Button>
                             </div>
                         </div>
@@ -282,7 +282,9 @@ export const GynaecologyContent = ({ blogs, videos }: { blogs: any[], videos: an
                         <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
                             Book Appointment
                         </Button>
-
+                        <Button asChild size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
+                            <Link href="/second-opinion">Get a Second Opinion</Link>
+                        </Button>
                     </div>
                 </div>
             </section>

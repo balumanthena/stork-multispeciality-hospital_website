@@ -51,9 +51,11 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-5">
-                                <Button variant="outline" className="h-14 px-10 text-base font-bold border-[#ff8202] text-[#ff8202] hover:bg-orange-50 rounded-full">
-                                    <MapPin className="h-4 w-4 mr-2" />
-                                    Find Us
+                                <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
+                                    Call Emergency: 24/7
+                                </Button>
+                                <Button asChild variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
+                                    <Link href="/second-opinion">Get a Second Opinion</Link>
                                 </Button>
                             </div>
                         </div>
@@ -126,9 +128,9 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                 </div>
             </Section>
 
-            {/* SECTION 4: WHAT WE TREAT */}
+            {/* SECTION 4: WHAT WE TREAT (Standard 2-Column Layout) */}
             <Section className="py-24 bg-white">
-                <div className="container max-w-6xl mx-auto px-6">
+                <div className="container max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">
                             What We Treat <span className="text-[#FF8202]">Without Delay</span>
@@ -138,28 +140,57 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {[
-                            "Major and minor road accidents",
-                            "Severe head injuries and internal bleeding",
-                            "Sudden chest pain or suspected heart attack",
-                            "Stroke, paralysis, or unexplained slurred speech",
-                            "High-grade fever, convulsions, or unconsciousness",
-                            "Severe asthma attacks or difficulty breathing",
-                            "Electrical shock, burns, or poisoning",
-                            "Trauma from falls, workplace injuries, or sports incidents",
-                            "Pediatric emergencies or elderly collapse",
-                            "Sepsis, infections, and post-operative complications"
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-100">
-                                <div className="h-2 w-2 rounded-full bg-[#FF8202]"></div>
-                                <span className="text-slate-700 font-medium">{item}</span>
+                    <div className="grid md:grid-cols-2 gap-12">
+                        {/* Trauma & Accidental - Orange theme */}
+                        <div className="bg-[#FFF7ED] rounded-3xl p-10 border border-orange-100">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="h-12 w-12 rounded-xl bg-[#FF8202] text-white flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                    <Siren className="h-6 w-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-[#0F172A]">Trauma & Accidental Care</h3>
                             </div>
-                        ))}
+                            <ul className="space-y-4">
+                                {[
+                                    "Major and minor road accidents",
+                                    "Severe head injuries and internal bleeding",
+                                    "Trauma from falls, workplace injuries, or sports incidents",
+                                    "Electrical shock, burns, or poisoning"
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#FF8202] mt-2 flex-shrink-0"></span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Medical & Cardiac - Blue theme */}
+                        <div className="bg-[#F0F9FF] rounded-3xl p-10 border border-blue-100">
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="h-12 w-12 rounded-xl bg-[#ff8202] text-white flex items-center justify-center shadow-lg shadow-blue-500/20">
+                                    <Heart className="h-6 w-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-[#0F172A]">Medical & Cardiac</h3>
+                            </div>
+                            <ul className="space-y-4">
+                                {[
+                                    "Sudden chest pain or suspected heart attack",
+                                    "Stroke, paralysis, or unexplained slurred speech",
+                                    "High-grade fever, convulsions, or unconsciousness",
+                                    "Severe asthma attacks or difficulty breathing",
+                                    "Pediatric emergencies or elderly collapse"
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-slate-700 font-medium">
+                                        <span className="h-1.5 w-1.5 rounded-full bg-[#ff8202] mt-2 flex-shrink-0"></span>
+                                        <span>{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
-                    <div className="text-center mt-12">
-                        <p className="text-lg text-slate-600 font-medium">
+                    <div className="text-center mt-16 max-w-3xl mx-auto">
+                        <p className="text-lg text-slate-500 font-light italic border-l-4 border-[#ff8202] pl-6 py-2 bg-slate-50 rounded-r-lg">
                             And we treat them not just fast but thoroughly, respectfully, and with zero chaos.
                         </p>
                     </div>
@@ -247,8 +278,8 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                 </div>
             </Section>
 
-            {/* SECTION 7: FAQ */}
-            <Section className="py-24 bg-white">
+            {/* SECTION 7: FAQ (Card Implementation) */}
+            <Section className="py-24 bg-[#F8FAFC]">
                 <div className="container max-w-4xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A]">Frequently Asked Questions</h2>
@@ -273,7 +304,7 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                                 a: "Yes, most policies cover emergency care and ICU stays. Our emergency billing team will assist your family through claims or approvals."
                             }
                         ].map((faq, i) => (
-                            <div key={i} className="bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:bg-white hover:shadow-lg hover:border-blue-100 transition-all duration-300">
+                            <div key={i} className="bg-white rounded-2xl border border-slate-200 p-8 hover:shadow-lg hover:border-blue-100 transition-all duration-300">
                                 <h3 className="text-lg font-bold text-[#0F172A] mb-3 flex items-start gap-3">
                                     <span className="text-[#FF8202] font-black">Q.</span>
                                     {faq.q}
@@ -300,9 +331,11 @@ export const EmergencyContent = ({ blogs, videos }: { blogs: any[], videos: any[
                         Our rapid response team is ready 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-
-                        <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
-                            Get Directions
+                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[#ff8202] hover:bg-[#2d62a3] text-white rounded-full shadow-xl">
+                            Call Emergency Team
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
+                            <Link href="/second-opinion">Get a Second Opinion</Link>
                         </Button>
                     </div>
                 </div>

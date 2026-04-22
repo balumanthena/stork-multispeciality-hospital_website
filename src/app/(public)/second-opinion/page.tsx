@@ -1,11 +1,7 @@
-import React from "react"
-import { Metadata } from "next"
-import { ShieldCheck, Clock, Users, ChevronRight, FileBadge } from "lucide-react"
+"use client"
 
-export const metadata: Metadata = {
-    title: "Get a Second Opinion | Stork Hospital",
-    description: "Request a reliable second opinion from Stork Hospital's renowned multi-specialty experts for peace of mind regarding your diagnosis and treatment.",
-}
+import React, { useState } from "react"
+import { ShieldCheck, Clock, Users, ChevronRight, FileBadge, CheckCircle2, Loader2 } from "lucide-react"
 
 const specialties = [
     "Cosmetic & Plastic Surgery",
@@ -26,6 +22,45 @@ const specialties = [
 ]
 
 export default function SecondOpinionPage() {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        specialty: "",
+        message: "",
+    })
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+    const [errorMsg, setErrorMsg] = useState("")
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setStatus("loading")
+        setErrorMsg("")
+
+        try {
+            const res = await fetch("/api/second-opinion", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            })
+
+            if (!res.ok) {
+                const data = await res.json()
+                throw new Error(data.error || "Something went wrong")
+            }
+
+            setStatus("success")
+            setFormData({ name: "", phone: "", email: "", specialty: "", message: "" })
+        } catch (err: any) {
+            setStatus("error")
+            setErrorMsg(err.message || "Failed to submit. Please try again.")
+        }
+    }
+
     return (
         <div className="min-h-screen bg-slate-50 font-sans">
 
@@ -100,88 +135,145 @@ export default function SecondOpinionPage() {
                         {/* RIGHT COLUMN - THE FORM CARD */}
                         <div className="lg:col-span-7">
                             <div className="bg-white rounded-2xl shadow-lg p-8">
-                                <div className="mb-8">
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Request an Evaluation</h2>
-                                    <p className="text-slate-500 font-medium">Fill out the details below and we will contact you shortly.</p>
-                                </div>
 
-                                <form className="space-y-6">
-                                    {/* Personal Details */}
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label htmlFor="fullName" className="text-sm font-semibold text-slate-900">Patient's Full Name *</label>
-                                            <input
-                                                type="text"
-                                                id="fullName"
-                                                placeholder="e.g. John Doe"
-                                                className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
-                                                required
-                                            />
+                                {/* SUCCESS STATE */}
+                                {status === "success" ? (
+                                    <div className="text-center py-12">
+                                        <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6 border-2 border-green-200">
+                                            <CheckCircle2 className="w-10 h-10 text-green-500" />
                                         </div>
-                                        <div className="space-y-2">
-                                            <label htmlFor="phone" className="text-sm font-semibold text-slate-900">Phone Number *</label>
-                                            <input
-                                                type="tel"
-                                                id="phone"
-                                                placeholder="+91 "
-                                                className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
-                                                required
-                                            />
-                                        </div>
+                                        <h2 className="text-2xl font-bold text-slate-900 mb-3">Request Submitted Successfully!</h2>
+                                        <p className="text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">
+                                            Our clinical team has received your second opinion request. A coordinator will contact you within <strong>24-48 hours</strong> to discuss next steps.
+                                        </p>
+                                        {formData.email && (
+                                            <p className="text-sm text-slate-500 mb-6">A confirmation email has been sent to your email address.</p>
+                                        )}
+                                        <button
+                                            onClick={() => setStatus("idle")}
+                                            className="bg-[#FF8202] hover:bg-[#e67600] text-white font-semibold rounded-xl px-8 py-3 shadow-md transition-all"
+                                        >
+                                            Submit Another Request
+                                        </button>
                                     </div>
-
-                                    <div className="grid md:grid-cols-2 gap-6">
-                                        <div className="space-y-2">
-                                            <label htmlFor="email" className="text-sm font-semibold text-slate-900">Email Address</label>
-                                            <input
-                                                type="email"
-                                                id="email"
-                                                placeholder="john@example.com"
-                                                className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
-                                            />
+                                ) : (
+                                    <>
+                                        <div className="mb-8">
+                                            <h2 className="text-2xl font-bold text-slate-900 mb-2">Request an Evaluation</h2>
+                                            <p className="text-slate-500 font-medium">Fill out the details below and we will contact you shortly.</p>
                                         </div>
-                                        <div className="space-y-2">
-                                            <label htmlFor="specialty" className="text-sm font-semibold text-slate-900">Primary Concern / Specialty *</label>
-                                            <select
-                                                id="specialty"
-                                                className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors appearance-none text-slate-800"
-                                                required
+
+                                        <form onSubmit={handleSubmit} className="space-y-6">
+                                            {/* Personal Details */}
+                                            <div className="grid md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label htmlFor="fullName" className="text-sm font-semibold text-slate-900">Patient&apos;s Full Name *</label>
+                                                    <input
+                                                        type="text"
+                                                        id="fullName"
+                                                        name="name"
+                                                        value={formData.name}
+                                                        onChange={handleChange}
+                                                        placeholder="e.g. John Doe"
+                                                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label htmlFor="phone" className="text-sm font-semibold text-slate-900">Phone Number *</label>
+                                                    <input
+                                                        type="tel"
+                                                        id="phone"
+                                                        name="phone"
+                                                        value={formData.phone}
+                                                        onChange={handleChange}
+                                                        placeholder="+91 "
+                                                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="grid md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label htmlFor="email" className="text-sm font-semibold text-slate-900">Email Address</label>
+                                                    <input
+                                                        type="email"
+                                                        id="email"
+                                                        name="email"
+                                                        value={formData.email}
+                                                        onChange={handleChange}
+                                                        placeholder="john@example.com"
+                                                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors text-slate-800"
+                                                    />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label htmlFor="specialty" className="text-sm font-semibold text-slate-900">Primary Concern / Specialty *</label>
+                                                    <select
+                                                        id="specialty"
+                                                        name="specialty"
+                                                        value={formData.specialty}
+                                                        onChange={handleChange}
+                                                        className="w-full h-12 px-4 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors appearance-none text-slate-800"
+                                                        required
+                                                    >
+                                                        <option value="">Select Specialty</option>
+                                                        {specialties.map((item) => (
+                                                            <option key={item} value={item}>
+                                                                {item}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            {/* Summary of condition */}
+                                            <div className="space-y-2">
+                                                <label htmlFor="message" className="text-sm font-semibold text-slate-900">Summary of Current Diagnosis *</label>
+                                                <textarea
+                                                    id="message"
+                                                    name="message"
+                                                    value={formData.message}
+                                                    onChange={handleChange}
+                                                    rows={4}
+                                                    placeholder="Please briefly describe the medical condition, current treatments (if any), and specific questions you have for our doctors."
+                                                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none text-slate-800"
+                                                    required
+                                                ></textarea>
+                                            </div>
+
+                                            {/* Error Message */}
+                                            {status === "error" && (
+                                                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm font-medium">
+                                                    {errorMsg}
+                                                </div>
+                                            )}
+
+                                            {/* Submit Button */}
+                                            <button
+                                                type="submit"
+                                                disabled={status === "loading"}
+                                                className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 disabled:cursor-not-allowed text-white font-semibold rounded-xl px-6 py-3 shadow-md transition-all flex items-center justify-center gap-2"
                                             >
-                                                <option value="">Select Specialty</option>
-                                                {specialties.map((item) => (
-                                                    <option key={item} value={item}>
-                                                        {item}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    </div>
+                                                {status === "loading" ? (
+                                                    <>
+                                                        <Loader2 className="w-5 h-5 animate-spin" />
+                                                        Submitting...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        Submit for Evaluation <ChevronRight className="w-5 h-5" />
+                                                    </>
+                                                )}
+                                            </button>
 
-                                    {/* Summary of condition */}
-                                    <div className="space-y-2">
-                                        <label htmlFor="message" className="text-sm font-semibold text-slate-900">Summary of Current Diagnosis *</label>
-                                        <textarea
-                                            id="message"
-                                            rows={4}
-                                            placeholder="Please briefly describe the medical condition, current treatments (if any), and specific questions you have for our doctors."
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none text-slate-800"
-                                            required
-                                        ></textarea>
-                                    </div>
+                                            <p className="text-xs text-center text-slate-400 font-medium">
+                                                By submitting this form, you agree to our <a href="/privacy-policy" className="underline hover:text-slate-600">Privacy Policy</a> regarding medical data storage.
+                                            </p>
 
-                                    {/* Submit Button */}
-                                    <button
-                                        type="button"
-                                        className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl px-6 py-3 shadow-md transition-all flex items-center justify-center gap-2"
-                                    >
-                                        Submit for Evaluation <ChevronRight className="w-5 h-5" />
-                                    </button>
-
-                                    <p className="text-xs text-center text-slate-400 font-medium">
-                                        By submitting this form, you agree to our <a href="#" className="underline hover:text-slate-600">Privacy Policy</a> regarding medical data storage.
-                                    </p>
-
-                                </form>
+                                        </form>
+                                    </>
+                                )}
                             </div>
                         </div>
 
