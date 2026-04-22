@@ -93,7 +93,7 @@ export const TREATMENTS_MASTER: MasterTreatment[] = [
     { id: 37, name: "Antepartum and intrapartum", department: "Gynecology & Obstetrics" },
     { id: 38, name: "High risk pregnancy", department: "Gynecology & Obstetrics" },
     { id: 39, name: "Painless delivery", department: "Gynecology & Obstetrics" },
-    { id: 40, name: "Parental care", department: "Gynecology & Obstetrics" },
+    { id: 40, name: "Prenatal care", department: "Gynecology & Obstetrics" },
     { id: 41, name: "Postpartum care", department: "Gynecology & Obstetrics" },
     { id: 42, name: "Hysterectomy", department: "Gynecology & Obstetrics" },
     { id: 43, name: "Tubectomy ( family planning)", department: "Gynecology & Obstetrics" },

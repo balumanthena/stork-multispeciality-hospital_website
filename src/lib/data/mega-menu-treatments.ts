@@ -7,19 +7,19 @@ export const MEGA_MENU_TREATMENTS = [
             { title: "Headache / Migraine", href: "/treatments/headache-migraine" },
             { title: "Neck Pain", href: "/treatments/neck-pain" },
             { title: "Regenerative Therapies", href: "/treatments/regenerative-therapies" },
-            { title: "Sports Injury Pain", href: "/treatments/sports-injury-pain" }
+            { title: "Sports Injury Pain", href: "/treatments/sports-pain" }
         ]
     },
     {
         title: "Gynecology & Obstetrics",
         items: [
-            { title: "Antepartum & Intrapartum Care", href: "/treatments/antepartum-intrapartum-care" },
+            { title: "Antepartum & Intrapartum Monitoring", href: "/treatments/antepartum-and-intrapartum" },
             { title: "Fertility Services", href: "/treatments/fertility-services" },
             { title: "High-Risk Pregnancy Management", href: "/treatments/high-risk-pregnancy" },
-            { title: "Labour & Delivery", href: "/treatments/labour-delivery" },
+            { title: "Labor & Delivery", href: "/treatments/labor-and-delivery" },
             { title: "Pelvic Floor Disorders", href: "/treatments/pelvic-floor-disorders" },
             { title: "Postpartum Care", href: "/treatments/postpartum-care" },
-            { title: "Parental Care", href: "/treatments/parental-care" }
+            { title: "Prenatal Care", href: "/treatments/prenatal-care" }
         ]
     },
     {

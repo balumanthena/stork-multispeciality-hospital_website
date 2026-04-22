@@ -76,7 +76,10 @@ const PROCEDURE_ALIAS_MAP: Record<string, string> = {
     "acl-pcl-tear": "arthroscopy-surgery",
     "uterine-fibroids-surgery": "uterine-fibroids",
     "cancer-pain": "cancer-pain-management",
-    "ablation": "ablation-therapy"
+    "ablation": "ablation-therapy",
+    "sports-injury-pain": "sports-pain",
+    "antepartum-intrapartum-care": "antepartum-and-intrapartum",
+    "parental-care": "prenatal-care"
 }
 
 export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
@@ -102,7 +105,7 @@ export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
         return null
     }
 
-    if (slug === "ablation-therapy") {
+    if (slug === "ablation-therapy" || slug === "ablation") {
         return {
             slug: slug,
             title: "Ablation Therapy for Chronic Pain – Stork Hospital, Hyderabad",
@@ -220,7 +223,7 @@ At Stork Hospital, Hyderabad, we specialize in Radiofrequency Ablation (RFA) and
     }
 
 
-    if (slug === "headache-migraine") {
+    if (slug === "headache-migraine" || slug === "headach-migraine") {
         return {
             slug: slug,
             title: "Headache & Migraine Relief Center – Stork Hospital, Hyderabad",
@@ -333,7 +336,7 @@ Whether you’re experiencing episodic migraines, tension headaches, or complex 
     }
 
 
-    if (slug === "regenerative-therapies") {
+    if (slug === "regenerative-therapies" || slug === "regenerative-therapy-prp") {
         return {
             slug: slug,
             title: "Regenerative Therapy for Back & Joint Pain – Stork Hospital, Hyderabad",
@@ -451,7 +454,7 @@ At Stork Hospital, Hyderabad, we offer cutting-edge regenerative treatments like
     }
 
 
-    if (slug === "sports-pain") {
+    if (slug === "sports-pain" || slug === "sports-injury-pain") {
         return {
             slug: slug,
             title: "Sports Injury & Pain Management – Stork Hospital, Hyderabad",
@@ -568,7 +571,7 @@ Whether you’re a professional athlete or a weekend runner, we tailor care that
         }
     }
 
-    if (slug === "adenoidectomy") {
+    if (slug === "adenoidectomy" || slug === "adenoidectomy-tonsillectomy") {
         return {
             slug: slug,
             title: "Adenoidectomy – Specialized Adenoid Removal at Stork Hospital, Hyderabad",
@@ -804,7 +807,7 @@ At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal
         }
     }
 
-    if (slug === "anal-fistula") {
+    if (slug === "anal-fistula" || slug === "anal-fistulas") {
         return {
             slug: slug,
             title: "Anal Fistula – Stork Hospital, Hyderabad",
@@ -919,7 +922,7 @@ At Stork Multispecialty Hospital, Hyderabad, we specialize in delivering precise
     }
 
 
-    if (slug === "antepartum-and-intrapartum-monitoring") {
+    if (slug === "antepartum-and-intrapartum-monitoring" || slug === "antepartum-and-intrapartum" || slug === "antepartum-intrapartum-care") {
         return {
             slug: slug,
             title: "Antepartum and Intrapartum Monitoring – Stork Hospital, Hyderabad",
@@ -1145,7 +1148,7 @@ At Stork Hospital, Hyderabad, we provide immediate diagnosis and expert surgical
         }
     }
 
-    if (slug === "gallstones") {
+    if (slug === "gallstones" || slug === "gall-stones") {
         return {
             slug: slug,
             title: "Gallstone Surgery – Stork Hospital, Hyderabad",
@@ -1368,7 +1371,7 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform art
         }
     }
 
-    if (slug === "back-pain") {
+    if (slug === "back-pain" || slug === "backpain") {
         return {
             slug: slug,
             title: "Back Pain Treatment – Stork Hospital, Hyderabad",
@@ -1708,7 +1711,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, respectful, an
         }
     }
 
-    if (slug === "bariatric-surgery") {
+    if (slug === "bariatric-surgery" || slug === "bariatric") {
         return {
             slug: slug,
             title: "Weight Loss & Bariatric Surgery – Stork Hospital, Hyderabad",
@@ -2054,7 +2057,7 @@ At Stork Multispecialty Hospital, Hyderabad, we design chronic care programs aro
         }
     }
 
-    if (slug === "circumcision") {
+    if (slug === "circumcision" || slug === "laser-circumsession") {
         return {
             slug: slug,
             title: "Circumcision – Stork Hospital, Hyderabad",
@@ -2611,7 +2614,7 @@ Our focus is on supporting mothers physically and emotionally throughout the pro
         }
     }
 
-    if (slug === "labor-and-delivery") {
+    if (slug === "labor-and-delivery" || slug === "labour-delivery") {
         return {
             slug: slug,
             title: "Labor & Delivery – Stork Hospital, Hyderabad",
@@ -2971,7 +2974,7 @@ Our approach is recognized as part of a patient-first care experience, with wome
         }
     }
 
-    if (slug === "prenatal-care") {
+    if (slug === "prenatal-care" || slug === "parental-care") {
         return {
             slug: slug,
             title: "Prenatal Care – Stork Hospital, Hyderabad",
@@ -3090,7 +3093,7 @@ We are a multispecialty hospital in Telangana offering pregnancy care in Hyderab
         }
     }
 
-    if (slug === "cancer-pain-management") {
+    if (slug === "cancer-pain-management" || slug === "cancer-pain") {
         return {
             slug: slug,
             title: "Cancer Pain Management – Stork Hospital, Hyderabad",
@@ -5433,7 +5436,7 @@ At Stork Multispecialty Hospital, Hyderabad, our podiatry and dermatology specia
         }
     }
 
-    if (slug === "diabetic-foot-ulcer") {
+    if (slug === "diabetic-foot-ulcer" || slug === "diabetic-foot") {
         return {
             slug: slug,
             title: "Diabetic Foot Ulcer – Stork Hospital, Hyderabad",
@@ -5658,7 +5661,7 @@ Our expert team ensures quick relief from symptoms along with precise diagnosis 
         }
     }
 
-    if (slug === "diagnostic-procedure") {
+    if (slug === "diagnostic-procedure" || slug === "diagnostic-procedures") {
         return {
             slug: slug,
             title: "Diagnostic Procedures – Stork Hospital, Hyderabad",
@@ -5774,7 +5777,7 @@ Our center is a trusted diagnostic center in Hyderabad, recognized for our lab t
         }
     }
 
-    if (slug === "dvt") {
+    if (slug === "dvt" || slug === "dvt-deep-vein-thrombosis") {
         return {
             slug: slug,
             title: "Deep Vein Thrombosis (DVT) – Stork Hospital, Hyderabad",
@@ -6577,7 +6580,7 @@ FESS offers precise treatment with minimal discomfort, faster healing, and impro
         }
     }
 
-    if (slug === "foot-or-ankle-pain") {
+    if (slug === "foot-or-ankle-pain" || slug === "foot-and-ankle-pain" || slug === "foot-ankle-pain") {
         return {
             slug: slug,
             title: "Expert Foot & Ankle Pain Management – Stork Hospital, Hyderabad",
@@ -6698,7 +6701,7 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
         }
     }
 
-    if (slug === "foreskin-infection") {
+    if (slug === "foreskin-infection" || slug === "foreskin-infections") {
         return {
             slug: slug,
             title: "Foreskin Infection – Stork Hospital, Hyderabad",
@@ -7047,7 +7050,7 @@ Our skilled medical team performs laparoscopic gallbladder surgery in Hyderabad,
         }
     }
 
-    if (slug === "gastrointestinal-issues") {
+    if (slug === "gastrointestinal-issues" || slug === "gastrointestinal") {
         return {
             slug: slug,
             title: "Gastrointestinal Issues – Stork Hospital, Hyderabad",
@@ -7648,7 +7651,7 @@ If you’re looking for reliable hip pain treatment in Hyderabad, Stork provides
 
 
 
-    if (slug === "hip-replacement-surgery") {
+    if (slug === "hip-replacement-surgery" || slug === "hip-replacement") {
         return {
             slug: slug,
             title: "Hip Replacement Surgery – Stork Hospital, Hyderabad",
@@ -8920,7 +8923,7 @@ We are widely regarded for delivering high-quality knee pain treatment in Hydera
 
 
 
-    if (slug === "labiaplasty") {
+    if (slug === "labiaplasty" || slug === "labioplasty") {
         return {
             slug: slug,
             title: "Labiaplasty – Stork Hospital, Hyderabad",
@@ -9378,7 +9381,7 @@ Led by an experienced, all-women team, we are among the few hospitals offering c
 
 
 
-    if (slug === "management-of-infections") {
+    if (slug === "management-of-infections" || slug === "infectious-disease") {
         return {
             slug: slug,
             title: "Management of Infections – Stork Hospital, Hyderabad",
@@ -9841,7 +9844,7 @@ At Stork Multispecialty Hospital, Hyderabad, our team of psychiatrists, psycholo
         }
     }
 
-    if (slug === "metabolic-endocrine-disorders") {
+    if (slug === "metabolic-endocrine-disorders" || slug === "metabolic-and-endocrine-disorders" || slug === "metabolic-endocrine") {
         return {
             slug: slug,
             title: "Metabolic and Endocrine Disorders – Stork Hospital, Hyderabad",
@@ -10069,7 +10072,7 @@ As a leading women’s healthcare facility in Hyderabad, we’re proud to offer 
         }
     }
 
-    if (slug === "monsplasty") {
+    if (slug === "monsplasty" || slug === "monoplasty") {
         return {
             slug: slug,
             title: "Monsplasty – Stork Hospital, Hyderabad",
@@ -10643,7 +10646,7 @@ At Stork Multispecialty Hospital, Hyderabad, paraphimosis is treated as an urgen
         }
     }
 
-    if (slug === "pcnl") {
+    if (slug === "pcnl" || slug === "kidney-stone-pcnl") {
         return {
             slug: slug,
             title: "PCNL (Percutaneous Nephrolithotomy) – Stork Hospital, Hyderabad",
@@ -10760,7 +10763,7 @@ At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists speci
         }
     }
 
-    if (slug === "perianal-abscess") {
+    if (slug === "perianal-abscess" || slug === "perianth-abscess") {
         return {
             slug: slug,
             title: "Perianal Abscess – Stork Hospital, Hyderabad",
@@ -10987,7 +10990,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide discreet, patient-center
     }
 
 
-    if (slug === "piles-hemorrhoids") {
+    if (slug === "piles-hemorrhoids" || slug === "piles") {
         return {
             slug: slug,
             title: "Piles (Hemorrhoids) – Stork Hospital, Hyderabad",
@@ -11219,7 +11222,7 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced surgeons provide pr
 
 
 
-    if (slug === "prostatectomy") {
+    if (slug === "prostatectomy" || slug === "turp-prostatectomy") {
         return {
             slug: slug,
             title: "Prostatectomy – Stork Hospital, Hyderabad",
@@ -11570,7 +11573,7 @@ At Stork Multispecialty Hospital, Hyderabad, our respiratory specialists provide
     }
 
 
-    if (slug === "asthma-management") {
+    if (slug === "asthma-management" || slug === "asthma") {
         return {
             slug: slug,
             title: "Asthma Management – Stork Hospital, Hyderabad",
@@ -11689,7 +11692,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide comprehensive asthma car
     }
 
 
-    if (slug === "bronchoscopy-foreign-body-removal") {
+    if (slug === "bronchoscopy-foreign-body-removal" || slug === "bronchoscopy-guided-foreign-body-removal" || slug === "foreign-body-removal") {
         return {
             slug: slug,
             title: "Bronchoscopy-Guided Foreign Body Removal – Stork Hospital, Hyderabad",
@@ -11807,7 +11810,7 @@ Our expert pulmonologists use advanced bronchoscopy techniques to quickly locate
     }
 
 
-    if (slug === "bronchoscopy-services") {
+    if (slug === "bronchoscopy-services" || slug === "bronchoscopy") {
         return {
             slug: slug,
             title: "Bronchoscopy Services – Stork Hospital, Hyderabad",
@@ -11928,7 +11931,7 @@ Our goal is not just to detect the problem, but to treat it effectively with min
     }
 
 
-    if (slug === "copd-management") {
+    if (slug === "copd-management" || slug === "copd") {
         return {
             slug: slug,
             title: "COPD Management – Stork Hospital, Hyderabad",
@@ -12048,7 +12051,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide comprehensive COPD manag
     }
 
 
-    if (slug === "lung-biopsy-services") {
+    if (slug === "lung-biopsy-services" || slug === "lung-biopsy") {
         return {
             slug: slug,
             title: "Lung Biopsy Services – Stork Hospital, Hyderabad",
@@ -12167,7 +12170,7 @@ Our focus is on early detection and precise diagnosis, enabling timely and effec
     }
 
 
-    if (slug === "lung-cancer-treatment") {
+    if (slug === "lung-cancer-treatment" || slug === "lung-cancer-care" || slug === "lung-cancer") {
         return {
             slug: slug,
             title: "Lung Cancer Treatment – Stork Hospital, Hyderabad",
@@ -12288,7 +12291,7 @@ Our multidisciplinary team ensures personalized, evidence-based treatment plans 
     }
 
 
-    if (slug === "post-covid-recovery") {
+    if (slug === "post-covid-recovery" || slug === "post-covid") {
         return {
             slug: slug,
             title: "Post-COVID Recovery Clinic – Stork Hospital, Hyderabad",
@@ -13337,7 +13340,7 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic experts specialize i
         }
     }
 
-    if (slug === "sinus-treatment") {
+    if (slug === "sinus-treatment" || slug === "sinus-surgery") {
         return {
             slug: slug,
             title: "Sinus Treatment – Advanced Relief at Stork Hospital, Hyderabad",
@@ -14275,7 +14278,7 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform tonsill
 
 
     // 3. Return Premium Placeholder Content (Default)
-    if (slug === "total-knee-replacement") {
+    if (slug === "total-knee-replacement" || slug === "tkr") {
         return {
             slug: slug,
             title: "Total Knee Replacement – Stork Hospital, Hyderabad",
@@ -14511,7 +14514,7 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists perform turbina
 
 
     // 3. Return Premium Placeholder Content (Default)
-    if (slug === "tympanoplasty") {
+    if (slug === "tympanoplasty" || slug === "typanoplasty") {
         return {
             slug: slug,
             title: "Tympanoplasty – Advanced Eardrum Reconstruction at Stork Hospital, Hyderabad",
@@ -15211,7 +15214,7 @@ At Stork Multispecialty Hospital, Hyderabad, our ENT specialists diagnose and tr
 
 
 
-    if (slug === "transforaminal-endoscopic-lumbar-discectomy") {
+    if (slug === "transforaminal-endoscopic-lumbar-discectomy" || slug === "transforaminal-endoscopic") {
         return {
             slug: slug,
             title: "Transforaminal Endoscopic Lumbar Discectomy (TELD) – Stork Hospital, Hyderabad",
@@ -15323,7 +15326,7 @@ At Stork Hospital, Hyderabad, we specialize in precision-guided endoscopic spine
         }
     }
 
-    if (slug === "endoscopic-interlaminar-discectomy") {
+    if (slug === "endoscopic-interlaminar-discectomy" || slug === "endoscopic-interlaminar") {
         return {
             slug: slug,
             title: "Endoscopic Interlaminar Discectomy (EID) – Stork Hospital, Hyderabad",

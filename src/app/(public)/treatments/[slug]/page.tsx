@@ -1,7 +1,8 @@
 import { getTreatmentDetail } from "@/lib/data/treatment-detail-data"
 import { getTreatmentIcon } from "@/lib/data/treatment-icons"
-import { MASTER_TREATMENTS, slugify } from "@/lib/data/master-treatments"
-import { notFound } from "next/navigation"
+import { slugify } from "@/lib/data/master-treatments"
+import { redirect } from "next/navigation"
+import { TREATMENTS_MASTER as ALL_TREATMENTS } from "@/lib/data/treatments"
 // ... imports
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
@@ -19,18 +20,20 @@ import { createClient } from "@/lib/supabase/server"
 
 // Generate Static Params for all treatments
 export async function generateStaticParams() {
-    return MASTER_TREATMENTS.map(name => ({
-        slug: slugify(name)
+    return ALL_TREATMENTS.map(t => ({
+        slug: t.slug
     }))
 }
 
 // ... metadata ...
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
-    let treatment = getTreatmentDetail(slug)
+    const normalizedSlug = slug.toLowerCase();
+    
+    let treatment = getTreatmentDetail(normalizedSlug)
     if (!treatment) {
-        const name = MASTER_TREATMENTS.find(t => slugify(t) === slug)
-        if (name) return { title: `${name} | Treatment at Stork Hospital`, description: `Learn more about ${name} and related medical care at Stork Multispecialty Hospital Hyderabad.` }
+        const fallbackTreatment = ALL_TREATMENTS.find(t => t.slug === normalizedSlug)
+        if (fallbackTreatment) return { title: `${fallbackTreatment.name} | Treatment at Stork Hospital`, description: `Learn more about ${fallbackTreatment.name} and related medical care at Stork Multispecialty Hospital Hyderabad.` }
     }
     if (!treatment) return { title: "Treatment Not Found" }
     return { title: `${treatment.title} | Stork Multispecialty Hospital`, description: treatment.shortDescription }
@@ -61,19 +64,21 @@ async function getTreatmentMedia(slug: string) {
 
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
-    const detailedTreatment = getTreatmentDetail(slug)
+    const normalizedSlug = slug.toLowerCase();
+    
+    const detailedTreatment = getTreatmentDetail(normalizedSlug)
     let treatment: any = detailedTreatment
 
     if (!treatment) {
-        const name = MASTER_TREATMENTS.find(t => slugify(t) === slug)
-        if (name) {
+        const fallbackTreatment = ALL_TREATMENTS.find(t => t.slug === normalizedSlug)
+        if (fallbackTreatment) {
             treatment = {
-                slug: slug,
-                title: name,
-                category: "General Healthcare",
+                slug: normalizedSlug,
+                title: fallbackTreatment.name,
+                category: fallbackTreatment.department || "General Healthcare",
                 departmentHref: "/services",
-                shortDescription: `Experience world-class healthcare at Stork Multispecialty Hospital. We provide expert care and advanced treatment solutions for ${name}.`,
-                fullDescription: [`${name} is one of the many specialized treatments offered at Stork Hospital. Our team of experts ensures the highest standards of care and patient safety.`],
+                shortDescription: `Experience world-class healthcare at Stork Multispecialty Hospital. We provide expert care and advanced treatment solutions for ${fallbackTreatment.name}.`,
+                fullDescription: [`${fallbackTreatment.name} is one of the many specialized treatments offered at Stork Hospital. Our team of experts ensures the highest standards of care and patient safety.`],
                 conditionsTreated: ["General symptoms", "Routine checkups"],
                 procedureSteps: [{ title: "Consultation", description: "Expert evaluation by our specialists." }, { title: "Diagnosis", description: "Advanced diagnostic testing." }],
                 benefits: ["Expert care", "Advanced technology"],
@@ -82,9 +87,11 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
         }
     }
 
-    if (!treatment) notFound()
+    if (!treatment) {
+        redirect("/treatments")
+    }
     const TreatmentIcon = getTreatmentIcon(treatment.slug, treatment.category || "General")
-    const media = await getTreatmentMedia(slug)
+    const media = await getTreatmentMedia(treatment.slug)
 
     // Calculate dynamic navigation items
     const navItems = [
