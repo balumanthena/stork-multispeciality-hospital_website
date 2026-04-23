@@ -339,103 +339,106 @@ Whether you’re experiencing episodic migraines, tension headaches, or complex 
     if (slug === "regenerative-therapies" || slug === "regenerative-therapy-prp") {
         return {
             slug: slug,
-            title: "Regenerative Therapy for Back & Joint Pain – Stork Hospital, Hyderabad",
-            subheading: "Advanced Healing Solutions to Repair, Restore & Rejuvenate",
-            tagline: "Stimulating your body’s natural healing mechanisms to repair damaged tissues and restore function.",
+            title: "Regenerative Therapy – Stork Hospital, Hyderabad",
+            subheading: "Advanced Healing Solutions for Pain Relief & Tissue Repair",
+            tagline: "Chronic pain and tissue damage don't always require surgery.",
             breadcrumbTitle: "Regenerative Therapy",
-            category: "Orthopedics & Spine Care",
-            departmentHref: "/services/orthopaedics",
-            shortDescription: `Chronic pain is not always just a “wear and tear” issue—it often involves tissue damage, inflammation, and degeneration that the body struggles to heal on its own. Regenerative therapy focuses on stimulating your body’s natural healing mechanisms to repair damaged tissues, reduce pain, and restore function.
+            category: "Pain Management",
+            departmentHref: "/services/pain-management",
+            shortDescription: `Chronic pain and tissue damage don't always require surgery. With advancements in modern medicine, regenerative therapy offers a natural way to heal damaged tissues, reduce inflammation, and restore function. At Stork Hospital, Hyderabad, we specialize in cutting-edge regenerative treatments designed to promote the body's own healing mechanisms.
 
-At Stork Hospital, Hyderabad, we offer cutting-edge regenerative treatments like PRP (Platelet-Rich Plasma), PLDD (Percutaneous Laser Disc Decompression), and advanced biologic therapies designed to treat the root cause—not just mask symptoms.`,
+Whether it's joint pain, ligament injury, or early degeneration, our goal is not just symptom relief—but true recovery at the source.`,
 
             overview: {
-                heading: "Why Stork Hospital for Regenerative Care?",
-                intro: "We combine clinical expertise with advanced biological solutions to accelerate your natural healing journey:",
+                heading: "What is Regenerative Therapy?",
+                intro: "Regenerative therapy focuses on repairing and regenerating damaged tissues using the body's own biological materials. Instead of masking pain, these treatments stimulate healing at the cellular level. Common regenerative techniques include:",
                 items: [
-                    "Expert team of interventional pain specialists and spine doctors",
-                    "Advanced technology for precision-guided procedures",
-                    "Comprehensive rehab and physiotherapy support",
-                    "Patient-centric care with long-term recovery focus",
-                    "Trusted centre for regenerative pain treatments in Hyderabad"
+                    "Platelet-Rich Plasma (PRP) Therapy",
+                    "Stem Cell Therapy",
+                    "Growth Factor Injections",
+                    "Biologic treatments for joint and soft tissue repair"
                 ]
             },
             fullDescription: [
-                "Regenerative medicine uses the body’s own biological resources to accelerate healing and tissue repair. These treatments are minimally invasive, safe, and effective alternatives to surgery for many musculoskeletal and spine conditions."
+                "These therapies are widely used for orthopedic conditions, sports injuries, and chronic pain syndromes."
             ],
 
             conditionsHeading: "Conditions Treated with Regenerative Therapy",
             conditionsTreated: [
-                "Chronic back and neck pain",
-                "Herniated or bulging spinal discs",
-                "Sciatica and nerve-related pain",
-                "Joint pain (knee, shoulder, hip)",
+                "Chronic joint pain (knee, shoulder, hip)",
                 "Ligament and tendon injuries",
-                "Early arthritis and degenerative joint disease",
-                "Sports injuries and overuse conditions"
+                "Osteoarthritis (early to moderate stages)",
+                "Back pain due to disc degeneration",
+                "Sports injuries and muscle tears",
+                "Plantar fasciitis and tennis elbow",
+                "Slow-healing wounds or tissue damage"
             ],
 
-            procedureHeading: "Our Advanced Regenerative Treatments",
+            procedureHeading: "How We Diagnose & Treat",
             procedureSteps: [
                 {
-                    title: "PRP Therapy (Platelet-Rich Plasma)",
-                    description: "Uses your own blood to extract growth factors which are then injected into damaged tissues to accelerate healing. Ideal for joint pain and early arthritis."
+                    title: "Comprehensive Evaluation",
+                    description: "At Stork Hospital, we begin with a comprehensive evaluation to understand the root cause of your condition. This includes clinical examination and imaging like MRI or ultrasound when required."
                 },
                 {
-                    title: "PLDD (Laser Disc Decompression)",
-                    description: "A minimally invasive laser procedure for slipped discs. Reduces disc pressure and nerve compression to provide fast relief from back pain and sciatica."
+                    title: "PRP Therapy",
+                    description: "Concentrated platelets from your own blood are injected into the affected area to accelerate healing."
                 },
                 {
-                    title: "Stem Cell-Based Therapies (Advanced Biologics)",
-                    description: "Promote regeneration of damaged tissues and cartilage. Helps delay or avoid surgery in selected cases of chronic degeneration."
+                    title: "Stem Cell Therapy",
+                    description: "Specialized cells help repair damaged tissues and reduce inflammation."
                 },
                 {
-                    title: "Precision-Guided Diagnosis",
-                    description: "Includes detailed clinical evaluation, advanced imaging (MRI/CT), and personalized treatment mapping performed under image guidance (C-arm/ultrasound)."
+                    title: "Targeted Biologic Injections",
+                    description: "Targeted biologic injections for joints, tendons, and ligaments using ultrasound-guided precision techniques for accurate delivery."
+                },
+                {
+                    title: "Supportive Care",
+                    description: "Physiotherapy to enhance recovery and mobility, pain management protocols tailored to your condition, lifestyle and activity modification guidance, and nutritional support for tissue healing."
                 }
             ],
 
-            benefitsHeading: "Why Choose Regenerative Therapy?",
+            benefitsHeading: "Why Choose Stork Hospital for Regenerative Therapy?",
             benefits: [
-                "Minimally invasive with no major surgery",
-                "Faster recovery and minimal downtime",
-                "Uses the body’s natural healing potential",
-                "Reduces dependency on long-term medications",
-                "Targets the root cause of pain and degeneration"
+                "Experienced specialists in interventional pain management and orthopedics",
+                "Advanced biologic treatment options under expert supervision",
+                "Minimally invasive, low-risk procedures",
+                "Focus on natural healing and long-term recovery",
+                "Trusted center for regenerative therapy in Hyderabad"
             ],
 
             risks: [],
             recoveryHeading: "Recovery & Results",
             recoveryTimeline: [
-                "Most procedures are day care-based—no long hospital stay",
-                "Patients can resume routine activities within a short time",
-                "Gradual and sustained improvement over weeks",
-                "Rehabilitation programs enhance long-term outcomes"
+                "Most procedures are done on an outpatient basis with minimal downtime",
+                "Patients may start noticing improvement within a few weeks",
+                "Gradual tissue repair continues over time for long-lasting results",
+                "Structured rehabilitation enhances outcomes and prevents recurrence"
             ],
 
-            faqHeading: "Common Questions Answered",
+            faqHeading: "FAQs – Regenerative Therapy",
             faqs: [
                 {
-                    question: "Are regenerative therapies safe?",
-                    answer: "Yes. Since many treatments use your own biological material, the risk of complications is very low."
-                },
-                {
-                    question: "Is PRP or PLDD better than surgery?",
-                    answer: "In many cases, these therapies can delay or even eliminate the need for surgery."
+                    question: "Is regenerative therapy safe?",
+                    answer: "Yes, since most treatments use your body's own cells, the risk of complications is minimal."
                 },
                 {
                     question: "How long does it take to see results?",
-                    answer: "Initial relief may begin within weeks, with continued improvement over time."
+                    answer: "Initial improvement can be seen in 2–6 weeks, with continued healing over months."
+                },
+                {
+                    question: "Is it better than surgery?",
+                    answer: "For many conditions, it can delay or even avoid the need for surgery."
                 },
                 {
                     question: "Who is the right candidate?",
-                    answer: "Patients with early to moderate degeneration or chronic pain not responding to basic treatments benefit the most."
+                    answer: "Patients with chronic pain, early degeneration, or soft tissue injuries benefit the most."
                 }
             ],
 
             customCta: {
-                heading: "Repair, Restore & Rejuvenate",
-                description: "Experience the latest in biological healing at Stork Hospital. Our experts provide targeted regenerative therapies to help you live pain-free.",
+                heading: "Advanced Healing Solutions",
+                description: "Experience cutting-edge regenerative treatments at Stork Hospital. Our specialists promote your body's own healing mechanisms for lasting pain relief and tissue repair.",
                 buttonText: "Schedule Regenerative Consultation"
             },
             meta: {
@@ -447,8 +450,8 @@ At Stork Hospital, Hyderabad, we offer cutting-edge regenerative treatments like
             },
             reviewedBy: {
                 name: "Stork Regenerative Medicine Team",
-                role: "Spine & Pain Specialists",
-                experience: "Experts in Biologic & Laser Spine Treatments"
+                role: "Pain Management & Orthopedic Specialists",
+                experience: "Experts in Interventional Pain Management and Regenerative Therapies"
             }
         }
     }
