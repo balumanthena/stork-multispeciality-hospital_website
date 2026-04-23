@@ -84,7 +84,7 @@ const PROCEDURE_ALIAS_MAP: Record<string, string> = {
 
 export function getTreatmentDetail(rawSlug: string): TreatmentDetail | null {
     const slug = PROCEDURE_ALIAS_MAP[rawSlug] || rawSlug
-    
+
     // 1. Find the treatment in HARDCODED_TREATMENTS OR HARDCODED_PROCEDURES to get real title/category
     let foundItem = null
     let foundCategory = null
@@ -811,18 +811,18 @@ At Stork Multispecialty Hospital, Hyderabad, our gastroenterology and colorectal
         return {
             slug: slug,
             title: "Anal Fistula – Stork Hospital, Hyderabad",
-            subheading: "Advanced, Patient-Focused Care for Anal Fistulas",
+            subheading: "Advanced, Patient-Focused Care for anal fistula",
             tagline: "Expert colorectal management featuring laser closure and minimally invasive surgery to achieve permanent resolution of anal fistula tracts.",
             breadcrumbTitle: "Anal Fistula",
             category: "Proctology",
             departmentHref: "/services/proctology",
             shortDescription: `An anal fistula is an unusual channel that develops between the anal canal and the surrounding skin, usually as a result of an untreated abscess or infection in an anal gland. It can cause recurring pain, swelling, and foul-smelling discharge, often making daily activities uncomfortable. Although medications may provide temporary relief from infection, surgery remains the most reliable way to achieve a permanent cure.
 
-At Stork Multispecialty Hospital, Hyderabad, we specialize in delivering precise, minimally invasive treatments for anal fistulas. Our goal is to ensure fast recovery, long-term relief, and a comfortable experience for every patient through personalized care plans.`,
+At Stork Multispecialty Hospital, Hyderabad, we specialize in delivering precise, minimally invasive treatments for anal fistula. Our goal is to ensure fast recovery, long-term relief, and a comfortable experience for every patient through personalized care plans.`,
 
             overview: {
                 heading: "Symptoms You Should Watch For",
-                intro: "Anal fistulas often manifest through specific anatomical and clinical indicators that require professional evaluation:",
+                intro: "anal fistula often manifest through specific anatomical and clinical indicators that require professional evaluation:",
                 items: [
                     "Ongoing pain or a persistent throbbing sensation localized near the anus",
                     "Visible swelling, redness, or heat in the perianal region",
@@ -2725,7 +2725,7 @@ At Stork Hospital, Hyderabad, we ensure that this life-changing moment happens w
                 anesthesia: "Epidural / Spinal / General",
                 hospitalStay: "24–72 Hours",
                 recoveryTime: "Postnatal Support",
-            successRate: "Clinical Precision"
+                successRate: "Clinical Precision"
             },
             reviewedBy: {
                 name: "Stork Obstetric & Delivery Team",
@@ -4547,7 +4547,7 @@ At Stork Multispecialty Hospital, Hyderabad, our spine specialists use the lates
             shortDescription: `Medical Termination of Pregnancy (MTP) is a safe and legally approved method to end a pregnancy under medical supervision, as per the Medical Termination of Pregnancy Act, 1971. At Stork Multispecialty Hospital, Hyderabad, we ensure that every woman receives respectful, confidential, and medically safe care in a supportive environment.
 
 Whether it is an unplanned pregnancy or a medical necessity, our experienced gynecologists provide complete guidance and treatment tailored to your individual needs.`,
-            
+
             overview: {
                 heading: "Why Choose Stork Hospital for MTP Services",
                 intro: "We ensure every woman receives respectful, confidential, and medically safe care:",
@@ -4632,7 +4632,7 @@ Whether it is an unplanned pregnancy or a medical necessity, our experienced gyn
                 description: "If you are facing an unplanned pregnancy and need safe, respectful care, consult our expert gynecologists at Stork Multispecialty Hospital, Hyderabad. We provide complete support with privacy and compassion.",
                 buttonText: "Schedule Consultation"
             },
-            
+
             meta: {
                 duration: "Varies (Medical/Surgical)",
                 anesthesia: "None or Local/General",
@@ -8331,7 +8331,7 @@ At Stork Multispecialty Hospital, Hyderabad, our expert general surgeons provide
                 description: "If you notice a bulge or discomfort in the groin area, don’t ignore it. Early treatment can prevent complications. Book your consultation at Stork Multispecialty Hospital, Hyderabad, and get expert care for safe and effective hernia treatment.",
                 buttonText: "Schedule Consultation"
             },
-            
+
             meta: {
                 duration: "60-90 Minutes",
                 anesthesia: "General or Spinal",
@@ -10768,7 +10768,7 @@ At Stork Multispecialty Hospital, Hyderabad, our team of expert urologists speci
             slug: slug,
             title: "Perianal Abscess – Stork Hospital, Hyderabad",
             subheading: "Prompt and Expert Care for Perianal Abscesses",
-            tagline: "Emergency colorectal drainage and precision wound care to eliminate perianal infections and prevent the development of anal fistulas.",
+            tagline: "Emergency colorectal drainage and precision wound care to eliminate perianal infections and prevent the development of anal fistula.",
             breadcrumbTitle: "Perianal Abscess",
             category: "Proctology",
             departmentHref: "/services/proctology",
@@ -10799,7 +10799,7 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced gastroenterologists
                 "Clinical manifestations of Crohn’s disease or active Ulcerative Colitis",
                 "Localized injury or structural trauma to the perianal and anal region",
                 "Significantly weakened immune system affecting secondary infection response",
-                "Clinical history of recurrent anal fistulas or neglected perianal abscesses"
+                "Clinical history of recurrent anal fistula or neglected perianal abscesses"
             ],
 
             procedureHeading: "Advanced Treatment Approaches at Stork",
@@ -10849,7 +10849,7 @@ At Stork Multispecialty Hospital, Hyderabad, our experienced gastroenterologists
                 },
                 {
                     question: "Can it turn into a fistula?",
-                    answer: "Yes. Untreated abscesses carry a high risk of developing into anal fistulas, which require a separate surgical intervention."
+                    answer: "Yes. Untreated abscesses carry a high risk of developing into anal fistula, which require a separate surgical intervention."
                 },
                 {
                     question: "Is it covered by insurance?",
@@ -15437,7 +15437,7 @@ At Stork Hospital, Hyderabad, we provide state-of-the-art endoscopic spine proce
         }
     }
 
-if (slug === "carpal-tunnel-syndrome") {
+    if (slug === "carpal-tunnel-syndrome") {
         return {
             slug: slug,
             title: "Carpal Tunnel Syndrome – Stork Hospital, Hyderabad",
@@ -15451,7 +15451,7 @@ if (slug === "carpal-tunnel-syndrome") {
 If left untreated, it can worsen over time and lead to permanent nerve damage.
 
 At Stork Multispecialty Hospital, Hyderabad, our expert orthopedic and hand specialists provide accurate diagnosis and advanced treatment options—from non-surgical care to minimally invasive procedures—for long-lasting relief.`,
-            
+
             overview: {
                 heading: "Why Choose Stork Hospital for Carpal Tunnel Treatment",
                 intro: "We provide comprehensive, advanced care for wrist and hand conditions:",
@@ -15545,7 +15545,7 @@ At Stork Multispecialty Hospital, Hyderabad, our expert orthopedic and hand spec
                 description: "If you are experiencing numbness, tingling, or wrist pain, don't ignore the signs. Early treatment can prevent complications. Book your consultation at Stork Multispecialty Hospital, Hyderabad, and regain pain-free hand function.",
                 buttonText: "Schedule Consultation"
             },
-            
+
             meta: {
                 duration: "Varies (Minimally Invasive)",
                 anesthesia: "None or Local",
@@ -15575,7 +15575,7 @@ At Stork Multispecialty Hospital, Hyderabad, our expert orthopedic and hand spec
 PLDD is especially beneficial for patients suffering from conditions like Herniated Disc and Sciatica, offering quick relief with minimal downtime.
 
 At Stork Multispecialty Hospital, Hyderabad, our pain management and spine specialists use advanced image-guided PLDD techniques to provide safe, effective, and faster recovery solutions.`,
-            
+
             overview: {
                 heading: "Why Choose Stork Hospital for PLDD Treatment",
                 intro: "We provide safe, effective, and faster recovery solutions:",
@@ -15677,7 +15677,7 @@ At Stork Multispecialty Hospital, Hyderabad, our pain management and spine speci
                 description: "If you are suffering from chronic back pain or sciatica and want a non-surgical solution, consult the experts at Stork Multispecialty Hospital, Hyderabad. Get advanced, minimally invasive spine care and return to a pain-free life faster.",
                 buttonText: "Schedule Consultation"
             },
-            
+
             meta: {
                 duration: "30-60 Minutes",
                 anesthesia: "Local Anesthesia",
@@ -15705,7 +15705,7 @@ At Stork Multispecialty Hospital, Hyderabad, our pain management and spine speci
             shortDescription: `Tubectomy, also known as female sterilization, is a safe and permanent method of contraception where the fallopian tubes are blocked or sealed to prevent pregnancy. It is one of the most effective family planning options for women who have completed their family.
 
 At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally invasive tubectomy procedures with a focus on safety, comfort, and long-term effectiveness.`,
-            
+
             overview: {
                 heading: "Why Choose Stork Hospital for Tubectomy",
                 intro: "We provide advanced and minimally invasive tubectomy procedures:",
@@ -15791,7 +15791,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally i
                 description: "If you are looking for a safe and permanent birth control option, consult our experts at Stork Multispecialty Hospital, Hyderabad. Get personalized guidance and make an informed decision for your future.",
                 buttonText: "Schedule Consultation"
             },
-            
+
             meta: {
                 duration: "30-60 Minutes",
                 anesthesia: "General or Local",
@@ -15807,7 +15807,7 @@ At Stork Multispecialty Hospital, Hyderabad, we provide advanced and minimally i
         }
     }
 
-    
+
     // 3. Return Premium Placeholder Content (Default)
     if (foundItem && foundCategory) {
         return {

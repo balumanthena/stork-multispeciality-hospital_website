@@ -86,7 +86,7 @@ export const iconMap: Record<string, string> = {
     "General Medicine": "General-Medicine.png",
 
     // New List Aliases
-    "Anal fistulas": "Anal-Fistula.png",
+    "anal fistula": "Anal-Fistula.png",
     "laser circumsession": "Stapler-Circumcision.png",
     "Umbilical hernia": "Inguinal-Hernia.png",
     "Gall stones": "Gallstones.png",
@@ -128,7 +128,7 @@ const normalizedIconMap = Object.entries(iconMap).reduce((acc, [key, value]) => 
 export function getTreatmentIcon(treatmentName: string): string {
     const basePath = "/images/Departmentsicons/Stork exclusive icons (6)/";
     const fallback = "General-Medicine.png";
-    
+
     const normalizedName = normalize(treatmentName);
     const fileName = normalizedIconMap[normalizedName];
 
