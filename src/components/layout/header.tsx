@@ -44,7 +44,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                 <Container className="px-4 lg:px-6 h-full flex items-center justify-between">
 
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 flex-shrink-0 z-50 group">
+                    <Link href="/" className="flex items-center flex-shrink-0 max-w-[140px] md:max-w-[160px] z-50 group">
                         <Image
                             src="/images/c06d2292-c0f5-47ea-9456-7069e85be4bd_20260130_131840_0000.png"
                             alt={settings?.hospital_name || "Stork Hospital Logo"}
@@ -59,10 +59,12 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <DesktopNav departments={departments} groupedTreatments={groupedTreatments} />
+                    <div className="hidden lg:flex flex-1 justify-center items-center h-full">
+                        <DesktopNav departments={departments} groupedTreatments={groupedTreatments} />
+                    </div>
 
                     {/* Right Actions */}
-                    <div className="hidden lg:flex items-center gap-6">
+                    <div className="hidden lg:flex items-center ml-auto pl-6">
                         <Link href="/appointments">
                             <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[44px] text-[15px] font-bold transition-all shadow-lg shadow-orange-600/10 hover:shadow-orange-600/20 active:scale-[0.98]">
                                 <Calendar className="w-4 h-4 mr-2" />
