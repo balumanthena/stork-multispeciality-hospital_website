@@ -75,6 +75,11 @@ const CUSTOM_ICON_MAP: Record<string, string> = {
   "lung cancer care": "cancer care.svg",
   "oncology": "Oncology.png",
 
+  // Capitalized SVG filenames (case-sensitive on Linux/Vercel)
+  "hip pain": "Hip pain.svg",
+  "monsplasty": "Monsplasty.svg",
+  "hoodectomy": "Hoodectomy.svg",
+
   // Additional treatments that map to existing icons
   "sports pain": "Knee-Pain.png",
   "corn removal": "Diabetic-Foot.png",
