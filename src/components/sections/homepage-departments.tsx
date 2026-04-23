@@ -6,6 +6,7 @@ import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { DepartmentListItem } from "@/lib/data/departments"
+import { Container } from "@/components/layout/container"
 
 export function HomepageDepartments({ departments }: { departments: DepartmentListItem[] }) {
     const [expanded, setExpanded] = useState(false);
@@ -16,7 +17,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
 
     return (
         <section className="bg-slate-50 py-20 font-sans">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6">
+            <Container>
                 
                 <div className="flex flex-col justify-center items-center mb-10 gap-4">
                     <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 text-center">
@@ -89,8 +90,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                         </motion.div>
                     </button>
                 </div>
-
-            </div>
+            </Container>
         </section>
     )
 }

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Star, ShieldCheck, Play, ArrowRight, Users, Activity, Award, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/layout/container";
 import {
     Carousel,
     CarouselContent,
@@ -111,7 +112,7 @@ export function Testimonials() {
 
     return (
         <section className="bg-white py-24 border-y border-slate-100">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6">
+            <Container>
 
                 {/* SECTION TITLE & PART 1: GOOGLE REVIEW SUMMARY */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
@@ -240,13 +241,7 @@ export function Testimonials() {
                         </div>
                     </Carousel>
                 </div>
-
-
-
-            </div>
-
-
-
+            </Container>
         </section>
     );
 }

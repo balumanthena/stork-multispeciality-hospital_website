@@ -26,7 +26,7 @@ export function Footer() {
 
     return (
         <footer className="bg-white text-slate-600 py-16 md:py-20 border-t border-slate-100">
-            <Container className="px-6">
+            <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     {/* Brand & About */}
                     <div>

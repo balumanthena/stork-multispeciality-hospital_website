@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Section } from "@/components/layout/section";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/layout/container";
 import { motion, useAnimationControls } from "framer-motion";
 
 const INSURANCE_PARTNERS = [
@@ -102,8 +103,8 @@ export function InsurancePartners() {
     }, [controls, isHovered]);
 
     return (
-        <Section className="py-[80px] bg-[#f7f9fc] overflow-hidden">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        <Section container={false} className="py-[80px] bg-[#f7f9fc] overflow-hidden">
+            <Container>
 
                 {/* Header Section */}
                 <div className="text-center max-w-3xl mx-auto mb-[48px]">
@@ -114,7 +115,7 @@ export function InsurancePartners() {
                         We provide cashless hospitalization with leading insurance providers and TPAs, ensuring a seamless and stress-free experience for patients.
                     </p>
                 </div>
-            </div>
+            </Container>
 
             {/* Infinite Carousel Slider */}
             <div
@@ -140,7 +141,7 @@ export function InsurancePartners() {
                 </motion.div>
             </div>
 
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
 
                 {/* Trust Indicators & Navigation Action */}
                 <div className="mt-12 pt-8 max-w-4xl mx-auto text-center">
@@ -171,7 +172,7 @@ export function InsurancePartners() {
                         </Button>
                     </Link>
                 </div>
-            </div>
+            </Container>
         </Section>
     );
 }

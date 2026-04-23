@@ -6,6 +6,7 @@ import { ArrowRight, ChevronDown } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TREATMENTS_MASTER } from "@/lib/data/treatments"
 import { getTreatmentIcon } from "@/lib/treatmentIcons"
+import { Container } from "@/components/layout/container"
 
 // Icons whose artwork is extremely tiny within their SVG viewBox
 const TINY_ICONS = new Set([
@@ -62,7 +63,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
 
     return (
         <section ref={sectionRef} className="py-16 md:py-20 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-10">
+            <Container>
 
                 <div className="text-center mb-12 md:mb-16">
                     <motion.div
@@ -131,7 +132,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         </motion.div>
                     </button>
                 </div>
-            </div>
+            </Container>
         </section>
     )
 }

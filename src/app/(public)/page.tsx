@@ -18,6 +18,7 @@ import {
   ShieldCheck, Users, Award, Phone, Calendar, User, Microscope,
   CheckCircle2, Star, Quote, ChevronRight, MapPin, UserCheck
 } from "lucide-react"
+import { Container } from "@/components/layout/container"
 
 const allTreatments = HARDCODED_TREATMENTS.flatMap(cat => cat.items)
 
@@ -37,12 +38,12 @@ export default function Home() {
     <div className="font-sans text-slate-900 bg-slate-50">
 
       {/* 1. HERO SECTION (Institutional Split - Corporate Look) */}
-      <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100vh-124px)] flex items-center">
-        <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8 py-8 lg:py-0">
+      <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100vh-80px)] flex items-center py-12 lg:py-0">
+        <Container>
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
             {/* LEFT CONTENT */}
-            <div className="w-full lg:w-[55%] flex flex-col justify-center relative z-10 space-y-6">
+            <div className="w-full lg:w-[55%] flex flex-col justify-center relative z-10 space-y-5">
 
               {/* Trust Badge / Header Info */}
               <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm w-fit">
@@ -53,7 +54,7 @@ export default function Home() {
               </div>
 
               {/* Headings */}
-              <div className="space-y-4 max-w-2xl">
+              <div className="space-y-3 max-w-2xl">
                 <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold text-slate-900 leading-[1.25] tracking-[-0.02em]">
                   Advanced Multispecialty Care <br className="hidden lg:block" />
                   in Kompally, Hyderabad
@@ -73,42 +74,47 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Action Buttons - Segmented Horizontal Container */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-[#F5F7FA] rounded-2xl sm:rounded-full shadow-sm mt-10 w-full max-w-2xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-gray-200 border border-slate-200 py-0 sm:py-3 px-0 sm:px-2">
-
-                {/* Segment 1: Primary */}
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 w-full">
+                {/* Primary CTA */}
                 <Link
                   href="/appointments"
-                  className="flex-1 flex items-center justify-center gap-3 px-6 py-4 sm:py-3 hover:bg-gray-100 transition-colors group cursor-pointer rounded-none sm:rounded-full"
+                  className="flex items-center justify-center gap-2 bg-[#F97316] text-white px-8 py-3.5 rounded-xl shadow-md hover:shadow-[0_10px_25px_rgba(249,115,22,0.4)] hover:scale-105 transition-all duration-300 font-semibold text-[15px] sm:text-base w-full sm:w-auto"
                 >
-                  <Calendar className="w-5 h-5 text-[var(--color-accent)] shrink-0" />
-                  <span className="font-semibold text-slate-900 group-hover:text-[var(--color-accent)] whitespace-nowrap transition-colors text-base">
-                    Book Appointment
-                  </span>
-                  <div className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center text-slate-400 group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)] transition-all group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
+                  <Calendar className="w-5 h-5" />
+                  Book Appointment
                 </Link>
 
-                {/* Segment 2: Second Opinion */}
+                {/* Secondary CTA */}
                 <Link
                   href="/second-opinion"
-                  className="flex-1 flex items-center justify-center gap-3 px-6 py-4 sm:py-3 hover:bg-gray-100 transition-colors group cursor-pointer rounded-none sm:rounded-full"
+                  className="flex items-center justify-center gap-2 border-2 border-[#F97316] text-[#F97316] px-8 py-3.5 rounded-xl hover:bg-[#F97316] hover:text-white hover:shadow-[0_10px_25px_rgba(249,115,22,0.4)] hover:scale-105 transition-all duration-300 font-semibold text-[15px] sm:text-base w-full sm:w-auto bg-white"
                 >
-                  <span className="font-semibold text-slate-700 group-hover:text-slate-900 whitespace-nowrap transition-colors text-base">
-                    Second Opinion
-                  </span>
-                  <div className="h-7 w-7 rounded-full border border-gray-300 flex items-center justify-center text-slate-400 group-hover:text-slate-600 group-hover:border-slate-400 transition-all group-hover:translate-x-1 shrink-0">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
+                  Second Opinion
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
+              </div>
 
+              {/* Trust Indicators (Fills empty space below CTAs) */}
+              <div className="mt-10 flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-600">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+                    <CheckCircle2 className="w-3 h-3" />
+                  </div>
+                  JCI Accredited Hospital
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-amber-700">
+                    <Award className="w-3 h-3" />
+                  </div>
+                  15+ Expert Departments
+                </div>
               </div>
             </div>
 
-            {/* RIGHT IMAGE */}
-            <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center items-center">
-              <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[500px]">
+            <div className="w-full lg:w-[45%] relative lg:mt-0 flex justify-center items-center">
+              <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[550px] xl:h-[600px]">
                 <Image
                   src="/images/FINAL.svg"
                   alt="Stork Hospital Building"
@@ -121,7 +127,7 @@ export default function Home() {
             </div>
 
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* 2. OUR TREATMENTS (Icons Grid) */}

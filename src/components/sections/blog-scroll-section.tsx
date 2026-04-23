@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Calendar } from "lucide-react";
+import { Container } from "@/components/layout/container";
 import { getLatestBlogs } from "@/lib/blogs";
 
 export async function BlogScrollSection() {
@@ -13,14 +14,14 @@ export async function BlogScrollSection() {
 
     return (
         <section className="py-16 bg-slate-50 overflow-hidden border-t border-slate-100">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6 mb-8 text-right">
+            <Container className="mb-8 text-right">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-1">
                     Latest Articles
                 </h2>
                 <p className="text-slate-500 text-sm">
                     Read updates and research from our medical experts.
                 </p>
-            </div>
+            </Container>
 
             {/* Marquee Scroll Container (Right to Left) */}
             <div className="w-full relative py-4">

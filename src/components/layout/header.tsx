@@ -38,10 +38,10 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
             <header
                 className={cn(
                     "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b bg-white/95 backdrop-blur-md",
-                    isScrolled ? "h-[72px] shadow-md border-slate-200" : "h-[84px] border-[#eaeef3]"
+                    isScrolled ? "h-[68px] shadow-md border-slate-200" : "h-[80px] border-[#eaeef3]"
                 )}
             >
-                <Container className="px-4 lg:px-10 h-full flex items-center justify-between">
+                <Container className="px-4 lg:px-6 h-full flex items-center justify-between">
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 flex-shrink-0 z-50 group">
@@ -52,7 +52,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                             height={62}
                             className={cn(
                                 "transition-all duration-300 object-contain",
-                                isScrolled ? "h-[44px]" : "h-[52px]"
+                                isScrolled ? "h-[40px]" : "h-[48px]"
                             )}
                             priority
                         />

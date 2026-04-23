@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { PlayCircle, Calendar } from "lucide-react";
+import { Container } from "@/components/layout/container";
 import { getRecentYouTubeVideos } from "@/lib/youtube";
 
 export async function VideoScrollSection() {
@@ -10,14 +11,14 @@ export async function VideoScrollSection() {
 
     return (
         <section className="py-16 bg-white overflow-hidden">
-            <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-6 mb-8">
+            <Container className="mb-8">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-1">
                     Recent Videos
                 </h2>
                 <p className="text-slate-500 text-sm">
                     Watch our latest medical insights and health tips.
                 </p>
-            </div>
+            </Container>
 
             {/* Horizontal Scroll Container */}
             <div className="w-full relative px-6 md:px-0">
