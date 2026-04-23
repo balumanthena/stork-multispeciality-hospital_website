@@ -485,6 +485,36 @@ export const departmentsData: Record<string, DepartmentData> = {
             { name: "Dr. Sujata K", role: "Endovascular Specialist", exp: "14+ Years", qual: "MBBS, DNB" },
         ]
     },
+    "oral-maxillofacial": {
+        title: "Oral & Maxillofacial Surgery – Stork Hospital, Hyderabad",
+        description: "Advanced Care for Facial, Jaw & Oral Conditions. Problems related to the face, jaw, and mouth are not just cosmetic—they can affect your ability to eat, speak, breathe, and live comfortably. Oral and maxillofacial conditions often require specialized care that combines dental expertise with surgical precision. At Stork Hospital, Hyderabad, we provide comprehensive diagnosis and advanced surgical treatments for a wide range of facial and oral disorders. From routine procedures to complex reconstructive surgeries, our focus is on restoring both function and appearance with safe, effective, and minimally invasive techniques. What is Oral & Maxillofacial Surgery? Oral and maxillofacial surgery is a specialized field that deals with conditions affecting the mouth, jaws, face, and neck. It includes both functional and aesthetic treatments aimed at improving oral health and facial harmony.",
+        icon: User,
+        services: [
+            { title: "Wisdom tooth removal", icon: Activity },
+            { title: "Jaw correction (orthognathic surgery)", icon: Bone },
+            { title: "Facial trauma and fracture management", icon: ShieldAlert },
+            { title: "Dental implants and bone grafting", icon: Sparkles },
+            { title: "Cyst and tumor removal", icon: Activity },
+            { title: "Treatment for oral infections and lesions", icon: ShieldCheck },
+        ],
+        procedures: [
+            { title: "Conditions Treated", desc: "Oral and maxillofacial surgery is recommended for various conditions, including: Impacted or painful wisdom teeth; Jaw misalignment affecting bite or speech; Facial injuries or fractures; Oral cysts, tumors, or infections; Difficulty in chewing, speaking, or opening the mouth; Congenital facial deformities; Missing teeth requiring implant support. Symptoms may include jaw pain, swelling, difficulty in mouth opening, facial asymmetry, or persistent oral discomfort." },
+            { title: "How We Diagnose & Treat (Non-Surgical)", desc: "At Stork Hospital, we follow a structured approach starting with detailed clinical evaluation and imaging such as X-rays, OPG, or CT scans to accurately diagnose the condition. Non-Surgical Management includes: Medication for pain, infection, or inflammation; Oral care guidance and preventive treatments; Minor procedures under local anesthesia." },
+            { title: "Surgical Treatments", desc: "Wisdom tooth extraction with minimally invasive techniques. Dental implant placement for permanent tooth replacement. Jaw correction surgeries for functional improvement. Facial trauma reconstruction and fracture fixation. Cyst and tumor removal with precision care. Advanced anesthesia and sedation options for patient comfort. Surgical intervention is carefully planned to ensure safety, faster recovery, and optimal results." },
+            { title: "Why Choose Stork Hospital for Oral & Maxillofacial Care?", desc: "Experienced oral and maxillofacial surgeons. Advanced imaging and surgical technology. Minimally invasive techniques for faster healing. Focus on both function and facial aesthetics. Trusted center for oral and maxillofacial surgery in Hyderabad." },
+            { title: "Recovery & Post-Treatment Care", desc: "Most minor procedures allow same-day discharge. Recovery time varies depending on the procedure performed. Post-operative care includes pain management, diet guidance, and oral hygiene support. Regular follow-ups ensure proper healing and long-term success." },
+        ],
+        doctors: [
+            { name: "Dr. Ananya Rao", role: "Maxillofacial Surgeon", exp: "15+ Years", qual: "BDS, MDS" },
+            { name: "Dr. Rohan Patel", role: "Oral Surgeon", exp: "12+ Years", qual: "BDS, MDS, FIBAMS" },
+        ],
+        faqs: [
+            { q: "Is wisdom tooth removal painful?", a: "The procedure is done under anesthesia, so patients feel minimal discomfort." },
+            { q: "How long does recovery take after surgery?", a: "Most patients recover within a few days to a couple of weeks, depending on the procedure." },
+            { q: "Are dental implants permanent?", a: "Yes, with proper care, implants can last many years or even a lifetime." },
+            { q: "When should I see a specialist?", a: "If you experience persistent pain, swelling, or difficulty in jaw movement, it’s best to seek expert evaluation." }
+        ]
+    },
     "spine-care": {
         title: "Spine Care",
         description: "Advanced, minimally invasive spine care for slipped discs, sciatica, and chronic back pain. Restore your mobility with expert targeted treatments.",
@@ -534,6 +564,6 @@ export const DEPARTMENTS_LIST: DepartmentListItem[] = [
     { title: "GI and Bariatric surgery", slug: "bariatric", iconUrl: "/images/Departmentsicons/departments/gi-surgery.png" },
     { title: "Neuro/ Spine Surgery", slug: "neurosurgery", iconUrl: "/images/Departmentsicons/departments/neurosurgery.png" },
     { title: "Interaventional pulmonology", slug: "pulmonology", iconUrl: "/images/Departmentsicons/departments/pulmonology.png" },
-    { title: "Oral Maxillofacial surgery", slug: "oral-maxillofacial", iconUrl: "/images/Departmentsicons/departments/general-surgery.png" },
+    { title: "Oral Maxillofacial surgery", slug: "oral-maxillofacial", iconUrl: "/images/Departmentsicons/Stork%20exclusive%20icons%20(6)/oral%20maxillofacial.svg" },
     { title: "Emergency / Trauma / Critical care", slug: "emergency", iconUrl: "/images/Departmentsicons/departments/critical-care.png" },
 ];

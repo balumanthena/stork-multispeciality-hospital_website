@@ -103,35 +103,35 @@ export function ProceduresClient({ groupedProcedures, hrefPrefix }: ProceduresCl
                                         key={region}
                                         onClick={() => setSelectedRegion(region === selectedRegion ? null : region)}
                                         className={cn(
-                                            "px-4 py-3 rounded-xl text-sm font-medium transition-all text-left border",
+                                            "px-4 py-3 rounded-xl text-sm font-semibold transition-all text-left border flex items-center justify-between group",
                                             selectedRegion === region
-                                                ? "bg-[#ff8202] text-white border-[#ff8202] shadow-md"
-                                                : "bg-slate-50 text-slate-600 border-slate-100 hover:border-[#ff8202]"
+                                                ? "bg-[#ff8202] text-white border-[#ff8202] shadow-md shadow-[#ff8202]/20"
+                                                : "bg-slate-50 text-slate-700 border-slate-100 hover:border-[#ff8202]/50 hover:bg-orange-50/50"
                                         )}
                                     >
-                                        {REGION_LABELS[region]}
+                                        <span className="truncate pr-2">{REGION_LABELS[region]}</span>
                                     </button>
                                 ))}
                             </div>
 
                             {/* Desktop SVG Selector */}
-                            <div className="hidden lg:block relative py-8">
+                            <div className="hidden lg:block relative py-4">
                                 <BodySelector
                                     selectedRegion={selectedRegion}
                                     onSelect={(r) => setSelectedRegion(r === selectedRegion ? null : r)}
                                 />
 
                                 {/* Non-Locational Tags (Floating below body) */}
-                                <div className="mt-8 flex flex-wrap gap-2 justify-center">
-                                    {(["womens-health", "mental-health", "skin-oncology", "spine"] as BodyRegion[]).map(r => (
+                                <div className="mt-6 flex flex-wrap gap-2 justify-center">
+                                    {(["womens-health", "mental-health", "skin-oncology", "spine", "oncology", "vascular", "plastic-surgery", "pain-management"] as BodyRegion[]).map(r => (
                                         <button
                                             key={r}
                                             onClick={() => setSelectedRegion(r === selectedRegion ? null : r)}
                                             className={cn(
-                                                "px-3 py-1.5 rounded-full text-xs font-semibold transition-all border",
+                                                "px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all border",
                                                 selectedRegion === r
-                                                    ? "bg-[#ff8202] text-white border-[#ff8202]"
-                                                    : "bg-slate-50 text-slate-500 border-slate-200 hover:border-[#ff8202]"
+                                                    ? "bg-[#ff8202] text-white border-[#ff8202] shadow-sm"
+                                                    : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#ff8202]/50 hover:bg-orange-50/50"
                                             )}
                                         >
                                             {REGION_LABELS[r]}

@@ -71,7 +71,7 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
 
             {/* 1. HERO SECTION */}
             <Section className="bg-gradient-to-b from-slate-50 to-white pt-12 md:pt-16 pb-16 relative overflow-hidden">
-                <div className="container max-w-6xl mx-auto px-6 relative z-10">
+                <div className="container max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
 
                     {/* Breadcrumb */}
                     <div className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-medium">
@@ -82,44 +82,39 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                         <span className="text-slate-900 font-semibold">{treatment.breadcrumbTitle || treatment.title}</span>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-                        {/* LEFT CONTENT (60%) */}
-                        <div className="lg:col-span-3">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-[#ff8202] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
-                                <Activity className="w-3 h-3" />
-                                {treatment.category} Department
-                            </span>
+                    <div className="w-full">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-[#ff8202] text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                            <Activity className="w-3 h-3" />
+                            {treatment.category} Department
+                        </span>
 
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f172a] mb-6 leading-[1.1] tracking-tight">{treatment.title}</h1>
-                            {treatment.subheading && <h2 className="text-xl md:text-2xl font-semibold text-slate-700 mb-3 leading-snug">{treatment.subheading}</h2>}
-                            {treatment.tagline && <p className="text-lg text-[#ff8202] font-medium mb-8">{treatment.tagline}</p>}
-                            <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl">{treatment.shortDescription}</p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f172a] mb-6 leading-[1.1] tracking-tight">{treatment.title}</h1>
+                        {treatment.subheading && <h2 className="text-xl md:text-2xl font-semibold text-slate-700 mb-3 leading-snug">{treatment.subheading}</h2>}
+                        {treatment.tagline && <p className="text-lg text-[#ff8202] font-medium mb-8">{treatment.tagline}</p>}
+                        <p className="text-lg text-slate-600 leading-relaxed mb-10">{treatment.shortDescription}</p>
 
-                            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                                <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
-                                    Book Consultation<ArrowRight className="w-5 h-5 ml-2" />
-                                </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                            <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
+                                Book Consultation<ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
 
-                            </div>
-
-                            {/* Trust Indicators */}
-                            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
-                                <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#ff8202]" /><span>Top Specialists</span></div>
-                                <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
-                                <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#ff8202]" /><span>Insurance Accepted</span></div>
-                            </div>
                         </div>
 
-
+                        {/* Trust Indicators */}
+                        <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
+                            <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><ShieldCheck className="w-5 h-5 text-green-600" /><span>Medically Reviewed</span></div>
+                            <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
+                            <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><UserCheck className="w-5 h-5 text-[#ff8202]" /><span>Top Specialists</span></div>
+                            <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-slate-200" />
+                            <div className="flex items-center gap-2 text-sm font-semibold text-slate-700"><CheckCircle2 className="w-5 h-5 text-[#ff8202]" /><span>Insurance Accepted</span></div>
+                        </div>
                     </div>
                 </div>
             </Section>
 
             {/* 3. MAIN CONTENT LAYOUT */}
             <Section className="py-24">
-                <div className="container max-w-6xl mx-auto px-6">
+                <div className="container max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
 
                         {/* LEFT: CONTENT (8 Cols) */}
