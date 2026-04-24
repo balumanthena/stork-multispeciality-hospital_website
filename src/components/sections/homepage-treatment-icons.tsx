@@ -29,9 +29,9 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
     return (
         <Link
             href={`/treatments/${slug}`}
-            className="flex flex-col items-center justify-start w-[100px] sm:w-[140px] group transition-all duration-300 hover:-translate-y-1 will-change-transform"
+            className="flex flex-col items-center justify-start w-full max-w-[100px] sm:max-w-none sm:w-[140px] mx-auto group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
-            <div className="w-[84px] h-[84px] sm:w-[110px] sm:h-[110px] rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
+            <div className="w-full max-w-[84px] aspect-square sm:max-w-none sm:w-[110px] sm:h-[110px] sm:aspect-auto rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                     src={iconPath}
@@ -92,7 +92,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         className="relative overflow-hidden will-change-height"
                     >
                         <div ref={contentRef} className="w-full">
-                            <div className="flex flex-wrap justify-center gap-y-8 sm:gap-y-10 gap-x-4 sm:gap-x-6 pb-16">
+                            <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-items-center sm:justify-center gap-y-8 sm:gap-y-10 gap-x-2 sm:gap-x-6 pb-16">
                                 {TREATMENTS_MASTER.slice(0, 63).map((treatment, index) => (
                                     <TreatmentIconBox
                                         key={treatment.id}
