@@ -247,7 +247,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in internal medicine, emergency management, and critical ICU care",
     rating: 4.8,
     patientsTreated: "1,200+",
-    image: "/images/dr-veda-sree.png",
+    image: "/images/dr veda sri.jpeg",
     about: "Dr. Chimmana Veda Sree is a clinically competent physician specializing in General Medicine. With a strong background in emergency management and ICU care, she focuses on providing comprehensive diagnostic and therapeutic care for complex adult health conditions.",
     highlights: [
       "Expert in Emergency Management",

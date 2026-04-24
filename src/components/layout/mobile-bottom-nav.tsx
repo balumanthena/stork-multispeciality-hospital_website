@@ -66,24 +66,22 @@ export function MobileBottomNav() {
                                 key={index}
                                 href={item.href}
                                 className={cn(
-                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95",
-                                    isActive ? "text-[#ff8202]" : "text-slate-400"
+                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 group text-[#ff8202]",
+                                    "hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]",
+                                    isActive && "drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]"
                                 )}
                             >
                                 <div className="flex flex-col items-center gap-1">
                                     <item.icon
-                                        className={cn("w-5 h-5 transition-transform", isActive && "scale-110")}
+                                        className={cn("w-5 h-5 transition-transform", isActive ? "scale-110" : "group-hover:scale-110")}
                                         strokeWidth={isActive ? 2.5 : 2}
                                     />
-                                    <span className={cn(
-                                        "text-[10px] font-medium tracking-tight",
-                                        isActive ? "text-[#ff8202]" : "text-slate-500"
-                                    )}>
+                                    <span className="text-[10px] font-medium tracking-tight">
                                         {item.label}
                                     </span>
                                 </div>
                                 {isActive && (
-                                    <div className="absolute bottom-1 w-1 h-1 rounded-full bg-[#ff8202] animate-in fade-in zoom-in duration-300" />
+                                    <div className="absolute bottom-1 w-1 h-1 rounded-full bg-[#ff8202] animate-in fade-in zoom-in duration-300 shadow-[0_0_6px_rgba(255,130,2,1)]" />
                                 )}
                             </Link>
                         )
@@ -94,10 +92,10 @@ export function MobileBottomNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-slate-400">
+                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-[#ff8202] group hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]">
                                 <div className="flex flex-col items-center gap-1">
-                                    <MoreHorizontal className="w-5 h-5" />
-                                    <span className="text-[10px] font-medium tracking-tight text-slate-500">More</span>
+                                    <MoreHorizontal className="w-5 h-5 transition-transform group-hover:scale-110 group-active:scale-110" />
+                                    <span className="text-[10px] font-medium tracking-tight">More</span>
                                 </div>
                             </button>
                         </SheetTrigger>
@@ -112,12 +110,12 @@ export function MobileBottomNav() {
                                             <Link
                                                 key={i}
                                                 href={item.href!}
-                                                className="flex flex-col items-center gap-3 active:scale-95 transition-transform group"
+                                                className="flex flex-col items-center gap-3 active:scale-95 transition-transform group hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]"
                                             >
-                                                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-orange-50 group-hover:text-orange-600 group-hover:border-orange-100 transition-colors shadow-sm">
-                                                    <item.icon className="w-6 h-6" />
+                                                <div className="w-14 h-14 rounded-2xl bg-[#ff8202]/10 border border-[#ff8202]/20 flex items-center justify-center text-[#ff8202] transition-colors shadow-sm">
+                                                    <item.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
                                                 </div>
-                                                <span className="text-xs font-medium text-slate-600 text-center">{item.label}</span>
+                                                <span className="text-xs font-medium text-[#ff8202] text-center">{item.label}</span>
                                             </Link>
                                         ))}
                                     </div>

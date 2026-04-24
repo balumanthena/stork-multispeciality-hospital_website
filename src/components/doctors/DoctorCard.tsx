@@ -14,13 +14,13 @@ interface DoctorCardProps {
   onBookAppointment: (doctor: Doctor) => void
 }
 
-export function DoctorCard({ 
-  doctor, 
-  onViewProfile, 
-  onBookAppointment 
+export function DoctorCard({
+  doctor,
+  onViewProfile,
+  onBookAppointment
 }: DoctorCardProps) {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5, scale: 1.01 }}
@@ -31,11 +31,11 @@ export function DoctorCard({
         <div className="relative w-24 h-24 flex-shrink-0">
           <div className="absolute inset-0 bg-[#ff8202]/5 rounded-xl -z-10 translate-x-2 translate-y-2 group-hover:bg-[#ff8202]/10 transition-colors" />
           <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-white shadow-md">
-            <Image 
-              src={doctor.image} 
+            <Image
+              src={doctor.image}
               alt={doctor.name}
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
             />
           </div>
         </div>
@@ -56,11 +56,11 @@ export function DoctorCard({
 
       {/* BOTTOM: Buttons */}
       <div className="flex gap-3 pt-6 mt-auto">
-        <Button 
+        <Button
           onClick={() => onBookAppointment(doctor)}
           className="flex-1 h-11 rounded-xl bg-[#ff8202] hover:bg-[#e67502] text-white font-bold shadow-lg shadow-[#ff8202]/20 transition-all text-xs"
         >
-          Online Consult
+          Book Appointment
         </Button>
       </div>
     </motion.div>

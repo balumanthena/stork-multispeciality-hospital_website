@@ -306,7 +306,7 @@ Whether you’re experiencing episodic migraines, tension headaches, or complex 
                     answer: "While a permanent cure may not be possible, most migraine sufferers find significant long-term relief with proper treatment and prevention strategies."
                 },
                 {
-                    question: "Do you provide online consultations for migraines?",
+                    question: "Do you provide Book Appointmentations for migraines?",
                     answer: "Yes. We offer online doctor consultation in Hyderabad for both new and follow-up patients."
                 },
                 {
@@ -2760,7 +2760,7 @@ As a recognized women-focused hospital in Hyderabad, we provide accurate diagnos
                     "Discreet, compassionate treatment environment",
                     "Affordable treatment plans and maternity add-ons",
                     "Collaboration with most health insurance providers in Hyderabad",
-                    "Easy-to-book online consultations"
+                    "Easy-to-book Book Appointmentations"
                 ]
             },
             fullDescription: [
@@ -3053,7 +3053,7 @@ We are a multispecialty hospital in Telangana offering pregnancy care in Hyderab
                 "Lactation support and real-time breastfeeding guidance",
                 "Emotional well-being sessions for postpartum stress",
                 "Newborn care education for first-time parents",
-                "Virtual doctor appointments and online consultation availability"
+                "Virtual doctor appointments and Book Appointmentation availability"
             ],
 
             faqHeading: "FAQs about Prenatal Care",
@@ -6661,7 +6661,7 @@ For patients seeking reliable foot and ankle pain treatment in Hyderabad, our mu
                 "Restoration of natural movement and walkability",
                 "Progressive milestones in strength and joint stability",
                 "Prevention of recurrence through long-term recovery guidance",
-                "Virtual follow-ups and online consultation availability"
+                "Virtual follow-ups and Book Appointmentation availability"
             ],
 
             faqHeading: "Patient FAQs – Foot & Ankle Services",
@@ -7267,7 +7267,7 @@ At Stork Multispecialty Hospital, Hyderabad, our gastroenterologists and digesti
                     answer: "While a permanent cure may not be possible, most sufferers find significant relief with proper treatment."
                 },
                 {
-                    question: "Do you provide online consultations?",
+                    question: "Do you provide Book Appointmentations?",
                     answer: "Yes. We offer online doctor consultations in Hyderabad for both new and follow-up patients."
                 },
                 {
@@ -13201,7 +13201,7 @@ If you're seeking shoulder pain relief in Hyderabad, our experienced orthopedic 
                 },
                 {
                     question: "Can I consult a doctor online for shoulder pain?",
-                    answer: "Yes. We offer online consultations in Hyderabad, making it easy to connect with specialists from home."
+                    answer: "Yes. We offer Book Appointmentations in Hyderabad, making it easy to connect with specialists from home."
                 },
                 {
                     question: "Is insurance applicable for shoulder treatment?",
