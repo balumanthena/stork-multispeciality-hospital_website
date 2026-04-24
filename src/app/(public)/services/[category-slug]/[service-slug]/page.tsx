@@ -144,7 +144,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-10">
                             <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
-                                Book Consultation
+                                Book Appointment
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
 

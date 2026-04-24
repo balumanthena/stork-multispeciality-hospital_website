@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Calendar, Stethoscope, Phone, MessageCircle, MoreHorizontal, Building2, User2, BookOpen, MapPin, Contact, Video } from "lucide-react"
+import { Calendar, Stethoscope, Phone, MessageCircle, MoreHorizontal, Building2, User2, BookOpen, MapPin, Contact, Activity, Info } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -42,8 +42,8 @@ export function MobileBottomNav() {
         { label: "Departments", icon: Building2, href: "/services" },
         { label: "Doctors", icon: User2, href: "/doctors" },
         { label: "Articles", icon: BookOpen, href: "/insights/articles" },
-        { label: "Videos", icon: Video, href: "/insights/videos" },
-        { label: "Locations", icon: MapPin, href: "/contact" },
+        { label: "Procedures", icon: Activity, href: "/procedures" },
+        { label: "About Us", icon: Info, href: "/about" },
         { label: "Contact Us", icon: Phone, href: "/contact" },
     ];
 

@@ -1357,7 +1357,7 @@ At Stork Multispecialty Hospital, Hyderabad, our orthopedic surgeons perform art
             customCta: {
                 heading: "Book Your Arthroscopy Appointment",
                 description: "If joint pain or stiffness is limiting your mobility, expert help is available at Stork Hospital. Get a customized treatment plan for faster, safer recovery.",
-                buttonText: "Schedule Orthopedic Consult"
+                buttonText: "Book Appointment"
             },
             meta: {
                 duration: "30–90 Mins",
