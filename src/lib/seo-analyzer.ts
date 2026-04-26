@@ -1,6 +1,8 @@
 export interface SEOAnalysisResult {
     score: number
     status: 'Poor' | 'Average' | 'Good'
+    wordCount: number
+    keywordDensity: number
     suggestions: { text: string; status: 'pass' | 'fail' | 'warn' }[]
 }
 
@@ -63,6 +65,7 @@ export function analyzeSEO(
     const wordCount = words.length
 
     // 3. Focus Keyword Presence
+    let density = 0;
     if (!keywordLower) {
         addCheck(false, "Focus keyword is not set.", "")
     } else {
@@ -86,7 +89,7 @@ export function analyzeSEO(
             addCheck(false, "Focus keyword is missing from the content.", "")
         } else {
             // Density check
-            const density = (keywordCountInContent / wordCount) * 100
+            density = (keywordCountInContent / wordCount) * 100
             if (density < 0.5) {
                 addCheck('warn', `Keyword density is too low (${density.toFixed(2)}%). Use it more often.`, "")
             } else if (density > 2.5) {
@@ -127,6 +130,8 @@ export function analyzeSEO(
     return {
         score: finalScore,
         status,
+        wordCount,
+        keywordDensity: density,
         suggestions: suggestions.sort((a, b) => {
             // Sort: fails first, warns second, passes last
             const rank = { fail: 0, warn: 1, pass: 2 }

@@ -337,6 +337,13 @@ export default function NewBlogPage() {
         }
     }
 
+    // Debounced Preview State
+    const [debouncedFormData, setDebouncedFormData] = useState(formData);
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedFormData(formData), 300);
+        return () => clearTimeout(timer);
+    }, [formData]);
+
     if (pageLoading) {
         return (
             <div className="flex h-[50vh] items-center justify-center">
@@ -346,10 +353,10 @@ export default function NewBlogPage() {
     }
 
     return (
-        <div className="min-h-screen -m-6 bg-slate-50">
+        <div className="min-h-screen -m-6 bg-slate-50 flex flex-col">
 
             {/* ─── Top Header Bar ─── */}
-            <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 px-6">
+            <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-6 shrink-0">
                 <div className="flex items-center justify-between h-14">
                     <div className="flex items-center gap-3">
                         <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md" onClick={() => router.push('/admin/blogs')}>
@@ -359,37 +366,6 @@ export default function NewBlogPage() {
                         <h1 className="text-sm font-semibold text-slate-800">New Blog Post</h1>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                <Button variant="ghost" size="sm" className="gap-1.5 text-slate-600 h-8">
-                                    <Eye className="h-3.5 w-3.5" /> Preview
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-5xl h-[90vh] overflow-y-auto p-0 border-0 bg-transparent">
-                                <DialogTitle className="sr-only">Blog Preview</DialogTitle>
-                                <div className="bg-white min-h-full rounded-t-xl overflow-hidden relative pb-12">
-                                    <BlogView initialData={{
-                                        id: "preview",
-                                        created_at: new Date().toISOString(),
-                                        slug: formData.slug || "preview",
-                                        title: formData.title || "Preview Title",
-                                        content: formData.content || "<p>Preview content...</p>",
-                                        excerpt: formData.excerpt || "Preview excerpt",
-                                        date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-                                        published: true,
-                                        published_at: new Date().toISOString(),
-                                        author: user?.email || "Author",
-                                        category: formData.category || "General",
-                                        image_url: formData.image,
-                                        image: formData.image,
-                                        youtube_url: formData.youtube_url,
-                                        show_on_main: formData.show_on_main,
-                                        selected_departments: formData.selected_departments,
-                                        selected_treatments: formData.selected_treatments
-                                    } as any} />
-                                </div>
-                            </DialogContent>
-                        </Dialog>
                         <Button variant="ghost" size="sm" className="text-slate-600 h-8" disabled={loading} onClick={() => router.push('/admin/blogs')}>
                             Cancel
                         </Button>
@@ -406,23 +382,23 @@ export default function NewBlogPage() {
                 </div>
             </div>
 
-            {/* ─── Main Content Area ─── */}
-            <div className="flex">
-                {/* ─── Editor Column (fluid center) ─── */}
-                <div className="flex-1 min-w-0">
+            {/* ─── Main Content Area (3-Column Layout) ─── */}
+            <div className="flex flex-1 overflow-hidden h-[calc(100vh-56px)]">
+                {/* ─── 1. Editor Column (40%) ─── */}
+                <div className="w-[45%] flex-shrink-0 border-r border-slate-200 bg-white overflow-y-auto">
                     {/* Title & Excerpt */}
-                    <div className="bg-white border-b border-slate-200 py-10 px-6">
-                        <div className="max-w-[720px] mx-auto space-y-4">
+                    <div className="border-b border-slate-100 py-10 px-8 bg-slate-50/50">
+                        <div className="max-w-[720px] mx-auto space-y-6">
                             <input
                                 type="text"
                                 placeholder="Post Title"
-                                className="w-full text-3xl font-bold text-slate-900 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 tracking-tight"
+                                className="w-full text-4xl font-bold text-slate-900 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 tracking-tight"
                                 value={formData.title}
                                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                             />
                             <textarea
                                 placeholder="Write a short summary..."
-                                className="w-full text-base text-slate-500 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 resize-none leading-relaxed"
+                                className="w-full text-lg text-slate-600 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 resize-none leading-relaxed"
                                 rows={2}
                                 value={formData.excerpt}
                                 onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
@@ -437,11 +413,44 @@ export default function NewBlogPage() {
                             onChange={(value) => setFormData({ ...formData, content: value })}
                         />
                     </div>
-
                 </div>
 
-                {/* ─── Right Panel (fixed 320px) ─── */}
-                <div className="w-[320px] flex-shrink-0 border-l border-slate-200 bg-white/50 backdrop-blur-sm overflow-y-auto h-[calc(100vh-56px)] sticky top-14">
+                {/* ─── 2. Live Preview Column (flex-1) ─── */}
+                <div className="flex-1 bg-slate-200/50 overflow-y-auto relative p-6">
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 text-white rounded-full text-[10px] font-black tracking-widest uppercase z-10 shadow-sm backdrop-blur-md">
+                        LIVE PREVIEW
+                    </div>
+                    <div className="bg-white rounded-xl shadow-xl overflow-hidden min-h-full border border-slate-200 pointer-events-none transform origin-top w-full">
+                        <BlogView initialData={{
+                            id: "preview",
+                            created_at: new Date().toISOString(),
+                            slug: debouncedFormData.slug || "preview",
+                            title: debouncedFormData.title || "Preview Title",
+                            content: debouncedFormData.content || "<p>Start writing your article...</p>",
+                            excerpt: debouncedFormData.excerpt || "Preview excerpt",
+                            date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+                            published: true,
+                            published_at: new Date().toISOString(),
+                            author: user?.email || "Author",
+                            category: debouncedFormData.category || "General",
+                            image_url: debouncedFormData.image,
+                            image: debouncedFormData.image,
+                            youtube_url: debouncedFormData.youtube_url,
+                            show_on_main: debouncedFormData.show_on_main,
+                            selected_departments: debouncedFormData.selected_departments,
+                            selected_treatments: debouncedFormData.selected_treatments,
+                            enable_toc: debouncedFormData.enable_toc,
+                            enable_faq: debouncedFormData.enable_faq,
+                            faq_data: debouncedFormData.faq_data,
+                            enable_sticky_cta: debouncedFormData.enable_sticky_cta,
+                            sticky_cta_text: debouncedFormData.sticky_cta_text,
+                            sticky_cta_link: debouncedFormData.sticky_cta_link
+                        } as any} />
+                    </div>
+                </div>
+
+                {/* ─── 3. Right Panel (fixed 340px) ─── */}
+                <div className="w-[340px] flex-shrink-0 border-l border-slate-200 bg-white overflow-y-auto">
                     <div className="p-5 space-y-6">
                         {/* Publishing Section */}
                         <div className="space-y-4">

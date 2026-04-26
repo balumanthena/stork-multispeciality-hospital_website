@@ -1,7 +1,7 @@
 "use client"
 
 import { useEditor, EditorContent } from '@tiptap/react'
-import { BubbleMenu } from '@tiptap/react/menus'
+import { BubbleMenu, FloatingMenu } from '@tiptap/react/menus'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
@@ -16,7 +16,8 @@ import {
     Bold, Italic, Underline as UnderlineIcon,
     List, ListOrdered, Quote,
     Link as LinkIcon, ImageIcon, Video, Code,
-    Undo, Redo, Loader2, SquareDashedBottom
+    Undo, Redo, Loader2, SquareDashedBottom,
+    Heading1, Heading2, Heading3, MessageSquare, AlertCircle, Minus, Plus, HelpCircle, MousePointerClick
 } from "lucide-react"
 import { useCallback, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
@@ -48,7 +49,7 @@ const CalloutBlock = Node.create({
     content: 'inline*',
     parseHTML() { return [{ tag: 'div[data-type="callout"]' }] },
     renderHTML({ HTMLAttributes }) {
-        return ['div', mergeAttributes(HTMLAttributes, { 'data-type': 'callout', class: 'bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-md my-6 text-blue-900 shadow-sm text-lg font-medium' }), 0]
+        return ['div', mergeAttributes(HTMLAttributes, { 'data-type': 'callout', class: 'bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-md my-6 text-orange-900 shadow-sm text-lg font-medium italic' }), 0]
     },
 })
 
@@ -58,7 +59,7 @@ const InfoBox = Node.create({
     content: 'inline*',
     parseHTML() { return [{ tag: 'div[data-type="info"]' }] },
     renderHTML({ HTMLAttributes }) {
-        return ['div', mergeAttributes(HTMLAttributes, { 'data-type': 'info', class: 'bg-amber-50 border border-amber-200 p-4 rounded-md my-6 text-amber-900 text-sm font-medium' }), 0]
+        return ['div', mergeAttributes(HTMLAttributes, { 'data-type': 'info', class: 'bg-slate-50 border border-slate-200 p-5 rounded-xl my-6 text-slate-800 text-sm font-medium' }), 0]
     },
 })
 
@@ -94,6 +95,7 @@ interface TiptapEditorProps {
 
 export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps) {
     const [uploading, setUploading] = useState(false)
+    const [floatingMenuOpen, setFloatingMenuOpen] = useState(false)
 
     // Function to handle image upload for drag & drop and file picker
     const uploadImage = async (file: File) => {
@@ -155,7 +157,7 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
         autofocus: true,
         editorProps: {
             attributes: {
-                class: 'prose prose-lg max-w-[720px] mx-auto focus:outline-none min-h-[600px] py-12 font-sans prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-h1:text-[36px] prose-h2:text-[30px] prose-h3:text-[24px] prose-h4:text-[20px] prose-h5:text-[18px] prose-h6:text-[16px] prose-p:text-slate-700 prose-p:leading-[1.75] prose-p:text-[18px] prose-a:text-orange-600 prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:italic',
+                class: 'prose prose-lg max-w-[720px] mx-auto focus:outline-none min-h-[600px] py-12 font-sans prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base prose-p:text-slate-700 prose-p:leading-[1.8] prose-p:text-lg prose-a:text-orange-600 prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-orange-50/50 prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:italic prose-blockquote:rounded-r-xl',
             },
             handleDrop: (view, event, slice, moved) => {
                 if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
@@ -196,12 +198,12 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
                 paragraph: false,
                 blockquote: {
                     HTMLAttributes: {
-                        class: 'border-l-4 border-orange-500 bg-slate-50 py-2 px-6 rounded-r-lg italic my-6',
+                        class: 'border-l-4 border-orange-500 bg-orange-50/50 py-3 px-6 rounded-r-xl italic my-6 text-slate-700 text-xl',
                     },
                 },
             }),
             Placeholder.configure({
-                placeholder: placeholder || 'Start writing your article...',
+                placeholder: placeholder || 'Type "/" for commands or start writing...',
                 emptyEditorClass: 'is-editor-empty',
             }),
             CustomParagraph,
@@ -217,13 +219,13 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
             }),
             Image.configure({
                 HTMLAttributes: {
-                    class: 'rounded-xl shadow-md max-w-full my-10',
+                    class: 'rounded-xl shadow-md max-w-full my-10 border border-slate-100',
                 },
             }),
             Link.configure({
                 openOnClick: false,
                 HTMLAttributes: {
-                    class: 'text-orange-600 underline hover:text-orange-800 transition-colors',
+                    class: 'text-orange-600 underline hover:text-orange-800 transition-colors underline-offset-4',
                 },
             }),
             Youtube.configure({
@@ -282,44 +284,9 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
         return <div className="h-[400px] flex items-center justify-center border border-slate-200 rounded-lg"><Loader2 className="animate-spin text-slate-400" /></div>
     }
 
-    // Determine current block type for dropdown
-    const getCurrentNodeType = () => {
-        if (editor.isActive('heading', { level: 1 })) return 'h1';
-        if (editor.isActive('heading', { level: 2 })) return 'h2';
-        if (editor.isActive('heading', { level: 3 })) return 'h3';
-        if (editor.isActive('heading', { level: 4 })) return 'h4';
-        if (editor.isActive('heading', { level: 5 })) return 'h5';
-        if (editor.isActive('heading', { level: 6 })) return 'h6';
-        if (editor.isActive('calloutBlock')) return 'callout';
-        if (editor.isActive('infoBox')) return 'info';
-        if (editor.isActive('sectionDividerTitle')) return 'divider';
-        if (editor.isActive('paragraph')) {
-            const attrs = editor.getAttributes('paragraph');
-            if (attrs.class === 'text-2xl font-semibold text-slate-800 mt-8 mb-4 leading-tight') return 'sub-large';
-            if (attrs.class === 'text-xl font-medium text-slate-700 mt-6 mb-3') return 'sub-medium';
-            if (attrs.class === 'text-lg font-medium text-slate-600 mt-4 mb-2 uppercase tracking-wide') return 'sub-small';
-            return 'p';
-        }
-        return 'p';
-    }
-
-    const handleNodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const val = e.target.value;
-        
-        // Block-level changes apply to the current block (separated by 'Enter').
-        if (val === 'p') editor.chain().focus().setParagraph().run();
-        else if (val.startsWith('h')) editor.chain().focus().toggleHeading({ level: parseInt(val[1]) as any }).run();
-        else if (val === 'sub-large') editor.chain().focus().setNode('paragraph', { class: 'text-2xl font-semibold text-slate-800 mt-8 mb-4 leading-tight' }).run();
-        else if (val === 'sub-medium') editor.chain().focus().setNode('paragraph', { class: 'text-xl font-medium text-slate-700 mt-6 mb-3' }).run();
-        else if (val === 'sub-small') editor.chain().focus().setNode('paragraph', { class: 'text-lg font-medium text-slate-600 mt-4 mb-2 uppercase tracking-wide' }).run();
-        else if (val === 'callout') editor.chain().focus().setNode('calloutBlock').run();
-        else if (val === 'info') editor.chain().focus().setNode('infoBox').run();
-        else if (val === 'raw-html') editor.chain().focus().setNode('rawHtmlBlock').run();
-    }
-
-    const insertShortcode = () => {
+    const insertShortcode = (code: string) => {
         if (!editor) return;
-        editor.chain().focus().insertContent('[contact-form]').run();
+        editor.chain().focus().insertContent(`[${code}]`).run();
     }
 
     const insertAiContent = (html: string) => {
@@ -328,204 +295,117 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
     }
 
     return (
-        <div className="relative flex flex-col w-full">
+        <div className="relative flex flex-col w-full h-full">
             {/* Structured Sticky Toolbar */}
-            <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 py-2 px-4 flex flex-wrap gap-1 items-center">
+            <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 py-2 px-6 flex flex-wrap gap-1 items-center shadow-sm">
                 
                 <AIAssistantModal onInsert={insertAiContent} />
-                <div className="w-px h-5 bg-slate-200 mx-1.5" />
-
-                {/* Node Selector Dropdown */}
-                <select
-                    className="h-8 border border-slate-200 bg-white text-sm px-2.5 text-slate-700 outline-none focus:ring-1 focus:ring-slate-300 w-40 cursor-pointer font-medium rounded-md transition-colors"
-                    onChange={handleNodeChange}
-                    value={getCurrentNodeType()}
-                >
-                    <option value="p">Normal Text</option>
-                    <optgroup label="Headings">
-                        <option value="h1">Heading 1</option>
-                        <option value="h2">Heading 2</option>
-                        <option value="h3">Heading 3</option>
-                        <option value="h4">Heading 4</option>
-                        <option value="h5">Heading 5</option>
-                        <option value="h6">Heading 6</option>
-                    </optgroup>
-                    <optgroup label="Subheadings">
-                        <option value="sub-large">Subheading Large</option>
-                        <option value="sub-medium">Subheading Medium</option>
-                        <option value="sub-small">Subheading Small</option>
-                    </optgroup>
-                    <optgroup label="Custom Blocks">
-                        <option value="callout">Callout Highlight</option>
-                        <option value="info">Info Box</option>
-                        <option value="divider">Section Divider</option>
-                        <option value="raw-html">Raw HTML Block</option>
-                    </optgroup>
-                </select>
-
-                <div className="w-px h-5 bg-slate-200 mx-1.5" />
+                <div className="w-px h-5 bg-slate-200 mx-2" />
 
                 {/* Text Formatting */}
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleBold().run()}
-                    isActive={editor.isActive('bold')}
-                    title="Bold"
-                >
-                    <Bold className="w-4 h-4" />
-                </ToolbarButton>
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleItalic().run()}
-                    isActive={editor.isActive('italic')}
-                    title="Italic"
-                >
-                    <Italic className="w-4 h-4" />
-                </ToolbarButton>
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleUnderline().run()}
-                    isActive={editor.isActive('underline')}
-                    title="Underline"
-                >
-                    <UnderlineIcon className="w-4 h-4" />
-                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} isActive={editor.isActive('bold')} title="Bold"><Bold className="w-4 h-4" /></ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} isActive={editor.isActive('italic')} title="Italic"><Italic className="w-4 h-4" /></ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} isActive={editor.isActive('underline')} title="Underline"><UnderlineIcon className="w-4 h-4" /></ToolbarButton>
 
-                <div className="w-px h-5 bg-slate-200 mx-1.5" />
+                <div className="w-px h-5 bg-slate-200 mx-2" />
 
                 {/* Lists & Quote */}
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleBulletList().run()}
-                    isActive={editor.isActive('bulletList')}
-                    title="Bullet List"
-                >
-                    <List className="w-4 h-4" />
-                </ToolbarButton>
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                    isActive={editor.isActive('orderedList')}
-                    title="Numbered List"
-                >
-                    <ListOrdered className="w-4 h-4" />
-                </ToolbarButton>
-                <ToolbarButton
-                    onClick={() => editor.chain().focus().toggleBlockquote().run()}
-                    isActive={editor.isActive('blockquote')}
-                    title="Quote"
-                >
-                    <Quote className="w-4 h-4" />
-                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} isActive={editor.isActive('bulletList')} title="Bullet List"><List className="w-4 h-4" /></ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} isActive={editor.isActive('orderedList')} title="Numbered List"><ListOrdered className="w-4 h-4" /></ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} isActive={editor.isActive('blockquote')} title="Quote"><Quote className="w-4 h-4" /></ToolbarButton>
 
-                <div className="w-px h-5 bg-slate-200 mx-1.5" />
+                <div className="w-px h-5 bg-slate-200 mx-2" />
 
                 {/* Media & Links */}
                 <InternalLinkSelector onSelectLink={(url) => editor.chain().focus().setLink({ href: url }).run()}>
-                    <ToolbarButton isActive={editor.isActive('link')} title="Insert Internal Link">
-                        <LinkIcon className="w-4 h-4" />
-                    </ToolbarButton>
+                    <ToolbarButton isActive={editor.isActive('link')} title="Insert Internal Link"><LinkIcon className="w-4 h-4" /></ToolbarButton>
                 </InternalLinkSelector>
                 
                 <div className="relative">
-                    <input 
-                        type="file" 
-                        accept="image/*" 
-                        onChange={handleImageUpload} 
-                        className="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-20"
-                        title="Upload Image"
-                    />
+                    <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute inset-0 opacity-0 w-full h-full cursor-pointer z-20" title="Upload Image" />
                     <ToolbarButton isActive={false} disabled={uploading} title="Upload Image">
                         {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ImageIcon className="w-4 h-4" />}
                     </ToolbarButton>
                 </div>
 
-                <ToolbarButton onClick={setVideo} isActive={editor.isActive('youtube')} title="Embed YouTube Video">
-                    <Video className="w-4 h-4" />
-                </ToolbarButton>
+                <ToolbarButton onClick={setVideo} isActive={editor.isActive('youtube')} title="Embed YouTube Video"><Video className="w-4 h-4" /></ToolbarButton>
 
-                <div className="w-px h-5 bg-slate-200 mx-1.5" />
-
-                {/* Code & Shortcodes */}
-                <ToolbarButton onClick={() => editor.chain().focus().toggleCodeBlock().run()} isActive={editor.isActive('codeBlock')} title="Insert Code/HTML Block">
-                    <Code className="w-4 h-4" />
-                </ToolbarButton>
-
-                <ToolbarButton onClick={insertShortcode} title="Insert Contact Form Shortcode">
-                    <SquareDashedBottom className="w-4 h-4" />
-                </ToolbarButton>
-
-                <div className="flex-1" />
+                <div className="w-px h-5 bg-slate-200 mx-2" />
 
                 {/* Undo / Redo */}
-                <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Undo">
-                    <Undo className="w-4 h-4" />
-                </ToolbarButton>
-                <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()} title="Redo">
-                    <Redo className="w-4 h-4" />
-                </ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} title="Undo"><Undo className="w-4 h-4" /></ToolbarButton>
+                <ToolbarButton onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()} title="Redo"><Redo className="w-4 h-4" /></ToolbarButton>
             </div>
 
             {/* Bubble Menu for selections */}
-            <BubbleMenu editor={editor} className="flex items-center gap-0.5 bg-slate-900 text-white p-1 rounded-lg shadow-xl border border-slate-700 overflow-hidden">
-                <button
-                    onClick={() => editor.chain().focus().toggleBold().run()}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('bold') && "text-orange-400 bg-slate-800")}
-                    title="Bold"
-                >
-                    <Bold className="w-3.5 h-3.5" />
-                </button>
-                <button
-                    onClick={() => editor.chain().focus().toggleItalic().run()}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('italic') && "text-orange-400 bg-slate-800")}
-                    title="Italic"
-                >
-                    <Italic className="w-3.5 h-3.5" />
-                </button>
-                <button
-                    onClick={() => editor.chain().focus().toggleUnderline().run()}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('underline') && "text-orange-400 bg-slate-800")}
-                    title="Underline"
-                >
-                    <UnderlineIcon className="w-3.5 h-3.5" />
-                </button>
-                <div className="w-px h-4 bg-slate-700 mx-1" />
-                <button
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('heading', { level: 2 }) && "text-orange-400 bg-slate-800")}
-                    title="Heading 2"
-                >
-                    <span className="text-[10px] font-bold">H2</span>
-                </button>
-                <button
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('heading', { level: 3 }) && "text-orange-400 bg-slate-800")}
-                    title="Heading 3"
-                >
-                    <span className="text-[10px] font-bold">H3</span>
-                </button>
-                <div className="w-px h-4 bg-slate-700 mx-1" />
-                <button
-                    onClick={setLink}
-                    className={cn("p-1.5 hover:bg-slate-800 rounded transition-colors", editor.isActive('link') && "text-orange-400 bg-slate-800")}
-                    title="Link"
-                >
-                    <LinkIcon className="w-3.5 h-3.5" />
-                </button>
+            <BubbleMenu editor={editor} className="flex items-center gap-0.5 bg-slate-900 text-white p-1.5 rounded-xl shadow-2xl border border-slate-700/50 overflow-hidden backdrop-blur-md">
+                <button onClick={() => editor.chain().focus().toggleBold().run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('bold') && "text-orange-400 bg-slate-800")}><Bold className="w-4 h-4" /></button>
+                <button onClick={() => editor.chain().focus().toggleItalic().run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('italic') && "text-orange-400 bg-slate-800")}><Italic className="w-4 h-4" /></button>
+                <button onClick={() => editor.chain().focus().toggleUnderline().run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('underline') && "text-orange-400 bg-slate-800")}><UnderlineIcon className="w-4 h-4" /></button>
+                <div className="w-px h-5 bg-slate-700 mx-1.5" />
+                <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('heading', { level: 2 }) && "text-orange-400 bg-slate-800")}><span className="text-xs font-black">H2</span></button>
+                <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('heading', { level: 3 }) && "text-orange-400 bg-slate-800")}><span className="text-xs font-black">H3</span></button>
+                <div className="w-px h-5 bg-slate-700 mx-1.5" />
+                <button onClick={setLink} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('link') && "text-orange-400 bg-slate-800")}><LinkIcon className="w-4 h-4" /></button>
             </BubbleMenu>
 
+            {/* Notion-style Floating Menu (Slash Commands alternative) */}
+            <FloatingMenu editor={editor} className="flex flex-col gap-1 bg-white p-2 rounded-xl shadow-2xl border border-slate-200/60 overflow-hidden backdrop-blur-md w-56 -ml-16 animate-in fade-in zoom-in-95 duration-200">
+                <div className="px-2 py-1 mb-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Add Block</span>
+                </div>
+                <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><Heading2 className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">Heading 2</div><div className="text-[10px] text-slate-500">Medium section heading</div></div>
+                </button>
+                <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><Heading3 className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">Heading 3</div><div className="text-[10px] text-slate-500">Small section heading</div></div>
+                </button>
+                <button onClick={() => {
+                    const url = prompt('Enter Image URL or drag & drop');
+                    if(url) editor.chain().focus().setImage({ src: url }).run();
+                }} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><ImageIcon className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">Image</div><div className="text-[10px] text-slate-500">Upload or embed image</div></div>
+                </button>
+                <div className="w-full h-px bg-slate-100 my-1" />
+                <button onClick={() => editor.chain().focus().setNode('calloutBlock').run()} className="flex items-center gap-3 w-full text-left p-2 hover:bg-orange-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-orange-200 flex items-center justify-center bg-white"><AlertCircle className="w-4 h-4 text-orange-600" /></div>
+                    <div><div className="text-sm font-semibold text-orange-900">Callout</div><div className="text-[10px] text-orange-700">Important highlight</div></div>
+                </button>
+                <button onClick={() => editor.chain().focus().setNode('infoBox').run()} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><MessageSquare className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">Info Box</div><div className="text-[10px] text-slate-500">Neutral information block</div></div>
+                </button>
+                <div className="w-full h-px bg-slate-100 my-1" />
+                <button onClick={() => insertShortcode('faq_section')} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><HelpCircle className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">FAQ Section</div><div className="text-[10px] text-slate-500">Inject dynamic FAQs</div></div>
+                </button>
+                <button onClick={() => insertShortcode('cta_button')} className="flex items-center gap-3 w-full text-left p-2 hover:bg-slate-50 rounded-lg transition-colors">
+                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><MousePointerClick className="w-4 h-4 text-slate-600" /></div>
+                    <div><div className="text-sm font-semibold text-slate-800">CTA Button</div><div className="text-[10px] text-slate-500">Inject action button</div></div>
+                </button>
+            </FloatingMenu>
+
             {/* Editor Area */}
-            <div className="w-full cursor-text bg-white px-6 py-4" onClick={() => editor.commands.focus()}>
-                <div className="w-full max-w-[720px] mx-auto">
-                    <EditorContent editor={editor} className="w-full" />
+            <div className="w-full cursor-text bg-white px-8 py-6 flex-1 overflow-y-auto" onClick={() => editor.commands.focus()}>
+                <div className="w-full max-w-[720px] mx-auto min-h-full pb-32">
+                    <EditorContent editor={editor} className="w-full h-full" />
                 </div>
             </div>
 
             <style>{`
                 .tiptap p.is-editor-empty:first-child::before {
-                    color: #cbd5e1;
+                    color: #94a3b8;
                     content: attr(data-placeholder);
                     float: left;
                     height: 0;
                     pointer-events: none;
                     font-size: 1.125rem;
                     font-weight: 400;
-                    opacity: 0.6;
+                    opacity: 0.8;
                     transition: opacity 0.2s ease-in-out;
                 }
                 .tiptap > * {
@@ -541,8 +421,8 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
                     background-color: #f8fafc;
                 }
                 .tiptap img {
-                    border-radius: 8px;
-                    margin: 1.5em auto;
+                    border-radius: 12px;
+                    margin: 2em auto;
                 }
             `}</style>
         </div>
@@ -570,10 +450,10 @@ function ToolbarButton({
             onClick={onClick}
             disabled={disabled}
             title={title}
-            className={`h-8 w-8 p-0 rounded-md flex items-center justify-center transition-colors ${
+            className={`h-9 w-9 p-0 rounded-lg flex items-center justify-center transition-colors ${
                 isActive 
-                ? 'bg-orange-100 text-orange-700 hover:bg-orange-200' 
-                : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
+                ? 'bg-slate-800 text-white hover:bg-slate-700' 
+                : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
             }`}
         >
             {children}
