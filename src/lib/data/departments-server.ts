@@ -1,8 +1,8 @@
-import { createClient } from '@/lib/supabase/server'
+import { createStaticClient } from '@/lib/supabase/server'
 import { Department } from '@/types'
 
 export async function getActiveDepartments() {
-    const supabase = await createClient()
+    const supabase = createStaticClient()
     const { data, error } = await supabase
         .from('departments')
         .select('*')
@@ -11,7 +11,7 @@ export async function getActiveDepartments() {
         .order('name', { ascending: true })
 
     if (error) {
-        console.error('Error fetching departments:', error)
+        console.error('Error fetching departments:', error.message || error.details || error, JSON.stringify(error))
         return []
     }
 

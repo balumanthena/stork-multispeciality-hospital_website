@@ -103,7 +103,7 @@ export function InsurancePartners() {
     }, [controls, isHovered]);
 
     return (
-        <Section container={false} className="py-[80px] bg-[#f7f9fc] overflow-hidden">
+        <Section container={false} className="py-12 md:py-16 bg-[#f7f9fc] overflow-hidden">
             <Container>
 
                 {/* Header Section */}

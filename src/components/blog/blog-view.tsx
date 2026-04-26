@@ -4,12 +4,15 @@ import { useBlogRealtime } from "@/hooks/useBlogRealtime"
 import { Section } from "@/components/layout/section"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Share2, Calendar, User, Tag, Activity } from "lucide-react"
+import { ArrowLeft, Share2, Calendar, User, Tag, Activity, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { VideoSection } from "@/components/treatments/video-section"
 import { extractYoutubeId, generateEmbedUrl, generateThumbnailUrl } from "@/lib/youtube-utils"
 import { BlogPost } from "@/types"
+import { BlogTOC } from "./blog-toc"
+import { BlogFAQ } from "./blog-faq"
+import { BlogStickyCTA } from "./blog-sticky-cta"
 
 export default function BlogView({ initialData }: { initialData: BlogPost }) {
     const post = useBlogRealtime(initialData) as BlogPost
@@ -28,6 +31,33 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
+            {post.enable_faq && post.faq_data && post.faq_data.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": post.faq_data.map((faq: any) => ({
+                                "@type": "Question",
+                                "name": faq.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.answer
+                                }
+                            }))
+                        })
+                    }}
+                />
+            )}
+            
+            {post.enable_sticky_cta && (
+                <BlogStickyCTA 
+                    text={post.sticky_cta_text || "Learn More"} 
+                    link={post.sticky_cta_link || "#"} 
+                />
+            )}
+
             {/* Header / Meta Section */}
             <div className="bg-white pt-24 pb-12">
                 <div className="container mx-auto px-4 md:px-6 max-w-[760px]">
@@ -103,14 +133,62 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
 
                     <div className="prose prose-lg max-w-none prose-slate
                         prose-headings:text-slate-900 prose-headings:font-bold prose-headings:tracking-tight
-                        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                        prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                        prose-p:text-[17px] prose-p:leading-[1.85] prose-p:text-slate-600 prose-p:mb-8
-                        prose-li:text-[17px] prose-li:text-slate-600
+                        prose-h1:text-[36px] prose-h1:leading-[1.2] prose-h1:mb-8
+                        prose-h2:text-[30px] prose-h2:leading-[1.3] prose-h2:mt-12 prose-h2:mb-6 prose-h2:font-semibold
+                        prose-h3:text-[24px] prose-h3:leading-[1.4] prose-h3:mt-10 prose-h3:mb-4 prose-h3:font-semibold
+                        prose-h4:text-[20px] prose-h4:leading-[1.4] prose-h4:mt-8 prose-h4:mb-3 prose-h4:font-medium
+                        prose-h5:text-[18px] prose-h5:leading-[1.5] prose-h5:mt-6 prose-h5:mb-2 prose-h5:font-medium
+                        prose-h6:text-[16px] prose-h6:leading-[1.5] prose-h6:mt-4 prose-h6:mb-2 prose-h6:font-medium prose-h6:text-slate-500
+                        prose-p:text-[18px] prose-p:leading-[1.75] prose-p:text-slate-700 prose-p:mb-6
+                        prose-li:text-[18px] prose-li:text-slate-700 prose-li:mb-2
                         prose-strong:text-slate-900
-                        prose-img:rounded-2xl prose-img:shadow-lg">
+                        prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:italic
+                        prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-10
+                        prose-hr:my-12 prose-hr:border-slate-100">
 
-                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                        {(() => {
+                            let contentToRender = post.content || "";
+                            
+                            // Auto-inject shortcodes if enabled but missing
+                            if (post.enable_toc && !contentToRender.includes('[toc]')) {
+                                contentToRender = '[toc]\n' + contentToRender;
+                            }
+                            if (post.enable_faq && post.faq_data && post.faq_data.length > 0 && !contentToRender.includes('[faq_section]')) {
+                                contentToRender = contentToRender + '\n[faq_section]';
+                            }
+
+                            // Regex to match shortcodes, even if wrapped in <p> tags
+                            const shortcodeRegex = /(<p>\s*\[toc\]\s*<\/p>|\[toc\]|<p>\s*\[faq_section\]\s*<\/p>|\[faq_section\]|<p>\s*\[cta_button\]\s*<\/p>|\[cta_button\])/gi;
+                            
+                            const parts = contentToRender.split(shortcodeRegex);
+
+                            return parts.map((part, index) => {
+                                if (!part) return null;
+
+                                const normalizedPart = part.toLowerCase().trim();
+                                
+                                if (normalizedPart === '[toc]' || normalizedPart === '<p>[toc]</p>') {
+                                    return post.enable_toc ? <BlogTOC key={index} /> : null;
+                                }
+                                if (normalizedPart === '[faq_section]' || normalizedPart === '<p>[faq_section]</p>') {
+                                    return post.enable_faq && post.faq_data ? <BlogFAQ key={index} faqs={post.faq_data} /> : null;
+                                }
+                                if (normalizedPart === '[cta_button]' || normalizedPart === '<p>[cta_button]</p>') {
+                                    return post.enable_sticky_cta ? (
+                                        <div key={index} className="my-8 hidden md:block">
+                                            <Button asChild className="bg-orange-600 hover:bg-orange-700 text-white rounded-full py-6 px-8 font-bold shadow-md shadow-orange-200">
+                                                <Link href={post.sticky_cta_link || "#"}>
+                                                    {post.sticky_cta_text || "Learn More"} <ArrowRight className="ml-2 w-5 h-5" />
+                                                </Link>
+                                            </Button>
+                                        </div>
+                                    ) : null;
+                                }
+
+                                // Fallback for any other part (actual HTML content)
+                                return <div key={index} dangerouslySetInnerHTML={{ __html: part }} />;
+                            });
+                        })()}
                     </div>
 
                     {/* Video Section */}

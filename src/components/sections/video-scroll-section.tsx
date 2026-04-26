@@ -10,7 +10,7 @@ export async function VideoScrollSection() {
     if (!videos || videos.length === 0) return null;
 
     return (
-        <section className="py-16 bg-white overflow-hidden">
+        <section className="py-10 md:py-16 bg-white overflow-hidden">
             <Container className="mb-8">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-1">
                     Recent Videos

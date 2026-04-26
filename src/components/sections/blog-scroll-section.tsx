@@ -13,7 +13,7 @@ export async function BlogScrollSection() {
     const duplicatedBlogs = [...blogs, ...blogs];
 
     return (
-        <section className="py-16 bg-slate-50 overflow-hidden border-t border-slate-100">
+        <section className="py-10 md:py-16 bg-slate-50 overflow-hidden border-t border-slate-100">
             <Container className="mb-8 text-right">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-slate-900 mb-1">
                     Latest Articles

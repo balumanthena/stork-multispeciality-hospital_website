@@ -140,7 +140,7 @@ export default function Home() {
       <InsurancePartners />
 
       {/* 5. WHY CHOOSE US (Institutional Look) */}
-      <Section className="py-16 lg:py-24 bg-white border-y border-slate-100">
+      <Section className="py-12 md:py-16 bg-white border-y border-slate-100">
         <div className="container max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:items-start">
 
@@ -234,17 +234,17 @@ export default function Home() {
       <Testimonials />
 
       {/* 7. RECENT VIDEOS (Scroll Left-to-Right) */}
-      <Suspense fallback={<div className="py-16 flex items-center justify-center text-slate-400 bg-white"><div className="animate-pulse">Loading videos...</div></div>}>
+      <Suspense fallback={<div className="py-10 md:py-16 flex items-center justify-center text-slate-400 bg-white"><div className="animate-pulse">Loading videos...</div></div>}>
         <VideoScrollSection />
       </Suspense>
 
       {/* 7. LATEST BLOGS (Scroll Right-to-Left) */}
-      <Suspense fallback={<div className="py-16 flex items-center justify-center text-slate-400 bg-slate-50"><div className="animate-pulse">Loading articles...</div></div>}>
+      <Suspense fallback={<div className="py-10 md:py-16 flex items-center justify-center text-slate-400 bg-slate-50"><div className="animate-pulse">Loading articles...</div></div>}>
         <BlogScrollSection />
       </Suspense>
 
       {/* 8. FOOTER CTA - Authority-Focused Emergency Section */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-slate-900 text-white relative overflow-hidden">
         {/* Abstract Background Glow */}
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#ff8202] rounded-full blur-[160px] opacity-10 pointer-events-none" />

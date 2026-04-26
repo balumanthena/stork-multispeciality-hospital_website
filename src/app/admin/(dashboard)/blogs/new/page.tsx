@@ -6,10 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { ArrowLeft, Save, Image as ImageIcon, Loader2, Check, ChevronsUpDown, X, Minus } from "lucide-react"
+import { ArrowLeft, Save, Image as ImageIcon, Loader2, Check, ChevronsUpDown, X, Minus, Eye, Settings, List, HelpCircle, MousePointerClick, Plus, Trash2 } from "lucide-react"
 import { toast } from "sonner"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
+import { TiptapEditor } from "@/components/admin/tiptap-editor"
+import { SEOAnalyzerPanel } from "@/components/admin/seo-analyzer-panel"
+import BlogView from "@/components/blog/blog-view"
 import { cn } from "@/lib/utils"
 import { extractYoutubeId, generateEmbedUrl } from "@/lib/youtube-utils"
 import { getDepartmentIcon } from "@/lib/data/department-icons"
@@ -59,7 +63,18 @@ export default function NewBlogPage() {
         youtube_url: "",
         show_on_main: true,
         selected_departments: [] as string[],
-        selected_treatments: [] as string[]
+        selected_treatments: [] as string[],
+        slug: "",
+        meta_title: "",
+        meta_description: "",
+        status: "Published",
+        focus_keyword: "",
+        enable_toc: false,
+        enable_faq: false,
+        faq_data: [] as { question: string, answer: string }[],
+        enable_sticky_cta: false,
+        sticky_cta_text: "",
+        sticky_cta_link: ""
     })
 
     // UI State
@@ -67,6 +82,52 @@ export default function NewBlogPage() {
     const [openTreatment, setOpenTreatment] = useState(false)
 
     // Fetch Data
+    const uploadImage = async (file: File) => {
+        // Client-side validation
+        const MAX_SIZE = 500 * 1024; // 500KB
+        if (file.size > MAX_SIZE) {
+            toast.error('Image too large', {
+                description: `Max size allowed is 500KB. Your image is ${(file.size / 1024).toFixed(2)}KB.`
+            });
+            return null;
+        }
+
+        const fileExt = file.name.split('.').pop()
+        const fileName = `${Math.random().toString(36).substring(2)}_${Date.now()}.${fileExt}`
+        const filePath = `blog-images/${fileName}`
+
+        try {
+            const { error: uploadError } = await supabase.storage
+                .from('blog-media')
+                .upload(filePath, file, { upsert: false })
+
+            if (uploadError) {
+                if (uploadError.message.includes('maximum allowed size')) {
+                    toast.error('Upload Failed', {
+                        description: 'The image exceeds the server\'s storage limit. Please try a smaller image.'
+                    });
+                } else {
+                    toast.error('Failed to upload image.', {
+                        description: uploadError.message
+                    });
+                }
+                return null;
+            }
+
+            const { data: { publicUrl } } = supabase.storage
+                .from('blog-media')
+                .getPublicUrl(filePath)
+
+            return publicUrl
+        } catch (error: any) {
+            console.error('Upload Error:', error)
+            toast.error('Upload Error', {
+                description: 'An unexpected error occurred while uploading.'
+            })
+            return null
+        }
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             setPageLoading(true)
@@ -101,6 +162,13 @@ export default function NewBlogPage() {
         }
         fetchData()
     }, [])
+
+    // Auto-generate slug from title
+    useEffect(() => {
+        if (!formData.slug && formData.title) {
+            setFormData(prev => ({ ...prev, slug: generateSlug(formData.title) }))
+        }
+    }, [formData.title])
 
     // Multi-select Helpers
     const isAllDeptsSelected = useMemo(() =>
@@ -173,7 +241,7 @@ export default function NewBlogPage() {
         }
 
         setLoading(true)
-        let slug = generateSlug(formData.title)
+        let slug = formData.slug || generateSlug(formData.title)
 
         // Check if slug exists
         const { data: existingSlug } = await supabase
@@ -193,11 +261,20 @@ export default function NewBlogPage() {
             title: formData.title,
             slug: slug,
             content: formData.content,
-            excerpt: formData.excerpt || formData.content.substring(0, 150) + "...",
+            excerpt: formData.excerpt || formData.content.replace(/<[^>]*>?/gm, '').substring(0, 150) + "...",
             author_id: user.id,
             image_url: formData.image,
             youtube_url: formData.youtube_url || null,
             show_on_main: formData.show_on_main,
+            meta_title: formData.meta_title || null,
+            meta_description: formData.meta_description || null,
+            focus_keyword: formData.focus_keyword || null,
+            enable_toc: formData.enable_toc,
+            enable_faq: formData.enable_faq,
+            faq_data: formData.faq_data,
+            enable_sticky_cta: formData.enable_sticky_cta,
+            sticky_cta_text: formData.sticky_cta_text || null,
+            sticky_cta_link: formData.sticky_cta_link || null,
             published_at: new Date().toISOString(),
             status: 'Draft' // Force Draft for initial insert
         }).select('id').single()
@@ -240,7 +317,7 @@ export default function NewBlogPage() {
             // 4. Final step: Publish (this triggers the Lockdown validation)
             const { error: pubError } = await supabase
                 .from('blogs')
-                .update({ status: 'Published' })
+                .update({ status: formData.status })
                 .eq('id', blogId)
 
             if (pubError) throw pubError
@@ -269,81 +346,107 @@ export default function NewBlogPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="min-h-screen -m-6 bg-slate-50">
 
-            {/* Header */}
-            <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                    <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => router.push('/admin/blogs')}>
-                        <ArrowLeft className="h-4 w-4" />
-                    </Button>
-                    <h1 className="text-2xl font-bold text-slate-800">New Blog Post</h1>
-                </div>
-                <div className="flex gap-4">
-                    <Button variant="outline" disabled={loading} onClick={() => router.push('/admin/blogs')}>
-                        Cancel
-                    </Button>
-                    <Button
-                        className="bg-[var(--color-primary)] text-white"
-                        onClick={handlePublish}
-                        disabled={loading}
-                    >
-                        {loading ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Save className="h-4 w-4 mr-2" />}
-                        Publish
-                    </Button>
+            {/* ─── Top Header Bar ─── */}
+            <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 px-6">
+                <div className="flex items-center justify-between h-14">
+                    <div className="flex items-center gap-3">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md" onClick={() => router.push('/admin/blogs')}>
+                            <ArrowLeft className="h-4 w-4" />
+                        </Button>
+                        <div className="w-px h-5 bg-slate-200" />
+                        <h1 className="text-sm font-semibold text-slate-800">New Blog Post</h1>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="ghost" size="sm" className="gap-1.5 text-slate-600 h-8">
+                                    <Eye className="h-3.5 w-3.5" /> Preview
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-5xl h-[90vh] overflow-y-auto p-0 border-0 bg-transparent">
+                                <DialogTitle className="sr-only">Blog Preview</DialogTitle>
+                                <div className="bg-white min-h-full rounded-t-xl overflow-hidden relative pb-12">
+                                    <BlogView initialData={{
+                                        id: "preview",
+                                        created_at: new Date().toISOString(),
+                                        slug: formData.slug || "preview",
+                                        title: formData.title || "Preview Title",
+                                        content: formData.content || "<p>Preview content...</p>",
+                                        excerpt: formData.excerpt || "Preview excerpt",
+                                        date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+                                        published: true,
+                                        published_at: new Date().toISOString(),
+                                        author: user?.email || "Author",
+                                        category: formData.category || "General",
+                                        image_url: formData.image,
+                                        image: formData.image,
+                                        youtube_url: formData.youtube_url,
+                                        show_on_main: formData.show_on_main,
+                                        selected_departments: formData.selected_departments,
+                                        selected_treatments: formData.selected_treatments
+                                    } as any} />
+                                </div>
+                            </DialogContent>
+                        </Dialog>
+                        <Button variant="ghost" size="sm" className="text-slate-600 h-8" disabled={loading} onClick={() => router.push('/admin/blogs')}>
+                            Cancel
+                        </Button>
+                        <Button
+                            size="sm"
+                            className="bg-orange-600 hover:bg-orange-700 text-white h-8 px-4 font-semibold"
+                            onClick={handlePublish}
+                            disabled={loading}
+                        >
+                            {loading ? <Loader2 className="h-3.5 w-3.5 mr-1.5 animate-spin" /> : <Save className="h-3.5 w-3.5 mr-1.5" />}
+                            Publish
+                        </Button>
+                    </div>
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
-                {/* Main Content Form */}
-                <div className="col-span-2 space-y-6">
-
-                    <div className="space-y-2">
-                        <Label>Title</Label>
-                        <Input
-                            placeholder="Enter post title"
-                            className="text-lg font-medium"
-                            value={formData.title}
-                            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                        />
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label>Excerpt (Short Summary)</Label>
-                        <Textarea
-                            className="h-20 resize-none"
-                            placeholder="Brief summary for the card view..."
-                            value={formData.excerpt}
-                            onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                        />
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label>Content (Markdown Supported)</Label>
-                        <div className="min-h-[400px] w-full rounded-md border border-slate-300 bg-white p-4">
-                            {/* Toolbar placeholder */}
-                            <div className="border-b border-slate-200 pb-2 mb-4 flex gap-2 text-slate-400">
-                                <Button variant="ghost" size="sm" className="h-8">B</Button>
-                                <Button variant="ghost" size="sm" className="h-8 italic">I</Button>
-                                <div className="w-px h-6 bg-slate-200 my-auto" />
-                                <Button variant="ghost" size="sm" className="h-8">H1</Button>
-                                <Button variant="ghost" size="sm" className="h-8">H2</Button>
-                            </div>
-                            <Textarea
-                                className="min-h-[300px] border-0 focus-visible:ring-0 p-0 resize-none font-mono text-sm"
-                                placeholder="Start writing your amazing article..."
-                                value={formData.content}
-                                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+            {/* ─── Main Content Area ─── */}
+            <div className="flex">
+                {/* ─── Editor Column (fluid center) ─── */}
+                <div className="flex-1 min-w-0">
+                    {/* Title & Excerpt */}
+                    <div className="bg-white border-b border-slate-200 py-10 px-6">
+                        <div className="max-w-[720px] mx-auto space-y-4">
+                            <input
+                                type="text"
+                                placeholder="Post Title"
+                                className="w-full text-3xl font-bold text-slate-900 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 tracking-tight"
+                                value={formData.title}
+                                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                            />
+                            <textarea
+                                placeholder="Write a short summary..."
+                                className="w-full text-base text-slate-500 bg-transparent border-none outline-none focus:ring-0 placeholder:text-slate-300 resize-none leading-relaxed"
+                                rows={2}
+                                value={formData.excerpt}
+                                onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                             />
                         </div>
                     </div>
+
+                    {/* Editor */}
+                    <div className="bg-white">
+                        <TiptapEditor
+                            value={formData.content}
+                            onChange={(value) => setFormData({ ...formData, content: value })}
+                        />
+                    </div>
+
                 </div>
 
-                {/* Sidebar Settings */}
-                <div className="space-y-6">
-                    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                        <h3 className="font-semibold text-slate-800 mb-2">Publishing</h3>
-                        <div className="space-y-2">
+                {/* ─── Right Panel (fixed 320px) ─── */}
+                <div className="w-[320px] flex-shrink-0 border-l border-slate-200 bg-white/50 backdrop-blur-sm overflow-y-auto h-[calc(100vh-56px)] sticky top-14">
+                    <div className="p-5 space-y-6">
+                        {/* Publishing Section */}
+                        <div className="space-y-4">
+                            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Publishing</h3>
+                            <div className="space-y-3">
                             <Label>Category</Label>
                             <select
                                 className="w-full flex h-10 items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-transparent"
@@ -365,18 +468,77 @@ export default function NewBlogPage() {
                             </select>
                         </div>
                         <div className="space-y-2">
+                            <Label>Status</Label>
+                            <select
+                                className="w-full flex h-10 items-center justify-between rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-transparent"
+                                value={formData.status}
+                                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                            >
+                                <option value="Draft">Draft</option>
+                                <option value="Published">Published</option>
+                                <option value="Scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                        <div className="space-y-2">
                             <Label>Author</Label>
                             <div className="h-10 px-3 py-2 bg-slate-50 border border-slate-200 rounded-md text-sm text-slate-500 cursor-not-allowed">
                                 {user ? (user.email || 'Current User') : 'Loading...'}
                             </div>
                             <p className="text-xs text-slate-400">Posts are attributed to the logged-in user.</p>
                         </div>
+                        </div>
 
-                        <div className="space-y-4 pt-6 mt-6 border-t border-slate-100">
-                            <div>
-                                <h4 className="text-sm font-bold text-slate-800 mb-1">Content Distribution</h4>
-                                <p className="text-xs text-slate-500 mb-4">Choose exactly where this blog should be published.</p>
+                        {/* Featured Image Section */}
+                        <div className="border-t border-slate-200 pt-5 space-y-4">
+                            <div className="flex items-center justify-between">
+                                <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Featured Image</h3>
+                                {formData.image && (
+                                    <button 
+                                        onClick={() => setFormData({ ...formData, image: '' })}
+                                        className="text-[10px] text-red-500 font-bold uppercase hover:underline"
+                                    >
+                                        Remove
+                                    </button>
+                                )}
                             </div>
+                            
+                            {formData.image ? (
+                                <div className="relative group aspect-video rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
+                                    <img src={formData.image} alt="Featured" className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                        <label className="cursor-pointer bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/40 transition-all">
+                                            Change Image
+                                            <input type="file" accept="image/*" className="hidden" onChange={async (e) => {
+                                                const file = e.target.files?.[0];
+                                                if (file) {
+                                                    const url = await uploadImage(file);
+                                                    if (url) setFormData({ ...formData, image: url });
+                                                }
+                                                e.target.value = ''; // Allow re-uploading same file to trigger warning
+                                            }} />
+                                        </label>
+                                    </div>
+                                </div>
+                            ) : (
+                                <label className="flex flex-col items-center justify-center aspect-video rounded-lg border-2 border-dashed border-slate-200 bg-slate-50 hover:bg-slate-100 transition-colors cursor-pointer group">
+                                    <ImageIcon className="w-8 h-8 text-slate-300 group-hover:text-slate-400 mb-2 transition-colors" />
+                                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Upload Featured Image</span>
+                                    <input type="file" accept="image/*" className="hidden" onChange={async (e) => {
+                                        const file = e.target.files?.[0];
+                                        if (file) {
+                                            const url = await uploadImage(file);
+                                            if (url) setFormData({ ...formData, image: url });
+                                        }
+                                        e.target.value = ''; // Allow re-uploading same file to trigger warning
+                                    }} />
+                                </label>
+                            )}
+                            <p className="text-[10px] text-slate-400 leading-tight">Recommended size: 1200x630px. Max limit: 500KB.</p>
+                        </div>
+
+                        {/* Content Distribution */}
+                        <div className="border-t border-slate-200 pt-5 space-y-4">
+                            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Distribution</h3>
 
                             <div className="space-y-4">
                                 {/* Main Blog Checkbox */}
@@ -615,72 +777,134 @@ export default function NewBlogPage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                        <h3 className="font-semibold text-slate-800 mb-2">Media</h3>
-                        <div className="space-y-2">
-                            <Label>Featured Image URL</Label>
-                            <Input
-                                value={formData.image}
-                                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                placeholder="/images/..."
-                            />
+                        <div className="border-t border-slate-200 pt-5 space-y-4">
+                            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Video Media</h3>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <Label>YouTube Video URL (Optional)</Label>
+                                    <Input
+                                        value={formData.youtube_url}
+                                        onChange={(e) => setFormData({ ...formData, youtube_url: e.target.value })}
+                                        placeholder="https://youtube.com/watch?v=..."
+                                    />
+                                    <p className="text-xs text-slate-400">Adds a video player to the blog post.</p>
+                                </div>
+                                {formData.youtube_url && (
+                                    extractYoutubeId(formData.youtube_url) ? (
+                                        <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm mt-3">
+                                            <iframe
+                                                src={generateEmbedUrl(extractYoutubeId(formData.youtube_url)!)}
+                                                title="YouTube video preview"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                allowFullScreen
+                                                className="w-full h-full"
+                                            ></iframe>
+                                        </div>
+                                    ) : (
+                                        <div className="p-3 bg-red-50 text-red-600 rounded-lg border border-red-200 text-xs font-medium flex items-center justify-center mt-3">
+                                            Invalid YouTube URL format
+                                        </div>
+                                    )
+                                )}
+                            </div>
                         </div>
-                        {formData.image ? (
-                            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-200 bg-slate-100 mt-2">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src={formData.image}
-                                    alt="Featured Image Preview"
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => {
-                                        (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="%2394a3b8" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>'
-                                    }}
-                                />
-                            </div>
-                        ) : (
-                            <div className="border-2 border-dashed border-slate-200 rounded-lg p-8 flex flex-col items-center justify-center text-center text-slate-400 bg-slate-50 mt-2">
-                                <ImageIcon className="h-8 w-8 mb-2" />
-                                <span className="text-xs">Image Preview</span>
-                            </div>
-                        )}
 
-                        <div className="space-y-4 pt-4 border-t border-slate-100 mt-4">
-                            <div className="space-y-2">
-                                <Label>YouTube Video URL (Optional)</Label>
-                                <Input
-                                    value={formData.youtube_url}
-                                    onChange={(e) => setFormData({ ...formData, youtube_url: e.target.value })}
-                                    placeholder="https://youtube.com/watch?v=..."
-                                />
-                                <p className="text-xs text-slate-400">Adds a video player to the blog post.</p>
+                        {/* SEO Settings Section */}
+                        <div className="border-t border-slate-200 pt-5 space-y-4">
+                            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">SEO Settings</h3>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                        <Label>Title Tag</Label>
+                                        <span className={cn("text-xs", formData.meta_title.length > 60 ? "text-red-500 font-bold" : "text-slate-400")}>
+                                            {formData.meta_title.length} / 60
+                                        </span>
+                                    </div>
+                                    <Input value={formData.meta_title} onChange={(e) => setFormData({ ...formData, meta_title: e.target.value })} placeholder="SEO Title (Max 60 chars)" />
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between items-center">
+                                        <Label>Meta Description</Label>
+                                        <span className={cn("text-xs", formData.meta_description.length > 155 ? "text-red-500 font-bold" : "text-slate-400")}>
+                                            {formData.meta_description.length} / 155
+                                        </span>
+                                    </div>
+                                    <Textarea value={formData.meta_description} onChange={(e) => setFormData({ ...formData, meta_description: e.target.value })} placeholder="SEO Description (Max 155 chars)" rows={3} />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label>Focus Keyword</Label>
+                                    <Input value={formData.focus_keyword} onChange={(e) => setFormData({ ...formData, focus_keyword: e.target.value })} placeholder="e.g. knee replacement surgery" />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label>URL Slug</Label>
+                                    <Input value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })} placeholder="Auto-generated if left empty" />
+                                    <p className="text-xs text-slate-400">Leave empty to auto-generate from title.</p>
+                                </div>
                             </div>
+                        </div>
 
-                            {/* Real-time Iframe Preview */}
-                            {formData.youtube_url && (
-                                extractYoutubeId(formData.youtube_url) ? (
-                                    <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm mt-3 animate-in fade-in zoom-in-95 duration-300">
-                                        <iframe
-                                            src={generateEmbedUrl(extractYoutubeId(formData.youtube_url)!)}
-                                            title="YouTube video preview"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowFullScreen
-                                            className="w-full h-full"
-                                        ></iframe>
+                        <SEOAnalyzerPanel title={formData.meta_title} description={formData.meta_description} content={formData.content} keyword={formData.focus_keyword} />
+
+                        {/* Advanced Content Features */}
+                        <div className="border-t border-slate-200 pt-5 space-y-4">
+                            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Advanced</h3>
+                            <div className="space-y-6 divide-y divide-slate-100">
+                                <div className="flex items-center justify-between pt-2">
+                                    <div>
+                                        <Label className="text-sm font-bold text-slate-800">Table of Contents</Label>
+                                        <p className="text-xs text-slate-500 mt-0.5">Auto-generate a clickable TOC from H2/H3 tags.</p>
                                     </div>
-                                ) : (
-                                    <div className="p-3 bg-red-50 text-red-600 rounded-lg border border-red-200 text-xs font-medium flex items-center justify-center mt-3">
-                                        Invalid YouTube URL format
+                                    <Button variant={formData.enable_toc ? "default" : "outline"} onClick={() => setFormData({ ...formData, enable_toc: !formData.enable_toc })} className={cn("w-14", formData.enable_toc && "bg-green-600 hover:bg-green-700 text-white")}>{formData.enable_toc ? "ON" : "OFF"}</Button>
+                                </div>
+                                <div className="pt-4 space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <MousePointerClick className="w-4 h-4 text-slate-400" />
+                                            <div>
+                                                <Label className="text-sm font-bold text-slate-800">Sticky CTA Button</Label>
+                                                <p className="text-xs text-slate-500 mt-0.5">Show a floating button at the bottom.</p>
+                                            </div>
+                                        </div>
+                                        <Button variant={formData.enable_sticky_cta ? "default" : "outline"} onClick={() => setFormData({ ...formData, enable_sticky_cta: !formData.enable_sticky_cta })} className={cn("w-14", formData.enable_sticky_cta && "bg-green-600 hover:bg-green-700 text-white")}>{formData.enable_sticky_cta ? "ON" : "OFF"}</Button>
                                     </div>
-                                )
-                            )}
+                                    {formData.enable_sticky_cta && (
+                                        <div className="pl-6 space-y-3 border-l-2 border-slate-100">
+                                            <div className="space-y-1"><Label className="text-xs">Button Text</Label><Input value={formData.sticky_cta_text} onChange={(e) => setFormData({ ...formData, sticky_cta_text: e.target.value })} placeholder="e.g. Book Consultation" className="h-8 text-sm" /></div>
+                                            <div className="space-y-1"><Label className="text-xs">Button Link URL</Label><Input value={formData.sticky_cta_link} onChange={(e) => setFormData({ ...formData, sticky_cta_link: e.target.value })} placeholder="/contact" className="h-8 text-sm" /></div>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="pt-4 space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2">
+                                            <HelpCircle className="w-4 h-4 text-slate-400" />
+                                            <div>
+                                                <Label className="text-sm font-bold text-slate-800">FAQ Schema & Section</Label>
+                                                <p className="text-xs text-slate-500 mt-0.5">Add SEO-optimized FAQs.</p>
+                                            </div>
+                                        </div>
+                                        <Button variant={formData.enable_faq ? "default" : "outline"} onClick={() => setFormData({ ...formData, enable_faq: !formData.enable_faq })} className={cn("w-14", formData.enable_faq && "bg-green-600 hover:bg-green-700 text-white")}>{formData.enable_faq ? "ON" : "OFF"}</Button>
+                                    </div>
+                                    {formData.enable_faq && (
+                                        <div className="pl-6 space-y-3 border-l-2 border-slate-100">
+                                            {formData.faq_data.map((faq, index) => (
+                                                <div key={index} className="p-3 bg-slate-50 rounded-lg border border-slate-100 relative group">
+                                                    <button onClick={() => { const newFaqs = [...formData.faq_data]; newFaqs.splice(index, 1); setFormData({ ...formData, faq_data: newFaqs }) }} className="absolute -right-2 -top-2 bg-white text-red-500 border border-slate-200 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-50 shadow-sm"><Trash2 className="w-3 h-3" /></button>
+                                                    <Input value={faq.question} onChange={(e) => { const newFaqs = [...formData.faq_data]; newFaqs[index].question = e.target.value; setFormData({ ...formData, faq_data: newFaqs }) }} placeholder="Question..." className="h-8 text-sm font-bold mb-2 bg-white" />
+                                                    <Textarea value={faq.answer} onChange={(e) => { const newFaqs = [...formData.faq_data]; newFaqs[index].answer = e.target.value; setFormData({ ...formData, faq_data: newFaqs }) }} placeholder="Answer..." className="text-sm min-h-[60px] bg-white" />
+                                                </div>
+                                            ))}
+                                            <Button variant="outline" size="sm" onClick={() => setFormData({ ...formData, faq_data: [...formData.faq_data, { question: "", answer: "" }] })} className="w-full text-xs font-bold border-dashed border-2 hover:bg-slate-50"><Plus className="w-3 h-3 mr-1" /> Add FAQ</Button>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

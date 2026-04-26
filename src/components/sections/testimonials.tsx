@@ -111,7 +111,7 @@ export function Testimonials() {
     const carouselTestimonials = testimonials.filter((t) => t.id !== featuredTestimonial.id);
 
     return (
-        <section className="bg-white py-24 border-y border-slate-100">
+        <section className="bg-white py-12 md:py-16 border-y border-slate-100">
             <Container>
 
                 {/* SECTION TITLE & PART 1: GOOGLE REVIEW SUMMARY */}

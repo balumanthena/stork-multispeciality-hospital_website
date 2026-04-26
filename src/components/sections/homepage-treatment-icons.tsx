@@ -62,7 +62,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
     };
 
     return (
-        <section ref={sectionRef} className="py-16 md:py-20 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24">
+        <section ref={sectionRef} className="py-12 md:py-16 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24">
             <Container>
 
                 <div className="text-center mb-12 md:mb-16">

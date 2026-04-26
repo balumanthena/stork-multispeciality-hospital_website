@@ -27,6 +27,17 @@ export interface BlogPost {
     youtube_url?: string | null
     department_id?: string | null
     treatment_id?: string | null
+    
+    // Advanced SEO & Content Features
+    meta_title?: string | null
+    meta_description?: string | null
+    focus_keyword?: string | null
+    enable_toc?: boolean
+    enable_faq?: boolean
+    faq_data?: any[]
+    enable_sticky_cta?: boolean
+    sticky_cta_text?: string | null
+    sticky_cta_link?: string | null
 }
 
 export interface Treatment {

@@ -16,7 +16,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
     };
 
     return (
-        <section className="bg-slate-50 py-20 font-sans">
+        <section className="bg-slate-50 py-12 md:py-16 font-sans">
             <Container>
                 
                 <div className="flex flex-col justify-center items-center mb-10 gap-4">
