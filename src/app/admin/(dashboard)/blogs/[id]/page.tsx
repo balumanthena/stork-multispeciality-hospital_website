@@ -373,6 +373,43 @@ export default function EditBlogPage() {
                         <h1 className="text-sm font-semibold text-slate-800">Edit Blog Post</h1>
                     </div>
                     <div className="flex items-center gap-2">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <Button variant="outline" size="sm" className="h-8 hidden md:flex items-center gap-1.5 border-slate-200 text-slate-600 bg-white hover:bg-slate-50 hover:text-slate-900">
+                                    <Eye className="h-3.5 w-3.5" /> Preview
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-5xl h-[90vh] overflow-y-auto p-0 border-0 bg-transparent">
+                                <DialogTitle className="sr-only">Blog Preview</DialogTitle>
+                                <div className="bg-white min-h-full rounded-t-xl overflow-hidden relative pb-12">
+                                    <BlogView initialData={{
+                                        id: id || "preview",
+                                        created_at: new Date().toISOString(),
+                                        slug: debouncedFormData.slug || "preview",
+                                        title: debouncedFormData.title || "Preview Title",
+                                        content: debouncedFormData.content || "<p>Start writing your article...</p>",
+                                        excerpt: debouncedFormData.excerpt || "Preview excerpt",
+                                        date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
+                                        published: debouncedFormData.status === "Published",
+                                        published_at: new Date().toISOString(),
+                                        author: user?.email || "Author",
+                                        category: debouncedFormData.category || "General",
+                                        image_url: debouncedFormData.image,
+                                        image: debouncedFormData.image,
+                                        youtube_url: debouncedFormData.youtube_url,
+                                        show_on_main: debouncedFormData.show_on_main,
+                                        selected_departments: debouncedFormData.selected_departments,
+                                        selected_treatments: debouncedFormData.selected_treatments,
+                                        enable_toc: debouncedFormData.enable_toc,
+                                        enable_faq: debouncedFormData.enable_faq,
+                                        faq_data: debouncedFormData.faq_data,
+                                        enable_sticky_cta: debouncedFormData.enable_sticky_cta,
+                                        sticky_cta_text: debouncedFormData.sticky_cta_text,
+                                        sticky_cta_link: debouncedFormData.sticky_cta_link
+                                    } as any} />
+                                </div>
+                            </DialogContent>
+                        </Dialog>
                         <Button variant="ghost" size="sm" className="text-slate-600 h-8" disabled={loading} onClick={() => router.push('/admin/blogs')}>
                             Cancel
                         </Button>
@@ -389,10 +426,10 @@ export default function EditBlogPage() {
                 </div>
             </div>
 
-            {/* ─── Main Content Area (3-Column Layout) ─── */}
+            {/* ─── Main Content Area (2-Column Layout) ─── */}
             <div className="flex flex-1 overflow-hidden h-[calc(100vh-56px)]">
-                {/* ─── 1. Editor Column (40%) ─── */}
-                <div className="w-[45%] flex-shrink-0 border-r border-slate-200 bg-white overflow-y-auto">
+                {/* ─── 1. Editor Column (flex-1) ─── */}
+                <div className="flex-1 min-w-0 border-r border-slate-200 bg-white overflow-y-auto">
                     {/* Title & Excerpt */}
                     <div className="border-b border-slate-100 py-10 px-8 bg-slate-50/50">
                         <div className="max-w-[720px] mx-auto space-y-6">
@@ -422,42 +459,8 @@ export default function EditBlogPage() {
                     </div>
                 </div>
 
-                {/* ─── 2. Live Preview Column (flex-1) ─── */}
-                <div className="flex-1 bg-slate-200/50 overflow-y-auto relative p-6">
-                    <div className="absolute top-4 right-4 px-3 py-1 bg-black/60 text-white rounded-full text-[10px] font-black tracking-widest uppercase z-10 shadow-sm backdrop-blur-md">
-                        LIVE PREVIEW
-                    </div>
-                    <div className="bg-white rounded-xl shadow-xl overflow-hidden min-h-full border border-slate-200 pointer-events-none transform origin-top w-full">
-                        <BlogView initialData={{
-                            id: id || "preview",
-                            created_at: new Date().toISOString(),
-                            slug: debouncedFormData.slug || "preview",
-                            title: debouncedFormData.title || "Preview Title",
-                            content: debouncedFormData.content || "<p>Start writing your article...</p>",
-                            excerpt: debouncedFormData.excerpt || "Preview excerpt",
-                            date: new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }),
-                            published: debouncedFormData.status === "Published",
-                            published_at: new Date().toISOString(),
-                            author: user?.email || "Author",
-                            category: debouncedFormData.category || "General",
-                            image_url: debouncedFormData.image,
-                            image: debouncedFormData.image,
-                            youtube_url: debouncedFormData.youtube_url,
-                            show_on_main: debouncedFormData.show_on_main,
-                            selected_departments: debouncedFormData.selected_departments,
-                            selected_treatments: debouncedFormData.selected_treatments,
-                            enable_toc: debouncedFormData.enable_toc,
-                            enable_faq: debouncedFormData.enable_faq,
-                            faq_data: debouncedFormData.faq_data,
-                            enable_sticky_cta: debouncedFormData.enable_sticky_cta,
-                            sticky_cta_text: debouncedFormData.sticky_cta_text,
-                            sticky_cta_link: debouncedFormData.sticky_cta_link
-                        } as any} />
-                    </div>
-                </div>
-
-                {/* ─── 3. Right Panel (fixed 340px) ─── */}
-                <div className="w-[340px] flex-shrink-0 border-l border-slate-200 bg-white overflow-y-auto">
+                {/* ─── 2. Right Panel (fixed 340px) ─── */}
+                <div className="w-[340px] flex-shrink-0 bg-white overflow-y-auto">
                     <div className="p-5 space-y-6">
                         {/* Publishing Section */}
                         <div className="space-y-4">

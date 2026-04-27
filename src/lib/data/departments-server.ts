@@ -1,11 +1,12 @@
 import { createStaticClient } from '@/lib/supabase/server'
+import { cache } from 'react'
 import { Department } from '@/types'
 
-export async function getActiveDepartments() {
+export const getActiveDepartments = cache(async () => {
     const supabase = createStaticClient()
     const { data, error } = await supabase
         .from('departments')
-        .select('*')
+        .select('id, created_at, name, slug, description, icon, image_url, is_active, display_order')
         .eq('is_active', true)
         .order('display_order', { ascending: true })
         .order('name', { ascending: true })
@@ -16,4 +17,4 @@ export async function getActiveDepartments() {
     }
 
     return (data as Department[]) || []
-}
+})

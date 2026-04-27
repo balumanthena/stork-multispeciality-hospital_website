@@ -26,13 +26,7 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
     const contentRef = useRef<HTMLDivElement>(null)
     const [copied, setCopied] = useState(false)
 
-    // Scroll Progress
-    const { scrollYProgress } = useScroll()
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    })
+    // Removed Scroll Progress logic based on user request
 
     // Parse headings for TOC
     useEffect(() => {
@@ -101,12 +95,6 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
 
     return (
         <div className="flex flex-col min-h-screen bg-slate-50 relative">
-            {/* Scroll Progress Bar */}
-            <motion.div 
-                className="fixed top-0 left-0 right-0 h-1.5 bg-orange-500 origin-left z-50" 
-                style={{ scaleX }} 
-            />
-
             {/* SEO Schema */}
             {post.enable_faq && post.faq_data && post.faq_data.length > 0 && (
                 <script
@@ -274,29 +262,25 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
                             />
                         </div>
                     )}
+
+                    {/* Inline CTA */}
+                    {post.enable_sticky_cta && (
+                        <div className="mt-16 pt-12 border-t border-slate-200">
+                            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Ready to consult a specialist?</h3>
+                                    <p className="text-slate-600">Take the next step in your healthcare journey with our expert team.</p>
+                                </div>
+                                <Button asChild className="bg-orange-600 hover:bg-orange-700 text-white rounded-full px-8 py-6 text-lg shadow-md w-full md:w-auto whitespace-nowrap">
+                                    <Link href={post.sticky_cta_link || "/appointments"}>
+                                        {post.sticky_cta_text || "Book Appointment"} <ArrowRight className="ml-2 w-5 h-5" />
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    )}
                 </article>
             </div>
-
-            {/* Sticky Floating CTA */}
-            {post.enable_sticky_cta && (
-                <div className="fixed bottom-0 left-0 right-0 z-40 p-4 pointer-events-none flex justify-center">
-                    <motion.div 
-                        initial={{ y: 100, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 1, type: "spring", stiffness: 200, damping: 20 }}
-                        className="pointer-events-auto bg-white rounded-full shadow-2xl border border-slate-200 p-2 pl-6 flex items-center gap-6 max-w-lg w-full justify-between"
-                    >
-                        <div className="text-sm font-semibold text-slate-700 hidden sm:block">
-                            Ready to consult a specialist?
-                        </div>
-                        <Button asChild className="bg-orange-600 hover:bg-orange-700 text-white rounded-full px-8 py-5 shadow-lg w-full sm:w-auto">
-                            <Link href={post.sticky_cta_link || "/appointments"}>
-                                {post.sticky_cta_text || "Book Appointment"} <ArrowRight className="ml-2 w-4 h-4" />
-                            </Link>
-                        </Button>
-                    </motion.div>
-                </div>
-            )}
         </div>
     )
 }

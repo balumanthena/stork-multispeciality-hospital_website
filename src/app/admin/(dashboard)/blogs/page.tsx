@@ -11,7 +11,13 @@ export default async function BlogsPage() {
     const supabase = await createClient()
     const role = await getCurrentUserRole()
 
-    const { data: blogs } = await supabase.from('blogs').select('*').order('created_at', { ascending: false })
+    const { data: rawBlogs } = await supabase.from('blogs').select('id, title, slug, category, published_at, created_at, status, author_id').order('created_at', { ascending: false })
+    
+    // Map the database fields to the UI expected fields
+    const blogs = (rawBlogs || []).map(b => ({
+        ...b,
+        date: new Date(b.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+    }))
 
     return (
         <div className="space-y-6">

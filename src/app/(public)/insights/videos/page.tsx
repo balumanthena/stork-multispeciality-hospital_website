@@ -3,14 +3,14 @@ import { VideoSection } from "@/components/treatments/video-section"
 import { Section } from "@/components/layout/section"
 import { Video } from "lucide-react"
 
-export const revalidate = 0
+export const revalidate = 300
 
 export default async function VideoGalleryPage() {
     const supabase = await createClient()
 
     const { data: videos, error } = await supabase
         .from('treatment_videos')
-        .select('*')
+        .select('id, title, youtube_url, youtube_embed_url, description, thumbnail_url, duration, created_at, is_active, show_global, department_id, treatment_id')
         .eq('is_active', true)
         .eq('show_global', true)
         .order('created_at', { ascending: false })

@@ -350,7 +350,11 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
             </BubbleMenu>
 
             {/* Notion-style Floating Menu (Slash Commands alternative) */}
-            <FloatingMenu editor={editor} className="flex flex-col gap-1 bg-white p-2 rounded-xl shadow-2xl border border-slate-200/60 overflow-hidden backdrop-blur-md w-56 -ml-16 animate-in fade-in zoom-in-95 duration-200">
+            <FloatingMenu 
+                editor={editor} 
+                tippyOptions={{ placement: 'bottom-start', offset: [0, 8] }}
+                className="flex flex-col gap-1 bg-white p-2 rounded-xl shadow-2xl border border-slate-200/60 overflow-hidden backdrop-blur-md w-56 z-50 animate-in fade-in zoom-in-95 duration-200"
+            >
                 <div className="px-2 py-1 mb-1">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Add Block</span>
                 </div>
