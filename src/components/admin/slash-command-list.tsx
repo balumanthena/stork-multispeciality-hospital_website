@@ -35,6 +35,30 @@ export const COMMAND_ITEMS = [
     },
   },
   {
+    title: 'Heading 4',
+    description: 'Sub-section heading.',
+    icon: <Heading4 className="w-4 h-4" />,
+    command: ({ editor, range }: any) => {
+      editor.chain().focus().deleteRange(range).setNode('heading', { level: 4 }).run()
+    },
+  },
+  {
+    title: 'Heading 5',
+    description: 'Small sub-section heading.',
+    icon: <Heading5 className="w-4 h-4" />,
+    command: ({ editor, range }: any) => {
+      editor.chain().focus().deleteRange(range).setNode('heading', { level: 5 }).run()
+    },
+  },
+  {
+    title: 'Heading 6',
+    description: 'Minor heading.',
+    icon: <Heading6 className="w-4 h-4" />,
+    command: ({ editor, range }: any) => {
+      editor.chain().focus().deleteRange(range).setNode('heading', { level: 6 }).run()
+    },
+  },
+  {
     title: 'Bullet List',
     description: 'Create a simple bulleted list.',
     icon: <List className="w-4 h-4" />,

@@ -11,6 +11,7 @@ import Paragraph from '@tiptap/extension-paragraph'
 import Placeholder from '@tiptap/extension-placeholder'
 import CodeBlock from '@tiptap/extension-code-block'
 import Highlight from '@tiptap/extension-highlight'
+import Heading from '@tiptap/extension-heading'
 import { Color } from '@tiptap/extension-color'
 import { TextStyle } from '@tiptap/extension-text-style'
 import { Table } from '@tiptap/extension-table'
@@ -213,7 +214,7 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
         },
         extensions: [
             StarterKit.configure({
-                heading: { levels: [1, 2, 3, 4, 5, 6] },
+                heading: false,
                 paragraph: false,
                 blockquote: {
                     HTMLAttributes: {
@@ -234,6 +235,7 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
             Highlight,
             TextStyle,
             Color,
+            Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }),
             TaskList,
             TaskItem.configure({
                 nested: true,
@@ -353,18 +355,18 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
                             <Plus className="w-3.5 h-3.5" /> <span className="font-semibold text-xs">Add Block</span>
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" className="w-56 p-2 rounded-xl shadow-2xl border-slate-200/60 bg-white/95 backdrop-blur-md z-50">
+                    <DropdownMenuContent align="start" className="w-56 p-2 rounded-xl shadow-2xl border-slate-200/60 bg-white/95 backdrop-blur-md z-50 max-h-80 overflow-y-auto">
                         <DropdownMenuLabel className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-1">Structure</DropdownMenuLabel>
                         
-                        <DropdownMenuItem onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className="flex items-center gap-3 p-2 cursor-pointer rounded-lg hover:bg-slate-50 focus:bg-slate-50">
-                            <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><Heading2 className="w-4 h-4 text-slate-600" /></div>
-                            <div><div className="text-sm font-semibold text-slate-800">Heading 2</div><div className="text-[10px] text-slate-500">Medium section heading</div></div>
-                        </DropdownMenuItem>
-
-                        <DropdownMenuItem onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className="flex items-center gap-3 p-2 cursor-pointer rounded-lg hover:bg-slate-50 focus:bg-slate-50">
-                            <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white"><Heading3 className="w-4 h-4 text-slate-600" /></div>
-                            <div><div className="text-sm font-semibold text-slate-800">Heading 3</div><div className="text-[10px] text-slate-500">Small section heading</div></div>
-                        </DropdownMenuItem>
+                        {[1, 2, 3, 4, 5, 6].map((level) => {
+                            const HeadingIcon = [Heading1, Heading2, Heading3, Heading4, Heading5, Heading6][level - 1]
+                            return (
+                                <DropdownMenuItem key={`h${level}`} onClick={() => editor.chain().focus().toggleHeading({ level: level as any }).run()} className="flex items-center gap-3 p-2 cursor-pointer rounded-lg hover:bg-slate-50 focus:bg-slate-50">
+                                    <div className="w-8 h-8 rounded border border-slate-200 flex items-center justify-center bg-white shadow-sm"><HeadingIcon className="w-4 h-4 text-slate-600" /></div>
+                                    <div><div className="text-sm font-semibold text-slate-800">Heading {level}</div><div className="text-[10px] text-slate-500">Level {level} section heading</div></div>
+                                </DropdownMenuItem>
+                            )
+                        })}
 
                         <DropdownMenuSeparator className="bg-slate-100 my-1" />
                         <DropdownMenuLabel className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-1">Components</DropdownMenuLabel>
@@ -457,8 +459,9 @@ export function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps
                 <button onClick={() => editor.chain().focus().toggleItalic().run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('italic') && "text-orange-400 bg-slate-800")}><Italic className="w-4 h-4" /></button>
                 <button onClick={() => editor.chain().focus().toggleUnderline().run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('underline') && "text-orange-400 bg-slate-800")}><UnderlineIcon className="w-4 h-4" /></button>
                 <div className="w-px h-5 bg-slate-700 mx-1.5" />
-                <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('heading', { level: 2 }) && "text-orange-400 bg-slate-800")}><span className="text-xs font-black">H2</span></button>
-                <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('heading', { level: 3 }) && "text-orange-400 bg-slate-800")}><span className="text-xs font-black">H3</span></button>
+                {[1, 2, 3, 4, 5, 6].map((level) => (
+                    <button key={`bubble-h${level}`} onClick={() => editor.chain().focus().toggleHeading({ level: level as any }).run()} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('heading', { level }) && "text-orange-400 bg-slate-800")}><span className="text-xs font-black">H{level}</span></button>
+                ))}
                 <div className="w-px h-5 bg-slate-700 mx-1.5" />
                 <button onClick={setLink} className={cn("p-2 hover:bg-slate-800 rounded-lg transition-colors", editor.isActive('link') && "text-orange-400 bg-slate-800")}><LinkIcon className="w-4 h-4" /></button>
             </BubbleMenu>
