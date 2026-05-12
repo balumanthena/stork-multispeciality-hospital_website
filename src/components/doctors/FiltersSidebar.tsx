@@ -30,7 +30,7 @@ export function FiltersSidebar({
   )
 
   return (
-    <aside className="w-full lg:w-[280px] bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-8 sticky top-32 h-fit">
+    <aside className="w-full lg:w-[280px] bg-white rounded-xl shadow-sm border border-slate-100 p-6 space-y-8 lg:sticky lg:top-32 h-fit">
       <div>
         <h3 className="text-lg font-semibold text-slate-900 mb-6">Filters</h3>
         

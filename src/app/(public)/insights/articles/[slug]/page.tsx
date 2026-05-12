@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation"
 import BlogView from "@/components/blog/blog-view"
-import { createClient } from "@/lib/supabase/server"
+import { createClient, createStaticClient } from "@/lib/supabase/server"
 
-export const revalidate = 0
+export const revalidate = 3600 // Cache for 1 hour
 
 export default async function BlogPostPage({
     params,
@@ -10,7 +10,7 @@ export default async function BlogPostPage({
     params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
-    const supabase = await createClient()
+    const supabase = createStaticClient()
 
     const { data: blog } = await supabase
         .from('blogs')

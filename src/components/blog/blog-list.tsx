@@ -113,8 +113,8 @@ export default function BlogList({ initialData }: { initialData: BlogPost[] }) {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {remainingPosts.map((post, index) => (
-                        <Link key={post.slug + index} href={`/insights/articles/${post.slug}`} className="group h-full">
+                    {remainingPosts.map((post) => (
+                        <Link key={post.id} href={`/insights/articles/${post.slug}`} className="group h-full">
                             <Card className="h-full flex flex-col border-none shadow-sm hover:shadow-xl transition-all duration-500 rounded-2xl overflow-hidden bg-white">
                                 <div className="relative h-64 w-full overflow-hidden">
                                     <Image

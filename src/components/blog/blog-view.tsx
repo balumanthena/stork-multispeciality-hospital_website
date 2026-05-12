@@ -35,11 +35,20 @@ export default function BlogView({ initialData }: { initialData: BlogPost }) {
         // Find all H2 and H3 tags inside the content area
         const elements = contentRef.current.querySelectorAll("h2, h3");
         const parsedHeadings: { id: string; text: string; level: number }[] = [];
+        const usedIds = new Set<string>();
         
         elements.forEach((el, index) => {
             const text = el.textContent || "";
             // Create a safe ID if it doesn't have one
-            const id = el.id || text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `section-${index}`;
+            const baseId = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `section`;
+            let id = el.id || baseId;
+
+            // Ensure uniqueness
+            if (usedIds.has(id)) {
+                id = `${baseId}-${index}`;
+            }
+            
+            usedIds.add(id);
             el.id = id;
             
             parsedHeadings.push({

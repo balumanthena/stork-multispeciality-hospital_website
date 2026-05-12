@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server"
+import { createClient, createStaticClient } from "@/lib/supabase/server"
 
 export interface Video {
     id: string
@@ -30,7 +30,7 @@ export interface Blog {
  */
 export const MediaService = {
     async getVideosForTreatment(treatmentId: string): Promise<Video[]> {
-        const supabase = await createClient()
+        const supabase = createStaticClient()
 
         // Get ONLY specifically mapped videos.
         // Global videos are strictly reserved for the main gallery.
@@ -48,7 +48,7 @@ export const MediaService = {
     },
 
     async getVideosForDepartment(departmentId: string): Promise<Video[]> {
-        const supabase = await createClient()
+        const supabase = createStaticClient()
 
         // Get ONLY specifically mapped videos.
         // Global videos are strictly reserved for the main gallery.
@@ -69,7 +69,7 @@ export const MediaService = {
      * Fetches blogs for a specific treatment.
      */
     async getBlogsForTreatment(treatmentId: string): Promise<Blog[]> {
-        const supabase = await createClient()
+        const supabase = createStaticClient()
 
         const { data: blogs } = await supabase
             .from("blogs")
@@ -89,7 +89,7 @@ export const MediaService = {
      * Fetches blogs for a specific department.
      */
     async getBlogsForDepartment(departmentId: string): Promise<Blog[]> {
-        const supabase = await createClient()
+        const supabase = createStaticClient()
 
         const { data: blogs } = await supabase
             .from("blogs")

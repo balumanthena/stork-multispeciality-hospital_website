@@ -131,8 +131,8 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                             className="overflow-hidden bg-slate-50 border-t border-slate-100"
                                         >
                                             <div className="py-2 px-3 space-y-1">
-                                                {displayTreatments.map((category) => (
-                                                    <div key={category.title} className="flex flex-col">
+                                                {displayTreatments.map((category, catIdx) => (
+                                                    <div key={`${category.title}-${catIdx}`} className="flex flex-col">
                                                         <button
                                                             onClick={() => setExpandedCategory(expandedCategory === category.title ? null : category.title)}
                                                             className="flex items-center justify-between p-3 rounded-lg text-left text-[14px] font-bold text-slate-700 hover:bg-white transition-colors"
@@ -148,12 +148,12 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                                                     animate={{ height: "auto", opacity: 1 }}
                                                                     exit={{ height: 0, opacity: 0 }}
                                                                     className="overflow-hidden"
-                                                                >
+                                                                 >
                                                                     <ul className="py-1 px-4 space-y-2 mb-2">
-                                                                        {category.items.slice(0, 8).map((item, idx) => {
+                                                                        {category.items.slice(0, 8).map((item, itemIdx) => {
                                                                             const slug = typeof item.href === 'string' ? item.href.split("/").pop() : "";
                                                                             return (
-                                                                                <li key={idx}>
+                                                                                <li key={`${slug}-${itemIdx}`}>
                                                                                     <Link
                                                                                         href={`/treatments/${slug}`}
                                                                                         onClick={() => setIsOpen(false)}

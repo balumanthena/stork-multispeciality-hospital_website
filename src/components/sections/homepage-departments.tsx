@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { DepartmentListItem } from "@/lib/data/departments"
 import { Container } from "@/components/layout/container"
 
@@ -26,7 +26,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                 </div>
 
                 <div className="relative max-w-5xl mx-auto">
-                    <motion.div
+                    <m.div
                         animate={{
                             height: expanded ? "auto" : 480
                         }}
@@ -65,7 +65,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                         {/* Fade Overlay when collapsed */}
                         <AnimatePresence>
                             {!expanded && (
-                                <motion.div
+                                <m.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
@@ -73,7 +73,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                                 />
                             )}
                         </AnimatePresence>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 <div className="mt-8 flex justify-center relative z-20">
@@ -82,12 +82,12 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                         className="group flex items-center gap-4 px-12 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all shadow-xl active:scale-95 active:translate-y-1"
                     >
                         <span className="text-[15px]">{expanded ? "Show Less" : `View All Departments`}</span>
-                        <motion.div
+                        <m.div
                             animate={{ rotate: expanded ? 180 : 0 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
                         >
                             <ChevronDown className="w-5 h-5" />
-                        </motion.div>
+                        </m.div>
                     </button>
                 </div>
             </Container>

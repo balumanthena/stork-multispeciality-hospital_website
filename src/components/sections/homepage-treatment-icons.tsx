@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { TREATMENTS_MASTER } from "@/lib/data/treatments"
 import { getTreatmentIcon } from "@/lib/treatmentIcons"
 import { Container } from "@/components/layout/container"
@@ -20,11 +20,18 @@ const SMALL_ICONS = new Set([
     "Neck pain",
 ])
 
+import Image from "next/image"
+
 function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { name: string }, slug: string, priority?: boolean }) {
     const iconPath = getTreatmentIcon(treatment.name)
+    const [imgSrc, setImgSrc] = useState(iconPath)
     const isSvg = decodeURIComponent(iconPath).endsWith(".svg")
     const isTiny = TINY_ICONS.has(treatment.name)
     const isSmall = SMALL_ICONS.has(treatment.name)
+
+    useEffect(() => {
+        setImgSrc(iconPath)
+    }, [iconPath])
 
     return (
         <Link
@@ -32,16 +39,15 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
             className="flex flex-col items-center justify-start w-full max-w-[100px] sm:max-w-none sm:w-[140px] mx-auto group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
             <div className="w-full max-w-[84px] aspect-square sm:max-w-none sm:w-[110px] sm:h-[110px] sm:aspect-auto rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                    src={iconPath}
+                <Image
+                    src={imgSrc}
                     alt={treatment.name}
                     width={80}
                     height={80}
                     className={`object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : isSvg ? "p-0 group-hover:scale-110" : "p-2 group-hover:scale-110"}`}
-                    loading={priority ? "eager" : "lazy"}
-                    onError={(e) => {
-                        e.currentTarget.src = "/images/default-icon.svg";
+                    priority={priority}
+                    onError={() => {
+                        setImgSrc("/images/default-icon.svg");
                     }}
                 />
             </div>
@@ -66,14 +72,14 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
             <Container>
 
                 <div className="text-center mb-12 md:mb-16">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="inline-block bg-[#ff8202]/10 text-[#ff8202] px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider mb-4"
                     >
                         Unified Care System
-                    </motion.div>
+                    </m.div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Expert Care for Every Need</h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-base md:text-lg font-medium opacity-80">
                         Explore our comprehensive specialized treatments across expert departments.
@@ -81,13 +87,16 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                 </div>
 
                 <div className="relative">
-                    <motion.div
+                    <m.div
                         animate={{
                             height: expanded ? "auto" : 580
                         }}
                         transition={{
                             duration: 0.6,
-                            ease: [0.23, 1, 0.32, 1]
+                            height: {
+                                duration: 0.6,
+                                ease: [0.23, 1, 0.32, 1]
+                            }
                         }}
                         className="relative overflow-hidden will-change-height"
                     >
@@ -107,7 +116,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         {/* Fade Overlay when collapsed */}
                         <AnimatePresence>
                             {!expanded && (
-                                <motion.div
+                                <m.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
@@ -115,7 +124,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                                 />
                             )}
                         </AnimatePresence>
-                    </motion.div>
+                    </m.div>
                 </div>
 
                 <div className="mt-6 flex justify-center relative z-20">
@@ -124,12 +133,12 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                         className="group flex items-center gap-4 px-12 py-4 rounded-full bg-slate-900 text-white font-bold hover:bg-[#ff8202] transition-all shadow-xl active:scale-95 active:translate-y-1"
                     >
                         <span className="text-[15px]">{expanded ? "Show Less" : `View All Treatments`}</span>
-                        <motion.div
+                        <m.div
                             animate={{ rotate: expanded ? 180 : 0 }}
                             transition={{ duration: 0.4, ease: "easeInOut" }}
                         >
                             <ChevronDown className="w-5 h-5" />
-                        </motion.div>
+                        </m.div>
                     </button>
                 </div>
             </Container>

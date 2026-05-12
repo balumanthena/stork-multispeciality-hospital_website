@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { SettingsProvider } from "@/providers/SettingsProvider";
 import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Script from "next/script";
 const fontSans = Inter({
   variable: "--font-sans",
@@ -13,6 +14,7 @@ const fontSans = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://storkhospital.com"), // Update this with your actual production domain
   title: "Stork Multispecialty Hospital",
   description: "World-class healthcare with a compassionate touch.",
   icons: {
@@ -29,11 +31,15 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+import { getSiteSettings } from "@/lib/data/settings-server";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSiteSettings();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -42,9 +48,11 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <SettingsProvider>
-          {children}
-        </SettingsProvider>
+        <LazyMotion features={domAnimation}>
+          <SettingsProvider initialData={settings}>
+            {children}
+          </SettingsProvider>
+        </LazyMotion>
         <MobileBottomNav />
         <Toaster />
         <AuthErrorHandler />

@@ -11,6 +11,7 @@ import { LocationMap } from "./location-map"
 
 export function MobileBottomNav() {
     const pathname = usePathname()
+    const [isOpen, setIsOpen] = useState(false)
     const [view, setView] = useState<"menu" | "location">("menu")
 
     // Never render the public bottom nav on admin routes
@@ -88,7 +89,8 @@ export function MobileBottomNav() {
                     })}
 
                     {/* "More" Sheet Trigger */}
-                    <Sheet onOpenChange={(open) => {
+                    <Sheet open={isOpen} onOpenChange={(open) => {
+                        setIsOpen(open)
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
@@ -110,6 +112,7 @@ export function MobileBottomNav() {
                                             <Link
                                                 key={i}
                                                 href={item.href!}
+                                                onClick={() => setIsOpen(false)}
                                                 className="flex flex-col items-center gap-3 active:scale-95 transition-transform group hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]"
                                             >
                                                 <div className="w-14 h-14 rounded-2xl bg-[#ff8202]/10 border border-[#ff8202]/20 flex items-center justify-center text-[#ff8202] transition-colors shadow-sm">
@@ -120,7 +123,7 @@ export function MobileBottomNav() {
                                         ))}
                                     </div>
                                     <div className="mt-8 pt-6 border-t border-slate-100">
-                                        <Link href="/appointments" className="w-full block">
+                                        <Link href="/appointments" onClick={() => setIsOpen(false)} className="w-full block">
                                             <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
                                                 Book an Appointment
                                             </Button>

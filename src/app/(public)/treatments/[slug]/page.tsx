@@ -16,7 +16,7 @@ import {
 
 import { RelatedMedia } from "@/components/shared/related-media"
 import { MediaService } from "@/services/media.service"
-import { createClient } from "@/lib/supabase/server"
+import { createClient, createStaticClient } from "@/lib/supabase/server"
 
 // Generate Static Params for all treatments
 export async function generateStaticParams() {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 async function getTreatmentMedia(slug: string) {
-    const supabase = await createClient()
+    const supabase = createStaticClient()
 
     // 1. Get Treatment ID
     const { data: treatData } = await supabase

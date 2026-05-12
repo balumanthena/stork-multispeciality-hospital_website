@@ -5,7 +5,7 @@ import { Section } from "@/components/layout/section";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
-import { motion, useAnimationControls } from "framer-motion";
+import { m, useAnimationControls } from "framer-motion"
 
 const INSURANCE_PARTNERS = [
     "ManipalCigna Health Insurance",
@@ -50,24 +50,28 @@ const LOGO_FILENAME_OVERRIDES: Record<string, string> = {
     "GIPSA, PPA and Empanelment": "GIPSA, PPA and Empanelment.webp",
 };
 
+import Image from "next/image";
+
 function PartnerLogo({ name }: { name: string }) {
+    const [logoSrc, setLogoSrc] = useState<string | null>(null);
     const [imageError, setImageError] = useState(false);
 
-    // Use the mapped filename if it exists in the overrides, otherwise default to the exact name + .png
-    const fileName = LOGO_FILENAME_OVERRIDES[name] || `${name}.png`;
-    const logoUrl = `/images/${fileName}`;
+    useEffect(() => {
+        const fileName = LOGO_FILENAME_OVERRIDES[name] || `${name}.png`;
+        setLogoSrc(`/images/${fileName}`);
+    }, [name]);
 
     return (
         <div className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] bg-white rounded-[12px] border border-[#eeeeee] flex items-center justify-center p-[20px] h-[100px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.08)] group cursor-default mx-3">
-            {!imageError ? (
+            {!imageError && logoSrc ? (
                 <div className="relative w-full h-full flex items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={logoUrl}
+                    <Image
+                        src={logoSrc}
                         alt={`${name} Logo`}
-                        loading="lazy"
-                        className="max-h-[60px] max-w-[140px] object-contain transition-all duration-300"
+                        fill
+                        className="object-contain transition-all duration-300"
                         onError={() => setImageError(true)}
+                        sizes="(max-width: 768px) 140px, (max-width: 1024px) 180px, 220px"
                     />
                 </div>
             ) : (
@@ -129,7 +133,7 @@ export function InsurancePartners() {
                 <div className="absolute top-0 left-0 h-full w-[10%] bg-gradient-to-r from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 h-full w-[10%] bg-gradient-to-l from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
 
-                <motion.div
+                <m.div
                     className="flex w-max"
                     animate={controls}
                     initial={{ x: 0 }}
@@ -138,7 +142,7 @@ export function InsurancePartners() {
                     {[...INSURANCE_PARTNERS, ...INSURANCE_PARTNERS].map((partner, index) => (
                         <PartnerLogo key={`${partner}-${index}`} name={partner} />
                     ))}
-                </motion.div>
+                </m.div>
             </div>
 
             <Container>

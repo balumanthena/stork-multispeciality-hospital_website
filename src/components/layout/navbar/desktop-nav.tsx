@@ -12,9 +12,17 @@ import { getIconByName } from "./icon-map"
 import { getDepartmentIcon } from "@/lib/data/department-icons"
 
 import { LucideIcon } from "lucide-react"
+import dynamic from "next/dynamic"
 
-import { TreatmentsMegaMenu } from "./treatments-mega-menu"
-import { ProceduresMegaMenu } from "./procedures-mega-menu"
+const TreatmentsMegaMenu = dynamic(() => import("./treatments-mega-menu").then(mod => mod.TreatmentsMegaMenu), {
+    loading: () => <div className="h-[400px] w-full bg-white animate-pulse" />,
+    ssr: false
+})
+
+const ProceduresMegaMenu = dynamic(() => import("./procedures-mega-menu").then(mod => mod.ProceduresMegaMenu), {
+    loading: () => <div className="h-[400px] w-full bg-white animate-pulse" />,
+    ssr: false
+})
 
 function DepartmentIcon({ slug, defaultIcon, className, isActive }: { slug: string, defaultIcon: string | LucideIcon | any, className?: string, isActive?: boolean }) {
     const iconPath = getDepartmentIcon(slug)

@@ -24,7 +24,7 @@ export function BlogFAQ({ faqs }: BlogFAQProps) {
             <h3 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight">Frequently Asked Questions</h3>
             <Accordion type="single" collapsible className="w-full space-y-3">
                 {faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`} className="bg-white border border-slate-200 rounded-xl px-6 data-[state=open]:shadow-md transition-all">
+                    <AccordionItem key={`${faq.question.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${index}`} value={`item-${index}`} className="bg-white border border-slate-200 rounded-xl px-6 data-[state=open]:shadow-md transition-all">
                         <AccordionTrigger className="text-left font-semibold text-slate-800 hover:text-orange-600 hover:no-underline py-5 text-[17px]">
                             {faq.question}
                         </AccordionTrigger>

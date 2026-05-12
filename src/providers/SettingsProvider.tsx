@@ -30,9 +30,9 @@ interface SettingsContextType {
 
 const SettingsContext = React.createContext<SettingsContextType | undefined>(undefined)
 
-export function SettingsProvider({ children }: { children: React.ReactNode }) {
-    const [settings, setSettings] = React.useState<SiteSettings | null>(null)
-    const [isLoading, setIsLoading] = React.useState(true)
+export function SettingsProvider({ children, initialData = null }: { children: React.ReactNode, initialData?: SiteSettings | null }) {
+    const [settings, setSettings] = React.useState<SiteSettings | null>(initialData)
+    const [isLoading, setIsLoading] = React.useState(!initialData)
     const [error, setError] = React.useState<Error | null>(null)
 
     // Ensure Supabase client is instantiated only once per component lifecycle
@@ -126,8 +126,10 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     React.useEffect(() => {
         let mounted = true
 
-        // 1. Trigger initial fetch
-        fetchSettings()
+        // 1. Trigger initial fetch only if not provided by SSR
+        if (!settings) {
+            fetchSettings()
+        }
 
         // 2. Set up Auth State Listener
         // Triggers fetch only after authentication events to handle expired JWTs and token refreshes
@@ -139,27 +141,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             }
         )
 
-        // 3. Set up Realtime Subscription for automatic UI updates
-        const realtimeChannel = supabase
-            .channel('site_settings_changes')
-            .on(
-                'postgres_changes',
-                {
-                    event: 'UPDATE',
-                    schema: 'public',
-                    table: 'site_settings',
-                },
-                (payload: RealtimePostgresChangesPayload<SiteSettings>) => {
-                    if (mounted && payload.new && Object.keys(payload.new).length > 0) {
-                        setSettings(prev => ({ ...prev, ...payload.new } as SiteSettings))
-                    }
-                }
-            )
-            .subscribe((status, err) => {
-                if (status === 'CHANNEL_ERROR') {
-                    console.warn(`Realtime subscription error:`, err)
-                }
-            })
+        // Realtime subscription removed to reduce overhead for static site settings
 
         // Cleanup function
         return () => {
@@ -170,7 +152,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             }
             // Clean up subscriptions
             authSubscription.unsubscribe()
-            supabase.removeChannel(realtimeChannel)
         }
     }, [supabase, fetchSettings])
 
