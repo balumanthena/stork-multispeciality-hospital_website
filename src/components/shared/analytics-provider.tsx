@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 // Declare global properties for tracking libraries
@@ -80,11 +80,11 @@ export function trackEvent(name: string, params: Record<string, any> = {}) {
 }
 
 /**
- * Unified Analytics Provider.
- * Safely injects tracking scripts asynchronously.
- * Utilizes Next.js "lazyOnload" to completely eliminate main-thread parsing locks during initial paint.
+ * Internal route-change tracker.
+ * Decoupled and wrapped in <Suspense> to prevent Next.js static prerendering
+ * and _not-found page compilation bailout issues during production builds.
  */
-export function AnalyticsProvider() {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -105,8 +105,22 @@ export function AnalyticsProvider() {
     }
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+/**
+ * Unified Analytics Provider.
+ * Safely injects tracking scripts asynchronously.
+ * Utilizes Next.js "lazyOnload" to completely eliminate main-thread parsing locks during initial paint.
+ */
+export function AnalyticsProvider() {
   return (
     <>
+      {/* Route tracker safely isolated in a Suspense boundary */}
+      <Suspense fallback={null}>
+        <AnalyticsTracker />
+      </Suspense>
+
       {/* 1. Google Tag Manager (GTM) */}
       <Script
         id="gtm-loader"
