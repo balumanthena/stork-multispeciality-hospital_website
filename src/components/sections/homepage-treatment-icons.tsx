@@ -44,7 +44,7 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                     alt={treatment.name}
                     width={80}
                     height={80}
-                    className={`object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : isSvg ? "p-0 group-hover:scale-110" : "p-2 group-hover:scale-110"}`}
+                    className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : isSvg ? "p-0 group-hover:scale-110" : "p-2 group-hover:scale-110"}`}
                     priority={priority}
                     onError={() => {
                         setImgSrc("/images/default-icon.svg");

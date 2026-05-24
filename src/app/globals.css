@@ -144,3 +144,27 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* WebKit (Safari/macOS) Vector & SVG Image Sharpness Enhancements */
+.safari-sharp-icon {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  isolation: isolate;
+}
+
+/* Progressive enhancement on all standard and inline SVG assets */
+img[src$=".svg"], img[src*=".svg?"] {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  shape-rendering: geometricPrecision;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
