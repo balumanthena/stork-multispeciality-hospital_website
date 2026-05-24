@@ -39,17 +39,32 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
             className="flex flex-col items-center justify-start w-full max-w-[100px] sm:max-w-none sm:w-[140px] mx-auto group transition-all duration-300 hover:-translate-y-1 will-change-transform"
         >
             <div className="w-full max-w-[84px] aspect-square sm:max-w-none sm:w-[110px] sm:h-[110px] sm:aspect-auto rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
-                <Image
-                    src={imgSrc}
-                    alt={treatment.name}
-                    width={80}
-                    height={80}
-                    className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : isSvg ? "p-0 group-hover:scale-110" : "p-2 group-hover:scale-110"}`}
-                    priority={priority}
-                    onError={() => {
-                        setImgSrc("/images/default-icon.svg");
-                    }}
-                />
+                {isSvg ? (
+                    <img
+                        src={imgSrc}
+                        alt={treatment.name}
+                        width={80}
+                        height={80}
+                        className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : "p-0 group-hover:scale-110"}`}
+                        loading={priority ? "eager" : "lazy"}
+                        onError={() => {
+                            setImgSrc("/images/default-icon.svg");
+                        }}
+                    />
+                ) : (
+                    <Image
+                        src={imgSrc}
+                        alt={treatment.name}
+                        width={80}
+                        height={80}
+                        className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : "p-2 group-hover:scale-110"}`}
+                        priority={priority}
+                        unoptimized={true}
+                        onError={() => {
+                            setImgSrc("/images/default-icon.svg");
+                        }}
+                    />
+                )}
             </div>
             <span className="text-[12px] sm:text-[14px] font-medium text-slate-700 text-center leading-[1.3] group-hover:text-[#ff8202] transition-colors line-clamp-2 min-h-[2.6em] px-1 w-full">
                 {treatment.name}
