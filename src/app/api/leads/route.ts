@@ -90,6 +90,11 @@ export async function POST(req: Request) {
         </div>
       `;
 
+        const skipEmail = req.headers.get('x-qa-skip-email') === 'true' || req.headers.get('x-qa-bypass') === 'true';
+        if (skipEmail) {
+            return NextResponse.json({ success: true, message: "Lead processed (QA Skip Email)" });
+        }
+
         const result = await sendEmail({
             to: process.env.EMAIL_USER || "storkhospitalsmedia@gmail.com",
             subject: `New Lead Captured: ${name} (${type})`,

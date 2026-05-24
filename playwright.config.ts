@@ -1,14 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-/**
  * See https://playwright.dev/docs/test-configuration.
  */
 const isCI = !!process.env.CI;
@@ -37,12 +29,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: isCI ? 'only-on-failure' : (isFast ? 'off' : 'only-on-failure'),
-    video: isCI ? 'retain-on-failure' : (isFast ? 'off' : 'retain-on-failure'),
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
   },
 
-  /* Configure projects for major browsers */
-  projects: isCI ? [
+  /* Configure projects for major browsers and mobile emulation states */
+  projects: [
+    /* 1. Core Desktop Browsers */
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
@@ -55,17 +48,29 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-  ] : [
+
+    /* 2. Mobile Emulated Viewports */
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'Mobile Safari (iPhone 14 Pro)',
+      use: { ...devices['iPhone 14 Pro'] },
+    },
+    {
+      name: 'Mobile Chrome (Pixel 7)',
+      use: { ...devices['Pixel 7'] },
+    },
+
+    /* 3. Tablet Emulated Viewport */
+    {
+      name: 'Tablet WebKit (iPad Mini)',
+      use: { ...devices['iPad Mini'] },
     },
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  /* Run your local dev server before starting the tests in CI/CD pipeline */
+  webServer: {
+    command: 'npm run start',
+    url: 'http://localhost:3000',
+    reuseExistingServer: true,
+    timeout: 120 * 1000,
+  },
 });
