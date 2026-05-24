@@ -63,14 +63,15 @@ test.describe('Stork Hospital E2E Patient Conversion & Attribution Suite', () =>
     const exitModal = new ExitIntentPopupPage(page);
     const analytics = new AnalyticsHelper(page);
 
-    await page.goto('/');
-    
-    // Clear localStorage to prevent sequential test contamination (popup already seen state)
+    // Navigate to /about first to safely clear storage BEFORE visiting Home
+    await page.goto('/about');
     await page.evaluate(() => {
       window.localStorage.clear();
       window.sessionStorage.clear();
     });
-    await page.reload();
+    
+    // Visit Home page with a guaranteed clean, pristine localStorage state
+    await page.goto('/');
 
     // Move mouse leaving screen top boundary
     await exitModal.triggerExitIntent();

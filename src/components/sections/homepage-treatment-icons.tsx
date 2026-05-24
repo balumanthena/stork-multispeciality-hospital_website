@@ -170,16 +170,15 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                 <div className="relative">
                     <m.div
                         animate={{
-                            height: expanded ? "auto" : 580
+                            maxHeight: expanded ? 2500 : 580,
+                            opacity: 1
                         }}
                         transition={{
                             duration: 0.6,
-                            height: {
-                                duration: 0.6,
-                                ease: [0.23, 1, 0.32, 1]
-                            }
+                            ease: [0.23, 1, 0.32, 1]
                         }}
-                        className="relative overflow-hidden will-change-height"
+                        className="relative overflow-hidden will-change-[max-height]"
+                        style={{ transform: "translate3d(0,0,0)" }}
                     >
                         <div ref={contentRef} className="w-full">
                             <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-items-center sm:justify-center gap-y-8 sm:gap-y-10 gap-x-2 sm:gap-x-6 pb-16">
