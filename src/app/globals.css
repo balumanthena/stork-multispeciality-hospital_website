@@ -168,3 +168,17 @@ img[src$=".svg"], img[src*=".svg?"] {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+/* High-Legibility typographic rendering */
+.treatment-card-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+}
+
+/* Layer isolated paint bounds to stabilize GPU grids in Safari */
+.safari-grid-item {
+  contain: paint;
+  isolation: isolate;
+}
