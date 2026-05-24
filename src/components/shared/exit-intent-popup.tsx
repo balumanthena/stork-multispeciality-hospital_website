@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { X, Phone, User, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import { trackEvent } from "@/components/shared/analytics-provider"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
@@ -11,12 +12,16 @@ import { toast } from "sonner"
 const STORAGE_KEY = "stork_exit_intent_popup_seen"
 
 export function ExitIntentPopup() {
+    const pathname = usePathname()
     const [isVisible, setIsVisible] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [formData, setFormData] = useState({ name: "", phone: "" })
 
     useEffect(() => {
+        // Prevent showing callback popups on active appointments booking pages
+        if (pathname === "/appointments") return
+        
         // Only run on client, and only if not seen before
         if (typeof window === "undefined") return
         if (localStorage.getItem(STORAGE_KEY)) return
@@ -95,12 +100,14 @@ export function ExitIntentPopup() {
 
     return (
         <div
+            id="exit-intent-popup-overlay"
             className="fixed inset-0 z-[999] flex items-center justify-center p-4 transition-all"
             style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
             onClick={handleClose}
         >
             {/* Modal Container */}
             <div
+                id="exit-intent-popup-container"
                 className="relative w-full max-w-[480px] bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300"
                 onClick={(e) => e.stopPropagation()}
             >
@@ -171,6 +178,7 @@ export function ExitIntentPopup() {
                                 <div className="relative">
                                     <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                                     <Input
+                                        id="exit-intent-name-input"
                                         required
                                         placeholder="Full Name"
                                         value={formData.name}
@@ -182,6 +190,7 @@ export function ExitIntentPopup() {
                                 <div className="relative">
                                     <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                                     <Input
+                                        id="exit-intent-phone-input"
                                         required
                                         type="tel"
                                         placeholder="Phone Number"
@@ -192,6 +201,7 @@ export function ExitIntentPopup() {
                                 </div>
 
                                 <Button
+                                    id="exit-intent-submit-button"
                                     type="submit"
                                     disabled={isSubmitting}
                                     className="w-full h-11 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl text-base shadow-lg shadow-orange-500/25 transition-all"

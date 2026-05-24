@@ -12,13 +12,14 @@ export class ExitIntentPopupPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.popupContainer = page.locator('div:has-text("Before You Leave")');
-    this.nameInput = page.locator('input[placeholder*="Name"], input[name="name"]').first();
-    this.phoneInput = page.locator('input[placeholder*="Phone"], input[name="phone"]').first();
-    this.submitButton = page.locator('button:has-text("Call Me Back"), button[type="submit"]').first();
-    this.successMessage = page.locator('h3:has-text("Thank you!")').first();
-    this.closeButton = page.locator('button:has(svg)').first();
-    this.whatsappConnectButton = page.locator('button:has-text("WhatsApp"), a:has-text("WhatsApp")').first();
+    const modalScope = page.locator('#exit-intent-popup-overlay');
+    this.popupContainer = modalScope;
+    this.nameInput = page.locator('#exit-intent-name-input');
+    this.phoneInput = page.locator('#exit-intent-phone-input');
+    this.submitButton = page.locator('#exit-intent-submit-button');
+    this.successMessage = modalScope.locator('h3:has-text("Thank you!")').first();
+    this.closeButton = modalScope.locator('button:has(svg)').first();
+    this.whatsappConnectButton = modalScope.locator('button:has-text("WhatsApp"), a:has-text("WhatsApp")').first();
   }
 
   /**

@@ -110,10 +110,41 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
 
 export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[] }) {
     const [expanded, setExpanded] = useState(false);
+    const [hasExpanded, setHasExpanded] = useState(false);
+    const [isClient, setIsClient] = useState(false);
+    const [isNearViewport, setIsNearViewport] = useState(false);
+    
     const sectionRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        setIsClient(true);
+
+        // Viewport Proximity Detection using IntersectionObserver
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    setIsNearViewport(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                rootMargin: "400px" // Start loading when within 400px of viewport to prevent click stutter
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     const handleToggle = () => {
+        if (!expanded) {
+            setHasExpanded(true);
+        }
         setExpanded(!expanded);
     };
 
@@ -152,14 +183,23 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                     >
                         <div ref={contentRef} className="w-full">
                             <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-items-center sm:justify-center gap-y-8 sm:gap-y-10 gap-x-2 sm:gap-x-6 pb-16">
-                                {TREATMENTS_MASTER.slice(0, 63).map((treatment, index) => (
-                                    <TreatmentIconBox
-                                        key={treatment.id}
-                                        treatment={treatment}
-                                        slug={treatment.slug}
-                                        priority={index < 18} // Priority load first 2 rows
-                                    />
-                                ))}
+                                {TREATMENTS_MASTER.slice(0, 63).map((treatment, index) => {
+                                    const isInitial = index < 18;
+                                    // 1. Server Side Rendering (SSR): Render everything for SEO crawler parsing compliance
+                                    // 2. Client Side: Defer mounting hidden cards (index >= 18) until scrolled near or expanded
+                                    if (isClient && !isInitial && !hasExpanded && !isNearViewport) {
+                                        return null;
+                                    }
+
+                                    return (
+                                        <TreatmentIconBox
+                                            key={treatment.id}
+                                            treatment={treatment}
+                                            slug={treatment.slug}
+                                            priority={isInitial}
+                                        />
+                                    );
+                                })}
                             </div>
                         </div>
 
