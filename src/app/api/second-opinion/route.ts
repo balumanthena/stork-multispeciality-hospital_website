@@ -1,10 +1,24 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from "@/lib/email";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { checkPublicRateLimit } from "@/lib/rate-limit-public";
 
 export async function POST(request: Request) {
   try {
+    // 1. IP Rate Limiting Check
+    const rateLimit = await checkPublicRateLimit({ req: request });
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: rateLimit.error }, { status: 429 });
+    }
+
     const body = await request.json();
-    const { name, phone, email, specialty, message } = body;
+    const { name, phone, email, specialty, message, website_url } = body;
+
+    // 2. HoneyPot Bot Protection
+    if (website_url) {
+      console.warn("Honeypot triggered! Rejected second opinion bot submission.");
+      return NextResponse.json({ success: true, message: "Request processed successfully" }, { status: 200 });
+    }
 
     // Validate required fields
     if (!name || !phone || !specialty || !message) {
@@ -14,7 +28,32 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Hospital Notification Email
+    // 3. Database Persistence (Supabase public.patient_leads table)
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || '127.0.0.1';
+    try {
+      const supabase = createAdminClient();
+      const { error: insertError } = await supabase
+        .from('patient_leads')
+        .insert({
+          name,
+          phone,
+          email,
+          type: 'second-opinion',
+          department: specialty,
+          message,
+          ip_address: ip
+        });
+
+      if (insertError) {
+        console.error("Failed to persist second opinion in Supabase database:", insertError.message);
+      } else {
+        console.log("Successfully persisted second-opinion lead in database.");
+      }
+    } catch (dbErr) {
+      console.error("Database connection failure (gracefully continuing to SMTP email dispatch):", dbErr);
+    }
+
+    // 4. Hospital Notification Email
     const hospitalHtml = `
       <!DOCTYPE html>
       <html>
@@ -44,7 +83,7 @@ export async function POST(request: Request) {
       </html>
     `;
 
-    // 2. Patient Confirmation Email
+    // 5. Patient Confirmation Email
     const patientHtml = `
       <!DOCTYPE html>
       <html>
@@ -77,7 +116,7 @@ export async function POST(request: Request) {
       </html>
     `;
 
-    // 3. Dispatch Emails
+    // 6. Dispatch Emails
     const hospitalEmail = process.env.EMAIL_USER || "storkhospitalsmedia@gmail.com";
 
     const [hospitalInfo, patientInfo] = await Promise.all([

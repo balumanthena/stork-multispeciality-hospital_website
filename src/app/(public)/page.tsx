@@ -38,7 +38,7 @@ export default function Home() {
     <div className="font-sans text-slate-900 bg-slate-50">
 
       {/* 1. HERO SECTION (Institutional Split - Corporate Look) */}
-      <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100vh-80px)] flex items-center py-12 lg:py-0">
+      <section className="w-full bg-[#f8fafc] lg:min-h-[calc(100dvh-76px)] flex items-center py-12 lg:py-0">
         <Container>
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
@@ -113,13 +113,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full lg:w-[45%] relative lg:mt-0 flex justify-center items-center">
-              <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[550px] xl:h-[600px]">
+            <div className="w-full lg:w-[45%] relative lg:mt-0 flex justify-center items-center transform-gpu">
+              <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[550px] xl:h-[600px] transform-gpu">
                 <Image
                   src="/images/FINAL.svg"
                   alt="Stork Hospital Building"
                   fill
-                  className="object-contain"
+                  className="object-contain transform-gpu"
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"
                 />

@@ -8,6 +8,7 @@ import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 import { AuthErrorHandler } from "@/components/auth/auth-error-handler";
 import { LazyMotion, domAnimation } from "framer-motion";
 import Script from "next/script";
+import { AnalyticsProvider } from "@/components/shared/analytics-provider";
 const fontSans = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -44,7 +45,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-[100dvh] bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
@@ -56,6 +57,7 @@ export default async function RootLayout({
         <MobileBottomNav />
         <Toaster />
         <AuthErrorHandler />
+        <AnalyticsProvider />
 
         {process.env.NODE_ENV === "production" && (
           <Script

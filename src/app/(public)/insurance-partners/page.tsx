@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Search, Phone, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -57,13 +58,14 @@ function PartnerLogo({ name }: { name: string }) {
         <div className="bg-white rounded-[12px] border border-[#eeeeee] flex flex-col items-center justify-center p-[24px] h-[110px] transition-all duration-300 hover:-translate-y-1 hover:shadow-md group">
             {!imageError ? (
                 <div className="relative w-full h-full flex items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                         src={logoUrl}
                         alt={`${name} Logo`}
-                        loading="lazy"
-                        className="max-h-[60px] max-w-[140px] object-contain transition-transform duration-300"
+                        fill
+                        sizes="(max-width: 768px) 33vw, 15vw"
+                        className="object-contain transition-transform duration-300"
                         onError={() => setImageError(true)}
+                        loading="lazy"
                     />
                 </div>
             ) : (

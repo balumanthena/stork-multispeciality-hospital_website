@@ -1,9 +1,11 @@
 "use client"
 
 import { MessageCircle } from "lucide-react"
+import { trackEvent } from "@/components/shared/analytics-provider"
 
 export function FloatingWhatsappButton() {
     const handleWhatsAppClick = () => {
+        trackEvent("whatsapp_click", { location: "floating_button" });
         const message = `Hello, I would like to book a consultation at Stork Multispeciality Hospital.`
         window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
     }

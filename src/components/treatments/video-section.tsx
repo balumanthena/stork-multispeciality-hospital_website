@@ -2,6 +2,7 @@
 'use client'
 
 import { useState } from "react"
+import Image from "next/image"
 import { Play, Loader2, Video as VideoIcon, MoreVertical, X } from "lucide-react"
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
@@ -56,10 +57,13 @@ export function VideoSection({ videos, heading = "Doctor Talk", variant = "grid"
                         >
                             {/* Thumbnail Card */}
                             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-slate-100 bg-slate-100 group-hover:shadow-xl transition-all duration-300">
-                                <img
+                                <Image
                                     src={video.thumbnail_url || "/images/video-placeholder.jpg"}
                                     alt={video.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    loading="lazy"
                                 />
 
                                 {/* Dark Gradient Overlay */}

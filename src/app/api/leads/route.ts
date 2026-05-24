@@ -1,15 +1,53 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from "@/lib/email";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { checkPublicRateLimit } from "@/lib/rate-limit-public";
 
 export async function POST(req: Request) {
     try {
+        // 1. IP Rate Limiting Check
+        const rateLimit = await checkPublicRateLimit({ req });
+        if (!rateLimit.allowed) {
+            return NextResponse.json({ error: rateLimit.error }, { status: 429 });
+        }
+
         const body = await req.json();
-        const { name, phone, type = "General Website Lead" } = body;
+        const { name, phone, type = "General Website Lead", website_url } = body;
+
+        // 2. HoneyPot Bot Protection
+        if (website_url) {
+            console.warn("Honeypot triggered! Rejected leads bot submission.");
+            return NextResponse.json({ success: true, message: "Request processed successfully" }, { status: 200 });
+        }
 
         if (!name || !phone) {
             return NextResponse.json({ success: false, error: "Missing name or phone" }, { status: 400 });
         }
 
+        // 3. Database Persistence (Supabase public.patient_leads table)
+        const ip = req.headers.get('x-forwarded-for')?.split(',')[0] || '127.0.0.1';
+        try {
+            const supabase = createAdminClient();
+            const { error: insertError } = await supabase
+                .from('patient_leads')
+                .insert({
+                    name,
+                    phone,
+                    type: 'lead',
+                    message: `Source: ${type}`,
+                    ip_address: ip
+                });
+
+            if (insertError) {
+                console.error("Failed to persist lead in Supabase database:", insertError.message);
+            } else {
+                console.log("Successfully persisted general lead in database.");
+            }
+        } catch (dbErr) {
+            console.error("Database connection failure (gracefully continuing to SMTP email dispatch):", dbErr);
+        }
+
+        // 4. Prepare Hospital Notification Email
         const hospitalHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);">
           <div style="background-color: #ff8202; padding: 24px; text-align: center;">

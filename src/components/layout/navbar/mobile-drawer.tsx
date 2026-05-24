@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import Link from "next/link"
 import { ChevronRight, ChevronDown, Phone, X, Menu, Calendar, Building2, Stethoscope, Users, Info, MapPin } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { DEPARTMENTS, TREATMENTS } from "./nav-data"
 import { cn } from "@/lib/utils"
@@ -117,14 +117,14 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                         </div>
                                         <span className="text-[15px] font-medium text-slate-700">Treatments</span>
                                     </div>
-                                    <motion.div animate={{ rotate: isTreatmentsOpen ? 180 : 0 }}>
+                                    <m.div animate={{ rotate: isTreatmentsOpen ? 180 : 0 }}>
                                         <ChevronDown className="w-4 h-4 text-slate-400" />
-                                    </motion.div>
+                                    </m.div>
                                 </button>
                                 
                                 <AnimatePresence>
                                     {isTreatmentsOpen && (
-                                        <motion.div
+                                        <m.div
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
@@ -143,7 +143,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                                         
                                                         <AnimatePresence>
                                                             {expandedCategory === category.title && (
-                                                                <motion.div
+                                                                <m.div
                                                                     initial={{ height: 0, opacity: 0 }}
                                                                     animate={{ height: "auto", opacity: 1 }}
                                                                     exit={{ height: 0, opacity: 0 }}
@@ -174,7 +174,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                                                             </Link>
                                                                         </li>
                                                                     </ul>
-                                                                </motion.div>
+                                                                </m.div>
                                                             )}
                                                         </AnimatePresence>
                                                     </div>
@@ -187,7 +187,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                                                     Explore All Categories
                                                 </Link>
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     )}
                                 </AnimatePresence>
                             </div>

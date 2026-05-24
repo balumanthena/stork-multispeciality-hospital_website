@@ -10,7 +10,7 @@ import { VideoSection } from "@/components/treatments/video-section"
 import { extractYoutubeId, generateEmbedUrl, generateThumbnailUrl } from "@/lib/youtube-utils"
 import { BlogPost } from "@/types"
 import { BlogFAQ } from "./blog-faq"
-import { motion, useScroll, useSpring } from "framer-motion"
+
 
 // Helper to calculate reading time
 function calculateReadingTime(text: string) {

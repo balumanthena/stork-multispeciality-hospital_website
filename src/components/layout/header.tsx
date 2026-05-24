@@ -24,10 +24,17 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
     const { settings } = useSettings()
 
     React.useEffect(() => {
+        let ticking = false
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 40)
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 40)
+                    ticking = false
+                })
+                ticking = true
+            }
         }
-        window.addEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll, { passive: true })
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
@@ -37,8 +44,8 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
 
             <header
                 className={cn(
-                    "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out border-b bg-white/95 backdrop-blur-md",
-                    isScrolled ? "h-[68px] shadow-md border-slate-200" : "h-[80px] border-[#eaeef3]"
+                    "sticky top-0 z-50 w-full h-[76px] transition-all duration-300 ease-in-out border-b bg-white/95 backdrop-blur-md",
+                    isScrolled ? "shadow-md border-slate-200" : "border-[#eaeef3]"
                 )}
             >
                 <Container className="px-4 lg:px-6 h-full flex items-center justify-between">
@@ -51,8 +58,8 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
                             width={220}
                             height={62}
                             className={cn(
-                                "transition-all duration-300 object-contain",
-                                isScrolled ? "h-[40px]" : "h-[48px]"
+                                "transition-transform duration-300 object-contain origin-left h-[48px]",
+                                isScrolled ? "scale-90" : "scale-100"
                             )}
                             priority
                         />

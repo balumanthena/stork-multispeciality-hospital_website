@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { Section } from "@/components/layout/section"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { TreatmentScrollspy } from "@/components/treatments/treatment-scrollspy"
 import { VideoSection } from "@/components/treatments/video-section"
 import { createClient } from "@/lib/supabase/server"
@@ -341,11 +342,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                                 <Link key={post.id} href={`/insights/articles/${post.slug}`} className="group h-full">
                                     <div className="bg-white rounded-2xl h-full flex flex-col border border-slate-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                                         <div className="relative h-48 w-full bg-slate-100">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
+                                            <Image
                                                 src={post.image_url || '/images/blog-placeholder.jpg'}
                                                 alt={post.title}
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
                                             />
                                             {post.category && (
                                                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#ff8202] rounded-md shadow-sm">

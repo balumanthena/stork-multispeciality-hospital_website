@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { LocationMap } from "./location-map"
+import { trackEvent } from "@/components/shared/analytics-provider"
 
 export function MobileBottomNav() {
     const pathname = usePathname()
@@ -56,7 +57,7 @@ export function MobileBottomNav() {
             {/* Bottom Nav Bar - Truly Full Width Viewport Spanning */}
             <nav
                 className={cn(
-                    "fixed bottom-0 left-0 w-[100vw] z-50 bg-white/90 backdrop-blur-md border-t border-slate-100 md:hidden pb-safe"
+                    "fixed bottom-0 left-0 w-[100vw] z-50 bg-white/95 backdrop-blur-sm border-t border-slate-100 md:hidden pb-safe"
                 )}
             >
                 <div className="flex items-center justify-around h-16 w-full">
@@ -66,10 +67,13 @@ export function MobileBottomNav() {
                             <Link
                                 key={index}
                                 href={item.href}
+                                onClick={() => {
+                                    if (item.label === "WhatsApp") {
+                                        trackEvent("whatsapp_click", { location: "mobile_bottom_nav" });
+                                    }
+                                }}
                                 className={cn(
-                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 group text-[#ff8202]",
-                                    "hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]",
-                                    isActive && "drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]"
+                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 group text-[#ff8202]"
                                 )}
                             >
                                 <div className="flex flex-col items-center gap-1">
@@ -94,7 +98,7 @@ export function MobileBottomNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-[#ff8202] group hover:drop-shadow-[0_0_8px_rgba(255,130,2,0.8)]">
+                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-[#ff8202] group">
                                 <div className="flex flex-col items-center gap-1">
                                     <MoreHorizontal className="w-5 h-5 transition-transform group-hover:scale-110 group-active:scale-110" />
                                     <span className="text-[10px] font-medium tracking-tight">More</span>

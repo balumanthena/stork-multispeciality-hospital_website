@@ -4,6 +4,7 @@ import React from "react"
 import { MapPin, Clock, MessageCircle, AlertCircle } from "lucide-react"
 import { BookAppointment } from "@/components/forms/BookAppointment"
 import { useSettings } from "@/providers/SettingsProvider"
+import { trackEvent } from "@/components/shared/analytics-provider"
 
 interface AppointmentPageClientProps {
     searchParams?: { [key: string]: string | string[] | undefined }
@@ -110,6 +111,7 @@ export default function AppointmentPageClient({ searchParams }: AppointmentPageC
                                             href={whatsappUrl} 
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => trackEvent("whatsapp_click", { location: "appointment_info_box" })}
                                             className="text-green-600 font-medium text-sm hover:underline"
                                         >
                                             {whatsappNum}

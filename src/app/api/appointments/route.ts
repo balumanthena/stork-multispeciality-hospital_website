@@ -1,10 +1,24 @@
 import { NextResponse } from "next/server";
 import { sendEmail } from "@/lib/email";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { checkPublicRateLimit } from "@/lib/rate-limit-public";
 
 export async function POST(request: Request) {
   try {
+    // 1. IP Rate Limiting Check
+    const rateLimit = await checkPublicRateLimit({ req: request });
+    if (!rateLimit.allowed) {
+      return NextResponse.json({ error: rateLimit.error }, { status: 429 });
+    }
+
     const body = await request.json();
-    const { name, phone, email, department, doctor, date, message } = body;
+    const { name, phone, email, department, doctor, date, message, website_url } = body;
+
+    // 2. HoneyPot Bot Protection
+    if (website_url) {
+      console.warn("Honeypot triggered! Rejected appointments bot submission.");
+      return NextResponse.json({ success: true, message: "Request processed successfully" }, { status: 200 });
+    }
 
     // Validate required fields
     if (!name || !phone || !email || !department || !date) {
@@ -21,7 +35,35 @@ export async function POST(request: Request) {
       day: "numeric",
     });
 
-    // 1. Prepare Hospital Notification Email
+    // 3. Database Lead Persistence (Supabase public.patient_leads table)
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || '127.0.0.1';
+    try {
+      const supabase = createAdminClient();
+      const { error: insertError } = await supabase
+        .from('patient_leads')
+        .insert({
+          name,
+          phone,
+          email,
+          type: 'appointment',
+          department,
+          doctor,
+          preferred_date: date,
+          message,
+          ip_address: ip
+        });
+
+      if (insertError) {
+        console.error("Failed to persist appointment in Supabase database:", insertError.message);
+      } else {
+        console.log("Successfully persisted appointment lead in database.");
+      }
+    } catch (dbErr) {
+      // Graceful fallback: database write failure should NEVER crash the client or prevent SMTP emails
+      console.error("Database connection failure (gracefully continuing to SMTP email dispatch):", dbErr);
+    }
+
+    // 4. Prepare Hospital Notification Email
     const hospitalHtml = `
       <!DOCTYPE html>
       <html>
@@ -53,7 +95,7 @@ export async function POST(request: Request) {
       </html>
     `;
 
-    // 2. Prepare Patient Confirmation Email
+    // 5. Prepare Patient Confirmation Email
     const patientHtml = `
       <!DOCTYPE html>
       <html>
@@ -67,7 +109,7 @@ export async function POST(request: Request) {
             <p>Thank you for choosing Stork Multispecialty Hospital. We have received your appointment request for <strong>${department}</strong>.</p>
             <p>Our coordination team will review the availability and call you shortly to confirm your final slot.</p>
             <div style="text-align: center; margin: 32px 0;">
-              <a href="https://wa.me/919999988888" style="background-color: #22c55e; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Connect with us on WhatsApp</a>
+              <a href="https://wa.me/917610810819" style="background-color: #22c55e; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Connect with us on WhatsApp</a>
             </div>
           </div>
           <div style="background-color: #f8fafc; padding: 16px; text-align: center; font-size: 12px; color: #64748b;">
@@ -78,7 +120,7 @@ export async function POST(request: Request) {
       </html>
     `;
 
-    // 3. Dispatch Emails
+    // 6. Dispatch Emails
     const [hospitalInfo, patientInfo] = await Promise.all([
       sendEmail({
         to: process.env.EMAIL_USER || "storkhospitalsmedia@gmail.com",

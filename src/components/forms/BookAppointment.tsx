@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
+import { trackEvent } from "@/components/shared/analytics-provider";
 import { Loader2, Calendar as CalendarIcon, User, Phone, Mail, Building2, Stethoscope, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +19,7 @@ import { doctors } from "@/lib/data/doctors";
 export function BookAppointment() {
     const searchParams = useSearchParams();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [honeypot, setHoneypot] = useState("");
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -58,12 +60,20 @@ Notes: ${data.message || "None"}
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // 1. Double Submission Lock Prevention
+        if (isSubmitting) return;
+
         // Basic Indian phone validation
         const phoneRegex = /^[6-9]\d{9}$/;
         if (!phoneRegex.test(formData.phone.replace(/\D/g, ""))) {
             toast.error("Please enter a valid 10-digit Indian phone number.");
             return;
         }
+
+        // 2. WebKit Sync Window Pre-Opening Blocker Hack
+        // We open the window synchronously inside the user's primary pointer/touch down event thread context.
+        // This is safe against iOS Safari / iOS Chrome / Android popup blocks.
+        const waWindow = window.open('about:blank', '_blank', 'noopener,noreferrer');
 
         setIsSubmitting(true);
 
@@ -73,7 +83,10 @@ Notes: ${data.message || "None"}
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    website_url: honeypot
+                }),
             });
 
             const data = await response.json();
@@ -84,9 +97,21 @@ Notes: ${data.message || "None"}
 
             toast.success("Thank you! Your appointment request has been sent. Our team will contact you shortly.");
 
-            // Directly push user to WhatsApp Web or App in a new tab
+            // Track conversion event for marketing and GA4 attribution
+            trackEvent("book_appointment", {
+                department: formData.department,
+                doctor: formData.doctor || "Any Available",
+                date: formData.date
+            });
+
+            // 3. Update the blank tab context location to the WhatsApp URL dynamically
             const waLink = generateWhatsAppLink(formData);
-            window.open(waLink, '_blank', 'noopener,noreferrer');
+            if (waWindow) {
+                waWindow.location.href = waLink;
+            } else {
+                // Fallback in case window open was blocked or failed initially
+                window.open(waLink, '_blank', 'noopener,noreferrer');
+            }
 
             // Reset form
             setFormData({
@@ -98,9 +123,18 @@ Notes: ${data.message || "None"}
                 date: "",
                 message: "",
             });
+            setHoneypot("");
 
         } catch (error: any) {
             console.error(error);
+            // 4. Gracefully close the pre-opened blank window on server/insertion fails
+            if (waWindow) {
+                try {
+                    waWindow.close();
+                } catch (closeErr) {
+                    console.error("Failed to close pre-opened window:", closeErr);
+                }
+            }
             toast.error(error.message || "An unexpected error occurred. Please try again.");
         } finally {
             setIsSubmitting(false);
@@ -257,9 +291,21 @@ Notes: ${data.message || "None"}
                         placeholder="Please describe your symptoms or reason for visit..."
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full rounded-xl bg-slate-50 border border-slate-200 p-3 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
+                        className="w-full rounded-xl bg-slate-50 border border-slate-200 p-3 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none md:text-sm"
                     />
                 </div>
+
+                {/* Honeypot field for bot/spam protection - visually hidden */}
+                <input
+                    type="text"
+                    name="website_url"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    className="sr-only"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                />
 
                 {/* Submit Button */}
                 <Button

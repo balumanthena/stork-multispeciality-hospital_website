@@ -14,7 +14,7 @@ export default async function PublicLayout({
     const groupedTreatments = await getGroupedTreatments()
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-[100dvh]">
             <Header departments={departments} groupedTreatments={groupedTreatments} />
             <main className="flex-1">
                 {children}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { X, Phone, User, MessageCircle } from "lucide-react"
 import Image from "next/image"
+import { trackEvent } from "@/components/shared/analytics-provider"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
@@ -73,6 +74,7 @@ export function ExitIntentPopup() {
             if (response.ok) {
                 setIsSuccess(true)
                 localStorage.setItem(STORAGE_KEY, "true")
+                trackEvent("exit_popup_submit", { type: "Website Exit Popup" })
             } else {
                 toast.error("Something went wrong. Please try again.")
             }
@@ -84,6 +86,7 @@ export function ExitIntentPopup() {
     }
 
     const openWhatsApp = () => {
+        trackEvent("whatsapp_click", { location: "exit_popup" })
         const message = `Hello, I would like to book a consultation at Stork Multispeciality Hospital.`
         window.open(`https://wa.me/917610810819?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
     }
