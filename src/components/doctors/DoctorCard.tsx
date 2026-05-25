@@ -27,7 +27,7 @@ export function DoctorCard({
       className="bg-white rounded-2xl p-6 flex flex-col justify-between border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-[#ff8202]/5 transition-all duration-300 group"
     >
       <div className="flex gap-6">
-        {/* LEFT: Image */}
+        {/* LEFT: Image — fixed aspect-ratio container, Safari-safe */}
         <div className="relative w-24 h-24 flex-shrink-0">
           <div className="absolute inset-0 bg-[#ff8202]/5 rounded-xl -z-10 translate-x-2 translate-y-2 group-hover:bg-[#ff8202]/10 transition-colors" />
           <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-white shadow-md">
@@ -35,6 +35,7 @@ export function DoctorCard({
               src={doctor.image}
               alt={doctor.name}
               fill
+              sizes="96px"
               className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
             />
           </div>

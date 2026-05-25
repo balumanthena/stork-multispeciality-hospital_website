@@ -105,7 +105,7 @@ export function LeadPopup() {
                             alt="Stork Hospital Doctor"
                             fill
                             className="object-contain object-bottom"
-                            priority
+                            loading="lazy"
                         />
                     </div>
 

@@ -57,7 +57,7 @@ export function MobileBottomNav() {
             {/* Bottom Nav Bar - Floating Luxury Dock to completely bypass Safari's bottom gesture interception zone */}
             <nav
                 className={cn(
-                    "fixed bottom-3 left-4 right-4 w-[calc(100%-2rem)] z-50 bg-white/95 backdrop-blur-md border border-slate-100/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:hidden pb-safe"
+                    "fixed bottom-3 left-4 right-4 w-[calc(100%-2rem)] z-50 bg-[rgba(255,255,255,0.97)] border border-slate-100/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:hidden pb-safe"
                 )}
             >
                 <div className="flex items-center justify-around h-16 w-full">

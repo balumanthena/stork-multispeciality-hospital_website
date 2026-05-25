@@ -44,7 +44,7 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
 
             <header
                 className={cn(
-                    "sticky top-0 z-50 w-full h-[76px] transition-all duration-300 ease-in-out border-b bg-white/95 backdrop-blur-md",
+                    "sticky top-0 z-50 w-full h-[76px] transition-[box-shadow,border-color] duration-300 ease-in-out border-b bg-[rgba(255,255,255,0.97)]",
                     isScrolled ? "shadow-md border-slate-200" : "border-[#eaeef3]"
                 )}
             >

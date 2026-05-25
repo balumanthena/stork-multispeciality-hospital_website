@@ -49,6 +49,10 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
+        {/* Instant iPhone Safari GPU guardrail — runs before first paint */}
+        <script
+          dangerouslySetInnerHTML={{ __html: `if(/iPhone/.test(navigator.userAgent)&&/Safari/.test(navigator.userAgent)&&!/CriOS/.test(navigator.userAgent)&&!/FxiOS/.test(navigator.userAgent)){document.documentElement.classList.add('is-iphone-safari')}` }}
+        />
         <LazyMotion features={domAnimation}>
           <SettingsProvider initialData={settings}>
             {children}

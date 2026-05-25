@@ -4,7 +4,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Section } from "@/components/layout/section"
-import { VideoScrollSection } from "@/components/sections/video-scroll-section"
 import { BlogScrollSection } from "@/components/sections/blog-scroll-section"
 import { InsurancePartners } from "@/components/sections/insurance-partners"
 import { Testimonials } from "@/components/sections/testimonials"
@@ -238,10 +237,8 @@ export default function Home() {
       {/* 6. PATIENT TESTIMONIALS */}
       <Testimonials />
 
-      {/* 7. RECENT VIDEOS (Scroll Left-to-Right) */}
-      <Suspense fallback={<div className="py-10 md:py-16 flex items-center justify-center text-slate-400 bg-white"><div className="animate-pulse">Loading videos...</div></div>}>
-        <VideoScrollSection />
-      </Suspense>
+
+
 
       {/* 7. LATEST BLOGS (Scroll Right-to-Left) */}
       <Suspense fallback={<div className="py-10 md:py-16 flex items-center justify-center text-slate-400 bg-slate-50"><div className="animate-pulse">Loading articles...</div></div>}>

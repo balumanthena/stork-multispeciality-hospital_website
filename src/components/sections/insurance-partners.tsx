@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Section } from "@/components/layout/section";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
-import { m, useAnimationControls } from "framer-motion"
+import Image from "next/image";
 
 const INSURANCE_PARTNERS = [
     "ManipalCigna Health Insurance",
@@ -50,28 +50,27 @@ const LOGO_FILENAME_OVERRIDES: Record<string, string> = {
     "GIPSA, PPA and Empanelment": "GIPSA, PPA and Empanelment.webp",
 };
 
-import Image from "next/image";
+function getLogoSrc(name: string): string {
+    const fileName = LOGO_FILENAME_OVERRIDES[name] || `${name}.png`;
+    return `/images/${fileName}`;
+}
 
 function PartnerLogo({ name }: { name: string }) {
-    const [logoSrc, setLogoSrc] = useState<string | null>(null);
     const [imageError, setImageError] = useState(false);
-
-    useEffect(() => {
-        const fileName = LOGO_FILENAME_OVERRIDES[name] || `${name}.png`;
-        setLogoSrc(`/images/${fileName}`);
-    }, [name]);
+    const logoSrc = getLogoSrc(name);
 
     return (
-        <div className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] bg-white rounded-[12px] border border-[#eeeeee] flex items-center justify-center p-[20px] h-[100px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.08)] group cursor-default mx-3">
-            {!imageError && logoSrc ? (
+        <div className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[220px] lg:w-[250px] bg-white rounded-[12px] border border-[#eeeeee] flex items-center justify-center p-[20px] h-[100px] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.08)] group cursor-default mx-3">
+            {!imageError ? (
                 <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                         src={logoSrc}
                         alt={`${name} Logo`}
                         fill
-                        className="object-contain transition-all duration-300"
+                        className="object-contain"
                         onError={() => setImageError(true)}
                         sizes="(max-width: 768px) 140px, (max-width: 1024px) 180px, 220px"
+                        loading="lazy"
                     />
                 </div>
             ) : (
@@ -87,25 +86,6 @@ function PartnerLogo({ name }: { name: string }) {
 }
 
 export function InsurancePartners() {
-    const controls = useAnimationControls();
-    const [isHovered, setIsHovered] = useState(false);
-
-    // Auto-scroll animation configuration
-    useEffect(() => {
-        if (!isHovered) {
-            controls.start({
-                x: "-50%",
-                transition: {
-                    ease: "linear",
-                    duration: 40, // 40 seconds per loop for a slow, premium feel
-                    repeat: Infinity,
-                },
-            });
-        } else {
-            controls.stop();
-        }
-    }, [controls, isHovered]);
-
     return (
         <Section container={false} className="py-12 md:py-16 bg-[#f7f9fc] overflow-hidden">
             <Container>
@@ -121,28 +101,22 @@ export function InsurancePartners() {
                 </div>
             </Container>
 
-            {/* Infinite Carousel Slider */}
+            {/* CSS-Based Infinite Carousel — GPU compositor thread, zero main thread cost */}
             <div
-                className="relative w-full overflow-hidden pb-8 pt-4"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                onTouchStart={() => setIsHovered(true)}
-                onTouchEnd={() => setIsHovered(false)}
+                className="relative w-full overflow-hidden pb-8 pt-4 group"
             >
                 {/* Gradient Overlays for smooth entry/exit effect */}
                 <div className="absolute top-0 left-0 h-full w-[10%] bg-gradient-to-r from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
                 <div className="absolute top-0 right-0 h-full w-[10%] bg-gradient-to-l from-[#f7f9fc] to-transparent z-10 pointer-events-none"></div>
 
-                <m.div
-                    className="flex w-max"
-                    animate={controls}
-                    initial={{ x: 0 }}
+                <div
+                    className="flex w-max animate-marquee group-hover:[animation-play-state:paused]"
                 >
                     {/* Render the array twice to create the infinite seamless loop effect */}
                     {[...INSURANCE_PARTNERS, ...INSURANCE_PARTNERS].map((partner, index) => (
                         <PartnerLogo key={`${partner}-${index}`} name={partner} />
                     ))}
-                </m.div>
+                </div>
             </div>
 
             <Container>
@@ -170,7 +144,7 @@ export function InsurancePartners() {
                     <Link href="/insurance-partners">
                         <Button
                             variant="outline"
-                            className="rounded-full border-2 border-blue-600 text-orange-600 hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-sm px-8 h-12 font-semibold"
+                            className="rounded-full border-2 border-blue-600 text-orange-600 hover:bg-blue-600 hover:text-white transition-colors duration-300 shadow-sm px-8 h-12 font-semibold"
                         >
                             View All Insurance Partners &rarr;
                         </Button>

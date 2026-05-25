@@ -31,6 +31,7 @@ export function DoctorCardHorizontal({
             src={doctor.image}
             alt={doctor.name}
             fill
+            sizes="(max-width: 768px) 160px, 192px"
             className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
           />
         </div>

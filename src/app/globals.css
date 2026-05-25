@@ -138,7 +138,7 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee-scroll 35s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
 
 .animate-marquee:hover {

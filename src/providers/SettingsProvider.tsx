@@ -135,7 +135,8 @@ export function SettingsProvider({ children, initialData = null }: { children: R
         // Triggers fetch only after authentication events to handle expired JWTs and token refreshes
         const { data: { subscription: authSubscription } } = supabase.auth.onAuthStateChange(
             (event, session) => {
-                if (mounted && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION')) {
+                // Only re-fetch on actual auth events, not on initial session when SSR already provided data
+                if (mounted && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
                     fetchSettings()
                 }
             }
