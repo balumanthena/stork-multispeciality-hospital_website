@@ -311,7 +311,7 @@ Notes: ${data.message || "None"}
                 <Button
                     type="submit"
                     loading={isSubmitting}
-                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98]"
+                    className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-opacity active:opacity-85 duration-150"
                 >
                     Book Appointment
                 </Button>

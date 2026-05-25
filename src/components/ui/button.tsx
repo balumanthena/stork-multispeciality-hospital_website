@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }), "relative")}
+        className={cn(buttonVariants({ variant, size, className }), "relative active:opacity-85 active:brightness-95 transition-opacity duration-150 select-none touch-manipulation")}
         ref={ref}
         disabled={disabled || loading}
         aria-busy={loading ? "true" : undefined}

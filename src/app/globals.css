@@ -226,3 +226,9 @@ img[src$=".svg"], img[src*=".svg?"] {
     animation: none !important;
   }
 }
+
+/* Universal touchscreen and WebKit hit-testing guardrails */
+button, a, [role="button"], select, input, textarea {
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+}

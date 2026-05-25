@@ -52,12 +52,12 @@ export function MobileBottomNav() {
     return (
         <>
             {/* Spacer to prevent content overlap at the bottom of pages */}
-            <div className="h-[64px] md:hidden" />
+            <div className="h-[80px] md:hidden" />
 
-            {/* Bottom Nav Bar - Truly Full Width Viewport Spanning */}
+            {/* Bottom Nav Bar - Floating Luxury Dock to completely bypass Safari's bottom gesture interception zone */}
             <nav
                 className={cn(
-                    "fixed bottom-0 left-0 w-[100vw] z-50 bg-white/95 backdrop-blur-sm border-t border-slate-100 md:hidden pb-safe"
+                    "fixed bottom-3 left-4 right-4 w-[calc(100%-2rem)] z-50 bg-white/95 backdrop-blur-md border border-slate-100/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] md:hidden pb-safe"
                 )}
             >
                 <div className="flex items-center justify-around h-16 w-full">
@@ -73,7 +73,7 @@ export function MobileBottomNav() {
                                     }
                                 }}
                                 className={cn(
-                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 group text-[#ff8202]"
+                                    "relative flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-opacity duration-150 active:opacity-80 group text-[#ff8202] select-none touch-manipulation"
                                 )}
                             >
                                 <div className="flex flex-col items-center gap-1">
@@ -98,7 +98,7 @@ export function MobileBottomNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-all duration-300 active:scale-95 text-[#ff8202] group">
+                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-opacity duration-150 active:opacity-80 text-[#ff8202] group select-none touch-manipulation">
                                 <div className="flex flex-col items-center gap-1">
                                     <MoreHorizontal className="w-5 h-5 transition-transform group-hover:scale-110 group-active:scale-110" />
                                     <span className="text-[10px] font-medium tracking-tight">More</span>
