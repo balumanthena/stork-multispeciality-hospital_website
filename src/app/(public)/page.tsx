@@ -115,14 +115,19 @@ export default function Home() {
 
             <div className="w-full lg:w-[45%] relative lg:mt-0 flex justify-center items-center transform-gpu">
               <div className="relative w-full max-w-lg aspect-square lg:max-w-none lg:aspect-auto h-[400px] lg:h-[550px] xl:h-[600px] transform-gpu">
-                <Image
-                  src="/images/FINAL.svg"
-                  alt="Stork Hospital Building"
-                  fill
-                  className="object-contain transform-gpu"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
+                <picture className="w-full h-full block transform-gpu">
+                  <source srcSet="/images/final-desktop.avif" type="image/avif" media="(min-width: 1024px)" />
+                  <source srcSet="/images/final-desktop.webp" type="image/webp" media="(min-width: 1024px)" />
+                  <source srcSet="/images/final-mobile.avif" type="image/avif" />
+                  <source srcSet="/images/final-mobile.webp" type="image/webp" />
+                  <img
+                    src="/images/final-desktop.webp"
+                    alt="Stork Hospital Building"
+                    className="w-full h-full object-contain transform-gpu"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
 

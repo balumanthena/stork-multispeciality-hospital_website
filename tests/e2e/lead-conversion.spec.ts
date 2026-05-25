@@ -63,15 +63,18 @@ test.describe('Stork Hospital E2E Patient Conversion & Attribution Suite', () =>
     const exitModal = new ExitIntentPopupPage(page);
     const analytics = new AnalyticsHelper(page);
 
-    // Navigate to /about first to safely clear storage BEFORE visiting Home
-    await page.goto('/about');
-    await page.evaluate(() => {
-      window.localStorage.clear();
-      window.sessionStorage.clear();
-    });
-    
-    // Visit Home page with a guaranteed clean, pristine localStorage state
     await page.goto('/');
+    
+    // Brief post-hydration wait to ensure React hooks are fully bound
+    await page.waitForTimeout(1000);
+
+    // Deterministically trigger dynamic hydration overlay mount on the client prior to simulated exit actions
+    await page.evaluate(() => {
+      (window as any).__mountOverlays?.();
+    });
+
+    // Wait a brief 1000ms to guarantee the asynchronous chunk has loaded, mounted, and registered useEffect event listeners
+    await page.waitForTimeout(1000);
 
     // Move mouse leaving screen top boundary
     await exitModal.triggerExitIntent();

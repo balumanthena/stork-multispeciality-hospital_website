@@ -7,9 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "optimize:svg": "svgo --config=svgo.config.js ./public/images/FINAL.svg",
-    "optimize:svg:treatments": "svgo --config=svgo.config.js -f \"./public/images/Departmentsicons/Stork exclusive icons (6)\"",
-    "optimize:svg:all": "npm run optimize:svg && npm run optimize:svg:treatments"
+    "optimize:svg:treatments": "svgo --config=svgo.config.js -f \"./public/images/Departmentsicons/Stork exclusive icons (6)\""
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -77,6 +75,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "sharp": "^0.34.5",
     "supabase": "^2.76.10",
     "svgo": "^4.0.1",
     "tailwindcss": "^4",

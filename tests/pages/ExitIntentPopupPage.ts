@@ -27,6 +27,9 @@ export class ExitIntentPopupPage {
    */
   async triggerExitIntent() {
     await this.page.mouse.move(500, 500);
+    // Allow 300ms for dynamic lazy chunk loading and React hydration binding of mouseleave listeners
+    await this.page.waitForTimeout(300);
+    
     // Dispatch mouseleave event directly to the window document body
     await this.page.evaluate(() => {
       const event = new MouseEvent('mouseleave', {
