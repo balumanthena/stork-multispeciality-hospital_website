@@ -310,17 +310,10 @@ Notes: ${data.message || "None"}
                 {/* Submit Button */}
                 <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    loading={isSubmitting}
                     className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-600/20 transition-all active:scale-[0.98]"
                 >
-                    {isSubmitting ? (
-                        <>
-                            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                            Processing Request...
-                        </>
-                    ) : (
-                        "Book Appointment"
-                    )}
+                    Book Appointment
                 </Button>
                 <p className="text-xs text-center text-slate-400 pt-2">
                     Your appointment request will be confirmed by our hospital team shortly.

@@ -35,15 +35,15 @@ test.describe('Stork Hospital Accessibility & Technical SEO Integrity Suite', ()
 
   test('Accessibility: Interactive buttons and image alt attributes must exist', async ({ page }) => {
     // 1. Assert images have alt labels or aria-hidden declarations
-    const images = page.locator('img');
-    const imageCount = await images.count();
+    const imageAttributes = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll('img')).map(img => ({
+        alt: img.getAttribute('alt'),
+        ariaHidden: img.getAttribute('aria-hidden')
+      }));
+    });
     
-    for (let i = 0; i < imageCount; i++) {
-      const img = images.nth(i);
-      const alt = await img.getAttribute('alt');
-      const ariaHidden = await img.getAttribute('aria-hidden');
-      
-      const isValid = (alt !== null && alt.length >= 0) || ariaHidden === 'true';
+    for (const attrs of imageAttributes) {
+      const isValid = (attrs.alt !== null && attrs.alt.length >= 0) || attrs.ariaHidden === 'true';
       expect(isValid).toBe(true);
     }
 

@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/footer"
 import { getActiveDepartments } from "@/lib/data/departments-server"
 import { getGroupedTreatments } from "@/lib/data/grouped-treatments"
 import { ClientSideInteractions } from "@/components/shared/client-side-interactions"
+import { RouteProgressBar } from "@/components/shared/route-progress-bar"
+import { Suspense } from "react"
 
 
 export default async function PublicLayout({
@@ -15,6 +17,9 @@ export default async function PublicLayout({
 
     return (
         <div className="flex flex-col min-h-[100dvh]">
+            <Suspense fallback={null}>
+                <RouteProgressBar />
+            </Suspense>
             <Header departments={departments} groupedTreatments={groupedTreatments} />
             <main className="flex-1">
                 {children}

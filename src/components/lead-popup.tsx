@@ -154,10 +154,10 @@ export function LeadPopup() {
                         {/* CTA */}
                         <Button
                             type="submit"
-                            disabled={isSubmitting}
+                            loading={isSubmitting}
                             className="w-full h-11 bg-[#FF8202] hover:bg-[#e67600] text-white font-bold rounded-xl text-base shadow-lg shadow-orange-500/25 transition-all"
                         >
-                            {isSubmitting ? "Connecting..." : "📞 Request a Callback"}
+                            📞 Request a Callback
                         </Button>
                     </form>
 
