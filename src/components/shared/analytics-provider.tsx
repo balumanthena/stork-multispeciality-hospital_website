@@ -48,7 +48,7 @@ export function trackEvent(name: string, params: Record<string, any> = {}) {
     // 3. Meta Pixel Dispatch
     if (window.fbq) {
       // Map standard GA4 events to standard Meta Pixel types
-      if (name === "lead" || name === "submit_lead" || name === "exit_popup_submit") {
+      if (name === "lead" || name === "submit_lead") {
         window.fbq("track", "Lead", {
           content_name: params.type || "Callback Request",
           status: "Success",

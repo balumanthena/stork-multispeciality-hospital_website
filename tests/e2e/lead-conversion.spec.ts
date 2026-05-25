@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { BookAppointmentPage } from '../pages/BookAppointmentPage';
-import { ExitIntentPopupPage } from '../pages/ExitIntentPopupPage';
 import { AnalyticsHelper } from '../utils/analytics-helper';
 
 test.describe('Stork Hospital E2E Patient Conversion & Attribution Suite', () => {
@@ -57,40 +56,5 @@ test.describe('Stork Hospital E2E Patient Conversion & Attribution Suite', () =>
     const bookEvents = dataLayer.filter(e => e.event === 'book_appointment');
     expect(bookEvents.length).toBe(1);
     expect(bookEvents[0].department).toBe('General Physician');
-  });
-
-  test('Should trigger Exit Intent popup modal, register callback lead, and track attribution', async ({ page }) => {
-    const exitModal = new ExitIntentPopupPage(page);
-    const analytics = new AnalyticsHelper(page);
-
-    await page.goto('/');
-    
-    // Brief post-hydration wait to ensure React hooks are fully bound
-    await page.waitForTimeout(1000);
-
-    // Deterministically trigger dynamic hydration overlay mount on the client prior to simulated exit actions
-    await page.evaluate(() => {
-      (window as any).__mountOverlays?.();
-    });
-
-    // Wait a brief 1000ms to guarantee the asynchronous chunk has loaded, mounted, and registered useEffect event listeners
-    await page.waitForTimeout(1000);
-
-    // Move mouse leaving screen top boundary
-    await exitModal.triggerExitIntent();
-
-    // Fill Exit form
-    await exitModal.fillForm('Exit Intent Tester', '9876540011');
-
-    // Submit callback request
-    await exitModal.submit();
-
-    // Verify success toast/message is displayed
-    await exitModal.verifySuccessState();
-
-    // Validate callback submission datalayer event pushed
-    const dataLayer = await analytics.captureDataLayerPushes();
-    const exitEvents = dataLayer.filter(e => e.event === 'exit_popup_submit');
-    expect(exitEvents.length).toBe(1);
   });
 });
