@@ -122,9 +122,12 @@ export default function Home() {
                   <img
                     src="/images/final-desktop.webp"
                     alt="Stork Hospital Building"
+                    width={600}
+                    height={600}
                     className="w-full h-full object-contain transform-gpu"
                     loading="eager"
                     decoding="async"
+                    fetchPriority="high"
                   />
                 </picture>
               </div>

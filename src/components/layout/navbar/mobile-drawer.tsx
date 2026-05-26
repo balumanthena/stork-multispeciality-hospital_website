@@ -88,6 +88,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                     <span className="text-lg font-bold text-slate-900 tracking-tight">Stork Hospital</span>
                     <button
                         onClick={() => setIsOpen(false)}
+                        aria-label="Close menu"
                         className="w-10 h-10 flex items-center justify-center text-slate-400 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors active:scale-90"
                     >
                         <X className="w-5 h-5" />
@@ -109,6 +110,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
                             <div className="flex flex-col rounded-xl bg-white border border-gray-100 shadow-sm overflow-hidden">
                                 <button
                                     onClick={() => setIsTreatmentsOpen(!isTreatmentsOpen)}
+                                    aria-label={isTreatmentsOpen ? "Collapse treatments" : "Expand treatments"}
                                     className="flex items-center justify-between px-4 py-4 active:bg-slate-50 transition-colors w-full group"
                                 >
                                     <div className="flex items-center gap-4">

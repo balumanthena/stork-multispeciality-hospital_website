@@ -194,7 +194,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                                             key={treatment.id}
                                             treatment={treatment}
                                             slug={treatment.slug}
-                                            priority={isInitial}
+                                            priority={false}
                                         />
                                     );
                                 })}

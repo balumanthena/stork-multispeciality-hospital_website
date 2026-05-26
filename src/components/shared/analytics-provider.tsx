@@ -124,7 +124,7 @@ export function AnalyticsProvider() {
       {/* 1. Google Tag Manager (GTM) */}
       <Script
         id="gtm-loader"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       >
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
