@@ -98,7 +98,7 @@ export function MobileBottomNav() {
                         if (!open) setTimeout(() => setView("menu"), 300)
                     }}>
                         <SheetTrigger asChild>
-                            <button aria-label="More navigation options" className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-opacity duration-150 active:opacity-80 text-[#ff8202] group select-none touch-manipulation">
+                            <button className="flex flex-col items-center justify-center flex-1 h-full min-h-[48px] transition-opacity duration-150 active:opacity-80 text-[#ff8202] group select-none touch-manipulation">
                                 <div className="flex flex-col items-center gap-1">
                                     <MoreHorizontal className="w-5 h-5 transition-transform group-hover:scale-110 group-active:scale-110" />
                                     <span className="text-[10px] font-medium tracking-tight">More</span>

@@ -53,7 +53,7 @@ export function HomepageDepartments({ departments }: { departments: DepartmentLi
                                                 width={96} 
                                                 height={96} 
                                                 className="object-contain transition-transform duration-300 group-hover:scale-105" 
-                                                loading="lazy"
+                                                priority={index < 4}
                                             />
                                         </div>
                                         <h3 className="text-[14px] md:text-[15px] font-bold text-slate-800 group-hover:text-orange-600 text-center transition-colors">

@@ -43,15 +43,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Preconnect to third-party analytics origins — saves ~400ms DNS+TLS per origin */}
-        <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        {/* Preload hero images — fixes LCP discovery delay (91% of 11.9s LCP was load delay) */}
-        <link rel="preload" href="/images/final-mobile.webp" as="image" type="image/webp" />
-        <link rel="preload" href="/images/final-desktop.webp" as="image" type="image/webp" media="(min-width: 1024px)" />
-      </head>
       <body
         className={cn(
           "min-h-[100dvh] bg-background font-sans antialiased",
@@ -75,7 +66,7 @@ export default async function RootLayout({
         {process.env.NODE_ENV === "production" && (
           <Script
             id="microsoft-clarity"
-            strategy="lazyOnload"
+            strategy="afterInteractive"
           >
             {`
             (function(c,l,a,r,i,t,y){
