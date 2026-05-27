@@ -94,7 +94,6 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                         height={80}
                         className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : "p-2 group-hover:scale-110"}`}
                         priority={priority}
-                        unoptimized
                         onError={() => {
                             setImgSrc("/images/default-icon.svg");
                         }}
