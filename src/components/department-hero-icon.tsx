@@ -38,6 +38,7 @@ export function DepartmentHeroIcon({ slug, className, fallbackIcon: FallbackIcon
                     src={iconUrl}
                     alt={department?.title || "Department Icon"}
                     fill
+                    unoptimized
                     className="object-contain"
                 />
             </div>
