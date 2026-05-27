@@ -564,6 +564,6 @@ export const DEPARTMENTS_LIST: DepartmentListItem[] = [
     { title: "GI and Bariatric surgery", slug: "bariatric", iconUrl: "/images/Departmentsicons/departments/gi-surgery.png" },
     { title: "Neuro/ Spine Surgery", slug: "neurosurgery", iconUrl: "/images/Departmentsicons/departments/neurosurgery.png" },
     { title: "Interaventional pulmonology", slug: "pulmonology", iconUrl: "/images/Departmentsicons/departments/pulmonology.png" },
-    { title: "Oral Maxillofacial surgery", slug: "oral-maxillofacial", iconUrl: "/images/Departmentsicons/Stork%20exclusive%20icons%20(6)/oral%20maxillofacial.svg" },
+    { title: "Oral Maxillofacial surgery", slug: "oral-maxillofacial", iconUrl: "/images/Departmentsicons/Stork%20exclusive%20icons%20(6)/Oral%20Maxillofacial.png" },
     { title: "Emergency / Trauma / Critical care", slug: "emergency", iconUrl: "/images/Departmentsicons/departments/critical-care.png" },
 ];
