@@ -8,16 +8,10 @@ import { TREATMENTS_MASTER } from "@/lib/data/treatments"
 import { getTreatmentIcon } from "@/lib/treatmentIcons"
 import { Container } from "@/components/layout/container"
 
-// Icons whose artwork is extremely tiny within their SVG viewBox
-const TINY_ICONS = new Set([
+// Icons whose artwork is drawn smaller inside their SVG viewBox (scale ~0.169 vs ~0.20 for others)
+const COMPACT_ICONS = new Set([
     "High risk pregnancy",
-])
-
-// Icons whose artwork is drawn small within their SVG viewBox — need moderate scaling
-const SMALL_ICONS = new Set([
     "Antepartum and intrapartum",
-    "Elbow pain",
-    "Neck pain",
 ])
 
 import Image from "next/image"
@@ -27,8 +21,7 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
     const [imgSrc, setImgSrc] = useState(iconPath)
     const [svgContent, setSvgContent] = useState<string | null>(null)
     const isSvg = decodeURIComponent(iconPath).endsWith(".svg")
-    const isTiny = TINY_ICONS.has(treatment.name)
-    const isSmall = SMALL_ICONS.has(treatment.name)
+    const isCompact = COMPACT_ICONS.has(treatment.name)
 
     useEffect(() => {
         setImgSrc(iconPath)
@@ -40,11 +33,14 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                 .then((res) => res.text())
                 .then((text) => {
                     if (text.includes("<svg")) {
-                        // Enforce geometricPrecision on shape and text rendering internally
-                        const enrichedSvg = text.replace(
+                        // Enforce geometricPrecision and strip fixed width/height so SVG fills container
+                        let enrichedSvg = text.replace(
                             "<svg",
                             '<svg shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="width: 100%; height: 100%; display: block;"'
                         );
+                        // Set explicit width/height matching container so browser gets correct resolution hint
+                        enrichedSvg = enrichedSvg.replace(/(<svg[^>]*?)\s+width="[^"]*"/i, '$1 width="110"');
+                        enrichedSvg = enrichedSvg.replace(/(<svg[^>]*?)\s+height="[^"]*"/i, '$1 height="110"');
                         setSvgContent(enrichedSvg);
                     } else {
                         setSvgContent(null);
@@ -58,18 +54,18 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
         }
     }, [imgSrc, isSvg])
 
-    const imgClass = `safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : "p-0 group-hover:scale-110"}`;
+    const imgClass = `safari-sharp-icon object-contain transition-transform duration-500 ${isCompact ? "scale-[1.25] group-hover:scale-[1.35]" : "group-hover:scale-110"}`;
 
     return (
         <Link
             href={`/treatments/${slug}`}
-            className="safari-grid-item flex flex-col items-center justify-start w-full max-w-[100px] sm:max-w-none sm:w-[140px] mx-auto group transition-all duration-300 hover:-translate-y-1 will-change-transform"
+            className="safari-grid-item flex flex-col items-center justify-start w-full max-w-[100px] sm:max-w-none sm:w-[140px] mx-auto group transition-all duration-300 hover:-translate-y-1"
         >
-            <div className="w-full max-w-[84px] aspect-square sm:max-w-none sm:w-[110px] sm:h-[110px] sm:aspect-auto rounded-lg bg-white border border-slate-200 flex items-center justify-center p-2 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
+            <div className="treatment-icon-box w-full max-w-[84px] aspect-square sm:max-w-none sm:w-[110px] sm:h-[110px] sm:aspect-auto rounded-lg bg-white border border-slate-200 flex items-center justify-center p-0 group-hover:border-[#ff8202] group-hover:shadow-md transition-all duration-300 relative mb-3 overflow-hidden">
                 {isSvg ? (
                     svgContent ? (
                         <div
-                            className={imgClass}
+                            className={`${imgClass} treatment-svg-wrapper`}
                             style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
                             dangerouslySetInnerHTML={{ __html: svgContent }}
                         />
@@ -77,8 +73,8 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                         <img
                             src={imgSrc}
                             alt={treatment.name}
-                            width={80}
-                            height={80}
+                            width={110}
+                            height={110}
                             className={imgClass}
                             loading={priority ? "eager" : "lazy"}
                             onError={() => {
@@ -90,9 +86,10 @@ function TreatmentIconBox({ treatment, slug, priority = false }: { treatment: { 
                     <Image
                         src={imgSrc}
                         alt={treatment.name}
-                        width={80}
-                        height={80}
-                        className={`safari-sharp-icon object-contain transition-transform duration-500 ${isTiny ? "p-0 scale-[2] group-hover:scale-[2.2]" : isSmall ? "p-0 scale-[1.3] group-hover:scale-[1.45]" : "p-2 group-hover:scale-110"}`}
+                        width={110}
+                        height={110}
+                        unoptimized={true}
+                        className={`${imgClass} object-cover`}
                         priority={priority}
                         onError={() => {
                             setImgSrc("/images/default-icon.svg");
@@ -148,7 +145,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
     };
 
     return (
-        <section ref={sectionRef} className="py-12 md:py-16 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24" style={{ contentVisibility: "auto", containIntrinsicSize: "0 680px" }}>
+        <section ref={sectionRef} className="py-12 md:py-16 bg-[#f8fafc] border-t border-slate-100 font-sans scroll-mt-24">
             <Container>
 
                 <div className="text-center mb-12 md:mb-16">
@@ -176,8 +173,7 @@ export function HomepageTreatmentIcons({ allTreatments }: { allTreatments: any[]
                             duration: 0.6,
                             ease: [0.23, 1, 0.32, 1]
                         }}
-                        className="relative overflow-hidden will-change-[max-height]"
-                        style={{ transform: "translate3d(0,0,0)" }}
+                        className="relative overflow-hidden"
                     >
                         <div ref={contentRef} className="w-full">
                             <div className="grid grid-cols-3 sm:flex sm:flex-wrap justify-items-center sm:justify-center gap-y-8 sm:gap-y-10 gap-x-2 sm:gap-x-6 pb-16">

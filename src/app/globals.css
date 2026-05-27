@@ -145,28 +145,15 @@ body {
   animation-play-state: paused;
 }
 
-/* WebKit (Safari/macOS) Vector & SVG Image Sharpness Enhancements */
+/* ── Clean SVG Rendering ── */
+/* Minimal sharpness — NO filters, NO GPU-forcing transforms, NO color mutation */
 .safari-sharp-icon {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
-  isolation: isolate;
+  image-rendering: auto;
 }
 
-/* Progressive enhancement on all standard and inline SVG assets */
+/* SVG img tags — use auto rendering to preserve embedded raster quality */
 img[src$=".svg"], img[src*=".svg?"] {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  shape-rendering: geometricPrecision;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  image-rendering: auto;
 }
 
 /* High-Legibility typographic rendering */
@@ -174,13 +161,42 @@ img[src$=".svg"], img[src*=".svg?"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-smoothing: antialiased;
 }
 
-/* Layer isolated paint bounds to stabilize GPU grids in Safari */
+/* ── Treatment Icon Layout ── */
+
+/* Icon container – minimal padding for clean edge-to-edge fill */
+.treatment-icon-box {
+  padding: 2px !important;
+}
+
+/* SVG wrapper – fill the container, no extra whitespace */
+.treatment-svg-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Inline SVGs fill their parent */
+.treatment-svg-wrapper svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* PNG fallback icons – contained within the box */
+.treatment-icon-box img:not([src*=".svg"]),
+.treatment-icon-box span img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  padding: 4px !important;
+}
+
+/* Grid item paint containment (layout perf only, no visual side-effects) */
 .safari-grid-item {
-  contain: paint;
-  isolation: isolate;
+  contain: layout;
 }
 
 /* Globally disable backdrop-filter calculations on iPhone Safari to eliminate tile blending fragment shader pressure */

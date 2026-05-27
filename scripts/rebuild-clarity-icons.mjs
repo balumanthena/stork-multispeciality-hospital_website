@@ -10,6 +10,7 @@ const TARGET_DIRS = [
 
 // Folders where the original high-resolution (1.9MB - 7MB) sources reside
 const SOURCE_FOLDERS = [
+    './public/images/icons/treatments',
     './public/images/final icons',
     './public/images',
 ];
@@ -43,17 +44,20 @@ async function buildSourceMaps() {
 
 // Special overrides for names that don't match automatically
 const CUSTOM_OVERRIDES = {
-    'diabetic-foot': 'diabetic foot ulcers',
-    'inguinal-hernia': 'hernia',
+    'diabetic-foot': 'diabetic foot ulcer',
+    'diabetic foot': 'diabetic foot ulcer',
+    'inguinal-hernia': 'inguinal hernia',
     'umlical-hernia': 'umbilical hernia',
     'incisional-hernia': 'incisional hernia',
     'knee-replacement': 'total knee replacement',
+    'total knee replacement (tkr)': 'total knee replacement',
+    'tkr': 'total knee replacement',
     'prostatomegaly-(bph)': 'enlarged prostate',
     'hydrocelectmy': 'hydrocele',
     'appendectomy': 'appendicitis',
-    'vascular': 'deep vein thrombosis (dvt)',
+    'vascular': 'dvt treatment',
     'plastic-surgey': 'frenuloplasty surgery',
-    'painless-delivery': 'labor and delivery',
+    'painless-delivery': 'labor delivery',
     'general-medicine': 'chronic disease management',
     'gi-surgery': 'gastrointestinal issues',
     'oncology': 'cancer care',
@@ -62,7 +66,7 @@ const CUSTOM_OVERRIDES = {
     'neurosurgery': 'neurosurgery',
     'pain-management': 'pain management',
     'proctology': 'proctology',
-    'pulmonology': 'pulmonology',
+    'pulmonology': 'respiratory',
     'spine-surgery': 'spine surgery',
     'urology': 'urology',
     'critical-care': 'critical care',
@@ -72,6 +76,10 @@ const CUSTOM_OVERRIDES = {
     'ectopic-pregnency': 'ectopic pregnancy',
     'gynecology-&-obs': 'prenatal care',
     'general-surgery': 'general surgery',
+    'vericose veins': 'varicose veins',
+    'vericose-veins': 'varicose veins',
+    'kidney stone ( pcnl)': 'pcnl',
+    'kidney stones': 'kidney stones',
 };
 
 async function main() {
