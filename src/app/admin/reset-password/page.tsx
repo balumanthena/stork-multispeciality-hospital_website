@@ -87,11 +87,11 @@ function ResetPasswordContent() {
                             Redirecting to login page in 3 seconds...
                         </p>
                     </div>
-                    <Link href="/admin/login">
-                        <Button className="w-full h-12 bg-[#ff8202] hover:bg-[#ff8202]/90 text-white font-bold rounded-xl shadow-lg shadow-orange-600/10 transition-all">
+                    <Button asChild className="w-full h-12 bg-[#ff8202] hover:bg-[#ff8202]/90 text-white font-bold rounded-xl shadow-lg shadow-orange-600/10 transition-all">
+                        <Link href="/admin/login">
                             Login Now
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </div>
         )

@@ -266,11 +266,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/appointments" className="w-full sm:w-auto">
-              <Button size="lg" className="bg-[#ff8202] hover:bg-[#ff8202]/90 text-white h-16 px-12 text-lg font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto">
+            <Button asChild size="lg" className="bg-[#ff8202] hover:bg-[#ff8202]/90 text-white h-16 px-12 text-lg font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 transition-all hover:scale-105 active:scale-95 w-full sm:w-auto">
+              <Link href="/appointments">
                 Book Online Now
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <a href="tel:+917610810819" className="flex items-center gap-3 text-white font-bold text-lg hover:text-[#ff8202] transition-colors group">
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#ff8202]/20 transition-colors">
                 <Phone className="w-5 h-5" />

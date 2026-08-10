@@ -11,7 +11,7 @@ export function useTreatmentRealtime(initialData: Treatment) {
     // Sync state with props if server data changes (e.g. after router.refresh)
     useEffect(() => {
         if (isMounted.current) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
+             
             setData(initialData)
         }
         isMounted.current = true

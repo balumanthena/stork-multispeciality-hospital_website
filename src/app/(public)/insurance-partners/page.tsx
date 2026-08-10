@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Search, Phone, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ const INSURANCE_PARTNERS: { name: string; type: "Insurance Company" | "TPA" }[] 
     { name: "IFFCO-TOKIO General Insurance", type: "Insurance Company" },
     { name: "Reliance Health Insurance", type: "Insurance Company" },
     { name: "Digit Insurance", type: "Insurance Company" },
+    { name: "HDFC ERGO General Insurance", type: "Insurance Company" },
     { name: "Medi Assist TPA", type: "TPA" },
     { name: "Link-K Insurance TPA", type: "TPA" },
     { name: "MAHE Health Care", type: "TPA" },
@@ -33,8 +35,12 @@ const INSURANCE_PARTNERS: { name: string; type: "Insurance Company" | "TPA" }[] 
     { name: "Kotak General Insurance", type: "Insurance Company" },
     { name: "ACKO General Insurance", type: "Insurance Company" },
     { name: "ICICI Lombard", type: "Insurance Company" },
+    { name: "Future Generali Insurance", type: "Insurance Company" },
+    { name: "Magma General Insurance", type: "Insurance Company" },
     { name: "Safeway Insurance TPA Pvt Ltd", type: "TPA" },
     { name: "Volo", type: "TPA" },
+    { name: "AKNA Health Insurance TPA", type: "TPA" },
+    { name: "East West Assist TPA", type: "TPA" },
     { name: "Vidal Health", type: "TPA" },
     { name: "Ericson Insurance TPA Pvt Ltd", type: "TPA" },
     { name: "Heritage Health", type: "TPA" },
@@ -46,6 +52,11 @@ const LOGO_FILENAME_OVERRIDES: Record<string, string> = {
     "MAHE Health Care": "Mahe health care.png",
     "Chola MS Health Insurance": "Chola MS Health Insurance.webp",
     "GIPSA, PPA and Empanelment": "GIPSA, PPA and Empanelment.webp",
+    "HDFC ERGO General Insurance": "HDFC ERGO General Insurance.jpeg",
+    "Magma General Insurance": "Magma General Insurance.jpeg",
+    "AKNA Health Insurance TPA": "AKNA Health Insurance TPA.jpeg",
+    "East West Assist TPA": "East West Assist TPA.jpeg",
+    "Future Generali Insurance": "Future Generali Insurance.jpeg",
 };
 
 function PartnerLogo({ name }: { name: string }) {
@@ -213,8 +224,10 @@ export default function InsurancePartnersPage() {
                     <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
                         Our insurance help desk team will assist you with verification and coverage support. Our empanelment list is also constantly growing.
                     </p>
-                    <Button size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 text-white px-10 h-16 text-lg font-semibold shadow-[0_10px_30px_rgba(37,99,235,0.2)]">
-                        Contact Insurance Desk
+                    <Button asChild size="lg" className="rounded-full bg-blue-600 hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 text-white px-10 h-16 text-lg font-semibold shadow-[0_10px_30px_rgba(37,99,235,0.2)]">
+                        <Link href="/contact">
+                            Contact Insurance Desk
+                        </Link>
                     </Button>
                 </div>
             </section>

@@ -12,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 interface SidebarFilters {
   search: string
@@ -159,8 +160,10 @@ export function DoctorSidebar({
         <p className="text-xs font-medium text-white/80 leading-relaxed">
           Need help finding the right specialist for your needs?
         </p>
-        <Button className="w-full bg-white text-primary hover:bg-white/90 font-black rounded-xl text-xs uppercase tracking-widest h-10 shadow-lg">
-          Talk to Expert
+        <Button asChild className="w-full bg-white text-primary hover:bg-white/90 font-black rounded-xl text-xs uppercase tracking-widest h-10 shadow-lg">
+          <Link href="/contact">
+            Talk to Expert
+          </Link>
         </Button>
       </div>
     </aside>

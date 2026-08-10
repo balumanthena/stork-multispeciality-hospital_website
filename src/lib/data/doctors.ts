@@ -184,54 +184,54 @@ export const doctors: Doctor[] = [
     availability: "Mon-Sat, 11:00 AM - 6:00 PM"
   },
   {
-    id: "dr-veda-vyas",
-    name: "Dr. Veda Vyas",
-    title: "Chief General Physician",
+    id: "dr-deepak-ram",
+    name: "Dr. Polymoni Deepak Ram",
+    title: "Consultant Physician - General Medicine",
     department: "General Medicine",
-    languages: ["English", "Hindi", "Telugu", "Tamil"],
-    locations: ["Kompally", "Banjara Hills"],
-    qualification: "MBBS, MD (Gen Med)",
-    experience: "10+ Years Experience",
-    specialization: "General Physician",
-    tags: ["Diabetes", "Thyroid", "Hypertension"],
-    positioning: "Comprehensive care for diabetes, thyroid, and internal medicine",
+    languages: ["English", "Telugu", "Hindi"],
+    locations: ["Kompally"],
+    qualification: "MBBS, MD",
+    experience: "8+ Years Experience",
+    specialization: "General Medicine Physician",
+    tags: ["Diabetes", "Hypertension", "Infectious Diseases"],
+    positioning: "Comprehensive adult care and chronic disease management",
     rating: 4.8,
-    patientsTreated: "15,000+",
-    image: "/images/dr veda vyas.JPG.jpeg",
-    about: "Dr. Veda Vyas provides holistic care for adult health issues. He specializes in managing chronic conditions like diabetes and hypertension with a focus on long-term wellness.",
+    patientsTreated: "2,000+",
+    image: "/images/dr-deepak-ram.png",
+    about: "Dr. Polymoni Deepak Ram is a dedicated Consultant Physician in General Medicine, specializing in preventive healthcare, diabetes, hypertension, and complex internal medical conditions. He is committed to providing personalized patient care and promoting long-term health and wellness.",
     highlights: [
-      "Comprehensive Diabetic Care",
-      "Thyroid Management Expert",
-      "Holistic Wellness Approach",
-      "Patient Education Focus"
+      "Chronic Disease Specialist",
+      "Comprehensive Health Screenings",
+      "High Patient Satisfaction",
+      "Preventive Care Focus"
     ],
     expertise: [
       "Diabetes Management",
-      "Thyroid Disorders",
       "Hypertension Control",
-      "Infectious Diseases",
-      "Preventive Healthcare"
+      "Infectious Disease Care",
+      "Geriatric Medicine",
+      "Preventive Screenings"
     ],
     education: [
-      { degree: "MD Internal Medicine" },
+      { degree: "MD (General Medicine)" },
       { degree: "MBBS" }
     ],
     achievements: [
-      "Successfully managed 5,000+ diabetic patients",
-      "Community wellness program lead",
-      "Expert in metabolic disorder management"
+      "Successfully managed thousands of outpatient and inpatient chronic medical cases",
+      "Led community health screening and diabetes awareness campaigns",
+      "Awarded for clinical excellence in patient care"
     ],
     services: [
       {
         category: "Internal Medicine",
-        items: ["Diabetes screening & management", "Thyroid evaluation", "Hypertension titration"]
+        items: ["Chronic disease management", "Diabetes & hypertension care", "Infectious disease treatment"]
       },
       {
-        category: "Wellness",
-        items: ["Annual health checkups", "Immunizations", "Lifestyle counseling"]
+        category: "Preventive Care",
+        items: ["Annual health checkups", "Lifestyle and nutrition advice", "Adult vaccinations"]
       }
     ],
-    availability: "Mon-Sat, 8:00 AM - 2:00 PM"
+    availability: "Mon-Sat, 9:00 AM - 4:00 PM"
   },
   {
     id: "dr-veda-sree",
@@ -283,6 +283,106 @@ export const doctors: Doctor[] = [
       }
     ],
     availability: "Mon-Sat, 9:00 AM - 5:00 PM"
+  },
+  {
+    id: "dr-rama-mourya",
+    name: "Dr. Rama Mourya",
+    title: "Consultant Pulmonologist",
+    department: "Pulmonology",
+    languages: ["English", "Telugu", "Hindi"],
+    locations: ["Kompally"],
+    qualification: "MBBS, MD",
+    experience: "6+ Years Experience",
+    specialization: "Pulmonologist",
+    tags: ["Asthma", "COPD", "Pulmonology"],
+    positioning: "Specialist in respiratory care and pulmonology",
+    rating: 4.8,
+    patientsTreated: "1,500+",
+    image: "/images/dr-rama-mourya.png",
+    about: "Dr. Rama Mourya is a compassionate Pulmonologist dedicated to providing advanced care for respiratory and lung-related disorders. She specializes in the management of asthma, chronic obstructive pulmonary disease (COPD), respiratory infections, and sleep disorders, ensuring patients receive tailored treatment plans for optimal lung health.",
+    highlights: [
+      "Expert in Chronic Respiratory Care",
+      "Comprehensive Pulmonary Diagnostics",
+      "Patient-Centered Treatment Plans",
+      "Specialist in Sleep Apnea Care"
+    ],
+    expertise: [
+      "Asthma Management",
+      "COPD Treatment",
+      "Respiratory Infections",
+      "Sleep Apnea & Sleep Studies",
+      "Pulmonary Function Testing (PFT)"
+    ],
+    education: [
+      { degree: "MD (Pulmonary Medicine)" },
+      { degree: "MBBS" }
+    ],
+    achievements: [
+      "Successfully diagnosed and managed numerous complex lung conditions",
+      "Pioneered sleep study diagnosis programs in the region",
+      "Committed to community health and respiratory wellness advocacy"
+    ],
+    services: [
+      {
+        category: "Pulmonology",
+        items: ["Asthma & Allergy management", "COPD & Emphysema therapy", "Tuberculosis & Respiratory infections treatment"]
+      },
+      {
+        category: "Diagnostics",
+        items: ["Pulmonary Function Test (PFT)", "Diagnostic Bronchoscopy", "Sleep study monitoring"]
+      }
+    ],
+    availability: "Mon-Sat, 10:00 AM - 5:00 PM"
+  },
+  {
+    id: "dr-samara-simha",
+    name: "Dr. Samara Simha Reddy",
+    title: "Consultant General & Laparoscopic Surgeon",
+    department: "General Surgery",
+    languages: ["English", "Telugu", "Hindi"],
+    locations: ["Kompally"],
+    qualification: "MBBS, MS",
+    experience: "10+ Years Experience",
+    specialization: "General & Laparoscopic Surgeon",
+    tags: ["Laparoscopy", "Hernia Repair", "Appendicitis"],
+    positioning: "Specialist in minimally invasive and advanced general surgeries",
+    rating: 4.9,
+    patientsTreated: "3,500+",
+    image: "/images/dr-samara-simha.png",
+    about: "Dr. Samara Simha Reddy is an experienced Consultant General Surgeon specializing in laparoscopic (minimally invasive) procedures. His focus areas include hernia repairs, appendectomies, gallbladder removals, and other abdominal surgeries, ensuring fast recovery and high patient comfort.",
+    highlights: [
+      "Laparoscopic Surgery Expert",
+      "Minimal Recovery Time Focus",
+      "Experienced Trauma Surgeon",
+      "Advanced Surgical Precision"
+    ],
+    expertise: [
+      "Laparoscopic Cholecystectomy",
+      "Hernia Repairs (Mesh/Keyhole)",
+      "Appendectomy",
+      "Trauma and Emergency Surgery",
+      "Abdominal Wall Reconstruction"
+    ],
+    education: [
+      { degree: "MS (General Surgery)" },
+      { degree: "MBBS" }
+    ],
+    achievements: [
+      "Performed over 1,500 successful laparoscopic surgeries",
+      "Expert in handling acute surgical emergencies and complex trauma cases",
+      "Active contributor to surgical training and clinical research"
+    ],
+    services: [
+      {
+        category: "Laparoscopic Procedures",
+        items: ["Laparoscopic gallbladder removal", "Laparoscopic appendix removal", "Keyhole hernia repair"]
+      },
+      {
+        category: "General Surgery",
+        items: ["Minor surgical procedures", "Abscess drainage & cyst removals", "Emergency trauma stabilization"]
+      }
+    ],
+    availability: "Mon-Sat, 10:00 AM - 6:00 PM"
   }
 ];
 

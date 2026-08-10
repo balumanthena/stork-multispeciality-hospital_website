@@ -131,8 +131,10 @@ export default async function DepartmentPage({
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-5">
-                                    <Button size="lg" className="h-14 px-10 text-base font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-xl shadow-orange-900/20 transition-all hover:-translate-y-1">
-                                        Book Appointment
+                                    <Button asChild size="lg" className="h-14 px-10 text-base font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-xl shadow-orange-900/20 transition-all hover:-translate-y-1">
+                                        <Link href="/appointments">
+                                            Book Appointment
+                                        </Link>
                                     </Button>
 
                                 </div>
@@ -218,8 +220,10 @@ export default async function DepartmentPage({
                                         <p>{doc.qual}</p>
                                         <p>{doc.exp} Experience</p>
                                     </div>
-                                    <Button className="w-full h-12 rounded-lg bg-white border border-slate-200 text-slate-900 font-bold hover:bg-[var(--color-accent)] hover:text-white hover:border-[var(--color-accent)] transition-all">
-                                        Book Appointment
+                                    <Button asChild className="w-full h-12 rounded-lg bg-white border border-slate-200 text-slate-900 font-bold hover:bg-[var(--color-accent)] hover:text-white hover:border-[var(--color-accent)] transition-all">
+                                        <Link href="/appointments">
+                                            Book Appointment
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>
@@ -267,8 +271,10 @@ export default async function DepartmentPage({
                         Our experts are here to provide the best care. Book an appointment online or call us for assistance.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-2xl shadow-orange-900/40">
-                            Book Appointment
+                        <Button asChild size="lg" className="h-16 px-12 text-lg font-bold bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full shadow-2xl shadow-orange-900/40">
+                            <Link href="/appointments">
+                                Book Appointment
+                            </Link>
                         </Button>
 
                     </div>

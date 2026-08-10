@@ -48,9 +48,11 @@ export const SpineCareContent = ({ blogs, videos }: { blogs: any[], videos: any[
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-5">
-                                <Button className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
+                                <Button asChild className="h-14 px-10 text-base font-bold bg-[#FF8202] hover:bg-[#e67600] text-white rounded-full shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1">
+                                    <Link href="/appointments">
                                         Book Spine Consultation
-                                    </Button>
+                                    </Link>
+                                </Button>
                                 <Button asChild variant="outline" className="h-14 px-10 text-base font-bold border-slate-300 text-slate-700 hover:border-[#ff8202] hover:text-[#ff8202] rounded-full">
                                     <Link href="/second-opinion">Get a Second Opinion</Link>
                                 </Button>
@@ -306,9 +308,11 @@ export const SpineCareContent = ({ blogs, videos }: { blogs: any[], videos: any[
                         Take the first step towards a pain-free, active life.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Button size="lg" className="h-16 px-12 text-lg font-bold bg-white text-[#ff8202] hover:bg-slate-100 rounded-full shadow-xl">
+                        <Button asChild size="lg" className="h-16 px-12 text-lg font-bold bg-white text-[#ff8202] hover:bg-slate-100 rounded-full shadow-xl">
+                            <Link href="/appointments">
                                 Book Spine Consultation
-                            </Button>
+                            </Link>
+                        </Button>
                         <Button asChild size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-white/40 text-white hover:bg-white/10 hover:border-white rounded-full bg-transparent">
                             <Link href="/second-opinion">Get a Second Opinion</Link>
                         </Button>

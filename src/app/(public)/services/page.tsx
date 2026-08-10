@@ -102,16 +102,16 @@ export default function ServicesPage() {
               Connect with our specialists for a comprehensive health assessment and personalized treatment plans.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/appointments">
-                <Button className="h-16 px-12 bg-[#ff8202] text-white font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 hover:scale-105 transition-all text-base uppercase tracking-widest w-full sm:w-auto">
+              <Button asChild className="h-16 px-12 bg-[#ff8202] text-white font-bold rounded-2xl shadow-2xl shadow-[#ff8202]/20 hover:scale-105 transition-all text-base uppercase tracking-widest w-full sm:w-auto">
+                <Link href="/appointments">
                   Book Appointment
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button className="h-16 px-12 bg-transparent border-2 border-white/20 text-white hover:bg-white/10 rounded-2xl font-bold text-base uppercase tracking-widest w-full sm:w-auto transition-all">
+                </Link>
+              </Button>
+              <Button asChild className="h-16 px-12 bg-transparent border-2 border-white/20 text-white hover:bg-white/10 rounded-2xl font-bold text-base uppercase tracking-widest w-full sm:w-auto transition-all">
+                <Link href="/contact">
                   Contact Hospital
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-6">

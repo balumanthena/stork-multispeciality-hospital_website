@@ -55,12 +55,12 @@ export default async function AdminVideosPage() {
                     <p className="text-slate-500 mt-1">Manage YouTube videos linked to treatments</p>
                 </div>
                 {canCreate && (
-                    <Link href="/admin/videos/new">
-                        <Button className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
+                    <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white gap-2">
+                        <Link href="/admin/videos/new">
                             <Plus className="w-4 h-4" />
                             Add New Video
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 )}
             </div>
 
@@ -150,11 +150,11 @@ export default async function AdminVideosPage() {
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex items-center justify-end gap-2">
-                                                <Link href={`/admin/videos/${video.id}`}>
-                                                    <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-orange-600" title="Edit Video">
+                                                <Button asChild variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-orange-600" title="Edit Video">
+                                                    <Link href={`/admin/videos/${video.id}`}>
                                                         <Edit className="w-4 h-4" />
-                                                    </Button>
-                                                </Link>
+                                                    </Link>
+                                                </Button>
                                                 {canManageALL && (
                                                     <form
                                                         action={async () => {

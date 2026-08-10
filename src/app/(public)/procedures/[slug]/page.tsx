@@ -94,8 +94,10 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                         <p className="text-lg text-slate-600 leading-relaxed mb-10">{treatment.shortDescription}</p>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
-                                Book Appointment<ArrowRight className="w-5 h-5 ml-2" />
+                            <Button asChild className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
+                                <Link href="/appointments">
+                                    Book Appointment<ArrowRight className="w-5 h-5 ml-2" />
+                                </Link>
                             </Button>
 
                         </div>
@@ -254,8 +256,10 @@ export default async function ProcedureDetailPage({ params }: { params: Promise<
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">
-                            {treatment.customCta?.buttonText || "Book Appointment Now"}
+                        <Button asChild className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">
+                            <Link href="/appointments">
+                                {treatment.customCta?.buttonText || "Book Appointment Now"}
+                            </Link>
                         </Button>
 
                     </div>

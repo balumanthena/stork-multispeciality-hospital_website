@@ -109,7 +109,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
                 supabase.removeChannel(subscription)
             }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+         
     }, [supabase])
 
     const refreshUser = async () => {

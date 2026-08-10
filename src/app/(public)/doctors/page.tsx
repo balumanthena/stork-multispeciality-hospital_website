@@ -197,11 +197,11 @@ export default function DoctorsPage() {
               Our 24/7 support team can help you find the right doctor for your specific health needs.
             </p>
             <div className="flex justify-center pt-4">
-               <Link href="/contact">
-                  <Button className="h-14 px-12 bg-white text-[#ff8202] hover:bg-white/90 font-bold rounded-xl shadow-2xl transition-all active:scale-[0.98]">
+               <Button asChild className="h-14 px-12 bg-white text-[#ff8202] hover:bg-white/90 font-bold rounded-xl shadow-2xl transition-all active:scale-[0.98]">
+                  <Link href="/contact">
                     Contact Us Today
-                  </Button>
-               </Link>
+                  </Link>
+               </Button>
             </div>
          </Container>
       </section>

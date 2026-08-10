@@ -127,11 +127,11 @@ export function MobileBottomNav() {
                                         ))}
                                     </div>
                                     <div className="mt-8 pt-6 border-t border-slate-100">
-                                        <Link href="/appointments" onClick={() => setIsOpen(false)} className="w-full block">
-                                            <Button className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
+                                        <Button asChild className="w-full bg-[#ff8202] hover:bg-[#e07200] text-white rounded-xl py-6 font-bold text-lg">
+                                            <Link href="/appointments" onClick={() => setIsOpen(false)} className="w-full block">
                                                 Book an Appointment
-                                            </Button>
-                                        </Link>
+                                            </Link>
+                                        </Button>
                                     </div>
                                 </>
                             ) : (

@@ -12,6 +12,7 @@ const INSURANCE_PARTNERS = [
     "IFFCO-TOKIO General Insurance",
     "Reliance Health Insurance",
     "Digit Insurance",
+    "HDFC ERGO General Insurance",
     "Medi Assist TPA",
     "Link-K Insurance TPA",
     "MAHE Health Care",
@@ -34,8 +35,12 @@ const INSURANCE_PARTNERS = [
     "Kotak General Insurance",
     "ACKO General Insurance",
     "ICICI Lombard",
+    "Future Generali Insurance",
+    "Magma General Insurance",
     "Safeway Insurance TPA Pvt Ltd",
     "Volo",
+    "AKNA Health Insurance TPA",
+    "East West Assist TPA",
     "Vidal Health",
     "Ericson Insurance TPA Pvt Ltd",
     "Heritage Health",
@@ -48,6 +53,11 @@ const LOGO_FILENAME_OVERRIDES: Record<string, string> = {
     "MAHE Health Care": "Mahe health care.png",
     "Chola MS Health Insurance": "Chola MS Health Insurance.webp",
     "GIPSA, PPA and Empanelment": "GIPSA, PPA and Empanelment.webp",
+    "HDFC ERGO General Insurance": "HDFC ERGO General Insurance.jpeg",
+    "Magma General Insurance": "Magma General Insurance.jpeg",
+    "AKNA Health Insurance TPA": "AKNA Health Insurance TPA.jpeg",
+    "East West Assist TPA": "East West Assist TPA.jpeg",
+    "Future Generali Insurance": "Future Generali Insurance.jpeg",
 };
 
 function getLogoSrc(name: string): string {
@@ -141,14 +151,15 @@ export function InsurancePartners() {
                         </span>
                     </div>
 
-                    <Link href="/insurance-partners">
-                        <Button
-                            variant="outline"
-                            className="rounded-full border-2 border-blue-600 text-orange-600 hover:bg-blue-600 hover:text-white transition-colors duration-300 shadow-sm px-8 h-12 font-semibold"
-                        >
+                    <Button
+                        asChild
+                        variant="outline"
+                        className="rounded-full border-2 border-blue-600 text-orange-600 hover:bg-blue-600 hover:text-white transition-colors duration-300 shadow-sm px-8 h-12 font-semibold"
+                    >
+                        <Link href="/insurance-partners">
                             View All Insurance Partners &rarr;
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </Container>
         </Section>

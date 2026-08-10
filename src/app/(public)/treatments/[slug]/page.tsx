@@ -128,8 +128,10 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                         {treatment.tagline && <p className="text-lg text-[#ff8202] font-medium mb-8">{treatment.tagline}</p>}
                         <p className="text-lg text-slate-600 leading-relaxed mb-10">{treatment.shortDescription}</p>
                         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                            <Button className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
-                                Book Appointment<ArrowRight className="w-5 h-5 ml-2" />
+                            <Button asChild className="bg-[#ff8202] hover:bg-[#d96d00] text-white px-8 py-7 rounded-xl text-lg font-bold shadow-xl shadow-orange-500/20 transition-all hover:scale-[1.02]">
+                                <Link href="/appointments">
+                                    Book Appointment<ArrowRight className="w-5 h-5 ml-2" />
+                                </Link>
                             </Button>
                         </div>
                         <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
@@ -289,7 +291,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 leading-tight">{treatment.customCta?.heading || "Start Your Journey to Better Health"}</h2>
                     <p className="text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">{treatment.customCta?.description || "Book your consultation today with Hyderabad's leading specialists."}</p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Button className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">{treatment.customCta?.buttonText || "Book Appointment Now"}</Button>
+                        <Button asChild className="h-auto bg-[#ff8202] hover:bg-[#e07200] text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl shadow-orange-500/20 w-full sm:w-auto">
+                            <Link href="/appointments">{treatment.customCta?.buttonText || "Book Appointment Now"}</Link>
+                        </Button>
                     </div>
                     <p className="mt-8 text-sm text-slate-400 font-medium flex items-center justify-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" />No-Wait Booking Confirmed Instantly</p>
                 </div>

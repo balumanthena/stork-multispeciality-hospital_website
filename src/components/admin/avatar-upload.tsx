@@ -63,7 +63,7 @@ export default function AvatarUpload({ uid, url, onUpload, size = 120 }: AvatarU
                 onClick={() => fileInputRef.current?.click()}
             >
                 {avatarUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
+                     
                     <img
                         src={avatarUrl}
                         alt="Avatar"

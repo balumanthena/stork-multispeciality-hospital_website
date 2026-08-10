@@ -24,11 +24,11 @@ export default async function BlogsPage() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <h1 className="text-2xl font-bold text-slate-800">Blog Posts</h1>
                 {hasPermission(role, 'create_blog') && (
-                    <Link href="/admin/blogs/new">
-                        <Button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white">
+                    <Button asChild className="bg-[var(--color-primary)] hover:bg-[var(--color-primary)]/90 text-white">
+                        <Link href="/admin/blogs/new">
                             <Plus className="h-4 w-4 mr-2" /> New Post
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 )}
             </div>
 

@@ -252,6 +252,7 @@ export const departmentsData: Record<string, DepartmentData> = {
         doctors: [
             { name: "Dr. Vikram Sethi", role: "Chied Surgeon", exp: "25+ Years", qual: "MBBS, MS (Gen Surgery)" },
             { name: "Dr. Ananya Reddy", role: "General Surgeon", exp: "12+ Years", qual: "MBBS, MS, FMAS" },
+            { name: "Dr. Samara Simha Reddy", role: "Consultant General & Laparoscopic Surgeon", exp: "10+ Years", qual: "MBBS, MS" },
         ]
     },
     "general-medicine": {
@@ -273,6 +274,7 @@ export const departmentsData: Record<string, DepartmentData> = {
         doctors: [
             { name: "Dr. Rajeshwari K", role: "Senior Physician", exp: "30+ Years", qual: "MBBS, MD (Internal Medicine)" },
             { name: "Dr. Amit Shah", role: "Consultant Physician", exp: "15+ Years", qual: "MBBS, DNB (Gen Med)" },
+            { name: "Dr. Polymoni Deepak Ram", role: "Consultant Physician - General Medicine", exp: "8+ Years", qual: "MBBS, MD" },
         ]
     },
     "bariatric": {
@@ -441,6 +443,7 @@ export const departmentsData: Record<string, DepartmentData> = {
         doctors: [
             { name: "Dr. Vivek Murthy", role: "Pulmonologist", exp: "19+ Years", qual: "MBBS, MD (Resp Med)" },
             { name: "Dr. Sara Joseph", role: "Sleep Specialist", exp: "11+ Years", qual: "MBBS, DNB, fccp" },
+            { name: "Dr. Rama Mourya", role: "Consultant Pulmonologist", exp: "6+ Years", qual: "MBBS, MD" },
         ]
     },
     "urology": {

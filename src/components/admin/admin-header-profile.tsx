@@ -76,7 +76,7 @@ export function AdminHeaderProfile() {
                         </span>
                     </div>
                     {avatarSrc ? (
-                        // eslint-disable-next-line @next/next/no-img-element
+                         
                         <img
                             src={avatarSrc}
                             alt="Avatar"

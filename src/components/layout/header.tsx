@@ -72,12 +72,12 @@ export function Header({ departments = [], groupedTreatments = [] }: HeaderProps
 
                     {/* Right Actions */}
                     <div className="hidden lg:flex items-center ml-auto pl-6">
-                        <Link href="/appointments">
-                            <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[44px] text-[15px] font-bold transition-all shadow-lg shadow-orange-600/10 hover:shadow-orange-600/20 active:scale-[0.98]">
+                        <Button asChild className="bg-[#FF8202] hover:bg-[#e67600] text-white rounded-lg px-6 h-[44px] text-[15px] font-bold transition-all shadow-lg shadow-orange-600/10 hover:shadow-orange-600/20 active:scale-[0.98]">
+                            <Link href="/appointments">
                                 <Calendar className="w-4 h-4 mr-2" />
                                 Book Appointment
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </div>
 
                     {/* Mobile Navigation Toggle */}

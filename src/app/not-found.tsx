@@ -12,11 +12,11 @@ export default function NotFound() {
             <p className="text-lg text-slate-600 mb-8 max-w-md">
                 Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved or deleted.
             </p>
-            <Link href="/">
-                <Button className="bg-[#FF8202] hover:bg-[#e67600] text-white px-8 h-12 text-base font-semibold rounded-full">
+            <Button asChild className="bg-[#FF8202] hover:bg-[#e67600] text-white px-8 h-12 text-base font-semibold rounded-full">
+                <Link href="/">
                     Return Home
-                </Button>
-            </Link>
+                </Link>
+            </Button>
         </div>
     )
 }

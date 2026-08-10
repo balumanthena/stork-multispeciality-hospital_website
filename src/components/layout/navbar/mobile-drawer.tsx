@@ -81,7 +81,7 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
             {/* Full-Screen Slide-In Menu */}
             <div className={cn(
                 "fixed top-0 right-0 bottom-0 w-[85%] max-w-[420px] bg-white z-[10001] transition-transform duration-300 ease-in-out transform flex flex-col shadow-2xl",
-                isOpen ? "translate-x-0" : "translate-x-full"
+                isOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
             )}>
                 {/* Header Section */}
                 <div className="flex items-center justify-between px-6 h-[72px] border-b border-gray-100 flex-shrink-0">
@@ -237,11 +237,11 @@ export function MobileDrawer({ departments = [], groupedTreatments = [] }: { dep
 
                 {/* Sticky Bottom CTA */}
                 <div className="p-4 bg-white border-t border-gray-100 pb-8">
-                    <Link href="/appointments" onClick={() => setIsOpen(false)}>
-                        <Button className="w-full h-14 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl text-lg font-bold shadow-lg shadow-orange-500/20 active:scale-[0.98] transition-all">
+                    <Button asChild className="w-full h-14 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-xl text-lg font-bold shadow-lg shadow-orange-500/20 active:scale-[0.98] transition-all">
+                        <Link href="/appointments" onClick={() => setIsOpen(false)}>
                             <Calendar className="w-5 h-5 mr-3" /> Book Appointment
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </>
