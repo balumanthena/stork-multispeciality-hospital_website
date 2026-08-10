@@ -6,6 +6,7 @@ import { MessageCircle, MapPin, ChevronRight, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Doctor } from '@/lib/data/doctors'
 import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
 interface DoctorCardHorizontalProps {
   doctor: Doctor
@@ -27,13 +28,16 @@ export function DoctorCardHorizontal({
       <div className="relative w-40 h-40 md:w-48 md:h-48 flex-shrink-0">
         <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors" />
         <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg shadow-slate-200 group-hover:border-primary/20 transition-all duration-500">
-          <Image
-            src={doctor.image}
-            alt={doctor.name}
-            fill
-            sizes="(max-width: 768px) 160px, 192px"
-            className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
-          />
+            <Image
+              src={doctor.image}
+              alt={doctor.name}
+              fill
+              sizes="(max-width: 768px) 160px, 192px"
+              className={cn(
+                "object-cover transition-transform duration-700",
+                doctor.id === "dr-narendar-reddy" ? "object-center scale-[1.35] group-hover:scale-[1.5]" : "object-top group-hover:scale-110"
+              )}
+            />
         </div>
         {/* Rating Badge */}
         <div className="absolute -bottom-2 right-4 bg-white border border-slate-100 px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 z-10">

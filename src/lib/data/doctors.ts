@@ -41,7 +41,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in high-risk pregnancy & minimally invasive gynecology",
     rating: 4.8,
     patientsTreated: "5,000+",
-    image: "/images/dr jyothi.jpg.jpeg",
+    image: "/images/dr-jyothi-reddy.jpg",
     about: "Dr. Jyothi Reddy is dedicated to providing compassionate care for women at every stage of their life. With specialized expertise in high-risk pregnancies and laparoscopic surgeries, she ensures the best outcomes for both mother and child.",
     highlights: [
       "500+ Successful Procedures",
@@ -96,7 +96,7 @@ export const doctors: Doctor[] = [
     positioning: "Spine & joint pain expert with a focus on non-surgical interventions",
     rating: 4.9,
     patientsTreated: "10,000+",
-    image: "/images/dr narender reddy.png",
+    image: "/images/dr-narendar-reddy.jpg",
     about: "Dr. Narendar Reddy specializes in managing chronic pain through advanced interventional techniques. His goal is to improve the quality of life for patients suffering from long-term spine and joint issues.",
     highlights: [
       "2,000+ Pain Relief Procedures",
@@ -147,7 +147,7 @@ export const doctors: Doctor[] = [
     positioning: "Expert in joint replacement and complex fracture management",
     rating: 4.7,
     patientsTreated: "8,000+",
-    image: "/images/dr aravind.jpg.jpeg",
+    image: "/images/dr-aravind-varma.jpg",
     about: "Dr. Aravind Varma is a highly skilled orthopedic surgeon known for his precision in complex surgeries. He focuses on restoring mobility and function through advanced orthopedic techniques.",
     highlights: [
       "1,000+ Joint Replacements",
@@ -247,7 +247,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in internal medicine, emergency management, and critical ICU care",
     rating: 4.8,
     patientsTreated: "1,200+",
-    image: "/images/dr veda sri.jpeg",
+    image: "/images/dr-veda-sree.jpg",
     about: "Dr. Chimmana Veda Sree is a clinically competent physician specializing in General Medicine. With a strong background in emergency management and ICU care, she focuses on providing comprehensive diagnostic and therapeutic care for complex adult health conditions.",
     highlights: [
       "Expert in Emergency Management",

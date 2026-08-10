@@ -36,7 +36,10 @@ export function DoctorCard({
               alt={doctor.name}
               fill
               sizes="96px"
-              className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+              className={cn(
+                "object-cover group-hover:scale-110 transition-transform duration-500",
+                doctor.id === "dr-narendar-reddy" ? "object-center scale-[1.35] group-hover:scale-[1.5]" : "object-top"
+              )}
             />
           </div>
         </div>
