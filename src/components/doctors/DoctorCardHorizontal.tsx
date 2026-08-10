@@ -35,7 +35,7 @@ export function DoctorCardHorizontal({
               sizes="(max-width: 768px) 160px, 192px"
               className={cn(
                 "object-cover transition-transform duration-700",
-                doctor.id === "dr-narendar-reddy" ? "object-center scale-[1.35] group-hover:scale-[1.5]" : "object-top group-hover:scale-110"
+                doctor.id === "dr-narendar-reddy" ? "object-center group-hover:scale-110" : "object-top group-hover:scale-110"
               )}
             />
         </div>
