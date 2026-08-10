@@ -35,7 +35,8 @@ export function DoctorCard({
               src={doctor.image}
               alt={doctor.name}
               fill
-              sizes="96px"
+              sizes="(max-width: 768px) 100vw, 400px"
+              quality={100}
               className={cn(
                 "object-cover group-hover:scale-110 transition-transform duration-500",
                 doctor.id === "dr-narendar-reddy" ? "object-center" : "object-top"
