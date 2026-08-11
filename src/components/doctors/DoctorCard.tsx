@@ -14,6 +14,10 @@ interface DoctorCardProps {
   onBookAppointment: (doctor: Doctor) => void
 }
 
+export function getDoctorImageClass(id: string) {
+  return 'object-cover object-top';
+}
+
 export function DoctorCard({
   doctor,
   onViewProfile,
@@ -27,19 +31,20 @@ export function DoctorCard({
       className="bg-white rounded-2xl p-6 flex flex-col justify-between border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-[#ff8202]/5 transition-all duration-300 group"
     >
       <div className="flex gap-6">
-        {/* LEFT: Image — fixed aspect-ratio container, Safari-safe */}
-        <div className="relative w-24 h-24 flex-shrink-0">
-          <div className="absolute inset-0 bg-[#ff8202]/5 rounded-xl -z-10 translate-x-2 translate-y-2 group-hover:bg-[#ff8202]/10 transition-colors" />
-          <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-white shadow-md">
+        {/* LEFT: Image — enlarged container for crystal-clear face focus */}
+        <div className="relative w-28 h-28 flex-shrink-0">
+          <div className="absolute inset-0 bg-[#ff8202]/5 rounded-2xl -z-10 translate-x-2 translate-y-2 group-hover:bg-[#ff8202]/10 transition-colors" />
+          <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-white shadow-md">
             <Image
               src={doctor.image}
               alt={doctor.name}
               fill
-              sizes="(max-width: 768px) 100vw, 400px"
+              unoptimized
+              sizes="600px"
               quality={100}
               className={cn(
-                "object-cover group-hover:scale-110 transition-transform duration-500",
-                doctor.id === "dr-narendar-reddy" ? "object-center" : "object-top"
+                "transition-transform duration-500 group-hover:scale-[1.62]",
+                getDoctorImageClass(doctor.id)
               )}
             />
           </div>

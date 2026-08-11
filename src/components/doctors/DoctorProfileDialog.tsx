@@ -25,6 +25,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Doctor } from '@/lib/data/doctors';
+import { getDoctorImageClass } from './DoctorCard';
+import { cn } from '@/lib/utils';
 
 interface DoctorProfileDialogProps {
   doctor: Doctor | null;
@@ -56,39 +58,57 @@ export function DoctorProfileDialog({ doctor, isOpen, onClose }: DoctorProfileDi
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-10 skew-x-12 translate-x-20" />
             
-            <div className="max-w-3xl space-y-8 relative z-10">
-              <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Badge className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
-                    {doctor.specialization}
-                  </Badge>
+            <div className="max-w-3xl flex flex-col md:flex-row gap-8 items-start md:items-center relative z-10">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl flex-shrink-0 bg-slate-50">
+                <Image
+                  src={doctor.image}
+                  alt={doctor.name}
+                  fill
+                  unoptimized
+                  quality={100}
+                  className={cn("transition-transform duration-500", getDoctorImageClass(doctor.id))}
+                />
+              </div>
+              <div className="flex-1 space-y-6">
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <Badge className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
+                      {doctor.specialization}
+                    </Badge>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
+                      {doctor.name}
+                    </h2>
+                    <p className="text-lg font-bold text-slate-400 uppercase tracking-widest">
+                      {doctor.qualification}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="space-y-2">
-                  <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                    {doctor.name}
-                  </h2>
-                  <p className="text-xl font-bold text-slate-400 uppercase tracking-widest">
-                    {doctor.qualification}
-                  </p>
+
+                <div className="py-4 border-y border-slate-100 flex flex-wrap gap-8">
+                   <div className="space-y-1">
+                      <p className="text-xs font-black text-slate-300 uppercase tracking-[0.2em]">Experience</p>
+                      <p className="text-base font-bold text-slate-700">{doctor.experience}</p>
+                   </div>
+                   {doctor.patientsTreated && (
+                     <div className="space-y-1">
+                        <p className="text-xs font-black text-slate-300 uppercase tracking-[0.2em]">Patients Treated</p>
+                        <p className="text-base font-bold text-slate-700">{doctor.patientsTreated}</p>
+                     </div>
+                   )}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                    <Button 
+                      onClick={handleBookAppointment}
+                      className="bg-primary hover:bg-primary/90 text-white font-black h-12 px-8 rounded-2xl shadow-xl shadow-primary/20 text-xs uppercase tracking-widest transition-all active:scale-95"
+                    >
+                       Book Appointment Now
+                    </Button>
                 </div>
               </div>
-
-              <div className="py-6 border-y border-slate-50">
-                 <div className="space-y-1">
-                    <p className="text-xs font-black text-slate-300 uppercase tracking-[0.2em]">Experience</p>
-                    <p className="text-lg font-bold text-slate-700">{doctor.experience}</p>
-                 </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Button 
-                    onClick={handleBookAppointment}
-                    className="bg-primary hover:bg-primary/90 text-white font-black h-14 px-10 rounded-2xl shadow-xl shadow-primary/20 text-sm uppercase tracking-widest transition-all active:scale-95"
-                  >
-                     Book Appointment Now
-                  </Button>
-                </div>
             </div>
           </div>
 

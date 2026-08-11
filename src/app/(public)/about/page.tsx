@@ -174,9 +174,11 @@ export default function AboutPage() {
                     <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 grid lg:grid-cols-2">
                         <div className="relative h-[450px] lg:h-auto order-2 lg:order-1">
                             <Image
-                                src="/images/dr narender reddy.png"
+                                src="/images/Dr. Narendar Reddy.png"
                                 alt="Dr. Narendar Reddy"
                                 fill
+                                unoptimized
+                                quality={100}
                                 className="object-cover object-top"
                             />
                         </div>

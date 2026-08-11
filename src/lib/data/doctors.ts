@@ -41,7 +41,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in high-risk pregnancy & minimally invasive gynecology",
     rating: 4.8,
     patientsTreated: "5,000+",
-    image: "/images/dr-jyothi-reddy.jpg",
+    image: "/images/Dr. D Jyothi Reddy.png",
     about: "Dr. Jyothi Reddy is dedicated to providing compassionate care for women at every stage of their life. With specialized expertise in high-risk pregnancies and laparoscopic surgeries, she ensures the best outcomes for both mother and child.",
     highlights: [
       "500+ Successful Procedures",
@@ -96,7 +96,7 @@ export const doctors: Doctor[] = [
     positioning: "Spine & joint pain expert with a focus on non-surgical interventions",
     rating: 4.9,
     patientsTreated: "10,000+",
-    image: "/images/dr-narendar-reddy.jpg",
+    image: "/images/Dr. Narendar Reddy.png",
     about: "Dr. Narendar Reddy specializes in managing chronic pain through advanced interventional techniques. His goal is to improve the quality of life for patients suffering from long-term spine and joint issues.",
     highlights: [
       "2,000+ Pain Relief Procedures",
@@ -147,7 +147,7 @@ export const doctors: Doctor[] = [
     positioning: "Expert in joint replacement and complex fracture management",
     rating: 4.7,
     patientsTreated: "8,000+",
-    image: "/images/dr-aravind-varma.jpg",
+    image: "/images/Dr. Aravind Varma.png",
     about: "Dr. Aravind Varma is a highly skilled orthopedic surgeon known for his precision in complex surgeries. He focuses on restoring mobility and function through advanced orthopedic techniques.",
     highlights: [
       "1,000+ Joint Replacements",
@@ -197,7 +197,7 @@ export const doctors: Doctor[] = [
     positioning: "Comprehensive adult care and chronic disease management",
     rating: 4.8,
     patientsTreated: "2,000+",
-    image: "/images/dr-deepak-ram.png",
+    image: "/images/Dr. Polymoni Deepak Ram.png",
     about: "Dr. Polymoni Deepak Ram is a dedicated Consultant Physician in General Medicine, specializing in preventive healthcare, diabetes, hypertension, and complex internal medical conditions. He is committed to providing personalized patient care and promoting long-term health and wellness.",
     highlights: [
       "Chronic Disease Specialist",
@@ -247,7 +247,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in internal medicine, emergency management, and critical ICU care",
     rating: 4.8,
     patientsTreated: "1,200+",
-    image: "/images/dr-veda-sree.jpg",
+    image: "/images/Dr. Chimmana Veda Sree.png",
     about: "Dr. Chimmana Veda Sree is a clinically competent physician specializing in General Medicine. With a strong background in emergency management and ICU care, she focuses on providing comprehensive diagnostic and therapeutic care for complex adult health conditions.",
     highlights: [
       "Expert in Emergency Management",
@@ -298,7 +298,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in respiratory care and pulmonology",
     rating: 4.8,
     patientsTreated: "1,500+",
-    image: "/images/dr-rama-mourya.png",
+    image: "/images/Dr. Rama Mourya.png",
     about: "Dr. Rama Mourya is a compassionate Pulmonologist dedicated to providing advanced care for respiratory and lung-related disorders. She specializes in the management of asthma, chronic obstructive pulmonary disease (COPD), respiratory infections, and sleep disorders, ensuring patients receive tailored treatment plans for optimal lung health.",
     highlights: [
       "Expert in Chronic Respiratory Care",
@@ -348,7 +348,7 @@ export const doctors: Doctor[] = [
     positioning: "Specialist in minimally invasive and advanced general surgeries",
     rating: 4.9,
     patientsTreated: "3,500+",
-    image: "/images/dr-samara-simha.png",
+    image: "/images/Dr. Samara Simha Reddy.png",
     about: "Dr. Samara Simha Reddy is an experienced Consultant General Surgeon specializing in laparoscopic (minimally invasive) procedures. His focus areas include hernia repairs, appendectomies, gallbladder removals, and other abdominal surgeries, ensuring fast recovery and high patient comfort.",
     highlights: [
       "Laparoscopic Surgery Expert",

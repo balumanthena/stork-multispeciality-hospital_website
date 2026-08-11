@@ -8,6 +8,8 @@ import { Doctor } from '@/lib/data/doctors'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
+import { DoctorCard, getDoctorImageClass } from './DoctorCard'
+
 interface DoctorCardHorizontalProps {
   doctor: Doctor
   onViewProfile: (doctor: Doctor) => void
@@ -32,11 +34,12 @@ export function DoctorCardHorizontal({
               src={doctor.image}
               alt={doctor.name}
               fill
-              sizes="(max-width: 768px) 100vw, 400px"
+              unoptimized
+              sizes="600px"
               quality={100}
               className={cn(
-                "object-cover transition-transform duration-700",
-                doctor.id === "dr-narendar-reddy" ? "object-center group-hover:scale-110" : "object-top group-hover:scale-110"
+                "transition-transform duration-700 group-hover:scale-[1.62]",
+                getDoctorImageClass(doctor.id)
               )}
             />
         </div>
